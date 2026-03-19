@@ -2,6 +2,9 @@ import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
 
+const AUTHORS_BAR_COLOR = '#e45756';
+const AUTHORS_BAR_HOVER_COLOR = '#b63f3e';
+
 export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
   const ref = useRef();
 
@@ -60,10 +63,12 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
       .append('div')
       .attr('class', 'author-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '6px 10px')
       .style('border-radius', '4px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('max-width', '360px')
@@ -86,7 +91,13 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
         .style('top', `${pageY - 28}px`);
     };
 
-    const margin = { top: 20, right: 20, bottom: 80, left: 100 };
+    const longestAuthorLabel = d3.max(sortedAuthors, (entry) => String(entry.author || '').length) || 0;
+    const margin = {
+      top: 20,
+      right: 24,
+      bottom: 32,
+      left: Math.min(132, Math.max(96, (longestAuthorLabel * 7) + 8)),
+    };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -107,10 +118,13 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
 
     const resetBarStyles = () => {
       g.selectAll('rect')
-        .attr('fill', '#ADD8E6');
+        .attr('fill', AUTHORS_BAR_COLOR);
     };
 
-    g.append("g").call(d3.axisLeft(y));
+    g.append("g")
+      .call(d3.axisLeft(y).tickSize(0).tickPadding(10))
+      .call((axis) => axis.selectAll('text').style('font-size', '13px'))
+      .call((axis) => axis.select('.domain').remove());
 
     g.selectAll("rect")
       .data(sortedAuthors)
@@ -119,7 +133,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
       .attr("y", d => y(d.author))
       .attr("width", d => x(d.count))
       .attr("height", y.bandwidth())
-      .attr("fill", "#ADD8E6")
+      .attr("fill", AUTHORS_BAR_COLOR)
       .on("mouseover", function (event, d) {
         if (pinnedAuthor) {
           return;
@@ -127,7 +141,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
 
         d3.select(this)
           .transition().duration(200)
-          .attr("fill", "#5fa6d8"); // darker on hover
+          .attr("fill", AUTHORS_BAR_HOVER_COLOR);
 
         tooltip
           .style("opacity", 1)
@@ -147,7 +161,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
 
         d3.select(this)
           .transition().duration(200)
-          .attr("fill", "#ADD8E6");
+          .attr("fill", AUTHORS_BAR_COLOR);
 
         tooltip.style("opacity", 0);
       })
@@ -155,7 +169,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
         event.stopPropagation();
         pinnedAuthor = d.author;
         resetBarStyles();
-        d3.select(this).attr('fill', '#5fa6d8');
+        d3.select(this).attr('fill', AUTHORS_BAR_HOVER_COLOR);
         tooltip
           .style('opacity', 1)
           .style('pointer-events', 'auto')
@@ -171,7 +185,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
       .attr("x", d => x(d.count) + 5)
       .attr("y", d => y(d.author) + y.bandwidth() / 2 + 5)
       .text(d => d.count)
-      .style("font-size", "12px");
+      .style("font-size", "13px");
 
     g.append("g")
       .attr("transform", `translate(0,${innerHeight})`)

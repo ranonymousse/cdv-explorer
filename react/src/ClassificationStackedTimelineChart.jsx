@@ -36,10 +36,12 @@ export const ClassificationStackedTimelineChart = ({
     const tooltip = d3.select(tooltipNode)
       .attr('class', 'classification-timeline-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '6px 10px')
       .style('border-radius', '4px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('max-width', '360px')
@@ -125,7 +127,7 @@ export const ClassificationStackedTimelineChart = ({
 
       panel.append('g')
         .call(d3.axisLeft(y).ticks(4))
-        .call((axis) => axis.selectAll('line').attr('stroke', '#d7dee8'));
+        .call((axis) => axis.selectAll('line').attr('stroke', 'var(--chart-grid)'));
 
       const renderTooltipHtml = (segment) => {
         const bipList = Array.isArray(segment.data?.bips?.[segment.key])
@@ -191,7 +193,7 @@ export const ClassificationStackedTimelineChart = ({
           resetBarStyles();
           d3.select(this)
             .attr('opacity', 0.92)
-            .attr('stroke', '#0f172a')
+            .attr('stroke', 'var(--chart-focus)')
             .attr('stroke-width', 2);
           tooltip
             .style('opacity', 1)
@@ -217,7 +219,7 @@ export const ClassificationStackedTimelineChart = ({
           .attr('x', 16)
           .attr('y', 9)
           .style('font-size', '11px')
-          .style('fill', '#475569')
+          .style('fill', 'var(--chart-muted)')
           .text(
             `${category} (${totalByCategory[category] || 0}, ${Math.round(((totalByCategory[category] || 0) / (totalCount || 1)) * 100)}%)`
           );

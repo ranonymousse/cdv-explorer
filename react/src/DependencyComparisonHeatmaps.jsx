@@ -208,10 +208,12 @@ export function DependencyComparisonHeatmaps({
     tooltip.className = 'dependency-comparison-tooltip';
     Object.assign(tooltip.style, {
       position: 'absolute',
-      background: '#1a1a1a',
-      color: '#fff',
+      background: 'var(--tooltip-bg)',
+      color: 'var(--tooltip-text)',
       padding: '6px 10px',
       borderRadius: '4px',
+      border: '1px solid var(--tooltip-border)',
+      boxShadow: 'var(--tooltip-shadow)',
       fontSize: '12px',
       pointerEvents: 'none',
       maxWidth: '360px',

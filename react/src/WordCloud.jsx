@@ -73,10 +73,12 @@ export const WordCloud = ({ words, width = 1250, height = 750 }) => {
         .append('div')
         .attr('class', 'wordcloud-tooltip')
         .style('position', 'absolute')
-        .style('background', '#1a1a1a')
-        .style('color', '#fff')
+        .style('background', 'var(--tooltip-bg)')
+        .style('color', 'var(--tooltip-text)')
         .style('padding', '6px 10px')
         .style('border-radius', '4px')
+        .style('border', '1px solid var(--tooltip-border)')
+        .style('box-shadow', 'var(--tooltip-shadow)')
         .style('font-size', '12px')
         .style('pointer-events', 'none')
         .style('opacity', 0);
@@ -136,9 +138,9 @@ export const WordCloud = ({ words, width = 1250, height = 750 }) => {
         .on('mouseover', function (event, d) {
           d3.select(this)
             .transition().duration(200)
-            .style('fill', '#003f5c')
+            .style('fill', 'var(--wordcloud-hover)')
             .style('font-size', `${d.size * 1.2}px`)
-            .attr('stroke', '#fff')
+            .attr('stroke', 'var(--chart-contrast)')
             .attr('stroke-width', 1);
 
           tooltip

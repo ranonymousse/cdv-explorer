@@ -1,12 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-
-// primeReact component styles and icons
 @import "primereact/resources/themes/lara-light-blue/theme.css";
 @import "primereact/resources/primereact.css";
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.scss";
-
-
 
 @font-face {
   font-family: "Nova Round";
@@ -20,16 +15,118 @@
     url(./fonts/Roboto-Regular.ttf) format("truetype");
 }
 
+:root {
+  color-scheme: light;
+  --app-bg: #fbfbfb;
+  --app-dot: rgba(15, 23, 42, 0.08);
+  --app-text: #1b2838;
+  --app-text-muted: #52606d;
+  --app-surface: #ffffff;
+  --app-surface-subtle: #f3f8fe;
+  --app-surface-elevated: #f8fbff;
+  --app-border: #dfe8f2;
+  --app-shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+  --nav-bg: rgba(251, 251, 251, 0.92);
+  --nav-border: #e1e1e1;
+  --nav-brand: #1b2838;
+  --nav-link: var(--primary-color);
+  --chart-text: #1f2933;
+  --chart-muted: #475467;
+  --chart-grid: #d7dee8;
+  --chart-axis: #cbd5e1;
+  --chart-contrast: #ffffff;
+  --chart-focus: #0f172a;
+  --chart-outline: #ffffff;
+  --tooltip-bg: #0f172a;
+  --tooltip-text: #ffffff;
+  --tooltip-border: rgba(100, 116, 139, 0.6);
+  --tooltip-shadow: 0 10px 24px rgba(15, 23, 42, 0.28);
+  --tooltip-link: #9bd1ff;
+  --wordcloud-hover: #003f5c;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --app-bg: #08111b;
+  --app-dot: rgba(148, 163, 184, 0.18);
+  --app-text: #e5edf5;
+  --app-text-muted: #9fb2c6;
+  --app-surface: #101a25;
+  --app-surface-subtle: #15212d;
+  --app-surface-elevated: #182634;
+  --app-border: #26384b;
+  --app-shadow: 0 14px 36px rgba(2, 8, 23, 0.42);
+  --nav-bg: rgba(8, 17, 27, 0.9);
+  --nav-border: #1d2c3c;
+  --nav-brand: #f3f8ff;
+  --nav-link: #8ec5ff;
+  --chart-text: #e5edf5;
+  --chart-muted: #bac7d6;
+  --chart-grid: rgba(148, 163, 184, 0.3);
+  --chart-axis: #60758b;
+  --chart-contrast: #dbe7f3;
+  --chart-focus: #f8fafc;
+  --chart-outline: #08111b;
+  --tooltip-bg: #0d1724;
+  --tooltip-text: #f8fafc;
+  --tooltip-border: rgba(148, 163, 184, 0.46);
+  --tooltip-shadow: 0 18px 40px rgba(2, 8, 23, 0.48);
+  --tooltip-link: #9bd1ff;
+  --wordcloud-hover: #bfdbfe;
+  --surface-a: #101a25;
+  --surface-b: #0b1520;
+  --surface-c: #15212d;
+  --surface-d: #223246;
+  --surface-e: #182634;
+  --surface-f: #0b1520;
+  --surface-ground: #08111b;
+  --surface-section: #08111b;
+  --surface-card: #101a25;
+  --surface-overlay: #182634;
+  --surface-border: #26384b;
+  --surface-hover: rgba(142, 197, 255, 0.08);
+  --maskbg: rgba(2, 8, 23, 0.7);
+  --focus-ring: 0 0 0 0.2rem rgba(142, 197, 255, 0.2);
+  --text-color: #e5edf5;
+  --text-color-secondary: #9fb2c6;
+  --primary-color: #8ec5ff;
+  --primary-color-text: #08111b;
+  --highlight-bg: rgba(142, 197, 255, 0.18);
+  --highlight-text-color: #eff6ff;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
-  background-color: #fbfbfb;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 5%, transparent 0);
+  margin: 0;
+  background-color: var(--app-bg);
+  background-image: radial-gradient(var(--app-dot) 5%, transparent 0);
   background-size: 30px 30px;
+  color: var(--app-text);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Roboto, sans-serif;
+}
+
+a {
+  color: var(--primary-color);
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Nova Round", Sans-serif;
+  font-family: "Nova Round", sans-serif;
+  color: var(--app-text);
 }
 
 h1 {
@@ -40,23 +137,11 @@ h1 {
   }
 }
 
-p {
-  font-family: Roboto, sans-serif;
-  line-height: 25px;
-  font-size: 1.2rem;
-}
-
-p-card {
-  h2 {
-    margin-top: 0;
-  }
-}
-
 h2 {
   font-size: 2rem;
   margin-top: 1rem;
   margin-bottom: 0.75rem;
-  
+
   @media screen and (max-width: 768px) {
     font-size: 1rem;
   }
@@ -64,11 +149,147 @@ h2 {
 
 h3 {
   font-size: 1.6rem;
-  margin-top: 0.0rem;
+  margin-top: 0;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 
   @media screen and (max-width: 768px) {
     font-size: 1.15rem;
   }
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 25px;
+  color: var(--app-text);
+}
+
+.App {
+  min-height: 100vh;
+  color: var(--app-text);
+}
+
+.p-card,
+.p-dialog,
+.p-dropdown-panel,
+.p-tooltip,
+.p-datatable .p-datatable-wrapper,
+.p-inputtext,
+.p-dropdown,
+.p-button {
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.p-dialog .p-dialog-content,
+.p-dialog .p-dialog-header {
+  background: var(--app-surface);
+  color: var(--app-text);
+}
+
+.p-dialog .p-dialog-header {
+  border-bottom: 1px solid var(--app-border);
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon {
+  color: var(--app-text-muted);
+}
+
+.p-inputtext,
+.p-dropdown {
+  background: var(--app-surface);
+  border-color: var(--app-border);
+  color: var(--app-text);
+}
+
+.p-inputtext::placeholder,
+.p-dropdown .p-dropdown-label.p-placeholder {
+  color: var(--app-text-muted);
+}
+
+.p-inputtext:enabled:hover,
+.p-dropdown:not(.p-disabled):hover {
+  border-color: var(--primary-color);
+}
+
+.p-inputtext:enabled:focus,
+.p-dropdown:not(.p-disabled).p-focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+.p-dropdown .p-dropdown-label,
+.p-dropdown .p-dropdown-trigger {
+  color: var(--app-text);
+}
+
+.p-dropdown-panel {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  box-shadow: var(--app-shadow);
+}
+
+.p-dropdown-panel .p-dropdown-items {
+  padding: 0.35rem;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  color: var(--app-text);
+  border-radius: 0.6rem;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-focus,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover {
+  background: var(--highlight-bg);
+  color: var(--app-text);
+}
+
+.p-datatable {
+  color: var(--app-text);
+}
+
+.p-datatable .p-datatable-header,
+.p-datatable .p-datatable-footer {
+  background: transparent;
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--app-surface-subtle);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+
+.p-datatable .p-sortable-column .p-sortable-column-icon,
+.p-datatable .p-sortable-column .p-column-title {
+  color: inherit;
+}
+
+.p-datatable .p-datatable-tbody > tr {
+  background: var(--app-surface);
+  color: var(--app-text);
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  border-color: var(--app-border);
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background: var(--app-surface-subtle);
+}
+
+.p-datatable .p-datatable-tbody > tr.p-highlight {
+  background: var(--highlight-bg);
+  color: var(--app-text);
+}
+
+.p-card svg text {
+  fill: var(--chart-text);
+}
+
+.p-card svg .domain,
+.p-card svg .tick line {
+  stroke: var(--chart-grid);
 }

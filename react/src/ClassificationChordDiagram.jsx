@@ -32,10 +32,12 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
     const tooltip = d3.select(tooltipNode)
       .attr('class', 'classification-chord-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '8px 12px')
       .style('border-radius', '6px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('line-height', '1.45')
@@ -201,7 +203,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
       .attr('class', 'classification-chord-arc')
       .attr('d', arc)
       .attr('fill', (entry) => getGroupColor(displayGroups[entry.index]))
-      .attr('stroke', '#fff')
+      .attr('stroke', 'var(--chart-contrast)')
       .attr('stroke-width', 1.5)
       .on('mouseover', function (event, entry) {
         if (pinnedKey) {
@@ -253,7 +255,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
       `)
       .attr('text-anchor', (entry) => (entry.angle > Math.PI ? 'end' : 'start'))
       .style('font-size', '12px')
-      .style('fill', '#475569')
+      .style('fill', 'var(--chart-muted)')
       .text((entry) => displayGroups[entry.index].category);
 
     const dimensionHeaders = orderedDimensions.map((dimension) => {
@@ -292,7 +294,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
       .attr('height', 32)
       .attr('rx', 9)
       .attr('fill', (entry) => dimensionBadgeColors[entry.dimension]?.fill || '#475569')
-      .attr('stroke', 'rgba(255,255,255,0.75)')
+      .attr('stroke', 'var(--chart-contrast)')
       .attr('stroke-width', 1);
 
     dimensionLabelGroup.append('text')
@@ -319,7 +321,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
       .join('path')
       .attr('class', 'classification-chord-ribbon')
       .attr('d', ribbon)
-      .attr('fill', '#cbd5e1')
+      .attr('fill', 'var(--chart-axis)')
       .attr('stroke', 'none')
       .attr('opacity', 0.72)
       .on('mouseover', function (event, entry) {
@@ -327,7 +329,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
           return;
         }
 
-        d3.select(this).attr('opacity', 0.95).attr('stroke', '#0f172a').attr('stroke-width', 1.25);
+        d3.select(this).attr('opacity', 0.95).attr('stroke', 'var(--chart-focus)').attr('stroke-width', 1.25);
         tooltip
           .style('opacity', 1)
           .style('pointer-events', 'none')
@@ -354,7 +356,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
         resetStyles();
         d3.select(this)
           .attr('opacity', 0.95)
-          .attr('stroke', '#0f172a')
+          .attr('stroke', 'var(--chart-focus)')
           .attr('stroke-width', 1.25);
         tooltip
           .style('opacity', 1)

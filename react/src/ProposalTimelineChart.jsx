@@ -35,10 +35,12 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
       .append('div')
       .attr('class', 'proposal-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '6px 10px')
       .style('border-radius', '4px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('max-width', '360px')
@@ -193,7 +195,7 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
       .attr('cy', (d) => yLine(d.cumulative))
       .attr('r', 4)
       .attr('fill', '#e45756')
-      .attr('stroke', '#fff')
+      .attr('stroke', 'var(--chart-contrast)')
       .attr('stroke-width', 1.5)
       .on('mouseover', function (event, d) {
         if (pinnedYear) {

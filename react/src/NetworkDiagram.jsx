@@ -335,11 +335,11 @@ export const NetworkDiagram = ({
       .attr('class', 'dependency-network-tooltip')
       .style('position', 'absolute')
       .style('padding', '8px 12px')
-      .style('background', '#1a1a1a')
-      .style('color', '#f0f0f0')
-      .style('border', '1px solid #555')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
+      .style('border', '1px solid var(--tooltip-border)')
       .style('border-radius', '6px')
-      .style('box-shadow', '0px 2px 6px rgba(0,0,0,0.4)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '13px')
       .style('pointer-events', 'none')
       .style('line-height', '1.45')
@@ -686,7 +686,7 @@ export const NetworkDiagram = ({
       .join('text')
       .text((entry) => getProposalLabel(entry.id))
       .style('font-size', '10.5px')
-      .style('fill', '#1f2933')
+      .style('fill', 'var(--chart-text)')
       .style('font-weight', (entry) => (searchMatchedIds.has(String(entry.id)) ? 700 : 400))
       .style('opacity', (entry) => {
         if (searchMatchedIds.size > 0) {
@@ -695,7 +695,7 @@ export const NetworkDiagram = ({
         return 1;
       })
       .style('paint-order', 'stroke')
-      .style('stroke', '#ffffff')
+      .style('stroke', 'var(--chart-outline)')
       .style('stroke-width', 3)
       .style('stroke-linecap', 'round')
       .style('stroke-linejoin', 'round');

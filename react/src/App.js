@@ -24,6 +24,7 @@ import * as d3 from 'd3';
 import { HashRouter as Router, Routes, Route, useNavigate, useParams, Link } from 'react-router-dom';
 import { ecosystems, ecosystemsById } from './ecosystems';
 import { getAvailableSnapshots, getDatasetForSelection } from './data';
+import { ThemeProvider, useTheme } from './theme';
 
 const COLLABORATION_LAYOUT_OPTIONS = [
   { label: 'Balanced', value: 'balanced' },
@@ -939,14 +940,14 @@ function EcosystemDashboard() {
                 <p>
                   Preamble authorship counts for the most prolific contributors in the selected snapshot.
                 </p>
-                <TopAuthorsChart data={{ topAuthors }} width={640} height={420} />
+                <TopAuthorsChart data={{ topAuthors }} width={640} height={410} />
               </Card>
               <Card className="mb-4" style={{ flex: 1 }}>
                 <h3>Authorship Distribution</h3>
                 <p>
                   Number of authors who have written a given number of {ecosystem.proposalShortPlural}.
                 </p>
-                <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={420} />
+                <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={410} />
               </Card>
             </div>
             
@@ -1284,10 +1285,12 @@ function AboutPage() {
   );
 }
 
-function App() {
+function AppShell() {
+  const { resolvedTheme } = useTheme();
+
   return (
     <Router>
-      <div className="App">
+      <div className={`App App--${resolvedTheme}`}>
         <Navbar />
         <Routes>
           <Route path="/" element={<EcosystemLanding />} />
@@ -1296,6 +1299,14 @@ function App() {
         </Routes>
       </div>
     </Router>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppShell />
+    </ThemeProvider>
   );
 }
 

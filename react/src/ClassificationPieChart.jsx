@@ -30,10 +30,12 @@ export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 3
     const tooltip = d3.select(tooltipNode)
       .attr('class', 'classification-pie-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '6px 10px')
       .style('border-radius', '4px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('max-width', '360px')
@@ -77,10 +79,10 @@ export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 3
       .innerRadius(radius * 0.38)
       .outerRadius(radius);
 
-    const resetSliceStyles = () => {
+      const resetSliceStyles = () => {
       g.selectAll('path')
         .attr('opacity', 1)
-        .attr('stroke', '#fff')
+        .attr('stroke', 'var(--chart-contrast)')
         .attr('stroke-width', 1.5);
     };
 
@@ -93,7 +95,7 @@ export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 3
       .append('path')
       .attr('d', arc)
       .attr('fill', (entry) => color(entry.data.id))
-      .attr('stroke', '#fff')
+      .attr('stroke', 'var(--chart-contrast)')
       .attr('stroke-width', 1.5)
       .on('mouseover', function (event, entry) {
         if (pinnedCategory) {
@@ -125,7 +127,7 @@ export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 3
         resetSliceStyles();
         d3.select(this)
           .attr('opacity', 0.9)
-          .attr('stroke', '#0f172a')
+          .attr('stroke', 'var(--chart-focus)')
           .attr('stroke-width', 2.5);
         tooltip
           .style('opacity', 1)

@@ -1,6 +1,9 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 
+const HISTOGRAM_BAR_COLOR = '#2f9e44';
+const HISTOGRAM_BAR_HOVER_COLOR = '#2b8a3e';
+
 export const AuthorContributionHistogram = ({ data, width = 600, height = 400 }) => {
   const ref = useRef();
 
@@ -44,15 +47,17 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
       .append('div')
       .attr('class', 'author-histogram-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '6px 10px')
       .style('border-radius', '4px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('opacity', 0);
 
-    const margin = { top: 20, right: 20, bottom: 56, left: 56 };
+    const margin = { top: 20, right: 24, bottom: 58, left: 68 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -75,13 +80,14 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
 
     g.append('g')
       .call(d3.axisLeft(y).ticks(6))
-      .call((axis) => axis.selectAll('line').attr('stroke', '#d7dee8'));
+      .call((axis) => axis.selectAll('line').attr('stroke', 'var(--chart-grid)'))
+      .call((axis) => axis.selectAll('text').style('font-size', '13px'));
 
     g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
       .call(d3.axisBottom(x).ticks(series.length).tickFormat(d3.format('d')))
       .selectAll('text')
-      .style('font-size', '11px');
+      .style('font-size', '13px');
 
     g.selectAll('rect')
       .data(series)
@@ -92,9 +98,9 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
       .attr('width', barWidth)
       .attr('height', (entry) => innerHeight - y(entry.authors))
       .attr('rx', 4)
-      .attr('fill', '#84a98c')
+      .attr('fill', HISTOGRAM_BAR_COLOR)
       .on('mouseover', function (event, entry) {
-        d3.select(this).attr('fill', '#52796f');
+        d3.select(this).attr('fill', HISTOGRAM_BAR_HOVER_COLOR);
         tooltip
           .style('opacity', 1)
           .html(
@@ -108,23 +114,35 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
           .style('top', `${event.pageY - 28}px`);
       })
       .on('mouseout', function () {
-        d3.select(this).attr('fill', '#84a98c');
+        d3.select(this).attr('fill', HISTOGRAM_BAR_COLOR);
         tooltip.style('opacity', 0);
       });
+
+    g.selectAll('text.bar-label')
+      .data(series.filter((entry) => entry.authors > 0))
+      .enter()
+      .append('text')
+      .attr('class', 'bar-label')
+      .attr('x', (entry) => x(entry.bipsWritten))
+      .attr('y', (entry) => y(entry.authors) - 6)
+      .attr('text-anchor', 'middle')
+      .style('font-size', '12px')
+      .style('fill', 'var(--chart-text)')
+      .text((entry) => entry.authors);
 
     g.append('text')
       .attr('x', innerWidth / 2)
       .attr('y', innerHeight + 44)
       .attr('text-anchor', 'middle')
-      .style('font-size', '12px')
+      .style('font-size', '14px')
       .text('BIPs written per author');
 
     g.append('text')
       .attr('transform', 'rotate(-90)')
       .attr('x', -innerHeight / 2)
-      .attr('y', -40)
+      .attr('y', -48)
       .attr('text-anchor', 'middle')
-      .style('font-size', '12px')
+      .style('font-size', '14px')
       .text('Number of authors');
 
     return () => {

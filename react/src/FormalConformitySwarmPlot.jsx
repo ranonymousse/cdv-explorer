@@ -61,10 +61,12 @@ export const FormalConformitySwarmPlot = ({
       .append('div')
       .attr('class', 'formal-conformity-tooltip')
       .style('position', 'absolute')
-      .style('background', '#1a1a1a')
-      .style('color', '#fff')
+      .style('background', 'var(--tooltip-bg)')
+      .style('color', 'var(--tooltip-text)')
       .style('padding', '8px 12px')
       .style('border-radius', '6px')
+      .style('border', '1px solid var(--tooltip-border)')
+      .style('box-shadow', 'var(--tooltip-shadow)')
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('max-width', '320px')
@@ -97,20 +99,20 @@ export const FormalConformitySwarmPlot = ({
       .attr('x2', innerWidth)
       .attr('y1', centerY)
       .attr('y2', centerY)
-      .attr('stroke', '#d7dee8')
+      .attr('stroke', 'var(--chart-grid)')
       .attr('stroke-width', 1.25);
 
     root.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
       .call(d3.axisBottom(x).ticks(5))
-      .call((axis) => axis.selectAll('line').attr('stroke', '#d7dee8'))
-      .call((axis) => axis.select('.domain').attr('stroke', '#cbd5e1'));
+      .call((axis) => axis.selectAll('line').attr('stroke', 'var(--chart-grid)'))
+      .call((axis) => axis.select('.domain').attr('stroke', 'var(--chart-axis)'));
 
     root.append('text')
       .attr('x', innerWidth / 2)
       .attr('y', innerHeight + 42)
       .attr('text-anchor', 'middle')
-      .style('fill', '#475467')
+      .style('fill', 'var(--chart-muted)')
       .style('font-size', '12px')
       .style('font-weight', '600')
       .text('Compliance score');
@@ -147,7 +149,7 @@ export const FormalConformitySwarmPlot = ({
       selection
         .attr('stroke', (entry) => {
           const normalizedId = normalizeProposalId(entry.id);
-          return highlightedProposalId && normalizedId === highlightedProposalId ? '#0f172a' : '#fff';
+          return highlightedProposalId && normalizedId === highlightedProposalId ? 'var(--chart-focus)' : 'var(--chart-contrast)';
         })
         .attr('stroke-width', (entry) => {
           const normalizedId = normalizeProposalId(entry.id);
@@ -171,7 +173,7 @@ export const FormalConformitySwarmPlot = ({
       applyBaseBubbleStyles(bubbles);
       nodeSelection
         .attr('fill-opacity', 0.96)
-        .attr('stroke', '#0f172a')
+        .attr('stroke', 'var(--chart-focus)')
         .attr('stroke-width', 2)
         .attr('r', radius + 1.5);
       tooltip
@@ -191,7 +193,7 @@ export const FormalConformitySwarmPlot = ({
       .attr('r', radius)
       .attr('fill', (entry) => color(entry.score))
       .attr('fill-opacity', 0.88)
-      .attr('stroke', '#fff')
+      .attr('stroke', 'var(--chart-contrast)')
       .attr('stroke-width', 1.25)
       .on('mouseover', function (event, entry) {
         if (pinnedProposalId) {
@@ -199,7 +201,7 @@ export const FormalConformitySwarmPlot = ({
         }
         d3.select(this)
           .attr('fill-opacity', 0.96)
-          .attr('stroke', '#0f172a')
+          .attr('stroke', 'var(--chart-focus)')
           .attr('stroke-width', 2)
           .attr('r', radius + 1.5);
         tooltip
