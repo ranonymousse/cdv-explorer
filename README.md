@@ -9,7 +9,7 @@ The same architecture is intended to support additional ecosystems later.
 
 The project produces:
 
-- preprocessed proposal JSON snapshots by snapshot date
+- preprocessed proposal `JSON` snapshots by snapshot date
 - analysis artifacts for dependencies, authorship, classification, and conformity
 - postprocessed React-ready datasets for the frontend and publication workflows
 
