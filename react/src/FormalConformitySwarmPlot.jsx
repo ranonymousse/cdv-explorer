@@ -1,6 +1,19 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 
+const PANEL_DEFINITIONS = [
+  {
+    key: 'bip2',
+    label: 'BIP2 conformity',
+    scoreField: 'bip2_score',
+  },
+  {
+    key: 'bip3',
+    label: 'BIP3 conformity',
+    scoreField: 'bip3_score',
+  },
+];
+
 function normalizeProposalId(value) {
   const text = String(value || '').trim();
   if (!text) {
@@ -24,12 +37,32 @@ function formatScore(value) {
   return numeric.toFixed(2).replace(/\.?0+$/, '');
 }
 
+function renderChecksHtml(checks = []) {
+  const failedChecks = Array.isArray(checks)
+    ? checks.filter((check) => check?.passed === false)
+    : [];
+
+  if (failedChecks.length === 0) {
+    return '<strong style="display:block; margin-top:0.35rem;">All checks passed</strong>';
+  }
+
+  const items = failedChecks
+    .map((check) => {
+      const details = String(check?.details || '').trim();
+      const detailSuffix = details ? `: ${details}` : '';
+      return `<li>${check?.label || check?.id || 'Unnamed check'}${detailSuffix}</li>`;
+    })
+    .join('');
+
+  return `<ul style="margin:0.35rem 0 0; padding-left:1.1rem;">${items}</ul>`;
+}
+
 export const FormalConformitySwarmPlot = ({
   rows,
   proposalShortLabel = 'BIP',
   highlightProposal = '',
   width = 1200,
-  height = 320,
+  height = 520,
 }) => {
   const ref = useRef();
 
@@ -38,17 +71,26 @@ export const FormalConformitySwarmPlot = ({
     svg.selectAll('*').remove();
     d3.select('body').selectAll('.formal-conformity-tooltip').remove();
 
-    const data = (rows || [])
-      .filter((entry) => Number.isFinite(Number(entry?.compliance_score)))
-      .map((entry) => ({
-        ...entry,
-        id: String(entry.id),
-        score: Number(entry.compliance_score),
-        bip2Score: Number.isFinite(Number(entry?.bip2_score)) ? Number(entry.bip2_score) : null,
-        bip3Score: Number.isFinite(Number(entry?.bip3_score)) ? Number(entry.bip3_score) : null,
-      }));
+    const baseRows = (rows || []).map((entry) => ({
+      ...entry,
+      id: String(entry.id),
+      bip2Score: Number.isFinite(Number(entry?.bip2_score)) ? Number(entry.bip2_score) : null,
+      bip3Score: Number.isFinite(Number(entry?.bip3_score)) ? Number(entry.bip3_score) : null,
+    }));
 
-    if (!data.length) {
+    const panels = PANEL_DEFINITIONS
+      .map((panel) => ({
+        ...panel,
+        rows: baseRows
+          .filter((entry) => Number.isFinite(Number(entry[panel.scoreField])))
+          .map((entry) => ({
+            ...entry,
+            score: Number(entry[panel.scoreField]),
+          })),
+      }))
+      .filter((panel) => panel.rows.length > 0);
+
+    if (!panels.length) {
       return;
     }
 
@@ -70,10 +112,30 @@ export const FormalConformitySwarmPlot = ({
       .style('font-size', '12px')
       .style('pointer-events', 'none')
       .style('max-width', '320px')
+      .style('max-height', '360px')
+      .style('overflow-y', 'auto')
       .style('line-height', '1.45')
       .style('opacity', 0);
-    let pinnedProposalId = null;
+
     const highlightedProposalId = normalizeProposalId(highlightProposal);
+    let pinnedBubbleKey = null;
+    const axisTickValues = [0, 20, 40, 60, 80, 100];
+    const radius = 8;
+    const panelGap = 54;
+    const margin = { top: 20, right: 24, bottom: 54, left: 24 };
+    const innerWidth = width - margin.left - margin.right;
+    const availableHeight = height - margin.top - margin.bottom - (panelGap * (panels.length - 1));
+    const panelHeight = availableHeight / panels.length;
+    const x = d3.scaleLinear()
+      .domain([0, 105])
+      .range([0, innerWidth]);
+
+    const color = d3.scaleLinear()
+      .domain([0, 50, 100])
+      .range(['#d94841', '#f59e0b', '#2f9e44']);
+
+    const root = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const setTooltipPosition = (pageX, pageY) => {
       tooltip
@@ -81,86 +143,38 @@ export const FormalConformitySwarmPlot = ({
         .style('top', `${pageY - 28}px`);
     };
 
-    const margin = { top: 20, right: 24, bottom: 54, left: 24 };
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
-    const centerY = innerHeight / 2;
-    const radius = 8;
-
-    const x = d3.scaleLinear()
-      .domain([0, 100])
-      .range([0, innerWidth]);
-
-    const root = svg.append('g')
-      .attr('transform', `translate(${margin.left},${margin.top})`);
-
-    root.append('line')
-      .attr('x1', 0)
-      .attr('x2', innerWidth)
-      .attr('y1', centerY)
-      .attr('y2', centerY)
-      .attr('stroke', 'var(--chart-grid)')
-      .attr('stroke-width', 1.25);
-
-    root.append('g')
-      .attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(x).ticks(5))
-      .call((axis) => axis.selectAll('line').attr('stroke', 'var(--chart-grid)'))
-      .call((axis) => axis.select('.domain').attr('stroke', 'var(--chart-axis)'));
-
-    root.append('text')
-      .attr('x', innerWidth / 2)
-      .attr('y', innerHeight + 42)
-      .attr('text-anchor', 'middle')
-      .style('fill', 'var(--chart-muted)')
-      .style('font-size', '12px')
-      .style('font-weight', '600')
-      .text('Compliance score');
-
-    const bees = data.map((entry) => ({
-      ...entry,
-      x: x(entry.score),
-      y: centerY,
-    }));
-
-    const simulation = d3.forceSimulation(bees)
-      .force('x', d3.forceX((entry) => x(entry.score)).strength(1))
-      .force('y', d3.forceY(centerY).strength(0.07))
-      .force('collide', d3.forceCollide(radius + 1.5))
-      .stop();
-
-    for (let tick = 0; tick < 220; tick += 1) {
-      simulation.tick();
-    }
-
-    const color = d3.scaleLinear()
-      .domain([0, 50, 100])
-      .range(['#d94841', '#f59e0b', '#2f9e44']);
-
-    const renderTooltipHtml = (entry) => (
-      `<strong><a href="${getProposalHref(entry.id)}" target="_blank" rel="noreferrer">${proposalShortLabel} ${entry.id}</a></strong><br/>` +
-      `Compliance score: ${formatScore(entry.score)}<br/>` +
-      `Status: ${entry.status || 'Unknown'}<br/>` +
-      `BIP2 score: ${entry.bip2Score == null ? 'n/a' : formatScore(entry.bip2Score)}<br/>` +
-      `BIP3 score: ${entry.bip3Score == null ? 'n/a' : formatScore(entry.bip3Score)}`
-    );
-
-    const applyBaseBubbleStyles = (selection) => {
-      selection
-        .attr('stroke', (entry) => {
+    const applyBaseBubbleStyles = () => {
+      root.selectAll('circle.formal-conformity-bubble')
+        .attr('stroke', function (entry) {
           const normalizedId = normalizeProposalId(entry.id);
+          const bubbleKey = `${entry.panelKey}:${entry.id}`;
+          if (pinnedBubbleKey && pinnedBubbleKey === bubbleKey) {
+            return 'var(--chart-focus)';
+          }
           return highlightedProposalId && normalizedId === highlightedProposalId ? 'var(--chart-focus)' : 'var(--chart-contrast)';
         })
-        .attr('stroke-width', (entry) => {
+        .attr('stroke-width', function (entry) {
           const normalizedId = normalizeProposalId(entry.id);
+          const bubbleKey = `${entry.panelKey}:${entry.id}`;
+          if (pinnedBubbleKey && pinnedBubbleKey === bubbleKey) {
+            return 2;
+          }
           return highlightedProposalId && normalizedId === highlightedProposalId ? 2 : 1.25;
         })
-        .attr('r', (entry) => {
+        .attr('r', function (entry) {
           const normalizedId = normalizeProposalId(entry.id);
+          const bubbleKey = `${entry.panelKey}:${entry.id}`;
+          if (pinnedBubbleKey && pinnedBubbleKey === bubbleKey) {
+            return radius + 1.5;
+          }
           return highlightedProposalId && normalizedId === highlightedProposalId ? radius + 1.5 : radius;
         })
-        .attr('fill-opacity', (entry) => {
+        .attr('fill-opacity', function (entry) {
           const normalizedId = normalizeProposalId(entry.id);
+          const bubbleKey = `${entry.panelKey}:${entry.id}`;
+          if (pinnedBubbleKey) {
+            return pinnedBubbleKey === bubbleKey ? 0.96 : 0.18;
+          }
           if (!highlightedProposalId) {
             return 0.88;
           }
@@ -168,71 +182,141 @@ export const FormalConformitySwarmPlot = ({
         });
     };
 
-    const pinBubble = (nodeSelection, entry, pageX, pageY) => {
-      pinnedProposalId = entry.id;
-      applyBaseBubbleStyles(bubbles);
-      nodeSelection
-        .attr('fill-opacity', 0.96)
-        .attr('stroke', 'var(--chart-focus)')
-        .attr('stroke-width', 2)
-        .attr('r', radius + 1.5);
-      tooltip
-        .style('opacity', 1)
-        .style('pointer-events', 'auto')
-        .html(renderTooltipHtml(entry));
-      setTooltipPosition(pageX, pageY);
-    };
+    panels.forEach((panel, panelIndex) => {
+      const panelRoot = root.append('g')
+        .attr('transform', `translate(0, ${(panelHeight + panelGap) * panelIndex})`);
+      const baselineY = panelHeight / 2;
 
-    const bubbles = root.append('g')
-      .selectAll('circle')
-      .data(bees)
-      .enter()
-      .append('circle')
-      .attr('cx', (entry) => entry.x)
-      .attr('cy', (entry) => entry.y)
-      .attr('r', radius)
-      .attr('fill', (entry) => color(entry.score))
-      .attr('fill-opacity', 0.88)
-      .attr('stroke', 'var(--chart-contrast)')
-      .attr('stroke-width', 1.25)
-      .on('mouseover', function (event, entry) {
-        if (pinnedProposalId) {
-          return;
-        }
-        d3.select(this)
-          .attr('fill-opacity', 0.96)
-          .attr('stroke', 'var(--chart-focus)')
-          .attr('stroke-width', 2)
-          .attr('r', radius + 1.5);
-        tooltip
-          .style('opacity', 1)
-          .style('pointer-events', 'none')
-          .html(renderTooltipHtml(entry));
-        setTooltipPosition(event.pageX, event.pageY);
-      })
-      .on('mousemove', function (event) {
-        if (pinnedProposalId) {
-          return;
-        }
-        setTooltipPosition(event.pageX, event.pageY);
-      })
-      .on('mouseout', function () {
-        if (pinnedProposalId) {
-          return;
-        }
-        applyBaseBubbleStyles(bubbles);
-        tooltip.style('opacity', 0);
-      })
-      .on('click', function (event, entry) {
-        event.stopPropagation();
-        pinBubble(d3.select(this), entry, event.pageX, event.pageY);
-      });
+      panelRoot.append('text')
+        .attr('x', 0)
+        .attr('y', -4)
+        .style('fill', 'var(--chart-text)')
+        .style('font-size', '14px')
+        .style('font-weight', '600')
+        .text(panel.label);
 
-    applyBaseBubbleStyles(bubbles);
+      panelRoot.append('line')
+        .attr('x1', 0)
+        .attr('x2', innerWidth)
+        .attr('y1', baselineY)
+        .attr('y2', baselineY)
+        .attr('stroke', 'var(--chart-grid)')
+        .attr('stroke-width', 1.25);
+
+      const bees = panel.rows.map((entry) => ({
+        ...entry,
+        panelKey: panel.key,
+        panelLabel: panel.label,
+        x: x(entry.score),
+        y: baselineY,
+      }));
+
+      const simulation = d3.forceSimulation(bees)
+        .force('x', d3.forceX((entry) => x(entry.score)).strength(1))
+        .force('y', d3.forceY(baselineY).strength(0.07))
+        .force('collide', d3.forceCollide(radius + 1.5))
+        .stop();
+
+      for (let tick = 0; tick < 220; tick += 1) {
+        simulation.tick();
+      }
+
+      const renderTooltipHtml = (entry) => (
+        (() => {
+          const panelCompliance = entry?.compliance?.[panel.key] || {};
+          const checks = panelCompliance.checks || [];
+          return (
+            `<strong><a href="${getProposalHref(entry.id)}" target="_blank" rel="noreferrer">${proposalShortLabel} ${entry.id}</a></strong><br/>` +
+            `${entry.panelLabel}: ${formatScore(entry.score)}<br/>` +
+            `Status: ${entry.status || 'Unknown'}<br/>` +
+            `Passed: ${panelCompliance.passed_checks ?? 0} | Failed: ${panelCompliance.failed_checks ?? 0} | Skipped: ${panelCompliance.skipped_checks ?? 0}<br/>` +
+            (panelCompliance.failed_checks
+              ? '<strong style="display:block; margin-top:0.35rem;">Failed checks</strong>'
+              : '') +
+            renderChecksHtml(checks)
+          );
+        })()
+      );
+
+      panelRoot.append('g')
+        .selectAll('circle')
+        .data(bees)
+        .enter()
+        .append('circle')
+        .attr('class', 'formal-conformity-bubble')
+        .attr('cx', (entry) => entry.x)
+        .attr('cy', (entry) => entry.y)
+        .attr('r', radius)
+        .attr('fill', (entry) => color(entry.score))
+        .attr('fill-opacity', 0.88)
+        .attr('stroke', 'var(--chart-contrast)')
+        .attr('stroke-width', 1.25)
+        .on('mouseover', function (event, entry) {
+          if (pinnedBubbleKey) {
+            return;
+          }
+
+          d3.select(this)
+            .attr('fill-opacity', 0.96)
+            .attr('stroke', 'var(--chart-focus)')
+            .attr('stroke-width', 2)
+            .attr('r', radius + 1.5);
+
+          tooltip
+            .style('opacity', 1)
+            .style('pointer-events', 'none')
+            .html(renderTooltipHtml(entry));
+          setTooltipPosition(event.pageX, event.pageY);
+        })
+        .on('mousemove', function (event) {
+          if (pinnedBubbleKey) {
+            return;
+          }
+          setTooltipPosition(event.pageX, event.pageY);
+        })
+        .on('mouseout', function () {
+          if (pinnedBubbleKey) {
+            return;
+          }
+          applyBaseBubbleStyles();
+          tooltip.style('opacity', 0);
+        })
+        .on('click', function (event, entry) {
+          event.stopPropagation();
+          pinnedBubbleKey = `${entry.panelKey}:${entry.id}`;
+          applyBaseBubbleStyles();
+          tooltip
+            .style('opacity', 1)
+            .style('pointer-events', 'auto')
+            .html(renderTooltipHtml(entry));
+          setTooltipPosition(event.pageX, event.pageY);
+        });
+
+      if (panelIndex === panels.length - 1) {
+        panelRoot.append('g')
+          .attr('transform', `translate(0,${panelHeight})`)
+          .call(d3.axisBottom(x).tickValues(axisTickValues))
+          .call((axis) => axis.selectAll('line').attr('stroke', 'var(--chart-grid)'))
+          .call((axis) => axis.select('.domain').attr('stroke', 'var(--chart-axis)'));
+
+        panelRoot.append('text')
+          .attr('x', innerWidth / 2)
+          .attr('y', panelHeight + 42)
+          .attr('text-anchor', 'middle')
+          .style('fill', 'var(--chart-muted)')
+          .style('font-size', '12px')
+          .style('font-weight', '600')
+          .text('Conformity score');
+      }
+
+      simulation.stop();
+    });
+
+    applyBaseBubbleStyles();
 
     svg.on('click', () => {
-      pinnedProposalId = null;
-      applyBaseBubbleStyles(bubbles);
+      pinnedBubbleKey = null;
+      applyBaseBubbleStyles();
       tooltip
         .style('opacity', 0)
         .style('pointer-events', 'none');

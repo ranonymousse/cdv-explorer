@@ -579,7 +579,9 @@ function buildDashboardData(dataset) {
 
   const wordCloudData = buildWordCloudData(dataset.nodes);
   const conformityRows = (conformity.per_proposal || [])
-    .filter((entry) => typeof entry?.compliance_score === 'number')
+    .filter((entry) => (
+      Number.isFinite(Number(entry?.bip2_score)) || Number.isFinite(Number(entry?.bip3_score))
+    ))
     .map((entry) => ({
       ...entry,
       id: String(entry.id),
@@ -1057,9 +1059,9 @@ function EcosystemDashboard() {
             <Card className="mb-4">
               <h3>Formal Conformity</h3>
               <p>
-                Each bubble represents one {ecosystem.acronym} positioned by its aggregated formal conformity score.
-                The horizontal axis runs from low to high compliance, while the vertical spread is only used to pack
-                the proposals into a beeswarm.
+                These beeswarms separate BIP2 and BIP3 scoring into distinct panels. Each bubble represents one
+                {` ${ecosystem.acronym}`} positioned by that specific conformity score, while the vertical spread only
+                packs the proposals into a swarm.
               </p>
               <div className="network-finder">
                 <div className="network-finder__copy">
@@ -1093,7 +1095,7 @@ function EcosystemDashboard() {
                 proposalShortLabel={ecosystem.acronym || 'IP'}
                 highlightProposal={highlightedConformityProposal}
                 width={1250}
-                height={360}
+                height={680}
               />
             </Card>
           </section>
