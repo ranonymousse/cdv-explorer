@@ -1,0 +1,1800 @@
+{
+  "meta": {
+    "proposal_count": 197,
+    "unique_terms_total": 7989,
+    "top_n": 200,
+    "generated_metrics": [
+      "top_words",
+      "per_proposal"
+    ]
+  },
+  "top_words": [
+    {
+      "word": "code",
+      "count": 4408
+    },
+    {
+      "word": "tt",
+      "count": 3362
+    },
+    {
+      "word": "bip",
+      "count": 3090
+    },
+    {
+      "word": "0",
+      "count": 2391
+    },
+    {
+      "word": "key",
+      "count": 2328
+    },
+    {
+      "word": "1",
+      "count": 2200
+    },
+    {
+      "word": "sub",
+      "count": 2138
+    },
+    {
+      "word": "bitcoin",
+      "count": 2101
+    },
+    {
+      "word": "transaction",
+      "count": 1842
+    },
+    {
+      "word": "2",
+      "count": 1493
+    },
+    {
+      "word": "pre",
+      "count": 1363
+    },
+    {
+      "word": "block",
+      "count": 1320
+    },
+    {
+      "word": "s",
+      "count": 1278
+    },
+    {
+      "word": "https",
+      "count": 1244
+    },
+    {
+      "word": "script",
+      "count": 1232
+    },
+    {
+      "word": "public",
+      "count": 1065
+    },
+    {
+      "word": "byte",
+      "count": 988
+    },
+    {
+      "word": "transactions",
+      "count": 959
+    },
+    {
+      "word": "bytes",
+      "count": 950
+    },
+    {
+      "word": "com",
+      "count": 940
+    },
+    {
+      "word": "output",
+      "count": 919
+    },
+    {
+      "word": "hash",
+      "count": 917
+    },
+    {
+      "word": "version",
+      "count": 895
+    },
+    {
+      "word": "data",
+      "count": 845
+    },
+    {
+      "word": "use",
+      "count": 826
+    },
+    {
+      "word": "new",
+      "count": 793
+    },
+    {
+      "word": "message",
+      "count": 789
+    },
+    {
+      "word": "ref",
+      "count": 786
+    },
+    {
+      "word": "signature",
+      "count": 783
+    },
+    {
+      "word": "mediawiki",
+      "count": 739
+    },
+    {
+      "word": "address",
+      "count": 736
+    },
+    {
+      "word": "input",
+      "count": 714
+    },
+    {
+      "word": "x",
+      "count": 706
+    },
+    {
+      "word": "number",
+      "count": 693
+    },
+    {
+      "word": "keys",
+      "count": 693
+    },
+    {
+      "word": "size",
+      "count": 651
+    },
+    {
+      "word": "value",
+      "count": 641
+    },
+    {
+      "word": "payment",
+      "count": 639
+    },
+    {
+      "word": "type",
+      "count": 628
+    },
+    {
+      "word": "github",
+      "count": 623
+    },
+    {
+      "word": "32",
+      "count": 605
+    },
+    {
+      "word": "set",
+      "count": 603
+    },
+    {
+      "word": "3",
+      "count": 592
+    },
+    {
+      "word": "time",
+      "count": 588
+    },
+    {
+      "word": "witness",
+      "count": 588
+    },
+    {
+      "word": "outputs",
+      "count": 529
+    },
+    {
+      "word": "specification",
+      "count": 527
+    },
+    {
+      "word": "m",
+      "count": 526
+    },
+    {
+      "word": "n",
+      "count": 523
+    },
+    {
+      "word": "p",
+      "count": 506
+    },
+    {
+      "word": "org",
+      "count": 501
+    },
+    {
+      "word": "bips",
+      "count": 481
+    },
+    {
+      "word": "inputs",
+      "count": 481
+    },
+    {
+      "word": "following",
+      "count": 465
+    },
+    {
+      "word": "wallet",
+      "count": 465
+    },
+    {
+      "word": "bit",
+      "count": 454
+    },
+    {
+      "word": "protocol",
+      "count": 450
+    },
+    {
+      "word": "4",
+      "count": 446
+    },
+    {
+      "word": "blocks",
+      "count": 444
+    },
+    {
+      "word": "implementation",
+      "count": 434
+    },
+    {
+      "word": "e",
+      "count": 417
+    },
+    {
+      "word": "path",
+      "count": 417
+    },
+    {
+      "word": "peer",
+      "count": 413
+    },
+    {
+      "word": "proposal",
+      "count": 402
+    },
+    {
+      "word": "case",
+      "count": 400
+    },
+    {
+      "word": "string",
+      "count": 391
+    },
+    {
+      "word": "network",
+      "count": 387
+    },
+    {
+      "word": "b",
+      "count": 382
+    },
+    {
+      "word": "master",
+      "count": 376
+    },
+    {
+      "word": "g",
+      "count": 374
+    },
+    {
+      "word": "t",
+      "count": 373
+    },
+    {
+      "word": "k",
+      "count": 366
+    },
+    {
+      "word": "private",
+      "count": 365
+    },
+    {
+      "word": "node",
+      "count": 364
+    },
+    {
+      "word": "index",
+      "count": 363
+    },
+    {
+      "word": "consensus",
+      "count": 361
+    },
+    {
+      "word": "non",
+      "count": 360
+    },
+    {
+      "word": "return",
+      "count": 356
+    },
+    {
+      "word": "valid",
+      "count": 356
+    },
+    {
+      "word": "license",
+      "count": 355
+    },
+    {
+      "word": "derivation",
+      "count": 345
+    },
+    {
+      "word": "user",
+      "count": 344
+    },
+    {
+      "word": "let",
+      "count": 341
+    },
+    {
+      "word": "signatures",
+      "count": 340
+    },
+    {
+      "word": "wallets",
+      "count": 339
+    },
+    {
+      "word": "standard",
+      "count": 337
+    },
+    {
+      "word": "bits",
+      "count": 331
+    },
+    {
+      "word": "chain",
+      "count": 329
+    },
+    {
+      "word": "example",
+      "count": 326
+    },
+    {
+      "word": "messages",
+      "count": 323
+    },
+    {
+      "word": "format",
+      "count": 322
+    },
+    {
+      "word": "stack",
+      "count": 322
+    },
+    {
+      "word": "change",
+      "count": 320
+    },
+    {
+      "word": "order",
+      "count": 316
+    },
+    {
+      "word": "psbt",
+      "count": 315
+    },
+    {
+      "word": "proof",
+      "count": 314
+    },
+    {
+      "word": "nodes",
+      "count": 310
+    },
+    {
+      "word": "addresses",
+      "count": 306
+    },
+    {
+      "word": "style",
+      "count": 297
+    },
+    {
+      "word": "sender",
+      "count": 295
+    },
+    {
+      "word": "sup",
+      "count": 294
+    },
+    {
+      "word": "tree",
+      "count": 294
+    },
+    {
+      "word": "spend",
+      "count": 293
+    },
+    {
+      "word": "taproot",
+      "count": 293
+    },
+    {
+      "word": "field",
+      "count": 292
+    },
+    {
+      "word": "scripts",
+      "count": 286
+    },
+    {
+      "word": "defined",
+      "count": 283
+    },
+    {
+      "word": "receiver",
+      "count": 282
+    },
+    {
+      "word": "length",
+      "count": 281
+    },
+    {
+      "word": "blob",
+      "count": 280
+    },
+    {
+      "word": "required",
+      "count": 274
+    },
+    {
+      "word": "rules",
+      "count": 272
+    },
+    {
+      "word": "possible",
+      "count": 269
+    },
+    {
+      "word": "support",
+      "count": 269
+    },
+    {
+      "word": "single",
+      "count": 263
+    },
+    {
+      "word": "list",
+      "count": 262
+    },
+    {
+      "word": "fork",
+      "count": 258
+    },
+    {
+      "word": "r",
+      "count": 258
+    },
+    {
+      "word": "information",
+      "count": 251
+    },
+    {
+      "word": "based",
+      "count": 248
+    },
+    {
+      "word": "request",
+      "count": 244
+    },
+    {
+      "word": "c",
+      "count": 244
+    },
+    {
+      "word": "sha256",
+      "count": 243
+    },
+    {
+      "word": "invalid",
+      "count": 242
+    },
+    {
+      "word": "8",
+      "count": 239
+    },
+    {
+      "word": "encoded",
+      "count": 238
+    },
+    {
+      "word": "different",
+      "count": 236
+    },
+    {
+      "word": "clients",
+      "count": 236
+    },
+    {
+      "word": "future",
+      "count": 235
+    },
+    {
+      "word": "secret",
+      "count": 235
+    },
+    {
+      "word": "header",
+      "count": 234
+    },
+    {
+      "word": "hex",
+      "count": 232
+    },
+    {
+      "word": "software",
+      "count": 228
+    },
+    {
+      "word": "5",
+      "count": 228
+    },
+    {
+      "word": "reference",
+      "count": 225
+    },
+    {
+      "word": "algorithm",
+      "count": 218
+    },
+    {
+      "word": "fail",
+      "count": 216
+    },
+    {
+      "word": "pubkey",
+      "count": 216
+    },
+    {
+      "word": "values",
+      "count": 215
+    },
+    {
+      "word": "client",
+      "count": 215
+    },
+    {
+      "word": "allow",
+      "count": 214
+    },
+    {
+      "word": "fee",
+      "count": 214
+    },
+    {
+      "word": "merkle",
+      "count": 213
+    },
+    {
+      "word": "signing",
+      "count": 212
+    },
+    {
+      "word": "signer",
+      "count": 212
+    },
+    {
+      "word": "users",
+      "count": 210
+    },
+    {
+      "word": "allows",
+      "count": 210
+    },
+    {
+      "word": "bsd",
+      "count": 206
+    },
+    {
+      "word": "v",
+      "count": 206
+    },
+    {
+      "word": "clause",
+      "count": 205
+    },
+    {
+      "word": "peers",
+      "count": 204
+    },
+    {
+      "word": "height",
+      "count": 204
+    },
+    {
+      "word": "server",
+      "count": 201
+    },
+    {
+      "word": "nonce",
+      "count": 201
+    },
+    {
+      "word": "64",
+      "count": 199
+    },
+    {
+      "word": "comments",
+      "count": 197
+    },
+    {
+      "word": "y",
+      "count": 197
+    },
+    {
+      "word": "encoding",
+      "count": 196
+    },
+    {
+      "word": "pk",
+      "count": 196
+    },
+    {
+      "word": "optional",
+      "count": 195
+    },
+    {
+      "word": "h",
+      "count": 195
+    },
+    {
+      "word": "document",
+      "count": 194
+    },
+    {
+      "word": "template",
+      "count": 193
+    },
+    {
+      "word": "scriptpubkey",
+      "count": 193
+    },
+    {
+      "word": "process",
+      "count": 192
+    },
+    {
+      "word": "original",
+      "count": 191
+    },
+    {
+      "word": "deployment",
+      "count": 191
+    },
+    {
+      "word": "id",
+      "count": 191
+    },
+    {
+      "word": "funds",
+      "count": 190
+    },
+    {
+      "word": "soft",
+      "count": 189
+    },
+    {
+      "word": "way",
+      "count": 189
+    },
+    {
+      "word": "color",
+      "count": 189
+    },
+    {
+      "word": "given",
+      "count": 188
+    },
+    {
+      "word": "test",
+      "count": 188
+    },
+    {
+      "word": "multiple",
+      "count": 187
+    },
+    {
+      "word": "existing",
+      "count": 187
+    },
+    {
+      "word": "u",
+      "count": 187
+    },
+    {
+      "word": "filter",
+      "count": 187
+    },
+    {
+      "word": "background",
+      "count": 186
+    },
+    {
+      "word": "limit",
+      "count": 184
+    },
+    {
+      "word": "integer",
+      "count": 183
+    },
+    {
+      "word": "instead",
+      "count": 180
+    },
+    {
+      "word": "recovery",
+      "count": 178
+    },
+    {
+      "word": "policy",
+      "count": 177
+    },
+    {
+      "word": "bob",
+      "count": 176
+    },
+    {
+      "word": "text",
+      "count": 175
+    },
+    {
+      "word": "extended",
+      "count": 174
+    },
+    {
+      "word": "need",
+      "count": 173
+    },
+    {
+      "word": "specified",
+      "count": 171
+    },
+    {
+      "word": "segwit",
+      "count": 171
+    },
+    {
+      "word": "compatibility",
+      "count": 170
+    },
+    {
+      "word": "alice",
+      "count": 170
+    },
+    {
+      "word": "descriptor",
+      "count": 169
+    },
+    {
+      "word": "point",
+      "count": 168
+    },
+    {
+      "word": "leaf",
+      "count": 168
+    },
+    {
+      "word": "spending",
+      "count": 168
+    },
+    {
+      "word": "implementations",
+      "count": 167
+    },
+    {
+      "word": "types",
+      "count": 166
+    },
+    {
+      "word": "checksum",
+      "count": 166
+    },
+    {
+      "word": "encryption",
+      "count": 166
+    }
+  ],
+  "per_proposal": [
+    {
+      "id": "1",
+      "unique_terms": 236,
+      "total_terms": 1087
+    },
+    {
+      "id": "10",
+      "unique_terms": 88,
+      "total_terms": 296
+    },
+    {
+      "id": "100",
+      "unique_terms": 88,
+      "total_terms": 421
+    },
+    {
+      "id": "101",
+      "unique_terms": 159,
+      "total_terms": 650
+    },
+    {
+      "id": "102",
+      "unique_terms": 27,
+      "total_terms": 66
+    },
+    {
+      "id": "103",
+      "unique_terms": 95,
+      "total_terms": 305
+    },
+    {
+      "id": "104",
+      "unique_terms": 73,
+      "total_terms": 268
+    },
+    {
+      "id": "105",
+      "unique_terms": 63,
+      "total_terms": 212
+    },
+    {
+      "id": "106",
+      "unique_terms": 77,
+      "total_terms": 346
+    },
+    {
+      "id": "107",
+      "unique_terms": 98,
+      "total_terms": 366
+    },
+    {
+      "id": "109",
+      "unique_terms": 86,
+      "total_terms": 280
+    },
+    {
+      "id": "11",
+      "unique_terms": 72,
+      "total_terms": 233
+    },
+    {
+      "id": "110",
+      "unique_terms": 413,
+      "total_terms": 1846
+    },
+    {
+      "id": "111",
+      "unique_terms": 55,
+      "total_terms": 190
+    },
+    {
+      "id": "112",
+      "unique_terms": 255,
+      "total_terms": 1113
+    },
+    {
+      "id": "113",
+      "unique_terms": 82,
+      "total_terms": 279
+    },
+    {
+      "id": "114",
+      "unique_terms": 313,
+      "total_terms": 1860
+    },
+    {
+      "id": "115",
+      "unique_terms": 115,
+      "total_terms": 419
+    },
+    {
+      "id": "116",
+      "unique_terms": 218,
+      "total_terms": 792
+    },
+    {
+      "id": "117",
+      "unique_terms": 230,
+      "total_terms": 1095
+    },
+    {
+      "id": "118",
+      "unique_terms": 265,
+      "total_terms": 1490
+    },
+    {
+      "id": "119",
+      "unique_terms": 516,
+      "total_terms": 2559
+    },
+    {
+      "id": "12",
+      "unique_terms": 88,
+      "total_terms": 343
+    },
+    {
+      "id": "120",
+      "unique_terms": 122,
+      "total_terms": 533
+    },
+    {
+      "id": "121",
+      "unique_terms": 86,
+      "total_terms": 455
+    },
+    {
+      "id": "122",
+      "unique_terms": 69,
+      "total_terms": 235
+    },
+    {
+      "id": "123",
+      "unique_terms": 167,
+      "total_terms": 1267
+    },
+    {
+      "id": "124",
+      "unique_terms": 89,
+      "total_terms": 494
+    },
+    {
+      "id": "125",
+      "unique_terms": 128,
+      "total_terms": 588
+    },
+    {
+      "id": "126",
+      "unique_terms": 103,
+      "total_terms": 519
+    },
+    {
+      "id": "127",
+      "unique_terms": 152,
+      "total_terms": 642
+    },
+    {
+      "id": "128",
+      "unique_terms": 252,
+      "total_terms": 1191
+    },
+    {
+      "id": "129",
+      "unique_terms": 271,
+      "total_terms": 2043
+    },
+    {
+      "id": "13",
+      "unique_terms": 58,
+      "total_terms": 182
+    },
+    {
+      "id": "130",
+      "unique_terms": 34,
+      "total_terms": 135
+    },
+    {
+      "id": "131",
+      "unique_terms": 65,
+      "total_terms": 273
+    },
+    {
+      "id": "132",
+      "unique_terms": 111,
+      "total_terms": 497
+    },
+    {
+      "id": "133",
+      "unique_terms": 43,
+      "total_terms": 175
+    },
+    {
+      "id": "134",
+      "unique_terms": 184,
+      "total_terms": 672
+    },
+    {
+      "id": "135",
+      "unique_terms": 220,
+      "total_terms": 1198
+    },
+    {
+      "id": "136",
+      "unique_terms": 336,
+      "total_terms": 3313
+    },
+    {
+      "id": "137",
+      "unique_terms": 139,
+      "total_terms": 623
+    },
+    {
+      "id": "14",
+      "unique_terms": 102,
+      "total_terms": 382
+    },
+    {
+      "id": "140",
+      "unique_terms": 205,
+      "total_terms": 1036
+    },
+    {
+      "id": "141",
+      "unique_terms": 364,
+      "total_terms": 2131
+    },
+    {
+      "id": "142",
+      "unique_terms": 90,
+      "total_terms": 386
+    },
+    {
+      "id": "143",
+      "unique_terms": 261,
+      "total_terms": 1773
+    },
+    {
+      "id": "144",
+      "unique_terms": 84,
+      "total_terms": 292
+    },
+    {
+      "id": "145",
+      "unique_terms": 116,
+      "total_terms": 397
+    },
+    {
+      "id": "146",
+      "unique_terms": 129,
+      "total_terms": 633
+    },
+    {
+      "id": "147",
+      "unique_terms": 58,
+      "total_terms": 221
+    },
+    {
+      "id": "148",
+      "unique_terms": 83,
+      "total_terms": 298
+    },
+    {
+      "id": "149",
+      "unique_terms": 49,
+      "total_terms": 165
+    },
+    {
+      "id": "15",
+      "unique_terms": 280,
+      "total_terms": 1192
+    },
+    {
+      "id": "150",
+      "unique_terms": 122,
+      "total_terms": 838
+    },
+    {
+      "id": "151",
+      "unique_terms": 162,
+      "total_terms": 724
+    },
+    {
+      "id": "152",
+      "unique_terms": 357,
+      "total_terms": 2301
+    },
+    {
+      "id": "154",
+      "unique_terms": 420,
+      "total_terms": 2518
+    },
+    {
+      "id": "155",
+      "unique_terms": 159,
+      "total_terms": 747
+    },
+    {
+      "id": "156",
+      "unique_terms": 240,
+      "total_terms": 1222
+    },
+    {
+      "id": "157",
+      "unique_terms": 270,
+      "total_terms": 1615
+    },
+    {
+      "id": "158",
+      "unique_terms": 269,
+      "total_terms": 1407
+    },
+    {
+      "id": "159",
+      "unique_terms": 52,
+      "total_terms": 215
+    },
+    {
+      "id": "16",
+      "unique_terms": 129,
+      "total_terms": 525
+    },
+    {
+      "id": "17",
+      "unique_terms": 122,
+      "total_terms": 445
+    },
+    {
+      "id": "171",
+      "unique_terms": 203,
+      "total_terms": 1004
+    },
+    {
+      "id": "172",
+      "unique_terms": 126,
+      "total_terms": 508
+    },
+    {
+      "id": "173",
+      "unique_terms": 288,
+      "total_terms": 1560
+    },
+    {
+      "id": "174",
+      "unique_terms": 615,
+      "total_terms": 5518
+    },
+    {
+      "id": "175",
+      "unique_terms": 168,
+      "total_terms": 777
+    },
+    {
+      "id": "176",
+      "unique_terms": 54,
+      "total_terms": 201
+    },
+    {
+      "id": "177",
+      "unique_terms": 140,
+      "total_terms": 663
+    },
+    {
+      "id": "178",
+      "unique_terms": 65,
+      "total_terms": 244
+    },
+    {
+      "id": "179",
+      "unique_terms": 28,
+      "total_terms": 105
+    },
+    {
+      "id": "18",
+      "unique_terms": 136,
+      "total_terms": 540
+    },
+    {
+      "id": "180",
+      "unique_terms": 130,
+      "total_terms": 649
+    },
+    {
+      "id": "19",
+      "unique_terms": 64,
+      "total_terms": 233
+    },
+    {
+      "id": "197",
+      "unique_terms": 166,
+      "total_terms": 947
+    },
+    {
+      "id": "199",
+      "unique_terms": 77,
+      "total_terms": 216
+    },
+    {
+      "id": "2",
+      "unique_terms": 488,
+      "total_terms": 2610
+    },
+    {
+      "id": "20",
+      "unique_terms": 140,
+      "total_terms": 601
+    },
+    {
+      "id": "21",
+      "unique_terms": 95,
+      "total_terms": 348
+    },
+    {
+      "id": "22",
+      "unique_terms": 194,
+      "total_terms": 836
+    },
+    {
+      "id": "23",
+      "unique_terms": 225,
+      "total_terms": 987
+    },
+    {
+      "id": "3",
+      "unique_terms": 609,
+      "total_terms": 4081
+    },
+    {
+      "id": "30",
+      "unique_terms": 65,
+      "total_terms": 213
+    },
+    {
+      "id": "300",
+      "unique_terms": 280,
+      "total_terms": 1332
+    },
+    {
+      "id": "301",
+      "unique_terms": 113,
+      "total_terms": 469
+    },
+    {
+      "id": "31",
+      "unique_terms": 39,
+      "total_terms": 112
+    },
+    {
+      "id": "310",
+      "unique_terms": 178,
+      "total_terms": 906
+    },
+    {
+      "id": "32",
+      "unique_terms": 303,
+      "total_terms": 2150
+    },
+    {
+      "id": "320",
+      "unique_terms": 59,
+      "total_terms": 208
+    },
+    {
+      "id": "321",
+      "unique_terms": 209,
+      "total_terms": 1028
+    },
+    {
+      "id": "322",
+      "unique_terms": 145,
+      "total_terms": 709
+    },
+    {
+      "id": "324",
+      "unique_terms": 795,
+      "total_terms": 5277
+    },
+    {
+      "id": "325",
+      "unique_terms": 123,
+      "total_terms": 494
+    },
+    {
+      "id": "326",
+      "unique_terms": 128,
+      "total_terms": 545
+    },
+    {
+      "id": "327",
+      "unique_terms": 672,
+      "total_terms": 6770
+    },
+    {
+      "id": "328",
+      "unique_terms": 52,
+      "total_terms": 230
+    },
+    {
+      "id": "329",
+      "unique_terms": 160,
+      "total_terms": 781
+    },
+    {
+      "id": "33",
+      "unique_terms": 91,
+      "total_terms": 331
+    },
+    {
+      "id": "330",
+      "unique_terms": 309,
+      "total_terms": 1626
+    },
+    {
+      "id": "331",
+      "unique_terms": 355,
+      "total_terms": 2074
+    },
+    {
+      "id": "337",
+      "unique_terms": 129,
+      "total_terms": 866
+    },
+    {
+      "id": "338",
+      "unique_terms": 79,
+      "total_terms": 350
+    },
+    {
+      "id": "339",
+      "unique_terms": 49,
+      "total_terms": 182
+    },
+    {
+      "id": "34",
+      "unique_terms": 30,
+      "total_terms": 110
+    },
+    {
+      "id": "340",
+      "unique_terms": 523,
+      "total_terms": 3356
+    },
+    {
+      "id": "341",
+      "unique_terms": 589,
+      "total_terms": 3417
+    },
+    {
+      "id": "342",
+      "unique_terms": 300,
+      "total_terms": 1786
+    },
+    {
+      "id": "343",
+      "unique_terms": 70,
+      "total_terms": 255
+    },
+    {
+      "id": "345",
+      "unique_terms": 538,
+      "total_terms": 3428
+    },
+    {
+      "id": "346",
+      "unique_terms": 245,
+      "total_terms": 1187
+    },
+    {
+      "id": "347",
+      "unique_terms": 225,
+      "total_terms": 914
+    },
+    {
+      "id": "348",
+      "unique_terms": 114,
+      "total_terms": 437
+    },
+    {
+      "id": "349",
+      "unique_terms": 64,
+      "total_terms": 228
+    },
+    {
+      "id": "35",
+      "unique_terms": 23,
+      "total_terms": 77
+    },
+    {
+      "id": "350",
+      "unique_terms": 341,
+      "total_terms": 2079
+    },
+    {
+      "id": "351",
+      "unique_terms": 208,
+      "total_terms": 1143
+    },
+    {
+      "id": "352",
+      "unique_terms": 595,
+      "total_terms": 4653
+    },
+    {
+      "id": "353",
+      "unique_terms": 273,
+      "total_terms": 1276
+    },
+    {
+      "id": "36",
+      "unique_terms": 150,
+      "total_terms": 700
+    },
+    {
+      "id": "360",
+      "unique_terms": 455,
+      "total_terms": 2944
+    },
+    {
+      "id": "37",
+      "unique_terms": 266,
+      "total_terms": 1277
+    },
+    {
+      "id": "370",
+      "unique_terms": 227,
+      "total_terms": 2188
+    },
+    {
+      "id": "371",
+      "unique_terms": 203,
+      "total_terms": 1255
+    },
+    {
+      "id": "372",
+      "unique_terms": 150,
+      "total_terms": 559
+    },
+    {
+      "id": "373",
+      "unique_terms": 307,
+      "total_terms": 2160
+    },
+    {
+      "id": "374",
+      "unique_terms": 130,
+      "total_terms": 760
+    },
+    {
+      "id": "375",
+      "unique_terms": 167,
+      "total_terms": 1096
+    },
+    {
+      "id": "379",
+      "unique_terms": 355,
+      "total_terms": 2977
+    },
+    {
+      "id": "38",
+      "unique_terms": 377,
+      "total_terms": 2151
+    },
+    {
+      "id": "380",
+      "unique_terms": 225,
+      "total_terms": 1480
+    },
+    {
+      "id": "381",
+      "unique_terms": 64,
+      "total_terms": 426
+    },
+    {
+      "id": "382",
+      "unique_terms": 66,
+      "total_terms": 444
+    },
+    {
+      "id": "383",
+      "unique_terms": 106,
+      "total_terms": 459
+    },
+    {
+      "id": "384",
+      "unique_terms": 39,
+      "total_terms": 207
+    },
+    {
+      "id": "385",
+      "unique_terms": 40,
+      "total_terms": 224
+    },
+    {
+      "id": "386",
+      "unique_terms": 75,
+      "total_terms": 434
+    },
+    {
+      "id": "387",
+      "unique_terms": 64,
+      "total_terms": 361
+    },
+    {
+      "id": "388",
+      "unique_terms": 357,
+      "total_terms": 2430
+    },
+    {
+      "id": "389",
+      "unique_terms": 97,
+      "total_terms": 679
+    },
+    {
+      "id": "39",
+      "unique_terms": 78,
+      "total_terms": 308
+    },
+    {
+      "id": "390",
+      "unique_terms": 86,
+      "total_terms": 613
+    },
+    {
+      "id": "392",
+      "unique_terms": 104,
+      "total_terms": 566
+    },
+    {
+      "id": "42",
+      "unique_terms": 64,
+      "total_terms": 159
+    },
+    {
+      "id": "43",
+      "unique_terms": 27,
+      "total_terms": 98
+    },
+    {
+      "id": "431",
+      "unique_terms": 352,
+      "total_terms": 2289
+    },
+    {
+      "id": "433",
+      "unique_terms": 72,
+      "total_terms": 234
+    },
+    {
+      "id": "434",
+      "unique_terms": 205,
+      "total_terms": 1101
+    },
+    {
+      "id": "44",
+      "unique_terms": 93,
+      "total_terms": 515
+    },
+    {
+      "id": "442",
+      "unique_terms": 204,
+      "total_terms": 1014
+    },
+    {
+      "id": "443",
+      "unique_terms": 281,
+      "total_terms": 1588
+    },
+    {
+      "id": "45",
+      "unique_terms": 134,
+      "total_terms": 685
+    },
+    {
+      "id": "46",
+      "unique_terms": 166,
+      "total_terms": 772
+    },
+    {
+      "id": "47",
+      "unique_terms": 307,
+      "total_terms": 1884
+    },
+    {
+      "id": "48",
+      "unique_terms": 96,
+      "total_terms": 559
+    },
+    {
+      "id": "49",
+      "unique_terms": 79,
+      "total_terms": 347
+    },
+    {
+      "id": "50",
+      "unique_terms": 120,
+      "total_terms": 396
+    },
+    {
+      "id": "52",
+      "unique_terms": 369,
+      "total_terms": 1621
+    },
+    {
+      "id": "53",
+      "unique_terms": 187,
+      "total_terms": 982
+    },
+    {
+      "id": "54",
+      "unique_terms": 279,
+      "total_terms": 1257
+    },
+    {
+      "id": "60",
+      "unique_terms": 80,
+      "total_terms": 247
+    },
+    {
+      "id": "61",
+      "unique_terms": 78,
+      "total_terms": 278
+    },
+    {
+      "id": "62",
+      "unique_terms": 190,
+      "total_terms": 830
+    },
+    {
+      "id": "64",
+      "unique_terms": 72,
+      "total_terms": 245
+    },
+    {
+      "id": "65",
+      "unique_terms": 192,
+      "total_terms": 748
+    },
+    {
+      "id": "66",
+      "unique_terms": 133,
+      "total_terms": 636
+    },
+    {
+      "id": "67",
+      "unique_terms": 100,
+      "total_terms": 377
+    },
+    {
+      "id": "68",
+      "unique_terms": 212,
+      "total_terms": 1080
+    },
+    {
+      "id": "69",
+      "unique_terms": 148,
+      "total_terms": 659
+    },
+    {
+      "id": "70",
+      "unique_terms": 232,
+      "total_terms": 1126
+    },
+    {
+      "id": "71",
+      "unique_terms": 19,
+      "total_terms": 66
+    },
+    {
+      "id": "72",
+      "unique_terms": 42,
+      "total_terms": 149
+    },
+    {
+      "id": "73",
+      "unique_terms": 59,
+      "total_terms": 274
+    },
+    {
+      "id": "74",
+      "unique_terms": 84,
+      "total_terms": 342
+    },
+    {
+      "id": "75",
+      "unique_terms": 379,
+      "total_terms": 2248
+    },
+    {
+      "id": "77",
+      "unique_terms": 430,
+      "total_terms": 2617
+    },
+    {
+      "id": "78",
+      "unique_terms": 399,
+      "total_terms": 2691
+    },
+    {
+      "id": "79",
+      "unique_terms": 145,
+      "total_terms": 610
+    },
+    {
+      "id": "8",
+      "unique_terms": 218,
+      "total_terms": 1073
+    },
+    {
+      "id": "80",
+      "unique_terms": 51,
+      "total_terms": 160
+    },
+    {
+      "id": "81",
+      "unique_terms": 42,
+      "total_terms": 150
+    },
+    {
+      "id": "83",
+      "unique_terms": 101,
+      "total_terms": 374
+    },
+    {
+      "id": "84",
+      "unique_terms": 68,
+      "total_terms": 287
+    },
+    {
+      "id": "85",
+      "unique_terms": 287,
+      "total_terms": 1601
+    },
+    {
+      "id": "86",
+      "unique_terms": 69,
+      "total_terms": 300
+    },
+    {
+      "id": "87",
+      "unique_terms": 177,
+      "total_terms": 971
+    },
+    {
+      "id": "88",
+      "unique_terms": 194,
+      "total_terms": 999
+    },
+    {
+      "id": "89",
+      "unique_terms": 393,
+      "total_terms": 2904
+    },
+    {
+      "id": "9",
+      "unique_terms": 201,
+      "total_terms": 889
+    },
+    {
+      "id": "90",
+      "unique_terms": 105,
+      "total_terms": 418
+    },
+    {
+      "id": "91",
+      "unique_terms": 110,
+      "total_terms": 456
+    },
+    {
+      "id": "93",
+      "unique_terms": 397,
+      "total_terms": 2961
+    },
+    {
+      "id": "94",
+      "unique_terms": 143,
+      "total_terms": 653
+    },
+    {
+      "id": "98",
+      "unique_terms": 295,
+      "total_terms": 1510
+    },
+    {
+      "id": "99",
+      "unique_terms": 247,
+      "total_terms": 1079
+    }
+  ]
+}
