@@ -2,7 +2,7 @@
 
 ## Overview
 
-CDV Explorer is an ecosystem-agnostic proposal analysis pipeline.
+CDV Explorer is an ecosystem-agnostic improvement proposal mining and analysis pipeline.
 
 Bitcoin is the first implemented adapter, using the BIP repository as source.
 The same architecture is intended to support additional ecosystems later.
