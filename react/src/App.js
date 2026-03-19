@@ -1275,7 +1275,14 @@ function EcosystemDashboard() {
       </section>
       <section className="dashboard-section">
         <div className="dashboard-section__header">
-          <h2 className="dashboard-section__title">Formal Conformity</h2>
+          <h2 className="dashboard-section__title">
+            Formal Conformity
+            <Tag
+              className="dashboard-section__tag"
+              severity="warning"
+              value="Experimental"
+            />
+          </h2>
         </div>
         <Card className="mb-4">
           <h3>Definition</h3>

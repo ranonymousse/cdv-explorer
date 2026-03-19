@@ -206,6 +206,7 @@
 .dashboard-section__title {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
   margin: 0;
   padding: 0.9rem 1.35rem;
   border-radius: 1rem;
@@ -214,6 +215,10 @@
   box-shadow: inset 5px 0 0 var(--primary-color), var(--app-shadow);
   letter-spacing: 0.01em;
   line-height: 1;
+  flex: 0 0 auto;
+}
+
+.dashboard-section__tag {
   flex: 0 0 auto;
 }
 
@@ -231,6 +236,7 @@
   .dashboard-section__title {
     width: 100%;
     padding: 0.8rem 1.05rem;
+    justify-content: space-between;
   }
 
   .dashboard-section__header::after {
