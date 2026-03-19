@@ -27,7 +27,7 @@
   "metadata": {
     "last_commit": "Wed Jun 18 14:56:02 2025 -0700",
     "total_commits": 8,
-    "metadata_last_updated": "2026-03-18T16:07:33",
+    "metadata_last_updated": "2026-03-19T14:29:21",
     "git_history": [
       [
         "bc66fdb1664781eacfa23c9077f268eb918103e2",
@@ -73,17 +73,17 @@
     "contributors": 5
   },
   "compliance": {
-    "score": 82.86,
-    "passed_checks": 29,
-    "failed_checks": 6,
+    "score": 90.0,
+    "passed_checks": 27,
+    "failed_checks": 3,
     "skipped_checks": 11,
-    "total_checks": 35,
+    "total_checks": 30,
     "bip2": {
-      "score": 82.35,
-      "passed_checks": 14,
-      "failed_checks": 3,
+      "score": 100.0,
+      "passed_checks": 12,
+      "failed_checks": 0,
       "skipped_checks": 0,
-      "total_checks": 17,
+      "total_checks": 12,
       "checks": [
         {
           "id": "bip2.required_field.bip",
@@ -174,52 +174,12 @@
           "details": null
         },
         {
-          "id": "bip2.heading.rationale",
-          "label": "Heading 'rationale' exists at level 2",
-          "category": "heading",
-          "standard": "bip2",
-          "passed": false,
-          "details": "Missing heading 'rationale'"
-        },
-        {
-          "id": "bip2.heading.backwards_compatibility",
-          "label": "Heading 'backwards compatibility' exists at level 2",
-          "category": "heading",
-          "standard": "bip2",
-          "passed": true,
-          "details": null
-        },
-        {
-          "id": "bip2.heading.reference_implementation",
-          "label": "Heading 'reference implementation' exists at level 2",
-          "category": "heading",
-          "standard": "bip2",
-          "passed": true,
-          "details": null
-        },
-        {
-          "id": "bip2.heading.security_considerations",
-          "label": "Heading 'security considerations' exists at level 2",
-          "category": "heading",
-          "standard": "bip2",
-          "passed": false,
-          "details": "Missing heading 'security considerations'"
-        },
-        {
           "id": "bip2.heading.copyright",
           "label": "Heading 'copyright' exists at level 2",
           "category": "heading",
           "standard": "bip2",
           "passed": true,
           "details": null
-        },
-        {
-          "id": "bip2.heading.references",
-          "label": "Heading 'references' exists at level 2",
-          "category": "heading",
-          "standard": "bip2",
-          "passed": false,
-          "details": "Missing heading 'references'"
         }
       ]
     },

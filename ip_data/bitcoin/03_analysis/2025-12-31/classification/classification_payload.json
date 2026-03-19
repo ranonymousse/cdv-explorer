@@ -1,10 +1,9 @@
 {
   "meta": {
-    "node_count": 182,
+    "node_count": 188,
     "generated_metrics": [
       "sankey_full",
       "sankey_grouped",
-      "status_distribution_by_layer",
       "status_over_time"
     ]
   },
@@ -23,17 +22,17 @@
       {
         "source": "Draft",
         "target": "Standards Track",
-        "count": 25
+        "count": 29
+      },
+      {
+        "source": "Applications",
+        "target": "Draft",
+        "count": 23
       },
       {
         "source": "Rejected",
         "target": "Standards Track",
         "count": 22
-      },
-      {
-        "source": "Applications",
-        "target": "Draft",
-        "count": 21
       },
       {
         "source": "Consensus (soft fork)",
@@ -56,6 +55,11 @@
         "count": 13
       },
       {
+        "source": "Consensus (soft fork)",
+        "target": "Draft",
+        "count": 13
+      },
+      {
         "source": "Final",
         "target": "Informational",
         "count": 12
@@ -66,14 +70,9 @@
         "count": 11
       },
       {
-        "source": "Consensus (soft fork)",
-        "target": "Draft",
-        "count": 10
-      },
-      {
         "source": "Draft",
         "target": "Informational",
-        "count": 10
+        "count": 11
       },
       {
         "source": "Consensus (hard fork)",
@@ -217,7 +216,12 @@
       {
         "source": "Draft",
         "target": "Standards Track",
-        "count": 26
+        "count": 30
+      },
+      {
+        "source": "Applications",
+        "target": "Draft",
+        "count": 23
       },
       {
         "source": "Rejected",
@@ -225,14 +229,14 @@
         "count": 22
       },
       {
-        "source": "Applications",
-        "target": "Draft",
-        "count": 21
-      },
-      {
         "source": "Consensus (soft fork)",
         "target": "Final",
         "count": 17
+      },
+      {
+        "source": "Draft",
+        "target": "Informational",
+        "count": 16
       },
       {
         "source": "Final",
@@ -245,11 +249,6 @@
         "count": 16
       },
       {
-        "source": "Draft",
-        "target": "Informational",
-        "count": 15
-      },
-      {
         "source": "Withdrawn",
         "target": "Standards Track",
         "count": 13
@@ -260,14 +259,14 @@
         "count": 13
       },
       {
+        "source": "Consensus (soft fork)",
+        "target": "Draft",
+        "count": 13
+      },
+      {
         "source": "Proposed",
         "target": "Standards Track",
         "count": 11
-      },
-      {
-        "source": "Consensus (soft fork)",
-        "target": "Draft",
-        "count": 10
       },
       {
         "source": "Consensus (hard fork)",
@@ -390,6 +389,16 @@
         "count": 1
       },
       {
+        "source": "Other",
+        "target": "Proposed",
+        "count": 1
+      },
+      {
+        "source": "Proposed",
+        "target": "Process",
+        "count": 1
+      },
+      {
         "source": "Withdrawn",
         "target": "Informational",
         "count": 1
@@ -450,51 +459,6 @@
         "count": 1
       }
     ]
-  },
-  "status_distribution_by_layer": {
-    "API/RPC": {
-      "Draft": 1,
-      "Final": 3
-    },
-    "Applications": {
-      "Deferred": 1,
-      "Draft": 21,
-      "Final": 33,
-      "Proposed": 13,
-      "Rejected": 7,
-      "Replaced": 3,
-      "Withdrawn": 4
-    },
-    "Consensus (hard fork)": {
-      "Draft": 1,
-      "Rejected": 9,
-      "Withdrawn": 2
-    },
-    "Consensus (soft fork)": {
-      "Draft": 10,
-      "Final": 17,
-      "Proposed": 1,
-      "Rejected": 3,
-      "Withdrawn": 6
-    },
-    "Peer Services": {
-      "Deferred": 1,
-      "Draft": 2,
-      "Final": 16,
-      "Obsolete": 1,
-      "Rejected": 5,
-      "Replaced": 1,
-      "Withdrawn": 2
-    },
-    "Unknown": {
-      "Active": 2,
-      "Deferred": 2,
-      "Draft": 6,
-      "Final": 5,
-      "Rejected": 2,
-      "Replaced": 1,
-      "Withdrawn": 1
-    }
   },
   "status_over_time": {
     "2011": {
@@ -570,17 +534,18 @@
       "Proposed": 1
     },
     "2023": {
-      "Draft": 2,
+      "Draft": 4,
       "Proposed": 1,
       "Withdrawn": 1
     },
     "2024": {
-      "Draft": 4,
+      "Draft": 6,
       "Final": 2,
       "Proposed": 4
     },
     "2025": {
-      "Draft": 5
+      "Draft": 6,
+      "Proposed": 1
     }
   }
 }

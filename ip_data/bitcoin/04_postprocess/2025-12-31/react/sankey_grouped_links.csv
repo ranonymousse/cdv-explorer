@@ -1,17 +1,17 @@
 source,target,count
 Final,Standards Track,58
 Applications,Final,33
-Draft,Standards Track,26
+Draft,Standards Track,30
+Applications,Draft,23
 Rejected,Standards Track,22
-Applications,Draft,21
 Consensus (soft fork),Final,17
+Draft,Informational,16
 Final,Informational,16
 Peer Services,Final,16
-Draft,Informational,15
 Withdrawn,Standards Track,13
 Applications,Proposed,13
+Consensus (soft fork),Draft,13
 Proposed,Standards Track,11
-Consensus (soft fork),Draft,10
 Consensus (hard fork),Rejected,9
 Applications,Rejected,7
 Other,Draft,6
@@ -36,6 +36,8 @@ Peer Services,Withdrawn,2
 Peer Services,Draft,2
 Other,Replaced,1
 Replaced,Process,1
+Other,Proposed,1
+Proposed,Process,1
 Withdrawn,Informational,1
 Applications,Deferred,1
 Consensus (soft fork),Proposed,1

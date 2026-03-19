@@ -1,7 +1,7 @@
 {
   "meta": {
-    "proposal_count": 182,
-    "unique_terms_total": 7419,
+    "proposal_count": 188,
+    "unique_terms_total": 7674,
     "top_n": 200,
     "generated_metrics": [
       "top_words",
@@ -11,7 +11,7 @@
   "top_words": [
     {
       "word": "code",
-      "count": 4240
+      "count": 4256
     },
     {
       "word": "tt",
@@ -19,286 +19,330 @@
     },
     {
       "word": "bip",
-      "count": 2606
+      "count": 3029
     },
     {
       "word": "0",
-      "count": 2146
+      "count": 2250
     },
     {
       "word": "key",
-      "count": 2044
+      "count": 2150
     },
     {
       "word": "bitcoin",
-      "count": 1974
+      "count": 2129
     },
     {
       "word": "1",
-      "count": 1900
-    },
-    {
-      "word": "transaction",
-      "count": 1701
+      "count": 2002
     },
     {
       "word": "sub",
-      "count": 1619
+      "count": 1914
+    },
+    {
+      "word": "transaction",
+      "count": 1759
     },
     {
       "word": "2",
-      "count": 1353
+      "count": 1414
     },
     {
       "word": "pre",
       "count": 1335
     },
     {
-      "word": "block",
-      "count": 1238
-    },
-    {
       "word": "https",
-      "count": 1178
+      "count": 1307
     },
     {
-      "word": "script",
-      "count": 1053
+      "word": "block",
+      "count": 1287
     },
     {
       "word": "s",
-      "count": 1042
+      "count": 1200
     },
     {
-      "word": "public",
-      "count": 959
+      "word": "script",
+      "count": 1097
     },
     {
       "word": "com",
-      "count": 957
+      "count": 1035
+    },
+    {
+      "word": "public",
+      "count": 1001
     },
     {
       "word": "transactions",
-      "count": 889
-    },
-    {
-      "word": "hash",
-      "count": 842
+      "count": 915
     },
     {
       "word": "bytes",
-      "count": 832
+      "count": 871
     },
     {
       "word": "byte",
-      "count": 832
+      "count": 861
+    },
+    {
+      "word": "hash",
+      "count": 851
     },
     {
       "word": "output",
-      "count": 832
+      "count": 839
     },
     {
       "word": "version",
-      "count": 797
+      "count": 831
     },
     {
       "word": "comments",
-      "count": 755
+      "count": 786
+    },
+    {
+      "word": "use",
+      "count": 765
+    },
+    {
+      "word": "data",
+      "count": 756
     },
     {
       "word": "ref",
       "count": 747
     },
     {
-      "word": "data",
-      "count": 744
-    },
-    {
-      "word": "use",
-      "count": 735
+      "word": "new",
+      "count": 738
     },
     {
       "word": "message",
-      "count": 719
+      "count": 737
     },
     {
       "word": "signature",
-      "count": 701
-    },
-    {
-      "word": "address",
-      "count": 698
-    },
-    {
-      "word": "new",
-      "count": 687
+      "count": 736
     },
     {
       "word": "github",
-      "count": 683
+      "count": 734
     },
     {
-      "word": "input",
-      "count": 664
+      "word": "address",
+      "count": 715
     },
     {
       "word": "mediawiki",
-      "count": 640
+      "count": 682
+    },
+    {
+      "word": "input",
+      "count": 675
+    },
+    {
+      "word": "number",
+      "count": 654
     },
     {
       "word": "keys",
-      "count": 634
+      "count": 646
+    },
+    {
+      "word": "x",
+      "count": 644
     },
     {
       "word": "payment",
       "count": 628
     },
     {
-      "word": "number",
-      "count": 614
-    },
-    {
       "word": "value",
-      "count": 605
+      "count": 624
     },
     {
       "word": "size",
-      "count": 595
+      "count": 613
     },
     {
       "word": "set",
-      "count": 573
+      "count": 584
     },
     {
       "word": "type",
-      "count": 544
+      "count": 583
     },
     {
       "word": "time",
-      "count": 522
+      "count": 550
     },
     {
-      "word": "32",
-      "count": 519
+      "word": "bips",
+      "count": 541
     },
     {
       "word": "3",
-      "count": 508
+      "count": 541
+    },
+    {
+      "word": "32",
+      "count": 538
+    },
+    {
+      "word": "witness",
+      "count": 490
     },
     {
       "word": "m",
       "count": 480
     },
     {
-      "word": "witness",
-      "count": 479
+      "word": "org",
+      "count": 473
+    },
+    {
+      "word": "n",
+      "count": 456
     },
     {
       "word": "inputs",
-      "count": 438
+      "count": 453
     },
     {
       "word": "outputs",
-      "count": 433
-    },
-    {
-      "word": "wallet",
-      "count": 424
+      "count": 441
     },
     {
       "word": "following",
-      "count": 422
-    },
-    {
-      "word": "bit",
-      "count": 420
+      "count": 438
     },
     {
       "word": "blocks",
-      "count": 420
+      "count": 430
     },
     {
       "word": "protocol",
-      "count": 416
+      "count": 429
     },
     {
       "word": "4",
-      "count": 415
+      "count": 428
+    },
+    {
+      "word": "wallet",
+      "count": 427
+    },
+    {
+      "word": "bit",
+      "count": 422
     },
     {
       "word": "p",
       "count": 412
     },
     {
-      "word": "org",
-      "count": 408
-    },
-    {
-      "word": "x",
-      "count": 401
-    },
-    {
-      "word": "n",
-      "count": 394
+      "word": "implementation",
+      "count": 404
     },
     {
       "word": "peer",
-      "count": 373
-    },
-    {
-      "word": "bips",
-      "count": 372
-    },
-    {
-      "word": "implementation",
-      "count": 368
-    },
-    {
-      "word": "network",
-      "count": 365
-    },
-    {
-      "word": "string",
-      "count": 359
+      "count": 380
     },
     {
       "word": "case",
-      "count": 358
+      "count": 374
+    },
+    {
+      "word": "network",
+      "count": 372
+    },
+    {
+      "word": "string",
+      "count": 368
+    },
+    {
+      "word": "proposal",
+      "count": 365
+    },
+    {
+      "word": "e",
+      "count": 356
+    },
+    {
+      "word": "b",
+      "count": 354
     },
     {
       "word": "node",
-      "count": 348
+      "count": 353
     },
     {
       "word": "path",
-      "count": 347
+      "count": 353
     },
     {
-      "word": "index",
-      "count": 336
+      "word": "consensus",
+      "count": 351
     },
     {
-      "word": "private",
-      "count": 333
+      "word": "master",
+      "count": 346
+    },
+    {
+      "word": "valid",
+      "count": 346
+    },
+    {
+      "word": "license",
+      "count": 339
     },
     {
       "word": "return",
-      "count": 333
+      "count": 339
+    },
+    {
+      "word": "private",
+      "count": 338
+    },
+    {
+      "word": "index",
+      "count": 338
     },
     {
       "word": "derivation",
       "count": 332
     },
     {
-      "word": "valid",
-      "count": 324
+      "word": "g",
+      "count": 329
     },
     {
-      "word": "master",
-      "count": 322
+      "word": "k",
+      "count": 328
     },
     {
-      "word": "consensus",
+      "word": "non",
+      "count": 326
+    },
+    {
+      "word": "user",
+      "count": 321
+    },
+    {
+      "word": "standard",
+      "count": 320
+    },
+    {
+      "word": "t",
+      "count": 319
+    },
+    {
+      "word": "signatures",
       "count": 319
     },
     {
@@ -306,27 +350,23 @@
       "count": 318
     },
     {
-      "word": "user",
-      "count": 316
-    },
-    {
-      "word": "b",
-      "count": 315
-    },
-    {
-      "word": "signatures",
-      "count": 314
+      "word": "psbt",
+      "count": 313
     },
     {
       "word": "proof",
       "count": 312
     },
     {
-      "word": "g",
+      "word": "bits",
       "count": 310
     },
     {
-      "word": "bits",
+      "word": "format",
+      "count": 309
+    },
+    {
+      "word": "example",
       "count": 308
     },
     {
@@ -334,83 +374,75 @@
       "count": 308
     },
     {
-      "word": "standard",
+      "word": "change",
       "count": 306
     },
     {
-      "word": "e",
-      "count": 305
-    },
-    {
-      "word": "t",
-      "count": 297
+      "word": "order",
+      "count": 301
     },
     {
       "word": "style",
       "count": 297
     },
     {
-      "word": "format",
-      "count": 294
+      "word": "addresses",
+      "count": 295
     },
     {
       "word": "nodes",
-      "count": 293
+      "count": 295
     },
     {
-      "word": "change",
-      "count": 292
-    },
-    {
-      "word": "proposal",
+      "word": "sender",
       "count": 291
     },
     {
-      "word": "example",
-      "count": 290
-    },
-    {
-      "word": "order",
+      "word": "field",
       "count": 288
     },
     {
-      "word": "addresses",
-      "count": 287
+      "word": "messages",
+      "count": 286
     },
     {
-      "word": "k",
-      "count": 287
-    },
-    {
-      "word": "non",
+      "word": "receiver",
       "count": 282
     },
     {
-      "word": "field",
-      "count": 273
+      "word": "stack",
+      "count": 281
     },
     {
-      "word": "messages",
-      "count": 272
+      "word": "specification",
+      "count": 277
     },
     {
       "word": "length",
-      "count": 270
-    },
-    {
-      "word": "psbt",
-      "count": 267
-    },
-    {
-      "word": "license",
-      "count": 258
-    },
-    {
-      "word": "sup",
-      "count": 254
+      "count": 274
     },
     {
       "word": "defined",
+      "count": 262
+    },
+    {
+      "word": "required",
+      "count": 260
+    },
+    {
+      "word": "list",
+      "count": 259
+    },
+    {
+      "word": "sup",
+      "count": 256
+    },
+    {
+      "word": "scripts",
+      "count": 256
+    },
+    {
+      "word": "possible",
       "count": 252
     },
     {
@@ -418,187 +450,203 @@
       "count": 251
     },
     {
-      "word": "required",
+      "word": "blob",
       "count": 250
     },
     {
-      "word": "stack",
-      "count": 247
-    },
-    {
-      "word": "sender",
-      "count": 245
-    },
-    {
-      "word": "taproot",
-      "count": 242
-    },
-    {
-      "word": "possible",
-      "count": 241
+      "word": "rules",
+      "count": 248
     },
     {
       "word": "tree",
-      "count": 241
+      "count": 248
     },
     {
-      "word": "specification",
-      "count": 236
+      "word": "taproot",
+      "count": 248
     },
     {
       "word": "information",
-      "count": 236
-    },
-    {
-      "word": "fork",
-      "count": 235
+      "count": 247
     },
     {
       "word": "support",
-      "count": 235
+      "count": 247
     },
     {
-      "word": "scripts",
-      "count": 235
+      "word": "request",
+      "count": 246
+    },
+    {
+      "word": "fork",
+      "count": 246
     },
     {
       "word": "single",
+      "count": 239
+    },
+    {
+      "word": "r",
+      "count": 239
+    },
+    {
+      "word": "based",
+      "count": 235
+    },
+    {
+      "word": "header",
       "count": 234
+    },
+    {
+      "word": "sha256",
+      "count": 233
+    },
+    {
+      "word": "clients",
+      "count": 231
     },
     {
       "word": "hex",
       "count": 230
     },
     {
-      "word": "rules",
-      "count": 229
+      "word": "invalid",
+      "count": 226
     },
     {
-      "word": "r",
-      "count": 229
-    },
-    {
-      "word": "blob",
-      "count": 225
-    },
-    {
-      "word": "clients",
-      "count": 224
-    },
-    {
-      "word": "sha256",
-      "count": 224
+      "word": "encoded",
+      "count": 226
     },
     {
       "word": "secret",
       "count": 224
     },
     {
-      "word": "receiver",
+      "word": "different",
       "count": 223
     },
     {
-      "word": "list",
-      "count": 221
-    },
-    {
-      "word": "based",
-      "count": 217
-    },
-    {
-      "word": "invalid",
-      "count": 216
-    },
-    {
-      "word": "encoded",
-      "count": 214
-    },
-    {
-      "word": "pubkey",
-      "count": 212
+      "word": "c",
+      "count": 220
     },
     {
       "word": "spend",
-      "count": 211
+      "count": 219
     },
     {
-      "word": "different",
-      "count": 211
+      "word": "software",
+      "count": 218
     },
     {
-      "word": "5",
-      "count": 211
-    },
-    {
-      "word": "c",
-      "count": 209
-    },
-    {
-      "word": "8",
-      "count": 208
-    },
-    {
-      "word": "request",
-      "count": 205
+      "word": "reference",
+      "count": 217
     },
     {
       "word": "client",
+      "count": 217
+    },
+    {
+      "word": "pubkey",
+      "count": 216
+    },
+    {
+      "word": "5",
+      "count": 215
+    },
+    {
+      "word": "8",
+      "count": 214
+    },
+    {
+      "word": "future",
+      "count": 211
+    },
+    {
+      "word": "values",
+      "count": 204
+    },
+    {
+      "word": "allow",
+      "count": 203
+    },
+    {
+      "word": "fee",
       "count": 202
+    },
+    {
+      "word": "server",
+      "count": 201
     },
     {
       "word": "signer",
       "count": 201
     },
     {
-      "word": "fee",
-      "count": 200
-    },
-    {
-      "word": "software",
-      "count": 199
-    },
-    {
-      "word": "values",
-      "count": 199
-    },
-    {
-      "word": "allow",
-      "count": 198
-    },
-    {
-      "word": "future",
-      "count": 198
+      "word": "allows",
+      "count": 197
     },
     {
       "word": "peers",
       "count": 196
     },
     {
-      "word": "server",
+      "word": "algorithm",
+      "count": 195
+    },
+    {
+      "word": "h",
+      "count": 195
+    },
+    {
+      "word": "height",
       "count": 194
     },
     {
-      "word": "reference",
-      "count": 192
-    },
-    {
-      "word": "allows",
-      "count": 192
-    },
-    {
-      "word": "algorithm",
-      "count": 191
-    },
-    {
       "word": "nonce",
+      "count": 192
+    },
+    {
+      "word": "bsd",
       "count": 190
+    },
+    {
+      "word": "original",
+      "count": 189
+    },
+    {
+      "word": "clause",
+      "count": 189
     },
     {
       "word": "color",
       "count": 189
     },
     {
+      "word": "process",
+      "count": 188
+    },
+    {
+      "word": "template",
+      "count": 188
+    },
+    {
+      "word": "document",
+      "count": 187
+    },
+    {
+      "word": "scriptpubkey",
+      "count": 187
+    },
+    {
+      "word": "u",
+      "count": 187
+    },
+    {
       "word": "filter",
+      "count": 187
+    },
+    {
+      "word": "64",
       "count": 187
     },
     {
@@ -606,67 +654,79 @@
       "count": 186
     },
     {
-      "word": "template",
-      "count": 184
+      "word": "id",
+      "count": 185
     },
     {
-      "word": "scriptpubkey",
-      "count": 184
+      "word": "users",
+      "count": 183
     },
     {
-      "word": "height",
-      "count": 179
+      "word": "given",
+      "count": 183
     },
     {
       "word": "signing",
-      "count": 177
+      "count": 183
     },
     {
-      "word": "id",
-      "count": 177
+      "word": "soft",
+      "count": 181
+    },
+    {
+      "word": "fail",
+      "count": 181
+    },
+    {
+      "word": "way",
+      "count": 180
+    },
+    {
+      "word": "existing",
+      "count": 180
+    },
+    {
+      "word": "encoding",
+      "count": 180
+    },
+    {
+      "word": "y",
+      "count": 179
+    },
+    {
+      "word": "multiple",
+      "count": 178
+    },
+    {
+      "word": "v",
+      "count": 178
+    },
+    {
+      "word": "merkle",
+      "count": 176
     },
     {
       "word": "bob",
       "count": 176
     },
     {
-      "word": "encoding",
+      "word": "optional",
       "count": 175
     },
     {
-      "word": "header",
+      "word": "uri",
       "count": 174
     },
     {
-      "word": "way",
-      "count": 174
+      "word": "text",
+      "count": 173
     },
     {
-      "word": "given",
-      "count": 172
+      "word": "pk",
+      "count": 173
     },
     {
-      "word": "soft",
-      "count": 172
-    },
-    {
-      "word": "bsd",
-      "count": 171
-    },
-    {
-      "word": "fail",
-      "count": 171
-    },
-    {
-      "word": "h",
-      "count": 171
-    },
-    {
-      "word": "document",
-      "count": 170
-    },
-    {
-      "word": "clause",
+      "word": "test",
       "count": 170
     },
     {
@@ -674,11 +734,19 @@
       "count": 170
     },
     {
-      "word": "users",
+      "word": "created",
       "count": 169
     },
     {
-      "word": "text",
+      "word": "limit",
+      "count": 169
+    },
+    {
+      "word": "instead",
+      "count": 168
+    },
+    {
+      "word": "deployment",
       "count": 168
     },
     {
@@ -686,35 +754,23 @@
       "count": 168
     },
     {
-      "word": "pk",
-      "count": 168
-    },
-    {
-      "word": "merkle",
-      "count": 167
-    },
-    {
-      "word": "64",
-      "count": 167
-    },
-    {
-      "word": "multiple",
-      "count": 165
-    },
-    {
-      "word": "deployment",
+      "word": "html",
       "count": 164
     },
     {
-      "word": "existing",
-      "count": 163
-    },
-    {
-      "word": "optional",
-      "count": 162
+      "word": "encryption",
+      "count": 164
     },
     {
       "word": "sent",
+      "count": 161
+    },
+    {
+      "word": "compatibility",
+      "count": 161
+    },
+    {
+      "word": "specified",
       "count": 161
     },
     {
@@ -722,7 +778,11 @@
       "count": 161
     },
     {
-      "word": "v",
+      "word": "need",
+      "count": 160
+    },
+    {
+      "word": "result",
       "count": 160
     },
     {
@@ -730,84 +790,24 @@
       "count": 160
     },
     {
-      "word": "created",
+      "word": "types",
       "count": 159
     },
     {
-      "word": "limit",
-      "count": 158
-    },
-    {
-      "word": "center",
-      "count": 158
-    },
-    {
-      "word": "scheme",
-      "count": 157
-    },
-    {
-      "word": "send",
-      "count": 156
-    },
-    {
       "word": "extended",
-      "count": 156
+      "count": 159
     },
     {
-      "word": "policy",
-      "count": 156
-    },
-    {
-      "word": "descriptor",
-      "count": 156
-    },
-    {
-      "word": "test",
-      "count": 155
-    },
-    {
-      "word": "result",
-      "count": 154
-    },
-    {
-      "word": "specified",
-      "count": 154
-    },
-    {
-      "word": "need",
-      "count": 153
-    },
-    {
-      "word": "second",
-      "count": 152
-    },
-    {
-      "word": "encryption",
-      "count": 152
-    },
-    {
-      "word": "bech32",
-      "count": 152
+      "word": "relay",
+      "count": 159
     },
     {
       "word": "miners",
-      "count": 151
+      "count": 158
     },
     {
-      "word": "blockchain",
-      "count": 151
-    },
-    {
-      "word": "checksum",
-      "count": 151
-    },
-    {
-      "word": "p2sh",
-      "count": 151
-    },
-    {
-      "word": "u",
-      "count": 151
+      "word": "policy",
+      "count": 158
     }
   ],
   "per_proposal": [
@@ -1222,6 +1222,11 @@
       "total_terms": 1004
     },
     {
+      "id": "3",
+      "unique_terms": 610,
+      "total_terms": 4090
+    },
+    {
       "id": "30",
       "unique_terms": 66,
       "total_terms": 221
@@ -1362,6 +1367,16 @@
       "total_terms": 719
     },
     {
+      "id": "348",
+      "unique_terms": 114,
+      "total_terms": 443
+    },
+    {
+      "id": "349",
+      "unique_terms": 64,
+      "total_terms": 234
+    },
+    {
       "id": "35",
       "unique_terms": 26,
       "total_terms": 87
@@ -1425,6 +1440,11 @@
       "id": "375",
       "unique_terms": 168,
       "total_terms": 1103
+    },
+    {
+      "id": "379",
+      "unique_terms": 358,
+      "total_terms": 2990
     },
     {
       "id": "38",
@@ -1557,6 +1577,11 @@
       "total_terms": 989
     },
     {
+      "id": "54",
+      "unique_terms": 281,
+      "total_terms": 1268
+    },
+    {
       "id": "60",
       "unique_terms": 78,
       "total_terms": 243
@@ -1630,6 +1655,11 @@
       "id": "75",
       "unique_terms": 381,
       "total_terms": 2252
+    },
+    {
+      "id": "77",
+      "unique_terms": 441,
+      "total_terms": 2700
     },
     {
       "id": "78",

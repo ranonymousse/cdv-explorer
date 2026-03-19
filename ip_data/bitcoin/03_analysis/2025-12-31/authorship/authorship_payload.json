@@ -1,7 +1,7 @@
 {
   "meta": {
-    "node_count": 182,
-    "author_count": 133,
+    "node_count": 188,
+    "author_count": 139,
     "generated_metrics": [
       "top_authors",
       "bips_per_year",
@@ -14,11 +14,11 @@
   "top_authors": [
     {
       "author": "Pieter Wuille",
-      "count": 26
+      "count": 27
     },
     {
       "author": "Ava Chow",
-      "count": 17
+      "count": 18
     },
     {
       "author": "Luke Dashjr",
@@ -29,12 +29,12 @@
       "count": 12
     },
     {
-      "author": "BtcDrak",
+      "author": "Matt Corallo",
       "count": 7
     },
     {
-      "author": "Matt Corallo",
-      "count": 6
+      "author": "BtcDrak",
+      "count": 7
     },
     {
       "author": "Mark Friedenbach",
@@ -124,29 +124,29 @@
     },
     {
       "year": 2023,
-      "count": 4
+      "count": 6
     },
     {
       "year": 2024,
-      "count": 10
+      "count": 12
     },
     {
       "year": 2025,
-      "count": 5
+      "count": 7
     }
   ],
   "author_contribution_histogram": [
     {
       "bips_written": 1,
-      "authors": 90
+      "authors": 92
     },
     {
       "bips_written": 2,
-      "authors": 17
+      "authors": 20
     },
     {
       "bips_written": 3,
-      "authors": 8
+      "authors": 9
     },
     {
       "bips_written": 4,
@@ -158,11 +158,11 @@
     },
     {
       "bips_written": 6,
-      "authors": 4
+      "authors": 3
     },
     {
       "bips_written": 7,
-      "authors": 1
+      "authors": 2
     },
     {
       "bips_written": 12,
@@ -173,18 +173,18 @@
       "authors": 1
     },
     {
-      "bips_written": 17,
+      "bips_written": 18,
       "authors": 1
     },
     {
-      "bips_written": 26,
+      "bips_written": 27,
       "authors": 1
     }
   ],
   "top_10_share": {
-    "total_bips": 182,
-    "bips_by_top_10_authors": 104,
-    "percentage": 57.14
+    "total_bips": 188,
+    "bips_by_top_10_authors": 107,
+    "percentage": 56.91
   },
   "collaboration_network": {
     "nodes": [
@@ -202,7 +202,7 @@
       },
       {
         "id": "Pieter Wuille",
-        "degree": 12
+        "degree": 15
       },
       {
         "id": "Greg Maxwell",
@@ -222,7 +222,7 @@
       },
       {
         "id": "Matt Corallo",
-        "degree": 4
+        "degree": 5
       },
       {
         "id": "Nils Schneider",
@@ -281,6 +281,10 @@
         "degree": 1
       },
       {
+        "id": "Antoine Poinsot",
+        "degree": 5
+      },
+      {
         "id": "Jean-Pierre Rupp",
         "degree": 2
       },
@@ -325,6 +329,14 @@
         "degree": 3
       },
       {
+        "id": "Dan Gould",
+        "degree": 1
+      },
+      {
+        "id": "Yuval Kogman",
+        "degree": 1
+      },
+      {
         "id": "Jimmy Song",
         "degree": 1
       },
@@ -342,7 +354,7 @@
       },
       {
         "id": "Andrew Poelstra",
-        "degree": 1
+        "degree": 5
       },
       {
         "id": "Leon Olsson Curr and Pearlwort Sneed",
@@ -545,6 +557,14 @@
         "degree": 1
       },
       {
+        "id": "Brandon Black",
+        "degree": 1
+      },
+      {
+        "id": "Jeremy Rubin",
+        "degree": 1
+      },
+      {
         "id": "Alfred Hodler",
         "degree": 1
       },
@@ -574,7 +594,11 @@
       },
       {
         "id": "Ava Chow",
-        "degree": 3
+        "degree": 6
+      },
+      {
+        "id": "Sanket Kanjalkar",
+        "degree": 4
       }
     ],
     "edges": [
@@ -665,8 +689,23 @@
       },
       {
         "source": "Pieter Wuille",
+        "target": "Andrew Poelstra",
+        "weight": 1
+      },
+      {
+        "source": "Pieter Wuille",
+        "target": "Sanket Kanjalkar",
+        "weight": 1
+      },
+      {
+        "source": "Pieter Wuille",
+        "target": "Antoine Poinsot",
+        "weight": 1
+      },
+      {
+        "source": "Pieter Wuille",
         "target": "Ava Chow",
-        "weight": 8
+        "weight": 9
       },
       {
         "source": "Greg Maxwell",
@@ -686,6 +725,11 @@
       {
         "source": "Matt Corallo",
         "target": "Mike Hearn",
+        "weight": 1
+      },
+      {
+        "source": "Matt Corallo",
+        "target": "Antoine Poinsot",
         "weight": 1
       },
       {
@@ -779,6 +823,21 @@
         "weight": 1
       },
       {
+        "source": "Antoine Poinsot",
+        "target": "Andrew Poelstra",
+        "weight": 1
+      },
+      {
+        "source": "Antoine Poinsot",
+        "target": "Sanket Kanjalkar",
+        "weight": 1
+      },
+      {
+        "source": "Antoine Poinsot",
+        "target": "Ava Chow",
+        "weight": 1
+      },
+      {
         "source": "Jean-Pierre Rupp",
         "target": "Thomas Kerin",
         "weight": 1
@@ -864,6 +923,11 @@
         "weight": 1
       },
       {
+        "source": "Dan Gould",
+        "target": "Yuval Kogman",
+        "weight": 1
+      },
+      {
         "source": "Jimmy Song",
         "target": "Justus Ranvier",
         "weight": 2
@@ -876,6 +940,16 @@
       {
         "source": "Andrew Poelstra",
         "target": "Leon Olsson Curr and Pearlwort Sneed",
+        "weight": 1
+      },
+      {
+        "source": "Andrew Poelstra",
+        "target": "Sanket Kanjalkar",
+        "weight": 1
+      },
+      {
+        "source": "Andrew Poelstra",
+        "target": "Ava Chow",
         "weight": 1
       },
       {
@@ -1139,6 +1213,11 @@
         "weight": 1
       },
       {
+        "source": "Brandon Black",
+        "target": "Jeremy Rubin",
+        "weight": 2
+      },
+      {
         "source": "Alfred Hodler",
         "target": "Clark Moody",
         "weight": 1
@@ -1177,688 +1256,735 @@
         "source": "Andrew Toth",
         "target": "Ava Chow",
         "weight": 1
+      },
+      {
+        "source": "Ava Chow",
+        "target": "Sanket Kanjalkar",
+        "weight": 1
       }
     ]
   },
   "collaboration_centrality": [
     {
-      "author": "Andrew Miller",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0,
-      "closeness": 0.052083333333333336,
-      "eigenvector": 0.4082482656188283
-    },
-    {
-      "author": "Brad Denby",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0,
-      "closeness": 0.052083333333333336,
-      "eigenvector": 0.4082482656188283
-    },
-    {
-      "author": "Giulia Fanti",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0,
-      "closeness": 0.052083333333333336,
-      "eigenvector": 0.4082482656188283
-    },
-    {
-      "author": "Surya Bakshi",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0,
-      "closeness": 0.052083333333333336,
-      "eigenvector": 0.4082482656188283
-    },
-    {
-      "author": "Shaileshh Bojja Venkatakrishnan",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0,
-      "closeness": 0.052083333333333336,
-      "eigenvector": 0.4082482656188283
-    },
-    {
-      "author": "Pramod Viswanath",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0,
-      "closeness": 0.052083333333333336,
-      "eigenvector": 0.4082482656188283
-    },
-    {
       "author": "Pieter Wuille",
-      "degree": 0.125,
-      "betweenness": 0.10953947368421053,
-      "closeness": 0.18,
-      "eigenvector": 0.00019658019067888375
-    },
-    {
-      "author": "Tim Ruffing",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.0042763157894736845,
-      "closeness": 0.13106796116504854,
-      "eigenvector": 0.00011031506370035272
-    },
-    {
-      "author": "Jonas Schnelli",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.014912280701754385,
-      "closeness": 0.13106796116504854,
-      "eigenvector": 9.607768085845894e-05
-    },
-    {
-      "author": "Jonas Nick",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.003947368421052632,
-      "closeness": 0.1298076923076923,
-      "eigenvector": 8.997424635638529e-05
-    },
-    {
-      "author": "Dhruv Mehta",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.12857142857142856,
-      "eigenvector": 8.674169008057026e-05
-    },
-    {
-      "author": "Peter Todd",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.04057017543859649,
-      "closeness": 0.140625,
-      "eigenvector": 8.383655210715756e-05
-    },
-    {
-      "author": "Greg Maxwell",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.1323529411764706,
-      "eigenvector": 7.691783329021093e-05
-    },
-    {
-      "author": "Rusty Russell",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.1323529411764706,
-      "eigenvector": 7.691783329021093e-05
-    },
-    {
-      "author": "Eric Lombrozo",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.055043859649122805,
-      "closeness": 0.14835164835164835,
-      "eigenvector": 7.438130162859072e-05
-    },
-    {
-      "author": "Anthony Towns",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.015131578947368421,
-      "closeness": 0.1298076923076923,
-      "eigenvector": 6.798190656616683e-05
-    },
-    {
-      "author": "Johnson Lau",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.135,
-      "eigenvector": 5.832564853432867e-05
+      "degree": 0.14705882352941177,
+      "betweenness": 0.11211415259172976,
+      "closeness": 0.19607843137254902,
+      "eigenvector": 0.5608255870733523
     },
     {
       "author": "Ava Chow",
-      "degree": 0.03125,
-      "betweenness": 0.028070175438596492,
-      "closeness": 0.1323529411764706,
-      "eigenvector": 4.9461437916721026e-05
+      "degree": 0.058823529411764705,
+      "betweenness": 0.027955736750145604,
+      "closeness": 0.15378700499807765,
+      "eigenvector": 0.2848570159570667
     },
     {
-      "author": "Elliott Jin",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.10074626865671642,
-      "eigenvector": 4.311315162926033e-05
-    },
-    {
-      "author": "Gleb Naumenko",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.12272727272727273,
-      "eigenvector": 4.2314747430348816e-05
-    },
-    {
-      "author": "Mark Friedenbach",
-      "degree": 0.0625,
-      "betweenness": 0.031469298245614036,
-      "closeness": 0.11946902654867256,
-      "eigenvector": 3.81414555678589e-05
-    },
-    {
-      "author": "BtcDrak",
-      "degree": 0.05208333333333333,
-      "betweenness": 0.009758771929824562,
-      "closeness": 0.1163793103448276,
-      "eigenvector": 3.649250085807058e-05
-    },
-    {
-      "author": "Велеслав",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.09854014598540146,
-      "eigenvector": 2.6353943654561345e-05
-    },
-    {
-      "author": "Daniel Pape",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.09854014598540146,
-      "eigenvector": 2.6353943654561345e-05
-    },
-    {
-      "author": "Matt Corallo",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.029166666666666667,
-      "closeness": 0.1097560975609756,
-      "eigenvector": 2.1014591571669484e-05
-    },
-    {
-      "author": "Nicolas Dorier",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.09246575342465753,
-      "eigenvector": 2.047196669206881e-05
-    },
-    {
-      "author": "kinoshitajona",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.09246575342465753,
-      "eigenvector": 2.047196669206881e-05
-    },
-    {
-      "author": "David A. Harding",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.10305343511450382,
-      "eigenvector": 1.804618520103051e-05
-    },
-    {
-      "author": "Andrew Toth",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.010964912280701754,
-      "closeness": 0.10227272727272727,
-      "eigenvector": 1.7084957437913617e-05
-    },
-    {
-      "author": "josibake",
-      "degree": 0.03125,
-      "betweenness": 0.003618421052631579,
-      "closeness": 0.10150375939849623,
-      "eigenvector": 1.611618079047859e-05
-    },
-    {
-      "author": "Kalle Alm",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.09183673469387754,
-      "eigenvector": 1.606528615628401e-05
-    },
-    {
-      "author": "William Swanson",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.10714285714285714,
-      "eigenvector": 1.601090110397984e-05
-    },
-    {
-      "author": "Christian Decker",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.09712230215827339,
-      "eigenvector": 1.463340327550828e-05
-    },
-    {
-      "author": "Karl-Johan Alm",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.09712230215827339,
-      "eigenvector": 1.463340327550828e-05
-    },
-    {
-      "author": "Thomas Kerin",
-      "degree": 0.03125,
-      "betweenness": 0.014912280701754385,
-      "closeness": 0.09375,
-      "eigenvector": 9.309447822776375e-06
-    },
-    {
-      "author": "Ruben Somsen",
-      "degree": 0.03125,
-      "betweenness": 0.00010964912280701755,
-      "closeness": 0.08181818181818182,
-      "eigenvector": 8.32400055221034e-06
-    },
-    {
-      "author": "Sebastian Falbesoner",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.08132530120481928,
-      "eigenvector": 5.469389545848437e-06
-    },
-    {
-      "author": "Mike Hearn",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0076754385964912285,
-      "closeness": 0.08653846153846154,
-      "eigenvector": 4.7432592208134395e-06
-    },
-    {
-      "author": "Nils Schneider",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.08544303797468354,
-      "eigenvector": 4.523482918781974e-06
-    },
-    {
-      "author": "Bastien Teinturier",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.08544303797468354,
-      "eigenvector": 4.523482918781974e-06
-    },
-    {
-      "author": "Jean-Pierre Rupp",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.07584269662921347,
-      "eigenvector": 2.5535656271855586e-06
-    },
-    {
-      "author": "Ruben de Vries",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.07584269662921347,
-      "eigenvector": 2.5535656271855586e-06
-    },
-    {
-      "author": "Gavin Andresen",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.07068062827225131,
-      "eigenvector": 1.0210073315736879e-06
-    },
-    {
-      "author": "Hugo Nguyen",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.0,
-      "closeness": 0.041666666666666664,
-      "eigenvector": 3.353898395134989e-12
-    },
-    {
-      "author": "Peter Gray",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.0,
-      "closeness": 0.041666666666666664,
-      "eigenvector": 3.353898395134989e-12
-    },
-    {
-      "author": "Marko Bencun",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.0,
-      "closeness": 0.041666666666666664,
-      "eigenvector": 3.353898395134989e-12
-    },
-    {
-      "author": "Aaron Chen",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.0,
-      "closeness": 0.041666666666666664,
-      "eigenvector": 3.353898395134989e-12
-    },
-    {
-      "author": "Rodolfo Novak",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.0,
-      "closeness": 0.041666666666666664,
-      "eigenvector": 3.353898395134989e-12
-    },
-    {
-      "author": "Aaron Voisine",
-      "degree": 0.07291666666666666,
-      "betweenness": 0.004166666666666667,
-      "closeness": 0.07407407407407407,
-      "eigenvector": 5.859658461162675e-15
-    },
-    {
-      "author": "Sean Bowe",
-      "degree": 0.041666666666666664,
-      "betweenness": 0.0015350877192982456,
-      "closeness": 0.05555555555555555,
-      "eigenvector": 3.642359651452709e-15
-    },
-    {
-      "author": "Marek Palatinus",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.05128205128205128,
-      "eigenvector": 3.4391304948949985e-15
-    },
-    {
-      "author": "Pavol Rusnak",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.05128205128205128,
-      "eigenvector": 3.4391304948949985e-15
-    },
-    {
-      "author": "Justin Newton",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.047619047619047616,
-      "eigenvector": 3.323850180655526e-15
-    },
-    {
-      "author": "Matt David",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.047619047619047616,
-      "eigenvector": 3.323850180655526e-15
-    },
-    {
-      "author": "James MacWhyte",
-      "degree": 0.03125,
-      "betweenness": 0.0,
-      "closeness": 0.047619047619047616,
-      "eigenvector": 3.323850180655526e-15
-    },
-    {
-      "author": "Mike Caldwell",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.041666666666666664,
-      "eigenvector": 1.5572134062164141e-15
-    },
-    {
-      "author": "Daira Hopwood",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.03508771929824561,
-      "eigenvector": 9.679627775401914e-16
-    },
-    {
-      "author": "Manuel Araoz",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Ryan X. Charles",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Matias Alejo Garcia",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Jeff Garzik",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Tom Harding",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Dagur Valberg Johannsson",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Alex Akselrod",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Olaoluwa Osuntokun",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Jim Posen",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.9290376584956676e-43
-    },
-    {
-      "author": "Luke Dashjr",
-      "degree": 0.020833333333333332,
-      "betweenness": 0.0002192982456140351,
-      "closeness": 0.020833333333333332,
-      "eigenvector": 2.1882197407214265e-56
-    },
-    {
-      "author": "Shaolin Fry",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.013888888888888888,
-      "eigenvector": 1.5473050173903896e-56
-    },
-    {
-      "author": "Emil Engler",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.013888888888888888,
-      "eigenvector": 1.5473050173903896e-56
-    },
-    {
-      "author": "Amir Taaki",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Patrick Strateman",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Chris Belcher",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Thebora Kompanioni",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Bogdan Penkovsky",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Michael Dubrovsky",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Jimmy Song",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Justus Ranvier",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Aneesh Karve",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
-    },
-    {
-      "author": "Ethan Kosakovsky",
-      "degree": 0.010416666666666666,
-      "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "author": "Antoine Poinsot",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.01892836342457775,
+      "closeness": 0.15530964861192,
+      "eigenvector": 0.2766733588944592
     },
     {
       "author": "Andrew Poelstra",
-      "degree": 0.010416666666666666,
+      "degree": 0.049019607843137254,
+      "betweenness": 0.007571345369831101,
+      "closeness": 0.14939309056956115,
+      "eigenvector": 0.26895113150620087
+    },
+    {
+      "author": "Sanket Kanjalkar",
+      "degree": 0.0392156862745098,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.14798372179060304,
+      "eigenvector": 0.2609824437398374
+    },
+    {
+      "author": "Tim Ruffing",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.00417394680644535,
+      "closeness": 0.1400560224089636,
+      "eigenvector": 0.2281744950291282
+    },
+    {
+      "author": "Jonas Schnelli",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0147544166181324,
+      "closeness": 0.1400560224089636,
+      "eigenvector": 0.20014240199317165
+    },
+    {
+      "author": "Peter Todd",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.020675596971461853,
+      "closeness": 0.14939309056956115,
+      "eigenvector": 0.19632834815380873
+    },
+    {
+      "author": "Jonas Nick",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0038827412152980002,
+      "closeness": 0.1388165885823356,
+      "eigenvector": 0.1912235983826483
+    },
+    {
+      "author": "Dhruv Mehta",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.13759889920880633,
+      "eigenvector": 0.18554410016667136
+    },
+    {
+      "author": "Greg Maxwell",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.1413177883766119,
+      "eigenvector": 0.17482046804588072
+    },
+    {
+      "author": "Rusty Russell",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.1413177883766119,
+      "eigenvector": 0.17482046804588072
+    },
+    {
+      "author": "Eric Lombrozo",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.055717336439526303,
+      "closeness": 0.1568627450980392,
+      "eigenvector": 0.15587571768319303
+    },
+    {
+      "author": "Anthony Towns",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.014948553678897301,
+      "closeness": 0.1388165885823356,
+      "eigenvector": 0.15174900413057155
+    },
+    {
+      "author": "Johnson Lau",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.14391077531930205,
+      "eigenvector": 0.1344393763461818
+    },
+    {
+      "author": "Gleb Naumenko",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.13181743285549516,
+      "eigenvector": 0.10520009056036839
+    },
+    {
+      "author": "Matt Corallo",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.029120559114735003,
+      "closeness": 0.12449424214130096,
+      "eigenvector": 0.09933976618160072
+    },
+    {
+      "author": "Elliott Jin",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.10670935040682941,
+      "eigenvector": 0.07867101363546386
+    },
+    {
+      "author": "Andrew Toth",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0108716754028344,
+      "closeness": 0.11534025374855825,
+      "eigenvector": 0.07719607077092312
+    },
+    {
+      "author": "josibake",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0035915356241506503,
+      "closeness": 0.11449835408616,
+      "eigenvector": 0.07395473199450424
+    },
+    {
+      "author": "Mark Friedenbach",
+      "degree": 0.058823529411764705,
+      "betweenness": 0.03135313531353135,
+      "closeness": 0.12449424214130096,
+      "eigenvector": 0.05411520538199848
+    },
+    {
+      "author": "BtcDrak",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.00980392156862745,
+      "closeness": 0.12159902720778233,
+      "eigenvector": 0.05235978140477489
     },
     {
       "author": "Leon Olsson Curr and Pearlwort Sneed",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.10893246187363835,
+      "eigenvector": 0.05045005799114022
+    },
+    {
+      "author": "Велеслав",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.10457516339869281,
+      "eigenvector": 0.04621119532552611
+    },
+    {
+      "author": "Daniel Pape",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.10457516339869281,
+      "eigenvector": 0.04621119532552611
+    },
+    {
+      "author": "David A. Harding",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.10893246187363835,
+      "eigenvector": 0.036827421004681865
+    },
+    {
+      "author": "Ruben Somsen",
+      "degree": 0.029411764705882353,
+      "betweenness": 9.706853038245001e-05,
+      "closeness": 0.09067210699308625,
+      "eigenvector": 0.03220233422024319
+    },
+    {
+      "author": "William Swanson",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.11285089575398503,
+      "eigenvector": 0.02923928578581341
+    },
+    {
+      "author": "Christian Decker",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.10319917440660474,
+      "eigenvector": 0.02846519371608816
+    },
+    {
+      "author": "Karl-Johan Alm",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.10319917440660474,
+      "eigenvector": 0.02846519371608816
+    },
+    {
+      "author": "Nicolas Dorier",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.09623481294358234,
+      "eigenvector": 0.024584177878779888
+    },
+    {
+      "author": "kinoshitajona",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.09623481294358234,
+      "eigenvector": 0.024584177878779888
+    },
+    {
+      "author": "Sebastian Falbesoner",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.09015100292990759,
+      "eigenvector": 0.020521036089470163
+    },
+    {
+      "author": "Kalle Alm",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.09564801530368244,
+      "eigenvector": 0.01997265907719285
+    },
+    {
+      "author": "Mike Hearn",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.007571345369831101,
+      "closeness": 0.09623481294358234,
+      "eigenvector": 0.0193138153388178
+    },
+    {
+      "author": "Nils Schneider",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.09506833036244801,
+      "eigenvector": 0.01863422896427754
+    },
+    {
+      "author": "Bastien Teinturier",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.09506833036244801,
+      "eigenvector": 0.01863422896427754
+    },
+    {
+      "author": "Thomas Kerin",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0147544166181324,
+      "closeness": 0.09743027645840945,
+      "eigenvector": 0.011113654348937196
+    },
+    {
+      "author": "Gavin Andresen",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.07765482430596,
+      "eigenvector": 0.003622900184195976
+    },
+    {
+      "author": "Jean-Pierre Rupp",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.07882550004926595,
+      "eigenvector": 0.0025660492068874156
+    },
+    {
+      "author": "Ruben de Vries",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.07882550004926595,
+      "eigenvector": 0.0025660492068874156
+    },
+    {
+      "author": "Andrew Miller",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0,
+      "closeness": 0.049019607843137254,
+      "eigenvector": 0.00030394427722190624
+    },
+    {
+      "author": "Brad Denby",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0,
+      "closeness": 0.049019607843137254,
+      "eigenvector": 0.00030394427722190624
+    },
+    {
+      "author": "Giulia Fanti",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0,
+      "closeness": 0.049019607843137254,
+      "eigenvector": 0.00030394427722190624
+    },
+    {
+      "author": "Surya Bakshi",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0,
+      "closeness": 0.049019607843137254,
+      "eigenvector": 0.00030394427722190624
+    },
+    {
+      "author": "Shaileshh Bojja Venkatakrishnan",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0,
+      "closeness": 0.049019607843137254,
+      "eigenvector": 0.00030394427722190624
+    },
+    {
+      "author": "Pramod Viswanath",
+      "degree": 0.049019607843137254,
+      "betweenness": 0.0,
+      "closeness": 0.049019607843137254,
+      "eigenvector": 0.00030394427722190624
+    },
+    {
+      "author": "Hugo Nguyen",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0,
+      "closeness": 0.0392156862745098,
+      "eigenvector": 5.5398844563587925e-14
+    },
+    {
+      "author": "Peter Gray",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0,
+      "closeness": 0.0392156862745098,
+      "eigenvector": 5.5398844563587925e-14
+    },
+    {
+      "author": "Marko Bencun",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0,
+      "closeness": 0.0392156862745098,
+      "eigenvector": 5.5398844563587925e-14
+    },
+    {
+      "author": "Aaron Chen",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0,
+      "closeness": 0.0392156862745098,
+      "eigenvector": 5.5398844563587925e-14
+    },
+    {
+      "author": "Rodolfo Novak",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0,
+      "closeness": 0.0392156862745098,
+      "eigenvector": 5.5398844563587925e-14
+    },
+    {
+      "author": "Aaron Voisine",
+      "degree": 0.06862745098039216,
+      "betweenness": 0.0036886041545331,
+      "closeness": 0.06971677559912853,
+      "eigenvector": 2.2104376159733312e-16
+    },
+    {
+      "author": "Sean Bowe",
+      "degree": 0.0392156862745098,
+      "betweenness": 0.0013589594253543,
+      "closeness": 0.0522875816993464,
+      "eigenvector": 1.3740064950606449e-16
+    },
+    {
+      "author": "Marek Palatinus",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.048265460030165915,
+      "eigenvector": 1.2973424069921807e-16
+    },
+    {
+      "author": "Pavol Rusnak",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.048265460030165915,
+      "eigenvector": 1.2973424069921807e-16
+    },
+    {
+      "author": "Justin Newton",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.04481792717086834,
+      "eigenvector": 1.2538552405190697e-16
+    },
+    {
+      "author": "Matt David",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.04481792717086834,
+      "eigenvector": 1.2538552405190697e-16
+    },
+    {
+      "author": "James MacWhyte",
+      "degree": 0.029411764705882353,
+      "betweenness": 0.0,
+      "closeness": 0.04481792717086834,
+      "eigenvector": 1.2538552405190697e-16
+    },
+    {
+      "author": "Mike Caldwell",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.0392156862745098,
+      "eigenvector": 5.874272557031822e-17
+    },
+    {
+      "author": "Daira Hopwood",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.033023735810113516,
+      "eigenvector": 3.651443763349171e-17
+    },
+    {
+      "author": "Manuel Araoz",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Ryan X. Charles",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Matias Alejo Garcia",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Jeff Garzik",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Tom Harding",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Dagur Valberg Johannsson",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Alex Akselrod",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Olaoluwa Osuntokun",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Jim Posen",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.0,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 2.8582782467129084e-41
+    },
+    {
+      "author": "Luke Dashjr",
+      "degree": 0.0196078431372549,
+      "betweenness": 0.00019413706076490002,
+      "closeness": 0.0196078431372549,
+      "eigenvector": 8.577192551671326e-53
+    },
+    {
+      "author": "Shaolin Fry",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.0130718954248366,
+      "eigenvector": 6.064991016829542e-53
+    },
+    {
+      "author": "Emil Engler",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.0130718954248366,
+      "eigenvector": 6.064991016829542e-53
+    },
+    {
+      "author": "Amir Taaki",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Patrick Strateman",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Chris Belcher",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Thebora Kompanioni",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Bogdan Penkovsky",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Michael Dubrovsky",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Dan Gould",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Yuval Kogman",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Jimmy Song",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Justus Ranvier",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Aneesh Karve",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Ethan Kosakovsky",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Nicholas Gregory",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Omar Shibli",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Matthew Black",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Tony Cai",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "CryptAxe",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Paul Sztorc",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Jan Čapek",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Pavel Moravec",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Michael Folkson",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Shinobius",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Greg Sanders",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "James O'Beirne",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Armin Sabouri",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Ethan Heilman",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Brandon Black",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
+    },
+    {
+      "author": "Jeremy Rubin",
+      "degree": 0.00980392156862745,
+      "betweenness": 0.0,
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Alfred Hodler",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     },
     {
       "author": "Clark Moody",
-      "degree": 0.010416666666666666,
+      "degree": 0.00980392156862745,
       "betweenness": 0.0,
-      "closeness": 0.010416666666666666,
-      "eigenvector": 6.515514079914541e-68
+      "closeness": 0.00980392156862745,
+      "eigenvector": 6.26440229819452e-63
     }
   ]
 }
