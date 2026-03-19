@@ -306,7 +306,7 @@ export function DependencyComparisonHeatmaps({
 
   return (
     <div>
-      <div className="dependency-heatmap-grid">
+      <div className="dependency-heatmap-grid" data-export-target="true">
         <HeatmapTable
           title="Hits / Missed"
           metric="combined"

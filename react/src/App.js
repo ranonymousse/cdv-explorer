@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Navbar from './Navbar';
 import { LINK_TYPE_OPTIONS, NetworkDiagram } from './NetworkDiagram';
 import { ProposalTimelineChart } from './ProposalTimelineChart';
@@ -720,6 +720,154 @@ function buildDashboardData(dataset) {
   };
 }
 
+function sanitizeExportFileName(value) {
+  return String(value || 'chart')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'chart';
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function ExportableCard({
+  children,
+  className = '',
+  style,
+  exportTitle = 'Chart',
+  exportFileName = '',
+}) {
+  const cardRef = useRef(null);
+
+  const handleExportPdf = () => {
+    const sourceCard = cardRef.current;
+    if (!sourceCard || typeof window === 'undefined') {
+      return;
+    }
+
+    const exportTarget = sourceCard.querySelector('[data-export-target="true"]')
+      || sourceCard.querySelector('svg[role="img"]')
+      || sourceCard.querySelector('svg')
+      || sourceCard;
+    const exportRect = exportTarget.getBoundingClientRect();
+    const viewBox = exportTarget.tagName.toLowerCase() === 'svg'
+      ? exportTarget.getAttribute('viewBox')
+      : null;
+    const viewBoxParts = viewBox ? viewBox.split(/\s+/).map(Number) : [];
+    const exportWidthPx = Math.max(
+      320,
+      Math.round(exportRect.width || exportTarget.clientWidth || viewBoxParts[2] || 800)
+    );
+    const exportHeightPx = Math.max(
+      220,
+      Math.round(exportRect.height || exportTarget.clientHeight || viewBoxParts[3] || 500)
+    );
+    const exportWidthPt = Math.round(exportWidthPx * 0.75);
+    const exportHeightPt = Math.round(exportHeightPx * 0.75);
+
+    const printWindow = window.open('', '_blank', 'width=1440,height=1024');
+    if (!printWindow) {
+      return;
+    }
+
+    const clonedTarget = exportTarget.cloneNode(true);
+    clonedTarget.querySelectorAll('[data-export-control="true"]').forEach((node) => node.remove());
+    const rootStyles = window.getComputedStyle(document.documentElement);
+    const resolvedMarkup = clonedTarget.outerHTML.replace(/var\((--[^),\s]+)(?:,[^)]+)?\)/g, (_, variableName) => {
+      const value = rootStyles.getPropertyValue(variableName).trim();
+      return value || '#000000';
+    });
+
+    const styleMarkup = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
+      .map((node) => node.outerHTML)
+      .join('\n');
+    const theme = document.documentElement.dataset.theme || 'light';
+    const themeMode = document.documentElement.dataset.themeMode || theme;
+    const documentTitle = exportFileName || sanitizeExportFileName(exportTitle);
+
+    printWindow.document.open();
+    printWindow.document.write(`
+      <!doctype html>
+      <html data-theme="${escapeHtml(theme)}" data-theme-mode="${escapeHtml(themeMode)}">
+        <head>
+          <meta charset="utf-8" />
+          <title>${escapeHtml(documentTitle)}</title>
+          ${styleMarkup}
+          <style>
+            body {
+              margin: 0;
+              background: #ffffff;
+            }
+
+            .export-print-shell {
+              width: ${exportWidthPx}px;
+              margin: 0 auto;
+            }
+
+            [data-export-control="true"] {
+              display: none !important;
+            }
+
+            .export-print-shell > svg {
+              display: block;
+              width: ${exportWidthPx}px;
+              height: ${exportHeightPx}px;
+            }
+
+            @page {
+              size: ${exportWidthPt}pt ${exportHeightPt}pt;
+              margin: 0;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="export-print-shell">${resolvedMarkup}</div>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+
+    const triggerPrint = () => {
+      printWindow.focus();
+      printWindow.print();
+    };
+
+    printWindow.addEventListener('afterprint', () => {
+      printWindow.close();
+    }, { once: true });
+
+    printWindow.addEventListener('load', () => {
+      window.setTimeout(triggerPrint, 250);
+    }, { once: true });
+  };
+
+  return (
+    <div ref={cardRef} className={className} style={style}>
+      <Card className="exportable-card">
+        <div className="exportable-card__actions" data-export-control="true">
+          <Button
+            type="button"
+            label="PDF"
+            icon="pi pi-file-pdf"
+            severity="secondary"
+            text
+            size="small"
+            onClick={handleExportPdf}
+          />
+        </div>
+        {children}
+      </Card>
+    </div>
+  );
+}
+
 function EcosystemLanding() {
   const navigate = useNavigate();
 
@@ -977,31 +1125,37 @@ function EcosystemDashboard() {
             <div className="dashboard-section__header">
               <h2 className="dashboard-section__title">Authorship Patterns</h2>
             </div>
-            <Card className="mb-4">
+            <ExportableCard className="mb-4" exportTitle="Creation Over Time">
               <h3>Creation Over Time</h3>
               <p>
                 Creation date of {ecosystem.proposalShortPlural} according to date provided in preamble.
               </p>
-              <ProposalTimelineChart data={yearData} width={1200} height={420} />
-            </Card>
+              <div data-export-target="true">
+                <ProposalTimelineChart data={yearData} width={1200} height={420} />
+              </div>
+            </ExportableCard>
             <div className="dashboard-grid dashboard-grid--two-up">
-              <Card className="mb-4" style={{ flex: 1 }}>
+              <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Top 10 Authors">
                 <h3>Top 10 Authors</h3>
                 <p>
                   Preamble authorship counts for the most mentioned contributors.
                 </p>
-                <TopAuthorsChart data={{ topAuthors }} width={640} height={410} />
-              </Card>
-              <Card className="mb-4" style={{ flex: 1 }}>
+                <div data-export-target="true">
+                  <TopAuthorsChart data={{ topAuthors }} width={640} height={410} />
+                </div>
+              </ExportableCard>
+              <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Authorship Distribution">
                 <h3>Authorship Distribution</h3>
                 <p>
                   Number of preamble authors who have written a given number of {ecosystem.proposalShortPlural}.
                 </p>
-                <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={410} />
-              </Card>
+                <div data-export-target="true">
+                  <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={410} />
+                </div>
+              </ExportableCard>
             </div>
             
-            <Card className="mb-4">
+            <ExportableCard className="mb-4" exportTitle="Collaboration Network">
               <h3>Collaboration Network</h3>
               <p>
                 {ecosystem.acronym} co-authorship according to preamble visualized as collaboration graph.
@@ -1049,14 +1203,16 @@ function EcosystemDashboard() {
                   ))}
                 </div>
               </div>
-              <AuthorCollaborationNetwork
-                data={collaborationNetwork}
-                width={1200}
-                height={700}
-                highlightAuthor={highlightedAuthor}
-                layoutMode={collaborationLayoutMode}
-              />
-            </Card>
+              <div data-export-target="true">
+                <AuthorCollaborationNetwork
+                  data={collaborationNetwork}
+                  width={1200}
+                  height={700}
+                  highlightAuthor={highlightedAuthor}
+                  layoutMode={collaborationLayoutMode}
+                />
+              </div>
+            </ExportableCard>
             <Card className="mb-4">
               <h3>Collaboration Metrics</h3>
                <p>{ecosystem.acronym} co-authorship according to preamble ...TODO.</p>
@@ -1074,7 +1230,7 @@ function EcosystemDashboard() {
                 ]}
               />
             </Card>
-            <Card className="mb-4">
+            <ExportableCard className="mb-4" exportTitle="Word Cloud of Document Text">
               <h3>Word Cloud of Document Text</h3>
               <p>
                 Highlighting the most frequent terms across the selected proposal corpus.
@@ -1099,17 +1255,19 @@ function EcosystemDashboard() {
                   />
                 </div>
               </div>
-              <WordCloud words={hasWordCloudFilter ? filteredWordCloudData : wordCloudData} width={1250} height={600} />
-            </Card>
+              <div data-export-target="true">
+                <WordCloud words={hasWordCloudFilter ? filteredWordCloudData : wordCloudData} width={1250} height={600} />
+              </div>
+            </ExportableCard>
           </section>
           <section className="dashboard-section">
           <div className="dashboard-section__header">
             <h2 className="dashboard-section__title">Classification</h2>
           </div>
           {CLASSIFICATION_DIMENSIONS.map((dimension) => (
-            <Card key={dimension.field} className="mb-4">
+            <ExportableCard key={dimension.field} className="mb-4" exportTitle={`${ecosystem.proposalShortPlural} by ${dimension.label}`}>
               <h3>{ecosystem.proposalShortPlural} by {dimension.label}</h3>
-              <div className="dashboard-grid dashboard-grid--classification classification-card__grid">
+              <div className="dashboard-grid dashboard-grid--classification classification-card__grid" data-export-target="true">
                 <div className="classification-card__panel">
                   <ClassificationPieChart
                     dimension={dimension.field}
@@ -1130,19 +1288,21 @@ function EcosystemDashboard() {
                   />
                 </div>
               </div>
-            </Card>
+            </ExportableCard>
           ))}
-          <Card className="mb-4" style={{ flex: 1 }}>
+          <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Pairwise Classification Chord Diagram">
             <h3>Pairwise Classification Chord Diagram</h3>
             <p>This chord diagram connects layer, status, and type categories across all pairwise combinations.</p>
-            <ClassificationChordDiagram data={classificationChordData} width={1000} height={800} />
-          </Card>
+            <div data-export-target="true">
+              <ClassificationChordDiagram data={classificationChordData} width={1000} height={800} />
+            </div>
+          </ExportableCard>
           </section>
           <section className="dashboard-section">
           <div className="dashboard-section__header">
             <h2 className="dashboard-section__title">Dependencies</h2>
           </div>
-          <Card className="mb-4">
+          <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Relationship Network`}>
             <h3>{ecosystem.acronym} Relationship Network</h3>
             <p>
               This graph visualizes three relationship-extraction approaches in the selected ecosystem:
@@ -1212,7 +1372,7 @@ function EcosystemDashboard() {
               proposalFilterIds={selectedDependencyProposalIds}
               includeConnections={dependencyIncludeConnections}
             />
-          </Card>
+          </ExportableCard>
           <Card className="mb-4">
             <h3>Relationship Graph Metrics</h3>
             <p>
@@ -1261,7 +1421,7 @@ function EcosystemDashboard() {
               defaultSortOrder={-1}
             />
           </Card>
-          <Card className="mb-4">
+          <ExportableCard className="mb-4" exportTitle="Comparison of Pairwise Relationship Extraction Approach">
             <h3>Comparison of Pairwise Relationship Extraction Approach</h3>
             <p>
               These heatmaps compare each extraction approach against each possible baseline. The first matrix combines
@@ -1271,7 +1431,7 @@ function EcosystemDashboard() {
               pairwiseComparisons={dependencyMetrics?.pairwise_comparisons || {}}
               proposalShortLabel={ecosystem.acronym || 'BIP'}
             />
-          </Card>
+          </ExportableCard>
       </section>
       <section className="dashboard-section">
         <div className="dashboard-section__header">
@@ -1322,66 +1482,74 @@ function EcosystemDashboard() {
           </div>
         </Card>
         <div className="dashboard-grid dashboard-grid--two-up">
-          <Card className="mb-4" style={{ flex: 1 }}>
+          <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="BIP2 Conformity">
             <h3>BIP2 Conformity</h3>
             <p>
               Distribution of proposal-level conformity scores under BIP2.
             </p>
-            <FormalConformitySwarmPlot
-              rows={conformityRows}
-              proposalShortLabel={ecosystem.acronym || 'IP'}
-              highlightProposal={highlightedConformityProposal}
-              standardKey="bip2"
-              width={620}
-              height={420}
-            />
-          </Card>
-          <Card className="mb-4" style={{ flex: 1 }}>
+            <div data-export-target="true">
+              <FormalConformitySwarmPlot
+                rows={conformityRows}
+                proposalShortLabel={ecosystem.acronym || 'IP'}
+                highlightProposal={highlightedConformityProposal}
+                standardKey="bip2"
+                width={620}
+                height={420}
+              />
+            </div>
+          </ExportableCard>
+          <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="BIP3 Conformity">
             <h3>BIP3 Conformity</h3>
             <p>
               Distribution of proposal-level conformity scores under BIP3.
             </p>
-            <FormalConformitySwarmPlot
-              rows={conformityRows}
-              proposalShortLabel={ecosystem.acronym || 'IP'}
-              highlightProposal={highlightedConformityProposal}
-              standardKey="bip3"
-              width={620}
-              height={420}
-            />
-          </Card>
+            <div data-export-target="true">
+              <FormalConformitySwarmPlot
+                rows={conformityRows}
+                proposalShortLabel={ecosystem.acronym || 'IP'}
+                highlightProposal={highlightedConformityProposal}
+                standardKey="bip3"
+                width={620}
+                height={420}
+              />
+            </div>
+          </ExportableCard>
         </div>
         <div className="dashboard-grid dashboard-grid--two-up">
-          <Card className="mb-4" style={{ flex: 1 }}>
+          <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Most Failed BIP2 Checks">
             <h3>Most Failed BIP2 Checks</h3>
             <p>
               Frequency of failed formal checks under BIP2 across the selected snapshot.
             </p>
-            <ConformityFailedChecksHistogram
-              data={conformityFailedChecks.bip2}
-              proposalShortLabel={ecosystem.acronym || 'BIP'}
-              width={620}
-              height={390}
-              barColor="#e45756"
-              barHoverColor="#b63f3e"
-              ariaLabel="Most failed BIP2 conformity checks"
-            />
-          </Card>
-          <Card className="mb-4" style={{ flex: 1 }}>
+            <div data-export-target="true">
+              <ConformityFailedChecksHistogram
+                data={conformityFailedChecks.bip2}
+                proposalShortLabel={ecosystem.acronym || 'BIP'}
+                width={620}
+                height={390}
+                barColor="#e45756"
+                barHoverColor="#b63f3e"
+                ariaLabel="Most failed BIP2 conformity checks"
+              />
+            </div>
+          </ExportableCard>
+          <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Most Failed BIP3 Checks">
             <h3>Most Failed BIP3 Checks</h3>
             <p>
               Frequency of failed formal checks under BIP3 across the selected snapshot.
             </p>
-            <ConformityFailedChecksHistogram
-              data={conformityFailedChecks.bip3}
-              proposalShortLabel={ecosystem.acronym || 'BIP'}
-              width={620}
-              height={390}
-              barColor="#f08c00"
-              barHoverColor="#e67700"
-              ariaLabel="Most failed BIP3 conformity checks"
-            />
-          </Card>
+            <div data-export-target="true">
+              <ConformityFailedChecksHistogram
+                data={conformityFailedChecks.bip3}
+                proposalShortLabel={ecosystem.acronym || 'BIP'}
+                width={620}
+                height={390}
+                barColor="#f08c00"
+                barHoverColor="#e67700"
+                ariaLabel="Most failed BIP3 conformity checks"
+              />
+            </div>
+          </ExportableCard>
         </div>
       </section>
     </section>

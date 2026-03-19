@@ -943,7 +943,7 @@ export const NetworkDiagram = ({
         </div>
       </div>
 
-      <svg ref={ref} role="img" />
+      <svg ref={ref} role="img" data-export-target="true" />
     </div>
   );
 };

@@ -26,6 +26,25 @@
   margin-top: 0;
 }
 
+.exportable-card {
+  height: 100%;
+}
+
+.exportable-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.35rem;
+}
+
+.exportable-card__actions .p-button {
+  padding: 0;
+  color: var(--app-text-muted);
+}
+
+.exportable-card__actions .p-button:enabled:hover {
+  color: var(--primary-color);
+}
+
 .ecosystem-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
