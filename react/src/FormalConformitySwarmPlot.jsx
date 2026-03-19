@@ -61,6 +61,7 @@ export const FormalConformitySwarmPlot = ({
   rows,
   proposalShortLabel = 'BIP',
   highlightProposal = '',
+  standardKey = null,
   width = 1200,
   height = 520,
 }) => {
@@ -69,7 +70,6 @@ export const FormalConformitySwarmPlot = ({
   useEffect(() => {
     const svg = d3.select(ref.current);
     svg.selectAll('*').remove();
-    d3.select('body').selectAll('.formal-conformity-tooltip').remove();
 
     const baseRows = (rows || []).map((entry) => ({
       ...entry,
@@ -78,7 +78,11 @@ export const FormalConformitySwarmPlot = ({
       bip3Score: Number.isFinite(Number(entry?.bip3_score)) ? Number(entry.bip3_score) : null,
     }));
 
-    const panels = PANEL_DEFINITIONS
+    const activePanelDefinitions = standardKey
+      ? PANEL_DEFINITIONS.filter((panel) => panel.key === standardKey)
+      : PANEL_DEFINITIONS;
+
+    const panels = activePanelDefinitions
       .map((panel) => ({
         ...panel,
         rows: baseRows
@@ -119,15 +123,16 @@ export const FormalConformitySwarmPlot = ({
 
     const highlightedProposalId = normalizeProposalId(highlightProposal);
     let pinnedBubbleKey = null;
+    const showPanelLabel = panels.length > 1;
     const axisTickValues = [0, 20, 40, 60, 80, 100];
-    const radius = 8;
+    const radius = 7;
     const panelGap = 54;
     const margin = { top: 20, right: 24, bottom: 54, left: 24 };
     const innerWidth = width - margin.left - margin.right;
     const availableHeight = height - margin.top - margin.bottom - (panelGap * (panels.length - 1));
     const panelHeight = availableHeight / panels.length;
     const x = d3.scaleLinear()
-      .domain([0, 105])
+      .domain([0, 110])
       .range([0, innerWidth]);
 
     const color = d3.scaleLinear()
@@ -187,13 +192,15 @@ export const FormalConformitySwarmPlot = ({
         .attr('transform', `translate(0, ${(panelHeight + panelGap) * panelIndex})`);
       const baselineY = panelHeight / 2;
 
-      panelRoot.append('text')
-        .attr('x', 0)
-        .attr('y', -4)
-        .style('fill', 'var(--chart-text)')
-        .style('font-size', '14px')
-        .style('font-weight', '600')
-        .text(panel.label);
+      if (showPanelLabel) {
+        panelRoot.append('text')
+          .attr('x', 0)
+          .attr('y', -4)
+          .style('fill', 'var(--chart-text)')
+          .style('font-size', '14px')
+          .style('font-weight', '400')
+          .text(panel.label);
+      }
 
       panelRoot.append('line')
         .attr('x1', 0)
@@ -214,7 +221,7 @@ export const FormalConformitySwarmPlot = ({
       const simulation = d3.forceSimulation(bees)
         .force('x', d3.forceX((entry) => x(entry.score)).strength(1))
         .force('y', d3.forceY(baselineY).strength(0.07))
-        .force('collide', d3.forceCollide(radius + 1.5))
+        .force('collide', d3.forceCollide(radius + 1.25))
         .stop();
 
       for (let tick = 0; tick < 220; tick += 1) {
@@ -324,9 +331,9 @@ export const FormalConformitySwarmPlot = ({
 
     return () => {
       svg.selectAll('*').remove();
-      d3.select('body').selectAll('.formal-conformity-tooltip').remove();
+      tooltip.remove();
     };
-  }, [height, highlightProposal, proposalShortLabel, rows, width]);
+  }, [height, highlightProposal, proposalShortLabel, rows, standardKey, width]);
 
   return <svg ref={ref} role="img" aria-label="Formal conformity beeswarm plot" />;
 };

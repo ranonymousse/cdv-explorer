@@ -12,6 +12,7 @@ import { ClassificationPieChart } from './ClassificationPieChart';
 import { ClassificationStackedTimelineChart } from './ClassificationStackedTimelineChart';
 import { ClassificationChordDiagram } from './ClassificationChordDiagram';
 import { FormalConformitySwarmPlot } from './FormalConformitySwarmPlot';
+import { ConformityFailedChecksHistogram } from './ConformityFailedChecksHistogram';
 import { WordCloud } from './WordCloud';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
@@ -587,6 +588,47 @@ function buildDashboardData(dataset) {
       id: String(entry.id),
     }))
     .sort((left, right) => Number(left.id) - Number(right.id));
+  const buildFailedChecksSeries = (standardKey) => {
+    const failuresByCheck = new Map();
+
+    conformityRows.forEach((entry) => {
+      const checks = Array.isArray(entry?.compliance?.[standardKey]?.checks)
+        ? entry.compliance[standardKey].checks
+        : [];
+
+      checks
+        .filter((check) => check?.passed === false)
+        .forEach((check) => {
+          const id = String(check?.id || check?.label || 'unknown-check');
+          const label = String(check?.label || check?.id || 'Unnamed check').trim();
+
+          if (!failuresByCheck.has(id)) {
+            failuresByCheck.set(id, {
+              id,
+              label,
+              count: 0,
+              proposals: new Set(),
+            });
+          }
+
+          const current = failuresByCheck.get(id);
+          current.count += 1;
+          current.proposals.add(String(entry.id));
+        });
+    });
+
+    return Array.from(failuresByCheck.values())
+      .map((entry) => ({
+        ...entry,
+        proposals: Array.from(entry.proposals).sort((left, right) => Number(left) - Number(right)),
+      }))
+      .sort((left, right) => right.count - left.count || left.label.localeCompare(right.label))
+      .slice(0, 10);
+  };
+  const conformityFailedChecks = {
+    bip2: buildFailedChecksSeries('bip2'),
+    bip3: buildFailedChecksSeries('bip3'),
+  };
   const classificationDistributions = {
     layer: buildFacetDistribution(dataset.nodes, 'layer'),
     type: buildFacetDistribution(dataset.nodes, 'type'),
@@ -664,6 +706,7 @@ function buildDashboardData(dataset) {
     yearData,
     wordCloudData,
     conformityRows,
+    conformityFailedChecks,
     classificationDistributions,
     classificationTimeline,
     classificationCategoryDomains,
@@ -682,11 +725,10 @@ function EcosystemLanding() {
 
   return (
     <section className="content">
-      <h1>Proposal Ecosystem Explorer</h1>
+      <h1>Community-Driven Variability Ecosystem Explorer</h1>
       <p>
-        This repository is being reoriented around a reusable proposal-analysis pipeline. Start by choosing
-        the ecosystem you want to inspect. Bitcoin is the first implemented adapter; additional ecosystems
-        will plug into the same analysis and visualization flow over time.
+        Modern decentralized software ecosystems evolve through crowdsourced improvement proposals (IPs) that are continuously shaped and autonomously implemented by independent actors. As a result, these ecosystems exhibit so-called Community-Driven
+Variability (CDV), a novel paradigm that extends beyond traditional variability-intensive systems. This page allows to explore IPs of such ecosystems by providing interactive visualizations and insights about their evolution, authorship, classification, conformity, and inter-proposal relationships.
       </p>
 
       <div className="ecosystem-grid">
@@ -705,19 +747,25 @@ function EcosystemLanding() {
                 </div>
                 <p>{ecosystem.description}</p>
                 <div className="ecosystem-meta">
-                  <Tag
-                    severity={available ? 'success' : 'secondary'}
-                    value={available ? 'Available now' : 'Coming soon'}
-                  />
-                  <span>{ecosystem.proposalShortPlural}</span>
+                  <div className="ecosystem-meta__info">
+                    <Tag
+                      severity={available ? 'success' : 'secondary'}
+                      value={available ? 'Available now' : 'Coming soon'}
+                    />
+                    <span>{ecosystem.proposalShortPlural}</span>
+                  </div>
+                  {available ? (
+                    <Button
+                      label="Open"
+                      icon="pi pi-arrow-right"
+                      iconPos="right"
+                      text
+                      size="small"
+                      className="ecosystem-meta__open"
+                      onClick={() => navigate(`/ecosystem/${ecosystem.id}`)}
+                    />
+                  ) : null}
                 </div>
-              </div>
-              <div className="ecosystem-actions">
-                <Button
-                  label={available ? `Open ${ecosystem.name}` : 'Not yet available'}
-                  disabled={!available}
-                  onClick={() => navigate(`/ecosystem/${ecosystem.id}`)}
-                />
               </div>
             </Card>
           );
@@ -765,6 +813,7 @@ function EcosystemDashboard() {
     yearData,
     wordCloudData,
     conformityRows,
+    conformityFailedChecks,
     classificationDistributions,
     classificationTimeline,
     classificationCategoryDomains,
@@ -890,10 +939,9 @@ function EcosystemDashboard() {
             <h1>{ecosystem.proposalPlural}</h1>
           </div>
           <p>
-            {ecosystem.proposalPlural} are the first reference dataset in this repository. The broader aim is a reusable
-            proposal-mining and visualization stack that can be adapted to multiple governance or standards ecosystems.
-            For now, this dashboard lets you inspect the Bitcoin implementation across network structure, category flows,
-            authorship, temporal activity, and text-derived themes.
+            {ecosystem.proposalPlural} are the main specification documents of the Bitcoin ecosystem, defining features,
+            behavior, and also processual or informational aspects. While several catalogs exist, the most prominent one
+            is maintained on GitHub and serves as the primary data source for the analyses below.
           </p>
           <ul>
             {sourceRepositories.map((repository) => {
@@ -930,24 +978,24 @@ function EcosystemDashboard() {
               <h2 className="dashboard-section__title">Authorship Patterns</h2>
             </div>
             <Card className="mb-4">
-              <h3>{ecosystem.acronym} Creation Over Time</h3>
+              <h3>Creation Over Time</h3>
               <p>
-                Annual counts are shown as bars; the line tracks the cumulative total on a secondary axis.
+                Creation date of {ecosystem.proposalShortPlural} according to date provided in preamble.
               </p>
               <ProposalTimelineChart data={yearData} width={1200} height={420} />
             </Card>
             <div className="dashboard-grid dashboard-grid--two-up">
               <Card className="mb-4" style={{ flex: 1 }}>
-                <h3>Top 10 Authors by {ecosystem.acronym} Count</h3>
+                <h3>Top 10 Authors</h3>
                 <p>
-                  Preamble authorship counts for the most prolific contributors in the selected snapshot.
+                  Preamble authorship counts for the most mentioned contributors.
                 </p>
                 <TopAuthorsChart data={{ topAuthors }} width={640} height={410} />
               </Card>
               <Card className="mb-4" style={{ flex: 1 }}>
                 <h3>Authorship Distribution</h3>
                 <p>
-                  Number of authors who have written a given number of {ecosystem.proposalShortPlural}.
+                  Number of preamble authors who have written a given number of {ecosystem.proposalShortPlural}.
                 </p>
                 <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={410} />
               </Card>
@@ -956,12 +1004,11 @@ function EcosystemDashboard() {
             <Card className="mb-4">
               <h3>Collaboration Network</h3>
               <p>
-                The existing collaboration graph derived from co-authorship within the selected snapshot.
+                {ecosystem.acronym} co-authorship according to preamble visualized as collaboration graph.
               </p>
               <div className="network-finder">
                 <div className="network-finder__copy">
-                  <strong>Find author.</strong>
-                  <span>Search an author to highlight and center their node in the network.</span>
+                  <strong>Author Search</strong>
                 </div>
                 <div className="network-finder__controls">
                   <InputText
@@ -1012,7 +1059,7 @@ function EcosystemDashboard() {
             </Card>
             <Card className="mb-4">
               <h3>Collaboration Metrics</h3>
-               <p>All authors, sortable and filterable. Cluster IDs refer to connected components, not overlapping maximal cliques.</p>
+               <p>{ecosystem.acronym} co-authorship according to preamble ...TODO.</p>
               <AuthorCentralityTable
                 rows={collaborationMetricsRows}
                 defaultSortField="eigenvector"
@@ -1028,15 +1075,13 @@ function EcosystemDashboard() {
               />
             </Card>
             <Card className="mb-4">
-              <h3>Word Cloud of Proposal Text</h3>
+              <h3>Word Cloud of Document Text</h3>
               <p>
-                This word cloud highlights the most frequent terms across the selected proposal corpus.
-                Add one or more {ecosystem.proposalShortPlural} to restrict the cloud to that subset.
+                Highlighting the most frequent terms across the selected proposal corpus.
               </p>
               <div className="wordcloud-filter">
                 <div className="wordcloud-filter__copy">
-                  <strong>Filter proposals.</strong>
-                  <span>Use comma-separated IDs or ranges like `2,4,30-35,99`.</span>
+                  <strong>Filter proposals:</strong>
                 </div>
                 <div className="wordcloud-filter__controls">
                   <InputText
@@ -1055,48 +1100,6 @@ function EcosystemDashboard() {
                 </div>
               </div>
               <WordCloud words={hasWordCloudFilter ? filteredWordCloudData : wordCloudData} width={1250} height={600} />
-            </Card>
-            <Card className="mb-4">
-              <h3>Formal Conformity</h3>
-              <p>
-                These beeswarms separate BIP2 and BIP3 scoring into distinct panels. Each bubble represents one
-                {` ${ecosystem.acronym}`} positioned by that specific conformity score, while the vertical spread only
-                packs the proposals into a swarm.
-              </p>
-              <div className="network-finder">
-                <div className="network-finder__copy">
-                  <strong>Find proposal.</strong>
-                  <span>Search a proposal ID to highlight its bubble in the swarm.</span>
-                </div>
-                <div className="network-finder__controls">
-                  <InputText
-                    value={highlightedConformityProposal}
-                    onChange={(event) => setHighlightedConformityProposal(event.target.value)}
-                    placeholder="Type a proposal ID"
-                    list="conformity-proposal-options"
-                  />
-                  <datalist id="conformity-proposal-options">
-                    {dependencyProposalOptions.map((proposalId) => (
-                      <option key={proposalId} value={proposalId} />
-                    ))}
-                  </datalist>
-                  <Button
-                    type="button"
-                    label="Clear"
-                    severity="secondary"
-                    text
-                    onClick={() => setHighlightedConformityProposal('')}
-                    disabled={!highlightedConformityProposal.trim()}
-                  />
-                </div>
-              </div>
-              <FormalConformitySwarmPlot
-                rows={conformityRows}
-                proposalShortLabel={ecosystem.acronym || 'IP'}
-                highlightProposal={highlightedConformityProposal}
-                width={1250}
-                height={680}
-              />
             </Card>
           </section>
           <section className="dashboard-section">
@@ -1269,6 +1272,110 @@ function EcosystemDashboard() {
               proposalShortLabel={ecosystem.acronym || 'BIP'}
             />
           </Card>
+      </section>
+      <section className="dashboard-section">
+        <div className="dashboard-section__header">
+          <h2 className="dashboard-section__title">Formal Conformity</h2>
+        </div>
+        <Card className="mb-4">
+          <h3>Definition</h3>
+          <p>
+            Formal conformity of {ecosystem.proposalShortPlural} according to underlying guidelines, i.e., documented in{' '}
+            <a href="https://bips.dev/2/" target="_blank" rel="noreferrer">BIP2</a>
+            {' '}and{' '}
+            <a href="https://bips.dev/3/" target="_blank" rel="noreferrer">BIP3</a>
+            , whereas the latter replaced the former as of January 2026. Conformity score (0-100) is computed based on
+            automated checks. For details on failed checks, hover over the bubbles.
+          </p>
+          <div className="network-finder">
+            <div className="network-finder__copy">
+              <strong>Find proposal:</strong>
+            </div>
+            <div className="network-finder__controls">
+              <InputText
+                value={highlightedConformityProposal}
+                onChange={(event) => setHighlightedConformityProposal(event.target.value)}
+                placeholder="Type a proposal ID"
+                list="conformity-proposal-options"
+              />
+              <datalist id="conformity-proposal-options">
+                {dependencyProposalOptions.map((proposalId) => (
+                  <option key={proposalId} value={proposalId} />
+                ))}
+              </datalist>
+              <Button
+                type="button"
+                label="Clear"
+                severity="secondary"
+                text
+                onClick={() => setHighlightedConformityProposal('')}
+                disabled={!highlightedConformityProposal.trim()}
+              />
+            </div>
+          </div>
+        </Card>
+        <div className="dashboard-grid dashboard-grid--two-up">
+          <Card className="mb-4" style={{ flex: 1 }}>
+            <h3>BIP2 Conformity</h3>
+            <p>
+              Distribution of proposal-level conformity scores under BIP2.
+            </p>
+            <FormalConformitySwarmPlot
+              rows={conformityRows}
+              proposalShortLabel={ecosystem.acronym || 'IP'}
+              highlightProposal={highlightedConformityProposal}
+              standardKey="bip2"
+              width={620}
+              height={420}
+            />
+          </Card>
+          <Card className="mb-4" style={{ flex: 1 }}>
+            <h3>BIP3 Conformity</h3>
+            <p>
+              Distribution of proposal-level conformity scores under BIP3.
+            </p>
+            <FormalConformitySwarmPlot
+              rows={conformityRows}
+              proposalShortLabel={ecosystem.acronym || 'IP'}
+              highlightProposal={highlightedConformityProposal}
+              standardKey="bip3"
+              width={620}
+              height={420}
+            />
+          </Card>
+        </div>
+        <div className="dashboard-grid dashboard-grid--two-up">
+          <Card className="mb-4" style={{ flex: 1 }}>
+            <h3>Most Failed BIP2 Checks</h3>
+            <p>
+              Frequency of failed formal checks under BIP2 across the selected snapshot.
+            </p>
+            <ConformityFailedChecksHistogram
+              data={conformityFailedChecks.bip2}
+              proposalShortLabel={ecosystem.acronym || 'BIP'}
+              width={620}
+              height={390}
+              barColor="#e45756"
+              barHoverColor="#b63f3e"
+              ariaLabel="Most failed BIP2 conformity checks"
+            />
+          </Card>
+          <Card className="mb-4" style={{ flex: 1 }}>
+            <h3>Most Failed BIP3 Checks</h3>
+            <p>
+              Frequency of failed formal checks under BIP3 across the selected snapshot.
+            </p>
+            <ConformityFailedChecksHistogram
+              data={conformityFailedChecks.bip3}
+              proposalShortLabel={ecosystem.acronym || 'BIP'}
+              width={620}
+              height={390}
+              barColor="#f08c00"
+              barHoverColor="#e67700"
+              ariaLabel="Most failed BIP3 conformity checks"
+            />
+          </Card>
+        </div>
       </section>
     </section>
   );
