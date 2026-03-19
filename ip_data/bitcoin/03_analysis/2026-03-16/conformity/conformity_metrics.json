@@ -1,48 +1,7 @@
 {
-  "overall_average_score": 78.2,
   "average_score_by_standard": {
     "bip2": 66.77,
     "bip3": 86.9
-  },
-  "score_distribution": [
-    {
-      "bucket": "20-29",
-      "count": 9
-    },
-    {
-      "bucket": "30-39",
-      "count": 1
-    },
-    {
-      "bucket": "40-49",
-      "count": 2
-    },
-    {
-      "bucket": "50-59",
-      "count": 3
-    },
-    {
-      "bucket": "60-69",
-      "count": 14
-    },
-    {
-      "bucket": "70-79",
-      "count": 56
-    },
-    {
-      "bucket": "80-89",
-      "count": 95
-    },
-    {
-      "bucket": "90-99",
-      "count": 17
-    }
-  ],
-  "average_score_by_status": {
-    "Closed": 82.26,
-    "Complete": 81.74,
-    "Deployed": 76.62,
-    "Draft": 75.53
   },
   "check_summary": [
     {

@@ -5,6 +5,6 @@
           "titleBar.activeBackground": "#F2A900",
           "titleBar.activeForeground": "#141517",
     },
-    "git.enableCommitSigning": false
-  }
+      "git.enableCommitSigning": false
+}
   
