@@ -1,12 +1,15 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 const AUTHORS_BAR_COLOR = '#e45756';
 const AUTHORS_BAR_HOVER_COLOR = '#b63f3e';
 
 export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     let sortedAuthors = [];
@@ -81,7 +84,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
       return (
         `<strong>${entry.author}</strong><br/>` +
         `BIPs: ${entry.count}<br/>` +
-        renderBipListHtml(entry.bips)
+        renderBipListHtml(entry.bips, snapshotLabel, { linkMode })
       );
     };
 
@@ -206,7 +209,7 @@ export const TopAuthorsChart = ({ data, width = 600, height = 400 }) => {
       d3.select('body').selectAll('.author-tooltip').remove();
     };
 
-  }, [data, width, height]);
+  }, [data, height, linkMode, snapshotLabel, width]);
 
   return <svg ref={ref} role="img" aria-label="Top proposal authors chart" />;
 };

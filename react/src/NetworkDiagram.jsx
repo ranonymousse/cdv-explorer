@@ -1,7 +1,9 @@
 import * as d3 from 'd3';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Dropdown } from 'primereact/dropdown';
+import { getBipUrl, normalizeBipId } from './bipLinks';
 import { getClassificationColorMap } from './classificationColors';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const LINK_TYPE_OPTIONS = [
   { label: 'Explicit Dependencies (Preamble)', value: 'explicit_dependencies' },
@@ -51,24 +53,9 @@ const EXPLICIT_DEPENDENCY_STYLES = {
   superseded_by: '2.5 4',
 };
 
-function normalizeProposalId(value) {
-  const text = String(value ?? '').trim();
-  if (!text) {
-    return '';
-  }
-
-  const match = text.match(/^(?:bip\s*[- ]*)?0*(\d+)$/i);
-  return match ? String(Number(match[1])) : text.toLowerCase();
-}
-
 function getProposalLabel(id) {
-  const normalized = normalizeProposalId(id);
+  const normalized = normalizeBipId(id, { lowercaseFallback: true });
   return normalized ? `BIP ${normalized}` : String(id ?? '');
-}
-
-function getProposalUrl(id) {
-  const normalized = normalizeProposalId(id);
-  return normalized ? `https://bips.dev/${normalized}/` : '#';
 }
 
 function getLinkTypeLabel(linkType) {
@@ -153,6 +140,8 @@ export const NetworkDiagram = ({
 }) => {
   const ref = useRef();
   const legendRef = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
   const [colorBy, setColorBy] = useState('layer');
   const [linkType, setLinkType] = useState('explicit_dependencies');
   const [baselineType, setBaselineType] = useState(BASELINE_NONE_VALUE);
@@ -202,7 +191,7 @@ export const NetworkDiagram = ({
     if (hasFilter) {
       const matchedFilterNodeIds = new Set(
         allNodes
-          .filter((node) => requestedIds.has(normalizeProposalId(node.id)) || requestedIds.has(String(node.id)))
+          .filter((node) => requestedIds.has(normalizeBipId(node.id)) || requestedIds.has(String(node.id)))
           .map((node) => String(node.id))
       );
 
@@ -255,11 +244,11 @@ export const NetworkDiagram = ({
       node.outgoingDegree = outgoingById.get(nodeId) || 0;
     });
 
-    const normalizedHighlight = normalizeProposalId(highlightProposal);
+    const normalizedHighlight = normalizeBipId(highlightProposal);
     const searchMatchedIds = normalizedHighlight
       ? new Set(
         localNodes
-          .filter((node) => normalizeProposalId(node.id) === normalizedHighlight)
+          .filter((node) => normalizeBipId(node.id) === normalizedHighlight)
           .map((node) => String(node.id))
       )
       : new Set();
@@ -352,7 +341,7 @@ export const NetworkDiagram = ({
     };
 
     const renderNodeTooltip = (entry) => (
-      `<strong><a href="${getProposalUrl(entry.id)}" target="_blank" rel="noreferrer">${getProposalLabel(entry.id)}</a></strong><br/>` +
+      `<strong><a href="${getBipUrl(entry.id, snapshotLabel, { linkMode })}" target="_blank" rel="noreferrer">${getProposalLabel(entry.id)}</a></strong><br/>` +
       `Outgoing: ${entry.outgoingDegree}<br/>` +
       `Incoming: ${entry.incomingDegree}<br/>` +
       `Layer: ${entry.layer || 'Unknown'}<br/>` +
@@ -370,9 +359,9 @@ export const NetworkDiagram = ({
     };
 
     const renderEdgeTooltip = (edge) => (
-      `<strong><a href="${getProposalUrl(getEdgeSourceId(edge))}" target="_blank" rel="noreferrer">${getProposalLabel(getEdgeSourceId(edge))}</a></strong>` +
+      `<strong><a href="${getBipUrl(getEdgeSourceId(edge), snapshotLabel, { linkMode })}" target="_blank" rel="noreferrer">${getProposalLabel(getEdgeSourceId(edge))}</a></strong>` +
       ` &rarr; ` +
-      `<strong><a href="${getProposalUrl(getEdgeTargetId(edge))}" target="_blank" rel="noreferrer">${getProposalLabel(getEdgeTargetId(edge))}</a></strong><br/>` +
+      `<strong><a href="${getBipUrl(getEdgeTargetId(edge), snapshotLabel, { linkMode })}" target="_blank" rel="noreferrer">${getProposalLabel(getEdgeTargetId(edge))}</a></strong><br/>` +
       `Type: ${
         !isDifferentialMode
           ? (relationLabel[edge.relationType] || edge.relationType)
@@ -774,7 +763,7 @@ export const NetworkDiagram = ({
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.dependency-network-tooltip').remove();
     };
-  }, [baselineType, colorBy, data, height, highlightProposal, includeConnections, isDifferentialMode, layoutMode, linkType, links, nodes, proposalFilterIds, width]);
+  }, [baselineType, colorBy, data, height, highlightProposal, includeConnections, isDifferentialMode, layoutMode, linkMode, linkType, links, nodes, proposalFilterIds, snapshotLabel, width]);
 
   const explicitLegendItems = [
     { label: 'Requires', dasharray: EXPLICIT_DEPENDENCY_STYLES.requires, stroke: '#667085' },

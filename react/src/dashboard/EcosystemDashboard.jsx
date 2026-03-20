@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Dropdown } from 'primereact/dropdown';
+import { InputSwitch } from 'primereact/inputswitch';
 import { Link, useParams } from 'react-router-dom';
 import { LINK_TYPE_OPTIONS } from '../NetworkDiagram';
 import { ecosystemsById } from '../ecosystems';
@@ -14,6 +15,7 @@ import { AuthorshipSection } from './sections/AuthorshipSection';
 import { ClassificationSection } from './sections/ClassificationSection';
 import { DependenciesSection } from './sections/DependenciesSection';
 import { ConformitySection } from './sections/ConformitySection';
+import { DashboardSnapshotProvider } from './DashboardSnapshotContext';
 
 function getSourceRepositoryHref(repository) {
   const text = String(repository || '').trim();
@@ -47,6 +49,7 @@ export function EcosystemDashboard() {
   const [selectedDependencyMetricsApproach, setSelectedDependencyMetricsApproach] = useState('explicit_dependencies');
   const [wordCloudFilterText, setWordCloudFilterText] = useState('');
   const [highlightedConformityProposal, setHighlightedConformityProposal] = useState('');
+  const [linkMode, setLinkMode] = useState('history');
 
   useEffect(() => {
     setSelectedSnapshot((current) => {
@@ -183,7 +186,11 @@ export function EcosystemDashboard() {
   const sourceRepositories = ecosystem.sourceRepositories || [];
 
   return (
-    <section className="content">
+    <DashboardSnapshotProvider
+      snapshot={selectedDataset?.snapshot || selectedSnapshot}
+      linkMode={linkMode}
+    >
+      <section className="content">
       <div className="dashboard-toolbar">
         <div className="dashboard-toolbar__copy">
           <div className="dashboard-title-row">
@@ -224,6 +231,22 @@ export function EcosystemDashboard() {
           placeholder="Select snapshot date"
           className="w-full"
         />
+        <div className="dashboard-sticky-controls__link-row">
+          <span className="dashboard-sticky-controls__label-inline">IP links:</span>
+          <span className={`dashboard-link-mode-text${linkMode === 'history' ? ' is-active' : ''}`}>
+            Historic
+          </span>
+          <InputSwitch
+            checked={linkMode === 'current'}
+            onChange={(event) => setLinkMode(event.value ? 'current' : 'history')}
+            inputId="link-mode-switch"
+            aria-label="IP links mode"
+            className="dashboard-link-mode-switch"
+          />
+          <span className={`dashboard-link-mode-text${linkMode === 'current' ? ' is-active' : ''}`}>
+            Current
+          </span>
+        </div>
       </div>
 
       <AuthorshipSection
@@ -280,6 +303,7 @@ export function EcosystemDashboard() {
         conformityRows={conformityRows}
         conformityFailedChecks={conformityFailedChecks}
       />
-    </section>
+      </section>
+    </DashboardSnapshotProvider>
   );
 }

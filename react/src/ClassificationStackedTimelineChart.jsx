@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
 import { getClassificationColorMap } from './classificationColors';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const ClassificationStackedTimelineChart = ({
   categoryDomains,
@@ -12,6 +13,8 @@ export const ClassificationStackedTimelineChart = ({
   height = 560,
 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -139,7 +142,7 @@ export const ClassificationStackedTimelineChart = ({
           `Year: ${segment.data.year}<br/>` +
           `Category: ${segment.key}<br/>` +
           `Count: ${segment.data[segment.key]}<br/>` +
-          renderBipListHtml(bipList)
+          renderBipListHtml(bipList, snapshotLabel, { linkMode })
         );
       };
 
@@ -250,7 +253,7 @@ export const ClassificationStackedTimelineChart = ({
       svg.selectAll('*').remove();
       tooltip.remove();
     };
-  }, [categoryDomains, dimensions, selectedDimensions, timelineData, width, height]);
+  }, [categoryDomains, dimensions, height, linkMode, selectedDimensions, snapshotLabel, timelineData, width]);
 
   return <svg ref={ref} role="img" aria-label="Classification stacked timeline chart" />;
 };

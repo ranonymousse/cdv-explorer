@@ -173,6 +173,57 @@
   box-shadow: var(--app-shadow);
 }
 
+.dashboard-sticky-controls__link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.22rem;
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--app-border);
+}
+
+.dashboard-sticky-controls__label-inline {
+  flex: 0 0 auto;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--app-text);
+}
+
+.dashboard-link-mode-switch {
+  flex: 0 0 auto;
+}
+
+.dashboard-link-mode-switch.p-inputswitch {
+  width: 2.6rem;
+  height: 1.45rem;
+}
+
+.dashboard-link-mode-switch.p-inputswitch .p-inputswitch-slider::before {
+  width: 1rem;
+  height: 1rem;
+  margin-top: -0.5rem;
+  left: 0.2rem;
+}
+
+.dashboard-link-mode-switch.p-inputswitch.p-highlight .p-inputswitch-slider::before {
+  transform: translateX(1.1rem);
+}
+
+.dashboard-link-mode-text {
+  min-width: 3.1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--app-text-muted);
+  text-align: center;
+  transition: color 120ms ease;
+}
+
+.dashboard-link-mode-text.is-active {
+  color: var(--app-text);
+}
+
 @media (max-width: 900px) {
   .dashboard-source-note {
     max-width: none;

@@ -2,21 +2,8 @@ import { useMemo, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
-
-function normalizeProposalId(value) {
-  const text = String(value ?? '').trim();
-  if (!text) {
-    return '';
-  }
-
-  const match = text.match(/^(?:bip\s*[- ]*)?0*(\d+)$/i);
-  return match ? String(Number(match[1])) : text;
-}
-
-function getProposalHref(id) {
-  const normalized = normalizeProposalId(id);
-  return normalized ? `https://bips.dev/${normalized}/` : '#';
-}
+import { getBipUrl, normalizeBipId } from './bipLinks';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 function truncateTitle(value, maxLength = 40) {
   const text = String(value || '').trim();
@@ -42,6 +29,8 @@ export const ProposalGraphMetricsTable = ({
   defaultSortOrder = -1,
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   const filteredRows = useMemo(() => {
     const search = globalFilter.trim().toLowerCase();
@@ -82,12 +71,12 @@ export const ProposalGraphMetricsTable = ({
         header="IP"
         sortable
         body={(row) => {
-          const normalized = normalizeProposalId(row.id);
+          const normalized = normalizeBipId(row.id);
           const title = String(row.title || '').trim();
           const shortTitle = truncateTitle(title, 50);
           return (
             <span>
-              <a href={getProposalHref(row.id)} target="_blank" rel="noreferrer">
+              <a href={getBipUrl(row.id, snapshotLabel, { linkMode })} target="_blank" rel="noreferrer">
                 {normalized ? `${proposalShortLabel} ${normalized}` : String(row.id || '')}
               </a>
               {shortTitle ? (

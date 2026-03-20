@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
+import { getBipUrl } from './bipLinks';
 import { LINK_TYPE_OPTIONS } from './NetworkDiagram';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 const STATUS_OPTIONS = [
   { label: 'All statuses', value: '' },
@@ -15,11 +17,6 @@ const SHORT_LABELS = {
   explicit_references: 'Regex',
   implicit_dependencies: 'LLM',
 };
-
-function getProposalHref(id) {
-  const text = String(id || '').trim();
-  return text ? `https://bips.dev/${Number(text) || text}/` : '#';
-}
 
 function truncateTitle(value, maxLength = 26) {
   const text = String(value || '').trim();
@@ -193,6 +190,8 @@ export function DependencyComparisonHeatmaps({
   pairwiseComparisons,
   proposalShortLabel = 'BIP',
 }) {
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
   const [selectedComparisonKey, setSelectedComparisonKey] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
@@ -365,13 +364,13 @@ export function DependencyComparisonHeatmaps({
                 {filteredEdges.map((edge) => (
                   <tr key={`${selectedComparisonKey}-${edge.status}-${edge.source}-${edge.target}`}>
                     <td>
-                      <a href={getProposalHref(edge.source)} target="_blank" rel="noreferrer">
+                      <a href={getBipUrl(edge.source, snapshotLabel, { linkMode })} target="_blank" rel="noreferrer">
                         {proposalShortLabel} {edge.source}
                       </a>
                       {edge.source_title ? <span>{` ${truncateTitle(edge.source_title)}`}</span> : null}
                     </td>
                     <td>
-                      <a href={getProposalHref(edge.target)} target="_blank" rel="noreferrer">
+                      <a href={getBipUrl(edge.target, snapshotLabel, { linkMode })} target="_blank" rel="noreferrer">
                         {proposalShortLabel} {edge.target}
                       </a>
                       {edge.target_title ? <span>{` ${truncateTitle(edge.target_title)}`}</span> : null}

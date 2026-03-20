@@ -1,9 +1,12 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -54,7 +57,7 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
         `<strong>${entry.year}</strong><br/>` +
         `New proposals: ${entry.count}<br/>` +
         `Cumulative proposals: ${entry.cumulative}<br/>` +
-        renderBipListHtml(entry.bips)
+        renderBipListHtml(entry.bips, snapshotLabel, { linkMode })
       );
     };
 
@@ -265,7 +268,7 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.proposal-tooltip').remove();
     };
-  }, [data, width, height]);
+  }, [data, height, linkMode, snapshotLabel, width]);
 
   return <svg ref={ref} role="img" aria-label="Proposal timeline chart" />;
 };

@@ -25,7 +25,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prestart": "node scripts/generateBipLinkIndex.js",
     "start": "react-scripts start",
+    "prebuild": "node scripts/generateBipLinkIndex.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

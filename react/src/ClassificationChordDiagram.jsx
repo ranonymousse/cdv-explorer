@@ -1,9 +1,12 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -178,7 +181,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
       return (
         `<strong>${source.label}</strong> × <strong>${target.label}</strong><br/>` +
         `Count: ${Math.round(chordDatum.source.value)}<br/>` +
-        renderBipListHtml(bips)
+        renderBipListHtml(bips, snapshotLabel, { linkMode })
       );
     };
 
@@ -377,7 +380,7 @@ export const ClassificationChordDiagram = ({ data, width = 1200, height = 760 })
       svg.selectAll('*').remove();
       tooltip.remove();
     };
-  }, [data, width, height]);
+  }, [data, height, linkMode, snapshotLabel, width]);
 
   return <svg ref={ref} role="img" aria-label="Classification chord diagram" />;
 };

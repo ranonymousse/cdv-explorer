@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 function truncateTextToWidth(text, maxWidth, measurer) {
   const value = String(text || '');
@@ -32,6 +33,8 @@ export const ConformityFailedChecksHistogram = ({
   ariaLabel = 'Failed conformity checks histogram',
 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -122,7 +125,7 @@ export const ConformityFailedChecksHistogram = ({
     const renderTooltipHtml = (entry) => (
       `<strong>${entry.label}</strong><br/>` +
       `Failed in ${entry.count} ${proposalShortLabel}${entry.count === 1 ? '' : 's'}<br/>` +
-      renderBipListHtml(entry.proposals, { label: 'Affected:' })
+      renderBipListHtml(entry.proposals, snapshotLabel, { label: 'Affected:', linkMode })
     );
 
     const resetBarStyles = () => {
@@ -232,7 +235,7 @@ export const ConformityFailedChecksHistogram = ({
       labelMeasurer.remove();
       tooltip.remove();
     };
-  }, [ariaLabel, barColor, barHoverColor, data, height, proposalShortLabel, width]);
+  }, [ariaLabel, barColor, barHoverColor, data, height, linkMode, proposalShortLabel, snapshotLabel, width]);
 
   return <svg ref={ref} role="img" aria-label={ariaLabel} />;
 };

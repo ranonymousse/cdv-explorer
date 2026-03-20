@@ -12,6 +12,7 @@ from matplotlib.lines import Line2D
 
 from ecosystem_config import ACTIVE_ECOSYSTEM
 from analysis.artifact_io import load_network_data
+from analysis.external_links import get_bips_dev_base_url
 
 try:
     from networkx.drawing.nx_agraph import graphviz_layout
@@ -19,6 +20,9 @@ try:
     graphviz_available = True
 except ImportError:
     graphviz_available = False
+
+
+BIPS_DEV_BASE_URL = get_bips_dev_base_url()
 
 
 def get_links_by_type(network_links, link_type):
@@ -290,7 +294,7 @@ def draw_static_network_with_layouts(
 
         for node, (x, y) in pos.items():
             label = f"{node}"
-            url = f"https://bips.dev/{node}"
+            url = f"{BIPS_DEV_BASE_URL}/{node}"
             plt.text(x, y, label, fontsize=7, fontweight="bold", family="monospace", ha="center", va="center", url=url)
 
         plt.title(full_title, pad=25, y=1.0)

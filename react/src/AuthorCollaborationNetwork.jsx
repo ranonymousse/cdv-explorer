@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const AuthorCollaborationNetwork = ({
   data,
@@ -10,6 +11,8 @@ export const AuthorCollaborationNetwork = ({
   layoutMode = 'balanced',
 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -137,7 +140,7 @@ export const AuthorCollaborationNetwork = ({
         `Collaborators: ${entry.degree}<br/>` +
         `Cluster size: ${entry.clusterSize}<br/>` +
         `Authored BIPs: ${authoredBips.length}<br/>` +
-        renderBipListHtml(authoredBips, { emptyText: 'No authored BIPs available.' })
+        renderBipListHtml(authoredBips, snapshotLabel, { emptyText: 'No authored BIPs available.', linkMode })
       );
     };
 
@@ -146,7 +149,7 @@ export const AuthorCollaborationNetwork = ({
       return (
         `<strong>${getEdgeSourceId(edge)}</strong> x <strong>${getEdgeTargetId(edge)}</strong><br/>` +
         `Shared BIPs: ${sharedBips.length}<br/>` +
-        renderBipListHtml(sharedBips, { emptyText: 'No shared BIPs available.' })
+        renderBipListHtml(sharedBips, snapshotLabel, { emptyText: 'No shared BIPs available.', linkMode })
       );
     };
 
@@ -544,7 +547,7 @@ export const AuthorCollaborationNetwork = ({
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.author-network-tooltip').remove();
     };
-  }, [data, width, height, highlightAuthor, layoutMode]);
+  }, [data, height, highlightAuthor, layoutMode, linkMode, snapshotLabel, width]);
 
   return <svg ref={ref} role="img"  />;
 };

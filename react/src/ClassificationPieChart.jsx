@@ -2,9 +2,12 @@ import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
 import { getClassificationColorMap } from './classificationColors';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 360, height = 320 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -49,7 +52,7 @@ export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 3
         `<strong>${entry.id}</strong><br/>` +
         `Count: ${entry.value}<br/>` +
         `Share: ${((entry.value / total) * 100).toFixed(1)}%<br/>` +
-        renderBipListHtml(entry.bips)
+        renderBipListHtml(entry.bips, snapshotLabel, { linkMode })
       );
     };
 
@@ -148,7 +151,7 @@ export const ClassificationPieChart = ({ dimension, colorDomain, data, width = 3
       svg.selectAll('*').remove();
       tooltip.remove();
     };
-  }, [data, dimension, colorDomain, width, height]);
+  }, [colorDomain, data, dimension, height, linkMode, snapshotLabel, width]);
 
   return <svg ref={ref} role="img" aria-label="Classification distribution pie chart" />;
 };

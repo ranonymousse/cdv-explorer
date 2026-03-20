@@ -1,5 +1,7 @@
 import * as d3 from 'd3';
 import { useEffect, useRef } from 'react';
+import { getBipUrl, normalizeBipId } from './bipLinks';
+import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 const PANEL_DEFINITIONS = [
   {
@@ -13,21 +15,6 @@ const PANEL_DEFINITIONS = [
     scoreField: 'bip3_score',
   },
 ];
-
-function normalizeProposalId(value) {
-  const text = String(value || '').trim();
-  if (!text) {
-    return '';
-  }
-
-  const match = text.match(/^(?:bip\s*[- ]*)?0*(\d+)$/i);
-  return match ? String(Number(match[1])) : text;
-}
-
-function getProposalHref(id) {
-  const text = String(id || '').trim();
-  return text ? `https://bips.dev/${Number(text) || text}/` : '#';
-}
 
 function formatScore(value) {
   const numeric = Number(value);
@@ -66,6 +53,8 @@ export const FormalConformitySwarmPlot = ({
   height = 520,
 }) => {
   const ref = useRef();
+  const snapshotLabel = useDashboardSnapshot();
+  const linkMode = useDashboardLinkMode();
 
   useEffect(() => {
     const svg = d3.select(ref.current);
@@ -121,7 +110,7 @@ export const FormalConformitySwarmPlot = ({
       .style('line-height', '1.45')
       .style('opacity', 0);
 
-    const highlightedProposalId = normalizeProposalId(highlightProposal);
+    const highlightedProposalId = normalizeBipId(highlightProposal);
     let pinnedBubbleKey = null;
     const showPanelLabel = panels.length > 1;
     const axisTickValues = [0, 20, 40, 60, 80, 100];
@@ -151,7 +140,7 @@ export const FormalConformitySwarmPlot = ({
     const applyBaseBubbleStyles = () => {
       root.selectAll('circle.formal-conformity-bubble')
         .attr('stroke', function (entry) {
-          const normalizedId = normalizeProposalId(entry.id);
+          const normalizedId = normalizeBipId(entry.id);
           const bubbleKey = `${entry.panelKey}:${entry.id}`;
           if (pinnedBubbleKey && pinnedBubbleKey === bubbleKey) {
             return 'var(--chart-focus)';
@@ -159,7 +148,7 @@ export const FormalConformitySwarmPlot = ({
           return highlightedProposalId && normalizedId === highlightedProposalId ? 'var(--chart-focus)' : 'var(--chart-contrast)';
         })
         .attr('stroke-width', function (entry) {
-          const normalizedId = normalizeProposalId(entry.id);
+          const normalizedId = normalizeBipId(entry.id);
           const bubbleKey = `${entry.panelKey}:${entry.id}`;
           if (pinnedBubbleKey && pinnedBubbleKey === bubbleKey) {
             return 2;
@@ -167,7 +156,7 @@ export const FormalConformitySwarmPlot = ({
           return highlightedProposalId && normalizedId === highlightedProposalId ? 2 : 1.25;
         })
         .attr('r', function (entry) {
-          const normalizedId = normalizeProposalId(entry.id);
+          const normalizedId = normalizeBipId(entry.id);
           const bubbleKey = `${entry.panelKey}:${entry.id}`;
           if (pinnedBubbleKey && pinnedBubbleKey === bubbleKey) {
             return radius + 1.5;
@@ -175,7 +164,7 @@ export const FormalConformitySwarmPlot = ({
           return highlightedProposalId && normalizedId === highlightedProposalId ? radius + 1.5 : radius;
         })
         .attr('fill-opacity', function (entry) {
-          const normalizedId = normalizeProposalId(entry.id);
+          const normalizedId = normalizeBipId(entry.id);
           const bubbleKey = `${entry.panelKey}:${entry.id}`;
           if (pinnedBubbleKey) {
             return pinnedBubbleKey === bubbleKey ? 0.96 : 0.18;
@@ -233,7 +222,7 @@ export const FormalConformitySwarmPlot = ({
           const panelCompliance = entry?.compliance?.[panel.key] || {};
           const checks = panelCompliance.checks || [];
           return (
-            `<strong><a href="${getProposalHref(entry.id)}" target="_blank" rel="noreferrer">${proposalShortLabel} ${entry.id}</a></strong><br/>` +
+            `<strong><a href="${getBipUrl(entry.id, snapshotLabel, { linkMode })}" target="_blank" rel="noreferrer">${proposalShortLabel} ${entry.id}</a></strong><br/>` +
             `${entry.panelLabel}: ${formatScore(entry.score)}<br/>` +
             `Status: ${entry.status || 'Unknown'}<br/>` +
             `Passed: ${panelCompliance.passed_checks ?? 0} | Failed: ${panelCompliance.failed_checks ?? 0} | Skipped: ${panelCompliance.skipped_checks ?? 0}<br/>` +
@@ -333,7 +322,7 @@ export const FormalConformitySwarmPlot = ({
       svg.selectAll('*').remove();
       tooltip.remove();
     };
-  }, [height, highlightProposal, proposalShortLabel, rows, standardKey, width]);
+  }, [height, highlightProposal, linkMode, proposalShortLabel, rows, snapshotLabel, standardKey, width]);
 
   return <svg ref={ref} role="img" aria-label="Formal conformity beeswarm plot" />;
 };
