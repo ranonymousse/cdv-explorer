@@ -24,14 +24,19 @@ def main() -> None:
         resolve_latest_snapshot_label,
     )
     from paper.RQ1.authorship_overview import plot_authorship_overview
-    from paper.RQ1.collaboration_metrics_table import export_collaboration_metrics_table
-    from paper.RQ1.collaboration_network import plot_collaboration_network
+    from paper.RQ1.collaboration_metrics_table import (
+        export_collaboration_metrics_latex_table,
+        export_collaboration_metrics_table,
+    )
+    from paper.RQ1.collaboration_network import render_collaboration_network_layout_suite
     from paper.RQ1.creation_over_time import plot_creation_over_time
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
     figures_dir = resolve_output_dir(FIGURES_DIR, Path("paper") / "RQ1" / "figures")
     tables_dir = resolve_output_dir(TABLES_DIR, Path("paper") / "RQ1" / "tables")
     filename_prefix = snapshot_prefix(snapshot_label)
+    authorship_payload: dict | None = None
+    network_data: dict | None = None
 
     if GENERATE_AUTHORSHIP_PLOTS:
         authorship_metrics = load_authorship_metrics(snapshot=SNAPSHOT)
@@ -47,22 +52,32 @@ def main() -> None:
             snapshot_label=snapshot_label,
         )
 
-    if GENERATE_COLLABORATION_NETWORK_PLOT or GENERATE_COLLABORATION_METRICS_TABLE:
-        authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
-
     if GENERATE_COLLABORATION_NETWORK_PLOT:
-        network_data = load_network_data(snapshot=SNAPSHOT)
-        plot_collaboration_network(
+        if authorship_payload is None:
+            authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
+        if network_data is None:
+            network_data = load_network_data(snapshot=SNAPSHOT)
+        render_collaboration_network_layout_suite(
             network_data=network_data,
             authorship_payload=authorship_payload,
-            output_path=figures_dir / f"{filename_prefix}_collaboration_network.pdf",
+            output_dir=figures_dir,
+            filename_prefix=filename_prefix,
             snapshot_label=snapshot_label,
         )
 
     if GENERATE_COLLABORATION_METRICS_TABLE:
+        if authorship_payload is None:
+            authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
+        if network_data is None:
+            network_data = load_network_data(snapshot=SNAPSHOT)
         export_collaboration_metrics_table(
             authorship_payload=authorship_payload,
             output_path=tables_dir / f"{filename_prefix}_collaboration_metrics.xlsx",
+        )
+        export_collaboration_metrics_latex_table(
+            authorship_payload=authorship_payload,
+            network_data=network_data,
+            output_path=tables_dir / f"{filename_prefix}_collaboration_metrics_top_weighted_degree.tex",
         )
 
 

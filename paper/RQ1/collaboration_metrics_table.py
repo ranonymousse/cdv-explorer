@@ -1,9 +1,10 @@
 import math
+import textwrap
 from pathlib import Path
 from xml.sax.saxutils import escape
 from zipfile import ZIP_DEFLATED, ZipFile
 
-from paper.RQ1.collaboration_common import build_collaboration_metrics_rows
+from paper.RQ1.collaboration_common import build_author_bip_map, build_collaboration_metrics_rows
 
 
 TABLE_COLUMNS = [
@@ -15,6 +16,18 @@ TABLE_COLUMNS = [
     ("normalizedDegree", "Normalized Degree"),
     ("eigenvector", "Eigenvector Centrality"),
     ("weightedEigenvector", "Weighted Eigenvector"),
+]
+
+LATEX_TOP_N = 5
+LATEX_HEADER_WRAP_WIDTH = 14
+
+LATEX_TABLE_HEADERS = [
+    "Author",
+    "BIPs",
+    "Degree",
+    "W. Degree",
+    "Eigenvector Centrality",
+    "W. Eigenvector",
 ]
 
 
@@ -105,6 +118,108 @@ def _write_xlsx(headers: list[str], rows: list[list], output_path: Path, sheet_n
         workbook_zip.writestr("xl/workbook.xml", workbook_xml)
         workbook_zip.writestr("xl/_rels/workbook.xml.rels", workbook_rels_xml)
         workbook_zip.writestr("xl/worksheets/sheet1.xml", _sheet_xml(headers, rows))
+
+
+def _latex_escape(value: str) -> str:
+    return (
+        str(value)
+        .replace("\\", r"\textbackslash{}")
+        .replace("&", r"\&")
+        .replace("%", r"\%")
+        .replace("$", r"\$")
+        .replace("#", r"\#")
+        .replace("_", r"\_")
+        .replace("{", r"\{")
+        .replace("}", r"\}")
+        .replace("~", r"\textasciitilde{}")
+        .replace("^", r"\textasciicircum{}")
+    )
+
+
+def _format_float(value: float) -> str:
+    if not math.isfinite(value):
+        return "0.000"
+    return f"{value:.3f}"
+
+
+def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDTH) -> str:
+    wrapped_lines = []
+    for line in str(title).splitlines() or [""]:
+        wrapped_lines.extend(
+            textwrap.wrap(
+                line.strip(),
+                width=max_line_length,
+                break_long_words=False,
+                break_on_hyphens=False,
+            )
+            or [line.strip()]
+        )
+
+    escaped_lines = [_latex_escape(line) for line in wrapped_lines if line]
+    if len(escaped_lines) <= 1:
+        return rf"\textbf{{{escaped_lines[0] if escaped_lines else ''}}}"
+
+    return r"\shortstack[c]{" + r" \\ ".join(
+        rf"\textbf{{{line}}}" for line in escaped_lines
+    ) + "}"
+
+
+def export_collaboration_metrics_latex_table(
+    authorship_payload: dict,
+    network_data: dict,
+    output_path: Path,
+    top_n: int = LATEX_TOP_N,
+    header_wrap_width: int = LATEX_HEADER_WRAP_WIDTH,
+) -> None:
+    metrics_rows = build_collaboration_metrics_rows(
+        authorship_payload.get("collaboration_network", {}),
+        authorship_payload.get("collaboration_centrality", []),
+    )
+    author_bip_map = build_author_bip_map(network_data)
+
+    top_rows = sorted(
+        metrics_rows,
+        key=lambda row: (-int(row.get("weightedDegree", 0) or 0), str(row.get("author", ""))),
+    )[:top_n]
+
+    body_lines = []
+    for row in top_rows:
+        author = str(row.get("author", ""))
+        body_lines.append(
+            "        "
+            + " & ".join(
+                [
+                    _latex_escape(author),
+                    str(len(author_bip_map.get(author, []))),
+                    str(int(row.get("rawDegree", 0) or 0)),
+                    str(int(row.get("weightedDegree", 0) or 0)),
+                    _format_float(float(row.get("eigenvector", 0) or 0)),
+                    _format_float(float(row.get("weightedEigenvector", 0) or 0)),
+                ]
+            )
+            + r" \\"
+        )
+
+    header_line = " & ".join(
+        _latex_header_cell(title, max_line_length=header_wrap_width)
+        for title in LATEX_TABLE_HEADERS
+    ) + r" \\"
+
+    latex_table = "\n".join(
+        [
+            r"    \begin{tabular}{lccccc}",
+            r"    \toprule",
+            f"    {header_line}",
+            r"    \midrule",
+            *body_lines,
+            r"    \bottomrule",
+            r"    \end{tabular}",
+            "",
+        ]
+    )
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(latex_table, encoding="utf-8")
 
 
 def export_collaboration_metrics_table(

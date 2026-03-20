@@ -23,7 +23,7 @@ def plot_creation_over_time(
     cumulative_counts = np.cumsum(yearly_counts)
     x_positions = np.arange(len(years))
 
-    figure, axis_left = plt.subplots(figsize=(10.5, 5.6))
+    figure, axis_left = plt.subplots(figsize=(10, 4))
     axis_right = axis_left.twinx()
 
     axis_left.bar(
@@ -49,11 +49,24 @@ def plot_creation_over_time(
     axis_left.set_xlabel("Year")
     axis_left.set_title(f"Creation Over Time ({snapshot_label})")
     axis_left.set_xlim(-0.6, len(years) - 0.4)
+    axis_left.set_ylim(0, max(yearly_counts) * 1.16)
     axis_left.grid(axis="y", alpha=0.35)
     axis_right.grid(False)
     despine(axis_left)
     axis_right.spines["top"].set_visible(False)
     axis_right.spines["left"].set_visible(False)
+
+    label_offset = max(yearly_counts) * 0.025
+    for x_position, count in zip(x_positions, yearly_counts):
+        axis_left.text(
+            x_position,
+            count + label_offset,
+            str(count),
+            ha="center",
+            va="bottom",
+            fontsize=9,
+            color="#111111",
+        )
 
     figure.tight_layout()
     save_figure(figure, output_path)

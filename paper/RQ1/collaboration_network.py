@@ -23,33 +23,84 @@ CLUSTER_COLORS = [
     "#577590",
     "#c77dff",
 ]
+COLLABORATION_LAYOUTS = [
+    "spring",
+    "kamada_kawai",
+    "spectral",
+    "circular",
+    "spiral",
+    "shell",
+]
 
 
-def _build_global_layout(graph: nx.Graph) -> dict[str, tuple[float, float]]:
+def _build_layout_graph(graph: nx.Graph) -> nx.Graph:
+    layout_graph = graph.copy()
+    for _, _, data in layout_graph.edges(data=True):
+        weight = float(data.get("weight", 1) or 1)
+        data["layout_weight"] = 0.2 + math.sqrt(weight) * 0.16
+    return layout_graph
+
+
+def _stretch_positions(
+    positions: dict[str, tuple[float, float]],
+    scale_x: float = 2.05,
+    scale_y: float = 1.28,
+) -> dict[str, tuple[float, float]]:
+    return {
+        node_id: (x * scale_x, y * scale_y)
+        for node_id, (x, y) in positions.items()
+    }
+
+
+def _build_layout(graph: nx.Graph, layout_name: str) -> dict[str, tuple[float, float]]:
     if graph.number_of_nodes() == 0:
         return {}
 
     if graph.number_of_nodes() == 1:
         return {next(iter(graph.nodes())): (0.0, 0.0)}
 
-    layout_graph = graph.copy()
-    for _, _, data in layout_graph.edges(data=True):
-        weight = float(data.get("weight", 1) or 1)
-        data["layout_weight"] = 0.2 + math.sqrt(weight) * 0.16
+    layout_graph = _build_layout_graph(graph)
 
-    positions = nx.spring_layout(
-        layout_graph,
-        seed=42,
-        weight="layout_weight",
-        k=62 / math.sqrt(graph.number_of_nodes()),
-        iterations=800,
-        scale=12.5,
-    )
-    positions = {
-        node_id: (x * 1.8, y * 1.18)
-        for node_id, (x, y) in positions.items()
-    }
-    return positions
+    if layout_name == "spring":
+        positions = nx.spring_layout(
+            layout_graph,
+            seed=42,
+            weight="layout_weight",
+            k=78 / math.sqrt(graph.number_of_nodes()),
+            iterations=1000,
+            scale=14.0,
+        )
+        return _stretch_positions(positions)
+
+    if layout_name == "kamada_kawai":
+        positions = nx.kamada_kawai_layout(
+            layout_graph,
+            weight="layout_weight",
+            scale=12.0,
+        )
+        return _stretch_positions(positions, scale_x=1.7, scale_y=1.2)
+
+    if layout_name == "spectral":
+        positions = nx.spectral_layout(
+            layout_graph,
+            weight="layout_weight",
+            scale=12.0,
+        )
+        return _stretch_positions(positions, scale_x=2.1, scale_y=1.25)
+
+    if layout_name == "circular":
+        positions = nx.circular_layout(layout_graph, scale=12.0)
+        return _stretch_positions(positions, scale_x=1.8, scale_y=1.1)
+
+    if layout_name == "spiral":
+        positions = nx.spiral_layout(layout_graph, scale=12.0)
+        return _stretch_positions(positions, scale_x=1.65, scale_y=1.15)
+
+    if layout_name == "shell":
+        positions = nx.shell_layout(layout_graph, scale=12.0)
+        return _stretch_positions(positions, scale_x=1.7, scale_y=1.1)
+
+    raise ValueError(f"Unsupported collaboration layout: {layout_name}")
 
 
 def _resolve_node_overlaps(
@@ -110,113 +161,12 @@ def _resolve_node_overlaps(
     }
 
 
-def _resolve_component_overlaps(
-    positions: dict[str, tuple[float, float]],
-    components: list[set[str]],
-    node_radius_by_author: dict[str, float],
-    iterations: int = 120,
-    padding: float = 0.6,
-) -> dict[str, tuple[float, float]]:
-    if not positions or len(components) < 2:
-        return positions
-
-    adjusted = {
-        author: [coords[0], coords[1]]
-        for author, coords in positions.items()
-    }
-
-    def component_bounds(component: set[str]) -> tuple[float, float, float, float]:
-        min_x = min(adjusted[author][0] - node_radius_by_author.get(author, 0.2) for author in component)
-        max_x = max(adjusted[author][0] + node_radius_by_author.get(author, 0.2) for author in component)
-        min_y = min(adjusted[author][1] - node_radius_by_author.get(author, 0.2) for author in component)
-        max_y = max(adjusted[author][1] + node_radius_by_author.get(author, 0.2) for author in component)
-        return (min_x, max_x, min_y, max_y)
-
-    for _ in range(iterations):
-        moved = False
-
-        for index, component_a in enumerate(components):
-            min_x_a, max_x_a, min_y_a, max_y_a = component_bounds(component_a)
-            center_x_a = (min_x_a + max_x_a) / 2
-            center_y_a = (min_y_a + max_y_a) / 2
-
-            for component_b in components[index + 1:]:
-                min_x_b, max_x_b, min_y_b, max_y_b = component_bounds(component_b)
-                center_x_b = (min_x_b + max_x_b) / 2
-                center_y_b = (min_y_b + max_y_b) / 2
-
-                overlap_x = min(max_x_a, max_x_b) - max(min_x_a, min_x_b)
-                overlap_y = min(max_y_a, max_y_b) - max(min_y_a, min_y_b)
-
-                if overlap_x <= -padding or overlap_y <= -padding:
-                    continue
-
-                moved = True
-                push_x = overlap_x + padding if overlap_x > 0 else padding * 0.5
-                push_y = overlap_y + padding if overlap_y > 0 else padding * 0.5
-
-                dx = center_x_b - center_x_a
-                dy = center_y_b - center_y_a
-
-                if abs(dx) >= abs(dy):
-                    direction_x = 1 if dx >= 0 else -1
-                    shift_a = (-direction_x * push_x * 0.5, 0.0)
-                    shift_b = (direction_x * push_x * 0.5, 0.0)
-                else:
-                    direction_y = 1 if dy >= 0 else -1
-                    shift_a = (0.0, -direction_y * push_y * 0.5)
-                    shift_b = (0.0, direction_y * push_y * 0.5)
-
-                for author in component_a:
-                    adjusted[author][0] += shift_a[0]
-                    adjusted[author][1] += shift_a[1]
-                for author in component_b:
-                    adjusted[author][0] += shift_b[0]
-                    adjusted[author][1] += shift_b[1]
-
-        if not moved:
-            break
-
-    return {
-        author: (coords[0], coords[1])
-        for author, coords in adjusted.items()
-    }
-
-
-def _expand_component(
-    positions: dict[str, tuple[float, float]],
-    component: set[str],
-    scale_x: float = 1.8,
-    scale_y: float = 1.8,
-) -> dict[str, tuple[float, float]]:
-    if not positions or not component:
-        return positions
-
-    component_positions = [positions[author] for author in component if author in positions]
-    if not component_positions:
-        return positions
-
-    centroid_x = sum(x for x, _ in component_positions) / len(component_positions)
-    centroid_y = sum(y for _, y in component_positions) / len(component_positions)
-
-    adjusted = dict(positions)
-    for author in component:
-        if author not in adjusted:
-            continue
-        x, y = adjusted[author]
-        adjusted[author] = (
-            centroid_x + (x - centroid_x) * scale_x,
-            centroid_y + (y - centroid_y) * scale_y,
-        )
-
-    return adjusted
-
-
 def plot_collaboration_network(
     network_data: dict,
     authorship_payload: dict,
     output_path: Path,
     snapshot_label: str,
+    layout_name: str = "spring",
 ) -> None:
     collaboration_network = authorship_payload.get("collaboration_network", {})
     raw_nodes = collaboration_network.get("nodes", []) or []
@@ -243,13 +193,11 @@ def plot_collaboration_network(
         graph.add_edge(source, target, weight=weight)
 
     components = sorted(nx.connected_components(graph), key=len, reverse=True)
-    largest_component = components[0] if components else set()
     cluster_by_author = {}
     for cluster_index, members in enumerate(components):
         for author in members:
             cluster_by_author[author] = cluster_index
 
-    positions = _build_global_layout(graph)
     top_authors = sorted(
         graph.nodes(),
         key=lambda author: (-graph.nodes[author].get("bip_count", 0), author),
@@ -265,15 +213,11 @@ def plot_collaboration_network(
             radius += min(2.0, 0.018 * len(author) + 0.35)
         else:
             radius += 0.08
-        if author in largest_component:
-            radius *= 1.16
         node_radius_by_author[author] = radius
 
-    positions = _resolve_node_overlaps(positions, node_radius_by_author)
-    positions = _resolve_component_overlaps(positions, components, node_radius_by_author)
-    positions = _expand_component(positions, largest_component, scale_x=2.0, scale_y=1.9)
-    positions = _resolve_node_overlaps(positions, node_radius_by_author, iterations=320, padding=0.3)
-    positions = _resolve_component_overlaps(positions, components, node_radius_by_author, iterations=80, padding=0.7)
+    positions = _build_layout(graph, layout_name)
+    positions = _resolve_node_overlaps(positions, node_radius_by_author, iterations=260, padding=0.24)
+    positions = _resolve_node_overlaps(positions, node_radius_by_author, iterations=200, padding=0.32)
     edge_widths = [0.65 + float(data.get("weight", 1)) * 0.65 for _, _, data in graph.edges(data=True)]
     cluster_colors = {
         author: CLUSTER_COLORS[cluster_by_author.get(author, 0) % len(CLUSTER_COLORS)]
@@ -283,7 +227,7 @@ def plot_collaboration_network(
     node_edgecolors = [cluster_colors[author] for author in graph.nodes()]
     edge_colors = [cluster_colors[source] for source, _, _ in graph.edges(data=True)]
 
-    figure, axis = plt.subplots(figsize=(13, 7))
+    figure, axis = plt.subplots(figsize=(11, 6.5))
     nx.draw_networkx_edges(
         graph,
         positions,
@@ -325,7 +269,26 @@ def plot_collaboration_network(
             zorder=5,
         )
 
-    axis.set_title(f"Collaboration Network ({snapshot_label})")
+    axis.set_title(f"Collaboration Network ({snapshot_label}, {layout_name})")
     axis.axis("off")
     figure.tight_layout()
     save_figure(figure, output_path)
+
+
+def render_collaboration_network_layout_suite(
+    network_data: dict,
+    authorship_payload: dict,
+    output_dir: Path,
+    filename_prefix: str,
+    snapshot_label: str,
+) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    for layout_name in COLLABORATION_LAYOUTS:
+        plot_collaboration_network(
+            network_data=network_data,
+            authorship_payload=authorship_payload,
+            output_path=output_dir / f"{filename_prefix}_collaboration_network_{layout_name}.pdf",
+            snapshot_label=snapshot_label,
+            layout_name=layout_name,
+        )

@@ -66,12 +66,22 @@ def plot_authorship_overview(
     histogram_x = [entry["bips_written"] for entry in histogram_series]
     histogram_y = [entry["authors"] for entry in histogram_series]
     histogram_positions = np.arange(len(histogram_x))
+    labeled_histogram_positions = [
+        position
+        for position, authors in zip(histogram_positions, histogram_y)
+        if authors > 0
+    ]
+    labeled_histogram_values = [
+        bips_written
+        for bips_written, authors in zip(histogram_x, histogram_y)
+        if authors > 0
+    ]
 
     figure, (axis_left, axis_right) = plt.subplots(
         1,
         2,
-        figsize=(12.5, 5.8),
-        gridspec_kw={"width_ratios": [0.9, 2.1]},
+        figsize=(9, 3),
+        gridspec_kw={"width_ratios": [0.3, 0.7]},
     )
 
     axis_left.barh(author_names, author_counts, color=TOP_AUTHORS_COLOR, zorder=2)
@@ -90,8 +100,8 @@ def plot_authorship_overview(
     axis_right.set_title("Authorship Distribution")
     axis_right.set_xlabel("BIPs written per author")
     axis_right.set_ylabel("Number of authors")
-    axis_right.set_xticks(histogram_positions)
-    axis_right.set_xticklabels(histogram_x)
+    axis_right.set_xticks(labeled_histogram_positions)
+    axis_right.set_xticklabels(labeled_histogram_values)
     axis_right.grid(axis="y", alpha=0.35)
     axis_right.grid(axis="x", visible=False)
     for index, authors in enumerate(histogram_y):
