@@ -232,7 +232,7 @@ export function EcosystemDashboard() {
           className="w-full"
         />
         <div className="dashboard-sticky-controls__link-row">
-          <span className="dashboard-sticky-controls__label-inline">IP links:</span>
+          <span className="dashboard-sticky-controls__label-inline">IP Links:</span>
           <span className={`dashboard-link-mode-text${linkMode === 'history' ? ' is-active' : ''}`}>
             Historic
           </span>
