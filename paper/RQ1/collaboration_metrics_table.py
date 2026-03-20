@@ -20,14 +20,15 @@ TABLE_COLUMNS = [
 
 LATEX_TOP_N = 5
 LATEX_HEADER_WRAP_WIDTH = 14
+LATEX_TABCOLSEP_PT = 5
 
 LATEX_TABLE_HEADERS = [
     "Author",
     "BIPs",
     "Degree",
-    "W. Degree",
+    "Weighted Degree",
     "Eigenvector Centrality",
-    "W. Eigenvector",
+    "Weighted Eigenvector",
 ]
 
 
@@ -155,13 +156,10 @@ def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDT
             or [line.strip()]
         )
 
-    escaped_lines = [_latex_escape(line) for line in wrapped_lines if line]
-    if len(escaped_lines) <= 1:
-        return rf"\textbf{{{escaped_lines[0] if escaped_lines else ''}}}"
-
-    return r"\shortstack[c]{" + r" \\ ".join(
+    escaped_lines = [_latex_escape(line) for line in wrapped_lines if line] or [""]
+    return r"\begin{tabular}[c]{@{}c@{}}" + r" \\ ".join(
         rf"\textbf{{{line}}}" for line in escaped_lines
-    ) + "}"
+    ) + r"\end{tabular}"
 
 
 def export_collaboration_metrics_latex_table(
@@ -170,6 +168,7 @@ def export_collaboration_metrics_latex_table(
     output_path: Path,
     top_n: int = LATEX_TOP_N,
     header_wrap_width: int = LATEX_HEADER_WRAP_WIDTH,
+    tabcolsep_pt: int = LATEX_TABCOLSEP_PT,
 ) -> None:
     metrics_rows = build_collaboration_metrics_rows(
         authorship_payload.get("collaboration_network", {}),
@@ -207,6 +206,8 @@ def export_collaboration_metrics_latex_table(
 
     latex_table = "\n".join(
         [
+            "{",
+            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
             r"    \begin{tabular}{lccccc}",
             r"    \toprule",
             f"    {header_line}",
@@ -214,6 +215,7 @@ def export_collaboration_metrics_latex_table(
             *body_lines,
             r"    \bottomrule",
             r"    \end{tabular}",
+            "}",
             "",
         ]
     )
