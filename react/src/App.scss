@@ -321,6 +321,12 @@
   color: var(--app-text-muted);
 }
 
+.classification-relation-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
 .wordcloud-filter {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

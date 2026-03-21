@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { ClassificationPieChart } from '../../ClassificationPieChart';
 import { ClassificationStackedTimelineChart } from '../../ClassificationStackedTimelineChart';
 import { ClassificationChordDiagram } from '../../ClassificationChordDiagram';
+import { ClassificationRelationTable } from '../../ClassificationRelationTable';
 import { ExportableCard } from '../ExportableCard';
 import { CLASSIFICATION_DIMENSIONS } from '../constants';
 
@@ -12,7 +14,9 @@ export function ClassificationSection({
   classificationDistributions,
   classificationTimeline,
   classificationChordData,
+  classificationRelationRows,
 }) {
+  const [includeLayer, setIncludeLayer] = useState(false);
   const orderedDimensions = CLASSIFICATION_SECTION_ORDER
     .map((field) => CLASSIFICATION_DIMENSIONS.find((dimension) => dimension.field === field))
     .filter(Boolean);
@@ -58,6 +62,25 @@ export function ClassificationSection({
         <div>
           <ClassificationChordDiagram data={classificationChordData} width={800} height={560} />
         </div>
+      </ExportableCard>
+      <ExportableCard className="mb-4" exportTitle="Classification Relation Summary">
+        <h3>Classification Relation Summary</h3>
+        <p>Shows unique Status-Type combinations and the number of {ecosystem.proposalShortPlural} that match them. Can be expanded using the optional Layer preamble field.</p>
+        <div className="classification-relation-toolbar">
+          <label className="dependency-filter-checkbox">
+            <input
+              type="checkbox"
+              checked={includeLayer}
+              onChange={(event) => setIncludeLayer(event.target.checked)}
+            />
+            <span>include Layer</span>
+          </label>
+        </div>
+        <ClassificationRelationTable
+          rows={includeLayer ? classificationRelationRows.statusTypeLayer : classificationRelationRows.statusType}
+          includeLayer={includeLayer}
+          proposalShortLabel={ecosystem.acronym || 'IP'}
+        />
       </ExportableCard>
     </section>
   );

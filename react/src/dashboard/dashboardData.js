@@ -498,6 +498,66 @@ function buildClassificationChordData(nodes, categoryDomains = {}) {
   };
 }
 
+function buildClassificationRelationRows(nodes) {
+  const statusTypeRows = new Map();
+  const statusTypeLayerRows = new Map();
+
+  (nodes || []).forEach((node) => {
+    const bipId = node?.id != null ? String(node.id) : null;
+    if (!bipId) {
+      return;
+    }
+
+    const status = normalizeChordStatus(node?.status);
+    const type = normalizeChordType(node?.type);
+    const layer = normalizeChordLayer(node?.layer);
+
+    const statusTypeKey = `${status}|||${type}`;
+    if (!statusTypeRows.has(statusTypeKey)) {
+      statusTypeRows.set(statusTypeKey, {
+        status,
+        type,
+        count: 0,
+        bips: new Set(),
+      });
+    }
+    const statusTypeEntry = statusTypeRows.get(statusTypeKey);
+    statusTypeEntry.count += 1;
+    statusTypeEntry.bips.add(bipId);
+
+    const statusTypeLayerKey = `${status}|||${type}|||${layer}`;
+    if (!statusTypeLayerRows.has(statusTypeLayerKey)) {
+      statusTypeLayerRows.set(statusTypeLayerKey, {
+        status,
+        type,
+        layer,
+        count: 0,
+        bips: new Set(),
+      });
+    }
+    const statusTypeLayerEntry = statusTypeLayerRows.get(statusTypeLayerKey);
+    statusTypeLayerEntry.count += 1;
+    statusTypeLayerEntry.bips.add(bipId);
+  });
+
+  const finalizeRows = (rows) => Array.from(rows.values())
+    .map((entry) => ({
+      ...entry,
+      bips: Array.from(entry.bips).sort((left, right) => Number(left) - Number(right)),
+    }))
+    .sort((left, right) => (
+      right.count - left.count ||
+      left.status.localeCompare(right.status) ||
+      left.type.localeCompare(right.type) ||
+      String(left.layer || '').localeCompare(String(right.layer || ''))
+    ));
+
+  return {
+    statusType: finalizeRows(statusTypeRows),
+    statusTypeLayer: finalizeRows(statusTypeLayerRows),
+  };
+}
+
 export function buildDashboardData(dataset) {
   const authorship = dataset.authorship || {};
   const dependencyMetrics = dataset.dependencyMetrics || { by_approach: {} };
@@ -627,6 +687,7 @@ export function buildDashboardData(dataset) {
       ],
     ])
   );
+  const classificationRelationRows = buildClassificationRelationRows(dataset.nodes);
 
   const topAuthors = (authorship.top_authors || []).map((entry) => ({
     ...entry,
@@ -719,6 +780,7 @@ export function buildDashboardData(dataset) {
     classificationTimeline,
     classificationCategoryDomains,
     classificationChordData: buildClassificationChordData(dataset.nodes, classificationCategoryDomains),
+    classificationRelationRows,
     topAuthors,
     authorContributionHistogram: authorship.author_contribution_histogram || [],
     collaborationNetwork,

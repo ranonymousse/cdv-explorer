@@ -75,6 +75,7 @@ export function EcosystemDashboard() {
     classificationTimeline,
     classificationCategoryDomains,
     classificationChordData,
+    classificationRelationRows,
     topAuthors,
     authorContributionHistogram,
     collaborationNetwork,
@@ -281,6 +282,7 @@ export function EcosystemDashboard() {
         classificationDistributions={classificationDistributions}
         classificationTimeline={classificationTimeline}
         classificationChordData={classificationChordData}
+        classificationRelationRows={classificationRelationRows}
       />
 
       <DependenciesSection
