@@ -24,12 +24,7 @@ CLUSTER_COLORS = [
     "#c77dff",
 ]
 COLLABORATION_LAYOUTS = [
-    "spring",
     "kamada_kawai",
-    "spectral",
-    "circular",
-    "spiral",
-    "shell",
 ]
 
 

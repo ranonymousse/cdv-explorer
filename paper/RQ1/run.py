@@ -70,6 +70,7 @@ def main() -> None:
             network_data = load_network_data(snapshot=SNAPSHOT)
         export_collaboration_metrics_table(
             authorship_payload=authorship_payload,
+            network_data=network_data,
             output_path=output_dir / f"{filename_prefix}_collaboration_metrics.xlsx",
         )
         export_collaboration_metrics_latex_table(

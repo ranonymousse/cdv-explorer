@@ -9,12 +9,9 @@ from paper.RQ1.collaboration_common import build_author_bip_map, build_collabora
 
 TABLE_COLUMNS = [
     ("author", "Author"),
-    ("clusterId", "Cluster"),
-    ("clusterSize", "Cluster Size"),
+    ("bips", "BIPs"),
     ("rawDegree", "Degree"),
     ("weightedDegree", "Weighted Degree"),
-    ("normalizedDegree", "Normalized Degree"),
-    ("eigenvector", "Eigenvector Centrality"),
     ("weightedEigenvector", "Weighted Eigenvector"),
 ]
 
@@ -233,16 +230,24 @@ def export_collaboration_metrics_latex_table(
 
 def export_collaboration_metrics_table(
     authorship_payload: dict,
+    network_data: dict,
     output_path: Path,
 ) -> None:
     metrics_rows = build_collaboration_metrics_rows(
         authorship_payload.get("collaboration_network", {}),
         authorship_payload.get("collaboration_centrality", []),
     )
+    author_bip_map = build_author_bip_map(network_data)
 
     headers = [header for _, header in TABLE_COLUMNS]
     rows = [
-        [row.get(field) for field, _ in TABLE_COLUMNS]
+        [
+            row.get("author"),
+            len(author_bip_map.get(str(row.get("author", "")), [])),
+            row.get("rawDegree"),
+            row.get("weightedDegree"),
+            row.get("weightedEigenvector"),
+        ]
         for row in metrics_rows
     ]
     _write_xlsx(headers, rows, output_path, sheet_name="Collaboration Metrics")
