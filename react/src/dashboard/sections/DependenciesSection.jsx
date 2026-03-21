@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Dropdown } from 'primereact/dropdown';
@@ -5,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { NetworkDiagram } from '../../NetworkDiagram';
 import { ProposalGraphMetricsTable } from '../../ProposalGraphMetricsTable';
 import { DependencyComparisonHeatmaps } from '../../DependencyComparisonHeatmaps';
+import { useAnalysisMetricTooltip } from '../../useAnalysisMetricTooltip';
 import { ExportableCard } from '../ExportableCard';
 
 export function DependenciesSection({
@@ -25,6 +27,40 @@ export function DependenciesSection({
   activeDependencyMetrics,
   dependencyMetrics,
 }) {
+  const {
+    showTooltip: showMetricTooltip,
+    moveTooltip: moveMetricTooltip,
+    hideTooltip: hideMetricTooltip,
+  } = useAnalysisMetricTooltip();
+
+  const dependencyMetricCards = useMemo(() => ([
+    {
+      label: 'Nodes',
+      value: activeDependencyMetrics.summary?.node_count ?? 0,
+      description: `Total number of distinct ${ecosystem.proposalShortPlural} represented as nodes in the selected relationship graph.`,
+    },
+    {
+      label: 'Edges',
+      value: activeDependencyMetrics.summary?.edge_count ?? 0,
+      description: `Total number of directed relationships between ${ecosystem.proposalShortPlural} in the selected extraction approach.`,
+    },
+    {
+      label: 'Isolated Nodes',
+      value: activeDependencyMetrics.summary?.isolated_node_count ?? 0,
+      description: `Number of ${ecosystem.proposalShortPlural} with neither incoming nor outgoing relationships in the selected graph.`,
+    },
+    {
+      label: 'Circular Dependencies',
+      value: activeDependencyMetrics.summary?.circular_dependency_count ?? 0,
+      description: `Number of dependency cycles detected in the selected relationship graph.`,
+    },
+    {
+      label: 'Density',
+      value: Number(activeDependencyMetrics.summary?.density || 0).toFixed(4).replace(/\.?0+$/, ''),
+      description: `Share of all possible directed ${ecosystem.acronym}-to-${ecosystem.acronym} links that actually exist. Higher density means a more interconnected graph.`,
+    },
+  ]), [activeDependencyMetrics.summary, ecosystem.acronym, ecosystem.proposalShortPlural]);
+
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
@@ -104,7 +140,7 @@ export function DependenciesSection({
       <Card className="mb-4">
         <h3>Relationship Graph Metrics</h3>
         <p>
-          Compare simple graph-level structure and per-{ecosystem.proposalShort} centrality measures across
+          Compare simple graph-level structure and per-{ecosystem.acronym} centrality measures across
           explicit dependencies, explicit references, and implicit dependencies.
         </p>
         <div className="dependency-metrics-toolbar">
@@ -121,26 +157,18 @@ export function DependenciesSection({
           />
         </div>
         <div className="analysis-grid dependency-metrics-summary">
-          <div className="analysis-stat">
-            <h4>Nodes</h4>
-            <p>{activeDependencyMetrics.summary?.node_count ?? 0}</p>
-          </div>
-          <div className="analysis-stat">
-            <h4>Edges</h4>
-            <p>{activeDependencyMetrics.summary?.edge_count ?? 0}</p>
-          </div>
-          <div className="analysis-stat">
-            <h4>Isolated Nodes</h4>
-            <p>{activeDependencyMetrics.summary?.isolated_node_count ?? 0}</p>
-          </div>
-          <div className="analysis-stat">
-            <h4>Circular Dependencies</h4>
-            <p>{activeDependencyMetrics.summary?.circular_dependency_count ?? 0}</p>
-          </div>
-          <div className="analysis-stat">
-            <h4>Density</h4>
-            <p>{Number(activeDependencyMetrics.summary?.density || 0).toFixed(4).replace(/\.?0+$/, '')}</p>
-          </div>
+          {dependencyMetricCards.map((metric) => (
+            <div
+              key={metric.label}
+              className="analysis-stat analysis-stat--interactive"
+              onMouseEnter={(event) => showMetricTooltip(event, metric.description)}
+              onMouseMove={moveMetricTooltip}
+              onMouseLeave={hideMetricTooltip}
+            >
+              <h4>{metric.label}</h4>
+              <p>{metric.value}</p>
+            </div>
+          ))}
         </div>
         <ProposalGraphMetricsTable
           rows={activeDependencyMetrics.per_bip || []}

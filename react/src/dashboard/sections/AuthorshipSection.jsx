@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { RadioButton } from 'primereact/radiobutton';
@@ -9,6 +9,7 @@ import { AuthorContributionHistogram } from '../../AuthorContributionHistogram';
 import { AuthorCollaborationNetwork } from '../../AuthorCollaborationNetwork';
 import { AuthorCentralityTable } from '../../AuthorCentralityTable';
 import { WordCloud } from '../../WordCloud';
+import { useAnalysisMetricTooltip } from '../../useAnalysisMetricTooltip';
 import { ExportableCard } from '../ExportableCard';
 import { COLLABORATION_LAYOUT_OPTIONS } from '../constants';
 
@@ -33,35 +34,11 @@ export function AuthorshipSection({
   filteredWordCloudData,
   wordCloudData,
 }) {
-  const tooltipRef = useRef(null);
-
-  useEffect(() => {
-    const tooltipNode = document.createElement('div');
-    document.body.appendChild(tooltipNode);
-
-    tooltipRef.current = tooltipNode;
-    tooltipNode.className = 'analysis-metric-tooltip';
-    Object.assign(tooltipNode.style, {
-      position: 'absolute',
-      background: 'var(--tooltip-bg)',
-      color: 'var(--tooltip-text)',
-      padding: '6px 10px',
-      borderRadius: '4px',
-      border: '1px solid var(--tooltip-border)',
-      boxShadow: 'var(--tooltip-shadow)',
-      fontSize: '12px',
-      pointerEvents: 'none',
-      maxWidth: '320px',
-      lineHeight: '1.45',
-      opacity: '0',
-      zIndex: '2000',
-    });
-
-    return () => {
-      tooltipNode.remove();
-      tooltipRef.current = null;
-    };
-  }, []);
+  const {
+    showTooltip: showMetricTooltip,
+    moveTooltip: moveMetricTooltip,
+    hideTooltip: hideMetricTooltip,
+  } = useAnalysisMetricTooltip();
 
   const collaborationMetricCards = useMemo(() => ([
     {
@@ -90,37 +67,6 @@ export function AuthorshipSection({
       description: 'Share of all possible author-to-author links that actually exist. Higher density means collaboration is more broadly interconnected.',
     },
   ]), [collaborationMetricsSummary]);
-
-  const showMetricTooltip = (event, description) => {
-    const tooltip = tooltipRef.current;
-    if (!tooltip || !description) {
-      return;
-    }
-
-    tooltip.textContent = description;
-    tooltip.style.opacity = '1';
-    tooltip.style.left = `${event.pageX + 10}px`;
-    tooltip.style.top = `${event.pageY - 28}px`;
-  };
-
-  const moveMetricTooltip = (event) => {
-    const tooltip = tooltipRef.current;
-    if (!tooltip || tooltip.style.opacity !== '1') {
-      return;
-    }
-
-    tooltip.style.left = `${event.pageX + 10}px`;
-    tooltip.style.top = `${event.pageY - 28}px`;
-  };
-
-  const hideMetricTooltip = () => {
-    const tooltip = tooltipRef.current;
-    if (!tooltip) {
-      return;
-    }
-
-    tooltip.style.opacity = '0';
-  };
 
   return (
     <section className="dashboard-section">
