@@ -136,7 +136,7 @@ function computeWeightedEigenvectorCentrality(nodeIds, adjacency, maxIterations 
   return values;
 }
 
-function buildCollaborationDerivedData(collaborationNetwork, collaborationCentrality) {
+function buildCollaborationDerivedData(collaborationNetwork, collaborationCentrality, topAuthorSet = new Set()) {
   const rawNodes = collaborationNetwork?.nodes || [];
   const rawEdges = collaborationNetwork?.edges || [];
   const nodeIds = rawNodes.map((node) => String(node.id)).filter(Boolean);
@@ -257,6 +257,7 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
 
     return {
       ...row,
+      displayAuthor: topAuthorSet.has(row.author) ? `${row.author}*` : row.author,
       eigenvector: Number(eigenvectorRow.eigenvector || 0),
       weightedEigenvector: Number(eigenvectorRow.weightedEigenvector || 0),
     };
@@ -598,6 +599,18 @@ export function buildDashboardData(dataset) {
     ...entry,
     bips: Array.from(authorBipsByAuthor.get(entry.author) || []).sort((left, right) => Number(left) - Number(right)),
   }));
+  const topCollaborationAuthors = new Set(
+    Array.from(authorBipsByAuthor.entries())
+      .sort((left, right) => {
+        const bipCountDifference = right[1].size - left[1].size;
+        if (bipCountDifference !== 0) {
+          return bipCountDifference;
+        }
+        return left[0].localeCompare(right[0]);
+      })
+      .slice(0, 10)
+      .map(([author]) => author)
+  );
 
   const sharedBipsByAuthorPair = new Map();
   dataset.nodes.forEach((node) => {
@@ -643,6 +656,7 @@ export function buildDashboardData(dataset) {
   const { metricsRows: collaborationMetricsRows } = buildCollaborationDerivedData(
     collaborationNetwork,
     authorship.collaboration_centrality || [],
+    topCollaborationAuthors,
   );
 
   return {

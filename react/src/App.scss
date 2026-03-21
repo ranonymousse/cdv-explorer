@@ -806,6 +806,13 @@
   width: min(260px, 100%);
 }
 
+.centrality-table__meta {
+  color: var(--app-text-muted);
+  font-size: 0.88rem;
+  white-space: nowrap;
+  align-self: center;
+}
+
 .centrality-table .p-datatable-header {
   background: transparent;
   border: none;

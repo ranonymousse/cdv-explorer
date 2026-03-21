@@ -19,6 +19,7 @@ TABLE_COLUMNS = [
 ]
 
 LATEX_TOP_N = 5
+LATEX_AUTHOR_TOP_N = 10
 LATEX_HEADER_WRAP_WIDTH = 14
 LATEX_TABCOLSEP_PT = 5
 
@@ -27,7 +28,6 @@ LATEX_TABLE_HEADERS = [
     "BIPs",
     "Degree",
     "Weighted Degree",
-    "Eigenvector Centrality",
     "Weighted Eigenvector",
 ]
 
@@ -137,12 +137,6 @@ def _latex_escape(value: str) -> str:
     )
 
 
-def _format_float(value: float) -> str:
-    if not math.isfinite(value):
-        return "0.000"
-    return f"{value:.3f}"
-
-
 def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDTH) -> str:
     wrapped_lines = []
     for line in str(title).splitlines() or [""]:
@@ -162,6 +156,12 @@ def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDT
     ) + r"\end{tabular}"
 
 
+def _format_float(value: float) -> str:
+    if not math.isfinite(value):
+        return "0.000"
+    return f"{value:.3f}"
+
+
 def export_collaboration_metrics_latex_table(
     authorship_payload: dict,
     network_data: dict,
@@ -175,6 +175,13 @@ def export_collaboration_metrics_latex_table(
         authorship_payload.get("collaboration_centrality", []),
     )
     author_bip_map = build_author_bip_map(network_data)
+    top_author_set = {
+        author
+        for author, _ in sorted(
+            author_bip_map.items(),
+            key=lambda item: (-len(item[1]), item[0]),
+        )[:LATEX_AUTHOR_TOP_N]
+    }
 
     top_rows = sorted(
         metrics_rows,
@@ -184,15 +191,15 @@ def export_collaboration_metrics_latex_table(
     body_lines = []
     for row in top_rows:
         author = str(row.get("author", ""))
+        display_author = f"{author}*" if author in top_author_set else author
         body_lines.append(
             "        "
             + " & ".join(
                 [
-                    _latex_escape(author),
+                    _latex_escape(display_author),
                     str(len(author_bip_map.get(author, []))),
                     str(int(row.get("rawDegree", 0) or 0)),
                     str(int(row.get("weightedDegree", 0) or 0)),
-                    _format_float(float(row.get("eigenvector", 0) or 0)),
                     _format_float(float(row.get("weightedEigenvector", 0) or 0)),
                 ]
             )
@@ -208,7 +215,7 @@ def export_collaboration_metrics_latex_table(
         [
             "{",
             rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
-            r"    \begin{tabular}{lccccc}",
+            r"    \begin{tabular}{lcccc}",
             r"    \toprule",
             f"    {header_line}",
             r"    \midrule",

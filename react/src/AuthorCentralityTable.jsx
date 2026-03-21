@@ -35,6 +35,7 @@ export const AuthorCentralityTable = ({
           placeholder="Filter authors"
         />
       </span>
+      <span className="centrality-table__meta">Total Authors: {rows.length}</span>
     </div>
   );
 
@@ -51,7 +52,12 @@ export const AuthorCentralityTable = ({
       className="centrality-table"
       emptyMessage="No authors found."
     >
-      <Column field="author" header="Author" sortable />
+      <Column
+        field="author"
+        header="Author"
+        sortable
+        body={(row) => row.displayAuthor || row.author}
+      />
       {columns.map((column) => (
         <Column
           key={column.field}

@@ -124,17 +124,22 @@ export function AuthorshipSection({
       </ExportableCard>
       <Card className="mb-4">
         <h3>Collaboration Metrics</h3>
-        <p>{ecosystem.acronym} co-authorship according to preamble ...TODO.</p>
+        <p>
+          {ecosystem.acronym} co-authorship according to preamble. 
+          Author names marked with <strong><code>*</code></strong> are in the top 10 by authored {ecosystem.proposalShortPlural}. <strong>Cluster</strong>
+          {' '}and <strong>Cluster Size</strong> show the connected co-authorship group an author belongs to and how large
+          that group is. <strong>Degree</strong> counts distinct co-authors, <strong>Weighted Degree</strong> counts
+          repeated collaborations, and <strong>Weighted Eigenvector</strong> is higher for authors connected to other
+          highly collaborative authors.
+        </p>
         <AuthorCentralityTable
           rows={collaborationMetricsRows}
-          defaultSortField="eigenvector"
+          defaultSortField="weightedEigenvector"
           columns={[
             { field: 'clusterId', header: 'Cluster', format: 'integer' },
             { field: 'clusterSize', header: 'Cluster Size', format: 'integer' },
             { field: 'rawDegree', header: 'Degree', format: 'integer' },
             { field: 'weightedDegree', header: 'Weighted Degree', format: 'integer' },
-            { field: 'normalizedDegree', header: 'Normalized Degree', digits: 4 },
-            { field: 'eigenvector', header: 'Eigenvector Centrality', digits: 4 },
             { field: 'weightedEigenvector', header: 'Weighted Eigenvector', digits: 4 },
           ]}
         />
