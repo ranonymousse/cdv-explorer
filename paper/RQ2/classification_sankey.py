@@ -189,10 +189,18 @@ def _draw_outer_block_name(
         text_x = x + 0.068
         ha = "left"
 
+    display_name = (
+        block.name
+        .replace("Specification", "Spec-\nification")
+        .replace("Informational", "Inform-\national")
+        .replace("Consensus (soft fork)", "Consensus\n(soft fork)")
+        .replace("Consensus (hard fork)", "Consensus\n(hard fork)")
+    )
+
     ax.text(
         text_x,
         (block.y0 + block.y1) / 2,
-        block.name,
+        display_name,
         ha=ha,
         va="center",
         fontsize=9.5,
@@ -266,8 +274,8 @@ def plot_classification_sankey(
     axis.axis("off")
 
     x_type = 0.10
-    x_status = 0.485
-    x_layer = 0.87
+    x_status = 0.445
+    x_layer = 0.79
     block_width = 0.05
     left_flow_label_x = x_type + block_width + 0.012
     right_flow_label_x = x_layer - 0.012
