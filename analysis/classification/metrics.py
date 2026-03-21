@@ -81,6 +81,22 @@ def build_status_over_time(nodes: List[Dict[str, Any]]) -> Dict[str, Dict[str, i
     return out
 
 
+def build_type_over_time(nodes: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+    yearly = defaultdict(Counter)
+
+    for node in nodes:
+        year = _extract_year(node.get("created"))
+        if year is None:
+            continue
+        kind = _apply_alias(_clean_base(node.get("type"), "Unknown Type"), TYPE_ALIASES)
+        yearly[year][kind] += 1
+
+    out: Dict[str, Dict[str, int]] = {}
+    for year in sorted(yearly.keys()):
+        out[str(year)] = dict(sorted(yearly[year].items(), key=lambda x: x[0]))
+    return out
+
+
 def prepare_classification_payload(network_data: Dict[str, Any]) -> Dict[str, Any]:
     nodes = network_data.get("nodes", [])
 

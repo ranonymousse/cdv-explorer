@@ -112,9 +112,10 @@ def _monotone_cubic_curve(
 
 def _normalize_status_series(
     status_over_time: dict[str, dict[str, int]],
+    order: list[str],
 ) -> tuple[list[int], list[str], dict[str, list[int]]]:
     if not status_over_time:
-        raise ValueError("Classification status plot requires non-empty status_over_time data.")
+        raise ValueError("Classification plot requires non-empty over-time data.")
 
     years = sorted(int(year) for year in status_over_time.keys())
     observed_statuses = {
@@ -125,7 +126,7 @@ def _normalize_status_series(
     }
     ordered_statuses = [
         status
-        for status in STATUS_ORDER
+        for status in order
         if status in observed_statuses
     ]
     ordered_statuses.extend(sorted(observed_statuses - set(ordered_statuses)))
@@ -144,17 +145,26 @@ def plot_classification_status(
     status_over_time: dict[str, dict[str, int]],
     output_path: Path,
     snapshot_label: str,
+    *,
+    category_title: str = "Classification Status",
+    center_label: str = "BIPs",
+    order: list[str] | None = None,
+    colors: dict[str, str] | None = None,
+    left_axis_title: str = "Status",
+    right_axis_title: str = "Number of BIPs",
+    right_secondary_axis_title: str = "Cumulative number of BIPs",
 ) -> None:
-    years, ordered_statuses, series = _normalize_status_series(status_over_time)
+    years, ordered_statuses, series = _normalize_status_series(status_over_time, order or STATUS_ORDER)
     totals = {
         status: sum(counts)
         for status, counts in series.items()
     }
     total_bips = sum(totals.values())
     if total_bips <= 0:
-        raise ValueError("Classification status plot requires positive status counts.")
+        raise ValueError("Classification plot requires positive category counts.")
 
-    colors = [STATUS_COLORS.get(status, "#868e96") for status in ordered_statuses]
+    palette = colors or STATUS_COLORS
+    colors = [palette.get(status, "#868e96") for status in ordered_statuses]
     legend_handles = [
         Patch(facecolor=color, edgecolor="none", label=status)
         for status, color in zip(ordered_statuses, colors)
@@ -198,7 +208,7 @@ def plot_classification_status(
     axis_left.text(
         0,
         0,
-        f"{total_bips}\nBIPs",
+        f"{total_bips}\n{center_label}",
         ha="center",
         va="center",
         fontsize=12,
@@ -223,7 +233,7 @@ def plot_classification_status(
         bar_bottom = bar_bottom + np.array(counts)
 
     axis_right.set_xlabel("Year")
-    axis_right.set_ylabel("Number of BIPs")
+    axis_right.set_ylabel(right_axis_title)
     axis_right.set_xticks(x_positions)
     axis_right.set_xticklabels(years, rotation=45, ha="right")
     axis_right.set_xlim(-0.6, len(years) - 0.4)
@@ -263,7 +273,7 @@ def plot_classification_status(
             linewidths=0.6,
         )
 
-    axis_right_secondary.set_ylabel("Cumulative number of BIPs")
+    axis_right_secondary.set_ylabel(right_secondary_axis_title)
     axis_right_secondary.set_xlim(-0.6, len(years) - 0.4)
     axis_right_secondary.set_ylim(0, cumulative_max * 1.05 if cumulative_max > 0 else 1)
     axis_right_secondary.yaxis.set_major_locator(MaxNLocator(integer=True))
@@ -272,7 +282,7 @@ def plot_classification_status(
     axis_right_secondary.spines["top"].set_visible(False)
     axis_right_secondary.spines["left"].set_visible(False)
 
-    figure.suptitle(f"Classification Status ({snapshot_label})", y=0.98)
+    figure.suptitle(f"{category_title} ({snapshot_label})", y=0.98)
     figure.legend(
         handles=legend_handles,
         loc="upper center",
