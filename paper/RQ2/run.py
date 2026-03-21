@@ -12,6 +12,7 @@ OUTPUT_DIR = None
 GENERATE_CLASSIFICATION_STATUS_PLOT = True
 GENERATE_CLASSIFICATION_TYPE_PLOT = True
 GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE = True
+GENERATE_CLASSIFICATION_SANKEY_PLOT = True
 
 
 def main() -> None:
@@ -20,6 +21,7 @@ def main() -> None:
         load_network_data,
         resolve_latest_snapshot_label,
     )
+    from paper.RQ2.classification_sankey import plot_classification_sankey
     from paper.RQ2.classification_status import plot_classification_status
     from paper.RQ2.classification_status_type_table import (
         export_classification_status_type_latex_table,
@@ -30,6 +32,7 @@ def main() -> None:
         not GENERATE_CLASSIFICATION_STATUS_PLOT
         and not GENERATE_CLASSIFICATION_TYPE_PLOT
         and not GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE
+        and not GENERATE_CLASSIFICATION_SANKEY_PLOT
     ):
         return
 
@@ -52,6 +55,15 @@ def main() -> None:
         plot_classification_type(
             network_data=network_data,
             output_path=output_dir / f"{filename_prefix}_classification_type.pdf",
+            snapshot_label=snapshot_label,
+        )
+
+    if GENERATE_CLASSIFICATION_SANKEY_PLOT:
+        if network_data is None:
+            network_data = load_network_data(snapshot=SNAPSHOT)
+        plot_classification_sankey(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_classification_sankey.pdf",
             snapshot_label=snapshot_label,
         )
 
