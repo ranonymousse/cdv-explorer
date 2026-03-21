@@ -3,12 +3,58 @@ import { useEffect, useRef } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
 import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
+function buildDisplayCollaborationComponents(nodes, adjacency) {
+  const isolatedIds = [];
+  const visited = new Set();
+  const components = [];
+
+  nodes.forEach((node) => {
+    const neighbors = adjacency.get(node.id) || new Set();
+    if (neighbors.size === 0) {
+      isolatedIds.push(node.id);
+      return;
+    }
+
+    if (visited.has(node.id)) {
+      return;
+    }
+
+    const queue = [node.id];
+    const members = [];
+    visited.add(node.id);
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+      members.push(current);
+
+      (adjacency.get(current) || new Set()).forEach((neighbor) => {
+        if (visited.has(neighbor)) {
+          return;
+        }
+        visited.add(neighbor);
+        queue.push(neighbor);
+      });
+    }
+
+    components.push(members);
+  });
+
+  components.sort((left, right) => right.length - left.length);
+
+  if (isolatedIds.length > 0) {
+    components.push(isolatedIds.sort((left, right) => left.localeCompare(right)));
+  }
+
+  return components;
+}
+
 export const AuthorCollaborationNetwork = ({
   data,
   width = 1200,
   height = 700,
   highlightAuthor = '',
   layoutMode = 'balanced',
+  minClusterCollaborations = '0',
 }) => {
   const ref = useRef();
   const snapshotLabel = useDashboardSnapshot();
@@ -22,7 +68,7 @@ export const AuthorCollaborationNetwork = ({
     const rawNodes = Array.isArray(data?.nodes) ? data.nodes : [];
     const rawEdges = Array.isArray(data?.edges) ? data.edges : [];
 
-    if (rawNodes.length === 0 || rawEdges.length === 0) {
+    if (rawNodes.length === 0) {
       return;
     }
 
@@ -30,6 +76,8 @@ export const AuthorCollaborationNetwork = ({
     const links = rawEdges.map((edge) => ({ ...edge }));
     const nodeIds = new Set(nodes.map((node) => node.id));
     const adjacency = new Map(nodes.map((node) => [node.id, new Set()]));
+    const getEdgeSourceId = (edge) => (typeof edge.source === 'object' ? edge.source.id : edge.source);
+    const getEdgeTargetId = (edge) => (typeof edge.target === 'object' ? edge.target.id : edge.target);
 
     links.forEach((edge) => {
       if (!nodeIds.has(edge.source) || !nodeIds.has(edge.target)) {
@@ -39,53 +87,54 @@ export const AuthorCollaborationNetwork = ({
       adjacency.get(edge.target).add(edge.source);
     });
 
-    const components = [];
-    const visited = new Set();
-    nodes.forEach((node) => {
-      if (visited.has(node.id)) {
-        return;
-      }
+    const components = buildDisplayCollaborationComponents(nodes, adjacency);
+    const clusterMeta = components.map((members, clusterIndex) => {
+      const memberIds = new Set(members);
+      const edgeCount = links.filter((edge) => (
+        memberIds.has(getEdgeSourceId(edge)) && memberIds.has(getEdgeTargetId(edge))
+      )).length;
 
-      const queue = [node.id];
-      const members = [];
-      visited.add(node.id);
-
-      while (queue.length > 0) {
-        const current = queue.shift();
-        members.push(current);
-
-        adjacency.get(current).forEach((neighbor) => {
-          if (visited.has(neighbor)) {
-            return;
-          }
-          visited.add(neighbor);
-          queue.push(neighbor);
-        });
-      }
-
-      components.push(members);
+      return {
+        clusterId: clusterIndex,
+        members,
+        clusterSize: members.length,
+        edgeCount,
+      };
     });
 
-    components.sort((left, right) => right.length - left.length);
-
     const clusterByNodeId = new Map();
-    components.forEach((members, clusterIndex) => {
-      members.forEach((member) => {
+    clusterMeta.forEach((cluster) => {
+      cluster.members.forEach((member) => {
         clusterByNodeId.set(member, {
-          clusterId: clusterIndex,
-          clusterSize: members.length,
+          clusterId: cluster.clusterId,
+          clusterSize: cluster.clusterSize,
+          clusterCollaborations: cluster.edgeCount,
         });
       });
     });
 
     nodes.forEach((node) => {
-      const cluster = clusterByNodeId.get(node.id) || { clusterId: -1, clusterSize: 1 };
+      const cluster = clusterByNodeId.get(node.id) || { clusterId: -1, clusterSize: 1, clusterCollaborations: 0 };
       node.clusterId = cluster.clusterId;
       node.clusterSize = cluster.clusterSize;
+      node.clusterCollaborations = cluster.clusterCollaborations;
     });
 
+    const collaborationThreshold = Math.max(0, Number(String(minClusterCollaborations).trim() || '0') || 0);
+    const visibleClusterIds = new Set(
+      clusterMeta
+        .filter((cluster) => cluster.edgeCount >= collaborationThreshold)
+        .map((cluster) => cluster.clusterId)
+    );
+    const visibleNodes = nodes.filter((node) => visibleClusterIds.has(node.clusterId));
+    const visibleNodeIds = new Set(visibleNodes.map((node) => node.id));
+    const visibleLinks = links.filter((edge) => (
+      visibleNodeIds.has(getEdgeSourceId(edge)) && visibleNodeIds.has(getEdgeTargetId(edge))
+    ));
+    const visibleClusters = clusterMeta.filter((cluster) => visibleClusterIds.has(cluster.clusterId));
+
     const clusterColor = d3.scaleOrdinal()
-      .domain(components.map((_, index) => index))
+      .domain(visibleClusters.map((cluster) => cluster.clusterId))
       .range([
         '#2a6f97',
         '#bc4749',
@@ -103,19 +152,31 @@ export const AuthorCollaborationNetwork = ({
 
     const normalizedHighlight = highlightAuthor.trim().toLowerCase();
     const matchedNodes = normalizedHighlight
-      ? nodes.filter((node) => node.id.toLowerCase().includes(normalizedHighlight))
+      ? visibleNodes.filter((node) => node.id.toLowerCase().includes(normalizedHighlight))
       : [];
     const matchedIds = new Set(matchedNodes.map((node) => node.id));
     const exactMatch = normalizedHighlight
-      ? nodes.find((node) => node.id.toLowerCase() === normalizedHighlight)
+      ? visibleNodes.find((node) => node.id.toLowerCase() === normalizedHighlight)
       : null;
-    const getEdgeSourceId = (edge) => (typeof edge.source === 'object' ? edge.source.id : edge.source);
-    const getEdgeTargetId = (edge) => (typeof edge.target === 'object' ? edge.target.id : edge.target);
 
     svg
       .attr('viewBox', `0 0 ${width} ${height}`)
       .style('width', '100%')
       .style('height', 'auto');
+
+    if (visibleNodes.length === 0) {
+      svg
+        .attr('width', width)
+        .attr('height', height)
+        .append('text')
+        .attr('x', width / 2)
+        .attr('y', height / 2)
+        .attr('text-anchor', 'middle')
+        .attr('fill', 'var(--app-text-muted)')
+        .style('font-size', '14px')
+        .text('No clusters match the current collaboration filter.');
+      return;
+    }
 
     const tooltip = d3.select('body')
       .append('div')
@@ -139,6 +200,7 @@ export const AuthorCollaborationNetwork = ({
         `<strong>${entry.id}</strong><br/>` +
         `Collaborators: ${entry.degree}<br/>` +
         `Cluster size: ${entry.clusterSize}<br/>` +
+        `Cluster collaborations: ${entry.clusterCollaborations}<br/>` +
         `Authored BIPs: ${authoredBips.length}<br/>` +
         renderBipListHtml(authoredBips, snapshotLabel, { emptyText: 'No authored BIPs available.', linkMode })
       );
@@ -159,30 +221,36 @@ export const AuthorCollaborationNetwork = ({
         .style('top', `${pageY - 28}px`);
     };
 
+    const getNodeFill = (entry) => (
+      Number(entry.degree || 0) === 0
+        ? '#111111'
+        : clusterColor(entry.clusterId)
+    );
+
     let pinnedInteraction = null;
 
-    const degreeExtent = d3.extent(nodes, (node) => Number(node.degree || 0));
+    const degreeExtent = d3.extent(visibleNodes, (node) => Number(node.degree || 0));
     const radius = d3.scaleSqrt()
       .domain([degreeExtent[0] || 0, degreeExtent[1] || 1])
       .range([6, 18]);
 
-    const weightExtent = d3.extent(links, (link) => Number(link.weight || 1));
+    const weightExtent = d3.extent(visibleLinks, (link) => Number(link.weight || 1));
     const strokeWidth = d3.scaleLinear()
       .domain([weightExtent[0] || 1, weightExtent[1] || 1])
       .range([1.2, 5]);
 
     const clusterAnchors = new Map();
-    const clusterCount = Math.max(components.length, 1);
+    const clusterCount = Math.max(visibleClusters.length, 1);
     const anchorRadius = Math.min(width, height) * 0.28;
-    components.forEach((members, clusterIndex) => {
+    visibleClusters.forEach((cluster, clusterIndex) => {
       const angle = (Math.PI * 2 * clusterIndex) / clusterCount - Math.PI / 2;
-      clusterAnchors.set(clusterIndex, {
+      clusterAnchors.set(cluster.clusterId, {
         x: width / 2 + Math.cos(angle) * anchorRadius,
         y: height / 2 + Math.sin(angle) * anchorRadius,
       });
     });
 
-    const linkForce = d3.forceLink(links).id((node) => node.id);
+    const linkForce = d3.forceLink(visibleLinks).id((node) => node.id);
     const chargeForce = d3.forceManyBody();
     const collisionForce = d3.forceCollide().radius((node) => radius(Number(node.degree || 0)) + 6);
     const centerForce = d3.forceCenter(width / 2, height / 2);
@@ -210,7 +278,7 @@ export const AuthorCollaborationNetwork = ({
       yForce.y(height / 2).strength(0.05);
     }
 
-    const simulation = d3.forceSimulation(nodes)
+    const simulation = d3.forceSimulation(visibleNodes)
       .force('link', linkForce)
       .force('charge', chargeForce)
       .force('center', centerForce)
@@ -301,7 +369,7 @@ export const AuthorCollaborationNetwork = ({
       .attr('stroke', '#90a4ae')
       .attr('stroke-opacity', 0.55)
       .selectAll('path')
-      .data(links)
+      .data(visibleLinks)
       .join('path')
       .attr('fill', 'none')
       .attr('stroke', (edge) => clusterColor(clusterByNodeId.get(getEdgeSourceId(edge))?.clusterId ?? 0))
@@ -372,14 +440,14 @@ export const AuthorCollaborationNetwork = ({
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5)
       .selectAll('circle')
-      .data(nodes)
+      .data(visibleNodes)
       .join('circle')
       .attr('r', (entry) => (
         matchedIds.has(entry.id)
           ? radius(Number(entry.degree || 0)) + 5
           : radius(Number(entry.degree || 0))
       ))
-      .attr('fill', (entry) => clusterColor(entry.clusterId))
+      .attr('fill', (entry) => getNodeFill(entry))
       .attr('fill-opacity', (entry) => {
         if (!normalizedHighlight) {
           return 0.92;
@@ -476,7 +544,7 @@ export const AuthorCollaborationNetwork = ({
 
     const labels = root.append('g')
       .selectAll('text')
-      .data(nodes.filter((entry) => Number(entry.degree || 0) >= 3 || matchedIds.has(entry.id)))
+      .data(visibleNodes.filter((entry) => Number(entry.degree || 0) >= 3 || matchedIds.has(entry.id)))
       .join('text')
       .text((entry) => entry.id)
       .style('font-size', '11px')
@@ -547,7 +615,7 @@ export const AuthorCollaborationNetwork = ({
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.author-network-tooltip').remove();
     };
-  }, [data, height, highlightAuthor, layoutMode, linkMode, snapshotLabel, width]);
+  }, [data, height, highlightAuthor, layoutMode, linkMode, minClusterCollaborations, snapshotLabel, width]);
 
   return <svg ref={ref} role="img"  />;
 };

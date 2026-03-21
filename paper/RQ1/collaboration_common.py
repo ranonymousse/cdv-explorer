@@ -133,7 +133,7 @@ def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_
             "author": str(node.get("id")),
             "clusterId": cluster_meta_by_author.get(str(node.get("id")), {}).get("clusterId"),
             "clusterSize": cluster_meta_by_author.get(str(node.get("id")), {}).get("clusterSize", 1),
-            "rawDegree": int(node.get("degree", 0) or 0),
+            "rawDegree": int(len(adjacency.get(str(node.get("id")), []))),
             "weightedDegree": int(weighted_degree_by_author.get(str(node.get("id")), 0)),
             "normalizedDegree": float(centrality_by_author.get(str(node.get("id")), {}).get("degree", 0) or 0),
         }

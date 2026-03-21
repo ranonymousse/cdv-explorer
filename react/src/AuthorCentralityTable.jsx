@@ -35,7 +35,6 @@ export const AuthorCentralityTable = ({
           placeholder="Filter authors"
         />
       </span>
-      <span className="centrality-table__meta">Total Authors: {rows.length}</span>
     </div>
   );
 

@@ -411,6 +411,42 @@
   margin-bottom: 1rem;
 }
 
+.network-layout-controls {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.network-layout-controls .network-layout-picker {
+  margin-bottom: 0;
+}
+
+.network-layout-threshold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  color: var(--app-text-muted);
+  font-size: 0.95rem;
+}
+
+.network-layout-threshold__label,
+.network-layout-threshold__suffix {
+  white-space: nowrap;
+}
+
+.network-layout-threshold__input {
+  width: 64px;
+  text-align: center;
+}
+
+.network-layout-threshold__input .p-inputtext,
+.network-layout-threshold__input.p-inputtext {
+  text-align: center;
+}
+
 .network-control-grid {
   display: grid;
   gap: 0.35rem;
@@ -539,6 +575,10 @@
 }
 
 .dependency-metrics-summary {
+  margin-bottom: 1rem;
+}
+
+.collaboration-metrics-summary {
   margin-bottom: 1rem;
 }
 
@@ -686,6 +726,7 @@
 .author-network-tooltip,
 .dependency-network-tooltip,
 .dependency-comparison-tooltip,
+.analysis-metric-tooltip,
 .author-tooltip,
 .proposal-tooltip,
 .formal-conformity-tooltip,
@@ -791,13 +832,6 @@
   width: min(260px, 100%);
 }
 
-.centrality-table__meta {
-  color: var(--app-text-muted);
-  font-size: 0.88rem;
-  white-space: nowrap;
-  align-self: center;
-}
-
 .centrality-table .p-datatable-header {
   background: transparent;
   border: none;
@@ -819,6 +853,10 @@
   border: 1px solid var(--app-border);
   border-radius: 0.85rem;
   padding: 0rem 0rem 0.5rem 1rem;
+}
+
+.analysis-stat--interactive {
+  cursor: help;
 }
 
 .analysis-stat h3 {

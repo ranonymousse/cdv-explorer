@@ -43,6 +43,7 @@ export function EcosystemDashboard() {
   const [selectedSnapshot, setSelectedSnapshot] = useState(availableSnapshots[0] ?? null);
   const [highlightedAuthor, setHighlightedAuthor] = useState('');
   const [collaborationLayoutMode, setCollaborationLayoutMode] = useState('balanced');
+  const [collaborationMinClusterCollaborations, setCollaborationMinClusterCollaborations] = useState('0');
   const [highlightedDependencyProposal, setHighlightedDependencyProposal] = useState('');
   const [dependencyFilterText, setDependencyFilterText] = useState('');
   const [dependencyIncludeConnections, setDependencyIncludeConnections] = useState(true);
@@ -75,6 +76,7 @@ export function EcosystemDashboard() {
     topAuthors,
     authorContributionHistogram,
     collaborationNetwork,
+    collaborationMetricsSummary,
     collaborationMetricsRows,
     dependencyMetrics,
   } = buildDashboardData(selectedDataset);
@@ -255,11 +257,14 @@ export function EcosystemDashboard() {
         topAuthors={topAuthors}
         authorContributionHistogram={authorContributionHistogram}
         collaborationNetwork={collaborationNetwork}
+        collaborationMetricsSummary={collaborationMetricsSummary}
         collaborationMetricsRows={collaborationMetricsRows}
         highlightedAuthor={highlightedAuthor}
         setHighlightedAuthor={setHighlightedAuthor}
         collaborationLayoutMode={collaborationLayoutMode}
         setCollaborationLayoutMode={setCollaborationLayoutMode}
+        collaborationMinClusterCollaborations={collaborationMinClusterCollaborations}
+        setCollaborationMinClusterCollaborations={setCollaborationMinClusterCollaborations}
         collaborationAuthorOptions={collaborationAuthorOptions}
         wordCloudFilterText={wordCloudFilterText}
         setWordCloudFilterText={setWordCloudFilterText}

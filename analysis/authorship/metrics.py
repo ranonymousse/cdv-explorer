@@ -33,6 +33,9 @@ def build_collaboration_network(nodes: List[Dict[str, Any]]) -> nx.Graph:
     graph = nx.Graph()
     edge_weights: Dict[Tuple[str, str], int] = defaultdict(int)
 
+    for author in _iter_authors(nodes):
+        graph.add_node(author)
+
     for node in nodes:
         authors = node.get("author")
         if not isinstance(authors, list):

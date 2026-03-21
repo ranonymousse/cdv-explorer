@@ -1,3 +1,4 @@
+import { useEffect, useMemo, useRef } from 'react';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { RadioButton } from 'primereact/radiobutton';
@@ -17,11 +18,14 @@ export function AuthorshipSection({
   topAuthors,
   authorContributionHistogram,
   collaborationNetwork,
+  collaborationMetricsSummary,
   collaborationMetricsRows,
   highlightedAuthor,
   setHighlightedAuthor,
   collaborationLayoutMode,
   setCollaborationLayoutMode,
+  collaborationMinClusterCollaborations,
+  setCollaborationMinClusterCollaborations,
   collaborationAuthorOptions,
   wordCloudFilterText,
   setWordCloudFilterText,
@@ -29,6 +33,95 @@ export function AuthorshipSection({
   filteredWordCloudData,
   wordCloudData,
 }) {
+  const tooltipRef = useRef(null);
+
+  useEffect(() => {
+    const tooltipNode = document.createElement('div');
+    document.body.appendChild(tooltipNode);
+
+    tooltipRef.current = tooltipNode;
+    tooltipNode.className = 'analysis-metric-tooltip';
+    Object.assign(tooltipNode.style, {
+      position: 'absolute',
+      background: 'var(--tooltip-bg)',
+      color: 'var(--tooltip-text)',
+      padding: '6px 10px',
+      borderRadius: '4px',
+      border: '1px solid var(--tooltip-border)',
+      boxShadow: 'var(--tooltip-shadow)',
+      fontSize: '12px',
+      pointerEvents: 'none',
+      maxWidth: '320px',
+      lineHeight: '1.45',
+      opacity: '0',
+      zIndex: '2000',
+    });
+
+    return () => {
+      tooltipNode.remove();
+      tooltipRef.current = null;
+    };
+  }, []);
+
+  const collaborationMetricCards = useMemo(() => ([
+    {
+      label: 'Nodes',
+      value: collaborationMetricsSummary?.nodeCount ?? 0,
+      description: 'Total number of distinct authors, including solo-only authors with no co-authorship links.',
+    },
+    {
+      label: 'Edges',
+      value: collaborationMetricsSummary?.edgeCount ?? 0,
+      description: 'Number of distinct author pairs that have co-authored at least one proposal together.',
+    },
+    {
+      label: 'Isolated Nodes',
+      value: collaborationMetricsSummary?.isolatedAuthorCount ?? 0,
+      description: 'Authors with degree 0, meaning they appear in the corpus but never co-author a proposal with anyone else. For readability, they are shown together in one shared display cluster.',
+    },
+    {
+      label: 'Clusters',
+      value: collaborationMetricsSummary?.clusterCount ?? 0,
+      description: 'Number of display clusters in the collaboration graph and table. Authors with no co-authorship links are grouped into one shared cluster for readability.',
+    },
+    {
+      label: 'Density',
+      value: Number(collaborationMetricsSummary?.density || 0).toFixed(4).replace(/\.?0+$/, ''),
+      description: 'Share of all possible author-to-author links that actually exist. Higher density means collaboration is more broadly interconnected.',
+    },
+  ]), [collaborationMetricsSummary]);
+
+  const showMetricTooltip = (event, description) => {
+    const tooltip = tooltipRef.current;
+    if (!tooltip || !description) {
+      return;
+    }
+
+    tooltip.textContent = description;
+    tooltip.style.opacity = '1';
+    tooltip.style.left = `${event.pageX + 10}px`;
+    tooltip.style.top = `${event.pageY - 28}px`;
+  };
+
+  const moveMetricTooltip = (event) => {
+    const tooltip = tooltipRef.current;
+    if (!tooltip || tooltip.style.opacity !== '1') {
+      return;
+    }
+
+    tooltip.style.left = `${event.pageX + 10}px`;
+    tooltip.style.top = `${event.pageY - 28}px`;
+  };
+
+  const hideMetricTooltip = () => {
+    const tooltip = tooltipRef.current;
+    if (!tooltip) {
+      return;
+    }
+
+    tooltip.style.opacity = '0';
+  };
+
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
@@ -95,22 +188,36 @@ export function AuthorshipSection({
             />
           </div>
         </div>
-        <div className="network-layout-picker">
-          <div className="network-layout-picker__label">Layout</div>
-          <div className="network-layout-picker__options">
-            {COLLABORATION_LAYOUT_OPTIONS.map((option) => (
-              <label key={option.value} className="network-layout-picker__option">
-                <RadioButton
-                  inputId={`collaboration-layout-${option.value}`}
-                  name="collaboration-layout"
-                  value={option.value}
-                  onChange={(event) => setCollaborationLayoutMode(event.value)}
-                  checked={collaborationLayoutMode === option.value}
-                />
-                <span>{option.label}</span>
-              </label>
-            ))}
+        <div className="network-layout-controls">
+          <div className="network-layout-picker">
+            <div className="network-layout-picker__label">Layout</div>
+            <div className="network-layout-picker__options">
+              {COLLABORATION_LAYOUT_OPTIONS.map((option) => (
+                <label key={option.value} className="network-layout-picker__option">
+                  <RadioButton
+                    inputId={`collaboration-layout-${option.value}`}
+                    name="collaboration-layout"
+                    value={option.value}
+                    onChange={(event) => setCollaborationLayoutMode(event.value)}
+                    checked={collaborationLayoutMode === option.value}
+                  />
+                  <span>{option.label}</span>
+                </label>
+              ))}
+            </div>
           </div>
+          <label className="network-layout-threshold">
+            <span className="network-layout-threshold__label"><strong>Filter</strong></span>
+            <span className="network-layout-threshold__copy">Only show clusters with</span>
+            <InputText
+              value={collaborationMinClusterCollaborations}
+              onChange={(event) => setCollaborationMinClusterCollaborations(event.target.value.replace(/[^\d]/g, ''))}
+              placeholder="0"
+              inputMode="numeric"
+              className="network-layout-threshold__input"
+            />
+            <span className="network-layout-threshold__suffix">or more collaborations.</span>
+          </label>
         </div>
         <div>
           <AuthorCollaborationNetwork
@@ -119,6 +226,7 @@ export function AuthorshipSection({
             height={700}
             highlightAuthor={highlightedAuthor}
             layoutMode={collaborationLayoutMode}
+            minClusterCollaborations={collaborationMinClusterCollaborations}
           />
         </div>
       </ExportableCard>
@@ -128,10 +236,25 @@ export function AuthorshipSection({
           {ecosystem.acronym} co-authorship according to preamble. 
           Author names marked with <strong><code>*</code></strong> are in the top 10 by authored {ecosystem.proposalShortPlural}. <strong>Cluster</strong>
           {' '}and <strong>Cluster Size</strong> show the connected co-authorship group an author belongs to and how large
-          that group is. <strong>Degree</strong> counts distinct co-authors, <strong>Weighted Degree</strong> counts
-          repeated collaborations, and <strong>Weighted Eigenvector</strong> is higher for authors connected to other
-          highly collaborative authors.
+          that group is. Authors with no co-authorship links are grouped into one shared display cluster for readability.
+          <strong>Degree</strong> counts distinct co-authors, <strong>Weighted Degree</strong> counts repeated
+          collaborations, and <strong>Weighted Eigenvector</strong> is higher for authors connected to other highly
+          collaborative authors.
         </p>
+        <div className="analysis-grid collaboration-metrics-summary">
+          {collaborationMetricCards.map((metric) => (
+            <div
+              key={metric.label}
+              className="analysis-stat analysis-stat--interactive"
+              onMouseEnter={(event) => showMetricTooltip(event, metric.description)}
+              onMouseMove={moveMetricTooltip}
+              onMouseLeave={hideMetricTooltip}
+            >
+              <h4>{metric.label}</h4>
+              <p>{metric.value}</p>
+            </div>
+          ))}
+        </div>
         <AuthorCentralityTable
           rows={collaborationMetricsRows}
           defaultSortField="weightedEigenvector"

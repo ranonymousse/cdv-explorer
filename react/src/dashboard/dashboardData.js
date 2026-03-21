@@ -136,6 +136,51 @@ function computeWeightedEigenvectorCentrality(nodeIds, adjacency, maxIterations 
   return values;
 }
 
+function buildDisplayCollaborationComponents(nodeIds, adjacency) {
+  const isolatedIds = [];
+  const visited = new Set();
+  const components = [];
+
+  nodeIds.forEach((id) => {
+    const neighbors = adjacency.get(id) || [];
+    if (neighbors.length === 0) {
+      isolatedIds.push(id);
+      return;
+    }
+
+    if (visited.has(id)) {
+      return;
+    }
+
+    const queue = [id];
+    const members = [];
+    visited.add(id);
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+      members.push(current);
+
+      (adjacency.get(current) || []).forEach(({ id: neighborId }) => {
+        if (visited.has(neighborId)) {
+          return;
+        }
+        visited.add(neighborId);
+        queue.push(neighborId);
+      });
+    }
+
+    components.push(members);
+  });
+
+  components.sort((left, right) => right.length - left.length);
+
+  if (isolatedIds.length > 0) {
+    components.push(isolatedIds.sort((left, right) => left.localeCompare(right)));
+  }
+
+  return components;
+}
+
 function buildCollaborationDerivedData(collaborationNetwork, collaborationCentrality, topAuthorSet = new Set()) {
   const rawNodes = collaborationNetwork?.nodes || [];
   const rawEdges = collaborationNetwork?.edges || [];
@@ -163,34 +208,7 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
     weightedDegreeByAuthor.set(target, (weightedDegreeByAuthor.get(target) || 0) + weight);
   });
 
-  const visited = new Set();
-  const components = [];
-  nodeIds.forEach((id) => {
-    if (visited.has(id)) {
-      return;
-    }
-
-    const queue = [id];
-    const members = [];
-    visited.add(id);
-
-    while (queue.length > 0) {
-      const current = queue.shift();
-      members.push(current);
-
-      (adjacency.get(current) || []).forEach(({ id: neighborId }) => {
-        if (visited.has(neighborId)) {
-          return;
-        }
-        visited.add(neighborId);
-        queue.push(neighborId);
-      });
-    }
-
-    components.push(members);
-  });
-
-  components.sort((left, right) => right.length - left.length);
+  const components = buildDisplayCollaborationComponents(nodeIds, adjacency);
 
   const clusterMetaByAuthor = new Map();
   components.forEach((members, index) => {
@@ -217,7 +235,7 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
         author,
         clusterId: clusterMeta.clusterId,
         clusterSize: clusterMeta.clusterSize,
-        rawDegree: Number(node.degree || 0),
+        rawDegree: Number((adjacency.get(author) || []).length),
         weightedDegree: Number(weightedDegreeByAuthor.get(author) || 0),
         normalizedDegree: Number(centrality.degree || 0),
       };
@@ -262,8 +280,20 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
       weightedEigenvector: Number(eigenvectorRow.weightedEigenvector || 0),
     };
   });
+  const nodeCount = nodeIds.length;
+  const edgeCount = rawEdges.length;
+  const isolatedAuthorCount = degreeRows.filter((row) => Number(row.rawDegree || 0) === 0).length;
+  const clusterCount = components.length;
+  const density = nodeCount > 1 ? edgeCount / ((nodeCount * (nodeCount - 1)) / 2) : 0;
 
   return {
+    summary: {
+      nodeCount,
+      edgeCount,
+      isolatedAuthorCount,
+      clusterCount,
+      density,
+    },
     metricsRows,
   };
 }
@@ -635,12 +665,24 @@ export function buildDashboardData(dataset) {
   });
 
   const rawCollaborationNetwork = authorship.collaboration_network || { nodes: [], edges: [] };
+  const rawCollaborationNodeIds = new Set(
+    (rawCollaborationNetwork.nodes || []).map((node) => String(node.id)).filter(Boolean)
+  );
   const collaborationNetwork = {
     ...rawCollaborationNetwork,
-    nodes: (rawCollaborationNetwork.nodes || []).map((node) => ({
-      ...node,
-      bips: Array.from(authorBipsByAuthor.get(node.id) || []).sort((left, right) => Number(left) - Number(right)),
-    })),
+    nodes: [
+      ...(rawCollaborationNetwork.nodes || []).map((node) => ({
+        ...node,
+        bips: Array.from(authorBipsByAuthor.get(node.id) || []).sort((left, right) => Number(left) - Number(right)),
+      })),
+      ...Array.from(authorBipsByAuthor.entries())
+        .filter(([author]) => !rawCollaborationNodeIds.has(author))
+        .map(([author, bipSet]) => ({
+          id: author,
+          degree: 0,
+          bips: Array.from(bipSet).sort((left, right) => Number(left) - Number(right)),
+        })),
+    ],
     edges: (rawCollaborationNetwork.edges || []).map((edge) => {
       const pairKey = [edge.source, edge.target].sort().join('|||');
       const bips = Array.from(sharedBipsByAuthorPair.get(pairKey) || [])
@@ -653,7 +695,10 @@ export function buildDashboardData(dataset) {
     }),
   };
 
-  const { metricsRows: collaborationMetricsRows } = buildCollaborationDerivedData(
+  const {
+    summary: collaborationMetricsSummary,
+    metricsRows: collaborationMetricsRows,
+  } = buildCollaborationDerivedData(
     collaborationNetwork,
     authorship.collaboration_centrality || [],
     topCollaborationAuthors,
@@ -674,6 +719,7 @@ export function buildDashboardData(dataset) {
     topAuthors,
     authorContributionHistogram: authorship.author_contribution_histogram || [],
     collaborationNetwork,
+    collaborationMetricsSummary,
     collaborationMetricsRows,
     dependencyMetrics,
   };
