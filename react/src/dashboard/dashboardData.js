@@ -36,8 +36,11 @@ export function normalizeProposalFilterValue(value) {
 }
 
 function normalizeChordLayer(value) {
-  const text = String(value || '').trim() || 'Unknown Layer';
-  return text.includes('Unknown') ? 'Other' : text;
+  const text = String(value || '').trim();
+  if (!text || text.includes('Unknown')) {
+    return 'Unspecified';
+  }
+  return text;
 }
 
 function normalizeChordStatus(value) {

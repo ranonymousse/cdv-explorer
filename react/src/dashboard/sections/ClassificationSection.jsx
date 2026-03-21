@@ -4,6 +4,8 @@ import { ClassificationChordDiagram } from '../../ClassificationChordDiagram';
 import { ExportableCard } from '../ExportableCard';
 import { CLASSIFICATION_DIMENSIONS } from '../constants';
 
+const CLASSIFICATION_SECTION_ORDER = ['status', 'type', 'layer'];
+
 export function ClassificationSection({
   ecosystem,
   classificationCategoryDomains,
@@ -11,12 +13,16 @@ export function ClassificationSection({
   classificationTimeline,
   classificationChordData,
 }) {
+  const orderedDimensions = CLASSIFICATION_SECTION_ORDER
+    .map((field) => CLASSIFICATION_DIMENSIONS.find((dimension) => dimension.field === field))
+    .filter(Boolean);
+
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
         <h2 className="dashboard-section__title">Classification</h2>
       </div>
-      {CLASSIFICATION_DIMENSIONS.map((dimension) => (
+      {orderedDimensions.map((dimension) => (
         <ExportableCard
           key={dimension.field}
           className="mb-4"
@@ -47,10 +53,10 @@ export function ClassificationSection({
         </ExportableCard>
       ))}
       <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Pairwise Classification Chord Diagram">
-        <h3>Pairwise Classification Chord Diagram</h3>
-        <p>This chord diagram connects layer, status, and type categories across all pairwise combinations.</p>
+        <h3>Pairwise Classification</h3>
+        <p>This chord diagram shows how Status, Type, and Layer categories co-occur across {ecosystem.proposalShortPlural}.</p>
         <div>
-          <ClassificationChordDiagram data={classificationChordData} width={1000} height={800} />
+          <ClassificationChordDiagram data={classificationChordData} width={800} height={560} />
         </div>
       </ExportableCard>
     </section>
