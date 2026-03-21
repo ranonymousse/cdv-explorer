@@ -8,9 +8,8 @@ if str(REPO_ROOT) not in sys.path:
 from paper.config import SNAPSHOT
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 
-# Set these directly only when RQ1 needs custom output locations.
-FIGURES_DIR = None
-TABLES_DIR = None
+# Set this directly only when RQ1 needs a custom output location.
+OUTPUT_DIR = None
 GENERATE_AUTHORSHIP_PLOTS = True
 GENERATE_COLLABORATION_NETWORK_PLOT = True
 GENERATE_COLLABORATION_METRICS_TABLE = True
@@ -32,8 +31,7 @@ def main() -> None:
     from paper.RQ1.creation_over_time import plot_creation_over_time
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
-    figures_dir = resolve_output_dir(FIGURES_DIR, Path("paper") / "RQ1" / "figures")
-    tables_dir = resolve_output_dir(TABLES_DIR, Path("paper") / "RQ1" / "tables")
+    output_dir = resolve_output_dir(OUTPUT_DIR, Path("paper") / "RQ1" / "outputs")
     filename_prefix = snapshot_prefix(snapshot_label)
     authorship_payload: dict | None = None
     network_data: dict | None = None
@@ -42,13 +40,13 @@ def main() -> None:
         authorship_metrics = load_authorship_metrics(snapshot=SNAPSHOT)
         plot_creation_over_time(
             proposals_per_year=authorship_metrics.get("proposals_per_year", []),
-            output_path=figures_dir / f"{filename_prefix}_creation_over_time.pdf",
+            output_path=output_dir / f"{filename_prefix}_creation_over_time.pdf",
             snapshot_label=snapshot_label,
         )
         plot_authorship_overview(
             top_authors=authorship_metrics.get("top_authors", []),
             contribution_histogram=authorship_metrics.get("author_contribution_histogram", []),
-            output_path=figures_dir / f"{filename_prefix}_authorship_overview.pdf",
+            output_path=output_dir / f"{filename_prefix}_authorship_overview.pdf",
             snapshot_label=snapshot_label,
         )
 
@@ -60,7 +58,7 @@ def main() -> None:
         render_collaboration_network_layout_suite(
             network_data=network_data,
             authorship_payload=authorship_payload,
-            output_dir=figures_dir,
+            output_dir=output_dir,
             filename_prefix=filename_prefix,
             snapshot_label=snapshot_label,
         )
@@ -72,12 +70,12 @@ def main() -> None:
             network_data = load_network_data(snapshot=SNAPSHOT)
         export_collaboration_metrics_table(
             authorship_payload=authorship_payload,
-            output_path=tables_dir / f"{filename_prefix}_collaboration_metrics.xlsx",
+            output_path=output_dir / f"{filename_prefix}_collaboration_metrics.xlsx",
         )
         export_collaboration_metrics_latex_table(
             authorship_payload=authorship_payload,
             network_data=network_data,
-            output_path=tables_dir / f"{filename_prefix}_collaboration_metrics_top_weighted_degree.tex",
+            output_path=output_dir / f"{filename_prefix}_collaboration_metrics_top_weighted_degree.tex",
         )
 
 

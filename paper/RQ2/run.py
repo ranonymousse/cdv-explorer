@@ -8,9 +8,10 @@ if str(REPO_ROOT) not in sys.path:
 from paper.config import SNAPSHOT
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 
-FIGURES_DIR = None
+OUTPUT_DIR = None
 GENERATE_CLASSIFICATION_STATUS_PLOT = True
 GENERATE_CLASSIFICATION_TYPE_PLOT = True
+GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE = True
 
 
 def main() -> None:
@@ -20,13 +21,20 @@ def main() -> None:
         resolve_latest_snapshot_label,
     )
     from paper.RQ2.classification_status import plot_classification_status
+    from paper.RQ2.classification_status_type_table import (
+        export_classification_status_type_latex_table,
+    )
     from paper.RQ2.classification_type import plot_classification_type
 
-    if not GENERATE_CLASSIFICATION_STATUS_PLOT and not GENERATE_CLASSIFICATION_TYPE_PLOT:
+    if (
+        not GENERATE_CLASSIFICATION_STATUS_PLOT
+        and not GENERATE_CLASSIFICATION_TYPE_PLOT
+        and not GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE
+    ):
         return
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
-    figures_dir = resolve_output_dir(FIGURES_DIR, Path("paper") / "RQ2" / "figures")
+    output_dir = resolve_output_dir(OUTPUT_DIR, Path("paper") / "RQ2" / "outputs")
     filename_prefix = snapshot_prefix(snapshot_label)
     classification_payload = None
     network_data = None
@@ -35,7 +43,7 @@ def main() -> None:
         classification_payload = load_classification_payload(snapshot=SNAPSHOT)
         plot_classification_status(
             status_over_time=classification_payload.get("status_over_time", {}),
-            output_path=figures_dir / f"{filename_prefix}_classification_status.pdf",
+            output_path=output_dir / f"{filename_prefix}_classification_status.pdf",
             snapshot_label=snapshot_label,
         )
 
@@ -43,8 +51,16 @@ def main() -> None:
         network_data = load_network_data(snapshot=SNAPSHOT)
         plot_classification_type(
             network_data=network_data,
-            output_path=figures_dir / f"{filename_prefix}_classification_type.pdf",
+            output_path=output_dir / f"{filename_prefix}_classification_type.pdf",
             snapshot_label=snapshot_label,
+        )
+
+    if GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE:
+        if network_data is None:
+            network_data = load_network_data(snapshot=SNAPSHOT)
+        export_classification_status_type_latex_table(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_classification_status_type.tex",
         )
 
 

@@ -17,7 +17,7 @@ def main() -> None:
     from paper.RQ3.dependency_plots import render_default_dependency_plot_suite
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
-    default_relative_path = Path("paper") / "RQ3" / "figures"
+    default_relative_path = Path("paper") / "RQ3" / "outputs"
     output_dir = resolve_output_dir(OUTPUT_DIR, default_relative_path)
     filename_prefix = snapshot_prefix(snapshot_label)
 
