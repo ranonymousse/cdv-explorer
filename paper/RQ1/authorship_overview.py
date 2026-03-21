@@ -3,7 +3,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from paper.RQ1._plotting import despine, save_figure
+from paper.RQ1._plotting import bar_style, despine, match_axis_label_fontsize, save_figure
 
 
 TOP_AUTHORS_COLOR = "#d94841"
@@ -84,8 +84,8 @@ def plot_authorship_overview(
         gridspec_kw={"width_ratios": [0.3, 0.7]},
     )
 
-    axis_left.barh(author_names, author_counts, color=TOP_AUTHORS_COLOR, zorder=2)
-    axis_right.bar(histogram_positions, histogram_y, width=0.8, color=HISTOGRAM_COLOR, zorder=2)
+    axis_left.barh(author_names, author_counts, zorder=2, **bar_style(TOP_AUTHORS_COLOR))
+    axis_right.bar(histogram_positions, histogram_y, width=0.8, zorder=2, **bar_style(HISTOGRAM_COLOR))
 
     axis_left.set_title("Top 10 Authors")
     axis_left.set_xlabel("Proposals authored")
@@ -95,6 +95,7 @@ def plot_authorship_overview(
         axis_left.text(count + 0.35, index, str(count), va="center", ha="left")
     axis_left.grid(axis="x", alpha=0.35)
     axis_left.grid(axis="y", visible=False)
+    match_axis_label_fontsize(axis_left)
     despine(axis_left)
 
     axis_right.set_title("Authorship Distribution")
@@ -104,6 +105,7 @@ def plot_authorship_overview(
     axis_right.set_xticklabels(labeled_histogram_values)
     axis_right.grid(axis="y", alpha=0.35)
     axis_right.grid(axis="x", visible=False)
+    match_axis_label_fontsize(axis_right)
     for index, authors in enumerate(histogram_y):
         if authors <= 0:
             continue

@@ -3,7 +3,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from paper.RQ1._plotting import despine, save_figure
+from paper.RQ1._plotting import bar_style, despine, match_axis_label_fontsize, save_figure
 
 
 TIMELINE_BAR_COLOR = "#4c78a8"
@@ -30,8 +30,8 @@ def plot_creation_over_time(
         x_positions,
         yearly_counts,
         width=0.72,
-        color=TIMELINE_BAR_COLOR,
         zorder=2,
+        **bar_style(TIMELINE_BAR_COLOR),
     )
     axis_right.plot(
         x_positions,
@@ -52,6 +52,8 @@ def plot_creation_over_time(
     axis_left.set_ylim(0, max(yearly_counts) * 1.16)
     axis_left.grid(axis="y", alpha=0.35)
     axis_right.grid(False)
+    match_axis_label_fontsize(axis_left)
+    match_axis_label_fontsize(axis_right)
     despine(axis_left)
     axis_right.spines["top"].set_visible(False)
     axis_right.spines["left"].set_visible(False)
