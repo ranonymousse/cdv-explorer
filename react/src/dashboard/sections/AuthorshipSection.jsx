@@ -152,18 +152,20 @@ export function AuthorshipSection({
               ))}
             </div>
           </div>
-          <label className="network-layout-threshold">
-            <span className="network-layout-threshold__label"><strong>Filter</strong></span>
-            <span className="network-layout-threshold__copy">Only show clusters with</span>
-            <InputText
-              value={collaborationMinClusterCollaborations}
-              onChange={(event) => setCollaborationMinClusterCollaborations(event.target.value.replace(/[^\d]/g, ''))}
-              placeholder="0"
-              inputMode="numeric"
-              className="network-layout-threshold__input"
-            />
-            <span className="network-layout-threshold__suffix">or more collaborations.</span>
-          </label>
+          <div className="network-layout-picker network-layout-picker--filter">
+            <div className="network-layout-picker__label">Filter</div>
+            <label className="network-layout-threshold">
+              <span className="network-layout-threshold__copy">Only show clusters with</span>
+              <InputText
+                value={collaborationMinClusterCollaborations}
+                onChange={(event) => setCollaborationMinClusterCollaborations(event.target.value.replace(/[^\d]/g, ''))}
+                placeholder="0"
+                inputMode="numeric"
+                className="network-layout-threshold__input"
+              />
+              <span className="network-layout-threshold__suffix">or more collaborations.</span>
+            </label>
+          </div>
         </div>
         <div>
           <AuthorCollaborationNetwork

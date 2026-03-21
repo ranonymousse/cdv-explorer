@@ -15,6 +15,10 @@ export function DependenciesSection({
   highlightedDependencyProposal,
   setHighlightedDependencyProposal,
   dependencyProposalOptions,
+  dependencyMinRelations,
+  setDependencyMinRelations,
+  dependencyMinRelationsIncludeConnections,
+  setDependencyMinRelationsIncludeConnections,
   dependencyFilterText,
   setDependencyFilterText,
   dependencyIncludeConnections,
@@ -102,7 +106,6 @@ export function DependenciesSection({
         <div className="wordcloud-filter">
           <div className="wordcloud-filter__copy">
             <strong>Filter proposals.</strong>
-            <span>Use comma-separated IDs or ranges like `2,4,30-35,99`.</span>
           </div>
           <div className="wordcloud-filter__controls">
             <InputText
@@ -116,7 +119,7 @@ export function DependenciesSection({
                 checked={dependencyIncludeConnections}
                 onChange={(event) => setDependencyIncludeConnections(event.target.checked)}
               />
-              <span>incl. connections</span>
+              <span>transient</span>
             </label>
             <Button
               type="button"
@@ -133,8 +136,13 @@ export function DependenciesSection({
           width={1200}
           height={700}
           highlightProposal={highlightedDependencyProposal}
+          proposalShortPlural={ecosystem.proposalShortPlural}
+          minRelations={dependencyMinRelations}
+          setMinRelations={setDependencyMinRelations}
           proposalFilterIds={selectedDependencyProposalIds}
           includeConnections={dependencyIncludeConnections}
+          includeThresholdConnections={dependencyMinRelationsIncludeConnections}
+          setIncludeThresholdConnections={setDependencyMinRelationsIncludeConnections}
         />
       </ExportableCard>
       <Card className="mb-4">

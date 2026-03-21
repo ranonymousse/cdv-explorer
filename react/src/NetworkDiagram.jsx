@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Dropdown } from 'primereact/dropdown';
+import { InputText } from 'primereact/inputtext';
 import { getBipUrl, normalizeBipId } from './bipLinks';
 import { getClassificationColorMap } from './classificationColors';
 import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
@@ -37,15 +38,19 @@ const EXPLICIT_DEPENDENCY_COLORS = {
 };
 
 const DEFAULT_EDGE_COLORS = {
-  explicit_references: '#607d8b',
-  implicit_dependencies: '#7b2cbf',
+  explicit_references: '#939AA9',
+  implicit_dependencies: '#939AA9',
 };
 
 const DIFFERENTIAL_EDGE_COLORS = {
-  approach_only: '#98a2b3',
+  approach_only: '#b8c0cc',
   overlap: '#2f9e44',
   baseline_only: '#d94841',
 };
+
+const DEFAULT_LINK_WIDTH = 1.8;
+const ACTIVE_LINK_WIDTH = 2.8;
+const PINNED_LINK_WIDTH = 2.6;
 
 const EXPLICIT_DEPENDENCY_STYLES = {
   requires: null,
@@ -135,8 +140,13 @@ export const NetworkDiagram = ({
   height = 800,
   data,
   highlightProposal = '',
+  proposalShortPlural = 'IPs',
+  minRelations = '0',
+  setMinRelations,
   proposalFilterIds = [],
   includeConnections = true,
+  includeThresholdConnections = false,
+  setIncludeThresholdConnections,
 }) => {
   const ref = useRef();
   const legendRef = useRef();
@@ -244,10 +254,53 @@ export const NetworkDiagram = ({
       node.outgoingDegree = outgoingById.get(nodeId) || 0;
     });
 
+    const relationThreshold = Math.max(0, Number(String(minRelations).trim() || '0') || 0);
+    const thresholdMatchedNodeIds = new Set(
+      localNodes
+        .filter((node) => Number(node.degree || 0) >= relationThreshold)
+        .map((node) => String(node.id))
+    );
+    let relationFilteredNodeIds = thresholdMatchedNodeIds;
+    let filteredLinks = localLinks.filter((edge) => (
+      relationFilteredNodeIds.has(String(edge.source)) && relationFilteredNodeIds.has(String(edge.target))
+    ));
+
+    if (includeThresholdConnections && thresholdMatchedNodeIds.size > 0) {
+      relationFilteredNodeIds = new Set(thresholdMatchedNodeIds);
+      filteredLinks = localLinks.filter((edge) => {
+        const sourceMatched = thresholdMatchedNodeIds.has(String(edge.source));
+        const targetMatched = thresholdMatchedNodeIds.has(String(edge.target));
+
+        if (sourceMatched || targetMatched) {
+          relationFilteredNodeIds.add(String(edge.source));
+          relationFilteredNodeIds.add(String(edge.target));
+          return true;
+        }
+
+        return false;
+      });
+    }
+
+    const filteredNodes = localNodes.filter((node) => relationFilteredNodeIds.has(String(node.id)));
+
+    if (filteredNodes.length === 0) {
+      svg
+        .attr('width', width)
+        .attr('height', height)
+        .append('text')
+        .attr('x', width / 2)
+        .attr('y', height / 2)
+        .attr('text-anchor', 'middle')
+        .attr('fill', 'var(--app-text-muted)')
+        .style('font-size', '14px')
+        .text('No proposals match the current relations filter.');
+      return;
+    }
+
     const normalizedHighlight = normalizeBipId(highlightProposal);
     const searchMatchedIds = normalizedHighlight
       ? new Set(
-        localNodes
+        filteredNodes
           .filter((node) => normalizeBipId(node.id) === normalizedHighlight)
           .map((node) => String(node.id))
       )
@@ -263,7 +316,7 @@ export const NetworkDiagram = ({
       .domain(allGroups)
       .range(allGroups.map((group) => colorMap[group]));
 
-    localNodes.forEach((node) => {
+    filteredNodes.forEach((node) => {
       node.colorGroup = normalizeCategory(node[colorBy], fallbackLabel);
     });
 
@@ -302,7 +355,7 @@ export const NetworkDiagram = ({
 
     const defs = svg.append('defs');
     const markerDefinitions = Array.from(
-      new Map(localLinks.map((edge) => [getEdgeMarkerId(edge), getEdgeColor(edge)])).entries()
+      new Map(filteredLinks.map((edge) => [getEdgeMarkerId(edge), getEdgeColor(edge)])).entries()
     );
     markerDefinitions.forEach(([markerId, fillColor]) => {
       defs
@@ -386,7 +439,7 @@ export const NetworkDiagram = ({
       )
     );
 
-    const degreeExtent = d3.extent(localNodes, (node) => Number(node.degree || 0));
+    const degreeExtent = d3.extent(filteredNodes, (node) => Number(node.degree || 0));
     const radius = d3.scaleSqrt()
       .domain([degreeExtent[0] || 0, degreeExtent[1] || 1])
       .range([7, 16]);
@@ -406,7 +459,7 @@ export const NetworkDiagram = ({
       });
     });
 
-    const linkForce = d3.forceLink(localLinks).id((node) => String(node.id));
+    const linkForce = d3.forceLink(filteredLinks).id((node) => String(node.id));
     const chargeForce = d3.forceManyBody();
     const collisionForce = d3.forceCollide().radius((node) => radius(Number(node.degree || 0)) + 10);
     const centerForce = d3.forceCenter(width / 2, height / 2);
@@ -434,7 +487,7 @@ export const NetworkDiagram = ({
       yForce.y(height / 2).strength(0.05);
     }
 
-    const simulation = d3.forceSimulation(localNodes)
+    const simulation = d3.forceSimulation(filteredNodes)
       .force('link', linkForce)
       .force('charge', chargeForce)
       .force('center', centerForce)
@@ -468,7 +521,7 @@ export const NetworkDiagram = ({
           }
           return searchMatchedIds.has(getEdgeSourceId(edge)) || searchMatchedIds.has(getEdgeTargetId(edge)) ? 0.95 : 0.08;
         })
-        .attr('stroke-width', 2.2)
+        .attr('stroke-width', DEFAULT_LINK_WIDTH)
         .attr('stroke-dasharray', (edge) => getEdgeDasharray(edge));
     };
 
@@ -495,14 +548,14 @@ export const NetworkDiagram = ({
           getEdgeSourceId(edge) === String(entry.id) || getEdgeTargetId(edge) === String(entry.id) ? 0.95 : 0.1
         ))
         .attr('stroke-width', (edge) => (
-          getEdgeSourceId(edge) === String(entry.id) || getEdgeTargetId(edge) === String(entry.id) ? 3.2 : 2.2
+          getEdgeSourceId(edge) === String(entry.id) || getEdgeTargetId(edge) === String(entry.id) ? ACTIVE_LINK_WIDTH : DEFAULT_LINK_WIDTH
         ));
     };
 
     const applyPinnedEdgeStyles = (selectedEdge) => {
       link
         .attr('stroke-opacity', (edge) => (edge.key === selectedEdge.key ? 1 : 0.08))
-        .attr('stroke-width', (edge) => (edge.key === selectedEdge.key ? 3.4 : 2.2));
+        .attr('stroke-width', (edge) => (edge.key === selectedEdge.key ? PINNED_LINK_WIDTH : DEFAULT_LINK_WIDTH));
 
       node
         .attr('fill-opacity', (entry) => (
@@ -527,12 +580,12 @@ export const NetworkDiagram = ({
 
     link = root.append('g')
       .selectAll('path')
-      .data(localLinks)
+      .data(filteredLinks)
       .join('path')
       .attr('fill', 'none')
       .attr('stroke', (edge) => getEdgeColor(edge))
       .attr('stroke-opacity', 0.72)
-      .attr('stroke-width', 2.2)
+      .attr('stroke-width', DEFAULT_LINK_WIDTH)
       .attr('stroke-dasharray', (edge) => getEdgeDasharray(edge))
       .attr('marker-end', (edge) => `url(#${getEdgeMarkerId(edge)})`)
       .on('mouseover', function (event, edge) {
@@ -542,7 +595,7 @@ export const NetworkDiagram = ({
 
         d3.select(this)
           .attr('stroke-opacity', 1)
-          .attr('stroke-width', 3.4);
+          .attr('stroke-width', PINNED_LINK_WIDTH);
 
         tooltip
           .style('opacity', 1)
@@ -578,7 +631,7 @@ export const NetworkDiagram = ({
 
     node = root.append('g')
       .selectAll('circle')
-      .data(localNodes)
+      .data(filteredNodes)
       .join('circle')
       .attr('r', (entry) => getNodeRadius(entry))
       .attr('fill', (entry) => color(normalizeCategory(entry[colorBy], fallbackLabel)))
@@ -663,6 +716,7 @@ export const NetworkDiagram = ({
 
     const labeledNodeIds = new Set(
       localNodes
+        .filter((entry) => relationFilteredNodeIds.has(String(entry.id)))
         .slice()
         .sort((left, right) => Number(right.degree || 0) - Number(left.degree || 0))
         .slice(0, 16)
@@ -671,7 +725,7 @@ export const NetworkDiagram = ({
 
     const labels = root.append('g')
       .selectAll('text')
-      .data(localNodes.filter((entry) => labeledNodeIds.has(String(entry.id)) || searchMatchedIds.has(String(entry.id))))
+      .data(filteredNodes.filter((entry) => labeledNodeIds.has(String(entry.id)) || searchMatchedIds.has(String(entry.id))))
       .join('text')
       .text((entry) => getProposalLabel(entry.id))
       .style('font-size', '10.5px')
@@ -763,7 +817,7 @@ export const NetworkDiagram = ({
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.dependency-network-tooltip').remove();
     };
-  }, [baselineType, colorBy, data, height, highlightProposal, includeConnections, isDifferentialMode, layoutMode, linkMode, linkType, links, nodes, proposalFilterIds, snapshotLabel, width]);
+  }, [baselineType, colorBy, data, height, highlightProposal, includeConnections, includeThresholdConnections, isDifferentialMode, layoutMode, linkMode, linkType, links, minRelations, nodes, proposalFilterIds, snapshotLabel, width]);
 
   const explicitLegendItems = [
     { label: 'Requires', dasharray: EXPLICIT_DEPENDENCY_STYLES.requires, stroke: '#667085' },
@@ -913,21 +967,45 @@ export const NetworkDiagram = ({
           ) : null}
         </div>
 
-        <div className="network-layout-picker">
-          <div className="network-layout-picker__label">Layout</div>
-          <div className="network-layout-picker__options">
-            {LAYOUT_OPTIONS.map((option) => (
-              <label key={option.value} className="network-layout-picker__option">
+        <div className="network-layout-controls">
+          <div className="network-layout-picker">
+            <div className="network-layout-picker__label">Layout</div>
+            <div className="network-layout-picker__options">
+              {LAYOUT_OPTIONS.map((option) => (
+                <label key={option.value} className="network-layout-picker__option">
+                  <input
+                    type="radio"
+                    name="dependency-layout"
+                    value={option.value}
+                    checked={layoutMode === option.value}
+                    onChange={() => setLayoutMode(option.value)}
+                  />
+                  <span>{option.label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="network-layout-picker network-layout-picker--filter">
+            <div className="network-layout-picker__label">Filter</div>
+            <div className="network-layout-threshold">
+              <span className="network-layout-threshold__copy">Only show {proposalShortPlural} with</span>
+              <InputText
+                value={minRelations}
+                onChange={(event) => setMinRelations?.(event.target.value.replace(/[^\d]/g, ''))}
+                placeholder="0"
+                inputMode="numeric"
+                className="network-layout-threshold__input"
+              />
+              <span className="network-layout-threshold__suffix">or more relations.</span>
+              <label className="dependency-filter-checkbox">
                 <input
-                  type="radio"
-                  name="dependency-layout"
-                  value={option.value}
-                  checked={layoutMode === option.value}
-                  onChange={() => setLayoutMode(option.value)}
+                  type="checkbox"
+                  checked={includeThresholdConnections}
+                  onChange={(event) => setIncludeThresholdConnections?.(event.target.checked)}
                 />
-                <span>{option.label}</span>
+                <span>transient</span>
               </label>
-            ))}
+            </div>
           </div>
         </div>
       </div>

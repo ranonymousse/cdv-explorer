@@ -423,23 +423,27 @@
   margin-bottom: 0;
 }
 
+.network-layout-picker--filter {
+  align-items: center;
+  margin-left: auto;
+}
+
 .network-layout-threshold {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   color: var(--app-text-muted);
   font-size: 0.95rem;
 }
 
-.network-layout-threshold__label,
+.network-layout-threshold__copy,
 .network-layout-threshold__suffix {
   white-space: nowrap;
 }
 
 .network-layout-threshold__input {
   width: 64px;
-  text-align: center;
 }
 
 .network-layout-threshold__input .p-inputtext,

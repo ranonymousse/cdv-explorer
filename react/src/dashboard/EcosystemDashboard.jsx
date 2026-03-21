@@ -45,6 +45,8 @@ export function EcosystemDashboard() {
   const [collaborationLayoutMode, setCollaborationLayoutMode] = useState('balanced');
   const [collaborationMinClusterCollaborations, setCollaborationMinClusterCollaborations] = useState('0');
   const [highlightedDependencyProposal, setHighlightedDependencyProposal] = useState('');
+  const [dependencyMinRelations, setDependencyMinRelations] = useState('0');
+  const [dependencyMinRelationsIncludeConnections, setDependencyMinRelationsIncludeConnections] = useState(false);
   const [dependencyFilterText, setDependencyFilterText] = useState('');
   const [dependencyIncludeConnections, setDependencyIncludeConnections] = useState(true);
   const [selectedDependencyMetricsApproach, setSelectedDependencyMetricsApproach] = useState('explicit_dependencies');
@@ -287,6 +289,10 @@ export function EcosystemDashboard() {
         highlightedDependencyProposal={highlightedDependencyProposal}
         setHighlightedDependencyProposal={setHighlightedDependencyProposal}
         dependencyProposalOptions={dependencyProposalOptions}
+        dependencyMinRelations={dependencyMinRelations}
+        setDependencyMinRelations={setDependencyMinRelations}
+        dependencyMinRelationsIncludeConnections={dependencyMinRelationsIncludeConnections}
+        setDependencyMinRelationsIncludeConnections={setDependencyMinRelationsIncludeConnections}
         dependencyFilterText={dependencyFilterText}
         setDependencyFilterText={setDependencyFilterText}
         dependencyIncludeConnections={dependencyIncludeConnections}
