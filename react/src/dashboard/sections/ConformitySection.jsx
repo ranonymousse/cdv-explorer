@@ -74,7 +74,7 @@ export function ConformitySection({
           <p>
             Distribution of proposal-level conformity scores under BIP2.
           </p>
-          <div data-export-target="true">
+          <div>
             <FormalConformitySwarmPlot
               rows={conformityRows}
               proposalShortLabel={ecosystem.acronym || 'IP'}
@@ -90,7 +90,7 @@ export function ConformitySection({
           <p>
             Distribution of proposal-level conformity scores under BIP3.
           </p>
-          <div data-export-target="true">
+          <div>
             <FormalConformitySwarmPlot
               rows={conformityRows}
               proposalShortLabel={ecosystem.acronym || 'IP'}
@@ -108,7 +108,7 @@ export function ConformitySection({
           <p>
             Frequency of failed formal checks under BIP2 across the selected snapshot.
           </p>
-          <div data-export-target="true">
+          <div>
             <ConformityFailedChecksHistogram
               data={conformityFailedChecks.bip2}
               proposalShortLabel={ecosystem.acronym || 'BIP'}
@@ -125,7 +125,7 @@ export function ConformitySection({
           <p>
             Frequency of failed formal checks under BIP3 across the selected snapshot.
           </p>
-          <div data-export-target="true">
+          <div>
             <ConformityFailedChecksHistogram
               data={conformityFailedChecks.bip3}
               proposalShortLabel={ecosystem.acronym || 'BIP'}

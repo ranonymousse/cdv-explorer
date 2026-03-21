@@ -23,7 +23,7 @@ export function ClassificationSection({
           exportTitle={`${ecosystem.proposalShortPlural} by ${dimension.label}`}
         >
           <h3>{ecosystem.proposalShortPlural} by {dimension.label}</h3>
-          <div className="dashboard-grid dashboard-grid--classification classification-card__grid" data-export-target="true">
+          <div className="dashboard-grid dashboard-grid--classification classification-card__grid">
             <div className="classification-card__panel">
               <ClassificationPieChart
                 dimension={dimension.field}
@@ -49,7 +49,7 @@ export function ClassificationSection({
       <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Pairwise Classification Chord Diagram">
         <h3>Pairwise Classification Chord Diagram</h3>
         <p>This chord diagram connects layer, status, and type categories across all pairwise combinations.</p>
-        <div data-export-target="true">
+        <div>
           <ClassificationChordDiagram data={classificationChordData} width={1000} height={800} />
         </div>
       </ExportableCard>

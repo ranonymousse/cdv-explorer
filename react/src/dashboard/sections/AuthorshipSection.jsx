@@ -39,7 +39,7 @@ export function AuthorshipSection({
         <p>
           Creation date of {ecosystem.proposalShortPlural} according to date provided in preamble.
         </p>
-        <div data-export-target="true">
+        <div>
           <ProposalTimelineChart data={yearData} width={1200} height={420} />
         </div>
       </ExportableCard>
@@ -49,7 +49,7 @@ export function AuthorshipSection({
           <p>
             Preamble authorship counts for the most mentioned contributors.
           </p>
-          <div data-export-target="true">
+          <div>
             <TopAuthorsChart data={{ topAuthors }} width={640} height={410} />
           </div>
         </ExportableCard>
@@ -58,7 +58,7 @@ export function AuthorshipSection({
           <p>
             Number of preamble authors who have written a given number of {ecosystem.proposalShortPlural}.
           </p>
-          <div data-export-target="true">
+          <div>
             <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={410} />
           </div>
         </ExportableCard>
@@ -112,7 +112,7 @@ export function AuthorshipSection({
             ))}
           </div>
         </div>
-        <div data-export-target="true">
+        <div>
           <AuthorCollaborationNetwork
             data={collaborationNetwork}
             width={1200}
@@ -169,7 +169,7 @@ export function AuthorshipSection({
             />
           </div>
         </div>
-        <div data-export-target="true">
+        <div>
           <WordCloud words={hasWordCloudFilter ? filteredWordCloudData : wordCloudData} width={1250} height={600} />
         </div>
       </ExportableCard>
