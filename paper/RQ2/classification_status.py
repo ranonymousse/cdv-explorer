@@ -6,7 +6,14 @@ import numpy as np
 from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator
 
-from paper.RQ1._plotting import BAR_EDGE_WIDTH, bar_style, despine, match_axis_label_fontsize, save_figure
+from paper.RQ1._plotting import (
+    BAR_EDGE_COLOR,
+    BAR_EDGE_WIDTH,
+    bar_style,
+    despine,
+    match_axis_label_fontsize,
+    save_figure,
+)
 
 
 STATUS_ORDER = [
@@ -199,8 +206,8 @@ def plot_classification_status(
         pctdistance=1.2,
         textprops={"fontsize": 9, "color": "#343a40"},
     )
-    for wedge, color in zip(wedges, colors):
-        wedge.set_edgecolor(color)
+    for wedge in wedges:
+        wedge.set_edgecolor(BAR_EDGE_COLOR)
     for autotext in autotexts:
         autotext.set_fontsize(9)
         autotext.set_color("#343a40")

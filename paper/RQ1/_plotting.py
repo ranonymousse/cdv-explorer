@@ -6,6 +6,7 @@ from matplotlib.colors import to_rgba
 
 BAR_FILL_ALPHA = 0.85
 BAR_EDGE_WIDTH = 1.0
+BAR_EDGE_COLOR = "#000000"
 
 
 def despine(axis, *, right: bool = True) -> None:
@@ -17,7 +18,7 @@ def despine(axis, *, right: bool = True) -> None:
 def bar_style(color: str, *, edgecolor: str | None = None) -> dict[str, object]:
     return {
         "color": to_rgba(color, BAR_FILL_ALPHA),
-        "edgecolor": edgecolor or color,
+        "edgecolor": edgecolor or BAR_EDGE_COLOR,
         "linewidth": BAR_EDGE_WIDTH,
     }
 
