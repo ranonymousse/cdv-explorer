@@ -6,7 +6,6 @@ import { FormalConformitySwarmPlot } from '../../FormalConformitySwarmPlot';
 import { ConformityFailedChecksHistogram } from '../../ConformityFailedChecksHistogram';
 import { getBipUrl } from '../../bipLinks';
 import { ExportableCard } from '../ExportableCard';
-import { useDashboardLinkMode, useDashboardSnapshot } from '../DashboardSnapshotContext';
 
 export function ConformitySection({
   ecosystem,
@@ -16,9 +15,6 @@ export function ConformitySection({
   conformityRows,
   conformityFailedChecks,
 }) {
-  const snapshotLabel = useDashboardSnapshot();
-  const linkMode = useDashboardLinkMode();
-
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
@@ -35,9 +31,9 @@ export function ConformitySection({
         <h3>Definition</h3>
         <p>
           Formal conformity of {ecosystem.proposalShortPlural} according to underlying guidelines, i.e., documented in{' '}
-          <a href={getBipUrl(2, snapshotLabel, { linkMode })} target="_blank" rel="noreferrer">BIP2</a>
+          <a href={getBipUrl(2, null, { linkMode: 'current' })} target="_blank" rel="noreferrer">BIP2</a>
           {' '}and{' '}
-          <a href={getBipUrl(3, snapshotLabel, { linkMode })} target="_blank" rel="noreferrer">BIP3</a>
+          <a href={getBipUrl(3, null, { linkMode: 'current' })} target="_blank" rel="noreferrer">BIP3</a>
           , whereas the latter replaced the former as of January 2026. Conformity score (0-100) is computed based on
           automated checks. For details on failed checks, hover over the bubbles.
         </p>
