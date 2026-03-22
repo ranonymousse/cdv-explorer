@@ -3,6 +3,7 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { RadioButton } from 'primereact/radiobutton';
 import { Card } from 'primereact/card';
+import { Tag } from 'primereact/tag';
 import { ProposalTimelineChart } from '../../ProposalTimelineChart';
 import { TopAuthorsChart } from '../../TopAuthorsChart';
 import { AuthorContributionHistogram } from '../../AuthorContributionHistogram';
@@ -216,7 +217,14 @@ export function AuthorshipSection({
         />
       </Card>
       <ExportableCard className="mb-4" exportTitle="Word Cloud of Document Text">
-        <h3>Word Cloud of Document Text</h3>
+        <h3 className="card-title-with-badge">
+          Word Cloud of Document Text
+          <Tag
+            className="dashboard-section__tag card-title-with-badge__tag"
+            severity="warning"
+            value="Experimental"
+          />
+        </h3>
         <p>
           Highlighting the most frequent terms across the selected proposal corpus.
         </p>
@@ -241,7 +249,7 @@ export function AuthorshipSection({
           </div>
         </div>
         <div>
-          <WordCloud words={hasWordCloudFilter ? filteredWordCloudData : wordCloudData} width={1250} height={600} />
+          <WordCloud words={hasWordCloudFilter ? filteredWordCloudData : wordCloudData} width={1250} height={500} />
         </div>
       </ExportableCard>
     </section>

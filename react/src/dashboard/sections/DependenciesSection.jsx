@@ -188,8 +188,8 @@ export function DependenciesSection({
       <ExportableCard className="mb-4" exportTitle="Comparison of Pairwise Relationship Extraction Approach">
         <h3>Comparison of Pairwise Relationship Extraction Approach</h3>
         <p>
-          These heatmaps compare each extraction approach against each possible baseline. The first matrix combines
-          hits and missed baseline coverage in one cell; the second shows edges found only by the selected approach.
+          This matrix compares each extraction approach against each possible baseline. Each cell splits into
+          three clickable shares: same, not in the selected approach, and only in the selected approach.
         </p>
         <DependencyComparisonHeatmaps
           pairwiseComparisons={dependencyMetrics?.pairwise_comparisons || {}}
