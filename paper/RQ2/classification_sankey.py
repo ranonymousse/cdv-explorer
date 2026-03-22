@@ -233,6 +233,8 @@ def plot_classification_sankey(
     network_data: dict,
     output_path: Path,
     snapshot_label: str,
+    *,
+    status_order: list[str] | None = None,
 ) -> None:
     nodes = network_data.get("nodes", [])
     if not nodes:
@@ -254,7 +256,7 @@ def plot_classification_sankey(
         layer_counts[layer] += 1
 
     type_order = _ordered_categories(set(type_counts), TYPE_ORDER)
-    status_order = _ordered_categories(set(status_counts), STATUS_ORDER)
+    status_order = _ordered_categories(set(status_counts), status_order or STATUS_ORDER)
     layer_order = _ordered_categories(set(layer_counts), LAYER_ORDER)
 
     type_blocks = _stack_blocks(type_counts, type_order, gap=0.03)
