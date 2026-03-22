@@ -1,4 +1,4 @@
 """Shared configuration for paper-oriented scripts."""
 
 # Set this once for all research questions.
-SNAPSHOT = None
+SNAPSHOT = "2026-03-16"
