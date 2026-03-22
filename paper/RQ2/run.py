@@ -14,8 +14,6 @@ GENERATE_CLASSIFICATION_TYPE_PLOT = True
 GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE = True
 GENERATE_CLASSIFICATION_SANKEY_PLOT = True
 
-RQ2_STATUS_PLOT_ORDER = ["Draft", "Complete", "Deployed", "Closed"]
-
 
 def main() -> None:
     from analysis.artifact_io import (
@@ -50,7 +48,6 @@ def main() -> None:
             status_over_time=classification_payload.get("status_over_time", {}),
             output_path=output_dir / f"{filename_prefix}_classification_status.pdf",
             snapshot_label=snapshot_label,
-            order=RQ2_STATUS_PLOT_ORDER,
         )
 
     if GENERATE_CLASSIFICATION_TYPE_PLOT:
@@ -68,7 +65,6 @@ def main() -> None:
             network_data=network_data,
             output_path=output_dir / f"{filename_prefix}_classification_sankey.pdf",
             snapshot_label=snapshot_label,
-            status_order=RQ2_STATUS_PLOT_ORDER,
         )
 
     if GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE:
@@ -77,6 +73,7 @@ def main() -> None:
         export_classification_status_type_latex_table(
             network_data=network_data,
             output_path=output_dir / f"{filename_prefix}_classification_status_type.tex",
+            snapshot_label=snapshot_label,
         )
 
 

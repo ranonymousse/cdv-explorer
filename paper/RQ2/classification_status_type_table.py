@@ -1,7 +1,7 @@
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from paper.RQ2.classification_status import STATUS_ORDER
+from paper.RQ2.classification_status import resolve_rq2_status_order
 from paper.RQ2.classification_type import TYPE_ORDER
 
 
@@ -38,6 +38,7 @@ def _format_count_share(count: int, total: int) -> str:
 def export_classification_status_type_latex_table(
     network_data: dict,
     output_path: Path,
+    snapshot_label: str,
     *,
     tabcolsep_pt: int = LATEX_TABCOLSEP_PT,
 ) -> None:
@@ -56,7 +57,10 @@ def export_classification_status_type_latex_table(
         for status in counts.keys()
     }
     ordered_types = _ordered_categories(observed_types, TYPE_ORDER)
-    ordered_statuses = _ordered_categories(observed_statuses, STATUS_ORDER)
+    ordered_statuses = _ordered_categories(
+        observed_statuses,
+        resolve_rq2_status_order(snapshot_label),
+    )
     total_bips = sum(sum(counts.values()) for counts in pivot.values())
 
     header_line = " & ".join(

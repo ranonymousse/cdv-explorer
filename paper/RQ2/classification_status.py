@@ -1,3 +1,4 @@
+from datetime import date
 from pathlib import Path
 
 import matplotlib.patheffects as pe
@@ -6,6 +7,8 @@ import numpy as np
 from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator
 
+from analysis.artifact_io import resolve_latest_snapshot_label
+from ecosystem_config import ACTIVE_ECOSYSTEM
 from paper.RQ1._plotting import (
     BAR_EDGE_COLOR,
     BAR_EDGE_WIDTH,
@@ -37,6 +40,8 @@ STATUS_COLORS = {
     "Deferred": "#9c36b5",
     "Proposed": "#1c7ed6",
     "Active": "#0b7285",
+    "Final": "#4263eb",
+    "Replaced": "#8d6e63",
     "Deployed": "#2f9e44",
     "Complete": "#1971c2",
     "Closed": "#d94841",
@@ -47,6 +52,56 @@ STATUS_COLORS = {
     "Stagnant": "#e67700",
     "Unknown": "#adb5bd",
 }
+
+CLASSIFICATION_PAPER_CONFIG = ACTIVE_ECOSYSTEM.get("classification", {}).get("paper", {})
+
+
+def _parse_snapshot_date(snapshot_label: str | None) -> date | None:
+    candidate = snapshot_label
+    if not candidate or candidate == "latest":
+        candidate = resolve_latest_snapshot_label()
+    if not candidate:
+        return None
+
+    try:
+        return date.fromisoformat(str(candidate))
+    except ValueError:
+        return None
+
+
+def resolve_rq2_status_order(snapshot_label: str | None) -> list[str]:
+    snapshot_date = _parse_snapshot_date(snapshot_label)
+    configured_orders = CLASSIFICATION_PAPER_CONFIG.get("rq2_status_orders", [])
+    valid_orders: list[list[str]] = []
+
+    for entry in configured_orders:
+        if not isinstance(entry, dict):
+            continue
+
+        start_text = entry.get("snapshot_from")
+        end_text = entry.get("snapshot_to")
+        order = entry.get("order")
+        if not isinstance(order, list) or not order:
+            continue
+        normalized_order = [str(value) for value in order]
+        valid_orders.append(normalized_order)
+
+        start_date = date.fromisoformat(start_text) if start_text else None
+        end_date = date.fromisoformat(end_text) if end_text else None
+
+        if snapshot_date is None:
+            continue
+        if start_date is not None and snapshot_date < start_date:
+            continue
+        if end_date is not None and snapshot_date > end_date:
+            continue
+
+        return normalized_order
+
+    if valid_orders:
+        return valid_orders[-1]
+
+    return STATUS_ORDER
 
 
 def _monotone_cubic_curve(
@@ -161,7 +216,10 @@ def plot_classification_status(
     right_axis_title: str = "Number of BIPs",
     right_secondary_axis_title: str = "Cumulative number of BIPs",
 ) -> None:
-    years, ordered_statuses, series = _normalize_status_series(status_over_time, order or STATUS_ORDER)
+    years, ordered_statuses, series = _normalize_status_series(
+        status_over_time,
+        order or resolve_rq2_status_order(snapshot_label),
+    )
     totals = {
         status: sum(counts)
         for status, counts in series.items()

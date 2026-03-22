@@ -55,12 +55,39 @@ BITCOIN_ECOSYSTEM = {
         "layer_aliases": {},
         "status_aliases": {
             "Draft (Some confusion applies: The announcements for this never made it to the list, so it hasn't had public discussion)" : "Draft"
-            },
+        },
         "type_aliases": {
             "Standard": "Standards Track",
             "Standards": "Standards Track",
             "Standard Track": "Standards Track",
             "Standards-Track": "Standards Track",
+        },
+        "paper": {
+            "rq2_status_orders": [
+                {
+                    "snapshot_to": "2025-12-31",
+                    "order": [
+                        "Draft",
+                        "Proposed",
+                        "Rejected",
+                        "Withdrawn",
+                        "Deferred",
+                        "Final",
+                        "Active",
+                        "Replaced",
+                        "Obsolete",
+                    ],
+                },
+                {
+                    "snapshot_from": "2026-01-01",
+                    "order": [
+                        "Draft",
+                        "Complete",
+                        "Deployed",
+                        "Closed",
+                    ],
+                },
+            ],
         },
     },
 }
