@@ -73,8 +73,7 @@ export function DependenciesSection({
       <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Relationship Network`}>
         <h3>{ecosystem.acronym} Relationship Network</h3>
         <p>
-          This graph visualizes three relationship-extraction approaches in the selected ecosystem:
-          explicit dependencies (preamble), explicit references (regex), and implicit dependencies (LLM).
+          The graph below shows three {ecosystem.acronym} relationship-extraction approaches. In the <strong>Preamble</strong> approach, we extract explicitly stated dependencies from the preamble only. The <strong>Regex</strong> approach extracts explicit {ecosystem.acronym} references using regular expressions. The <strong>LLM</strong> approach is designed to capture implicit dependencies inferred by the language model.
         </p>
         <div className="network-finder">
           <div className="network-finder__copy">
@@ -149,12 +148,12 @@ export function DependenciesSection({
         <h3>Relationship Graph Metrics</h3>
         <p>
           Compare simple graph-level structure and per-{ecosystem.acronym} centrality measures across
-          explicit dependencies, explicit references, and implicit dependencies.
+          {' '}Preamble, Regex, and LLM.
         </p>
         <div className="dependency-metrics-toolbar">
           <div className="dependency-metrics-toolbar__copy">
             <strong>Reference approach.</strong>
-            <span>Select which extracted relationship set should drive the metrics below.</span>
+            <span>Select which extracted relationship set, Preamble, Regex, or LLM, should drive the metrics below.</span>
           </div>
           <Dropdown
             value={activeDependencyMetricsApproach}
@@ -188,8 +187,8 @@ export function DependenciesSection({
       <ExportableCard className="mb-4" exportTitle="Comparison of Pairwise Relationship Extraction Approach">
         <h3>Comparison of Pairwise Relationship Extraction Approach</h3>
         <p>
-          This matrix compares each extraction approach against each possible baseline. Each cell splits into
-          three clickable shares: same, not in the selected approach, and only in the selected approach.
+          This matrix compares Preamble, Regex, and LLM pairwise. Each cell splits into
+          three clickable shares: same, missing from the selected approach, and only in the selected approach.
         </p>
         <DependencyComparisonHeatmaps
           pairwiseComparisons={dependencyMetrics?.pairwise_comparisons || {}}

@@ -7,9 +7,9 @@ import { getClassificationColorMap } from './classificationColors';
 import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
 export const LINK_TYPE_OPTIONS = [
-  { label: 'Explicit Dependencies (Preamble)', value: 'explicit_dependencies' },
-  { label: 'Explicit References (Regex)', value: 'explicit_references' },
-  { label: 'Implicit Dependencies (LLM)', value: 'implicit_dependencies' },
+  { label: 'Preamble', value: 'explicit_dependencies' },
+  { label: 'Regex', value: 'explicit_references' },
+  { label: 'LLM', value: 'implicit_dependencies' },
 ];
 
 const BASELINE_NONE_VALUE = '__none__';

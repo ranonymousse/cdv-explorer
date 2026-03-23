@@ -12,6 +12,10 @@ const SHORT_LABELS = {
   implicit_dependencies: 'LLM',
 };
 
+function getApproachDisplayLabel(approachKey) {
+  return SHORT_LABELS[approachKey] || approachKey;
+}
+
 function truncateTitle(value, maxLength = 45) {
   const text = String(value || '').trim();
   if (!text) {
@@ -54,18 +58,18 @@ function buildCellExplanation(metric, comparison) {
   }
 
   if (metric === 'overlap') {
-    return `${comparison.approach_label} captures ${formatPercent(comparison.summary.hit_rate)} of the edges present in ${comparison.baseline_label}.`;
+    return `${getApproachDisplayLabel(comparison.approach)} captures ${formatPercent(comparison.summary.hit_rate)} of the edges present in ${getApproachDisplayLabel(comparison.baseline)}.`;
   }
 
   if (metric === 'baseline_only') {
-    return `${formatPercent(comparison.summary.missed_rate)} of the edges present in ${comparison.baseline_label} are missing from ${comparison.approach_label}.`;
+    return `${formatPercent(comparison.summary.missed_rate)} of the edges present in ${getApproachDisplayLabel(comparison.baseline)} are missing from ${getApproachDisplayLabel(comparison.approach)}.`;
   }
 
   if (metric === 'approach_only') {
     const approachOnlyRate = comparison.summary.approach_total
       ? Number(comparison.summary.approach_only || 0) / Number(comparison.summary.approach_total)
       : 0;
-    return `${formatPercent(approachOnlyRate)} of the edges found by ${comparison.approach_label} are absent from ${comparison.baseline_label}.`;
+    return `${formatPercent(approachOnlyRate)} of the edges found by ${getApproachDisplayLabel(comparison.approach)} are absent from ${getApproachDisplayLabel(comparison.baseline)}.`;
   }
 
   return '';
@@ -84,7 +88,7 @@ function renderCellTooltipHtml(metric, comparison) {
     return '';
   }
 
-  const approachShortLabel = SHORT_LABELS[comparison.approach] || comparison.approach_label;
+  const approachShortLabel = SHORT_LABELS[comparison.approach] || comparison.approach;
   const metricLabel = metric === 'overlap'
     ? 'Same'
     : metric === 'baseline_only'
@@ -443,7 +447,7 @@ export function DependencyComparisonHeatmaps({
         <div className="dependency-comparison-detail">
           <div className="dependency-comparison-detail__header">
             <div>
-              <h4>{selectedComparison.approach_label} vs {selectedComparison.baseline_label}</h4>
+              <h4>{getApproachDisplayLabel(selectedComparison.approach)} vs {getApproachDisplayLabel(selectedComparison.baseline)}</h4>
               <div className="dependency-comparison-detail__summary">
                 Same: {selectedComparison.summary.overlap} ({formatPercent(selectedComparison.summary.hit_rate)}) | Not in {SHORT_LABELS[selectedComparison.approach] || 'approach'}: {selectedComparison.summary.baseline_only} ({formatPercent(selectedComparison.summary.missed_rate)}) | Only in {SHORT_LABELS[selectedComparison.approach] || 'approach'}: {selectedComparison.summary.approach_only} ({formatPercent(getApproachOnlyRate(selectedComparison))})
               </div>
