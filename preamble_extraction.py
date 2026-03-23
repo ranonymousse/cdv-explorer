@@ -206,7 +206,6 @@ def save_preamble_to_json(
         "metadata": {
             "last_commit": None,
             "total_commits": None,
-            "metadata_last_updated": None,
             "git_history": [],
             "contributors": None,
         },
@@ -216,6 +215,7 @@ def save_preamble_to_json(
     existing_metadata = existing_json.get("metadata")
     if isinstance(existing_metadata, dict):
         json_data["metadata"].update(existing_metadata)
+        json_data["metadata"].pop("metadata_last_updated", None)
 
     existing_insights = existing_json.get("insights")
     if isinstance(existing_insights, dict):

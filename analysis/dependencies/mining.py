@@ -14,6 +14,21 @@ PROPOSAL_LABEL = ACTIVE_ECOSYSTEM["proposal_acronym"]
 PROPOSAL_SINGULAR = ACTIVE_ECOSYSTEM["proposal_term_singular"]
 REFERENCE_PATTERN = ACTIVE_ECOSYSTEM["reference_pattern"]
 LLM_MODEL = "gpt-5-nano"
+TOP_PRE_BLOCK_PATTERN = re.compile(r"^\s*<pre>.*?</pre>\s*", re.DOTALL | re.IGNORECASE)
+TOP_FENCED_BLOCK_PATTERN = re.compile(r"^\s*```[^\n]*\n.*?\n```\s*(?:\n|$)", re.DOTALL)
+
+
+def _strip_top_preamble_block(text: str) -> str:
+    without_pre = TOP_PRE_BLOCK_PATTERN.sub("", text, count=1)
+    if without_pre != text:
+        return without_pre
+    return TOP_FENCED_BLOCK_PATTERN.sub("", text, count=1)
+
+def prepare_llm_dependency_text(raw_content: str) -> str:
+    if not raw_content:
+        return ""
+
+    return _strip_top_preamble_block(raw_content).replace("\r\n", "\n").replace("\r", "\n").strip()
 
 
 def create_reference_list(
@@ -94,7 +109,6 @@ Output requirements:
 - No explanation
 - No markdown
 - Deduplicate results
-- Normalize identifiers to "{proposal_label} N" (for example "{proposal_label}-0016" -> "{proposal_label} 16")
 - Exclude {proposal_label} {current_proposal_number} if present
 - Return [] if there are no real dependencies
 
@@ -126,4 +140,3 @@ Text:
         return payload if isinstance(payload, list) else []
     except (JSONDecodeError, TypeError, ValueError, KeyError, OSError, TimeoutError, ConnectionError):
         return []
-

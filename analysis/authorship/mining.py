@@ -1,5 +1,4 @@
 import subprocess
-from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
@@ -34,7 +33,6 @@ def update_metadata_from_git(
         json_data["metadata"] = {
             "last_commit": None,
             "total_commits": None,
-            "metadata_last_updated": None,
             "git_history": [],
             "contributors": None,
         }
@@ -51,10 +49,9 @@ def update_metadata_from_git(
         {
             "last_commit": last_commit_date,
             "total_commits": len(commit_info),
-            "metadata_last_updated": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S"),
             "git_history": commit_info,
             "contributors": contributors,
         }
     )
+    json_data["metadata"].pop("metadata_last_updated", None)
     return json_data
-

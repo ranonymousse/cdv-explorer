@@ -13,6 +13,7 @@ from analysis.dependencies.mining import (
     create_reference_list,
     llm_extract_implicit_dependencies,
     load_api_key,
+    prepare_llm_dependency_text,
 )
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
@@ -85,6 +86,7 @@ def build_base_insights(
     id_field: str = PRIMARY_ID_FIELD,
 ) -> Tuple[Dict[str, any], str, str]:
     raw_content = load_bip_content(bip_file_path)
+    llm_content = prepare_llm_dependency_text(raw_content)
     preamble = json_data.get("raw", {}).get("preamble", {})
     references = create_reference_list(raw_content, proposal_label=proposal_label)
     explicit_dependencies = create_explicit_dependency_list(preamble, proposal_label=proposal_label)
@@ -103,7 +105,7 @@ def build_base_insights(
             "explicit_references": filtered_references,
             "explicit_dependencies": filtered_explicit_dependencies,
         },
-        raw_content,
+        llm_content,
         proposal_number,
     )
 
@@ -198,7 +200,7 @@ def process_ip_files(
                 continue
 
             json_data = update_metadata_from_git(json_data, bip_file_path, repo_dir)
-            base_insights, raw_content, proposal_number = build_base_insights(
+            base_insights, llm_content, proposal_number = build_base_insights(
                 json_data,
                 bip_file_path,
                 proposal_label=proposal_label,
@@ -219,10 +221,10 @@ def process_ip_files(
 
             future = executor.submit(
                 llm_extract_implicit_dependencies,
-                raw_content,
-                proposal_number,
-                proposal_label,
-                api_key,
+                text=llm_content,
+                current_proposal_number=proposal_number,
+                proposal_label=proposal_label,
+                api_key=api_key,
             )
             pending_futures[future] = {
                 "job_id": json_file.name,
