@@ -473,5 +473,49 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "24fdae2a871a3e56b866aeab7634785b1fffd8c5",
+        "timestamp": "2015-10-16T13:12:14-04:00",
+        "date": "2015-10-16",
+        "author": "Suhas Daftuar",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "729c44c4eaca2de76e83430609d1f271add0533a",
+        "timestamp": "2024-07-10T15:05:06-04:00",
+        "date": "2024-07-10",
+        "author": "Suhas Daftuar",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

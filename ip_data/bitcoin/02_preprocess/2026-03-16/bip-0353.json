@@ -760,5 +760,57 @@
       "BIP 21",
       "BIP 321"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4f75edb2b85f55f5723e379584e52181f5f44269",
+        "timestamp": "2024-02-10T22:46:16Z",
+        "date": "2024-02-10",
+        "author": "Matt Corallo",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "e9b1100912672c8013ed988595d4e46fffc14d0b",
+        "timestamp": "2025-09-23T13:56:54-07:00",
+        "date": "2025-09-23",
+        "author": "Murch",
+        "status": "Active",
+        "standard": "bip3"
+      },
+      {
+        "commit": "cc68e6d75389b2b15cd1f8a37c22d62093ddf986",
+        "timestamp": "2025-09-23T14:38:09-07:00",
+        "date": "2025-09-23",
+        "author": "Murch",
+        "status": "Proposed",
+        "standard": "bip3"
+      },
+      {
+        "commit": "87bafc1cd09e69e73f075e74ee411b775d604171",
+        "timestamp": "2025-08-06T13:30:42Z",
+        "date": "2025-08-06",
+        "author": "Matt Corallo",
+        "status": "Draft",
+        "standard": "bip3"
+      },
+      {
+        "commit": "1cf41308764916b04ae1a22f391831d6d2230b89",
+        "timestamp": "2025-10-10T20:12:06-04:00",
+        "date": "2025-10-10",
+        "author": "Mark E. Jeftovic",
+        "status": "Proposed",
+        "standard": "bip3"
+      },
+      {
+        "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
+        "timestamp": "2025-04-11T18:02:31-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

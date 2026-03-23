@@ -770,5 +770,17 @@
     "implicit_dependencies": [
       "BIP 125"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "04d3a0609b548805fa2ebaf5d3a495f1b81a003c",
+        "timestamp": "2024-01-15T16:26:55Z",
+        "date": "2024-01-15",
+        "author": "glozow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -688,6 +688,7 @@ export function buildDashboardData(dataset) {
     ])
   );
   const classificationRelationRows = buildClassificationRelationRows(dataset.nodes);
+  const evolutionPayload = dataset.evolution || { meta: {}, status_evolution: { categories: [], rows: [] } };
 
   const topAuthors = (authorship.top_authors || []).map((entry) => ({
     ...entry,
@@ -781,6 +782,7 @@ export function buildDashboardData(dataset) {
     classificationCategoryDomains,
     classificationChordData: buildClassificationChordData(dataset.nodes, classificationCategoryDomains),
     classificationRelationRows,
+    evolutionPayload,
     topAuthors,
     authorContributionHistogram: authorship.author_contribution_histogram || [],
     collaborationNetwork,

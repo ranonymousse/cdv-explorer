@@ -495,5 +495,33 @@
       "BIP 143",
       "BIP 147"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "d561da8b5e38b383ef472978b832cd00d15560f9",
+        "timestamp": "2017-04-29T10:37:25Z",
+        "date": "2017-04-29",
+        "author": "shaolinfry",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d98333302f2a41114c6f006a77a51edc3d1e743b",
+        "timestamp": "2017-08-11T05:36:07Z",
+        "date": "2017-08-11",
+        "author": "shaolinfry",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

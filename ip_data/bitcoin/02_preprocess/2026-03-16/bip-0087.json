@@ -644,5 +644,25 @@
       "BIP 129",
       "BIP 174"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "675c3a8703d79e09807d6426c73f7c301c1d3eb7",
+        "timestamp": "2021-03-11T03:11:51-05:00",
+        "date": "2021-03-11",
+        "author": "Robert Spigler",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
+        "timestamp": "2025-04-11T18:02:31-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

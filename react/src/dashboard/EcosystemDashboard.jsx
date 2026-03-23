@@ -15,6 +15,7 @@ import { AuthorshipSection } from './sections/AuthorshipSection';
 import { ClassificationSection } from './sections/ClassificationSection';
 import { DependenciesSection } from './sections/DependenciesSection';
 import { ConformitySection } from './sections/ConformitySection';
+import { EvolutionSection } from './sections/EvolutionSection';
 import { DashboardSnapshotProvider } from './DashboardSnapshotContext';
 
 function getSourceRepositoryHref(repository) {
@@ -76,6 +77,7 @@ export function EcosystemDashboard() {
     classificationCategoryDomains,
     classificationChordData,
     classificationRelationRows,
+    evolutionPayload,
     topAuthors,
     authorContributionHistogram,
     collaborationNetwork,
@@ -283,6 +285,11 @@ export function EcosystemDashboard() {
         classificationTimeline={classificationTimeline}
         classificationChordData={classificationChordData}
         classificationRelationRows={classificationRelationRows}
+      />
+
+      <EvolutionSection
+        ecosystem={ecosystem}
+        evolutionPayload={evolutionPayload}
       />
 
       <DependenciesSection

@@ -506,5 +506,33 @@
       "BIP 21",
       "BIP 70"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "8c3621e3b43300648db7911cb28fb715ecadd1f9",
+        "timestamp": "2013-10-21T01:01:01-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "a74ea14bc66d6be699f3e3d5aae2fa308ad7adad",
+        "timestamp": "2016-02-01T21:17:02Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

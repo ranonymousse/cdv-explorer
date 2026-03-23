@@ -34,7 +34,7 @@ export function ConformitySection({
           <a href={getBipUrl(2, null, { linkMode: 'current' })} target="_blank" rel="noreferrer">BIP2</a>
           {' '}and{' '}
           <a href={getBipUrl(3, null, { linkMode: 'current' })} target="_blank" rel="noreferrer">BIP3</a>
-          , whereas the latter replaced the former as of January 2026. Conformity score (0-100) is computed based on
+          , whereas the latter replaced the former as of April 2025. Conformity score (0-100) is computed based on
           automated checks. For details on failed checks, hover over the bubbles.
         </p>
         <div className="network-finder">

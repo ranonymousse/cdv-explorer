@@ -851,5 +851,33 @@
       "BIP 65",
       "BIP 66"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "be86444b8826a6dcb44602e24ed1d1316204f2a6",
+        "timestamp": "2015-09-24T10:02:51+09:30",
+        "date": "2015-09-24",
+        "author": "Rusty Russell",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d35a3d33da628fb3da543bb8652a2153d65562c5",
+        "timestamp": "2016-08-20T23:50:14Z",
+        "date": "2016-08-20",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

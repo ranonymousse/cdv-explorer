@@ -537,5 +537,49 @@
     "implicit_dependencies": [
       "BIP 11"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ce40c0f8f02e83892eb185aabea306ee2a3ab10e",
+        "timestamp": "2011-10-29T11:39:58+01:00",
+        "date": "2011-10-29",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "12627baeea94a377bb94612beeec9b9cc4bd978e",
+        "timestamp": "2011-12-13T17:35:53Z",
+        "date": "2011-12-13",
+        "author": "genjix",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "4aedbaa17bf6f7e137f75febb182bd0e8c085515",
+        "timestamp": "2012-02-04T19:00:44Z",
+        "date": "2012-02-04",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "a676338b2b8232fb029dc84ad2c9a0288c3f889f",
+        "timestamp": "2020-02-26T12:23:13-06:00",
+        "date": "2020-02-26",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

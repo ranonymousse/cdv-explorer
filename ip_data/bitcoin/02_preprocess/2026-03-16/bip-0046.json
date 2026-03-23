@@ -721,5 +721,17 @@
       "BIP 86",
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "bf2eb4f680f537e344370f7bc92cc234b5ca5083",
+        "timestamp": "2022-07-02T18:43:09+01:00",
+        "date": "2022-07-02",
+        "author": "chris-belcher",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

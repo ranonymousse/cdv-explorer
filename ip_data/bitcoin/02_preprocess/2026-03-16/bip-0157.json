@@ -739,5 +739,33 @@
     "implicit_dependencies": [
       "BIP 158"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "996c7c8e882b3629d1a06a41536bdda6955c324b",
+        "timestamp": "2017-06-01T11:59:19-07:00",
+        "date": "2017-06-01",
+        "author": "Jim Posen",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "3ba957d8d563168307cd47e0591924a1493b507b",
+        "timestamp": "2025-09-10T21:29:05-06:00",
+        "date": "2025-09-10",
+        "author": "Jon Atack",
+        "status": "Final",
+        "standard": "bip3"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

@@ -538,5 +538,33 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "739aff087e87856f7fc97857a99300fc4a8c18b3",
+        "timestamp": "2012-05-29T13:02:30+02:00",
+        "date": "2012-05-29",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "70d4c09e587ec74cc290f6f5859e1f2296978916",
+        "timestamp": "2020-02-28T12:01:16-06:00",
+        "date": "2020-02-28",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

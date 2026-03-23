@@ -813,5 +813,33 @@
       "BIP 341",
       "BIP 370"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "806b8b886fef460a7a812c219f30d5b09d74d2d0",
+        "timestamp": "2024-01-15T14:07:56-05:00",
+        "date": "2024-01-15",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "3adf43df82a7659c1734ce552917daf8b429bb24",
+        "timestamp": "2025-02-13T12:52:19-08:00",
+        "date": "2025-02-13",
+        "author": "Ava Chow",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
+        "timestamp": "2025-04-11T18:02:31-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

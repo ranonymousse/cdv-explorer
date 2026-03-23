@@ -551,5 +551,17 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "59527bd92b5a36cb6a5e9007399e9283b550c416",
+        "timestamp": "2025-04-12T11:51:28+01:00",
+        "date": "2025-04-12",
+        "author": "John Carvalho",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

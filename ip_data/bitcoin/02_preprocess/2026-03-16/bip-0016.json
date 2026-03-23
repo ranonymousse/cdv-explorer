@@ -633,5 +633,41 @@
       "BIP 11",
       "BIP 13"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b4281db71d81a87c2a97bb26fdb325b2d4217189",
+        "timestamp": "2012-01-06T15:37:19Z",
+        "date": "2012-01-06",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "da31790ef6fbc04d4b2a56121f3252956dafd08e",
+        "timestamp": "2012-03-13T19:47:32-04:00",
+        "date": "2012-03-13",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "57488fbd8b6d2d581b12864ce7a07149e19a177d",
+        "timestamp": "2013-10-21T00:43:57-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

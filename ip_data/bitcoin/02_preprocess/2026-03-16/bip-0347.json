@@ -756,5 +756,25 @@
       "BIP 341",
       "BIP 342"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "83ca57f22268edb1ff2815085a4383ba8d1b55fe",
+        "timestamp": "2023-12-11T18:11:22-05:00",
+        "date": "2023-12-11",
+        "author": "Ethan Heilman",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "9fb88a11b75bc83e1953b4b5c50cbb04085524cc",
+        "timestamp": "2026-03-02T10:34:26-05:00",
+        "date": "2026-03-02",
+        "author": "Ethan Heilman",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

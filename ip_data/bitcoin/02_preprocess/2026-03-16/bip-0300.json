@@ -813,5 +813,17 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "34f0fe5b2af4f7c82fbe6ed0706bbb3feef94acf",
+        "timestamp": "2019-09-20T17:50:14Z",
+        "date": "2019-09-20",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

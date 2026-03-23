@@ -617,5 +617,17 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4d495ab1a09d1495cf0fecc113852a7f8309ed92",
+        "timestamp": "2024-12-20T16:57:22-06:00",
+        "date": "2024-12-20",
+        "author": "Chris Stewart",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

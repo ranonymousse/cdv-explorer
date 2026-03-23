@@ -578,5 +578,17 @@
     "implicit_dependencies": [
       "BIP 300"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "53e37a1dea527c51c9bacb02975cd3184d873742",
+        "timestamp": "2019-07-26T12:41:03Z",
+        "date": "2019-07-26",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

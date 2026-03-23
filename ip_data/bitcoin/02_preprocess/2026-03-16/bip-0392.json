@@ -515,5 +515,17 @@
       "BIP 380",
       "BIP 390"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "41f99576308d192526093a39718fff842692d13c",
+        "timestamp": "2026-03-05T18:02:52+02:00",
+        "date": "2026-03-05",
+        "author": "craigraw",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

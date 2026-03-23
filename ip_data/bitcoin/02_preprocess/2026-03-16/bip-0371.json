@@ -716,5 +716,33 @@
       "BIP 342",
       "BIP 370"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c583f4dcbe78c2520be20067203ae2737bbca369",
+        "timestamp": "2021-06-21T16:58:45-04:00",
+        "date": "2021-06-21",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6b4a03bb5deb624a1bb3d0c2fa0b69434df65f34",
+        "timestamp": "2024-07-10T18:59:57-04:00",
+        "date": "2024-07-10",
+        "author": "Ava Chow",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

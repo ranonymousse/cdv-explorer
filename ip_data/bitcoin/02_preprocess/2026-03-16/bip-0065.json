@@ -796,5 +796,49 @@
     "implicit_dependencies": [
       "BIP 66"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5f6cb04d9c28b76f33f18dbf43923c88860c2592",
+        "timestamp": "2014-10-01T08:59:26-04:00",
+        "date": "2014-10-01",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "694a073e15577b45fdbd679e43ff8ae76f46b7ba",
+        "timestamp": "2015-10-31T23:38:23+11:00",
+        "date": "2015-10-31",
+        "author": "Daniel Cousens",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f3d94433e252ad9bc56edd4485c3da7d5e0d3d52",
+        "timestamp": "2015-11-13T12:13:03-05:00",
+        "date": "2015-11-13",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
+        "timestamp": "2016-02-01T20:14:22Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

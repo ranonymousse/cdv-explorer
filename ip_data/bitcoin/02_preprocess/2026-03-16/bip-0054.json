@@ -733,5 +733,17 @@
       "BIP 30",
       "BIP 34"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "1ee43519dd2520fbd8ad5c264bd4198acdba4863",
+        "timestamp": "2025-03-03T16:29:40-05:00",
+        "date": "2025-03-03",
+        "author": "Antoine Poinsot",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

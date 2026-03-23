@@ -580,5 +580,33 @@
       "BIP 44",
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b1e7db53760d8b4c4a976876f99f7fac1bebf4e9",
+        "timestamp": "2016-06-14T14:49:09+02:00",
+        "date": "2016-06-14",
+        "author": "Daniel Weigl",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "fd4aab24a4383480edbaa750834337292dc03004",
+        "timestamp": "2019-07-24T10:28:09+02:00",
+        "date": "2019-07-24",
+        "author": "DanielWeigl",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

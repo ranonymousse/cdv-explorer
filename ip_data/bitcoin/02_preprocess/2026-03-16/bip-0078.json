@@ -1051,5 +1051,17 @@
       "BIP 21",
       "BIP 174"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "3faf6e7540e9925b536701c9644e6622b8d25b19",
+        "timestamp": "2020-05-09T17:33:59+09:00",
+        "date": "2020-05-09",
+        "author": "nicolas.dorier",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

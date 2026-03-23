@@ -619,5 +619,17 @@
       "BIP 174",
       "BIP 370"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5716f2878fcd90b9ca4f84538753c43c12f694f9",
+        "timestamp": "2022-03-29T11:31:20+02:00",
+        "date": "2022-03-29",
+        "author": "Dr Maxim Orlovsky",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

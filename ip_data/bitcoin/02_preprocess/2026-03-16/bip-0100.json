@@ -533,5 +533,33 @@
     "implicit_dependencies": [
       "BIP 34"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5ad92f06de1036b650bf0bd40c7f89eb5059cb2d",
+        "timestamp": "2017-03-08T11:46:12-05:00",
+        "date": "2017-03-08",
+        "author": "Jeff Garzik",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "b1b248fc6ade930c4c716eb9fed1b48be6796356",
+        "timestamp": "2019-09-24T19:33:03Z",
+        "date": "2019-09-24",
+        "author": "Luke Dashjr",
+        "status": "Rejected",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

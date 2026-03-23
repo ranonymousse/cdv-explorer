@@ -907,5 +907,17 @@
       "BIP 321",
       "BIP 324"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ee587c5d2f0e66de0811649bc0b59fb9fc9f0635",
+        "timestamp": "2025-05-28T14:49:12-04:00",
+        "date": "2025-05-28",
+        "author": "Dan Gould",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

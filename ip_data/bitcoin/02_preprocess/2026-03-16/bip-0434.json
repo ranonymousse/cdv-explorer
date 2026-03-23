@@ -620,5 +620,17 @@
       "BIP 324",
       "BIP 339"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "9630c4c8d076b289e24d7cad818d43440ce613ae",
+        "timestamp": "2025-12-06T07:27:13+10:00",
+        "date": "2025-12-06",
+        "author": "Anthony Towns",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

@@ -873,5 +873,17 @@
       "BIP 342",
       "BIP 350"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "eae7d9fc57a5f3a2b0c4853c127cb4d27377dbf3",
+        "timestamp": "2026-02-11T12:54:26-08:00",
+        "date": "2026-02-11",
+        "author": "Hunter Beast",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

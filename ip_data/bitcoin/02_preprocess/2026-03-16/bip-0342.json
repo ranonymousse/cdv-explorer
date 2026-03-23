@@ -807,5 +807,33 @@
       "BIP 340",
       "BIP 341"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6733024595ee2affa0977008e020724ddf8903e0",
+        "timestamp": "2019-05-06T10:46:09-07:00",
+        "date": "2019-05-06",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "43fa7cf13d3ed35bcd2dd518c2fa0f41a4d2caa7",
+        "timestamp": "2023-02-19T16:16:13+01:00",
+        "date": "2023-02-19",
+        "author": "Christian Lewe",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

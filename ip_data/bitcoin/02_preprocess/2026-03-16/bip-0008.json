@@ -851,5 +851,33 @@
       "BIP 65",
       "BIP 66"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "7ca054213626ae0c1192b39cf827659823e30a17",
+        "timestamp": "2017-03-27T18:40:07+01:00",
+        "date": "2017-03-27",
+        "author": "shaolinfry",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "cb064ccdebb688d38994be525f251372af93a3e9",
+        "timestamp": "2020-02-26T11:54:45-06:00",
+        "date": "2020-02-26",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      },
+      {
+        "commit": "8f4595b29baaf7a1b6cb40e7177e9f71c5945e0b",
+        "timestamp": "2020-06-25T05:01:43Z",
+        "date": "2020-06-25",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

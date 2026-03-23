@@ -1274,5 +1274,41 @@
       "BIP 2",
       "BIP 123"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "d5c189f3285baa4822c03ca312f962b16d8eb199",
+        "timestamp": "2025-02-20T17:18:08-05:00",
+        "date": "2025-02-20",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "76132ec28493c690034771c9b2289df1e37d99a6",
+        "timestamp": "2025-03-18T19:18:56-07:00",
+        "date": "2025-03-18",
+        "author": "Murch",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "4f412a4af06df96814d57c5adc297ee1f7dcb1b7",
+        "timestamp": "2025-04-11T16:46:22-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Active",
+        "standard": "bip3"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

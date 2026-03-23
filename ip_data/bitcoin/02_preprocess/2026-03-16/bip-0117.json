@@ -678,5 +678,17 @@
       "BIP 116",
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "689f2a5d02a65ed4d21e57f55ff3e5e0ddd073c5",
+        "timestamp": "2017-11-14T17:39:53+09:00",
+        "date": "2017-11-14",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

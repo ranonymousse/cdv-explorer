@@ -615,5 +615,33 @@
       "BIP 113",
       "BIP 341"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "a35650e14e5e3afce269efa0926233c30871b140",
+        "timestamp": "2024-05-27T23:23:06+02:00",
+        "date": "2024-05-27",
+        "author": "Fabian Jahr",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d2cfbae4c124dfebb534f78db0f0b23196cc73e7",
+        "timestamp": "2025-02-25T16:39:24-05:00",
+        "date": "2025-02-25",
+        "author": "Fabian Jahr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

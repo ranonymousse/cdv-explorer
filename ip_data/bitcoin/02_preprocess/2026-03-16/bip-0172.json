@@ -533,5 +533,17 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c37927174e024417c7c0b360c2540dbc55a76620",
+        "timestamp": "2025-04-28T12:51:22-04:00",
+        "date": "2025-04-28",
+        "author": "0ceanSlim",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

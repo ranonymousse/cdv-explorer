@@ -492,5 +492,33 @@
       "BIP 32",
       "BIP 327"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "48ebcb2191e9738efcff06b425cec41985c43f5f",
+        "timestamp": "2024-01-15T14:54:19-05:00",
+        "date": "2024-01-15",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "151ec96c83b4c59453c553f49cf3183fbb9176b4",
+        "timestamp": "2025-02-12T10:00:35-08:00",
+        "date": "2025-02-12",
+        "author": "Ava Chow",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
+        "timestamp": "2025-04-11T18:02:31-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

@@ -30,6 +30,7 @@ const EMPTY_DATASET = {
   dependencyMetrics: { by_approach: {}, pairwise_comparisons: {} },
   authorship: { meta: {}, top_authors: [], bips_per_year: [], top_10_share: {} },
   classification: { meta: {}, sankey_grouped: { links: [] }, status_over_time: {} },
+  evolution: { meta: {}, status_evolution: { categories: [], rows: [] } },
   conformity: { per_proposal: [] }
 };
 
@@ -87,6 +88,7 @@ function ensureSnapshotShape(snapshotLabel, snapshotData) {
     dependencyMetrics: snapshotData.dependencyMetrics || EMPTY_DATASET.dependencyMetrics,
     authorship: snapshotData.authorship || EMPTY_DATASET.authorship,
     classification: snapshotData.classification || EMPTY_DATASET.classification,
+    evolution: snapshotData.evolution || EMPTY_DATASET.evolution,
     conformity: snapshotData.conformity || EMPTY_DATASET.conformity,
     meta: {
       node_count: network.nodes?.length || 0,
@@ -115,6 +117,7 @@ function collectBitcoinAnalysisSnapshots() {
         dependencyMetrics: null,
         authorship: null,
         classification: null,
+        evolution: null,
         conformity: null,
         meta: {},
       };
@@ -136,6 +139,10 @@ function collectBitcoinAnalysisSnapshots() {
 
     if (submodule === 'classification' && artifactName === 'classification_payload.json') {
       snapshots[snapshotLabel].classification = payload;
+    }
+
+    if (submodule === 'evolution' && artifactName === 'evolution_payload.json') {
+      snapshots[snapshotLabel].evolution = payload;
     }
 
     if (submodule === 'conformity' && artifactName === 'conformity_metrics.json') {

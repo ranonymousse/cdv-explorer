@@ -648,5 +648,33 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "605cb29934666c1acae15032f3f6abcf2bfcc6b3",
+        "timestamp": "2016-09-19T18:13:33+02:00",
+        "date": "2016-09-19",
+        "author": "TomZ",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "1c6cdff42c0107ad0baa15c30260a3f3e3f4bfc1",
+        "timestamp": "2020-08-01T17:18:43-05:00",
+        "date": "2020-08-01",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

@@ -531,5 +531,33 @@
       "BIP 34",
       "BIP 62"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5cc40831e6e27041b8258738496f4c3d09260cda",
+        "timestamp": "2014-04-01T23:50:03+02:00",
+        "date": "2014-04-01",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5415dd806ea416372258b6d81966db80e6cfb5d7",
+        "timestamp": "2018-07-05T05:09:05Z",
+        "date": "2018-07-05",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

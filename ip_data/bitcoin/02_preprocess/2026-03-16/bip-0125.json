@@ -609,5 +609,57 @@
       "BIP 68",
       "BIP 112"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b57eea446cbd99088da1a9badc2fb85396982b9f",
+        "timestamp": "2015-12-04T20:24:33-05:00",
+        "date": "2015-12-04",
+        "author": "David A. Harding",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "3d86d94fa42d18f1ff80b22bf478dd9151b30b86",
+        "timestamp": "2024-10-29T09:53:44-06:00",
+        "date": "2024-10-29",
+        "author": "Jon Atack",
+        "status": "Obsolete",
+        "standard": "bip2"
+      },
+      {
+        "commit": "749c606281dd23466a788d5f22722ba2a183ccfe",
+        "timestamp": "2024-12-05T14:23:32-06:00",
+        "date": "2024-12-05",
+        "author": "Jon Atack",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

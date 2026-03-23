@@ -628,5 +628,17 @@
       "BIP 32",
       "BIP 380"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "41490b74f7a9d52a58d9a1e1fd94f3ee6d8553e7",
+        "timestamp": "2023-01-17T01:40:46+02:00",
+        "date": "2023-01-17",
+        "author": "craigraw",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

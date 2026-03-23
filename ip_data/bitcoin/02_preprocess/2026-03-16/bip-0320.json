@@ -484,5 +484,17 @@
       "BIP 8",
       "BIP 9"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "11e16622f225a0d5a87a3206528066cd920e5368",
+        "timestamp": "2018-03-06T12:01:17Z",
+        "date": "2018-03-06",
+        "author": "BtcDrak",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -613,5 +613,41 @@
       "BIP 21"
     ],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "bd3808c4ca96313f8d194b828cd6b0579fc74a58",
+        "timestamp": "2012-01-30T00:01:31Z",
+        "date": "2012-01-30",
+        "author": "genjix",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "1be9cbdbaf9e53b26e9e5cd72f1d229baece9ac5",
+        "timestamp": "2012-01-31T14:00:39Z",
+        "date": "2012-01-31",
+        "author": "genjix",
+        "status": "Rejected",
+        "standard": "bip2"
+      },
+      {
+        "commit": "dc00d6cf02410bd1a4ba23c2c845ae8b9001fc59",
+        "timestamp": "2013-10-21T00:47:13-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Replaced",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

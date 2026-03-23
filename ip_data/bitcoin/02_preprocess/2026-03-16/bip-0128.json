@@ -664,5 +664,17 @@
       "BIP 112",
       "BIP 140"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "9ff061f8b95f5afd792a1358992ed753cd083319",
+        "timestamp": "2026-02-27T22:24:33+02:00",
+        "date": "2026-02-27",
+        "author": "Oren",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

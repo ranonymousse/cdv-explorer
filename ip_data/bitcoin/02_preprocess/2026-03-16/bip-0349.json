@@ -521,5 +521,17 @@
       "BIP 341",
       "BIP 342"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "75351f2587ebdf220a92ac9c89119343f4cf8584",
+        "timestamp": "2024-04-24T14:34:29-07:00",
+        "date": "2024-04-24",
+        "author": "Brandon Black",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

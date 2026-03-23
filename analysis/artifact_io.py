@@ -61,6 +61,10 @@ def resolve_classification_payload_artifact(snapshot: str | None = None) -> Path
     return _resolve_snapshot_artifact(snapshot, "classification", "classification_payload.json")
 
 
+def resolve_evolution_payload_artifact(snapshot: str | None = None) -> Path:
+    return _resolve_snapshot_artifact(snapshot, "evolution", "evolution_payload.json")
+
+
 def _load_json_artifact(artifact_path: Path) -> Dict[str, Any]:
     if artifact_path.suffix != ".json":
         raise ValueError(f"Unsupported artifact extension: {artifact_path.suffix}")
@@ -88,4 +92,9 @@ def load_authorship_payload(snapshot: str | None = None) -> Dict[str, Any]:
 
 def load_classification_payload(snapshot: str | None = None) -> Dict[str, Any]:
     artifact_path = resolve_classification_payload_artifact(snapshot=snapshot)
+    return _load_json_artifact(artifact_path)
+
+
+def load_evolution_payload(snapshot: str | None = None) -> Dict[str, Any]:
+    artifact_path = resolve_evolution_payload_artifact(snapshot=snapshot)
     return _load_json_artifact(artifact_path)

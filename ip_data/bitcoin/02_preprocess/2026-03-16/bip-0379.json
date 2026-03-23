@@ -808,5 +808,17 @@
       "BIP 382",
       "BIP 386"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "3b995946605623c16adc954b5c841104db2d3022",
+        "timestamp": "2024-04-10T09:37:34-04:00",
+        "date": "2024-04-10",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

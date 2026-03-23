@@ -473,5 +473,17 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "7e4d6025851f18ace21838023bf7d5daf4b92e7d",
+        "timestamp": "2017-12-13T06:21:23-08:00",
+        "date": "2017-12-13",
+        "author": "Jimmy Song",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -797,5 +797,57 @@
       "BIP 2"
     ],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ce40c0f8f02e83892eb185aabea306ee2a3ab10e",
+        "timestamp": "2011-10-29T11:39:58+01:00",
+        "date": "2011-10-29",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "0455253e4e74b85d21e461c528521acfc26c4247",
+        "timestamp": "2012-01-27T18:53:17Z",
+        "date": "2012-01-27",
+        "author": "genjix",
+        "status": "Active",
+        "standard": "bip2"
+      },
+      {
+        "commit": "c5e1b25bc4d458edc1043bc3c63e3fa2007050fc",
+        "timestamp": "2013-10-21T00:35:40-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "7576a135dd78e8d5faa88746476e836785e9327d",
+        "timestamp": "2015-12-01T21:00:48+01:00",
+        "date": "2015-12-01",
+        "author": "Wladimir J. van der Laan",
+        "status": "Active",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Replaced",
+        "standard": "bip2"
+      },
+      {
+        "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
+        "timestamp": "2025-04-11T18:11:55-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Closed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

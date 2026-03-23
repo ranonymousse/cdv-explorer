@@ -637,5 +637,33 @@
     "implicit_dependencies": [
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "2a270d9419a433efdc73928997baca2da04033b0",
+        "timestamp": "2019-03-20T10:27:47+09:00",
+        "date": "2019-03-20",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "20b6874407fdf95727af5d7064f70d02cf8e1978",
+        "timestamp": "2020-10-14T13:17:56+09:00",
+        "date": "2020-10-14",
+        "author": "Karl-Johan Alm",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
+        "timestamp": "2025-04-11T18:02:31-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

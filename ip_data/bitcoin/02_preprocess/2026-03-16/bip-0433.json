@@ -491,5 +491,17 @@
       "BIP 141",
       "BIP 350"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ab9bc69f93a4fc36a17813a4917cc62ed69036c2",
+        "timestamp": "2025-09-23T16:06:39-04:00",
+        "date": "2025-09-23",
+        "author": "Greg Sanders",
+        "status": "Draft",
+        "standard": "bip3"
+      }
+    ]
   }
 }

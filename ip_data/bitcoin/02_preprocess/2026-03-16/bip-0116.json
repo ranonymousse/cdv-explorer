@@ -674,5 +674,17 @@
       "BIP 98",
       "BIP 112"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5dc731292da5994aaf1409cf4c9a0bbae9803159",
+        "timestamp": "2017-11-14T17:39:39+09:00",
+        "date": "2017-11-14",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

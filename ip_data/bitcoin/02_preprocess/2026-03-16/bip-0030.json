@@ -529,5 +529,41 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "af63b529a8bbb315098033b6205d9c96b5f51653",
+        "timestamp": "2012-02-27T20:50:10+01:00",
+        "date": "2012-02-27",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "779253549a281311c4883410864d487be0136d24",
+        "timestamp": "2012-03-18T23:59:37+01:00",
+        "date": "2012-03-18",
+        "author": "Pieter Wuille",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "abc8fefe2fd78c8abbb539dad1cba4787fe202ee",
+        "timestamp": "2013-10-21T00:51:10-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

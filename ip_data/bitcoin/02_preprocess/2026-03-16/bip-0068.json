@@ -785,5 +785,33 @@
       "BIP 112",
       "BIP 113"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "d32087c2bf9a7adbfdf97f5f98a35417cdf48594",
+        "timestamp": "2015-06-19T17:18:48-07:00",
+        "date": "2015-06-19",
+        "author": "Mark Friedenbach",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "c98859fe20617df141da0dd08d399921c7097be9",
+        "timestamp": "2016-07-18T23:37:42Z",
+        "date": "2016-07-18",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

@@ -615,5 +615,33 @@
       "BIP 23",
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "3b058bba32645a834c6da306db1a68d4a24ca236",
+        "timestamp": "2016-01-30T18:46:54Z",
+        "date": "2016-01-30",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "41e06840ebb7b5459bb77707e427fa2687831ed4",
+        "timestamp": "2017-08-30T15:37:48+08:00",
+        "date": "2017-08-30",
+        "author": "Johnson Lau",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

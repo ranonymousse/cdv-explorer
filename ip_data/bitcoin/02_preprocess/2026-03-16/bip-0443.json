@@ -740,5 +740,17 @@
       "BIP 341",
       "BIP 345"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ed6b6132f877ad21db0cb038ec773d8a83ba9e4d",
+        "timestamp": "2024-12-08T23:38:40+01:00",
+        "date": "2024-12-08",
+        "author": "Salvatore Ingala",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

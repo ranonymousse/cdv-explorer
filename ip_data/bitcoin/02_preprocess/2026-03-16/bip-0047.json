@@ -892,5 +892,33 @@
       "BIP 43",
       "BIP 44"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "1612a0016a21d72a67886661913002ccdc4b839f",
+        "timestamp": "2015-06-19T18:27:37-05:00",
+        "date": "2015-06-19",
+        "author": "Justus Ranvier",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "bc069fa050fb9816746c9e13b34d9d13a7d89562",
+        "timestamp": "2021-02-15T06:22:42-09:00",
+        "date": "2021-02-15",
+        "author": "Justus Ranvier",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

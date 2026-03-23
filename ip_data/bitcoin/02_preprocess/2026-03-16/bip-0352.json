@@ -1150,5 +1150,33 @@
       "BIP 341",
       "BIP 350"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "96f4e5a4c4cd2e5ba4e74212077b858a3b047f31",
+        "timestamp": "2024-01-15T12:23:22+01:00",
+        "date": "2024-01-15",
+        "author": "josibake",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "9929215dcf47235bc8a54b8549c2f32f2987463c",
+        "timestamp": "2024-05-08T18:05:51+02:00",
+        "date": "2024-05-08",
+        "author": "josibake",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
+        "timestamp": "2025-04-11T18:02:31-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Complete",
+        "standard": "bip3"
+      }
+    ]
   }
 }

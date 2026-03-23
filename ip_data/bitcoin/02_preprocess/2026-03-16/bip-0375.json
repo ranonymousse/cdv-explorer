@@ -616,5 +616,17 @@
       "BIP 370",
       "BIP 374"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "d02eed4337fc0482dbb9a24813922dc52bfb04c4",
+        "timestamp": "2024-10-19T11:28:39-04:00",
+        "date": "2024-10-19",
+        "author": "Andrew Toth",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

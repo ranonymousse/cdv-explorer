@@ -1300,5 +1300,33 @@
       "BIP 31",
       "BIP 340"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "32af2c9dc2d88df12b02409a023d647ee1de4c8a",
+        "timestamp": "2022-10-07T11:59:24-07:00",
+        "date": "2022-10-07",
+        "author": "dhruv",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f3bd1eba67e5e60d40b54c2d949ff1984da56363",
+        "timestamp": "2024-07-10T14:55:20-04:00",
+        "date": "2024-07-10",
+        "author": "Pieter Wuille",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

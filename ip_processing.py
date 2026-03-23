@@ -15,6 +15,7 @@ from analysis.dependencies.mining import (
     load_api_key,
     prepare_llm_dependency_text,
 )
+from analysis.evolution import extract_status_timeline
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 PROPOSAL_LABEL = ACTIVE_ECOSYSTEM["proposal_acronym"]
@@ -200,6 +201,8 @@ def process_ip_files(
                 continue
 
             json_data = update_metadata_from_git(json_data, bip_file_path, repo_dir)
+            json_data.setdefault("history", {})
+            json_data["history"]["status_timeline"] = extract_status_timeline(repo_dir, bip_file_path)
             base_insights, llm_content, proposal_number = build_base_insights(
                 json_data,
                 bip_file_path,

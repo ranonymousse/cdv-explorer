@@ -723,5 +723,33 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "72792b72229e7e36ae10d2f3e42c7856734d799b",
+        "timestamp": "2015-08-30T06:13:20+04:00",
+        "date": "2015-08-30",
+        "author": "Eric Lombrozo",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "72f18918a8ae655212ea2700b30f0dc4d758b843",
+        "timestamp": "2016-11-30T09:45:33Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Active",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }

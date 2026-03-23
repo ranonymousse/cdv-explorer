@@ -490,5 +490,33 @@
     "implicit_dependencies": [
       "BIP 380"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "f52f1e82e52367ebbda2656845a71ad92a4ed677",
+        "timestamp": "2021-06-27T18:49:41-04:00",
+        "date": "2021-06-27",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d71428ade56ad9a90e18d643eefefefb6088fbd7",
+        "timestamp": "2024-07-10T19:02:19-04:00",
+        "date": "2024-07-10",
+        "author": "Ava Chow",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
+        "timestamp": "2025-04-11T18:08:44-07:00",
+        "date": "2025-04-11",
+        "author": "Murch",
+        "status": "Deployed",
+        "standard": "bip3"
+      }
+    ]
   }
 }
