@@ -1096,411 +1096,411 @@
       "label": "Explicit References (Regex)",
       "summary": {
         "node_count": 135,
-        "edge_count": 279,
-        "isolated_node_count": 24,
-        "circular_dependency_count": 28,
-        "density": 0.015422885572139304
+        "edge_count": 385,
+        "isolated_node_count": 8,
+        "circular_dependency_count": 47,
+        "density": 0.021282476506357104
       },
       "per_bip": [
         {
           "id": "1",
           "title": "BIP Purpose and Guidelines",
-          "in_degree": 2,
+          "in_degree": 4,
           "out_degree": 1,
-          "betweenness": 0.00039277297721916735,
-          "pagerank": 0.005670912810155892
+          "betweenness": 0.0010660980810234541,
+          "pagerank": 0.0058330033267135414
         },
         {
           "id": "2",
           "title": "BIP process, revised",
-          "in_degree": 0,
+          "in_degree": 2,
           "out_degree": 3,
-          "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "betweenness": 0.00476938615194703,
+          "pagerank": 0.003098897133160307
         },
         {
           "id": "8",
           "title": "Version bits with lock-in by height",
           "in_degree": 5,
-          "out_degree": 4,
-          "betweenness": 0.0010932181199266825,
-          "pagerank": 0.01017805751317131
+          "out_degree": 7,
+          "betweenness": 0.0024791456252571727,
+          "pagerank": 0.009298770752878714
         },
         {
           "id": "9",
           "title": "Version bits with timeout and delay",
-          "in_degree": 22,
-          "out_degree": 3,
-          "betweenness": 0.003895666672010517,
-          "pagerank": 0.0486342342025857
+          "in_degree": 24,
+          "out_degree": 6,
+          "betweenness": 0.010666324660264737,
+          "pagerank": 0.044773007000150244
         },
         {
           "id": "10",
           "title": "Multi-Sig Transaction Distribution",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "11",
           "title": "M-of-N Standard Transactions",
-          "in_degree": 7,
+          "in_degree": 8,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.027360109265824023
+          "pagerank": 0.02821578452000114
         },
         {
           "id": "12",
           "title": "OP_EVAL",
-          "in_degree": 4,
+          "in_degree": 6,
           "out_degree": 1,
-          "betweenness": 8.229529046496839e-05,
-          "pagerank": 0.014868593666223841
+          "betweenness": 3.740695021134927e-05,
+          "pagerank": 0.015943716961350808
         },
         {
           "id": "13",
           "title": "Address Format for pay-to-script-hash",
-          "in_degree": 5,
+          "in_degree": 6,
           "out_degree": 3,
-          "betweenness": 0.002711068716567539,
-          "pagerank": 0.014076216753476988
+          "betweenness": 0.003532151273706655,
+          "pagerank": 0.013744558578886406
         },
         {
           "id": "14",
           "title": "Protocol Version and User Agent",
-          "in_degree": 0,
+          "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0031116322028451626
         },
         {
           "id": "15",
           "title": "Aliases",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "16",
           "title": "Pay to Script Hash",
-          "in_degree": 17,
+          "in_degree": 21,
           "out_degree": 3,
-          "betweenness": 0.006227322036434369,
-          "pagerank": 0.02242152168113303
+          "betweenness": 0.011290352747540497,
+          "pagerank": 0.027679698001918954
         },
         {
           "id": "17",
           "title": "OP_CHECKHASHVERIFY (CHV)",
-          "in_degree": 2,
+          "in_degree": 4,
           "out_degree": 4,
-          "betweenness": 0.00011035050312348034,
-          "pagerank": 0.007023180733555101
+          "betweenness": 6.546216286986121e-05,
+          "pagerank": 0.006681193781200529
         },
         {
           "id": "18",
           "title": "hashScriptCheck",
-          "in_degree": 0,
-          "out_degree": 3,
+          "in_degree": 1,
+          "out_degree": 5,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "19",
           "title": "M-of-N Standard Transactions (Low SigOp)",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "20",
           "title": "URI Scheme",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.04272212346492584
+          "pagerank": 0.037746767154857266
         },
         {
           "id": "21",
           "title": "URI Scheme",
-          "in_degree": 5,
+          "in_degree": 7,
           "out_degree": 1,
-          "betweenness": 0.0022444170126809564,
-          "pagerank": 0.04710018885072318
+          "betweenness": 0.0024688587139490518,
+          "pagerank": 0.04187100982932272
         },
         {
           "id": "22",
           "title": "getblocktemplate - Fundamentals",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 3,
-          "betweenness": 0.0004862903527475405,
-          "pagerank": 0.007854514763331263
+          "betweenness": 0.00044888340253619125,
+          "pagerank": 0.006452022998715652
         },
         {
           "id": "23",
           "title": "getblocktemplate - Pooled Mining",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.005448596751543217
+          "pagerank": 0.004475713446465624
         },
         {
           "id": "30",
           "title": "Duplicate transactions",
-          "in_degree": 3,
+          "in_degree": 4,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.009035340432268675
+          "pagerank": 0.006959699204938004
         },
         {
           "id": "31",
           "title": "Pong message",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "32",
           "title": "Hierarchical Deterministic Wallets",
-          "in_degree": 16,
-          "out_degree": 0,
-          "betweenness": 0.0,
-          "pagerank": 0.030260099439072437
+          "in_degree": 17,
+          "out_degree": 1,
+          "betweenness": 0.002524969139266076,
+          "pagerank": 0.08908067509770787
         },
         {
           "id": "33",
           "title": "Stratized Nodes",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "34",
           "title": "Block v2, Height in Coinbase",
-          "in_degree": 12,
+          "in_degree": 13,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.06955950309450792
+          "pagerank": 0.046320829441541596
         },
         {
           "id": "35",
           "title": "mempool message",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "36",
           "title": "Custom Services",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "37",
           "title": "Connection Bloom filtering",
-          "in_degree": 4,
+          "in_degree": 5,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.011083080863741983
+          "pagerank": 0.0073943479112617665
         },
         {
           "id": "38",
           "title": "Passphrase-protected private key",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "39",
           "title": "Mnemonic code for generating deterministic keys",
-          "in_degree": 1,
+          "in_degree": 3,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.003411387628973941
+          "pagerank": 0.0784874843440744
         },
         {
           "id": "42",
           "title": "A finite monetary supply for Bitcoin",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "43",
           "title": "Purpose Field for Deterministic Wallets",
-          "in_degree": 8,
+          "in_degree": 9,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.015446544275979435
+          "pagerank": 0.012623099838619471
         },
         {
           "id": "44",
           "title": "Multi-Account Hierarchy for Deterministic Wallets",
-          "in_degree": 11,
+          "in_degree": 12,
           "out_degree": 2,
-          "betweenness": 0.00022444170126809562,
-          "pagerank": 0.017660369113526364
+          "betweenness": 0.0002524969139266076,
+          "pagerank": 0.014422638030647177
         },
         {
           "id": "45",
           "title": "Structure for Deterministic P2SH Multisignature Wallets",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 3,
-          "betweenness": 0.00019638648860958367,
-          "pagerank": 0.004164562689367925
+          "betweenness": 0.0002524969139266076,
+          "pagerank": 0.00342097808535
         },
         {
           "id": "47",
           "title": "Reusable Payment Codes for Hierarchical Deterministic Wallets",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 3,
-          "betweenness": 0.0042643923240938165,
-          "pagerank": 0.0034541239429373696
+          "betweenness": 0.0061721467848726294,
+          "pagerank": 0.002780900113082188
         },
         {
           "id": "49",
           "title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 5,
-          "betweenness": 7.481390042269854e-05,
-          "pagerank": 0.0030348000987769496
+          "betweenness": 5.143455654060524e-05,
+          "pagerank": 0.0024886954146072036
         },
         {
           "id": "50",
           "title": "March 2013 Chain Fork Post-Mortem",
-          "in_degree": 0,
+          "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0024156039672092794
         },
         {
           "id": "60",
           "title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
-          "in_degree": 0,
-          "out_degree": 1,
+          "in_degree": 1,
+          "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "61",
           "title": "Reject P2P message",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "62",
           "title": "Dealing with malleability",
-          "in_degree": 7,
+          "in_degree": 8,
           "out_degree": 1,
-          "betweenness": 0.0006145427534721666,
-          "pagerank": 0.02459980093010947
+          "betweenness": 0.0006706531787891905,
+          "pagerank": 0.017493681956379865
         },
         {
           "id": "64",
           "title": "getutxo message",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "65",
           "title": "OP_CHECKLOCKTIMEVERIFY",
-          "in_degree": 12,
+          "in_degree": 13,
           "out_degree": 2,
-          "betweenness": 0.0009549460003954453,
-          "pagerank": 0.031237051407279975
+          "betweenness": 0.0009362425252897708,
+          "pagerank": 0.023665157807575984
         },
         {
           "id": "66",
           "title": "Strict DER signatures",
-          "in_degree": 10,
+          "in_degree": 11,
           "out_degree": 2,
-          "betweenness": 0.001568419983861573,
-          "pagerank": 0.036117278494360375
+          "betweenness": 0.0014281439205690132,
+          "pagerank": 0.023104198089613476
         },
         {
           "id": "67",
           "title": "Deterministic Pay-to-script-hash multi-signature addresses through public key sorting",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "68",
           "title": "Relative lock-time using consensus-enforced sequence numbers",
-          "in_degree": 7,
+          "in_degree": 10,
           "out_degree": 3,
-          "betweenness": 0.0016440354617888002,
-          "pagerank": 0.01654314408224509
+          "betweenness": 0.002763438446863427,
+          "pagerank": 0.024597298259787306
         },
         {
           "id": "69",
           "title": "Lexicographical Indexing of Transaction Inputs and Outputs",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 1,
           "betweenness": 0.00016833127595107172,
-          "pagerank": 0.006527660729070663
+          "pagerank": 0.004909210702427315
         },
         {
           "id": "70",
           "title": "Payment Protocol",
-          "in_degree": 9,
+          "in_degree": 10,
           "out_degree": 2,
-          "betweenness": 0.008136011670968467,
-          "pagerank": 0.0211276003688503
+          "betweenness": 0.008809336774772754,
+          "pagerank": 0.017381005650540172
         },
         {
           "id": "71",
           "title": "Payment Protocol MIME types",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.01163768988908461
+          "pagerank": 0.009570639656961966
         },
         {
           "id": "72",
           "title": "bitcoin: uri extensions for Payment Protocol",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 2,
-          "betweenness": 0.004039950622825721,
-          "pagerank": 0.01163768988908461
+          "betweenness": 0.004376613174727865,
+          "pagerank": 0.009570639656961966
         },
         {
           "id": "73",
           "title": "Use \"Accept\" header for response type negotiation with Payment Request URLs",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "74",
           "title": "Allow zero value OP_RETURN in Payment Protocol",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "75",
           "title": "Out of Band Address Exchange using Payment Protocol Encryption",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "78",
@@ -1508,39 +1508,39 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "79",
           "title": "Bustapay :: a practical coinjoin protocol",
           "in_degree": 1,
-          "out_degree": 2,
-          "betweenness": 0.0006172146784872629,
-          "pagerank": 0.0037879751591709337
+          "out_degree": 3,
+          "betweenness": 0.0008977668050723824,
+          "pagerank": 0.003068932692399337
         },
         {
           "id": "80",
           "title": "Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.003223093863875446
+          "pagerank": 0.002647613379087907
         },
         {
           "id": "81",
           "title": "Hierarchy for Colored Voting Pool Deterministic Multisig Wallets",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "83",
           "title": "Dynamic Hierarchical Deterministic Key Trees",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "84",
@@ -1548,7 +1548,7 @@
           "in_degree": 0,
           "out_degree": 6,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "85",
@@ -1556,7 +1556,7 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "90",
@@ -1564,7 +1564,7 @@
           "in_degree": 0,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "91",
@@ -1572,7 +1572,7 @@
           "in_degree": 0,
           "out_degree": 8,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "98",
@@ -1580,47 +1580,47 @@
           "in_degree": 2,
           "out_degree": 1,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.0036007616833931364
+          "pagerank": 0.0029172525357483796
         },
         {
           "id": "99",
           "title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
-          "in_degree": 0,
-          "out_degree": 6,
+          "in_degree": 1,
+          "out_degree": 8,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "100",
           "title": "Dynamic maximum block size by miner vote",
           "in_degree": 3,
           "out_degree": 1,
-          "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.008137583708379416
+          "betweenness": 2.8055212658511953e-05,
+          "pagerank": 0.006121006657353991
         },
         {
           "id": "101",
           "title": "Increase maximum block size",
-          "in_degree": 1,
+          "in_degree": 3,
           "out_degree": 2,
-          "betweenness": 0.00011222085063404781,
-          "pagerank": 0.004917737749761909
+          "betweenness": 0.00019638648860958367,
+          "pagerank": 0.0049677074978741855
         },
         {
           "id": "102",
           "title": "Block size increase to 2MB",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "103",
           "title": "Block size following technological growth",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "104",
@@ -1628,71 +1628,71 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "105",
           "title": "Consensus based block size retargeting algorithm",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 2,
-          "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "betweenness": 5.6110425317023906e-05,
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "106",
           "title": "Dynamically Controlled Bitcoin Block Size Max Cap",
-          "in_degree": 0,
-          "out_degree": 1,
-          "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "in_degree": 1,
+          "out_degree": 2,
+          "betweenness": 5.6110425317023906e-05,
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "107",
           "title": "Dynamic limit on the block size",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "109",
           "title": "Two million byte size limit with sigop and sighash limits",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "111",
           "title": "NODE_BLOOM service bit",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.003878438619031126
+          "pagerank": 0.00303504366914003
         },
         {
           "id": "112",
           "title": "CHECKSEQUENCEVERIFY",
-          "in_degree": 9,
+          "in_degree": 12,
           "out_degree": 4,
-          "betweenness": 0.001981232398693963,
-          "pagerank": 0.01732314854618873
+          "betweenness": 0.002785481828237973,
+          "pagerank": 0.025872715072226965
         },
         {
           "id": "113",
           "title": "Median time-past as endpoint for lock-time calculations",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 4,
           "betweenness": 3.740695021134927e-05,
-          "pagerank": 0.011026855985163422
+          "pagerank": 0.01465108558095702
         },
         {
           "id": "114",
           "title": "Merkelized Abstract Syntax Tree",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 4,
-          "betweenness": 0.0001468222795795459,
-          "pagerank": 0.0033664700486430916
+          "betweenness": 0.0001318594994950062,
+          "pagerank": 0.002757404501875501
         },
         {
           "id": "115",
@@ -1700,23 +1700,23 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "116",
           "title": "MERKLEBRANCHVERIFY",
           "in_degree": 2,
           "out_degree": 8,
-          "betweenness": 0.0018563199042382077,
-          "pagerank": 0.006136670180520649
+          "betweenness": 0.0019096248082893803,
+          "pagerank": 0.004971768820376362
         },
         {
           "id": "117",
           "title": "Tail Call Execution Semantics",
           "in_degree": 1,
           "out_degree": 6,
-          "betweenness": 0.000268394867766431,
-          "pagerank": 0.002948725520410394
+          "betweenness": 0.00025623760894774247,
+          "pagerank": 0.0023889953416101886
         },
         {
           "id": "118",
@@ -1724,7 +1724,7 @@
           "in_degree": 2,
           "out_degree": 1,
           "betweenness": 0.00013092432573972242,
-          "pagerank": 0.0038763605003418237
+          "pagerank": 0.003140533952471446
         },
         {
           "id": "119",
@@ -1732,63 +1732,63 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "120",
           "title": "Proof of Payment",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.003709165091128533
+          "pagerank": 0.0030468903361339267
         },
         {
           "id": "121",
           "title": "Proof of Payment URI scheme",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.003709165091128533
+          "pagerank": 0.0030468903361339267
         },
         {
           "id": "122",
           "title": "URI scheme for Blockchain references / exploration",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "123",
           "title": "BIP Classification",
           "in_degree": 1,
-          "out_degree": 0,
-          "betweenness": 0.0,
-          "pagerank": 0.003411387628973941
+          "out_degree": 86,
+          "betweenness": 0.009145999326674896,
+          "pagerank": 0.003031661013093893
         },
         {
           "id": "124",
           "title": "Hierarchical Deterministic Script Templates",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "125",
           "title": "Opt-in Full Replace-by-Fee Signaling",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 2,
-          "betweenness": 0.0008977668050723825,
-          "pagerank": 0.004268135547888711
+          "betweenness": 0.0014588710582426213,
+          "pagerank": 0.003053135407398293
         },
         {
           "id": "126",
           "title": "Best Practices for Heterogeneous Input Script Transactions",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "127",
@@ -1796,47 +1796,47 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 0.00011222085063404781,
-          "pagerank": 0.003878438619031126
+          "pagerank": 0.003142217341056578
         },
         {
           "id": "130",
           "title": "sendheaders message",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.009729360970977355
+          "pagerank": 0.007945360040937991
         },
         {
           "id": "131",
           "title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "132",
           "title": "Committee-based BIP Acceptance Process",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "133",
           "title": "feefilter message",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "134",
           "title": "Flexible Transactions",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "135",
@@ -1844,7 +1844,7 @@
           "in_degree": 0,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "136",
@@ -1852,7 +1852,7 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "137",
@@ -1860,71 +1860,71 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "140",
           "title": "Normalized TXID",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 5,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "141",
           "title": "Segregated Witness (Consensus layer)",
-          "in_degree": 22,
+          "in_degree": 25,
           "out_degree": 11,
-          "betweenness": 0.033842201452458434,
-          "pagerank": 0.035161069160321246
+          "betweenness": 0.038247805013600096,
+          "pagerank": 0.029889204387088315
         },
         {
           "id": "142",
           "title": "Address Format for Segregated Witness",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 5,
-          "betweenness": 0.006460180301500019,
-          "pagerank": 0.00468171738605685
+          "betweenness": 0.008360453372236561,
+          "pagerank": 0.003513514781978788
         },
         {
           "id": "143",
           "title": "Transaction Signature Verification for Version 0 Witness Program",
-          "in_degree": 10,
+          "in_degree": 12,
           "out_degree": 2,
-          "betweenness": 0.0022537687502337937,
-          "pagerank": 0.014006237645449154
+          "betweenness": 0.0023098791755508177,
+          "pagerank": 0.011791621452482515
         },
         {
           "id": "144",
           "title": "Segregated Witness (Peer Services)",
-          "in_degree": 4,
+          "in_degree": 5,
           "out_degree": 2,
-          "betweenness": 0.0013466502076085738,
-          "pagerank": 0.013704444337931177
+          "betweenness": 0.0015149814835596455,
+          "pagerank": 0.011141511910501155
         },
         {
           "id": "145",
           "title": "getblocktemplate Updates for Segregated Witness",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "146",
           "title": "Dealing with signature encoding malleability",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 5,
-          "betweenness": 0.003086073392436314,
-          "pagerank": 0.006302914948029069
+          "betweenness": 0.003291811618598735,
+          "pagerank": 0.005244790354424078
         },
         {
           "id": "147",
           "title": "Dealing with dummy stack element malleability",
-          "in_degree": 3,
+          "in_degree": 4,
           "out_degree": 5,
           "betweenness": 0.00029925560169079415,
-          "pagerank": 0.003940495366444037
+          "pagerank": 0.0032224640021061507
         },
         {
           "id": "148",
@@ -1932,7 +1932,7 @@
           "in_degree": 1,
           "out_degree": 5,
           "betweenness": 0.0,
-          "pagerank": 0.002940653216227702
+          "pagerank": 0.002382455759027095
         },
         {
           "id": "149",
@@ -1940,31 +1940,31 @@
           "in_degree": 1,
           "out_degree": 5,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.002940653216227702
+          "pagerank": 0.002382455759027095
         },
         {
           "id": "150",
           "title": "Peer Authentication",
-          "in_degree": 0,
+          "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.0021835945553306518
         },
         {
           "id": "151",
           "title": "Peer-to-Peer Communication Encryption",
-          "in_degree": 1,
+          "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.004917737749761909
+          "pagerank": 0.004039669850359674
         },
         {
           "id": "152",
           "title": "Compact Block Relay",
-          "in_degree": 2,
+          "in_degree": 3,
           "out_degree": 3,
           "betweenness": 0.0003460142894549807,
-          "pagerank": 0.004399634921807085
+          "pagerank": 0.0036230477799604087
         },
         {
           "id": "154",
@@ -1972,7 +1972,7 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "155",
@@ -1980,15 +1980,15 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "156",
           "title": "Dandelion - Privacy Enhancing Routing",
           "in_degree": 0,
-          "out_degree": 0,
+          "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "157",
@@ -1996,15 +1996,15 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.004306584923089593
+          "pagerank": 0.00300507922837906
         },
         {
           "id": "158",
           "title": "Compact Block Filters for Light Clients",
           "in_degree": 1,
-          "out_degree": 2,
-          "betweenness": 0.0,
-          "pagerank": 0.003878438619031126
+          "out_degree": 3,
+          "betweenness": 0.001739423184827741,
+          "pagerank": 0.00300507922837906
         },
         {
           "id": "159",
@@ -2012,7 +2012,7 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "171",
@@ -2020,23 +2020,23 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "173",
           "title": "Base32 address format for native v0-16 witness outputs",
           "in_degree": 5,
-          "out_degree": 4,
-          "betweenness": 0.012461190289155726,
-          "pagerank": 0.009522131681758186
+          "out_degree": 5,
+          "betweenness": 0.014732727340739906,
+          "pagerank": 0.007822945771265116
         },
         {
           "id": "174",
           "title": "Partially Signed Bitcoin Transaction Format",
           "in_degree": 1,
           "out_degree": 3,
-          "betweenness": 0.0015430366962181574,
-          "pagerank": 0.004306584923089593
+          "betweenness": 0.0015710919088766694,
+          "pagerank": 0.003489088592964006
         },
         {
           "id": "175",
@@ -2044,7 +2044,7 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "176",
@@ -2052,7 +2052,7 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "178",
@@ -2060,7 +2060,7 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "179",
@@ -2068,7 +2068,7 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "180",
@@ -2076,7 +2076,7 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "197",
@@ -2084,7 +2084,7 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "199",
@@ -2092,15 +2092,15 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.004917737749761909
+          "pagerank": 0.003984235270228993
         },
         {
           "id": "300",
           "title": "Hashrate Escrows (Consensus layer)",
           "in_degree": 0,
-          "out_degree": 1,
+          "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "301",
@@ -2108,7 +2108,7 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "310",
@@ -2116,7 +2116,7 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "320",
@@ -2124,15 +2124,15 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "322",
           "title": "Generic Signed Message Format",
           "in_degree": 1,
           "out_degree": 2,
-          "betweenness": 0.0018516440354617888,
-          "pagerank": 0.004917737749761909
+          "betweenness": 0.001907754460778813,
+          "pagerank": 0.003984235270228993
         },
         {
           "id": "325",
@@ -2140,7 +2140,7 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.002524969139266076,
-          "pagerank": 0.00474829593660649
+          "pagerank": 0.0038469500929429494
         },
         {
           "id": "330",
@@ -2148,23 +2148,23 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "339",
           "title": "WTXID-based transaction relay",
           "in_degree": 0,
-          "out_degree": 2,
+          "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0026582125685799575
+          "pagerank": 0.002153630114569681
         },
         {
           "id": "340",
           "title": "Schnorr Signatures for secp256k1",
           "in_degree": 3,
           "out_degree": 5,
-          "betweenness": 0.0013813852328048266,
-          "pagerank": 0.0054565534166696236
+          "betweenness": 0.0016058269340729224,
+          "pagerank": 0.004420760039487799
         },
         {
           "id": "341",
@@ -2172,7 +2172,7 @@
           "in_degree": 1,
           "out_degree": 9,
           "betweenness": 0.0004862903527475405,
-          "pagerank": 0.003075957096812655
+          "pagerank": 0.002492074834074023
         },
         {
           "id": "342",
@@ -2180,7 +2180,7 @@
           "in_degree": 1,
           "out_degree": 6,
           "betweenness": 5.798077282759136e-05,
-          "pagerank": 0.002948725520410394
+          "pagerank": 0.0023889953416101886
         }
       ]
     },
@@ -3367,12 +3367,12 @@
       "summary": {
         "approach_only": 2,
         "overlap": 7,
-        "baseline_only": 272,
+        "baseline_only": 378,
         "approach_total": 9,
-        "baseline_total": 279,
-        "union_total": 281,
-        "hit_rate": 0.025089605734767026,
-        "missed_rate": 0.974910394265233
+        "baseline_total": 385,
+        "union_total": 387,
+        "hit_rate": 0.01818181818181818,
+        "missed_rate": 0.9818181818181818
       },
       "edges": [
         {
@@ -3468,6 +3468,13 @@
         },
         {
           "source": "8",
+          "target": "16",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "8",
           "target": "34",
           "source_title": "Version bits with lock-in by height",
           "target_title": "Block v2, Height in Coinbase",
@@ -3488,6 +3495,27 @@
           "status": "baseline_only"
         },
         {
+          "source": "8",
+          "target": "68",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "baseline_only"
+        },
+        {
+          "source": "8",
+          "target": "112",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "baseline_only"
+        },
+        {
+          "source": "9",
+          "target": "16",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
           "source": "9",
           "target": "34",
           "source_title": "Version bits with timeout and delay",
@@ -3506,6 +3534,20 @@
           "target": "66",
           "source_title": "Version bits with timeout and delay",
           "target_title": "Strict DER signatures",
+          "status": "baseline_only"
+        },
+        {
+          "source": "9",
+          "target": "68",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "baseline_only"
+        },
+        {
+          "source": "9",
+          "target": "112",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "CHECKSEQUENCEVERIFY",
           "status": "baseline_only"
         },
         {
@@ -3601,6 +3643,13 @@
         },
         {
           "source": "18",
+          "target": "12",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_EVAL",
+          "status": "baseline_only"
+        },
+        {
+          "source": "18",
           "target": "13",
           "source_title": "hashScriptCheck",
           "target_title": "Address Format for pay-to-script-hash",
@@ -3611,6 +3660,13 @@
           "target": "16",
           "source_title": "hashScriptCheck",
           "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "18",
+          "target": "17",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
           "status": "baseline_only"
         },
         {
@@ -3660,6 +3716,13 @@
           "target": "22",
           "source_title": "getblocktemplate - Pooled Mining",
           "target_title": "getblocktemplate - Fundamentals",
+          "status": "baseline_only"
+        },
+        {
+          "source": "32",
+          "target": "39",
+          "source_title": "Hierarchical Deterministic Wallets",
+          "target_title": "Mnemonic code for generating deterministic keys",
           "status": "baseline_only"
         },
         {
@@ -3793,6 +3856,13 @@
           "target": "141",
           "source_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "60",
+          "target": "14",
+          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "target_title": "Protocol Version and User Agent",
           "status": "baseline_only"
         },
         {
@@ -3946,6 +4016,13 @@
           "source": "78",
           "target": "21",
           "source_title": "A Simple Payjoin Proposal",
+          "target_title": "URI Scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "79",
+          "target": "21",
+          "source_title": "Bustapay :: a practical coinjoin protocol",
           "target_title": "URI Scheme",
           "status": "baseline_only"
         },
@@ -4189,6 +4266,13 @@
         },
         {
           "source": "99",
+          "target": "9",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "Version bits with timeout and delay",
+          "status": "baseline_only"
+        },
+        {
+          "source": "99",
           "target": "12",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "OP_EVAL",
@@ -4213,6 +4297,13 @@
           "target": "30",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "Duplicate transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "99",
+          "target": "50",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
           "status": "baseline_only"
         },
         {
@@ -4269,6 +4360,13 @@
           "target": "100",
           "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
           "target_title": "Dynamic maximum block size by miner vote",
+          "status": "baseline_only"
+        },
+        {
+          "source": "106",
+          "target": "101",
+          "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "target_title": "Increase maximum block size",
           "status": "baseline_only"
         },
         {
@@ -4549,6 +4647,608 @@
           "target": "120",
           "source_title": "Proof of Payment URI scheme",
           "target_title": "Proof of Payment",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "1",
+          "source_title": "BIP Classification",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "2",
+          "source_title": "BIP Classification",
+          "target_title": "BIP process, revised",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "9",
+          "source_title": "BIP Classification",
+          "target_title": "Version bits with timeout and delay",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "10",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Sig Transaction Distribution",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "11",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "12",
+          "source_title": "BIP Classification",
+          "target_title": "OP_EVAL",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "13",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for pay-to-script-hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "14",
+          "source_title": "BIP Classification",
+          "target_title": "Protocol Version and User Agent",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "15",
+          "source_title": "BIP Classification",
+          "target_title": "Aliases",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "16",
+          "source_title": "BIP Classification",
+          "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "17",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "18",
+          "source_title": "BIP Classification",
+          "target_title": "hashScriptCheck",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "19",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions (Low SigOp)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "20",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "21",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "22",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Fundamentals",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "23",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Pooled Mining",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "30",
+          "source_title": "BIP Classification",
+          "target_title": "Duplicate transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "31",
+          "source_title": "BIP Classification",
+          "target_title": "Pong message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "32",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "33",
+          "source_title": "BIP Classification",
+          "target_title": "Stratized Nodes",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "34",
+          "source_title": "BIP Classification",
+          "target_title": "Block v2, Height in Coinbase",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "35",
+          "source_title": "BIP Classification",
+          "target_title": "mempool message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "36",
+          "source_title": "BIP Classification",
+          "target_title": "Custom Services",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "37",
+          "source_title": "BIP Classification",
+          "target_title": "Connection Bloom filtering",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "38",
+          "source_title": "BIP Classification",
+          "target_title": "Passphrase-protected private key",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "39",
+          "source_title": "BIP Classification",
+          "target_title": "Mnemonic code for generating deterministic keys",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "42",
+          "source_title": "BIP Classification",
+          "target_title": "A finite monetary supply for Bitcoin",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "43",
+          "source_title": "BIP Classification",
+          "target_title": "Purpose Field for Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "44",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Account Hierarchy for Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "45",
+          "source_title": "BIP Classification",
+          "target_title": "Structure for Deterministic P2SH Multisignature Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "47",
+          "source_title": "BIP Classification",
+          "target_title": "Reusable Payment Codes for Hierarchical Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "49",
+          "source_title": "BIP Classification",
+          "target_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "50",
+          "source_title": "BIP Classification",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "60",
+          "source_title": "BIP Classification",
+          "target_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "61",
+          "source_title": "BIP Classification",
+          "target_title": "Reject P2P message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "62",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with malleability",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "64",
+          "source_title": "BIP Classification",
+          "target_title": "getutxo message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "65",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKLOCKTIMEVERIFY",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "66",
+          "source_title": "BIP Classification",
+          "target_title": "Strict DER signatures",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "67",
+          "source_title": "BIP Classification",
+          "target_title": "Deterministic Pay-to-script-hash multi-signature addresses through public key sorting",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "68",
+          "source_title": "BIP Classification",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "69",
+          "source_title": "BIP Classification",
+          "target_title": "Lexicographical Indexing of Transaction Inputs and Outputs",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "70",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "71",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol MIME types",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "72",
+          "source_title": "BIP Classification",
+          "target_title": "bitcoin: uri extensions for Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "73",
+          "source_title": "BIP Classification",
+          "target_title": "Use \"Accept\" header for response type negotiation with Payment Request URLs",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "74",
+          "source_title": "BIP Classification",
+          "target_title": "Allow zero value OP_RETURN in Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "75",
+          "source_title": "BIP Classification",
+          "target_title": "Out of Band Address Exchange using Payment Protocol Encryption",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "80",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "81",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "83",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic Hierarchical Deterministic Key Trees",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "99",
+          "source_title": "BIP Classification",
+          "target_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "101",
+          "source_title": "BIP Classification",
+          "target_title": "Increase maximum block size",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "102",
+          "source_title": "BIP Classification",
+          "target_title": "Block size increase to 2MB",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "103",
+          "source_title": "BIP Classification",
+          "target_title": "Block size following technological growth",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "105",
+          "source_title": "BIP Classification",
+          "target_title": "Consensus based block size retargeting algorithm",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "106",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "107",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic limit on the block size",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "109",
+          "source_title": "BIP Classification",
+          "target_title": "Two million byte size limit with sigop and sighash limits",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "111",
+          "source_title": "BIP Classification",
+          "target_title": "NODE_BLOOM service bit",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "112",
+          "source_title": "BIP Classification",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "113",
+          "source_title": "BIP Classification",
+          "target_title": "Median time-past as endpoint for lock-time calculations",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "114",
+          "source_title": "BIP Classification",
+          "target_title": "Merkelized Abstract Syntax Tree",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "120",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "121",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment URI scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "122",
+          "source_title": "BIP Classification",
+          "target_title": "URI scheme for Blockchain references / exploration",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "124",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Script Templates",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "125",
+          "source_title": "BIP Classification",
+          "target_title": "Opt-in Full Replace-by-Fee Signaling",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "126",
+          "source_title": "BIP Classification",
+          "target_title": "Best Practices for Heterogeneous Input Script Transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "130",
+          "source_title": "BIP Classification",
+          "target_title": "sendheaders message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "131",
+          "source_title": "BIP Classification",
+          "target_title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "132",
+          "source_title": "BIP Classification",
+          "target_title": "Committee-based BIP Acceptance Process",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "133",
+          "source_title": "BIP Classification",
+          "target_title": "feefilter message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "134",
+          "source_title": "BIP Classification",
+          "target_title": "Flexible Transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "140",
+          "source_title": "BIP Classification",
+          "target_title": "Normalized TXID",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "141",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "142",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for Segregated Witness",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "143",
+          "source_title": "BIP Classification",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "144",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Peer Services)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "145",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate Updates for Segregated Witness",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "146",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with signature encoding malleability",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "147",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with dummy stack element malleability",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "150",
+          "source_title": "BIP Classification",
+          "target_title": "Peer Authentication",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "151",
+          "source_title": "BIP Classification",
+          "target_title": "Peer-to-Peer Communication Encryption",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "152",
+          "source_title": "BIP Classification",
+          "target_title": "Compact Block Relay",
           "status": "baseline_only"
         },
         {
@@ -5035,6 +5735,20 @@
           "status": "baseline_only"
         },
         {
+          "source": "156",
+          "target": "1",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "baseline_only"
+        },
+        {
+          "source": "156",
+          "target": "2",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP process, revised",
+          "status": "baseline_only"
+        },
+        {
           "source": "157",
           "target": "37",
           "source_title": "Client Side Block Filtering",
@@ -5064,6 +5778,13 @@
         },
         {
           "source": "158",
+          "target": "141",
+          "source_title": "Compact Block Filters for Light Clients",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "158",
           "target": "157",
           "source_title": "Compact Block Filters for Light Clients",
           "target_title": "Client Side Block Filtering",
@@ -5074,6 +5795,13 @@
           "target": "13",
           "source_title": "Base32 address format for native v0-16 witness outputs",
           "target_title": "Address Format for pay-to-script-hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "173",
+          "target": "16",
+          "source_title": "Base32 address format for native v0-16 witness outputs",
+          "target_title": "Pay to Script Hash",
           "status": "baseline_only"
         },
         {
@@ -5161,6 +5889,13 @@
           "status": "baseline_only"
         },
         {
+          "source": "300",
+          "target": "141",
+          "source_title": "Hashrate Escrows (Consensus layer)",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "baseline_only"
+        },
+        {
           "source": "301",
           "target": "9",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -5214,6 +5949,13 @@
           "target": "141",
           "source_title": "WTXID-based transaction relay",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "339",
+          "target": "143",
+          "source_title": "WTXID-based transaction relay",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
           "status": "baseline_only"
         },
         {
@@ -7104,12 +7846,12 @@
       "baseline": "explicit_dependencies",
       "baseline_label": "Explicit Dependencies (Preamble)",
       "summary": {
-        "approach_only": 272,
+        "approach_only": 378,
         "overlap": 7,
         "baseline_only": 2,
-        "approach_total": 279,
+        "approach_total": 385,
         "baseline_total": 9,
-        "union_total": 281,
+        "union_total": 387,
         "hit_rate": 0.7777777777777778,
         "missed_rate": 0.2222222222222222
       },
@@ -7193,6 +7935,13 @@
         },
         {
           "source": "8",
+          "target": "16",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "8",
           "target": "34",
           "source_title": "Version bits with lock-in by height",
           "target_title": "Block v2, Height in Coinbase",
@@ -7213,6 +7962,27 @@
           "status": "approach_only"
         },
         {
+          "source": "8",
+          "target": "68",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "approach_only"
+        },
+        {
+          "source": "8",
+          "target": "112",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "approach_only"
+        },
+        {
+          "source": "9",
+          "target": "16",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
           "source": "9",
           "target": "34",
           "source_title": "Version bits with timeout and delay",
@@ -7231,6 +8001,20 @@
           "target": "66",
           "source_title": "Version bits with timeout and delay",
           "target_title": "Strict DER signatures",
+          "status": "approach_only"
+        },
+        {
+          "source": "9",
+          "target": "68",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "approach_only"
+        },
+        {
+          "source": "9",
+          "target": "112",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "CHECKSEQUENCEVERIFY",
           "status": "approach_only"
         },
         {
@@ -7326,6 +8110,13 @@
         },
         {
           "source": "18",
+          "target": "12",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_EVAL",
+          "status": "approach_only"
+        },
+        {
+          "source": "18",
           "target": "13",
           "source_title": "hashScriptCheck",
           "target_title": "Address Format for pay-to-script-hash",
@@ -7336,6 +8127,13 @@
           "target": "16",
           "source_title": "hashScriptCheck",
           "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "18",
+          "target": "17",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
           "status": "approach_only"
         },
         {
@@ -7385,6 +8183,13 @@
           "target": "22",
           "source_title": "getblocktemplate - Pooled Mining",
           "target_title": "getblocktemplate - Fundamentals",
+          "status": "approach_only"
+        },
+        {
+          "source": "32",
+          "target": "39",
+          "source_title": "Hierarchical Deterministic Wallets",
+          "target_title": "Mnemonic code for generating deterministic keys",
           "status": "approach_only"
         },
         {
@@ -7518,6 +8323,13 @@
           "target": "141",
           "source_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "approach_only"
+        },
+        {
+          "source": "60",
+          "target": "14",
+          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "target_title": "Protocol Version and User Agent",
           "status": "approach_only"
         },
         {
@@ -7671,6 +8483,13 @@
           "source": "78",
           "target": "21",
           "source_title": "A Simple Payjoin Proposal",
+          "target_title": "URI Scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "79",
+          "target": "21",
+          "source_title": "Bustapay :: a practical coinjoin protocol",
           "target_title": "URI Scheme",
           "status": "approach_only"
         },
@@ -7914,6 +8733,13 @@
         },
         {
           "source": "99",
+          "target": "9",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "Version bits with timeout and delay",
+          "status": "approach_only"
+        },
+        {
+          "source": "99",
           "target": "12",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "OP_EVAL",
@@ -7938,6 +8764,13 @@
           "target": "30",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "Duplicate transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "99",
+          "target": "50",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
           "status": "approach_only"
         },
         {
@@ -7994,6 +8827,13 @@
           "target": "100",
           "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
           "target_title": "Dynamic maximum block size by miner vote",
+          "status": "approach_only"
+        },
+        {
+          "source": "106",
+          "target": "101",
+          "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "target_title": "Increase maximum block size",
           "status": "approach_only"
         },
         {
@@ -8274,6 +9114,608 @@
           "target": "120",
           "source_title": "Proof of Payment URI scheme",
           "target_title": "Proof of Payment",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "1",
+          "source_title": "BIP Classification",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "2",
+          "source_title": "BIP Classification",
+          "target_title": "BIP process, revised",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "9",
+          "source_title": "BIP Classification",
+          "target_title": "Version bits with timeout and delay",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "10",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Sig Transaction Distribution",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "11",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "12",
+          "source_title": "BIP Classification",
+          "target_title": "OP_EVAL",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "13",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for pay-to-script-hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "14",
+          "source_title": "BIP Classification",
+          "target_title": "Protocol Version and User Agent",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "15",
+          "source_title": "BIP Classification",
+          "target_title": "Aliases",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "16",
+          "source_title": "BIP Classification",
+          "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "17",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "18",
+          "source_title": "BIP Classification",
+          "target_title": "hashScriptCheck",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "19",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions (Low SigOp)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "20",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "21",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "22",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Fundamentals",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "23",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Pooled Mining",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "30",
+          "source_title": "BIP Classification",
+          "target_title": "Duplicate transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "31",
+          "source_title": "BIP Classification",
+          "target_title": "Pong message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "32",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "33",
+          "source_title": "BIP Classification",
+          "target_title": "Stratized Nodes",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "34",
+          "source_title": "BIP Classification",
+          "target_title": "Block v2, Height in Coinbase",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "35",
+          "source_title": "BIP Classification",
+          "target_title": "mempool message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "36",
+          "source_title": "BIP Classification",
+          "target_title": "Custom Services",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "37",
+          "source_title": "BIP Classification",
+          "target_title": "Connection Bloom filtering",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "38",
+          "source_title": "BIP Classification",
+          "target_title": "Passphrase-protected private key",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "39",
+          "source_title": "BIP Classification",
+          "target_title": "Mnemonic code for generating deterministic keys",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "42",
+          "source_title": "BIP Classification",
+          "target_title": "A finite monetary supply for Bitcoin",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "43",
+          "source_title": "BIP Classification",
+          "target_title": "Purpose Field for Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "44",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Account Hierarchy for Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "45",
+          "source_title": "BIP Classification",
+          "target_title": "Structure for Deterministic P2SH Multisignature Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "47",
+          "source_title": "BIP Classification",
+          "target_title": "Reusable Payment Codes for Hierarchical Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "49",
+          "source_title": "BIP Classification",
+          "target_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "50",
+          "source_title": "BIP Classification",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "60",
+          "source_title": "BIP Classification",
+          "target_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "61",
+          "source_title": "BIP Classification",
+          "target_title": "Reject P2P message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "62",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with malleability",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "64",
+          "source_title": "BIP Classification",
+          "target_title": "getutxo message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "65",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKLOCKTIMEVERIFY",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "66",
+          "source_title": "BIP Classification",
+          "target_title": "Strict DER signatures",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "67",
+          "source_title": "BIP Classification",
+          "target_title": "Deterministic Pay-to-script-hash multi-signature addresses through public key sorting",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "68",
+          "source_title": "BIP Classification",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "69",
+          "source_title": "BIP Classification",
+          "target_title": "Lexicographical Indexing of Transaction Inputs and Outputs",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "70",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "71",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol MIME types",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "72",
+          "source_title": "BIP Classification",
+          "target_title": "bitcoin: uri extensions for Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "73",
+          "source_title": "BIP Classification",
+          "target_title": "Use \"Accept\" header for response type negotiation with Payment Request URLs",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "74",
+          "source_title": "BIP Classification",
+          "target_title": "Allow zero value OP_RETURN in Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "75",
+          "source_title": "BIP Classification",
+          "target_title": "Out of Band Address Exchange using Payment Protocol Encryption",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "80",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "81",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "83",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic Hierarchical Deterministic Key Trees",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "99",
+          "source_title": "BIP Classification",
+          "target_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "101",
+          "source_title": "BIP Classification",
+          "target_title": "Increase maximum block size",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "102",
+          "source_title": "BIP Classification",
+          "target_title": "Block size increase to 2MB",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "103",
+          "source_title": "BIP Classification",
+          "target_title": "Block size following technological growth",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "105",
+          "source_title": "BIP Classification",
+          "target_title": "Consensus based block size retargeting algorithm",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "106",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "107",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic limit on the block size",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "109",
+          "source_title": "BIP Classification",
+          "target_title": "Two million byte size limit with sigop and sighash limits",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "111",
+          "source_title": "BIP Classification",
+          "target_title": "NODE_BLOOM service bit",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "112",
+          "source_title": "BIP Classification",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "113",
+          "source_title": "BIP Classification",
+          "target_title": "Median time-past as endpoint for lock-time calculations",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "114",
+          "source_title": "BIP Classification",
+          "target_title": "Merkelized Abstract Syntax Tree",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "120",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "121",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment URI scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "122",
+          "source_title": "BIP Classification",
+          "target_title": "URI scheme for Blockchain references / exploration",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "124",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Script Templates",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "125",
+          "source_title": "BIP Classification",
+          "target_title": "Opt-in Full Replace-by-Fee Signaling",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "126",
+          "source_title": "BIP Classification",
+          "target_title": "Best Practices for Heterogeneous Input Script Transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "130",
+          "source_title": "BIP Classification",
+          "target_title": "sendheaders message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "131",
+          "source_title": "BIP Classification",
+          "target_title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "132",
+          "source_title": "BIP Classification",
+          "target_title": "Committee-based BIP Acceptance Process",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "133",
+          "source_title": "BIP Classification",
+          "target_title": "feefilter message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "134",
+          "source_title": "BIP Classification",
+          "target_title": "Flexible Transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "140",
+          "source_title": "BIP Classification",
+          "target_title": "Normalized TXID",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "141",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "142",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for Segregated Witness",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "143",
+          "source_title": "BIP Classification",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "144",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Peer Services)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "145",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate Updates for Segregated Witness",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "146",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with signature encoding malleability",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "147",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with dummy stack element malleability",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "150",
+          "source_title": "BIP Classification",
+          "target_title": "Peer Authentication",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "151",
+          "source_title": "BIP Classification",
+          "target_title": "Peer-to-Peer Communication Encryption",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "152",
+          "source_title": "BIP Classification",
+          "target_title": "Compact Block Relay",
           "status": "approach_only"
         },
         {
@@ -8760,6 +10202,20 @@
           "status": "approach_only"
         },
         {
+          "source": "156",
+          "target": "1",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "approach_only"
+        },
+        {
+          "source": "156",
+          "target": "2",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP process, revised",
+          "status": "approach_only"
+        },
+        {
           "source": "157",
           "target": "37",
           "source_title": "Client Side Block Filtering",
@@ -8789,6 +10245,13 @@
         },
         {
           "source": "158",
+          "target": "141",
+          "source_title": "Compact Block Filters for Light Clients",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "approach_only"
+        },
+        {
+          "source": "158",
           "target": "157",
           "source_title": "Compact Block Filters for Light Clients",
           "target_title": "Client Side Block Filtering",
@@ -8799,6 +10262,13 @@
           "target": "13",
           "source_title": "Base32 address format for native v0-16 witness outputs",
           "target_title": "Address Format for pay-to-script-hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "173",
+          "target": "16",
+          "source_title": "Base32 address format for native v0-16 witness outputs",
+          "target_title": "Pay to Script Hash",
           "status": "approach_only"
         },
         {
@@ -8886,6 +10356,13 @@
           "status": "approach_only"
         },
         {
+          "source": "300",
+          "target": "141",
+          "source_title": "Hashrate Escrows (Consensus layer)",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "approach_only"
+        },
+        {
           "source": "301",
           "target": "9",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -8939,6 +10416,13 @@
           "target": "141",
           "source_title": "WTXID-based transaction relay",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "approach_only"
+        },
+        {
+          "source": "339",
+          "target": "143",
+          "source_title": "WTXID-based transaction relay",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
           "status": "approach_only"
         },
         {
@@ -9090,11 +10574,11 @@
       "baseline_label": "Explicit References (Regex)",
       "summary": {
         "approach_only": 0,
-        "overlap": 279,
+        "overlap": 385,
         "baseline_only": 0,
-        "approach_total": 279,
-        "baseline_total": 279,
-        "union_total": 279,
+        "approach_total": 385,
+        "baseline_total": 385,
+        "union_total": 385,
         "hit_rate": 1.0,
         "missed_rate": 0.0
       },
@@ -9136,6 +10620,13 @@
         },
         {
           "source": "8",
+          "target": "16",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Pay to Script Hash",
+          "status": "overlap"
+        },
+        {
+          "source": "8",
           "target": "34",
           "source_title": "Version bits with lock-in by height",
           "target_title": "Block v2, Height in Coinbase",
@@ -9156,6 +10647,27 @@
           "status": "overlap"
         },
         {
+          "source": "8",
+          "target": "68",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "overlap"
+        },
+        {
+          "source": "8",
+          "target": "112",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "overlap"
+        },
+        {
+          "source": "9",
+          "target": "16",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Pay to Script Hash",
+          "status": "overlap"
+        },
+        {
           "source": "9",
           "target": "34",
           "source_title": "Version bits with timeout and delay",
@@ -9174,6 +10686,20 @@
           "target": "66",
           "source_title": "Version bits with timeout and delay",
           "target_title": "Strict DER signatures",
+          "status": "overlap"
+        },
+        {
+          "source": "9",
+          "target": "68",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "overlap"
+        },
+        {
+          "source": "9",
+          "target": "112",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "CHECKSEQUENCEVERIFY",
           "status": "overlap"
         },
         {
@@ -9269,6 +10795,13 @@
         },
         {
           "source": "18",
+          "target": "12",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_EVAL",
+          "status": "overlap"
+        },
+        {
+          "source": "18",
           "target": "13",
           "source_title": "hashScriptCheck",
           "target_title": "Address Format for pay-to-script-hash",
@@ -9279,6 +10812,13 @@
           "target": "16",
           "source_title": "hashScriptCheck",
           "target_title": "Pay to Script Hash",
+          "status": "overlap"
+        },
+        {
+          "source": "18",
+          "target": "17",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
           "status": "overlap"
         },
         {
@@ -9328,6 +10868,13 @@
           "target": "22",
           "source_title": "getblocktemplate - Pooled Mining",
           "target_title": "getblocktemplate - Fundamentals",
+          "status": "overlap"
+        },
+        {
+          "source": "32",
+          "target": "39",
+          "source_title": "Hierarchical Deterministic Wallets",
+          "target_title": "Mnemonic code for generating deterministic keys",
           "status": "overlap"
         },
         {
@@ -9461,6 +11008,13 @@
           "target": "141",
           "source_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
+          "source": "60",
+          "target": "14",
+          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "target_title": "Protocol Version and User Agent",
           "status": "overlap"
         },
         {
@@ -9622,6 +11176,13 @@
           "target": "79",
           "source_title": "A Simple Payjoin Proposal",
           "target_title": "Bustapay :: a practical coinjoin protocol",
+          "status": "overlap"
+        },
+        {
+          "source": "79",
+          "target": "21",
+          "source_title": "Bustapay :: a practical coinjoin protocol",
+          "target_title": "URI Scheme",
           "status": "overlap"
         },
         {
@@ -9864,6 +11425,13 @@
         },
         {
           "source": "99",
+          "target": "9",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "Version bits with timeout and delay",
+          "status": "overlap"
+        },
+        {
+          "source": "99",
           "target": "12",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "OP_EVAL",
@@ -9888,6 +11456,13 @@
           "target": "30",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "Duplicate transactions",
+          "status": "overlap"
+        },
+        {
+          "source": "99",
+          "target": "50",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
           "status": "overlap"
         },
         {
@@ -9944,6 +11519,13 @@
           "target": "100",
           "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
           "target_title": "Dynamic maximum block size by miner vote",
+          "status": "overlap"
+        },
+        {
+          "source": "106",
+          "target": "101",
+          "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "target_title": "Increase maximum block size",
           "status": "overlap"
         },
         {
@@ -10224,6 +11806,608 @@
           "target": "120",
           "source_title": "Proof of Payment URI scheme",
           "target_title": "Proof of Payment",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "1",
+          "source_title": "BIP Classification",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "2",
+          "source_title": "BIP Classification",
+          "target_title": "BIP process, revised",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "9",
+          "source_title": "BIP Classification",
+          "target_title": "Version bits with timeout and delay",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "10",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Sig Transaction Distribution",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "11",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "12",
+          "source_title": "BIP Classification",
+          "target_title": "OP_EVAL",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "13",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for pay-to-script-hash",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "14",
+          "source_title": "BIP Classification",
+          "target_title": "Protocol Version and User Agent",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "15",
+          "source_title": "BIP Classification",
+          "target_title": "Aliases",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "16",
+          "source_title": "BIP Classification",
+          "target_title": "Pay to Script Hash",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "17",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "18",
+          "source_title": "BIP Classification",
+          "target_title": "hashScriptCheck",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "19",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions (Low SigOp)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "20",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "21",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "22",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Fundamentals",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "23",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Pooled Mining",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "30",
+          "source_title": "BIP Classification",
+          "target_title": "Duplicate transactions",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "31",
+          "source_title": "BIP Classification",
+          "target_title": "Pong message",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "32",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "33",
+          "source_title": "BIP Classification",
+          "target_title": "Stratized Nodes",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "34",
+          "source_title": "BIP Classification",
+          "target_title": "Block v2, Height in Coinbase",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "35",
+          "source_title": "BIP Classification",
+          "target_title": "mempool message",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "36",
+          "source_title": "BIP Classification",
+          "target_title": "Custom Services",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "37",
+          "source_title": "BIP Classification",
+          "target_title": "Connection Bloom filtering",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "38",
+          "source_title": "BIP Classification",
+          "target_title": "Passphrase-protected private key",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "39",
+          "source_title": "BIP Classification",
+          "target_title": "Mnemonic code for generating deterministic keys",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "42",
+          "source_title": "BIP Classification",
+          "target_title": "A finite monetary supply for Bitcoin",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "43",
+          "source_title": "BIP Classification",
+          "target_title": "Purpose Field for Deterministic Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "44",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Account Hierarchy for Deterministic Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "45",
+          "source_title": "BIP Classification",
+          "target_title": "Structure for Deterministic P2SH Multisignature Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "47",
+          "source_title": "BIP Classification",
+          "target_title": "Reusable Payment Codes for Hierarchical Deterministic Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "49",
+          "source_title": "BIP Classification",
+          "target_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "50",
+          "source_title": "BIP Classification",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "60",
+          "source_title": "BIP Classification",
+          "target_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "61",
+          "source_title": "BIP Classification",
+          "target_title": "Reject P2P message",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "62",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with malleability",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "64",
+          "source_title": "BIP Classification",
+          "target_title": "getutxo message",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "65",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKLOCKTIMEVERIFY",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "66",
+          "source_title": "BIP Classification",
+          "target_title": "Strict DER signatures",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "67",
+          "source_title": "BIP Classification",
+          "target_title": "Deterministic Pay-to-script-hash multi-signature addresses through public key sorting",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "68",
+          "source_title": "BIP Classification",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "69",
+          "source_title": "BIP Classification",
+          "target_title": "Lexicographical Indexing of Transaction Inputs and Outputs",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "70",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "71",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol MIME types",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "72",
+          "source_title": "BIP Classification",
+          "target_title": "bitcoin: uri extensions for Payment Protocol",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "73",
+          "source_title": "BIP Classification",
+          "target_title": "Use \"Accept\" header for response type negotiation with Payment Request URLs",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "74",
+          "source_title": "BIP Classification",
+          "target_title": "Allow zero value OP_RETURN in Payment Protocol",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "75",
+          "source_title": "BIP Classification",
+          "target_title": "Out of Band Address Exchange using Payment Protocol Encryption",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "80",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "81",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "83",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic Hierarchical Deterministic Key Trees",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "99",
+          "source_title": "BIP Classification",
+          "target_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "101",
+          "source_title": "BIP Classification",
+          "target_title": "Increase maximum block size",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "102",
+          "source_title": "BIP Classification",
+          "target_title": "Block size increase to 2MB",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "103",
+          "source_title": "BIP Classification",
+          "target_title": "Block size following technological growth",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "105",
+          "source_title": "BIP Classification",
+          "target_title": "Consensus based block size retargeting algorithm",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "106",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "107",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic limit on the block size",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "109",
+          "source_title": "BIP Classification",
+          "target_title": "Two million byte size limit with sigop and sighash limits",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "111",
+          "source_title": "BIP Classification",
+          "target_title": "NODE_BLOOM service bit",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "112",
+          "source_title": "BIP Classification",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "113",
+          "source_title": "BIP Classification",
+          "target_title": "Median time-past as endpoint for lock-time calculations",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "114",
+          "source_title": "BIP Classification",
+          "target_title": "Merkelized Abstract Syntax Tree",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "120",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "121",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment URI scheme",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "122",
+          "source_title": "BIP Classification",
+          "target_title": "URI scheme for Blockchain references / exploration",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "124",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Script Templates",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "125",
+          "source_title": "BIP Classification",
+          "target_title": "Opt-in Full Replace-by-Fee Signaling",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "126",
+          "source_title": "BIP Classification",
+          "target_title": "Best Practices for Heterogeneous Input Script Transactions",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "130",
+          "source_title": "BIP Classification",
+          "target_title": "sendheaders message",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "131",
+          "source_title": "BIP Classification",
+          "target_title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "132",
+          "source_title": "BIP Classification",
+          "target_title": "Committee-based BIP Acceptance Process",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "133",
+          "source_title": "BIP Classification",
+          "target_title": "feefilter message",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "134",
+          "source_title": "BIP Classification",
+          "target_title": "Flexible Transactions",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "140",
+          "source_title": "BIP Classification",
+          "target_title": "Normalized TXID",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "141",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "142",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for Segregated Witness",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "143",
+          "source_title": "BIP Classification",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "144",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Peer Services)",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "145",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate Updates for Segregated Witness",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "146",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with signature encoding malleability",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "147",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with dummy stack element malleability",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "150",
+          "source_title": "BIP Classification",
+          "target_title": "Peer Authentication",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "151",
+          "source_title": "BIP Classification",
+          "target_title": "Peer-to-Peer Communication Encryption",
+          "status": "overlap"
+        },
+        {
+          "source": "123",
+          "target": "152",
+          "source_title": "BIP Classification",
+          "target_title": "Compact Block Relay",
           "status": "overlap"
         },
         {
@@ -10717,6 +12901,20 @@
           "status": "overlap"
         },
         {
+          "source": "156",
+          "target": "1",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "overlap"
+        },
+        {
+          "source": "156",
+          "target": "2",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP process, revised",
+          "status": "overlap"
+        },
+        {
           "source": "157",
           "target": "37",
           "source_title": "Client Side Block Filtering",
@@ -10746,6 +12944,13 @@
         },
         {
           "source": "158",
+          "target": "141",
+          "source_title": "Compact Block Filters for Light Clients",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
+          "source": "158",
           "target": "157",
           "source_title": "Compact Block Filters for Light Clients",
           "target_title": "Client Side Block Filtering",
@@ -10756,6 +12961,13 @@
           "target": "13",
           "source_title": "Base32 address format for native v0-16 witness outputs",
           "target_title": "Address Format for pay-to-script-hash",
+          "status": "overlap"
+        },
+        {
+          "source": "173",
+          "target": "16",
+          "source_title": "Base32 address format for native v0-16 witness outputs",
+          "target_title": "Pay to Script Hash",
           "status": "overlap"
         },
         {
@@ -10850,6 +13062,13 @@
           "status": "overlap"
         },
         {
+          "source": "300",
+          "target": "141",
+          "source_title": "Hashrate Escrows (Consensus layer)",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
           "source": "301",
           "target": "9",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -10903,6 +13122,13 @@
           "target": "141",
           "source_title": "WTXID-based transaction relay",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
+          "source": "339",
+          "target": "143",
+          "source_title": "WTXID-based transaction relay",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
           "status": "overlap"
         },
         {
@@ -11060,14 +13286,14 @@
       "baseline": "implicit_dependencies",
       "baseline_label": "Implicit Dependencies (LLM)",
       "summary": {
-        "approach_only": 65,
-        "overlap": 214,
-        "baseline_only": 30,
-        "approach_total": 279,
+        "approach_only": 165,
+        "overlap": 220,
+        "baseline_only": 24,
+        "approach_total": 385,
         "baseline_total": 244,
-        "union_total": 309,
-        "hit_rate": 0.8770491803278688,
-        "missed_rate": 0.12295081967213115
+        "union_total": 409,
+        "hit_rate": 0.9016393442622951,
+        "missed_rate": 0.09836065573770492
       },
       "edges": [
         {
@@ -11366,6 +13592,13 @@
         },
         {
           "source": "60",
+          "target": "14",
+          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "target_title": "Protocol Version and User Agent",
+          "status": "overlap"
+        },
+        {
+          "source": "60",
           "target": "37",
           "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
           "target_title": "Connection Bloom filtering",
@@ -11487,6 +13720,13 @@
           "source": "78",
           "target": "21",
           "source_title": "A Simple Payjoin Proposal",
+          "target_title": "URI Scheme",
+          "status": "overlap"
+        },
+        {
+          "source": "79",
+          "target": "21",
+          "source_title": "Bustapay :: a practical coinjoin protocol",
           "target_title": "URI Scheme",
           "status": "overlap"
         },
@@ -11656,6 +13896,13 @@
           "target": "116",
           "source_title": "Fast Merkle Trees",
           "target_title": "MERKLEBRANCHVERIFY",
+          "status": "overlap"
+        },
+        {
+          "source": "99",
+          "target": "9",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "Version bits with timeout and delay",
           "status": "overlap"
         },
         {
@@ -12332,6 +14579,13 @@
         },
         {
           "source": "173",
+          "target": "16",
+          "source_title": "Base32 address format for native v0-16 witness outputs",
+          "target_title": "Pay to Script Hash",
+          "status": "overlap"
+        },
+        {
+          "source": "173",
           "target": "141",
           "source_title": "Base32 address format for native v0-16 witness outputs",
           "target_title": "Segregated Witness (Consensus layer)",
@@ -12408,6 +14662,13 @@
           "status": "overlap"
         },
         {
+          "source": "300",
+          "target": "141",
+          "source_title": "Hashrate Escrows (Consensus layer)",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
           "source": "301",
           "target": "9",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -12461,6 +14722,13 @@
           "target": "141",
           "source_title": "WTXID-based transaction relay",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
+          "source": "339",
+          "target": "143",
+          "source_title": "WTXID-based transaction relay",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
           "status": "overlap"
         },
         {
@@ -12569,6 +14837,48 @@
           "status": "overlap"
         },
         {
+          "source": "8",
+          "target": "16",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "8",
+          "target": "68",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "approach_only"
+        },
+        {
+          "source": "8",
+          "target": "112",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "approach_only"
+        },
+        {
+          "source": "9",
+          "target": "16",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "9",
+          "target": "68",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "approach_only"
+        },
+        {
+          "source": "9",
+          "target": "112",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "approach_only"
+        },
+        {
           "source": "12",
           "target": "11",
           "source_title": "OP_EVAL",
@@ -12618,10 +14928,31 @@
           "status": "approach_only"
         },
         {
+          "source": "18",
+          "target": "12",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_EVAL",
+          "status": "approach_only"
+        },
+        {
+          "source": "18",
+          "target": "17",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "approach_only"
+        },
+        {
           "source": "20",
           "target": "21",
           "source_title": "URI Scheme",
           "target_title": "URI Scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "32",
+          "target": "39",
+          "source_title": "Hierarchical Deterministic Wallets",
+          "target_title": "Mnemonic code for generating deterministic keys",
           "status": "approach_only"
         },
         {
@@ -12766,6 +15097,13 @@
         },
         {
           "source": "99",
+          "target": "50",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "approach_only"
+        },
+        {
+          "source": "99",
           "target": "66",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "Strict DER signatures",
@@ -12776,6 +15114,13 @@
           "target": "100",
           "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
           "target_title": "Dynamic maximum block size by miner vote",
+          "status": "approach_only"
+        },
+        {
+          "source": "106",
+          "target": "101",
+          "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "target_title": "Increase maximum block size",
           "status": "approach_only"
         },
         {
@@ -12839,6 +15184,608 @@
           "target": "70",
           "source_title": "Proof of Payment URI scheme",
           "target_title": "Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "1",
+          "source_title": "BIP Classification",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "2",
+          "source_title": "BIP Classification",
+          "target_title": "BIP process, revised",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "9",
+          "source_title": "BIP Classification",
+          "target_title": "Version bits with timeout and delay",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "10",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Sig Transaction Distribution",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "11",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "12",
+          "source_title": "BIP Classification",
+          "target_title": "OP_EVAL",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "13",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for pay-to-script-hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "14",
+          "source_title": "BIP Classification",
+          "target_title": "Protocol Version and User Agent",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "15",
+          "source_title": "BIP Classification",
+          "target_title": "Aliases",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "16",
+          "source_title": "BIP Classification",
+          "target_title": "Pay to Script Hash",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "17",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "18",
+          "source_title": "BIP Classification",
+          "target_title": "hashScriptCheck",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "19",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions (Low SigOp)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "20",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "21",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "22",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Fundamentals",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "23",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Pooled Mining",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "30",
+          "source_title": "BIP Classification",
+          "target_title": "Duplicate transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "31",
+          "source_title": "BIP Classification",
+          "target_title": "Pong message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "32",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "33",
+          "source_title": "BIP Classification",
+          "target_title": "Stratized Nodes",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "34",
+          "source_title": "BIP Classification",
+          "target_title": "Block v2, Height in Coinbase",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "35",
+          "source_title": "BIP Classification",
+          "target_title": "mempool message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "36",
+          "source_title": "BIP Classification",
+          "target_title": "Custom Services",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "37",
+          "source_title": "BIP Classification",
+          "target_title": "Connection Bloom filtering",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "38",
+          "source_title": "BIP Classification",
+          "target_title": "Passphrase-protected private key",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "39",
+          "source_title": "BIP Classification",
+          "target_title": "Mnemonic code for generating deterministic keys",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "42",
+          "source_title": "BIP Classification",
+          "target_title": "A finite monetary supply for Bitcoin",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "43",
+          "source_title": "BIP Classification",
+          "target_title": "Purpose Field for Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "44",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Account Hierarchy for Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "45",
+          "source_title": "BIP Classification",
+          "target_title": "Structure for Deterministic P2SH Multisignature Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "47",
+          "source_title": "BIP Classification",
+          "target_title": "Reusable Payment Codes for Hierarchical Deterministic Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "49",
+          "source_title": "BIP Classification",
+          "target_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "50",
+          "source_title": "BIP Classification",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "60",
+          "source_title": "BIP Classification",
+          "target_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "61",
+          "source_title": "BIP Classification",
+          "target_title": "Reject P2P message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "62",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with malleability",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "64",
+          "source_title": "BIP Classification",
+          "target_title": "getutxo message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "65",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKLOCKTIMEVERIFY",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "66",
+          "source_title": "BIP Classification",
+          "target_title": "Strict DER signatures",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "67",
+          "source_title": "BIP Classification",
+          "target_title": "Deterministic Pay-to-script-hash multi-signature addresses through public key sorting",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "68",
+          "source_title": "BIP Classification",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "69",
+          "source_title": "BIP Classification",
+          "target_title": "Lexicographical Indexing of Transaction Inputs and Outputs",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "70",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "71",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol MIME types",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "72",
+          "source_title": "BIP Classification",
+          "target_title": "bitcoin: uri extensions for Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "73",
+          "source_title": "BIP Classification",
+          "target_title": "Use \"Accept\" header for response type negotiation with Payment Request URLs",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "74",
+          "source_title": "BIP Classification",
+          "target_title": "Allow zero value OP_RETURN in Payment Protocol",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "75",
+          "source_title": "BIP Classification",
+          "target_title": "Out of Band Address Exchange using Payment Protocol Encryption",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "80",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "81",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "83",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic Hierarchical Deterministic Key Trees",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "99",
+          "source_title": "BIP Classification",
+          "target_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "101",
+          "source_title": "BIP Classification",
+          "target_title": "Increase maximum block size",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "102",
+          "source_title": "BIP Classification",
+          "target_title": "Block size increase to 2MB",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "103",
+          "source_title": "BIP Classification",
+          "target_title": "Block size following technological growth",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "105",
+          "source_title": "BIP Classification",
+          "target_title": "Consensus based block size retargeting algorithm",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "106",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "107",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic limit on the block size",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "109",
+          "source_title": "BIP Classification",
+          "target_title": "Two million byte size limit with sigop and sighash limits",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "111",
+          "source_title": "BIP Classification",
+          "target_title": "NODE_BLOOM service bit",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "112",
+          "source_title": "BIP Classification",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "113",
+          "source_title": "BIP Classification",
+          "target_title": "Median time-past as endpoint for lock-time calculations",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "114",
+          "source_title": "BIP Classification",
+          "target_title": "Merkelized Abstract Syntax Tree",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "120",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "121",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment URI scheme",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "122",
+          "source_title": "BIP Classification",
+          "target_title": "URI scheme for Blockchain references / exploration",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "124",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Script Templates",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "125",
+          "source_title": "BIP Classification",
+          "target_title": "Opt-in Full Replace-by-Fee Signaling",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "126",
+          "source_title": "BIP Classification",
+          "target_title": "Best Practices for Heterogeneous Input Script Transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "130",
+          "source_title": "BIP Classification",
+          "target_title": "sendheaders message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "131",
+          "source_title": "BIP Classification",
+          "target_title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "132",
+          "source_title": "BIP Classification",
+          "target_title": "Committee-based BIP Acceptance Process",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "133",
+          "source_title": "BIP Classification",
+          "target_title": "feefilter message",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "134",
+          "source_title": "BIP Classification",
+          "target_title": "Flexible Transactions",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "140",
+          "source_title": "BIP Classification",
+          "target_title": "Normalized TXID",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "141",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "142",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for Segregated Witness",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "143",
+          "source_title": "BIP Classification",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "144",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Peer Services)",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "145",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate Updates for Segregated Witness",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "146",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with signature encoding malleability",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "147",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with dummy stack element malleability",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "150",
+          "source_title": "BIP Classification",
+          "target_title": "Peer Authentication",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "151",
+          "source_title": "BIP Classification",
+          "target_title": "Peer-to-Peer Communication Encryption",
+          "status": "approach_only"
+        },
+        {
+          "source": "123",
+          "target": "152",
+          "source_title": "BIP Classification",
+          "target_title": "Compact Block Relay",
           "status": "approach_only"
         },
         {
@@ -12947,6 +15894,20 @@
           "status": "approach_only"
         },
         {
+          "source": "156",
+          "target": "1",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "approach_only"
+        },
+        {
+          "source": "156",
+          "target": "2",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP process, revised",
+          "status": "approach_only"
+        },
+        {
           "source": "157",
           "target": "111",
           "source_title": "Client Side Block Filtering",
@@ -12958,6 +15919,13 @@
           "target": "37",
           "source_title": "Compact Block Filters for Light Clients",
           "target_title": "Connection Bloom filtering",
+          "status": "approach_only"
+        },
+        {
+          "source": "158",
+          "target": "141",
+          "source_title": "Compact Block Filters for Light Clients",
+          "target_title": "Segregated Witness (Consensus layer)",
           "status": "approach_only"
         },
         {
@@ -13031,13 +15999,6 @@
           "status": "baseline_only"
         },
         {
-          "source": "60",
-          "target": "14",
-          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
-          "target_title": "Protocol Version and User Agent",
-          "status": "baseline_only"
-        },
-        {
           "source": "64",
           "target": "37",
           "source_title": "getutxo message",
@@ -13067,23 +16028,9 @@
         },
         {
           "source": "79",
-          "target": "21",
-          "source_title": "Bustapay :: a practical coinjoin protocol",
-          "target_title": "URI Scheme",
-          "status": "baseline_only"
-        },
-        {
-          "source": "79",
           "target": "141",
           "source_title": "Bustapay :: a practical coinjoin protocol",
           "target_title": "Segregated Witness (Consensus layer)",
-          "status": "baseline_only"
-        },
-        {
-          "source": "99",
-          "target": "9",
-          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
-          "target_title": "Version bits with timeout and delay",
           "status": "baseline_only"
         },
         {
@@ -13143,13 +16090,6 @@
           "status": "baseline_only"
         },
         {
-          "source": "173",
-          "target": "16",
-          "source_title": "Base32 address format for native v0-16 witness outputs",
-          "target_title": "Pay to Script Hash",
-          "status": "baseline_only"
-        },
-        {
           "source": "178",
           "target": "141",
           "source_title": "Version Extended WIF",
@@ -13206,13 +16146,6 @@
           "status": "baseline_only"
         },
         {
-          "source": "300",
-          "target": "141",
-          "source_title": "Hashrate Escrows (Consensus layer)",
-          "target_title": "Segregated Witness (Consensus layer)",
-          "status": "baseline_only"
-        },
-        {
           "source": "301",
           "target": "141",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -13224,13 +16157,6 @@
           "target": "9",
           "source_title": "Stratum protocol extensions",
           "target_title": "Version bits with timeout and delay",
-          "status": "baseline_only"
-        },
-        {
-          "source": "339",
-          "target": "143",
-          "source_title": "WTXID-based transaction relay",
-          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
           "status": "baseline_only"
         }
       ]
@@ -14995,14 +17921,14 @@
       "baseline": "explicit_references",
       "baseline_label": "Explicit References (Regex)",
       "summary": {
-        "approach_only": 30,
-        "overlap": 214,
-        "baseline_only": 65,
+        "approach_only": 24,
+        "overlap": 220,
+        "baseline_only": 165,
         "approach_total": 244,
-        "baseline_total": 279,
-        "union_total": 309,
-        "hit_rate": 0.7670250896057348,
-        "missed_rate": 0.23297491039426524
+        "baseline_total": 385,
+        "union_total": 409,
+        "hit_rate": 0.5714285714285714,
+        "missed_rate": 0.42857142857142855
       },
       "edges": [
         {
@@ -15301,6 +18227,13 @@
         },
         {
           "source": "60",
+          "target": "14",
+          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "target_title": "Protocol Version and User Agent",
+          "status": "overlap"
+        },
+        {
+          "source": "60",
           "target": "37",
           "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
           "target_title": "Connection Bloom filtering",
@@ -15422,6 +18355,13 @@
           "source": "78",
           "target": "21",
           "source_title": "A Simple Payjoin Proposal",
+          "target_title": "URI Scheme",
+          "status": "overlap"
+        },
+        {
+          "source": "79",
+          "target": "21",
+          "source_title": "Bustapay :: a practical coinjoin protocol",
           "target_title": "URI Scheme",
           "status": "overlap"
         },
@@ -15591,6 +18531,13 @@
           "target": "116",
           "source_title": "Fast Merkle Trees",
           "target_title": "MERKLEBRANCHVERIFY",
+          "status": "overlap"
+        },
+        {
+          "source": "99",
+          "target": "9",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "Version bits with timeout and delay",
           "status": "overlap"
         },
         {
@@ -16267,6 +19214,13 @@
         },
         {
           "source": "173",
+          "target": "16",
+          "source_title": "Base32 address format for native v0-16 witness outputs",
+          "target_title": "Pay to Script Hash",
+          "status": "overlap"
+        },
+        {
+          "source": "173",
           "target": "141",
           "source_title": "Base32 address format for native v0-16 witness outputs",
           "target_title": "Segregated Witness (Consensus layer)",
@@ -16343,6 +19297,13 @@
           "status": "overlap"
         },
         {
+          "source": "300",
+          "target": "141",
+          "source_title": "Hashrate Escrows (Consensus layer)",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
           "source": "301",
           "target": "9",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -16396,6 +19357,13 @@
           "target": "141",
           "source_title": "WTXID-based transaction relay",
           "target_title": "Segregated Witness (Consensus layer)",
+          "status": "overlap"
+        },
+        {
+          "source": "339",
+          "target": "143",
+          "source_title": "WTXID-based transaction relay",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
           "status": "overlap"
         },
         {
@@ -16511,13 +19479,6 @@
           "status": "approach_only"
         },
         {
-          "source": "60",
-          "target": "14",
-          "source_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
-          "target_title": "Protocol Version and User Agent",
-          "status": "approach_only"
-        },
-        {
           "source": "64",
           "target": "37",
           "source_title": "getutxo message",
@@ -16547,23 +19508,9 @@
         },
         {
           "source": "79",
-          "target": "21",
-          "source_title": "Bustapay :: a practical coinjoin protocol",
-          "target_title": "URI Scheme",
-          "status": "approach_only"
-        },
-        {
-          "source": "79",
           "target": "141",
           "source_title": "Bustapay :: a practical coinjoin protocol",
           "target_title": "Segregated Witness (Consensus layer)",
-          "status": "approach_only"
-        },
-        {
-          "source": "99",
-          "target": "9",
-          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
-          "target_title": "Version bits with timeout and delay",
           "status": "approach_only"
         },
         {
@@ -16623,13 +19570,6 @@
           "status": "approach_only"
         },
         {
-          "source": "173",
-          "target": "16",
-          "source_title": "Base32 address format for native v0-16 witness outputs",
-          "target_title": "Pay to Script Hash",
-          "status": "approach_only"
-        },
-        {
           "source": "178",
           "target": "141",
           "source_title": "Version Extended WIF",
@@ -16686,13 +19626,6 @@
           "status": "approach_only"
         },
         {
-          "source": "300",
-          "target": "141",
-          "source_title": "Hashrate Escrows (Consensus layer)",
-          "target_title": "Segregated Witness (Consensus layer)",
-          "status": "approach_only"
-        },
-        {
           "source": "301",
           "target": "141",
           "source_title": "Blind Merged Mining (Consensus layer)",
@@ -16707,11 +19640,46 @@
           "status": "approach_only"
         },
         {
-          "source": "339",
-          "target": "143",
-          "source_title": "WTXID-based transaction relay",
-          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
-          "status": "approach_only"
+          "source": "8",
+          "target": "16",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "8",
+          "target": "68",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "baseline_only"
+        },
+        {
+          "source": "8",
+          "target": "112",
+          "source_title": "Version bits with lock-in by height",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "baseline_only"
+        },
+        {
+          "source": "9",
+          "target": "16",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "9",
+          "target": "68",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "baseline_only"
+        },
+        {
+          "source": "9",
+          "target": "112",
+          "source_title": "Version bits with timeout and delay",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "baseline_only"
         },
         {
           "source": "12",
@@ -16763,10 +19731,31 @@
           "status": "baseline_only"
         },
         {
+          "source": "18",
+          "target": "12",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_EVAL",
+          "status": "baseline_only"
+        },
+        {
+          "source": "18",
+          "target": "17",
+          "source_title": "hashScriptCheck",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "baseline_only"
+        },
+        {
           "source": "20",
           "target": "21",
           "source_title": "URI Scheme",
           "target_title": "URI Scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "32",
+          "target": "39",
+          "source_title": "Hierarchical Deterministic Wallets",
+          "target_title": "Mnemonic code for generating deterministic keys",
           "status": "baseline_only"
         },
         {
@@ -16911,6 +19900,13 @@
         },
         {
           "source": "99",
+          "target": "50",
+          "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "baseline_only"
+        },
+        {
+          "source": "99",
           "target": "66",
           "source_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
           "target_title": "Strict DER signatures",
@@ -16921,6 +19917,13 @@
           "target": "100",
           "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
           "target_title": "Dynamic maximum block size by miner vote",
+          "status": "baseline_only"
+        },
+        {
+          "source": "106",
+          "target": "101",
+          "source_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "target_title": "Increase maximum block size",
           "status": "baseline_only"
         },
         {
@@ -16984,6 +19987,608 @@
           "target": "70",
           "source_title": "Proof of Payment URI scheme",
           "target_title": "Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "1",
+          "source_title": "BIP Classification",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "2",
+          "source_title": "BIP Classification",
+          "target_title": "BIP process, revised",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "9",
+          "source_title": "BIP Classification",
+          "target_title": "Version bits with timeout and delay",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "10",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Sig Transaction Distribution",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "11",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "12",
+          "source_title": "BIP Classification",
+          "target_title": "OP_EVAL",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "13",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for pay-to-script-hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "14",
+          "source_title": "BIP Classification",
+          "target_title": "Protocol Version and User Agent",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "15",
+          "source_title": "BIP Classification",
+          "target_title": "Aliases",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "16",
+          "source_title": "BIP Classification",
+          "target_title": "Pay to Script Hash",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "17",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKHASHVERIFY (CHV)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "18",
+          "source_title": "BIP Classification",
+          "target_title": "hashScriptCheck",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "19",
+          "source_title": "BIP Classification",
+          "target_title": "M-of-N Standard Transactions (Low SigOp)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "20",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "21",
+          "source_title": "BIP Classification",
+          "target_title": "URI Scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "22",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Fundamentals",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "23",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate - Pooled Mining",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "30",
+          "source_title": "BIP Classification",
+          "target_title": "Duplicate transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "31",
+          "source_title": "BIP Classification",
+          "target_title": "Pong message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "32",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "33",
+          "source_title": "BIP Classification",
+          "target_title": "Stratized Nodes",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "34",
+          "source_title": "BIP Classification",
+          "target_title": "Block v2, Height in Coinbase",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "35",
+          "source_title": "BIP Classification",
+          "target_title": "mempool message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "36",
+          "source_title": "BIP Classification",
+          "target_title": "Custom Services",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "37",
+          "source_title": "BIP Classification",
+          "target_title": "Connection Bloom filtering",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "38",
+          "source_title": "BIP Classification",
+          "target_title": "Passphrase-protected private key",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "39",
+          "source_title": "BIP Classification",
+          "target_title": "Mnemonic code for generating deterministic keys",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "42",
+          "source_title": "BIP Classification",
+          "target_title": "A finite monetary supply for Bitcoin",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "43",
+          "source_title": "BIP Classification",
+          "target_title": "Purpose Field for Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "44",
+          "source_title": "BIP Classification",
+          "target_title": "Multi-Account Hierarchy for Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "45",
+          "source_title": "BIP Classification",
+          "target_title": "Structure for Deterministic P2SH Multisignature Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "47",
+          "source_title": "BIP Classification",
+          "target_title": "Reusable Payment Codes for Hierarchical Deterministic Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "49",
+          "source_title": "BIP Classification",
+          "target_title": "Derivation scheme for P2WPKH-nested-in-P2SH based accounts",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "50",
+          "source_title": "BIP Classification",
+          "target_title": "March 2013 Chain Fork Post-Mortem",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "60",
+          "source_title": "BIP Classification",
+          "target_title": "Fixed Length \"version\" Message (Relay-Transactions Field)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "61",
+          "source_title": "BIP Classification",
+          "target_title": "Reject P2P message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "62",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with malleability",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "64",
+          "source_title": "BIP Classification",
+          "target_title": "getutxo message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "65",
+          "source_title": "BIP Classification",
+          "target_title": "OP_CHECKLOCKTIMEVERIFY",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "66",
+          "source_title": "BIP Classification",
+          "target_title": "Strict DER signatures",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "67",
+          "source_title": "BIP Classification",
+          "target_title": "Deterministic Pay-to-script-hash multi-signature addresses through public key sorting",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "68",
+          "source_title": "BIP Classification",
+          "target_title": "Relative lock-time using consensus-enforced sequence numbers",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "69",
+          "source_title": "BIP Classification",
+          "target_title": "Lexicographical Indexing of Transaction Inputs and Outputs",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "70",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "71",
+          "source_title": "BIP Classification",
+          "target_title": "Payment Protocol MIME types",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "72",
+          "source_title": "BIP Classification",
+          "target_title": "bitcoin: uri extensions for Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "73",
+          "source_title": "BIP Classification",
+          "target_title": "Use \"Accept\" header for response type negotiation with Payment Request URLs",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "74",
+          "source_title": "BIP Classification",
+          "target_title": "Allow zero value OP_RETURN in Payment Protocol",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "75",
+          "source_title": "BIP Classification",
+          "target_title": "Out of Band Address Exchange using Payment Protocol Encryption",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "80",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Non-Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "81",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchy for Colored Voting Pool Deterministic Multisig Wallets",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "83",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic Hierarchical Deterministic Key Trees",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "99",
+          "source_title": "BIP Classification",
+          "target_title": "Motivation and deployment of consensus rule changes ([soft/hard]forks)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "101",
+          "source_title": "BIP Classification",
+          "target_title": "Increase maximum block size",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "102",
+          "source_title": "BIP Classification",
+          "target_title": "Block size increase to 2MB",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "103",
+          "source_title": "BIP Classification",
+          "target_title": "Block size following technological growth",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "105",
+          "source_title": "BIP Classification",
+          "target_title": "Consensus based block size retargeting algorithm",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "106",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamically Controlled Bitcoin Block Size Max Cap",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "107",
+          "source_title": "BIP Classification",
+          "target_title": "Dynamic limit on the block size",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "109",
+          "source_title": "BIP Classification",
+          "target_title": "Two million byte size limit with sigop and sighash limits",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "111",
+          "source_title": "BIP Classification",
+          "target_title": "NODE_BLOOM service bit",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "112",
+          "source_title": "BIP Classification",
+          "target_title": "CHECKSEQUENCEVERIFY",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "113",
+          "source_title": "BIP Classification",
+          "target_title": "Median time-past as endpoint for lock-time calculations",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "114",
+          "source_title": "BIP Classification",
+          "target_title": "Merkelized Abstract Syntax Tree",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "120",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "121",
+          "source_title": "BIP Classification",
+          "target_title": "Proof of Payment URI scheme",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "122",
+          "source_title": "BIP Classification",
+          "target_title": "URI scheme for Blockchain references / exploration",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "124",
+          "source_title": "BIP Classification",
+          "target_title": "Hierarchical Deterministic Script Templates",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "125",
+          "source_title": "BIP Classification",
+          "target_title": "Opt-in Full Replace-by-Fee Signaling",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "126",
+          "source_title": "BIP Classification",
+          "target_title": "Best Practices for Heterogeneous Input Script Transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "130",
+          "source_title": "BIP Classification",
+          "target_title": "sendheaders message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "131",
+          "source_title": "BIP Classification",
+          "target_title": "\"Coalescing Transaction\" Specification (wildcard inputs)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "132",
+          "source_title": "BIP Classification",
+          "target_title": "Committee-based BIP Acceptance Process",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "133",
+          "source_title": "BIP Classification",
+          "target_title": "feefilter message",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "134",
+          "source_title": "BIP Classification",
+          "target_title": "Flexible Transactions",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "140",
+          "source_title": "BIP Classification",
+          "target_title": "Normalized TXID",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "141",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Consensus layer)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "142",
+          "source_title": "BIP Classification",
+          "target_title": "Address Format for Segregated Witness",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "143",
+          "source_title": "BIP Classification",
+          "target_title": "Transaction Signature Verification for Version 0 Witness Program",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "144",
+          "source_title": "BIP Classification",
+          "target_title": "Segregated Witness (Peer Services)",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "145",
+          "source_title": "BIP Classification",
+          "target_title": "getblocktemplate Updates for Segregated Witness",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "146",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with signature encoding malleability",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "147",
+          "source_title": "BIP Classification",
+          "target_title": "Dealing with dummy stack element malleability",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "150",
+          "source_title": "BIP Classification",
+          "target_title": "Peer Authentication",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "151",
+          "source_title": "BIP Classification",
+          "target_title": "Peer-to-Peer Communication Encryption",
+          "status": "baseline_only"
+        },
+        {
+          "source": "123",
+          "target": "152",
+          "source_title": "BIP Classification",
+          "target_title": "Compact Block Relay",
           "status": "baseline_only"
         },
         {
@@ -17092,6 +20697,20 @@
           "status": "baseline_only"
         },
         {
+          "source": "156",
+          "target": "1",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP Purpose and Guidelines",
+          "status": "baseline_only"
+        },
+        {
+          "source": "156",
+          "target": "2",
+          "source_title": "Dandelion - Privacy Enhancing Routing",
+          "target_title": "BIP process, revised",
+          "status": "baseline_only"
+        },
+        {
           "source": "157",
           "target": "111",
           "source_title": "Client Side Block Filtering",
@@ -17103,6 +20722,13 @@
           "target": "37",
           "source_title": "Compact Block Filters for Light Clients",
           "target_title": "Connection Bloom filtering",
+          "status": "baseline_only"
+        },
+        {
+          "source": "158",
+          "target": "141",
+          "source_title": "Compact Block Filters for Light Clients",
+          "target_title": "Segregated Witness (Consensus layer)",
           "status": "baseline_only"
         },
         {

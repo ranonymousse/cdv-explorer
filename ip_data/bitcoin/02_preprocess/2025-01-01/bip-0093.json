@@ -781,10 +781,22 @@
       "BIP 173"
     ],
     "explicit_references": [
-      "BIP 173",
       "BIP 32",
-      "BIP 39"
+      "BIP 39",
+      "BIP 173"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "e761066fbcd41b6a10b1614d974ea09531c3f945",
+        "timestamp": "2023-03-17T02:39:01Z",
+        "date": "2023-03-17",
+        "author": "Andrew Poelstra",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

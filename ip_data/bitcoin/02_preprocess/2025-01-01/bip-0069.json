@@ -678,5 +678,33 @@
       "BIP 30"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "61a9711deb1947f8bd3d05987e4c4f1d104849ab",
+        "timestamp": "2015-06-12T17:31:23-04:00",
+        "date": "2015-06-12",
+        "author": "Kristov Atlas",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "1501dd99bd12f9e6835f5169d21fd29fb41071db",
+        "timestamp": "2016-08-27T20:21:26Z",
+        "date": "2016-08-27",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

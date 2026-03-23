@@ -602,11 +602,32 @@
       "BIP 141"
     ],
     "explicit_references": [
-      "BIP 125",
-      "BIP 69"
+      "BIP 21",
+      "BIP 69",
+      "BIP 125"
     ],
     "explicit_dependencies": [
       "BIP 78"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "605c31a9e01c1cb0113cca91811571d7ad48f3c8",
+        "timestamp": "2018-10-08T01:53:25+06:00",
+        "date": "2018-10-08",
+        "author": "Ryan Havar",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "30e70e49741d19860511668a44b33a76e503725d",
+        "timestamp": "2020-08-05T20:20:11+01:00",
+        "date": "2020-08-05",
+        "author": "Yahia Chiheb",
+        "status": "Replaced",
+        "standard": "bip2"
+      }
     ]
   }
 }

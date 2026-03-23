@@ -545,8 +545,8 @@
       "BIP 370"
     ],
     "explicit_references": [
-      "BIP 174",
       "BIP 32",
+      "BIP 174",
       "BIP 327",
       "BIP 328",
       "BIP 340",
@@ -554,5 +554,17 @@
       "BIP 370"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "806b8b886fef460a7a812c219f30d5b09d74d2d0",
+        "timestamp": "2024-01-15T14:07:56-05:00",
+        "date": "2024-01-15",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

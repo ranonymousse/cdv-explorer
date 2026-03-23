@@ -1145,15 +1145,27 @@
       "checkoutputshashverify": 2
     },
     "explicit_references": [
-      "BIP 112",
-      "BIP 341",
+      "BIP 9",
       "BIP 65",
-      "BIP 9"
+      "BIP 112",
+      "BIP 341"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 9",
       "BIP 341"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "1a42897287ab5b2a1a700000b8eef1d660037505",
+        "timestamp": "2019-05-17T10:46:10-07:00",
+        "date": "2019-05-17",
+        "author": "Jeremy Rubin",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

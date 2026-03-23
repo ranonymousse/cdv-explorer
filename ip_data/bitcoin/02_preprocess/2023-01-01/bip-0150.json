@@ -544,5 +544,17 @@
     "implicit_dependencies": [
       "BIP 151"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5e49486769ec7dddb4689bdf270e587a91d74c0c",
+        "timestamp": "2016-05-18T09:19:24+02:00",
+        "date": "2016-05-18",
+        "author": "Jonas Schnelli",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

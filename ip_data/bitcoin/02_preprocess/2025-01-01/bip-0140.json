@@ -636,5 +636,25 @@
       "BIP 66"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "46d25f86298fc70b4e00f06b3068f2c81231eb61",
+        "timestamp": "2015-05-13T11:16:55+02:00",
+        "date": "2015-05-13",
+        "author": "Christian Decker",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6c87829b7b51445e7d3a77810f6018940c51e42c",
+        "timestamp": "2020-06-25T22:42:52-05:00",
+        "date": "2020-06-25",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

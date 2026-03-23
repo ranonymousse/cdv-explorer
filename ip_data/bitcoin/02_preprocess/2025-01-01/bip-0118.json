@@ -707,19 +707,31 @@
       "BIP 342"
     ],
     "explicit_references": [
+      "BIP 30",
+      "BIP 68",
       "BIP 112",
       "BIP 141",
-      "BIP 30",
       "BIP 340",
       "BIP 341",
       "BIP 342",
-      "BIP 350",
-      "BIP 68"
+      "BIP 350"
     ],
     "explicit_dependencies": [
       "BIP 340",
       "BIP 341",
       "BIP 342"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "98b7238f68d17f0e01275dd32075078702225356",
+        "timestamp": "2018-04-30T17:58:23+02:00",
+        "date": "2018-04-30",
+        "author": "Christian Decker",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

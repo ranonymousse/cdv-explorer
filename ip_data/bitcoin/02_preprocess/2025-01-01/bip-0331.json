@@ -757,5 +757,17 @@
       "BIP 339"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "632f143fadaed8c91bba12d096e62feb2a308054",
+        "timestamp": "2022-05-11T15:53:37-04:00",
+        "date": "2022-05-11",
+        "author": "glozow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

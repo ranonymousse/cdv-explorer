@@ -528,5 +528,17 @@
     ],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "996e31fa168a6b243ebae54f1bf0b2b8052cc659",
+        "timestamp": "2024-01-09T11:47:40-05:00",
+        "date": "2024-01-09",
+        "author": "Tom Briar",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

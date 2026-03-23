@@ -500,5 +500,17 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "01201d6ce58d7df1d48034bb434a577cceb507fe",
+        "timestamp": "2015-09-19T19:24:35+02:00",
+        "date": "2015-09-19",
+        "author": "MarcoPon",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

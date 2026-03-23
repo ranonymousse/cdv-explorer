@@ -508,5 +508,33 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ce40c0f8f02e83892eb185aabea306ee2a3ab10e",
+        "timestamp": "2011-10-29T11:39:58+01:00",
+        "date": "2011-10-29",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "12627baeea94a377bb94612beeec9b9cc4bd978e",
+        "timestamp": "2011-12-13T17:35:53Z",
+        "date": "2011-12-13",
+        "author": "genjix",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "7c1296b7b62b5a9c09668e1fd66817596d91e6d3",
+        "timestamp": "2012-01-03T21:28:49Z",
+        "date": "2012-01-03",
+        "author": "genjix",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

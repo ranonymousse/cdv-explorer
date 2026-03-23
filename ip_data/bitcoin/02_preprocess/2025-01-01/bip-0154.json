@@ -831,5 +831,25 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c39c7f88add33d40fc9b66b50ba29343cae3e5b0",
+        "timestamp": "2017-03-26T15:19:22-07:00",
+        "date": "2017-03-26",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "9e62a7a83859927bc01dd86e5f4df2e652d6de55",
+        "timestamp": "2019-07-30T00:22:42+09:00",
+        "date": "2019-07-30",
+        "author": "Karl-Johan Alm",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -813,15 +813,40 @@
       "point": 2
     },
     "explicit_references": [
+      "BIP 16",
       "BIP 34",
       "BIP 65",
-      "BIP 66"
+      "BIP 66",
+      "BIP 68",
+      "BIP 112",
+      "BIP 113",
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 34",
       "BIP 65",
       "BIP 66"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "be86444b8826a6dcb44602e24ed1d1316204f2a6",
+        "timestamp": "2015-09-24T10:02:51+09:30",
+        "date": "2015-09-24",
+        "author": "Rusty Russell",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d35a3d33da628fb3da543bb8652a2153d65562c5",
+        "timestamp": "2016-08-20T23:50:14Z",
+        "date": "2016-08-20",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
     ]
   }
 }

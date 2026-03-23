@@ -518,12 +518,32 @@
       "BIP 147"
     ],
     "explicit_references": [
+      "BIP 9",
+      "BIP 16",
       "BIP 141",
       "BIP 143",
-      "BIP 147",
-      "BIP 16",
-      "BIP 9"
+      "BIP 147"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ccef12cc4226edda0222d98861f2296f6cb9e26d",
+        "timestamp": "2017-03-18T20:09:37Z",
+        "date": "2017-03-18",
+        "author": "shaolinfry",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d98333302f2a41114c6f006a77a51edc3d1e743b",
+        "timestamp": "2017-08-11T05:36:07Z",
+        "date": "2017-08-11",
+        "author": "shaolinfry",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

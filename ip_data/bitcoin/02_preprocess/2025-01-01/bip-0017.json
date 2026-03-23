@@ -575,5 +575,41 @@
       "BIP 16"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "823066539702dcf9af226527454281919c3d8265",
+        "timestamp": "2012-01-27T18:51:24Z",
+        "date": "2012-01-27",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d0c10bae34af073b8a0e06aa496b5afc5e84b24d",
+        "timestamp": "2012-03-13T19:45:23-04:00",
+        "date": "2012-03-13",
+        "author": "Luke Dashjr",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      },
+      {
+        "commit": "16fe80c1c61b0d78581af78854e419f7ab544c69",
+        "timestamp": "2013-10-21T00:44:39-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5866744d0ebe8fe40bf7d0ea79eb7fa67d562794",
+        "timestamp": "2015-09-04T02:13:37Z",
+        "date": "2015-09-04",
+        "author": "Luke Dashjr",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

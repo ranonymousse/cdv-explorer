@@ -460,5 +460,25 @@
     "implicit_dependencies": [
       "BIP 9"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "79f4e229096e305effddeba149ccdbf6525ee604",
+        "timestamp": "2015-06-23T02:51:52-04:00",
+        "date": "2015-06-23",
+        "author": "Jeff Garzik",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "2eca4d32c8284952ba4cbe19a1db7a23767482b9",
+        "timestamp": "2019-09-19T22:16:51Z",
+        "date": "2019-09-19",
+        "author": "Luke Dashjr",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

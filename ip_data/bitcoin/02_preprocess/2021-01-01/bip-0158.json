@@ -760,12 +760,25 @@
       "references": 2
     },
     "explicit_references": [
-      "BIP 157",
-      "BIP 37"
+      "BIP 37",
+      "BIP 141",
+      "BIP 157"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 157"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "996c7c8e882b3629d1a06a41536bdda6955c324b",
+        "timestamp": "2017-06-01T11:59:19-07:00",
+        "date": "2017-06-01",
+        "author": "Jim Posen",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

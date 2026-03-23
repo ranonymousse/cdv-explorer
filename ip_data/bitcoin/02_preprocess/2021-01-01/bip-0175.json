@@ -599,5 +599,17 @@
       "BIP 43",
       "BIP 44"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4ba4fc3f0af1aed964fd3c0539b6ed3728699b5d",
+        "timestamp": "2017-09-06T16:42:37+03:00",
+        "date": "2017-09-06",
+        "author": "Omar Shibli",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

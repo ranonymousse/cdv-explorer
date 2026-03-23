@@ -531,14 +531,26 @@
       "mediawiki": 2
     },
     "explicit_references": [
-      "BIP 341",
-      "BIP 68"
+      "BIP 68",
+      "BIP 341"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 68",
       "BIP 112",
       "BIP 341"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4d5e1cc162e5d93bcf8e0ea94cf2bb96e1d7594a",
+        "timestamp": "2022-01-08T15:32:00Z",
+        "date": "2022-01-08",
+        "author": "chris-belcher",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

@@ -654,5 +654,25 @@
       "BIP 34",
       "BIP 16"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5df1b34d50b2a4d119d56f6d2b45c44612ca6519",
+        "timestamp": "2012-04-20T01:17:52+01:00",
+        "date": "2012-04-20",
+        "author": "genjix",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
+        "timestamp": "2016-02-01T20:14:22Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

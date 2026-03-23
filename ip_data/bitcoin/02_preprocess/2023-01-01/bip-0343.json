@@ -471,12 +471,12 @@
       "eventual": 2
     },
     "explicit_references": [
+      "BIP 8",
+      "BIP 91",
       "BIP 148",
       "BIP 340",
       "BIP 341",
-      "BIP 342",
-      "BIP 8",
-      "BIP 91"
+      "BIP 342"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -484,6 +484,18 @@
       "BIP 340",
       "BIP 341",
       "BIP 342"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "37b55d2fde5d7d724822ab121492aac9731ac286",
+        "timestamp": "2021-05-09T10:03:13+01:00",
+        "date": "2021-05-09",
+        "author": "Michael Folkson",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
     ]
   }
 }

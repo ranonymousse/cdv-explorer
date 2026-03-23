@@ -479,5 +479,17 @@
       "BIP 173",
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "f667e7a3c737bb983f31632837c24cf0863d5f7b",
+        "timestamp": "2018-04-04T14:38:00+09:00",
+        "date": "2018-04-04",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

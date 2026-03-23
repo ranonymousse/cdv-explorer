@@ -674,5 +674,25 @@
     "implicit_dependencies": [
       "BIP 22"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "1aff2c89ea88a2b35877c86a39b0abb4629b32e8",
+        "timestamp": "2013-10-21T00:50:27-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
+        "timestamp": "2016-02-01T20:14:22Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -571,10 +571,10 @@
       "eloipool": 2
     },
     "explicit_references": [
-      "BIP 141",
+      "BIP 9",
       "BIP 22",
       "BIP 23",
-      "BIP 9"
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -582,6 +582,26 @@
       "BIP 141",
       "BIP 9",
       "BIP 23"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "3b058bba32645a834c6da306db1a68d4a24ca236",
+        "timestamp": "2016-01-30T18:46:54Z",
+        "date": "2016-01-30",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "41e06840ebb7b5459bb77707e427fa2687831ed4",
+        "timestamp": "2017-08-30T15:37:48+08:00",
+        "date": "2017-08-30",
+        "author": "Johnson Lau",
+        "status": "Final",
+        "standard": "bip2"
+      }
     ]
   }
 }

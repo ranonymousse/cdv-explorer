@@ -765,7 +765,8 @@
     },
     "explicit_references": [
       "BIP 141",
-      "BIP 173"
+      "BIP 173",
+      "BIP 341"
     ],
     "explicit_dependencies": [
       "BIP 173"
@@ -773,6 +774,18 @@
     "implicit_dependencies": [
       "BIP 173",
       "BIP 141"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6128a7bcb60ae2eca2461ccb17d29b5186d13820",
+        "timestamp": "2020-12-24T14:37:19-08:00",
+        "date": "2020-12-24",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

@@ -601,5 +601,41 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6d42bc0c5b560f42c2b4c7ac459cfa3ee5cb3701",
+        "timestamp": "2019-02-18T13:45:02-08:00",
+        "date": "2019-02-18",
+        "author": "cgilliard",
+        "status": "Proposal",
+        "standard": "bip2"
+      },
+      {
+        "commit": "ec8b400259d74de507f0e7856899397fc5a15671",
+        "timestamp": "2019-02-27T10:28:34+01:00",
+        "date": "2019-02-27",
+        "author": "Wladimir J. van der Laan",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "fe6899a294c5d437f727981f69a660a833bcba6b",
+        "timestamp": "2019-03-02T14:50:23-08:00",
+        "date": "2019-03-02",
+        "author": "cgilliard",
+        "status": "Proposal",
+        "standard": "bip2"
+      },
+      {
+        "commit": "34534b5ee1cf49cf67005b5457fce110ea6b0f4b",
+        "timestamp": "2019-07-18T00:17:55+02:00",
+        "date": "2019-07-18",
+        "author": "Wladimir J. van der Laan",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -674,5 +674,17 @@
       "BIP 342"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "83ca57f22268edb1ff2815085a4383ba8d1b55fe",
+        "timestamp": "2023-12-11T18:11:22-05:00",
+        "date": "2023-12-11",
+        "author": "Ethan Heilman",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

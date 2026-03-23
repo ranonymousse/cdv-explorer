@@ -1008,17 +1008,17 @@
       "references": 2
     },
     "explicit_references": [
-      "BIP 112",
-      "BIP 143",
-      "BIP 144",
-      "BIP 146",
+      "BIP 9",
       "BIP 16",
-      "BIP 173",
       "BIP 62",
       "BIP 65",
       "BIP 68",
       "BIP 70",
-      "BIP 9"
+      "BIP 112",
+      "BIP 143",
+      "BIP 144",
+      "BIP 146",
+      "BIP 173"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -1027,6 +1027,50 @@
       "BIP 143",
       "BIP 144",
       "BIP 173"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "7bce321a18dac4a1be114eeb03fa71da9c1469ed",
+        "timestamp": "2015-12-19T03:52:06+08:00",
+        "date": "2015-12-19",
+        "author": "jl2012",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "824ce9da50158497ebd33057fbf8c4bc3a642c60",
+        "timestamp": "2017-08-30T15:37:48+08:00",
+        "date": "2017-08-30",
+        "author": "Johnson Lau",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "13b1df9c25fe8aff5a6ce68ebce0241aebddc209",
+        "timestamp": "2017-09-22T23:53:55+03:00",
+        "date": "2017-09-22",
+        "author": "danra",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "0402dd2b846e962125db4150d9c20ec43bb171dc",
+        "timestamp": "2017-10-29T04:22:13Z",
+        "date": "2017-10-29",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "df3bf7bd1b641893991a69114e20087307647326",
+        "timestamp": "2017-11-06T14:01:28+01:00",
+        "date": "2017-11-06",
+        "author": "Jonathan Cross",
+        "status": "Final",
+        "standard": "bip2"
+      }
     ]
   }
 }

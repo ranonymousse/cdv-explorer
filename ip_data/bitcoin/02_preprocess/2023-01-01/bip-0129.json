@@ -673,17 +673,29 @@
       "2021": 2
     },
     "explicit_references": [
-      "BIP 174",
       "BIP 32",
-      "BIP 322",
       "BIP 39",
-      "BIP 44"
+      "BIP 44",
+      "BIP 174",
+      "BIP 322"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 32",
       "BIP 39",
       "BIP 322"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "89c7529650913ec890c77aa71d5874cb09195e9e",
+        "timestamp": "2021-04-04T23:46:06-07:00",
+        "date": "2021-04-04",
+        "author": "Hugo Nguyen",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
     ]
   }
 }

@@ -466,5 +466,17 @@
     "implicit_dependencies": [
       "BIP 37"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "feb11160c2eff1cf381a7086d977017ffdf94cae",
+        "timestamp": "2016-02-25T13:29:01-05:00",
+        "date": "2016-02-25",
+        "author": "Alex Morcos",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

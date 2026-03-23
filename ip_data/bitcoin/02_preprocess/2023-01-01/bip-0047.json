@@ -833,5 +833,17 @@
       "BIP 43",
       "BIP 44"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "1612a0016a21d72a67886661913002ccdc4b839f",
+        "timestamp": "2015-06-19T18:27:37-05:00",
+        "date": "2015-06-19",
+        "author": "Justus Ranvier",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -606,5 +606,49 @@
       "BIP 67"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "39b441f2ff18e7dcf71f357e43e4dd78a1b198b1",
+        "timestamp": "2014-04-09T15:59:32+02:00",
+        "date": "2014-04-09",
+        "author": "slush0",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "647cb208b14ad37694be92a0f15a4f72e4d75089",
+        "timestamp": "2016-11-04T17:59:29+01:00",
+        "date": "2016-11-04",
+        "author": "Michael Rotarius",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "c54e7f9f95f95e53a6794d56619b0cd98d815816",
+        "timestamp": "2017-11-28T21:52:32+02:00",
+        "date": "2017-11-28",
+        "author": "Nikos Baxevanis",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

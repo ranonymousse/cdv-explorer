@@ -430,5 +430,17 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "d3ff4b1e9e3358893c5c5c5c2b5b1642f65ea98c",
+        "timestamp": "2019-10-17T21:26:08+02:00",
+        "date": "2019-10-17",
+        "author": "Emil Engler",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

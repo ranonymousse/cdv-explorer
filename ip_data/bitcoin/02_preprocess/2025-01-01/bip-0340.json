@@ -1166,14 +1166,34 @@
       "BIP 341"
     ],
     "explicit_references": [
+      "BIP 32",
+      "BIP 62",
+      "BIP 66",
       "BIP 118",
       "BIP 146",
-      "BIP 32",
       "BIP 327",
-      "BIP 341",
-      "BIP 62",
-      "BIP 66"
+      "BIP 341"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "aeffa075271912f506ed06b860d271461fe99c8d",
+        "timestamp": "2018-07-05T18:45:34-07:00",
+        "date": "2018-07-05",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "43fa7cf13d3ed35bcd2dd518c2fa0f41a4d2caa7",
+        "timestamp": "2023-02-19T16:16:13+01:00",
+        "date": "2023-02-19",
+        "author": "Christian Lewe",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

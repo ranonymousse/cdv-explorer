@@ -586,5 +586,33 @@
       "BIP 44"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "bd0da6f44a9a66ccbd76f709b03b5d9d405dabc3",
+        "timestamp": "2014-04-28T16:04:16-03:00",
+        "date": "2014-04-28",
+        "author": "Manuel Araoz",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "04e1a86f513f9662c63656d220301aaca77eeaa9",
+        "timestamp": "2016-08-25T21:10:19Z",
+        "date": "2016-08-25",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -852,5 +852,41 @@
       "BIP 44"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "96927344e7a50116aceab6c0f648362cc3bab296",
+        "timestamp": "2020-04-11T11:29:51Z",
+        "date": "2020-04-11",
+        "author": "Ethan Kosakovsky",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "b0125501f824804dc5f39f143c3c674f3eac6c7f",
+        "timestamp": "2024-10-05T14:44:06+02:00",
+        "date": "2024-10-05",
+        "author": "scgbckbone",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "2e98c7115cb524037300180560f5c399edb6883c",
+        "timestamp": "2024-10-13T17:02:11-07:00",
+        "date": "2024-10-13",
+        "author": "Aneesh Karve",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "e0cc4f0e3d3657b025af318de009f6028d673211",
+        "timestamp": "2024-10-25T12:03:06-07:00",
+        "date": "2024-10-25",
+        "author": "Aneesh Karve",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

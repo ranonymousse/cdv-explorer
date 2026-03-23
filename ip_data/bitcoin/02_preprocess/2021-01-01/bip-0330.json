@@ -713,5 +713,17 @@
     "implicit_dependencies": [
       "BIP 141"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "311c085cab2929754c79dd6e330bf888ec000e73",
+        "timestamp": "2019-09-25T14:11:03+03:00",
+        "date": "2019-09-25",
+        "author": "Gleb Naumenko",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -433,12 +433,26 @@
       "wpkh": 2,
       "implementation": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 16",
       "BIP 141",
       "BIP 380"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "f52f1e82e52367ebbda2656845a71ad92a4ed677",
+        "timestamp": "2021-06-27T18:49:41-04:00",
+        "date": "2021-06-27",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

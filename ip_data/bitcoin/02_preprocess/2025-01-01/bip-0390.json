@@ -481,5 +481,17 @@
       "BIP 380"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6b9138c1a1511719eb0477d2375c81a598ba07a0",
+        "timestamp": "2024-01-15T14:07:44-05:00",
+        "date": "2024-01-15",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

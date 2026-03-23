@@ -862,18 +862,55 @@
       "BIP 327"
     ],
     "explicit_references": [
-      "BIP 129",
       "BIP 32",
-      "BIP 379",
-      "BIP 380",
-      "BIP 389",
-      "BIP 390",
       "BIP 44",
       "BIP 48",
       "BIP 49",
       "BIP 84",
-      "BIP 86"
+      "BIP 86",
+      "BIP 129",
+      "BIP 327",
+      "BIP 379",
+      "BIP 380",
+      "BIP 389",
+      "BIP 390"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "44798a2a9e19643040af61818a7acb4cded47e00",
+        "timestamp": "2022-09-01T15:30:54+02:00",
+        "date": "2022-09-01",
+        "author": "Salvatore Ingala",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "1d7f12d36ab303ad750ca78404e3105822a56fcf",
+        "timestamp": "2024-05-12T11:43:24+02:00",
+        "date": "2024-05-12",
+        "author": "Salvatore Ingala",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "e7fef46177e092b2122abad86d5bd02797a7c98b",
+        "timestamp": "2024-05-12T10:56:34-06:00",
+        "date": "2024-05-12",
+        "author": "Jon Atack",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "3fd971455a3fc3a49ca47ec7fdec58c358da33dd",
+        "timestamp": "2024-07-10T17:58:48+02:00",
+        "date": "2024-07-10",
+        "author": "Salvatore Ingala",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -834,11 +834,31 @@
       "BIP 113"
     ],
     "explicit_references": [
-      "BIP 113",
+      "BIP 9",
       "BIP 65",
       "BIP 68",
-      "BIP 9"
+      "BIP 113"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ae46943f11faf80c1f69542f0976989c09cfa192",
+        "timestamp": "2015-08-11T00:49:09+01:00",
+        "date": "2015-08-11",
+        "author": "BtcDrak",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "c98859fe20617df141da0dd08d399921c7097be9",
+        "timestamp": "2016-07-18T23:37:42Z",
+        "date": "2016-07-18",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

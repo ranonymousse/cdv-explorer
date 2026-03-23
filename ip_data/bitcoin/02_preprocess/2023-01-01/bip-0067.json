@@ -593,5 +593,49 @@
       "BIP 11",
       "BIP 16"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b56a04c300c00609f38b1b70cf005458abbe705d",
+        "timestamp": "2015-02-12T21:02:56Z",
+        "date": "2015-02-12",
+        "author": "BitWasp",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "148988067a7298dcb03335b1a5be8fe4e21c2f1e",
+        "timestamp": "2016-11-30T17:48:54+01:00",
+        "date": "2016-11-30",
+        "author": "Ruben de Vries",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "b7090922b5e364409e4ddcd1558d85f2dd434c16",
+        "timestamp": "2020-04-29T01:43:50+02:00",
+        "date": "2020-04-29",
+        "author": "Ferdinando M. Ametrano",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

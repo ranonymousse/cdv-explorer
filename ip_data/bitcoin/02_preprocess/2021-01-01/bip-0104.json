@@ -476,5 +476,25 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "2a9e9503cd8604d36f966b95005ef7a88ee979c6",
+        "timestamp": "2017-01-13T18:23:15-05:00",
+        "date": "2017-01-13",
+        "author": "t.khan",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "2d293b73077762eaa966c89728dd9d57b6fb5da0",
+        "timestamp": "2020-04-30T09:37:22-05:00",
+        "date": "2020-04-30",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

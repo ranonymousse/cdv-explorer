@@ -497,5 +497,17 @@
     "implicit_dependencies": [
       "BIP 14"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4d9e7bc20cef9b296f1c1e9112e729186b54fc61",
+        "timestamp": "2014-06-18T11:13:44-04:00",
+        "date": "2014-06-18",
+        "author": "Gavin Andresen",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

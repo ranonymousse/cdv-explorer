@@ -791,5 +791,17 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "250cf5440961e769deb88cf3e0a134243a6604fb",
+        "timestamp": "2021-05-26T19:48:37+02:00",
+        "date": "2021-05-26",
+        "author": "PoWx Team",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

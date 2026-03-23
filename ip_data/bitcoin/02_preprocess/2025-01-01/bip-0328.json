@@ -451,5 +451,17 @@
       "BIP 327"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "48ebcb2191e9738efcff06b425cec41985c43f5f",
+        "timestamp": "2024-01-15T14:54:19-05:00",
+        "date": "2024-01-15",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

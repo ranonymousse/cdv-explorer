@@ -711,10 +711,12 @@
       "freicoin": 2
     },
     "explicit_references": [
+      "BIP 9",
       "BIP 12",
       "BIP 16",
       "BIP 17",
       "BIP 30",
+      "BIP 50",
       "BIP 65",
       "BIP 66"
     ],
@@ -723,6 +725,26 @@
       "BIP 9",
       "BIP 16",
       "BIP 65"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "9a81f01a3db13c9d2f1f93ba79dd78144df4273c",
+        "timestamp": "2015-06-20T23:10:46+02:00",
+        "date": "2015-06-20",
+        "author": "Jorge Timón",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f4eecb1ea354d6146bbdb792f5419eb7cc0da7a1",
+        "timestamp": "2020-04-30T09:29:35-05:00",
+        "date": "2020-04-30",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
     ]
   }
 }

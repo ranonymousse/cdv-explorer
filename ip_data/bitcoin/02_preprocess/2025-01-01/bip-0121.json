@@ -552,10 +552,30 @@
       "BIP 120"
     ],
     "explicit_references": [
-      "BIP 120",
       "BIP 21",
-      "BIP 70"
+      "BIP 70",
+      "BIP 120"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4b6ee39ced3c6d838cee1827a5585620f7e188f5",
+        "timestamp": "2015-07-28T22:41:35+02:00",
+        "date": "2015-07-28",
+        "author": "Kalle Rosenbaum",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "85a99fb14b64234aa59492649c30e3bd2f04e28d",
+        "timestamp": "2018-02-08T22:22:50+01:00",
+        "date": "2018-02-08",
+        "author": "Kalle Rosenbaum",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

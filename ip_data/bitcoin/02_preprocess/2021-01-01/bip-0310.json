@@ -585,5 +585,17 @@
     "implicit_dependencies": [
       "BIP 9"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b24e59171166a32d46a984e91decb8d29683fb62",
+        "timestamp": "2018-08-01T09:54:36+02:00",
+        "date": "2018-08-01",
+        "author": "Jan Čapek",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

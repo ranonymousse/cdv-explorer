@@ -779,10 +779,31 @@
     ],
     "explicit_references": [
       "BIP 141",
-      "BIP 173"
+      "BIP 173",
+      "BIP 341"
     ],
     "explicit_dependencies": [
       "BIP 173"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6128a7bcb60ae2eca2461ccb17d29b5186d13820",
+        "timestamp": "2020-12-24T14:37:19-08:00",
+        "date": "2020-12-24",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "9b03e64c93353bec0ce8c6db3c2769e5edcf45e4",
+        "timestamp": "2023-05-18T18:08:00+02:00",
+        "date": "2023-05-18",
+        "author": "Christian Lewe",
+        "status": "Final",
+        "standard": "bip2"
+      }
     ]
   }
 }

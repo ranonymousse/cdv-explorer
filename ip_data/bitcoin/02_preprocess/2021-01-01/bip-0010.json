@@ -528,5 +528,25 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "bdb707e831b4e08196d1993b3d6e432b732b8fae",
+        "timestamp": "2011-12-31T12:14:49Z",
+        "date": "2011-12-31",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "770a061e60a83bda4c6c5a8cba2540050ca2e1e0",
+        "timestamp": "2014-11-26T11:51:15-06:00",
+        "date": "2014-11-26",
+        "author": "Umpei Kay Kurokawa",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

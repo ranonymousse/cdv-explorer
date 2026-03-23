@@ -517,5 +517,33 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ce40c0f8f02e83892eb185aabea306ee2a3ab10e",
+        "timestamp": "2011-10-29T11:39:58+01:00",
+        "date": "2011-10-29",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "12627baeea94a377bb94612beeec9b9cc4bd978e",
+        "timestamp": "2011-12-13T17:35:53Z",
+        "date": "2011-12-13",
+        "author": "genjix",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
+        "timestamp": "2016-02-01T20:14:22Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

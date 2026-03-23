@@ -748,10 +748,10 @@
       "leaf": 2
     },
     "explicit_references": [
-      "BIP 112",
-      "BIP 141",
+      "BIP 9",
       "BIP 16",
-      "BIP 9"
+      "BIP 112",
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -759,6 +759,26 @@
       "BIP 141",
       "BIP 112",
       "BIP 9"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "735a55612949f5b0bcec6fe2e5f89e65bf0602c6",
+        "timestamp": "2016-04-01T15:17:24+08:00",
+        "date": "2016-04-01",
+        "author": "jl2012",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "3711a828afced7c3ee20a7ef420892988b505216",
+        "timestamp": "2020-08-21T08:08:17+02:00",
+        "date": "2020-08-21",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
     ]
   }
 }

@@ -647,8 +647,33 @@
       "copyright": 2,
       "domain": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 1",
+      "BIP 2",
+      "BIP 3",
+      "BIP 4"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c947050ed87b18be580f540951704d35809f92c9",
+        "timestamp": "2018-04-20T18:34:22-04:00",
+        "date": "2018-04-20",
+        "author": "Brad Denby",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f50152b3df5f2f4bf0a5615702e06224baa283b2",
+        "timestamp": "2020-06-25T22:55:32-05:00",
+        "date": "2020-06-25",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -549,5 +549,25 @@
       "BIP 151"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5e49486769ec7dddb4689bdf270e587a91d74c0c",
+        "timestamp": "2016-05-18T09:19:24+02:00",
+        "date": "2016-05-18",
+        "author": "Jonas Schnelli",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "29312fbe912a0125ad70a95d61a3734692a25de6",
+        "timestamp": "2024-07-17T21:46:35+02:00",
+        "date": "2024-07-17",
+        "author": "Jonas Schnelli",
+        "status": "Deferred",
+        "standard": "bip2"
+      }
+    ]
   }
 }

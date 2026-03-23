@@ -1179,11 +1179,47 @@
     "implicit_dependencies": [],
     "explicit_references": [
       "BIP 1",
-      "BIP 123",
-      "BIP 9"
+      "BIP 9",
+      "BIP 123"
     ],
     "explicit_dependencies": [
       "BIP 1"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ebba30aa86452590f2d505e0ed058f0b64586258",
+        "timestamp": "2016-02-01T22:34:17Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "2fd18113315d9675bfcfca23e8f25656f7088606",
+        "timestamp": "2016-03-18T20:03:56Z",
+        "date": "2016-03-18",
+        "author": "Luke Dashjr",
+        "status": "Deferred",
+        "standard": "bip2"
+      },
+      {
+        "commit": "e89b98facd4b52e0d248ca7dfc6f60a030d4cc59",
+        "timestamp": "2016-09-24T06:27:51Z",
+        "date": "2016-09-24",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Active",
+        "standard": "bip2"
+      }
     ]
   }
 }

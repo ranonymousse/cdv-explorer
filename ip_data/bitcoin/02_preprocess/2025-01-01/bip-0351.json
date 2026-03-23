@@ -638,14 +638,26 @@
       "BIP 350"
     ],
     "explicit_references": [
-      "BIP 157",
-      "BIP 158",
       "BIP 32",
-      "BIP 380",
       "BIP 43",
       "BIP 44",
-      "BIP 47"
+      "BIP 47",
+      "BIP 157",
+      "BIP 158",
+      "BIP 380"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ae247aa6cfe512d647fa1178b161213b7187d225",
+        "timestamp": "2022-07-22T08:51:32Z",
+        "date": "2022-07-22",
+        "author": "Alfred Hodler",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

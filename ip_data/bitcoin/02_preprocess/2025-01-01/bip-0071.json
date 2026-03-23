@@ -440,5 +440,25 @@
     ],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "fe026b8e00eea7b4fe92c62ac735d15191c218f9",
+        "timestamp": "2013-10-21T00:59:49-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "3aa996b5553b92e1e6b05b42448c7f657dac8760",
+        "timestamp": "2014-06-12T10:46:26-04:00",
+        "date": "2014-06-12",
+        "author": "Gavin Andresen",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -623,7 +623,15 @@
     },
     "explicit_references": [
       "BIP 32",
-      "BIP 39"
+      "BIP 39",
+      "BIP 44",
+      "BIP 49",
+      "BIP 381",
+      "BIP 382",
+      "BIP 383",
+      "BIP 384",
+      "BIP 385",
+      "BIP 386"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -634,6 +642,18 @@
       "BIP 384",
       "BIP 385",
       "BIP 386"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "71f435e76b074e55151a5aa99109290e8d0b6535",
+        "timestamp": "2021-06-27T17:20:21-04:00",
+        "date": "2021-06-27",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

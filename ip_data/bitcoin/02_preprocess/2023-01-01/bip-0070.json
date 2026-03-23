@@ -836,5 +836,25 @@
     "implicit_dependencies": [
       "BIP 71"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "3bd2e6cda7ec5dce6f0e4be956918f322a090c4a",
+        "timestamp": "2013-10-21T00:59:06-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "8571f42a6c0cdf9ba25817a2ea60b1b5ba988181",
+        "timestamp": "2014-06-12T10:46:59-04:00",
+        "date": "2014-06-12",
+        "author": "Gavin Andresen",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

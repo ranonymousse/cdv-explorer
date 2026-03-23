@@ -712,5 +712,17 @@
     "implicit_dependencies": [
       "BIP 116"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "e61b25087d56b99516b4e6045b8969b76da0cb4b",
+        "timestamp": "2017-11-14T17:39:23+09:00",
+        "date": "2017-11-14",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

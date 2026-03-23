@@ -547,17 +547,37 @@
       "chain": 2
     },
     "explicit_references": [
-      "BIP 141",
-      "BIP 152",
+      "BIP 9",
       "BIP 62",
       "BIP 66",
-      "BIP 9"
+      "BIP 141",
+      "BIP 152"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 9",
       "BIP 66",
       "BIP 141"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b004187f14ef3fadd0851e1f3296e8ebac6109bd",
+        "timestamp": "2016-08-16T17:26:08+08:00",
+        "date": "2016-08-16",
+        "author": "Johnson Lau",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "fd02fa4bb7ab2238e51fc943ba2d64d33655baf9",
+        "timestamp": "2020-06-25T05:11:46Z",
+        "date": "2020-06-25",
+        "author": "Luke Dashjr",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
     ]
   }
 }

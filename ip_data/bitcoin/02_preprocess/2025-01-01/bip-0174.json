@@ -1562,12 +1562,43 @@
       "BIP 373"
     ],
     "explicit_references": [
+      "BIP 32",
       "BIP 127",
       "BIP 143",
-      "BIP 32",
       "BIP 341",
-      "BIP 353"
+      "BIP 353",
+      "BIP 370",
+      "BIP 371",
+      "BIP 373"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "958641741b02e042b8d858304e29bbc781f647cb",
+        "timestamp": "2017-07-12T12:11:09-07:00",
+        "date": "2017-07-12",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "cb426bfdae601954c5eea865d328d2af8313bd69",
+        "timestamp": "2018-07-11T11:52:55-07:00",
+        "date": "2018-07-11",
+        "author": "Andrew Chow",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "c27d5e8b9643a478ed7b6fd4e7cda15238f418fe",
+        "timestamp": "2021-01-14T14:38:36-05:00",
+        "date": "2021-01-14",
+        "author": "Andrew Chow",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -1028,14 +1028,27 @@
       "BIP 342"
     ],
     "explicit_references": [
+      "BIP 65",
       "BIP 112",
+      "BIP 118",
       "BIP 119",
       "BIP 125",
       "BIP 340",
       "BIP 341",
-      "BIP 342",
-      "BIP 65"
+      "BIP 342"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b30e37c8a26d6b18415406a5664aaef9929a8ac5",
+        "timestamp": "2023-02-08T16:11:18-05:00",
+        "date": "2023-02-08",
+        "author": "James O'Beirne",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

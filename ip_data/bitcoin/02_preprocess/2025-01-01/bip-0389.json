@@ -517,9 +517,21 @@
     ],
     "explicit_references": [
       "BIP 32",
-      "BIP 380",
-      "BIP 88"
+      "BIP 88",
+      "BIP 380"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "a3ad2547bc4643912f67a7aaea951fcc3b24dc82",
+        "timestamp": "2022-07-26T17:16:53-04:00",
+        "date": "2022-07-26",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

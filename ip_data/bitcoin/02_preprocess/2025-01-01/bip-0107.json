@@ -527,5 +527,25 @@
       "BIP 101"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6d97bf5c98e636dfb902f9accc88a62ac348897e",
+        "timestamp": "2015-09-13T22:00:11+10:00",
+        "date": "2015-09-13",
+        "author": "Dr Washington Sanchez",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "2d293b73077762eaa966c89728dd9d57b6fb5da0",
+        "timestamp": "2020-04-30T09:37:22-05:00",
+        "date": "2020-04-30",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

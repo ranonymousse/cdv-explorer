@@ -464,5 +464,33 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "f048fea5eb1762be501c7dd42d9c097f565b1e8b",
+        "timestamp": "2012-04-16T18:14:15+01:00",
+        "date": "2012-04-16",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "1e40c8fba58d31da0ce5991e897010ada15549cd",
+        "timestamp": "2013-10-21T00:51:50-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
+        "timestamp": "2016-02-01T20:14:22Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

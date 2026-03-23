@@ -651,5 +651,17 @@
       "BIP 325",
       "BIP 340"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b925137d5f302863f4f1002c191858ef350ba1fc",
+        "timestamp": "2018-09-10T12:26:13+09:00",
+        "date": "2018-09-10",
+        "author": "Karl-Johan Alm",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

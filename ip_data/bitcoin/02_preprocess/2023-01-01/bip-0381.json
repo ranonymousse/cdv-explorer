@@ -451,10 +451,24 @@
       "implementation": 2,
       "scripts": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 380"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "bd12ea7e9ddde4c7bd70bf3c4e13e98f941fcc4d",
+        "timestamp": "2021-06-27T18:49:37-04:00",
+        "date": "2021-06-27",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

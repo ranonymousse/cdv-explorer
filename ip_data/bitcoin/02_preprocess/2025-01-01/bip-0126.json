@@ -542,5 +542,17 @@
       "BIP 69"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "9ab38e9c1096e1e94bb28fe57620e56ad4045c96",
+        "timestamp": "2016-06-22T18:43:56-05:00",
+        "date": "2016-06-22",
+        "author": "Justus Ranvier",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

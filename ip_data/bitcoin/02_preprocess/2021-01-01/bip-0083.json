@@ -523,5 +523,25 @@
     "implicit_dependencies": [
       "BIP 32"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "fd6789cfc8674b1fd582dc7323b07abb2733b4e9",
+        "timestamp": "2016-01-12T19:16:46-05:00",
+        "date": "2016-01-12",
+        "author": "Eric Lombrozo",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "79c7b80c89eb17ff04ea33fce96e9e527f6f9028",
+        "timestamp": "2019-06-20T16:31:52-05:00",
+        "date": "2019-06-20",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

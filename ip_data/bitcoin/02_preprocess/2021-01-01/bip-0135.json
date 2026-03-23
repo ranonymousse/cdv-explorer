@@ -626,10 +626,10 @@
       "bitcoinunlimited": 2
     },
     "explicit_references": [
+      "BIP 9",
       "BIP 34",
       "BIP 65",
-      "BIP 66",
-      "BIP 9"
+      "BIP 66"
     ],
     "explicit_dependencies": [
       "BIP 9"
@@ -639,6 +639,26 @@
       "BIP 34",
       "BIP 65",
       "BIP 66"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b455cad3f85ae33f9bc92c9a71cacf4d88934e9b",
+        "timestamp": "2017-04-06T16:28:05+02:00",
+        "date": "2017-04-06",
+        "author": "sanch0panza",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "630bbe314dda89b8f64a5a8f64e116033048cc68",
+        "timestamp": "2020-08-21T08:12:58+02:00",
+        "date": "2020-08-21",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
     ]
   }
 }

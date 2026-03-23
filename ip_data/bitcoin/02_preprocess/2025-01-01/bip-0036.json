@@ -570,5 +570,25 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5772008309fd0d0c81dc3e10bc41ed2f49e8af5b",
+        "timestamp": "2013-10-21T00:55:26-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "29fcdcac132a387d1b9ca0a5a0a72cfd408fc057",
+        "timestamp": "2020-03-13T17:10:23-06:00",
+        "date": "2020-03-13",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

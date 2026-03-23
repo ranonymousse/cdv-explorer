@@ -505,5 +505,41 @@
     "implicit_dependencies": [
       "BIP 16"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ce40c0f8f02e83892eb185aabea306ee2a3ab10e",
+        "timestamp": "2011-10-29T11:39:58+01:00",
+        "date": "2011-10-29",
+        "author": "genjix",
+        "status": "Pre-Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "1edc52dddfb1ac6952e6be5057b9a7fdfbe75b21",
+        "timestamp": "2011-12-13T17:24:13Z",
+        "date": "2011-12-13",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "0e319fccf551a9524b0f6d3a7174c956f5a6f3e7",
+        "timestamp": "2012-03-18T14:20:11Z",
+        "date": "2012-03-18",
+        "author": "genjix",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "4be890738e6e867fb2c96eee065747a29e8dc7a5",
+        "timestamp": "2013-10-21T00:40:40-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

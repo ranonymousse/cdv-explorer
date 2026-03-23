@@ -527,10 +527,10 @@
       "bip65": 2
     },
     "explicit_references": [
+      "BIP 9",
       "BIP 34",
       "BIP 65",
-      "BIP 66",
-      "BIP 9"
+      "BIP 66"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -538,6 +538,26 @@
       "BIP 65",
       "BIP 66",
       "BIP 9"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "836d2dc91e1e21a77c0b0364ec4a0a9722c02a4f",
+        "timestamp": "2016-11-08T12:03:32-05:00",
+        "date": "2016-11-08",
+        "author": "Suhas Daftuar",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "7fecce0751c56899043b91aad1236fea5d300682",
+        "timestamp": "2020-06-02T02:02:56-05:00",
+        "date": "2020-06-02",
+        "author": "Janus",
+        "status": "Final",
+        "standard": "bip2"
+      }
     ]
   }
 }

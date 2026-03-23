@@ -505,10 +505,10 @@
       "op_checklocktimeverify": 2
     },
     "explicit_references": [
-      "BIP 112",
       "BIP 16",
       "BIP 32",
-      "BIP 65"
+      "BIP 65",
+      "BIP 112"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -516,6 +516,26 @@
       "BIP 32",
       "BIP 65",
       "BIP 112"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "a8ace6d608b2068ce949993d4dd048fd759820ce",
+        "timestamp": "2016-01-12T19:06:32-05:00",
+        "date": "2016-01-12",
+        "author": "Eric Lombrozo",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "a4a427ac8cfffc1eeecec308ff3a4dc57d01d705",
+        "timestamp": "2020-08-21T08:10:08+02:00",
+        "date": "2020-08-21",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
     ]
   }
 }

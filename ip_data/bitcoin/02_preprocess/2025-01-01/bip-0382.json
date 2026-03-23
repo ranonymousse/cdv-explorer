@@ -489,7 +489,29 @@
       "BIP 380",
       "BIP 141"
     ],
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "fb56a18c890af8b269987b2e6664765ffc05a5c1",
+        "timestamp": "2021-06-27T19:35:45-04:00",
+        "date": "2021-06-27",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d71428ade56ad9a90e18d643eefefefb6088fbd7",
+        "timestamp": "2024-07-10T19:02:19-04:00",
+        "date": "2024-07-10",
+        "author": "Ava Chow",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

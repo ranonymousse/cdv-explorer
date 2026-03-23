@@ -576,5 +576,25 @@
       "BIP 34",
       "BIP 62"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "dc45f41e5787b1d53e59dbdbcec6047401dcda4b",
+        "timestamp": "2015-01-26T23:08:38-04:00",
+        "date": "2015-01-26",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "8e5fe7a23d0620eda32b8f185b5ef631e88fb179",
+        "timestamp": "2015-08-14T09:52:24+10:00",
+        "date": "2015-08-14",
+        "author": "Daniel Cousens",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

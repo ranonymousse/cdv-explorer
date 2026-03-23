@@ -551,12 +551,40 @@
     ],
     "explicit_references": [
       "BIP 13",
-      "BIP 141",
       "BIP 16",
       "BIP 47",
       "BIP 63",
-      "BIP 70"
+      "BIP 70",
+      "BIP 141"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "09192275acbaf8bed98738db107297434a3bba0a",
+        "timestamp": "2015-12-24T21:45:11+08:00",
+        "date": "2015-12-24",
+        "author": "Johnson Lau",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "159cc9bd0eb1bdf97facac7f839069c81a4cc301",
+        "timestamp": "2016-03-16T23:20:58+08:00",
+        "date": "2016-03-16",
+        "author": "Johnson Lau",
+        "status": "Deferred",
+        "standard": "bip2"
+      },
+      {
+        "commit": "9cb5ecd9be8f9bd75e5feef72679515b9a1583eb",
+        "timestamp": "2017-08-30T15:37:48+08:00",
+        "date": "2017-08-30",
+        "author": "Johnson Lau",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

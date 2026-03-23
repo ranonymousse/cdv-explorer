@@ -660,10 +660,11 @@
       "implementation": 2
     },
     "explicit_references": [
-      "BIP 174",
       "BIP 32",
+      "BIP 174",
       "BIP 340",
       "BIP 341",
+      "BIP 342",
       "BIP 370"
     ],
     "explicit_dependencies": [],
@@ -674,6 +675,18 @@
       "BIP 341",
       "BIP 342",
       "BIP 32"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c583f4dcbe78c2520be20067203ae2737bbca369",
+        "timestamp": "2021-06-21T16:58:45-04:00",
+        "date": "2021-06-21",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

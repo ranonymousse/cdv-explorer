@@ -486,13 +486,33 @@
       "base": 2
     },
     "explicit_references": [
-      "BIP 100",
-      "BIP 34"
+      "BIP 34",
+      "BIP 100"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 34",
       "BIP 100"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "ba4062ab0d1b88e598487e1db5ae6113dd65b3f8",
+        "timestamp": "2015-08-28T01:34:48+01:00",
+        "date": "2015-08-28",
+        "author": "BtcDrak",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "2d293b73077762eaa966c89728dd9d57b6fb5da0",
+        "timestamp": "2020-04-30T09:37:22-05:00",
+        "date": "2020-04-30",
+        "author": "Janus",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
     ]
   }
 }

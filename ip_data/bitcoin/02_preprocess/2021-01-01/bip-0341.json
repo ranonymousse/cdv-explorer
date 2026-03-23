@@ -989,6 +989,7 @@
       "reviews": 2
     },
     "explicit_references": [
+      "BIP 98",
       "BIP 114",
       "BIP 117",
       "BIP 118",
@@ -996,8 +997,7 @@
       "BIP 143",
       "BIP 173",
       "BIP 340",
-      "BIP 342",
-      "BIP 98"
+      "BIP 342"
     ],
     "explicit_dependencies": [
       "BIP 340"
@@ -1012,6 +1012,18 @@
       "BIP 173",
       "BIP 340",
       "BIP 342"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6733024595ee2affa0977008e020724ddf8903e0",
+        "timestamp": "2019-05-06T10:46:09-07:00",
+        "date": "2019-05-06",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

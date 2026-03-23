@@ -542,12 +542,24 @@
       "por": 2
     },
     "explicit_references": [
-      "BIP 174",
-      "BIP 44"
+      "BIP 44",
+      "BIP 174"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 174"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "7276e9ae7b0f2a4fcbdd79bce484ce4953d2ee05",
+        "timestamp": "2018-11-30T11:50:49Z",
+        "date": "2018-11-30",
+        "author": "Steven Roose",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

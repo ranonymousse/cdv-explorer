@@ -550,15 +550,35 @@
       "BIP 147"
     ],
     "explicit_references": [
+      "BIP 9",
+      "BIP 16",
+      "BIP 66",
       "BIP 141",
       "BIP 143",
       "BIP 147",
       "BIP 148",
-      "BIP 149",
-      "BIP 16",
-      "BIP 66",
-      "BIP 9"
+      "BIP 149"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c63e603229edf9a148b085a2be3b95dd972d25b8",
+        "timestamp": "2017-05-22T17:26:00-04:00",
+        "date": "2017-05-22",
+        "author": "James Hilliard",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d98333302f2a41114c6f006a77a51edc3d1e743b",
+        "timestamp": "2017-08-11T05:36:07Z",
+        "date": "2017-08-11",
+        "author": "shaolinfry",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

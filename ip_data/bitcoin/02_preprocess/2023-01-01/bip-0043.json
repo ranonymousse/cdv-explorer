@@ -478,5 +478,33 @@
     "implicit_dependencies": [
       "BIP 32"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "39b441f2ff18e7dcf71f357e43e4dd78a1b198b1",
+        "timestamp": "2014-04-09T15:59:32+02:00",
+        "date": "2014-04-09",
+        "author": "slush0",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6a30b6faae33876c542e6962b399f397d19c2aa8",
+        "timestamp": "2020-04-30T09:43:09-05:00",
+        "date": "2020-04-30",
+        "author": "Janus",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "cb8956396e7b3636f970795c58459110b0b1a34a",
+        "timestamp": "2017-04-21T17:29:33Z",
+        "date": "2017-04-21",
+        "author": "Luke Dashjr",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -609,15 +609,29 @@
       "BIP 129"
     ],
     "explicit_references": [
-      "BIP 129",
-      "BIP 174",
       "BIP 32",
       "BIP 39",
       "BIP 43",
       "BIP 44",
       "BIP 45",
-      "BIP 67"
+      "BIP 49",
+      "BIP 67",
+      "BIP 84",
+      "BIP 129",
+      "BIP 174"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "675c3a8703d79e09807d6426c73f7c301c1d3eb7",
+        "timestamp": "2021-03-11T03:11:51-05:00",
+        "date": "2021-03-11",
+        "author": "Robert Spigler",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

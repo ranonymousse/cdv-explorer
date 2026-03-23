@@ -454,11 +454,11 @@
       "timestamp": 2
     },
     "explicit_references": [
+      "BIP 8",
+      "BIP 9",
       "BIP 141",
       "BIP 143",
-      "BIP 147",
-      "BIP 8",
-      "BIP 9"
+      "BIP 147"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -467,6 +467,26 @@
       "BIP 141",
       "BIP 143",
       "BIP 147"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "d561da8b5e38b383ef472978b832cd00d15560f9",
+        "timestamp": "2017-04-29T10:37:25Z",
+        "date": "2017-04-29",
+        "author": "shaolinfry",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d98333302f2a41114c6f006a77a51edc3d1e743b",
+        "timestamp": "2017-08-11T05:36:07Z",
+        "date": "2017-08-11",
+        "author": "shaolinfry",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
     ]
   }
 }

@@ -520,5 +520,25 @@
     "implicit_dependencies": [
       "BIP 9"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "6cf43331706934e6e5c97e4a57e0f6be8eb0899e",
+        "timestamp": "2016-01-28T10:53:43-05:00",
+        "date": "2016-01-28",
+        "author": "Gavin Andresen",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "710a20ad331abcd64c01f114143fbb17dc47fae2",
+        "timestamp": "2016-11-30T23:33:24Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Rejected",
+        "standard": "bip2"
+      }
+    ]
   }
 }

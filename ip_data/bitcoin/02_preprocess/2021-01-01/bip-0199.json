@@ -482,5 +482,17 @@
       "BIP 65",
       "BIP 112"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "679c5495d2b0e0a6fd7da61411328144322a0253",
+        "timestamp": "2017-03-27T10:58:06-06:00",
+        "date": "2017-03-27",
+        "author": "Sean Bowe",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

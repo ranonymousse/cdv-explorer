@@ -536,11 +536,31 @@
       "BIP 112"
     ],
     "explicit_references": [
-      "BIP 112",
+      "BIP 9",
       "BIP 65",
       "BIP 68",
-      "BIP 9"
+      "BIP 112"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4e06ec12b46b81e6169b1818950cbdf71fc5e0c4",
+        "timestamp": "2015-08-12T00:06:41+01:00",
+        "date": "2015-08-12",
+        "author": "Thomas Kerin",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "c98859fe20617df141da0dd08d399921c7097be9",
+        "timestamp": "2016-07-18T23:37:42Z",
+        "date": "2016-07-18",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

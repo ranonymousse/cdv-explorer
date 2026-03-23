@@ -941,5 +941,17 @@
     "implicit_dependencies": [],
     "explicit_references": [],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "640b4f29fd7762500cdebc867510533956885f91",
+        "timestamp": "2013-11-19T18:54:36+01:00",
+        "date": "2013-11-19",
+        "author": "Wladimir J. van der Laan",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

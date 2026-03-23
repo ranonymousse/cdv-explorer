@@ -607,5 +607,25 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "62a82092687d235ba48c9d0a77c9de56657c77a8",
+        "timestamp": "2016-03-23T15:57:00+01:00",
+        "date": "2016-03-23",
+        "author": "Jonas Schnelli",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "73d06b4a13ec1908f743a80a0d2e96a954e12db8",
+        "timestamp": "2019-03-22T22:07:33+01:00",
+        "date": "2019-03-22",
+        "author": "Jonas Schnelli",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

@@ -464,11 +464,11 @@
     },
     "explicit_references": [
       "BIP 32",
-      "BIP 341",
       "BIP 43",
       "BIP 44",
       "BIP 49",
-      "BIP 84"
+      "BIP 84",
+      "BIP 341"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -477,6 +477,18 @@
       "BIP 49",
       "BIP 84",
       "BIP 341"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "330b56b35867fa403634bf8d0ede0d2cb235aab5",
+        "timestamp": "2021-06-22T20:59:29-04:00",
+        "date": "2021-06-22",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

@@ -711,5 +711,17 @@
     "implicit_dependencies": [
       "BIP 174"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b3d224f384f3bae6e38d4fcf0028b046b414784b",
+        "timestamp": "2021-01-14T15:04:06-05:00",
+        "date": "2021-01-14",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

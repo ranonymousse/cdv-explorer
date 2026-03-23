@@ -573,14 +573,52 @@
     },
     "explicit_references": [
       "BIP 11",
+      "BIP 12",
       "BIP 13",
-      "BIP 16"
+      "BIP 16",
+      "BIP 17"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 11",
       "BIP 13",
       "BIP 16"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "c7c647483003137bac5bf7e1525b4ec998c2dc16",
+        "timestamp": "2013-10-21T00:45:22-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "395262bd1d26263b0105b5ac96782b3f3cf3bf71",
+        "timestamp": "2016-11-30T10:09:54Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      }
     ]
   }
 }

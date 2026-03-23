@@ -525,5 +525,25 @@
     "implicit_dependencies": [
       "BIP 1"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "0ee385bac444a6080b96b307036e7d265fb3d5e2",
+        "timestamp": "2016-01-18T17:34:06-08:00",
+        "date": "2016-01-18",
+        "author": "Andy Chase",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

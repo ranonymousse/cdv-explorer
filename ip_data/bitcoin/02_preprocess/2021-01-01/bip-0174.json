@@ -1216,14 +1216,34 @@
       "wuille": 2
     },
     "explicit_references": [
+      "BIP 32",
       "BIP 127",
-      "BIP 173",
-      "BIP 32"
+      "BIP 173"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 32",
       "BIP 127"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "958641741b02e042b8d858304e29bbc781f647cb",
+        "timestamp": "2017-07-12T12:11:09-07:00",
+        "date": "2017-07-12",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "cb426bfdae601954c5eea865d328d2af8313bd69",
+        "timestamp": "2018-07-11T11:52:55-07:00",
+        "date": "2018-07-11",
+        "author": "Andrew Chow",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
     ]
   }
 }

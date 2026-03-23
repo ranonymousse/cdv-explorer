@@ -599,5 +599,57 @@
     "implicit_dependencies": [
       "BIP 20"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "bd3808c4ca96313f8d194b828cd6b0579fc74a58",
+        "timestamp": "2012-01-30T00:01:31Z",
+        "date": "2012-01-30",
+        "author": "genjix",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6a5b4f3b080815c1ddff881e7a8491f5acca4fab",
+        "timestamp": "2012-01-30T00:01:49Z",
+        "date": "2012-01-30",
+        "author": "genjix",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6e2d2667f3a3248577b92578168de82c917ca8a2",
+        "timestamp": "2012-02-05T12:15:42Z",
+        "date": "2012-02-05",
+        "author": "genjix",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
+        "timestamp": "2016-02-01T20:14:22Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      },
+      {
+        "commit": "e22ad0cd715af88cabecffe1afcc4258740dc85f",
+        "timestamp": "2016-02-01T20:36:37Z",
+        "date": "2016-02-01",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "7509fae0be1f0f0effa1d6a1109a4a03afed8850",
+        "timestamp": "2016-02-16T22:18:45Z",
+        "date": "2016-02-16",
+        "author": "Sandro Machado",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

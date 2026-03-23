@@ -494,13 +494,33 @@
       "BIP 155"
     ],
     "explicit_references": [
-      "BIP 133",
-      "BIP 152",
-      "BIP 155",
       "BIP 35",
       "BIP 37",
-      "BIP 60"
+      "BIP 60",
+      "BIP 133",
+      "BIP 152",
+      "BIP 155"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5f18700477e2c09653591b940caa40d285a21d95",
+        "timestamp": "2020-09-03T16:51:17-04:00",
+        "date": "2020-09-03",
+        "author": "Suhas Daftuar",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "56f7e7099167173bf36073790b7aeeb1164f7ae5",
+        "timestamp": "2024-07-10T15:36:54-04:00",
+        "date": "2024-07-10",
+        "author": "Suhas Daftuar",
+        "status": "Withdrawn",
+        "standard": "bip2"
+      }
+    ]
   }
 }

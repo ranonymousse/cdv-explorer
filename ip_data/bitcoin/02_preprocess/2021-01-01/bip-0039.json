@@ -848,5 +848,49 @@
     "implicit_dependencies": [
       "BIP 32"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "e6abf7e66d7a499696dc9ef152f2c9eaa5b1b8ef",
+        "timestamp": "2013-10-21T00:56:42-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "78eaa26d9a80f69b17c9e97af079326f710c84d4",
+        "timestamp": "2014-02-07T12:41:26+01:00",
+        "date": "2014-02-07",
+        "author": "slush0",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "6da6c402183fe75c39e1c0c1e7f22f7f6c2168d9",
+        "timestamp": "2014-02-09T18:10:22+01:00",
+        "date": "2014-02-09",
+        "author": "slush0",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "387fc6011bd804609fd751786e50439d5c11a097",
+        "timestamp": "2016-08-23T19:47:29Z",
+        "date": "2016-08-23",
+        "author": "Luke Dashjr",
+        "status": "Accepted",
+        "standard": "bip2"
+      },
+      {
+        "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
+        "timestamp": "2016-11-30T09:47:31Z",
+        "date": "2016-11-30",
+        "author": "Luke Dashjr",
+        "status": "Proposed",
+        "standard": "bip2"
+      }
+    ]
   }
 }

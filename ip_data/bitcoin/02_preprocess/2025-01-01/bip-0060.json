@@ -504,8 +504,21 @@
       "BIP 37"
     ],
     "explicit_references": [
+      "BIP 14",
       "BIP 37"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "07fad8f56c89df7dedc17250c4962d1ec16928b9",
+        "timestamp": "2013-10-21T00:58:23-04:00",
+        "date": "2013-10-21",
+        "author": "Peter Todd",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

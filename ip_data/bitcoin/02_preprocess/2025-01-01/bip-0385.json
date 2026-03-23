@@ -456,7 +456,29 @@
     "implicit_dependencies": [
       "BIP 380"
     ],
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "5403ff90d69c82cb22b0a6f969f8c4ec601569b1",
+        "timestamp": "2021-06-27T18:49:44-04:00",
+        "date": "2021-06-27",
+        "author": "Andrew Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d71428ade56ad9a90e18d643eefefefb6088fbd7",
+        "timestamp": "2024-07-10T19:02:19-04:00",
+        "date": "2024-07-10",
+        "author": "Ava Chow",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

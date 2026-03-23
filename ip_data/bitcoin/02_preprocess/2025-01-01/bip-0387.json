@@ -469,8 +469,29 @@
       "BIP 383"
     ],
     "explicit_references": [
+      "BIP 380",
       "BIP 383"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "945b281155f12d50be76ade722cbb1a04681caa0",
+        "timestamp": "2024-04-17T18:25:00-04:00",
+        "date": "2024-04-17",
+        "author": "Ava Chow",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "d71428ade56ad9a90e18d643eefefefb6088fbd7",
+        "timestamp": "2024-07-10T19:02:19-04:00",
+        "date": "2024-07-10",
+        "author": "Ava Chow",
+        "status": "Final",
+        "standard": "bip2"
+      }
+    ]
   }
 }

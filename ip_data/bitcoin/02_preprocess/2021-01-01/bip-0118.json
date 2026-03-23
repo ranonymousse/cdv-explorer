@@ -505,5 +505,17 @@
       "BIP 141",
       "BIP 143"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "98b7238f68d17f0e01275dd32075078702225356",
+        "timestamp": "2018-04-30T17:58:23+02:00",
+        "date": "2018-04-30",
+        "author": "Christian Decker",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

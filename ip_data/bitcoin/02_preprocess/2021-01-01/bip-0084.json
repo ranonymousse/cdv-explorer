@@ -480,12 +480,12 @@
       "receiving": 2
     },
     "explicit_references": [
-      "BIP 141",
-      "BIP 173",
       "BIP 32",
       "BIP 43",
       "BIP 44",
-      "BIP 49"
+      "BIP 49",
+      "BIP 141",
+      "BIP 173"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
@@ -494,6 +494,18 @@
       "BIP 49",
       "BIP 141",
       "BIP 173"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "2382e31f12a8ea292eaa3904439c6653fe0eb036",
+        "timestamp": "2017-12-28T18:19:10+01:00",
+        "date": "2017-12-28",
+        "author": "Pavol Rusnak",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

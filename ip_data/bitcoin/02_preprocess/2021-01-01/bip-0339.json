@@ -459,6 +459,7 @@
     },
     "explicit_references": [
       "BIP 141",
+      "BIP 143",
       "BIP 144"
     ],
     "explicit_dependencies": [],
@@ -466,6 +467,18 @@
       "BIP 141",
       "BIP 143",
       "BIP 144"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "3c5aef89d66990b2e81c9bbaf1d53624c81cd6a5",
+        "timestamp": "2020-02-03T15:25:27-05:00",
+        "date": "2020-02-03",
+        "author": "Suhas Daftuar",
+        "status": "Draft",
+        "standard": "bip2"
+      }
     ]
   }
 }

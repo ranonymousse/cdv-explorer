@@ -662,8 +662,21 @@
       "BIP 21"
     ],
     "explicit_references": [
-      "BIP 21"
+      "BIP 21",
+      "BIP 352"
     ],
     "explicit_dependencies": []
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "4f75edb2b85f55f5723e379584e52181f5f44269",
+        "timestamp": "2024-02-10T22:46:16Z",
+        "date": "2024-02-10",
+        "author": "Matt Corallo",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }

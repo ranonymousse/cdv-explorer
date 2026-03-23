@@ -748,6 +748,7 @@
     },
     "explicit_references": [
       "BIP 13",
+      "BIP 16",
       "BIP 141",
       "BIP 142",
       "BIP 143"
@@ -761,6 +762,34 @@
       "BIP 141",
       "BIP 143",
       "BIP 142"
+    ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "b93d9ea5d9dd0c0046198e05a14a59f5a023dfee",
+        "timestamp": "2017-05-07T14:48:08-07:00",
+        "date": "2017-05-07",
+        "author": "Pieter Wuille",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "97a55878e61fd19b8e9eb68759a8dc902a1831a6",
+        "timestamp": "2018-01-03T08:52:13-08:00",
+        "date": "2018-01-03",
+        "author": "Pieter Wuille",
+        "status": "Proposed",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5415dd806ea416372258b6d81966db80e6cfb5d7",
+        "timestamp": "2018-07-05T05:09:05Z",
+        "date": "2018-07-05",
+        "author": "Luke Dashjr",
+        "status": "Final",
+        "standard": "bip2"
+      }
     ]
   }
 }

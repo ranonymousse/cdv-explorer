@@ -580,5 +580,17 @@
       "BIP 112",
       "BIP 199"
     ]
+  },
+  "history": {
+    "status_timeline": [
+      {
+        "commit": "823f6ac0db3674987b70380ac2555a5ad98bb2eb",
+        "timestamp": "2019-03-27T10:28:52-04:00",
+        "date": "2019-03-27",
+        "author": "Matthew Black",
+        "status": "Draft",
+        "standard": "bip2"
+      }
+    ]
   }
 }
