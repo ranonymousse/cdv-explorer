@@ -10,14 +10,22 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 
 OUTPUT_DIR = None
 GENERATE_CLASSIFICATION_STATUS_PLOT = True
+GENERATE_EVOLUTION_STATUS_PLOT = True
 GENERATE_CLASSIFICATION_TYPE_PLOT = True
 GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE = True
 GENERATE_CLASSIFICATION_SANKEY_PLOT = True
+CLASSIFICATION_STATUS_ORDER = [
+    "Draft",
+    "Complete",
+    "Deployed",
+    "Closed",
+]
 
 
 def main() -> None:
     from analysis.artifact_io import (
         load_classification_payload,
+        load_evolution_payload,
         load_network_data,
         resolve_latest_snapshot_label,
     )
@@ -27,9 +35,11 @@ def main() -> None:
         export_classification_status_type_latex_table,
     )
     from paper.RQ2.classification_type import plot_classification_type
+    from paper.RQ2.evolution_status import plot_evolution_status
 
     if (
         not GENERATE_CLASSIFICATION_STATUS_PLOT
+        and not GENERATE_EVOLUTION_STATUS_PLOT
         and not GENERATE_CLASSIFICATION_TYPE_PLOT
         and not GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE
         and not GENERATE_CLASSIFICATION_SANKEY_PLOT
@@ -47,6 +57,16 @@ def main() -> None:
         plot_classification_status(
             status_over_time=classification_payload.get("status_over_time", {}),
             output_path=output_dir / f"{filename_prefix}_classification_status.pdf",
+            snapshot_label=snapshot_label,
+            order=CLASSIFICATION_STATUS_ORDER,
+        )
+
+    if GENERATE_EVOLUTION_STATUS_PLOT:
+        evolution_payload = load_evolution_payload(snapshot=SNAPSHOT)
+        plot_evolution_status(
+            status_evolution=evolution_payload.get("status_evolution", {}),
+            status_evolution_by_standard=evolution_payload.get("status_evolution_by_standard", {}),
+            output_path=output_dir / f"{filename_prefix}_evolution_status.pdf",
             snapshot_label=snapshot_label,
         )
 

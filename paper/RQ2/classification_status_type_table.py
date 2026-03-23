@@ -1,11 +1,16 @@
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from paper.RQ2.classification_status import resolve_rq2_status_order
 from paper.RQ2.classification_type import TYPE_ORDER
 
 
 LATEX_TABCOLSEP_PT = 5
+TABLE_STATUS_ORDER = [
+    "Draft",
+    "Complete",
+    "Deployed",
+    "Closed",
+]
 
 
 def _latex_escape(value: str) -> str:
@@ -59,7 +64,7 @@ def export_classification_status_type_latex_table(
     ordered_types = _ordered_categories(observed_types, TYPE_ORDER)
     ordered_statuses = _ordered_categories(
         observed_statuses,
-        resolve_rq2_status_order(snapshot_label),
+        TABLE_STATUS_ORDER,
     )
     total_bips = sum(sum(counts.values()) for counts in pivot.values())
 

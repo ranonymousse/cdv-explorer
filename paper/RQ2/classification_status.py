@@ -1,9 +1,11 @@
 from datetime import date
 from pathlib import Path
 
+import matplotlib
 import matplotlib.patheffects as pe
-import matplotlib.pyplot as plt
 import numpy as np
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator
 
