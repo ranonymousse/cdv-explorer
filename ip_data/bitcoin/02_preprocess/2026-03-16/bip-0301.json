@@ -570,7 +570,10 @@
       "bip300301_enforcer": 2,
       "client": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 300",
+      "BIP 300301"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 300"

@@ -508,12 +508,12 @@
       "eventual": 2
     },
     "explicit_references": [
+      "BIP 8",
+      "BIP 91",
       "BIP 148",
       "BIP 340",
       "BIP 341",
-      "BIP 342",
-      "BIP 8",
-      "BIP 91"
+      "BIP 342"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

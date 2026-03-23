@@ -859,10 +859,10 @@
       "web": 2
     },
     "explicit_references": [
-      "BIP 113",
+      "BIP 9",
       "BIP 65",
       "BIP 68",
-      "BIP 9"
+      "BIP 113"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

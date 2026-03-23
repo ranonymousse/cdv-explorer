@@ -487,6 +487,7 @@
       "implementation": 2
     },
     "explicit_references": [
+      "BIP 380",
       "BIP 383"
     ],
     "explicit_dependencies": [

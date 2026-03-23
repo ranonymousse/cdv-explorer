@@ -723,14 +723,14 @@
       "february": 2
     },
     "explicit_references": [
+      "BIP 30",
+      "BIP 68",
       "BIP 112",
       "BIP 141",
-      "BIP 30",
       "BIP 340",
       "BIP 341",
       "BIP 342",
-      "BIP 350",
-      "BIP 68"
+      "BIP 350"
     ],
     "explicit_dependencies": [
       "BIP 340",

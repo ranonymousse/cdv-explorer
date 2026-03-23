@@ -789,8 +789,8 @@
       "demos": 2
     },
     "explicit_references": [
-      "BIP 66",
-      "BIP 9"
+      "BIP 9",
+      "BIP 66"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

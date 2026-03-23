@@ -624,14 +624,16 @@
       "references": 2
     },
     "explicit_references": [
-      "BIP 129",
-      "BIP 174",
       "BIP 32",
       "BIP 39",
       "BIP 43",
       "BIP 44",
       "BIP 45",
-      "BIP 67"
+      "BIP 49",
+      "BIP 67",
+      "BIP 84",
+      "BIP 129",
+      "BIP 174"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

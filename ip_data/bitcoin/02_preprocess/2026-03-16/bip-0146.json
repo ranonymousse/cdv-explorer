@@ -572,11 +572,11 @@
       "chain": 2
     },
     "explicit_references": [
-      "BIP 141",
-      "BIP 152",
+      "BIP 9",
       "BIP 62",
       "BIP 66",
-      "BIP 9"
+      "BIP 141",
+      "BIP 152"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

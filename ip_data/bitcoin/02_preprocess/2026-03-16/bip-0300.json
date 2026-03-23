@@ -808,7 +808,8 @@
       "client": 2
     },
     "explicit_references": [
-      "BIP 118"
+      "BIP 118",
+      "BIP 300301"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []

@@ -603,10 +603,10 @@
       "eloipool": 2
     },
     "explicit_references": [
-      "BIP 141",
+      "BIP 9",
       "BIP 22",
       "BIP 23",
-      "BIP 9"
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

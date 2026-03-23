@@ -481,11 +481,11 @@
       "timestamp": 2
     },
     "explicit_references": [
+      "BIP 8",
+      "BIP 9",
       "BIP 141",
       "BIP 143",
-      "BIP 147",
-      "BIP 8",
-      "BIP 9"
+      "BIP 147"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

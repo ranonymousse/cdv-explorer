@@ -1129,15 +1129,16 @@
       "references": 2
     },
     "explicit_references": [
+      "BIP 32",
+      "BIP 43",
+      "BIP 44",
+      "BIP 47",
       "BIP 143",
       "BIP 158",
       "BIP 173",
-      "BIP 32",
       "BIP 340",
       "BIP 341",
-      "BIP 43",
-      "BIP 44",
-      "BIP 47"
+      "BIP 350"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

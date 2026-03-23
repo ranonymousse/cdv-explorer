@@ -847,8 +847,9 @@
       "references": 2
     },
     "explicit_references": [
-      "BIP 157",
-      "BIP 37"
+      "BIP 37",
+      "BIP 141",
+      "BIP 157"
     ],
     "explicit_dependencies": [
       "BIP 157"

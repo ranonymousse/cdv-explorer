@@ -1627,13 +1627,17 @@
       "wuille": 2
     },
     "explicit_references": [
+      "BIP 32",
       "BIP 127",
       "BIP 143",
-      "BIP 32",
       "BIP 341",
       "BIP 352",
       "BIP 353",
-      "BIP 374"
+      "BIP 370",
+      "BIP 371",
+      "BIP 373",
+      "BIP 374",
+      "BIP 375"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

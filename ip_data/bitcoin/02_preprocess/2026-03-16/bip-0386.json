@@ -518,7 +518,8 @@
       "existing": 2
     },
     "explicit_references": [
-      "BIP 341"
+      "BIP 341",
+      "BIP 380"
     ],
     "explicit_dependencies": [
       "BIP 380"

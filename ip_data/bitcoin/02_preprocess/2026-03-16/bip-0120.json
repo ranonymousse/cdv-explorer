@@ -577,9 +577,9 @@
       "scheme": 2
     },
     "explicit_references": [
-      "BIP 121",
       "BIP 21",
-      "BIP 70"
+      "BIP 70",
+      "BIP 121"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

@@ -483,7 +483,9 @@
       "child": 2,
       "references": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 431"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 141",

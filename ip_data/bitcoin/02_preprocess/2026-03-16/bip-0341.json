@@ -1263,6 +1263,8 @@
       "reviews": 2
     },
     "explicit_references": [
+      "BIP 9",
+      "BIP 98",
       "BIP 114",
       "BIP 117",
       "BIP 118",
@@ -1270,9 +1272,7 @@
       "BIP 143",
       "BIP 340",
       "BIP 342",
-      "BIP 350",
-      "BIP 9",
-      "BIP 98"
+      "BIP 350"
     ],
     "explicit_dependencies": [
       "BIP 340"

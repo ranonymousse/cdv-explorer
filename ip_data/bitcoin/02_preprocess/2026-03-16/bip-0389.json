@@ -530,8 +530,8 @@
     },
     "explicit_references": [
       "BIP 32",
-      "BIP 380",
-      "BIP 88"
+      "BIP 88",
+      "BIP 380"
     ],
     "explicit_dependencies": [
       "BIP 380"

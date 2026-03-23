@@ -809,7 +809,8 @@
     },
     "explicit_references": [
       "BIP 141",
-      "BIP 173"
+      "BIP 173",
+      "BIP 341"
     ],
     "explicit_dependencies": [
       "BIP 173"

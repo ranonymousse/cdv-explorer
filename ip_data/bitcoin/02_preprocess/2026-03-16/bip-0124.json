@@ -527,10 +527,10 @@
       "op_checklocktimeverify": 2
     },
     "explicit_references": [
-      "BIP 112",
       "BIP 16",
       "BIP 32",
-      "BIP 65"
+      "BIP 65",
+      "BIP 112"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

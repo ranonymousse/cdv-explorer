@@ -17,6 +17,10 @@ LLM_MODEL = "gpt-5-nano"
 TOP_PRE_BLOCK_PATTERN = re.compile(r"^\s*<pre>.*?</pre>\s*", re.DOTALL | re.IGNORECASE)
 TOP_FENCED_BLOCK_PATTERN = re.compile(r"^\s*```[^\n]*\n.*?\n```\s*(?:\n|$)", re.DOTALL)
 STRUCTURED_OUTPUT_NAME = "implicit_dependency_list"
+MAX_REFERENCE_DIGITS = 6
+REFERENCE_LIST_PATTERN = re.compile(
+    rf"(?i)\b{re.escape(PROPOSAL_LABEL)}s?[-#\s]*(\d{{1,{MAX_REFERENCE_DIGITS}}}(?!\d)(?:\s*(?:,|/|and|or)\s*\d{{1,{MAX_REFERENCE_DIGITS}}}(?!\d))*)"
+)
 
 
 def _strip_top_preamble_block(text: str) -> str:
@@ -37,8 +41,19 @@ def create_reference_list(
     proposal_label: str = PROPOSAL_LABEL,
     reference_pattern: str = REFERENCE_PATTERN,
 ) -> List[str]:
-    proposal_references = re.findall(reference_pattern, raw_content)
-    return sorted(set(f"{proposal_label} {int(num)}" for num in proposal_references))
+    normalized_reference_pattern = reference_pattern.replace(r"\d+", rf"\d{{1,{MAX_REFERENCE_DIGITS}}}")
+    single_reference_pattern = re.compile(normalized_reference_pattern, re.IGNORECASE)
+    proposal_references = {
+        f"{proposal_label} {int(num)}"
+        for num in single_reference_pattern.findall(raw_content)
+    }
+
+    if proposal_label == PROPOSAL_LABEL:
+        for match in REFERENCE_LIST_PATTERN.findall(raw_content):
+            for num in re.findall(r"\d+", match):
+                proposal_references.add(f"{proposal_label} {int(num)}")
+
+    return sorted(proposal_references, key=lambda value: int(value.split()[-1]))
 
 
 def create_explicit_dependency_list(

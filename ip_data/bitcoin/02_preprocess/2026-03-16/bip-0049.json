@@ -566,11 +566,11 @@
       "base58check": 2
     },
     "explicit_references": [
-      "BIP 141",
       "BIP 16",
       "BIP 32",
       "BIP 43",
-      "BIP 44"
+      "BIP 44",
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

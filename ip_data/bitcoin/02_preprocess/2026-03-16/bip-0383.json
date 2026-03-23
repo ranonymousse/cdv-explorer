@@ -553,7 +553,9 @@
       "invalid": 2,
       "implementation": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": [
       "BIP 380"
     ],

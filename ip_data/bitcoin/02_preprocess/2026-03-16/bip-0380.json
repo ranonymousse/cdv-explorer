@@ -759,7 +759,17 @@
     },
     "explicit_references": [
       "BIP 32",
-      "BIP 39"
+      "BIP 39",
+      "BIP 44",
+      "BIP 49",
+      "BIP 381",
+      "BIP 382",
+      "BIP 383",
+      "BIP 384",
+      "BIP 385",
+      "BIP 386",
+      "BIP 390",
+      "BIP 392"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

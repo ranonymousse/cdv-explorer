@@ -555,10 +555,10 @@
       "compatibility": 2
     },
     "explicit_references": [
-      "BIP 112",
+      "BIP 9",
       "BIP 65",
       "BIP 68",
-      "BIP 9"
+      "BIP 112"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

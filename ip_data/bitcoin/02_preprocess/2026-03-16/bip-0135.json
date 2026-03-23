@@ -677,10 +677,10 @@
       "bitcoinunlimited": 2
     },
     "explicit_references": [
+      "BIP 9",
       "BIP 34",
       "BIP 65",
-      "BIP 66",
-      "BIP 9"
+      "BIP 66"
     ],
     "explicit_dependencies": [
       "BIP 9"

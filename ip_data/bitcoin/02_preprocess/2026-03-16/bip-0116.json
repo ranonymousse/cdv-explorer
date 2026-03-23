@@ -657,14 +657,14 @@
       "2459": 2
     },
     "explicit_references": [
-      "BIP 112",
-      "BIP 141",
-      "BIP 143",
+      "BIP 8",
       "BIP 16",
       "BIP 65",
       "BIP 68",
-      "BIP 8",
-      "BIP 98"
+      "BIP 98",
+      "BIP 112",
+      "BIP 141",
+      "BIP 143"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

@@ -574,8 +574,8 @@
       "crates": 2
     },
     "explicit_references": [
-      "BIP 174",
-      "BIP 44"
+      "BIP 44",
+      "BIP 174"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

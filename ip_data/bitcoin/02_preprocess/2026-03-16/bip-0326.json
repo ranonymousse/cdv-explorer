@@ -555,8 +555,8 @@
       "mediawiki": 2
     },
     "explicit_references": [
-      "BIP 341",
-      "BIP 68"
+      "BIP 68",
+      "BIP 341"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

@@ -664,12 +664,12 @@
       "september": 2
     },
     "explicit_references": [
-      "BIP 114",
-      "BIP 116",
-      "BIP 141",
+      "BIP 8",
       "BIP 16",
       "BIP 68",
-      "BIP 8"
+      "BIP 114",
+      "BIP 116",
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

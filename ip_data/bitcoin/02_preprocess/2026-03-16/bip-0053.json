@@ -609,9 +609,11 @@
       "pindexprev": 2
     },
     "explicit_references": [
-      "BIP 141",
+      "BIP 2",
       "BIP 37",
-      "BIP 66"
+      "BIP 64",
+      "BIP 66",
+      "BIP 141"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": []

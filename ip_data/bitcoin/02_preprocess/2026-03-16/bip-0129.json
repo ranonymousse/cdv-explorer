@@ -727,15 +727,15 @@
       "2021": 2
     },
     "explicit_references": [
-      "BIP 174",
       "BIP 32",
+      "BIP 39",
+      "BIP 44",
+      "BIP 174",
       "BIP 322",
       "BIP 380",
       "BIP 381",
       "BIP 382",
-      "BIP 383",
-      "BIP 39",
-      "BIP 44"
+      "BIP 383"
     ],
     "explicit_dependencies": [
       "BIP 174",

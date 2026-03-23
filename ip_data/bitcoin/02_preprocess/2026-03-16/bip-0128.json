@@ -649,13 +649,13 @@
       "bc1qnda6x2gxdh3yujd2zjpsd7qzx3awxmlaf9wwlk": 2
     },
     "explicit_references": [
+      "BIP 65",
+      "BIP 68",
       "BIP 112",
       "BIP 119",
       "BIP 140",
       "BIP 433",
-      "BIP 443",
-      "BIP 65",
-      "BIP 68"
+      "BIP 443"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

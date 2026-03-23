@@ -517,7 +517,8 @@
       "deployment": 2
     },
     "explicit_references": [
-      "BIP 100"
+      "BIP 100",
+      "BIP 101"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

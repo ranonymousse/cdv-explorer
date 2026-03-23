@@ -513,7 +513,9 @@
       "a914b61b92e2ca21bac1e72a3ab859a742982bea960a87": 2,
       "implementation": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": [
       "BIP 380"
     ],

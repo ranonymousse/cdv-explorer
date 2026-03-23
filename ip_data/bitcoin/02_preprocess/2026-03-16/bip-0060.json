@@ -532,6 +532,7 @@
       "nbestheight": 2
     },
     "explicit_references": [
+      "BIP 14",
       "BIP 37"
     ],
     "explicit_dependencies": [],

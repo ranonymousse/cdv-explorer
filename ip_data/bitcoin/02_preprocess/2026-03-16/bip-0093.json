@@ -840,9 +840,9 @@
       "h": 2
     },
     "explicit_references": [
-      "BIP 173",
       "BIP 32",
-      "BIP 39"
+      "BIP 39",
+      "BIP 173"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

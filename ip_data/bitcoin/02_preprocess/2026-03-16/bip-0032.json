@@ -1029,7 +1029,9 @@
       "01": 2,
       "unknown": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 39"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
   }

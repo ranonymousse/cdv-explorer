@@ -676,7 +676,12 @@
       "copyright": 2,
       "domain": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 1",
+      "BIP 2",
+      "BIP 3",
+      "BIP 4"
+    ],
     "explicit_dependencies": [],
     "implicit_dependencies": []
   }

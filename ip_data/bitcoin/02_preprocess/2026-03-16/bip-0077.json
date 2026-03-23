@@ -888,11 +888,11 @@
       "2025": 2
     },
     "explicit_references": [
-      "BIP 174",
       "BIP 21",
+      "BIP 78",
+      "BIP 174",
       "BIP 321",
-      "BIP 324",
-      "BIP 78"
+      "BIP 324"
     ],
     "explicit_dependencies": [
       "BIP 173",

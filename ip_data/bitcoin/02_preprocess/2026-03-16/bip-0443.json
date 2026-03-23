@@ -729,6 +729,7 @@
     },
     "explicit_references": [
       "BIP 119",
+      "BIP 327",
       "BIP 341",
       "BIP 345"
     ],

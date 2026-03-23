@@ -500,11 +500,11 @@
       "implementation": 2
     },
     "explicit_references": [
+      "BIP 9",
+      "BIP 62",
       "BIP 141",
       "BIP 143",
-      "BIP 152",
-      "BIP 62",
-      "BIP 9"
+      "BIP 152"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

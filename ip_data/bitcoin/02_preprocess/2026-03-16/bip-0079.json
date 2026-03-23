@@ -622,8 +622,9 @@
       "backwards": 2
     },
     "explicit_references": [
-      "BIP 125",
-      "BIP 69"
+      "BIP 21",
+      "BIP 69",
+      "BIP 125"
     ],
     "explicit_dependencies": [
       "BIP 78"

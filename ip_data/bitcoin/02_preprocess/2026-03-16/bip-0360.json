@@ -849,11 +849,11 @@
       "contribute": 2
     },
     "explicit_references": [
-      "BIP 141",
-      "BIP 16",
-      "BIP 173",
       "BIP 3",
+      "BIP 16",
       "BIP 32",
+      "BIP 141",
+      "BIP 173",
       "BIP 340",
       "BIP 341",
       "BIP 342",

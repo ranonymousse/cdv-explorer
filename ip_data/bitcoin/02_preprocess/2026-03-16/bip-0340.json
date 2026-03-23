@@ -1212,13 +1212,13 @@
       "reviews": 2
     },
     "explicit_references": [
+      "BIP 32",
+      "BIP 62",
+      "BIP 66",
       "BIP 118",
       "BIP 146",
-      "BIP 32",
       "BIP 327",
-      "BIP 341",
-      "BIP 62",
-      "BIP 66"
+      "BIP 341"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

@@ -572,14 +572,14 @@
       "segregated": 2
     },
     "explicit_references": [
+      "BIP 9",
+      "BIP 16",
+      "BIP 66",
       "BIP 141",
       "BIP 143",
       "BIP 147",
       "BIP 148",
-      "BIP 149",
-      "BIP 16",
-      "BIP 66",
-      "BIP 9"
+      "BIP 149"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

@@ -643,6 +643,7 @@
       "russell": 2
     },
     "explicit_references": [
+      "BIP 9",
       "BIP 118",
       "BIP 119",
       "BIP 341",
@@ -650,8 +651,7 @@
       "BIP 345",
       "BIP 347",
       "BIP 348",
-      "BIP 443",
-      "BIP 9"
+      "BIP 443"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

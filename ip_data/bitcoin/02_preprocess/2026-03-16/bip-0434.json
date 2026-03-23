@@ -607,13 +607,13 @@
       "btcsuite": 2
     },
     "explicit_references": [
+      "BIP 35",
       "BIP 130",
       "BIP 133",
       "BIP 152",
       "BIP 155",
       "BIP 324",
-      "BIP 339",
-      "BIP 35"
+      "BIP 339"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

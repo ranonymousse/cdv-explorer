@@ -764,10 +764,12 @@
       "freicoin": 2
     },
     "explicit_references": [
+      "BIP 9",
       "BIP 12",
       "BIP 16",
       "BIP 17",
       "BIP 30",
+      "BIP 50",
       "BIP 65",
       "BIP 66"
     ],

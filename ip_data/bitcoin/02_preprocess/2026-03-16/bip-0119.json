@@ -1248,9 +1248,9 @@
       "checkoutputshashverify": 2
     },
     "explicit_references": [
+      "BIP 65",
       "BIP 112",
-      "BIP 341",
-      "BIP 65"
+      "BIP 341"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

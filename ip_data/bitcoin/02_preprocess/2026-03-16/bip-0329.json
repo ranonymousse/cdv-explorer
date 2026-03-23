@@ -618,10 +618,10 @@
     },
     "explicit_references": [
       "BIP 32",
-      "BIP 380",
       "BIP 39",
       "BIP 44",
-      "BIP 84"
+      "BIP 84",
+      "BIP 380"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

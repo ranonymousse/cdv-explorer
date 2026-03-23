@@ -601,8 +601,8 @@
       "reddit": 2
     },
     "explicit_references": [
-      "BIP 112",
-      "BIP 68"
+      "BIP 68",
+      "BIP 112"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [

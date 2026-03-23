@@ -521,7 +521,9 @@
       "210379e45b3cf75f9c5f9befd8e9506fb962f6a9d185ac87001ec44a8d3df8d4a9e3ac": 2,
       "implementation": 2
     },
-    "explicit_references": [],
+    "explicit_references": [
+      "BIP 380"
+    ],
     "explicit_dependencies": [
       "BIP 380"
     ],

@@ -86,9 +86,9 @@ def build_base_insights(
     id_field: str = PRIMARY_ID_FIELD,
 ) -> Tuple[Dict[str, any], str, str]:
     raw_content = load_bip_content(bip_file_path)
-    llm_content = prepare_llm_dependency_text(raw_content)
+    body_content = prepare_llm_dependency_text(raw_content)
     preamble = json_data.get("raw", {}).get("preamble", {})
-    references = create_reference_list(raw_content, proposal_label=proposal_label)
+    references = create_reference_list(body_content, proposal_label=proposal_label)
     explicit_dependencies = create_explicit_dependency_list(preamble, proposal_label=proposal_label)
     proposal_number = str(int(json_data["raw"]["preamble"][id_field]))
 
@@ -105,7 +105,7 @@ def build_base_insights(
             "explicit_references": filtered_references,
             "explicit_dependencies": filtered_explicit_dependencies,
         },
-        llm_content,
+        body_content,
         proposal_number,
     )
 

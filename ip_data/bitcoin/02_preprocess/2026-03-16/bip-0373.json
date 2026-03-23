@@ -789,8 +789,8 @@
       "thanks": 2
     },
     "explicit_references": [
-      "BIP 174",
       "BIP 32",
+      "BIP 174",
       "BIP 327",
       "BIP 328",
       "BIP 340",

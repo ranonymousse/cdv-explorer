@@ -1086,13 +1086,14 @@
       "2018": 2
     },
     "explicit_references": [
+      "BIP 65",
       "BIP 112",
+      "BIP 118",
       "BIP 119",
       "BIP 125",
       "BIP 340",
       "BIP 341",
-      "BIP 342",
-      "BIP 65"
+      "BIP 342"
     ],
     "explicit_dependencies": [
       "BIP 443"

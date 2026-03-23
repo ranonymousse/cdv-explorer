@@ -700,10 +700,11 @@
       "implementation": 2
     },
     "explicit_references": [
-      "BIP 174",
       "BIP 32",
+      "BIP 174",
       "BIP 340",
       "BIP 341",
+      "BIP 342",
       "BIP 370"
     ],
     "explicit_dependencies": [],

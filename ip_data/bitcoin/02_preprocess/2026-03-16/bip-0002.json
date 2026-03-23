@@ -1236,8 +1236,8 @@
     },
     "explicit_references": [
       "BIP 1",
-      "BIP 123",
-      "BIP 9"
+      "BIP 9",
+      "BIP 123"
     ],
     "explicit_dependencies": [
       "BIP 1",

@@ -752,7 +752,8 @@
     },
     "explicit_references": [
       "BIP 21",
-      "BIP 321"
+      "BIP 321",
+      "BIP 352"
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
