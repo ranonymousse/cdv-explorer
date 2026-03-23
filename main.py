@@ -13,7 +13,7 @@ from analysis.pipeline import prepare_ecosystem_artifacts
 from tqdm import tqdm
 
 
-DEFAULT_SNAPSHOT = "2025-12-31"
+DEFAULT_SNAPSHOT = "2026-03-16"
 HARVEST_ROOT = Path(ACTIVE_ECOSYSTEM["harvest"])
 PREPROCESS_ROOT = Path(ACTIVE_ECOSYSTEM["preprocess"])
 ANALYSIS_ROOT = Path(ACTIVE_ECOSYSTEM["analysis"])

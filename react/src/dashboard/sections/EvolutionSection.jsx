@@ -1,4 +1,3 @@
-import { Card } from 'primereact/card';
 import { RadioButton } from 'primereact/radiobutton';
 import { Tag } from 'primereact/tag';
 import { useState } from 'react';

@@ -9,6 +9,7 @@ const analysisRoot = path.join(repoRoot, 'ip_data', 'bitcoin', '03_analysis');
 const harvestRoot = path.join(repoRoot, 'ip_data', 'bitcoin', '01_harvest');
 const outputDir = path.join(reactRoot, 'src', 'generated');
 const outputPath = path.join(outputDir, 'bipLinkIndex.json');
+const tempOutputPath = path.join(outputDir, 'bipLinkIndex.json.tmp');
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -131,5 +132,6 @@ function buildIndex() {
 }
 
 fs.mkdirSync(outputDir, { recursive: true });
-fs.writeFileSync(outputPath, `${JSON.stringify(buildIndex(), null, 2)}\n`, 'utf8');
+fs.writeFileSync(tempOutputPath, `${JSON.stringify(buildIndex(), null, 2)}\n`, 'utf8');
+fs.renameSync(tempOutputPath, outputPath);
 console.log(`Wrote ${path.relative(reactRoot, outputPath)}`);

@@ -65,7 +65,7 @@ BITCOIN_ECOSYSTEM = {
         "paper": {
             "rq2_status_orders": [
                 {
-                    "snapshot_to": "2025-12-31",
+                    "snapshot_to": "2026-04-10",
                     "order": [
                         "Draft",
                         "Proposed",
@@ -79,7 +79,7 @@ BITCOIN_ECOSYSTEM = {
                     ],
                 },
                 {
-                    "snapshot_from": "2026-01-01",
+                    "snapshot_from": "2026-04-11",
                     "order": [
                         "Draft",
                         "Complete",
