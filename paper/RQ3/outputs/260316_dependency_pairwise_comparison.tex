@@ -1,0 +1,13 @@
+{
+    \setlength{\tabcolsep}{4pt}
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabular}{lccc}
+    \toprule
+    \textbf{Approach / Baseline} & \textbf{Preamble} & \textbf{Regex} & \textbf{LLM} \\
+    \midrule
+        \textbf{Preamble} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 72 (100.0\%) \\ \textbf{Not in Preamble}: 0 (0.0\%) \\ \textbf{Only in Preamble}: 0 (0.0\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 56 (10.4\%) \\ \textbf{Not in Preamble}: 485 (89.6\%) \\ \textbf{Only in Preamble}: 16 (22.2\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 57 (13.6\%) \\ \textbf{Not in Preamble}: 363 (86.4\%) \\ \textbf{Only in Preamble}: 15 (20.8\%)\end{tabular} \\
+        \textbf{Regex} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 56 (77.8\%) \\ \textbf{Not in Regex}: 16 (22.2\%) \\ \textbf{Only in Regex}: 485 (89.6\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 541 (100.0\%) \\ \textbf{Not in Regex}: 0 (0.0\%) \\ \textbf{Only in Regex}: 0 (0.0\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 360 (85.7\%) \\ \textbf{Not in Regex}: 60 (14.3\%) \\ \textbf{Only in Regex}: 181 (33.5\%)\end{tabular} \\
+        \textbf{LLM} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 57 (79.2\%) \\ \textbf{Not in LLM}: 15 (20.8\%) \\ \textbf{Only in LLM}: 363 (86.4\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 360 (66.5\%) \\ \textbf{Not in LLM}: 181 (33.5\%) \\ \textbf{Only in LLM}: 60 (14.3\%)\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Same}: 420 (100.0\%) \\ \textbf{Not in LLM}: 0 (0.0\%) \\ \textbf{Only in LLM}: 0 (0.0\%)\end{tabular} \\
+    \bottomrule
+    \end{tabular}
+}

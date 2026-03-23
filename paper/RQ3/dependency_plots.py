@@ -444,7 +444,10 @@ def draw_static_network_with_layouts(
         plt.tight_layout(rect=[0, 0, 1, 0.99])
 
         base_stem = filename_stem or _slugify([graph.number_of_nodes(), *link_type, color_by])
-        stem = f"{base_stem}_{layout_name}"
+        if base_stem.startswith("dependency_"):
+            stem = f"dep_{layout_name}_{base_stem[len('dependency_'):]}"
+        else:
+            stem = f"dep_{layout_name}_{base_stem}"
         prefix = f"{filename_prefix}_" if filename_prefix else ""
         output_path = output_dir / f"{prefix}{stem}.pdf"
         plt.savefig(output_path, format="pdf")

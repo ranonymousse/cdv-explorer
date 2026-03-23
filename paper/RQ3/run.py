@@ -10,11 +10,13 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 
 # Set this directly only when RQ3 needs a custom output location.
 OUTPUT_DIR = None
+GENERATE_DEPENDENCY_COMPARISON_TABLE = True
 
 
 def main() -> None:
     from analysis.artifact_io import load_network_data, resolve_latest_snapshot_label
     from paper.RQ3.dependency_plots import render_default_dependency_plot_suite
+    from paper.RQ3.dependency_comparison_table import export_dependency_comparison_latex_table
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
     default_relative_path = Path("paper") / "RQ3" / "outputs"
@@ -27,6 +29,11 @@ def main() -> None:
         output_dir=output_dir,
         filename_prefix=filename_prefix,
     )
+    if GENERATE_DEPENDENCY_COMPARISON_TABLE:
+        export_dependency_comparison_latex_table(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_dependency_pairwise_comparison.tex",
+        )
 
 
 if __name__ == "__main__":
