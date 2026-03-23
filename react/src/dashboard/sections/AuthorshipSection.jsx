@@ -72,7 +72,7 @@ export function AuthorshipSection({
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
-        <h2 className="dashboard-section__title">Authorship Patterns</h2>
+        <h2 className="dashboard-section__title">Authorship Diversity</h2>
       </div>
       <ExportableCard className="mb-4" exportTitle="Creation Over Time">
         <h3>Creation Over Time</h3>
