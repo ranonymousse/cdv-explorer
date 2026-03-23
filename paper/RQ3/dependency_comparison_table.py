@@ -44,17 +44,22 @@ def _get_approach_only_rate(summary: Dict[str, Any]) -> float:
     return float(summary.get("approach_only", 0) or 0) / approach_total
 
 
-def _build_cell(comparison: Dict[str, Any]) -> str:
+def _build_cell(comparison: Dict[str, Any]) -> Dict[str, str]:
     summary = comparison.get("summary", {})
-    approach_short = _latex_escape(
-        SHORT_LABELS.get(str(comparison.get("approach")), str(comparison.get("approach_label", "Approach")))
-    )
-    lines = [
-        rf"\textbf{{Same}}: {_format_count_share(int(summary.get('overlap', 0) or 0), float(summary.get('hit_rate', 0.0) or 0.0))}",
-        rf"\textbf{{Not in {approach_short}}}: {_format_count_share(int(summary.get('baseline_only', 0) or 0), float(summary.get('missed_rate', 0.0) or 0.0))}",
-        rf"\textbf{{Only in {approach_short}}}: {_format_count_share(int(summary.get('approach_only', 0) or 0), _get_approach_only_rate(summary))}",
-    ]
-    return r"\begin{tabular}[c]{@{}c@{}}" + r" \\ ".join(lines) + r"\end{tabular}"
+    return {
+        r"$A \cap B$": _format_count_share(
+            int(summary.get("overlap", 0) or 0),
+            float(summary.get("hit_rate", 0.0) or 0.0),
+        ),
+        r"$A \cap B'$": _format_count_share(
+            int(summary.get("approach_only", 0) or 0),
+            _get_approach_only_rate(summary),
+        ),
+        r"$A' \cap B$": _format_count_share(
+            int(summary.get("baseline_only", 0) or 0),
+            float(summary.get("missed_rate", 0.0) or 0.0),
+        ),
+    }
 
 
 def export_dependency_comparison_latex_table(
@@ -66,25 +71,40 @@ def export_dependency_comparison_latex_table(
     pairwise_comparisons = _build_pairwise_comparisons(network_data)
 
     header_line = " & ".join(
-        [r"\textbf{Approach / Baseline}"]
+        [r"\diagbox{\textbf{$A$}}{\textbf{$B$}}", r"\textbf{Metric}"]
         + [rf"\textbf{{{_latex_escape(SHORT_LABELS[key])}}}" for key in APPROACH_ORDER]
     ) + r" \\"
 
     body_lines = []
+    metric_order = [r"$A \cap B$", r"$A' \cap B$", r"$A \cap B'$"]
     for approach in APPROACH_ORDER:
-        row_cells = [rf"\textbf{{{_latex_escape(SHORT_LABELS[approach])}}}"]
+        metric_values_by_baseline = []
         for baseline in APPROACH_ORDER:
             comparison_key = f"{approach}__vs__{baseline}"
             comparison = pairwise_comparisons.get(comparison_key, {})
-            row_cells.append(_build_cell(comparison))
-        body_lines.append("        " + " & ".join(row_cells) + r" \\")
+            metric_values_by_baseline.append(_build_cell(comparison))
+
+        for metric_index, metric_label in enumerate(metric_order):
+            row_cells = []
+            if metric_index == 0:
+                row_cells.append(rf"\multirow{{3}}{{*}}{{\textbf{{{_latex_escape(SHORT_LABELS[approach])}}}}}")
+            else:
+                row_cells.append("")
+            row_cells.append(metric_label)
+            for metric_values in metric_values_by_baseline:
+                row_cells.append(metric_values[metric_label])
+            line_prefix = "        "
+            line_suffix = r" \\"
+            if metric_index == len(metric_order) - 1 and approach != APPROACH_ORDER[-1]:
+                line_suffix = r" \\" + "\n        " + r"\midrule"
+            body_lines.append(line_prefix + " & ".join(row_cells) + line_suffix)
 
     latex_table = "\n".join(
         [
             "{",
             rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
             r"    \renewcommand{\arraystretch}{1.15}",
-            r"    \begin{tabular}{lccc}",
+            r"    \begin{tabular}{lc|ccc}",
             r"    \toprule",
             f"    {header_line}",
             r"    \midrule",
