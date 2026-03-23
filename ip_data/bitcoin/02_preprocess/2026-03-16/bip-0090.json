@@ -556,8 +556,7 @@
     "implicit_dependencies": [
       "BIP 34",
       "BIP 65",
-      "BIP 66",
-      "BIP 9"
+      "BIP 66"
     ]
   }
 }

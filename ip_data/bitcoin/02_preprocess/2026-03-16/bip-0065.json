@@ -794,8 +794,7 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
-      "BIP 66",
-      "BIP 9"
+      "BIP 66"
     ]
   }
 }

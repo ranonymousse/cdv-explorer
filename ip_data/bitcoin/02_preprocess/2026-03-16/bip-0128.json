@@ -660,10 +660,9 @@
     "explicit_dependencies": [],
     "implicit_dependencies": [
       "BIP 65",
-      "BIP 112",
       "BIP 68",
-      "BIP 140",
-      "BIP 433"
+      "BIP 112",
+      "BIP 140"
     ]
   }
 }

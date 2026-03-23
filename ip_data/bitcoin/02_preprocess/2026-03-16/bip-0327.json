@@ -1163,9 +1163,9 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
+      "BIP 32",
       "BIP 340",
-      "BIP 341",
-      "BIP 32"
+      "BIP 341"
     ]
   }
 }

@@ -801,11 +801,11 @@
       "BIP 341"
     ],
     "implicit_dependencies": [
-      "BIP 341",
-      "BIP 340",
-      "BIP 141",
       "BIP 65",
-      "BIP 112"
+      "BIP 112",
+      "BIP 141",
+      "BIP 340",
+      "BIP 341"
     ]
   }
 }

@@ -490,9 +490,6 @@
       "BIP 16"
     ],
     "explicit_dependencies": [],
-    "implicit_dependencies": [
-      "BIP 16",
-      "BIP 173"
-    ]
+    "implicit_dependencies": []
   }
 }

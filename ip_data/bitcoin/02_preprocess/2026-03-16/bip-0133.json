@@ -492,8 +492,7 @@
     "explicit_references": [],
     "explicit_dependencies": [],
     "implicit_dependencies": [
-      "BIP 37",
-      "BIP 9"
+      "BIP 37"
     ]
   }
 }

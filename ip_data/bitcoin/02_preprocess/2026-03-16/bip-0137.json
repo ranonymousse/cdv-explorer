@@ -639,12 +639,6 @@
       "BIP 322"
     ],
     "explicit_dependencies": [],
-    "implicit_dependencies": [
-      "BIP 322",
-      "BIP 173",
-      "BIP 141",
-      "BIP 49",
-      "BIP 16"
-    ]
+    "implicit_dependencies": []
   }
 }

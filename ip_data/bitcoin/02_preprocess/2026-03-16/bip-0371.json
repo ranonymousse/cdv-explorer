@@ -708,12 +708,12 @@
     ],
     "explicit_dependencies": [],
     "implicit_dependencies": [
+      "BIP 32",
       "BIP 174",
-      "BIP 370",
       "BIP 340",
       "BIP 341",
       "BIP 342",
-      "BIP 32"
+      "BIP 370"
     ]
   }
 }

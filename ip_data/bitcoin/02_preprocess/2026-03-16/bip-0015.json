@@ -748,8 +748,6 @@
       "BIP 70"
     ],
     "explicit_dependencies": [],
-    "implicit_dependencies": [
-      "BIP 37"
-    ]
+    "implicit_dependencies": []
   }
 }

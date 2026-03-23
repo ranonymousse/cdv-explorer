@@ -493,6 +493,7 @@
       "BIP 380"
     ],
     "implicit_dependencies": [
+      "BIP 340",
       "BIP 341",
       "BIP 380",
       "BIP 383"

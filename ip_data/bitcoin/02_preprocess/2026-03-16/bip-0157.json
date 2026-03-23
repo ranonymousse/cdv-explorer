@@ -737,7 +737,6 @@
       "BIP 158"
     ],
     "implicit_dependencies": [
-      "BIP 37",
       "BIP 158"
     ]
   }

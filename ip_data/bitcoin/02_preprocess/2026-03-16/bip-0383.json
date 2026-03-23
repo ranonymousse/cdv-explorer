@@ -558,8 +558,8 @@
       "BIP 380"
     ],
     "implicit_dependencies": [
-      "BIP 380",
-      "BIP 32"
+      "BIP 32",
+      "BIP 380"
     ]
   }
 }

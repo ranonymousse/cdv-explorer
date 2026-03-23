@@ -1098,12 +1098,12 @@
       "BIP 443"
     ],
     "implicit_dependencies": [
+      "BIP 112",
       "BIP 119",
-      "BIP 341",
-      "BIP 340",
-      "BIP 342",
       "BIP 125",
-      "BIP 118"
+      "BIP 340",
+      "BIP 341",
+      "BIP 342"
     ]
   }
 }

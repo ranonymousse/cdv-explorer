@@ -747,8 +747,8 @@
       "BIP 383"
     ],
     "implicit_dependencies": [
+      "BIP 2",
       "BIP 32",
-      "BIP 322",
       "BIP 380",
       "BIP 381",
       "BIP 382",

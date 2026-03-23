@@ -509,11 +509,10 @@
     ],
     "implicit_dependencies": [
       "BIP 341",
-      "BIP 352",
       "BIP 350",
+      "BIP 352",
       "BIP 380",
-      "BIP 390",
-      "BIP 32"
+      "BIP 390"
     ]
   }
 }

@@ -1278,13 +1278,13 @@
       "BIP 340"
     ],
     "implicit_dependencies": [
-      "BIP 340",
-      "BIP 141",
-      "BIP 143",
-      "BIP 342",
       "BIP 9",
       "BIP 114",
-      "BIP 117"
+      "BIP 117",
+      "BIP 141",
+      "BIP 143",
+      "BIP 340",
+      "BIP 342"
     ]
   }
 }

@@ -516,8 +516,6 @@
     },
     "explicit_references": [],
     "explicit_dependencies": [],
-    "implicit_dependencies": [
-      "BIP 9"
-    ]
+    "implicit_dependencies": []
   }
 }

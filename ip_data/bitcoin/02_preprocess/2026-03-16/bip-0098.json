@@ -742,8 +742,6 @@
       "BIP 116"
     ],
     "explicit_dependencies": [],
-    "implicit_dependencies": [
-      "BIP 116"
-    ]
+    "implicit_dependencies": []
   }
 }

@@ -740,8 +740,6 @@
     },
     "explicit_references": [],
     "explicit_dependencies": [],
-    "implicit_dependencies": [
-      "BIP 16"
-    ]
+    "implicit_dependencies": []
   }
 }
