@@ -108,12 +108,13 @@ Output requirements:
 - Return only a JSON array
 - No explanation
 - No markdown
-- Deduplicate results
+- Return a normalized, sorted, distinct list of {proposal_label}s
+- Normalize returned identifiers to "{proposal_label} N" (for example "{proposal_label}-0014" and "{proposal_label} 0014" -> "{proposal_label} 14")
 - Exclude {proposal_label} {current_proposal_number} if present
 - Return [] if there are no real dependencies
 
 Examples:
-Text: This proposal depends on {proposal_label} 32 and {proposal_label} 39.
+Text: This proposal depends on {proposal_label} 39 and 32.
 Output: ["{proposal_label} 32", "{proposal_label} 39"]
 
 Text: This proposal builds upon {proposal_label}-0016 for partially signed transactions.
@@ -122,7 +123,8 @@ Output: ["{proposal_label} 16"]
 Text: Since {proposal_label} 44 introduced a privacy concern, this proposal suggests a new hashing function to address that issue.
 Output: []
 
-Text:
+Now apply the same rules to the actual proposal text below:
+
 \"\"\"{text}\"\"\"
 """
 
