@@ -234,7 +234,7 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
                 str(repo_dir),
                 "log",
                 "--follow",
-                "--format=__COMMIT__%H|%aI|%an",
+                "--format=__COMMIT__%H|%cI|%an",
                 "--name-status",
                 "--",
                 str(relative_file_path),
@@ -250,7 +250,7 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
 
     history_entries = list(reversed(_parse_git_history_with_paths(log_result.stdout)))
     timeline: List[Dict[str, str]] = []
-    previous_status = None
+    previous_snapshot = None
 
     for entry in history_entries:
         try:
@@ -275,7 +275,9 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
         if not status:
             continue
 
-        if status == previous_status:
+        standard = _resolve_reporting_standard(entry["timestamp"])
+        snapshot = (status, standard)
+        if snapshot == previous_snapshot:
             continue
 
         timeline.append(
@@ -285,9 +287,9 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
                 "date": entry["timestamp"][:10],
                 "author": entry["author"],
                 "status": status,
-                "standard": _resolve_reporting_standard(entry["timestamp"]),
+                "standard": standard,
             }
         )
-        previous_status = status
+        previous_snapshot = snapshot
 
     return timeline

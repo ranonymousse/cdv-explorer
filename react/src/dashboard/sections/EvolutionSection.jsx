@@ -15,7 +15,11 @@ export function EvolutionSection({
   evolutionPayload,
 }) {
   const [chartMode, setChartMode] = useState('absolute');
-  const overallEvolution = evolutionPayload?.status_evolution || { categories: [], rows: [] };
+  const overallEvolution = evolutionPayload?.status_evolution_segmented
+    || evolutionPayload?.status_evolution
+    || { categories: [], rows: [] };
+  const milestoneLabel = evolutionPayload?.meta?.milestones?.[0]?.label || '';
+  const milestoneDate = evolutionPayload?.meta?.milestones?.[0]?.date || '';
   const hasData = hasPositiveValues(overallEvolution);
 
   if (!hasData) {
@@ -37,7 +41,7 @@ export function EvolutionSection({
       <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Status Evolution`}>
         <h3>{ecosystem.acronym} Status Evolution</h3>
         <p>
-          Stacked quarterly status counts reconstructed from proposal Git history. Each bar shows how many {ecosystem.proposalShortPlural} were in each status at quarter end.
+          Stacked status counts reconstructed from proposal Git history using landed commit dates. Bars show quarter-end states, with a separate breakpoint for {milestoneLabel || 'major process changes'}{milestoneDate ? ` on ${milestoneDate}` : ''}.
         </p>
         <div className="network-layout-controls">
           <div className="network-layout-picker">

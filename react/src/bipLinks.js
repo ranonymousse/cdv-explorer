@@ -70,13 +70,25 @@ export function getBipUrl(id, snapshotLabel = null, options = {}) {
     return normalizedId && BIPS_DEV_BASE_URL ? `${BIPS_DEV_BASE_URL}/${normalizedId}/` : '#';
   }
 
-  const snapshotFileName = getSnapshotBipFileName(id, snapshotLabel);
-  const fileName = snapshotFileName || getLatestKnownBipFileName(id);
+  const snapshotFileName = getSnapshotBipFileName(normalizedId, snapshotLabel);
+  if (snapshotLabel) {
+    if (!BITCOIN_BIPS_REPOSITORY_URL || !snapshotFileName) {
+      return '#';
+    }
+
+    const commitHash = getSnapshotCommit(snapshotLabel);
+    if (!commitHash) {
+      return '#';
+    }
+
+    return `${BITCOIN_BIPS_REPOSITORY_URL}/blob/${commitHash}/${snapshotFileName}`;
+  }
+
+  const fileName = getLatestKnownBipFileName(normalizedId);
   if (!BITCOIN_BIPS_REPOSITORY_URL || !fileName) {
     return '#';
   }
 
-  const commitHash = snapshotFileName ? getSnapshotCommit(snapshotLabel) : '';
-  const ref = commitHash || BITCOIN_BIPS_DEFAULT_BRANCH;
+  const ref = BITCOIN_BIPS_DEFAULT_BRANCH;
   return `${BITCOIN_BIPS_REPOSITORY_URL}/blob/${ref}/${fileName}`;
 }

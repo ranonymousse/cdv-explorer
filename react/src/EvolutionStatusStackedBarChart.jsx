@@ -77,13 +77,24 @@ export function EvolutionStatusStackedBarChart({
     }
 
     const rows = rawRows
-      .map((row) => ({
+      .map((row, index) => ({
         period: String(row?.period || row?.year || ''),
+        periodStart: String(row?.period_start || ''),
+        periodEnd: String(row?.period_end || ''),
+        periodKind: String(row?.period_kind || 'quarter'),
+        milestoneLabel: String(row?.milestone_label || ''),
         values: row?.values || {},
         bips: row?.bips || {},
+        index,
       }))
-      .filter((row) => row.period)
-      .sort((left, right) => left.period.localeCompare(right.period));
+      .filter((row) => row.period);
+
+    rows.sort((left, right) => {
+      if (left.periodEnd && right.periodEnd && left.periodEnd !== right.periodEnd) {
+        return left.periodEnd.localeCompare(right.periodEnd);
+      }
+      return left.index - right.index;
+    });
 
     if (!rows.length) {
       return;
@@ -143,21 +154,43 @@ export function EvolutionStatusStackedBarChart({
       ])
     );
     const visibleSegments = segmentDefinitions.filter((segment) => (totalsBySegment[segment.key] || 0) > 0);
-    const visibleStatuses = new Set(visibleSegments.map((segment) => segment.status));
-    const bip3Statuses = new Set(BIP3_STATUS_ORDER);
-    const segmentByStatus = new Map(visibleSegments.map((segment) => [segment.status, segment]));
-    const bip2LegendStatuses = [
-      ...BIP2_STATUS_ORDER.filter((status) => visibleStatuses.has(status)),
-      ...visibleSegments
-        .map((segment) => segment.status)
-        .filter((status, index, all) => (
-          !bip3Statuses.has(status)
-          && !BIP2_STATUS_ORDER.includes(status)
-          && all.indexOf(status) === index
-        ))
-        .sort((left, right) => left.localeCompare(right)),
-    ];
-    const bip3LegendStatuses = BIP3_STATUS_ORDER.filter((status) => visibleStatuses.has(status));
+    const orderLegendSegments = (segments, preferredStatusOrder) => {
+      const statusRank = new Map(preferredStatusOrder.map((status, index) => [status, index]));
+      return [...segments].sort((left, right) => {
+        const leftRank = statusRank.has(left.status) ? statusRank.get(left.status) : Number.MAX_SAFE_INTEGER;
+        const rightRank = statusRank.has(right.status) ? statusRank.get(right.status) : Number.MAX_SAFE_INTEGER;
+
+        if (leftRank !== rightRank) {
+          return leftRank - rightRank;
+        }
+
+        if (left.status !== right.status) {
+          return left.status.localeCompare(right.status);
+        }
+
+        return left.key.localeCompare(right.key);
+      });
+    };
+    const hasExplicitStandards = visibleSegments.some((segment) => segment.standard === 'bip2' || segment.standard === 'bip3');
+    const bip2LegendSegments = hasExplicitStandards
+      ? orderLegendSegments(
+        visibleSegments.filter((segment) => segment.standard === 'bip2'),
+        BIP2_STATUS_ORDER,
+      )
+      : orderLegendSegments(
+        visibleSegments.filter((segment) => BIP2_STATUS_ORDER.includes(segment.status)),
+        BIP2_STATUS_ORDER,
+      );
+    const bip3LegendSegments = hasExplicitStandards
+      ? orderLegendSegments(
+        visibleSegments.filter((segment) => segment.standard === 'bip3'),
+        BIP3_STATUS_ORDER,
+      )
+      : orderLegendSegments(
+        visibleSegments.filter((segment) => BIP3_STATUS_ORDER.includes(segment.status)),
+        BIP3_STATUS_ORDER,
+      );
+    const rowByPeriod = new Map(rows.map((row) => [row.period, row]));
 
     const x = d3.scaleBand()
       .domain(periods)
@@ -172,7 +205,11 @@ export function EvolutionStatusStackedBarChart({
       .range([innerHeight, 0]);
 
     const tickValues = periods.filter((period, index) => {
+      const row = rowByPeriod.get(period);
       if (index === 0 || index === periods.length - 1) {
+        return true;
+      }
+      if (row?.periodKind === 'milestone' || row?.periodKind === 'milestone_remainder') {
         return true;
       }
       if (periods.length > 40) {
@@ -203,13 +240,39 @@ export function EvolutionStatusStackedBarChart({
       .attr('transform', 'rotate(-45)')
       .style('text-anchor', 'end');
 
+    rows
+      .filter((row) => row.periodKind === 'milestone')
+      .forEach((row) => {
+        const centerX = (x(row.period) || 0) + (x.bandwidth() / 2);
+
+        root.append('line')
+          .attr('x1', centerX)
+          .attr('x2', centerX)
+          .attr('y1', 0)
+          .attr('y2', innerHeight)
+          .attr('stroke', 'var(--chart-focus)')
+          .attr('stroke-dasharray', '4 4')
+          .attr('stroke-width', 1)
+          .attr('opacity', 0.75);
+
+        if (row.milestoneLabel) {
+          root.append('text')
+            .attr('x', Math.min(innerWidth, centerX + 6))
+            .attr('y', -8)
+            .style('font-size', '11px')
+            .style('font-weight', '600')
+            .style('fill', 'var(--chart-text)')
+            .text(row.milestoneLabel);
+        }
+      });
+
     const legend = root.append('g')
       .attr('transform', `translate(${innerWidth + 20}, 0)`);
 
     let legendOffsetY = 0;
 
-    const appendLegendSection = (titleText, statuses) => {
-      if (!statuses.length) {
+    const appendLegendSection = (titleText, segments) => {
+      if (!segments.length) {
         return;
       }
 
@@ -223,12 +286,7 @@ export function EvolutionStatusStackedBarChart({
 
       legendOffsetY += 18;
 
-      statuses.forEach((status) => {
-        const segment = segmentByStatus.get(status);
-        if (!segment) {
-          return;
-        }
-
+      segments.forEach((segment) => {
         const row = legend.append('g')
           .attr('transform', `translate(0, ${legendOffsetY})`);
         row.append('rect')
@@ -263,8 +321,8 @@ export function EvolutionStatusStackedBarChart({
       legendOffsetY += 8;
     };
 
-    appendLegendSection('BIP2', bip2LegendStatuses);
-    appendLegendSection('BIP3', bip3LegendStatuses);
+    appendLegendSection('BIP2', bip2LegendSegments);
+    appendLegendSection('BIP3', bip3LegendSegments);
 
     const renderTooltipHtml = (segment) => {
       const bipList = Array.isArray(segment.data?.bips?.[segment.key])
@@ -273,7 +331,8 @@ export function EvolutionStatusStackedBarChart({
 
       return (
         `<strong>${title}</strong><br/>` +
-        `Quarter: ${segment.data.period}<br/>` +
+        `Period: ${segment.data.period}<br/>` +
+        `${segmentByKey.get(segment.key)?.standard ? `Standard: ${String(segmentByKey.get(segment.key)?.standard).toUpperCase()}<br/>` : ''}` +
         `Status: ${segmentByKey.get(segment.key)?.status || segment.key}<br/>` +
         `Count: ${segment.data[`${segment.key}__raw`]}<br/>` +
         `Share: ${Math.round((Number(segment.data[`${segment.key}__share`] || 0)) * 100)}%<br/>` +
