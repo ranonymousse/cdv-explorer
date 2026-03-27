@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from matplotlib.colors import to_rgba
 
-from paper.RQ1._plotting import save_figure
-from paper.RQ1.collaboration_common import build_author_bip_map
+from paper.RQ3._plotting import save_figure
+from paper.RQ3.collaboration_common import build_author_bip_map
 
 
 CLUSTER_COLORS = [

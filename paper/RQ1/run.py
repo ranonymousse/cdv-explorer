@@ -8,75 +8,92 @@ if str(REPO_ROOT) not in sys.path:
 from paper.config import SNAPSHOT
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 
-# Set this directly only when RQ1 needs a custom output location.
 OUTPUT_DIR = None
-GENERATE_AUTHORSHIP_PLOTS = True
-GENERATE_COLLABORATION_NETWORK_PLOT = True
-GENERATE_COLLABORATION_METRICS_TABLE = True
+GENERATE_CLASSIFICATION_STATUS_PLOT = True
+GENERATE_EVOLUTION_STATUS_PLOT = True
+GENERATE_CLASSIFICATION_TYPE_PLOT = True
+GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE = True
+GENERATE_CLASSIFICATION_SANKEY_PLOT = True
+CLASSIFICATION_STATUS_ORDER = [
+    "Draft",
+    "Complete",
+    "Deployed",
+    "Closed",
+]
 
 
 def main() -> None:
     from analysis.artifact_io import (
-        load_authorship_payload,
-        load_authorship_metrics,
+        load_classification_payload,
+        load_evolution_payload,
         load_network_data,
         resolve_latest_snapshot_label,
     )
-    from paper.RQ1.authorship_overview import plot_authorship_overview
-    from paper.RQ1.collaboration_metrics_table import (
-        export_collaboration_metrics_latex_table,
-        export_collaboration_metrics_table,
+    from paper.RQ1.classification_sankey import plot_classification_sankey
+    from paper.RQ1.classification_status import plot_classification_status
+    from paper.RQ1.classification_status_type_table import (
+        export_classification_status_type_latex_table,
     )
-    from paper.RQ1.collaboration_network import render_collaboration_network_layout_suite
-    from paper.RQ1.creation_over_time import plot_creation_over_time
+    from paper.RQ1.classification_type import plot_classification_type
+    from paper.RQ1.evolution_status import plot_evolution_status
+
+    if (
+        not GENERATE_CLASSIFICATION_STATUS_PLOT
+        and not GENERATE_EVOLUTION_STATUS_PLOT
+        and not GENERATE_CLASSIFICATION_TYPE_PLOT
+        and not GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE
+        and not GENERATE_CLASSIFICATION_SANKEY_PLOT
+    ):
+        return
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
     output_dir = resolve_output_dir(OUTPUT_DIR, Path("paper") / "RQ1" / "outputs")
     filename_prefix = snapshot_prefix(snapshot_label)
-    authorship_payload: dict | None = None
-    network_data: dict | None = None
+    classification_payload = None
+    network_data = None
 
-    if GENERATE_AUTHORSHIP_PLOTS:
-        authorship_metrics = load_authorship_metrics(snapshot=SNAPSHOT)
-        plot_creation_over_time(
-            proposals_per_year=authorship_metrics.get("proposals_per_year", []),
-            output_path=output_dir / f"{filename_prefix}_creation_over_time.pdf",
+    if GENERATE_CLASSIFICATION_STATUS_PLOT:
+        classification_payload = load_classification_payload(snapshot=SNAPSHOT)
+        plot_classification_status(
+            status_over_time=classification_payload.get("status_over_time", {}),
+            output_path=output_dir / f"{filename_prefix}_classification_status.pdf",
             snapshot_label=snapshot_label,
-        )
-        plot_authorship_overview(
-            top_authors=authorship_metrics.get("top_authors", []),
-            contribution_histogram=authorship_metrics.get("author_contribution_histogram", []),
-            output_path=output_dir / f"{filename_prefix}_authorship_overview.pdf",
-            snapshot_label=snapshot_label,
+            order=CLASSIFICATION_STATUS_ORDER,
         )
 
-    if GENERATE_COLLABORATION_NETWORK_PLOT:
-        if authorship_payload is None:
-            authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
+    if GENERATE_EVOLUTION_STATUS_PLOT:
+        evolution_payload = load_evolution_payload(snapshot=SNAPSHOT)
+        plot_evolution_status(
+            status_evolution=evolution_payload.get("status_evolution", {}),
+            status_evolution_by_standard=evolution_payload.get("status_evolution_by_standard", {}),
+            output_path=output_dir / f"{filename_prefix}_evolution_status.pdf",
+            snapshot_label=snapshot_label,
+        )
+
+    if GENERATE_CLASSIFICATION_TYPE_PLOT:
+        network_data = load_network_data(snapshot=SNAPSHOT)
+        plot_classification_type(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_classification_type.pdf",
+            snapshot_label=snapshot_label,
+        )
+
+    if GENERATE_CLASSIFICATION_SANKEY_PLOT:
         if network_data is None:
             network_data = load_network_data(snapshot=SNAPSHOT)
-        render_collaboration_network_layout_suite(
+        plot_classification_sankey(
             network_data=network_data,
-            authorship_payload=authorship_payload,
-            output_dir=output_dir,
-            filename_prefix=filename_prefix,
+            output_path=output_dir / f"{filename_prefix}_classification_sankey.pdf",
             snapshot_label=snapshot_label,
         )
 
-    if GENERATE_COLLABORATION_METRICS_TABLE:
-        if authorship_payload is None:
-            authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
+    if GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE:
         if network_data is None:
             network_data = load_network_data(snapshot=SNAPSHOT)
-        export_collaboration_metrics_table(
-            authorship_payload=authorship_payload,
+        export_classification_status_type_latex_table(
             network_data=network_data,
-            output_path=output_dir / f"{filename_prefix}_collaboration_metrics.xlsx",
-        )
-        export_collaboration_metrics_latex_table(
-            authorship_payload=authorship_payload,
-            network_data=network_data,
-            output_path=output_dir / f"{filename_prefix}_collaboration_metrics_top_weighted_degree.tex",
+            output_path=output_dir / f"{filename_prefix}_classification_status_type.tex",
+            snapshot_label=snapshot_label,
         )
 
 

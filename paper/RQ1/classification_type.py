@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from analysis.classification.metrics import build_type_over_time
-from paper.RQ2.classification_status import plot_classification_status
+from paper.RQ1.classification_status import plot_classification_status
 
 
 TYPE_ORDER = [

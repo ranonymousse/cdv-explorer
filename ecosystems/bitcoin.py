@@ -64,7 +64,7 @@ BITCOIN_ECOSYSTEM = {
             "Standards-Track": "Standards Track",
         },
         "paper": {
-            "rq2_status_orders": [
+            "rq1_status_orders": [
                 {
                     "snapshot_to": "2026-04-10",
                     "order": [

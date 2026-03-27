@@ -9,9 +9,9 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import PathPatch, Rectangle
 from matplotlib.path import Path
 
-from paper.RQ1._plotting import BAR_EDGE_COLOR, BAR_EDGE_WIDTH, bar_style, save_figure
-from paper.RQ2.classification_status import STATUS_COLORS, resolve_rq2_status_order
-from paper.RQ2.classification_type import TYPE_COLORS, TYPE_ORDER
+from paper.RQ3._plotting import BAR_EDGE_COLOR, BAR_EDGE_WIDTH, bar_style, save_figure
+from paper.RQ1.classification_status import STATUS_COLORS, resolve_rq1_status_order
+from paper.RQ1.classification_type import TYPE_COLORS, TYPE_ORDER
 
 
 LAYER_ORDER = [
@@ -260,7 +260,7 @@ def plot_classification_sankey(
     type_order = _ordered_categories(set(type_counts), TYPE_ORDER)
     status_order = _ordered_categories(
         set(status_counts),
-        status_order or resolve_rq2_status_order(snapshot_label),
+        status_order or resolve_rq1_status_order(snapshot_label),
     )
     layer_order = _ordered_categories(set(layer_counts), LAYER_ORDER)
 

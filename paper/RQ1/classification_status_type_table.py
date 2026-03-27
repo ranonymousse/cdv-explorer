@@ -1,7 +1,7 @@
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from paper.RQ2.classification_type import TYPE_ORDER
+from paper.RQ1.classification_type import TYPE_ORDER
 
 
 LATEX_TABCOLSEP_PT = 5

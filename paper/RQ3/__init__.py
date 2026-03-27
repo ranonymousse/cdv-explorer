@@ -1,1 +1,1 @@
-"""RQ3 paper outputs."""
+"""Research question 3 paper entrypoints."""

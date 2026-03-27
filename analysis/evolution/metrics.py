@@ -66,7 +66,7 @@ def _fallback_timeline(proposal: Dict[str, Any], id_field: str) -> List[Dict[str
 
 def _build_status_order(categories: List[str]) -> List[str]:
     configured_order: List[str] = []
-    for entry in CLASSIFICATION_PAPER_CONFIG.get("rq2_status_orders", []):
+    for entry in CLASSIFICATION_PAPER_CONFIG.get("rq1_status_orders", []):
         for status in entry.get("order", []):
             if status not in configured_order:
                 configured_order.append(status)

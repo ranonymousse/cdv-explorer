@@ -11,7 +11,7 @@ from matplotlib.ticker import MaxNLocator
 
 from analysis.artifact_io import resolve_latest_snapshot_label
 from ecosystem_config import ACTIVE_ECOSYSTEM
-from paper.RQ1._plotting import (
+from paper.RQ3._plotting import (
     BAR_EDGE_COLOR,
     BAR_EDGE_WIDTH,
     bar_style,
@@ -71,9 +71,9 @@ def _parse_snapshot_date(snapshot_label: str | None) -> date | None:
         return None
 
 
-def resolve_rq2_status_order(snapshot_label: str | None) -> list[str]:
+def resolve_rq1_status_order(snapshot_label: str | None) -> list[str]:
     snapshot_date = _parse_snapshot_date(snapshot_label)
-    configured_orders = CLASSIFICATION_PAPER_CONFIG.get("rq2_status_orders", [])
+    configured_orders = CLASSIFICATION_PAPER_CONFIG.get("rq1_status_orders", [])
     valid_orders: list[list[str]] = []
 
     for entry in configured_orders:
@@ -220,7 +220,7 @@ def plot_classification_status(
 ) -> None:
     years, ordered_statuses, series = _normalize_status_series(
         status_over_time,
-        order or resolve_rq2_status_order(snapshot_label),
+        order or resolve_rq1_status_order(snapshot_label),
     )
     totals = {
         status: sum(counts)

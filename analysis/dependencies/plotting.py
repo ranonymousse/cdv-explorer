@@ -27,20 +27,20 @@ def main() -> None:
     output_dir = resolve_output_dir(args.output_dir, default_relative_path)
 
     from analysis.artifact_io import load_network_data
-    from paper.RQ3.dependency_plots import render_default_dependency_plot_suite
+    from paper.RQ2.dependency_plots import render_default_dependency_plot_suite
 
     network_data = load_network_data(snapshot=args.snapshot)
     render_default_dependency_plot_suite(network_data, output_dir=output_dir)
 
 
 def draw_static_network_with_layouts(*args, **kwargs):
-    from paper.RQ3.dependency_plots import draw_static_network_with_layouts as _draw_static_network_with_layouts
+    from paper.RQ2.dependency_plots import draw_static_network_with_layouts as _draw_static_network_with_layouts
 
     return _draw_static_network_with_layouts(*args, **kwargs)
 
 
 def render_default_dependency_plot_suite(*args, **kwargs):
-    from paper.RQ3.dependency_plots import render_default_dependency_plot_suite as _render_default_dependency_plot_suite
+    from paper.RQ2.dependency_plots import render_default_dependency_plot_suite as _render_default_dependency_plot_suite
 
     return _render_default_dependency_plot_suite(*args, **kwargs)
 

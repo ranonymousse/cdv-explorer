@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator, MultipleLocator
 
-from paper.RQ1._plotting import (
+from paper.RQ3._plotting import (
     BAR_EDGE_COLOR,
     BAR_EDGE_WIDTH,
     bar_style,
