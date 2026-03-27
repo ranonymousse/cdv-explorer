@@ -630,9 +630,7 @@
         "BIP 100"
       ],
       "body_extracted_llm": [
-        "BIP 9",
-        "BIP 34",
-        "BIP 100"
+        "BIP 34"
       ]
     }
   }

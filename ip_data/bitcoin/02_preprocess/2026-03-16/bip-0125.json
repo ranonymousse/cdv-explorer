@@ -655,10 +655,7 @@
         "BIP 68",
         "BIP 112"
       ],
-      "body_extracted_llm": [
-        "BIP 68",
-        "BIP 112"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

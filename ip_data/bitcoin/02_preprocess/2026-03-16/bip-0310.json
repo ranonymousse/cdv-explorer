@@ -627,9 +627,7 @@
     "interrelations": {
       "preamble_extracted": [],
       "body_extracted_regex": [],
-      "body_extracted_llm": [
-        "BIP 9"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

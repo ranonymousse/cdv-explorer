@@ -627,7 +627,9 @@
       ],
       "body_extracted_llm": [
         "BIP 174",
-        "BIP 370"
+        "BIP 340",
+        "BIP 370",
+        "BIP 371"
       ]
     }
   }

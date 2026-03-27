@@ -1304,7 +1304,10 @@
         "BIP 50",
         "BIP 123"
       ],
-      "body_extracted_llm": []
+      "body_extracted_llm": [
+        "BIP 2",
+        "BIP 123"
+      ]
     }
   }
 }

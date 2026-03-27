@@ -637,10 +637,7 @@
         "BIP 13",
         "BIP 16"
       ],
-      "body_extracted_llm": [
-        "BIP 12",
-        "BIP 16"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

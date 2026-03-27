@@ -669,9 +669,8 @@
         "BIP 443"
       ],
       "body_extracted_llm": [
-        "BIP 65",
         "BIP 68",
-        "BIP 112"
+        "BIP 141"
       ]
     }
   }

@@ -799,15 +799,7 @@
         "BIP 392"
       ],
       "body_extracted_llm": [
-        "BIP 32",
-        "BIP 381",
-        "BIP 382",
-        "BIP 383",
-        "BIP 384",
-        "BIP 385",
-        "BIP 386",
-        "BIP 390",
-        "BIP 392"
+        "BIP 32"
       ]
     }
   }

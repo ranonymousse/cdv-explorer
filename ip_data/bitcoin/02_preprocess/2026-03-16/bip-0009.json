@@ -873,9 +873,7 @@
         "BIP 141"
       ],
       "body_extracted_llm": [
-        "BIP 34",
-        "BIP 65",
-        "BIP 66"
+        "BIP 22"
       ]
     }
   }

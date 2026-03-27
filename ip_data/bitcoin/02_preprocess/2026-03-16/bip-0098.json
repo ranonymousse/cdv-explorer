@@ -752,9 +752,7 @@
       "body_extracted_regex": [
         "BIP 116"
       ],
-      "body_extracted_llm": [
-        "BIP 116"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

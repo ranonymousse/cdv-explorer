@@ -636,6 +636,8 @@
         "BIP 44"
       ],
       "body_extracted_llm": [
+        "BIP 13",
+        "BIP 16",
         "BIP 32",
         "BIP 43"
       ]

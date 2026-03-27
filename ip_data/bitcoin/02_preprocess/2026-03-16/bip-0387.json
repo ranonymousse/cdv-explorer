@@ -521,9 +521,11 @@
       ],
       "body_extracted_llm": [
         "BIP 32",
+        "BIP 340",
         "BIP 341",
+        "BIP 342",
         "BIP 380",
-        "BIP 383"
+        "BIP 386"
       ]
     }
   }

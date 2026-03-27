@@ -560,9 +560,7 @@
         "BIP 112"
       ],
       "body_extracted_llm": [
-        "BIP 32",
-        "BIP 65",
-        "BIP 112"
+        "BIP 32"
       ]
     }
   }

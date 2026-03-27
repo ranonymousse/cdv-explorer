@@ -708,10 +708,12 @@
         "BIP 67"
       ],
       "body_extracted_llm": [
+        "BIP 16",
         "BIP 32",
         "BIP 43",
         "BIP 44",
-        "BIP 67"
+        "BIP 67",
+        "BIP 141"
       ]
     }
   }

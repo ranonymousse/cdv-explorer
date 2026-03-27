@@ -608,9 +608,7 @@
         "BIP 70",
         "BIP 121"
       ],
-      "body_extracted_llm": [
-        "BIP 121"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

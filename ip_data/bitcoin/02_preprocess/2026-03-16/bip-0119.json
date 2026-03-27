@@ -1263,9 +1263,7 @@
         "BIP 112",
         "BIP 341"
       ],
-      "body_extracted_llm": [
-        "BIP 341"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

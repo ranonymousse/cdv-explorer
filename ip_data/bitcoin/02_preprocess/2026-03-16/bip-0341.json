@@ -1305,14 +1305,9 @@
       ],
       "body_extracted_llm": [
         "BIP 9",
-        "BIP 114",
-        "BIP 117",
-        "BIP 118",
         "BIP 141",
-        "BIP 143",
         "BIP 340",
-        "BIP 342",
-        "BIP 350"
+        "BIP 342"
       ]
     }
   }

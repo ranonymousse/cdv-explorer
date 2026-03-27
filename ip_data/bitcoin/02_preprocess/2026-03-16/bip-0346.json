@@ -665,12 +665,8 @@
         "BIP 443"
       ],
       "body_extracted_llm": [
-        "BIP 9",
-        "BIP 118",
-        "BIP 119",
-        "BIP 342",
-        "BIP 347",
-        "BIP 348"
+        "BIP 341",
+        "BIP 342"
       ]
     }
   }

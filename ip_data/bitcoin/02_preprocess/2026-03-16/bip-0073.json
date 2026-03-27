@@ -530,7 +530,8 @@
       ],
       "body_extracted_llm": [
         "BIP 21",
-        "BIP 70"
+        "BIP 70",
+        "BIP 71"
       ]
     }
   }

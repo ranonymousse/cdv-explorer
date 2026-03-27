@@ -533,8 +533,6 @@
       "body_extracted_llm": [
         "BIP 32",
         "BIP 44",
-        "BIP 49",
-        "BIP 84",
         "BIP 341"
       ]
     }

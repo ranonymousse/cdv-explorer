@@ -552,11 +552,7 @@
         "BIP 34",
         "BIP 62"
       ],
-      "body_extracted_llm": [
-        "BIP 16",
-        "BIP 34",
-        "BIP 62"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

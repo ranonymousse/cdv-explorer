@@ -575,9 +575,7 @@
       ],
       "body_extracted_llm": [
         "BIP 9",
-        "BIP 141",
-        "BIP 143",
-        "BIP 147"
+        "BIP 141"
       ]
     }
   }
