@@ -497,15 +497,15 @@
     "changes_in_status": [
       {
         "commit": "330b56b35867fa403634bf8d0ede0d2cb235aab5",
-        "timestamp": "2021-06-22T20:59:29-04:00",
-        "date": "2021-06-22",
+        "timestamp": "2021-07-02T16:53:32-04:00",
+        "date": "2021-07-02",
         "author": "Andrew Chow",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "516fae672639d998f00025809c57473d704a8f61",
-        "timestamp": "2024-07-10T18:54:37-04:00",
+        "timestamp": "2024-07-10T19:05:02-04:00",
         "date": "2024-07-10",
         "author": "Ava Chow",
         "status": "Final",
@@ -513,8 +513,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

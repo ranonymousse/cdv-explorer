@@ -618,11 +618,19 @@
     "changes_in_status": [
       {
         "commit": "41490b74f7a9d52a58d9a1e1fd94f3ee6d8553e7",
-        "timestamp": "2023-01-17T01:40:46+02:00",
+        "timestamp": "2023-01-17T08:40:46+09:00",
         "date": "2023-01-17",
         "author": "craigraw",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "59730dec4fb641a41589aa1b91d3c452f13e0e36",
+        "timestamp": "2026-01-12T14:28:37-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

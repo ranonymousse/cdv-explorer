@@ -584,16 +584,16 @@
       },
       {
         "commit": "9cb5ecd9be8f9bd75e5feef72679515b9a1583eb",
-        "timestamp": "2017-08-30T15:37:48+08:00",
-        "date": "2017-08-30",
+        "timestamp": "2017-09-16T03:00:24Z",
+        "date": "2017-09-16",
         "author": "Johnson Lau",
         "status": "Withdrawn",
         "standard": "bip2"
       },
       {
         "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
-        "timestamp": "2025-04-11T18:11:55-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:36-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Closed",
         "standard": "bip3"

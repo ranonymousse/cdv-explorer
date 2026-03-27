@@ -776,8 +776,8 @@
     "changes_in_status": [
       {
         "commit": "d32087c2bf9a7adbfdf97f5f98a35417cdf48594",
-        "timestamp": "2015-06-19T17:18:48-07:00",
-        "date": "2015-06-19",
+        "timestamp": "2015-06-21T20:12:58-07:00",
+        "date": "2015-06-21",
         "author": "Mark Friedenbach",
         "status": "Draft",
         "standard": "bip2"
@@ -792,8 +792,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

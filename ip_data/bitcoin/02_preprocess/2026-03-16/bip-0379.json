@@ -792,11 +792,19 @@
     "changes_in_status": [
       {
         "commit": "3b995946605623c16adc954b5c841104db2d3022",
-        "timestamp": "2024-04-10T09:37:34-04:00",
-        "date": "2024-04-10",
+        "timestamp": "2024-06-27T11:08:49-06:00",
+        "date": "2024-06-27",
         "author": "Ava Chow",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "59730dec4fb641a41589aa1b91d3c452f13e0e36",
+        "timestamp": "2026-01-12T14:28:37-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

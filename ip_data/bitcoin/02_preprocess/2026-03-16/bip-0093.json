@@ -841,11 +841,19 @@
     "changes_in_status": [
       {
         "commit": "e761066fbcd41b6a10b1614d974ea09531c3f945",
-        "timestamp": "2023-03-17T02:39:01Z",
+        "timestamp": "2023-03-17T11:39:01+09:00",
         "date": "2023-03-17",
         "author": "Andrew Poelstra",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "01352f7f40cb7f61d0aa177341f8804de2f8fed9",
+        "timestamp": "2026-01-12T14:28:06-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

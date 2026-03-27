@@ -556,8 +556,8 @@
     "changes_in_status": [
       {
         "commit": "4e06ec12b46b81e6169b1818950cbdf71fc5e0c4",
-        "timestamp": "2015-08-12T00:06:41+01:00",
-        "date": "2015-08-12",
+        "timestamp": "2015-09-04T00:38:55+01:00",
+        "date": "2015-09-04",
         "author": "Thomas Kerin",
         "status": "Draft",
         "standard": "bip2"
@@ -572,8 +572,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

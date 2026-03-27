@@ -530,11 +530,19 @@
     "changes_in_status": [
       {
         "commit": "a3ad2547bc4643912f67a7aaea951fcc3b24dc82",
-        "timestamp": "2022-07-26T17:16:53-04:00",
-        "date": "2022-07-26",
+        "timestamp": "2023-02-09T15:16:19-05:00",
+        "date": "2023-02-09",
         "author": "Andrew Chow",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "59730dec4fb641a41589aa1b91d3c452f13e0e36",
+        "timestamp": "2026-01-12T14:28:37-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

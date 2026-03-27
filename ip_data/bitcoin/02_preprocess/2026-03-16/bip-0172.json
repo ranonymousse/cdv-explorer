@@ -529,9 +529,17 @@
     "changes_in_status": [
       {
         "commit": "c37927174e024417c7c0b360c2540dbc55a76620",
-        "timestamp": "2025-04-28T12:51:22-04:00",
-        "date": "2025-04-28",
+        "timestamp": "2025-05-08T10:24:02-07:00",
+        "date": "2025-05-08",
         "author": "0ceanSlim",
+        "status": "Draft",
+        "standard": "bip2"
+      },
+      {
+        "commit": "5207ef92a52d0b8902895b0dbb40823a4d698ec9",
+        "timestamp": "2026-01-12T14:29:00-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
         "status": "Draft",
         "standard": "bip3"
       }

@@ -837,8 +837,8 @@
     "changes_in_status": [
       {
         "commit": "7ca054213626ae0c1192b39cf827659823e30a17",
-        "timestamp": "2017-03-27T18:40:07+01:00",
-        "date": "2017-03-27",
+        "timestamp": "2017-04-16T16:38:46+01:00",
+        "date": "2017-04-16",
         "author": "shaolinfry",
         "status": "Draft",
         "standard": "bip2"
@@ -858,6 +858,14 @@
         "author": "Luke Dashjr",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "59730dec4fb641a41589aa1b91d3c452f13e0e36",
+        "timestamp": "2026-01-12T14:28:37-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

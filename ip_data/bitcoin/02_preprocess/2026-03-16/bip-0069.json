@@ -695,9 +695,9 @@
     },
     "changes_in_status": [
       {
-        "commit": "61a9711deb1947f8bd3d05987e4c4f1d104849ab",
-        "timestamp": "2015-06-12T17:31:23-04:00",
-        "date": "2015-06-12",
+        "commit": "469e7e7f12b1e1da05f91e2f9c485a8be3a28fd3",
+        "timestamp": "2015-06-24T17:02:43-04:00",
+        "date": "2015-06-24",
         "author": "Kristov Atlas",
         "status": "Draft",
         "standard": "bip2"
@@ -712,7 +712,7 @@
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
         "status": "Proposed",
@@ -720,8 +720,8 @@
       },
       {
         "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
-        "timestamp": "2025-04-11T18:02:31-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:30-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Complete",
         "standard": "bip3"

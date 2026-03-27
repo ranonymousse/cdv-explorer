@@ -12,11 +12,14 @@ PREAMBLE_CONFIG = ACTIVE_ECOSYSTEM.get("preamble", {})
 FIELD_ALIASES = PREAMBLE_CONFIG.get("field_aliases", {})
 LIST_VALUED_FIELDS = set(PREAMBLE_CONFIG.get("list_valued_fields", []))
 CLASSIFICATION_PAPER_CONFIG = ACTIVE_ECOSYSTEM.get("classification", {}).get("paper", {})
+PRIMARY_ID_FIELD = str(ACTIVE_ECOSYSTEM.get("primary_id_field") or "").strip()
 
 PRE_BLOCK_PATTERN = re.compile(r"<pre>(.*?)</pre>", re.DOTALL | re.IGNORECASE)
 FENCED_BLOCK_PATTERN = re.compile(r"^\s*```[^\n]*\n(.*?)\n```\s*(?:\n|$)", re.DOTALL)
 PRE_BLOCK_LINE_PATTERN = re.compile(r"^\s{0,2}(\w+(?:-\w+)*):\s*(.*)")
 RFC822_HEADER_PATTERN = re.compile(r"^\s*([A-Za-z][A-Za-z0-9-]*):\s*(.*)$")
+PLACEHOLDER_PATH_PATTERN = re.compile(r"-(?:x{3,}|\?{3,})(?:[-.]|$)", re.IGNORECASE)
+PATH_NUMERIC_ID_PATTERN = re.compile(r"(\d+)")
 
 
 def _format_value(key: str, value: str) -> Any:
@@ -135,22 +138,123 @@ def _normalize_preamble(preamble: Dict[str, Any]) -> Dict[str, Any]:
     return normalize_classification_fields(normalized)
 
 
-def _extract_status_snapshot(file_content: str) -> str | None:
+def _extract_snapshot_preamble(file_content: str) -> Dict[str, Any]:
     pre_block_preamble = _parse_pre_block_preamble(file_content)
     if pre_block_preamble:
-        normalized = _normalize_preamble(pre_block_preamble)
-        status = str(normalized.get("status") or "").strip()
-        if status:
-            return status
+        return _normalize_preamble(pre_block_preamble)
 
     rfc822_preamble = _parse_rfc822_preamble(file_content)
     if rfc822_preamble:
-        normalized = _normalize_preamble(rfc822_preamble)
-        status = str(normalized.get("status") or "").strip()
-        if status:
-            return status
+        return _normalize_preamble(rfc822_preamble)
+
+    return {}
+
+
+def _extract_status_snapshot(file_content: str) -> str | None:
+    normalized = _extract_snapshot_preamble(file_content)
+    status = str(normalized.get("status") or "").strip()
+    if status:
+        return status
 
     return None
+
+
+def _normalize_identity_text(value: Any) -> str:
+    text = str(value or "").strip().lower()
+    return re.sub(r"\s+", " ", text)
+
+
+def _normalize_title(value: Any) -> str:
+    text = _normalize_identity_text(value)
+    return re.sub(r"[^a-z0-9]+", " ", text).strip()
+
+
+def _normalize_proposal_id(value: Any) -> str:
+    text = _normalize_identity_text(value)
+    if text.isdigit():
+        return str(int(text))
+    return ""
+
+
+def _normalize_authors(value: Any) -> set[str]:
+    if isinstance(value, list):
+        raw_values = value
+    elif value is None:
+        raw_values = []
+    else:
+        raw_values = str(value).split("\n")
+
+    return {
+        _normalize_identity_text(item)
+        for item in raw_values
+        if _normalize_identity_text(item)
+    }
+
+
+def _extract_path_proposal_id(file_path: Path) -> str:
+    match = PATH_NUMERIC_ID_PATTERN.search(file_path.stem)
+    if not match:
+        return ""
+    return str(int(match.group(1)))
+
+
+def _build_snapshot_identity(preamble: Dict[str, Any], *, fallback_path: str | None = None) -> Dict[str, Any]:
+    proposal_id = _normalize_proposal_id(preamble.get(PRIMARY_ID_FIELD))
+    if not proposal_id and fallback_path:
+        proposal_id = _extract_path_proposal_id(Path(fallback_path))
+
+    created = _normalize_identity_text(preamble.get("created"))[:10]
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", created):
+        created = ""
+
+    return {
+        "proposal_id": proposal_id,
+        "title": _normalize_title(preamble.get("title")),
+        "created": created,
+        "authors": _normalize_authors(preamble.get("author")),
+    }
+
+
+def _is_placeholder_path(path: str) -> bool:
+    return bool(PLACEHOLDER_PATH_PATTERN.search(Path(path).name))
+
+
+def _is_same_proposal_snapshot(
+    candidate_identity: Dict[str, Any],
+    target_identity: Dict[str, Any],
+    *,
+    candidate_path: str,
+) -> bool:
+    target_id = str(target_identity.get("proposal_id") or "").strip()
+    candidate_id = str(candidate_identity.get("proposal_id") or "").strip()
+
+    if target_id and candidate_id:
+        return target_id == candidate_id
+    if target_id and not _is_placeholder_path(candidate_path):
+        return True
+    if not _is_placeholder_path(candidate_path):
+        return True
+
+    created_matches = (
+        bool(target_identity.get("created"))
+        and bool(candidate_identity.get("created"))
+        and target_identity["created"] == candidate_identity["created"]
+    )
+    title_matches = (
+        bool(target_identity.get("title"))
+        and bool(candidate_identity.get("title"))
+        and target_identity["title"] == candidate_identity["title"]
+    )
+    author_matches = bool(
+        set(target_identity.get("authors") or set()) & set(candidate_identity.get("authors") or set())
+    )
+
+    if created_matches and (title_matches or author_matches):
+        return True
+    if title_matches and author_matches:
+        return True
+
+    return False
 
 
 def _parse_snapshot_date(value: str | None) -> date | None:
@@ -227,6 +331,17 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
         return []
 
     try:
+        target_content = file_path.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return []
+
+    target_preamble = _extract_snapshot_preamble(target_content)
+    target_identity = _build_snapshot_identity(
+        target_preamble,
+        fallback_path=str(relative_file_path),
+    )
+
+    try:
         log_result = subprocess.run(
             [
                 "git",
@@ -271,7 +386,19 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
         except subprocess.CalledProcessError:
             continue
 
-        status = _extract_status_snapshot(content_result.stdout)
+        snapshot_preamble = _extract_snapshot_preamble(content_result.stdout)
+        snapshot_identity = _build_snapshot_identity(
+            snapshot_preamble,
+            fallback_path=entry["path"],
+        )
+        if not _is_same_proposal_snapshot(
+            snapshot_identity,
+            target_identity,
+            candidate_path=entry["path"],
+        ):
+            continue
+
+        status = str(snapshot_preamble.get("status") or "").strip()
         if not status:
             continue
 

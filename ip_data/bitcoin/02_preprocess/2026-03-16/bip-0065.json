@@ -790,8 +790,8 @@
     "changes_in_status": [
       {
         "commit": "5f6cb04d9c28b76f33f18dbf43923c88860c2592",
-        "timestamp": "2014-10-01T08:59:26-04:00",
-        "date": "2014-10-01",
+        "timestamp": "2014-11-10T04:43:48-05:00",
+        "date": "2014-11-10",
         "author": "Peter Todd",
         "status": "Draft",
         "standard": "bip2"
@@ -822,8 +822,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

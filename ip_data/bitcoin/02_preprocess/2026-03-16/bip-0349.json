@@ -513,11 +513,19 @@
     "changes_in_status": [
       {
         "commit": "75351f2587ebdf220a92ac9c89119343f4cf8584",
-        "timestamp": "2024-04-24T14:34:29-07:00",
-        "date": "2024-04-24",
+        "timestamp": "2024-11-14T16:30:24-05:00",
+        "date": "2024-11-14",
         "author": "Brandon Black",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "a233bde4af52c6a11269e2e6dd9707abce441ffe",
+        "timestamp": "2026-01-12T14:22:40-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

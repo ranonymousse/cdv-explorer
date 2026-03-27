@@ -650,32 +650,32 @@
     "changes_in_status": [
       {
         "commit": "62a82092687d235ba48c9d0a77c9de56657c77a8",
-        "timestamp": "2016-03-23T15:57:00+01:00",
-        "date": "2016-03-23",
+        "timestamp": "2016-05-18T21:36:58+02:00",
+        "date": "2016-05-18",
         "author": "Jonas Schnelli",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "73d06b4a13ec1908f743a80a0d2e96a954e12db8",
-        "timestamp": "2019-03-22T22:07:33+01:00",
-        "date": "2019-03-22",
+        "timestamp": "2019-03-29T20:50:26+01:00",
+        "date": "2019-03-29",
         "author": "Jonas Schnelli",
         "status": "Withdrawn",
         "standard": "bip2"
       },
       {
         "commit": "cbfdce0430dbd9105a3f7cf54600e8a84d57a093",
-        "timestamp": "2023-03-28T09:46:43+10:00",
-        "date": "2023-03-28",
+        "timestamp": "2023-03-29T15:10:42+10:00",
+        "date": "2023-03-29",
         "author": "Anthony Towns",
         "status": "Replaced",
         "standard": "bip2"
       },
       {
         "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
-        "timestamp": "2025-04-11T18:11:55-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:36-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Closed",
         "standard": "bip3"

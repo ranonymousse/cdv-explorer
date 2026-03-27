@@ -777,7 +777,7 @@
     "changes_in_status": [
       {
         "commit": "b93d9ea5d9dd0c0046198e05a14a59f5a023dfee",
-        "timestamp": "2017-05-07T14:48:08-07:00",
+        "timestamp": "2017-05-07T15:25:13-07:00",
         "date": "2017-05-07",
         "author": "Pieter Wuille",
         "status": "Draft",
@@ -785,7 +785,7 @@
       },
       {
         "commit": "97a55878e61fd19b8e9eb68759a8dc902a1831a6",
-        "timestamp": "2018-01-03T08:52:13-08:00",
+        "timestamp": "2018-01-03T09:06:47-08:00",
         "date": "2018-01-03",
         "author": "Pieter Wuille",
         "status": "Proposed",
@@ -801,8 +801,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

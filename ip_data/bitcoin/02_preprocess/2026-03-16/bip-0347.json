@@ -743,12 +743,20 @@
     },
     "changes_in_status": [
       {
-        "commit": "83ca57f22268edb1ff2815085a4383ba8d1b55fe",
-        "timestamp": "2023-12-11T18:11:22-05:00",
-        "date": "2023-12-11",
+        "commit": "6c729c4b418006def78caad0d921f1841c4db1ee",
+        "timestamp": "2024-04-25T13:03:00-04:00",
+        "date": "2024-04-25",
         "author": "Ethan Heilman",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "a233bde4af52c6a11269e2e6dd9707abce441ffe",
+        "timestamp": "2026-01-12T14:22:40-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       },
       {
         "commit": "9fb88a11b75bc83e1953b4b5c50cbb04085524cc",

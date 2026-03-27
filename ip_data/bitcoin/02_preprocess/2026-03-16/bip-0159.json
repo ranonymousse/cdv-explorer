@@ -540,7 +540,7 @@
     "changes_in_status": [
       {
         "commit": "ec403b0ac53bbf248493da219a191df494795a4a",
-        "timestamp": "2017-08-07T19:29:04+02:00",
+        "timestamp": "2017-08-07T19:50:10+02:00",
         "date": "2017-08-07",
         "author": "Jonas Schnelli",
         "status": "Draft",
@@ -548,7 +548,7 @@
       },
       {
         "commit": "dfacb8de6ac5f6636c3d3fd55cf817c0b73cacea",
-        "timestamp": "2024-07-17T22:00:11+02:00",
+        "timestamp": "2024-07-17T22:09:22+02:00",
         "date": "2024-07-17",
         "author": "Jonas Schnelli",
         "status": "Final",
@@ -556,8 +556,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

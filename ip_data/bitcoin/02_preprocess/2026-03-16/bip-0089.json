@@ -787,8 +787,8 @@
     "changes_in_status": [
       {
         "commit": "57869d524abb9143ba96aa9f53fab906ec309383",
-        "timestamp": "2026-02-05T04:58:08+08:00",
-        "date": "2026-02-05",
+        "timestamp": "2026-02-04T12:58:08-08:00",
+        "date": "2026-02-04",
         "author": "Jurvis Tan",
         "status": "Draft",
         "standard": "bip3"

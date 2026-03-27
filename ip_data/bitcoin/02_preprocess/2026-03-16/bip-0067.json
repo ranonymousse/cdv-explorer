@@ -624,10 +624,10 @@
     },
     "changes_in_status": [
       {
-        "commit": "b56a04c300c00609f38b1b70cf005458abbe705d",
-        "timestamp": "2015-02-12T21:02:56Z",
-        "date": "2015-02-12",
-        "author": "BitWasp",
+        "commit": "08655a0ccc3a89b2e714248e6ded127ee26a2874",
+        "timestamp": "2015-03-15T12:43:02Z",
+        "date": "2015-03-15",
+        "author": "Thomas Kerin",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -641,7 +641,7 @@
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
         "status": "Proposed",
@@ -665,8 +665,8 @@
       },
       {
         "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
-        "timestamp": "2025-04-11T18:02:31-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:30-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Complete",
         "standard": "bip3"

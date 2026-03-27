@@ -512,9 +512,9 @@
     },
     "changes_in_status": [
       {
-        "commit": "bd5e1ead70eed7aa3cb9398be73e761e96b36678",
-        "timestamp": "2015-11-30T16:40:31-08:00",
-        "date": "2015-11-30",
+        "commit": "bdd7c9ff76405b265af1f1822736cc95b0a44228",
+        "timestamp": "2015-12-04T15:48:37-08:00",
+        "date": "2015-12-04",
         "author": "Chris Priest",
         "status": "Draft",
         "standard": "bip2"
@@ -529,8 +529,8 @@
       },
       {
         "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
-        "timestamp": "2025-04-11T18:11:55-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:36-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Closed",
         "standard": "bip3"

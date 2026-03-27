@@ -1157,15 +1157,15 @@
     "changes_in_status": [
       {
         "commit": "87394eaeb436d02e0a68b38a1e94bc526d50056e",
-        "timestamp": "2022-04-05T22:29:59Z",
-        "date": "2022-04-05",
+        "timestamp": "2023-03-27T11:48:22+09:00",
+        "date": "2023-03-27",
         "author": "Jonas Nick",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "2eb22b8ec67374573efc158ea64dde1d1da7c6dc",
-        "timestamp": "2024-10-11T11:09:08-06:00",
+        "timestamp": "2024-10-11T11:19:56-06:00",
         "date": "2024-10-11",
         "author": "Jon Atack",
         "status": "Active",
@@ -1173,16 +1173,16 @@
       },
       {
         "commit": "cc68e6d75389b2b15cd1f8a37c22d62093ddf986",
-        "timestamp": "2025-09-23T14:38:09-07:00",
+        "timestamp": "2025-09-23T14:49:38-07:00",
         "date": "2025-09-23",
         "author": "Murch",
         "status": "Final",
-        "standard": "bip3"
+        "standard": "bip2"
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

@@ -661,73 +661,25 @@
     },
     "changes_in_status": [
       {
-        "commit": "bd3808c4ca96313f8d194b828cd6b0579fc74a58",
-        "timestamp": "2012-01-30T00:01:31Z",
-        "date": "2012-01-30",
-        "author": "genjix",
-        "status": "Final",
-        "standard": "bip2"
-      },
-      {
-        "commit": "6a5b4f3b080815c1ddff881e7a8491f5acca4fab",
-        "timestamp": "2012-01-30T00:01:49Z",
-        "date": "2012-01-30",
-        "author": "genjix",
-        "status": "Draft",
-        "standard": "bip2"
-      },
-      {
-        "commit": "6e2d2667f3a3248577b92578168de82c917ca8a2",
-        "timestamp": "2012-02-05T12:15:42Z",
-        "date": "2012-02-05",
-        "author": "genjix",
-        "status": "Accepted",
-        "standard": "bip2"
-      },
-      {
-        "commit": "f31f7d43473fadcfafbc886b15e8c488654839c2",
-        "timestamp": "2016-02-01T20:14:22Z",
-        "date": "2016-02-01",
-        "author": "Luke Dashjr",
-        "status": "Final",
-        "standard": "bip2"
-      },
-      {
-        "commit": "e22ad0cd715af88cabecffe1afcc4258740dc85f",
-        "timestamp": "2016-02-01T20:36:37Z",
-        "date": "2016-02-01",
-        "author": "Luke Dashjr",
-        "status": "Accepted",
-        "standard": "bip2"
-      },
-      {
-        "commit": "7509fae0be1f0f0effa1d6a1109a4a03afed8850",
-        "timestamp": "2016-02-16T22:18:45Z",
-        "date": "2016-02-16",
-        "author": "Sandro Machado",
-        "status": "Final",
-        "standard": "bip2"
-      },
-      {
         "commit": "7e6a583c8d9746d5bc8e07ba5d27dfaab5da6b55",
-        "timestamp": "2024-07-13T14:39:51Z",
-        "date": "2024-07-13",
+        "timestamp": "2025-04-04T16:37:24Z",
+        "date": "2025-04-04",
         "author": "Matt Corallo",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "c7e9befc2efaef2eccec3831c97780573d99988e",
-        "timestamp": "2025-08-06T12:59:50Z",
-        "date": "2025-08-06",
+        "timestamp": "2025-08-07T11:57:06Z",
+        "date": "2025-08-07",
         "author": "Matt Corallo",
         "status": "Proposed",
-        "standard": "bip3"
+        "standard": "bip2"
       },
       {
         "commit": "6760ba87381ea97c79223cebef81478f4d4bbc6e",
-        "timestamp": "2025-04-11T18:02:31-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:30-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Complete",
         "standard": "bip3"

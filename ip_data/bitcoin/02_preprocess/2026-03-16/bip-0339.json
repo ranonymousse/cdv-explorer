@@ -487,15 +487,15 @@
     "changes_in_status": [
       {
         "commit": "3c5aef89d66990b2e81c9bbaf1d53624c81cd6a5",
-        "timestamp": "2020-02-03T15:25:27-05:00",
-        "date": "2020-02-03",
+        "timestamp": "2020-06-23T14:52:25-04:00",
+        "date": "2020-06-23",
         "author": "Suhas Daftuar",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "79e2d28efbc47212604cd41eb8b8466dc0e9a30e",
-        "timestamp": "2024-07-10T14:54:52-04:00",
+        "timestamp": "2024-07-10T15:48:05-04:00",
         "date": "2024-07-10",
         "author": "Suhas Daftuar",
         "status": "Final",
@@ -503,8 +503,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

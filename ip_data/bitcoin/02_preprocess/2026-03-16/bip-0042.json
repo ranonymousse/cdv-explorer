@@ -522,7 +522,7 @@
     "changes_in_status": [
       {
         "commit": "5cc40831e6e27041b8258738496f4c3d09260cda",
-        "timestamp": "2014-04-01T23:50:03+02:00",
+        "timestamp": "2014-04-01T23:50:43+02:00",
         "date": "2014-04-01",
         "author": "Pieter Wuille",
         "status": "Draft",
@@ -538,8 +538,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

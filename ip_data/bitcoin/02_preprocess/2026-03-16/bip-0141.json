@@ -1083,17 +1083,17 @@
     },
     "changes_in_status": [
       {
-        "commit": "7bce321a18dac4a1be114eeb03fa71da9c1469ed",
-        "timestamp": "2015-12-19T03:52:06+08:00",
-        "date": "2015-12-19",
-        "author": "jl2012",
+        "commit": "b16a75072d11b367d97d2676d260a5cd6a907adf",
+        "timestamp": "2016-01-08T17:53:59Z",
+        "date": "2016-01-08",
+        "author": "Luke Dashjr",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "824ce9da50158497ebd33057fbf8c4bc3a642c60",
-        "timestamp": "2017-08-30T15:37:48+08:00",
-        "date": "2017-08-30",
+        "timestamp": "2017-09-17T19:09:50+08:00",
+        "date": "2017-09-17",
         "author": "Johnson Lau",
         "status": "Final",
         "standard": "bip2"
@@ -1116,16 +1116,16 @@
       },
       {
         "commit": "df3bf7bd1b641893991a69114e20087307647326",
-        "timestamp": "2017-11-06T14:01:28+01:00",
-        "date": "2017-11-06",
+        "timestamp": "2018-03-10T10:37:50+05:30",
+        "date": "2018-03-10",
         "author": "Jonathan Cross",
         "status": "Final",
         "standard": "bip2"
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

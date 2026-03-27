@@ -778,11 +778,19 @@
     "changes_in_status": [
       {
         "commit": "632f143fadaed8c91bba12d096e62feb2a308054",
-        "timestamp": "2022-05-11T15:53:37-04:00",
-        "date": "2022-05-11",
+        "timestamp": "2024-04-24T17:03:54+01:00",
+        "date": "2024-04-24",
         "author": "glozow",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "a233bde4af52c6a11269e2e6dd9707abce441ffe",
+        "timestamp": "2026-01-12T14:22:40-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

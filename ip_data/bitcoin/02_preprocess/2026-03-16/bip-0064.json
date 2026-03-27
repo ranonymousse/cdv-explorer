@@ -508,24 +508,24 @@
     "changes_in_status": [
       {
         "commit": "ca48f2ce30ca937983bd006e30d783f4e9e3ec61",
-        "timestamp": "2014-07-10T16:18:29+02:00",
-        "date": "2014-07-10",
+        "timestamp": "2014-08-11T14:56:09+02:00",
+        "date": "2014-08-11",
         "author": "Mike Hearn",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "3d2f68c359ccb4516e5517e8754d835c5f8f6681",
-        "timestamp": "2020-04-30T09:27:42-05:00",
-        "date": "2020-04-30",
+        "timestamp": "2020-06-02T01:52:33-05:00",
+        "date": "2020-06-02",
         "author": "Janus",
         "status": "Obsolete",
         "standard": "bip2"
       },
       {
         "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
-        "timestamp": "2025-04-11T18:11:55-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:36-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Closed",
         "standard": "bip3"

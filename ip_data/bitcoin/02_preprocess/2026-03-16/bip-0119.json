@@ -1249,11 +1249,19 @@
     "changes_in_status": [
       {
         "commit": "1a42897287ab5b2a1a700000b8eef1d660037505",
-        "timestamp": "2019-05-17T10:46:10-07:00",
-        "date": "2019-05-17",
+        "timestamp": "2020-01-20T20:17:28-08:00",
+        "date": "2020-01-20",
         "author": "Jeremy Rubin",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "a233bde4af52c6a11269e2e6dd9707abce441ffe",
+        "timestamp": "2026-01-12T14:22:40-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

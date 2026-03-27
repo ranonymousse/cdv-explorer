@@ -1042,11 +1042,19 @@
     "changes_in_status": [
       {
         "commit": "3faf6e7540e9925b536701c9644e6622b8d25b19",
-        "timestamp": "2020-05-09T17:33:59+09:00",
-        "date": "2020-05-09",
+        "timestamp": "2020-05-17T05:59:23+09:00",
+        "date": "2020-05-17",
         "author": "nicolas.dorier",
         "status": "Draft",
         "standard": "bip2"
+      },
+      {
+        "commit": "a233bde4af52c6a11269e2e6dd9707abce441ffe",
+        "timestamp": "2026-01-12T14:22:40-08:00",
+        "date": "2026-01-12",
+        "author": "Murch",
+        "status": "Draft",
+        "standard": "bip3"
       }
     ],
     "interrelations": {

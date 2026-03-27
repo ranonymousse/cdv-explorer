@@ -916,15 +916,15 @@
     "changes_in_status": [
       {
         "commit": "96927344e7a50116aceab6c0f648362cc3bab296",
-        "timestamp": "2020-04-11T11:29:51Z",
-        "date": "2020-04-11",
+        "timestamp": "2020-06-11T12:11:06Z",
+        "date": "2020-06-11",
         "author": "Ethan Kosakovsky",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "b0125501f824804dc5f39f143c3c674f3eac6c7f",
-        "timestamp": "2024-10-05T14:44:06+02:00",
+        "timestamp": "2024-10-05T16:07:40+02:00",
         "date": "2024-10-05",
         "author": "scgbckbone",
         "status": "Final",
@@ -948,8 +948,8 @@
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"

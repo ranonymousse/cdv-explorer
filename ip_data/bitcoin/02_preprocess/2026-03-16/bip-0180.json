@@ -558,7 +558,7 @@
     "changes_in_status": [
       {
         "commit": "8b4f280c4c18fd603f154bdcd3c3699391cd231e",
-        "timestamp": "2017-03-17T21:52:33Z",
+        "timestamp": "2017-03-17T21:52:42Z",
         "date": "2017-03-17",
         "author": "Luke Dashjr",
         "status": "Draft",
@@ -574,8 +574,8 @@
       },
       {
         "commit": "66defbdc03ad64ccddfd373e1c59af9a41ab990f",
-        "timestamp": "2025-04-11T18:11:55-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:36-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Closed",
         "standard": "bip3"

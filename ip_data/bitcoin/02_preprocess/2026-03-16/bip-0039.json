@@ -1026,7 +1026,7 @@
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
         "status": "Proposed",
@@ -1034,16 +1034,16 @@
       },
       {
         "commit": "829afccd1ae26403f8c3583d7347b04aeb54c2ca",
-        "timestamp": "2024-10-05T14:50:29+02:00",
-        "date": "2024-10-05",
+        "timestamp": "2024-11-08T11:32:40+01:00",
+        "date": "2024-11-08",
         "author": "scgbckbone",
         "status": "Final",
         "standard": "bip2"
       },
       {
         "commit": "5d3ceb37734f80b2ec206fc94245e3bfd6d5b0f0",
-        "timestamp": "2025-04-11T18:08:44-07:00",
-        "date": "2025-04-11",
+        "timestamp": "2026-01-12T14:22:33-08:00",
+        "date": "2026-01-12",
         "author": "Murch",
         "status": "Deployed",
         "standard": "bip3"
