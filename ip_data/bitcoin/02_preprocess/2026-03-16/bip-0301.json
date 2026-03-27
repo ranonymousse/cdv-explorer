@@ -585,9 +585,7 @@
         "BIP 300",
         "BIP 300301"
       ],
-      "body_extracted_llm": [
-        "BIP 300"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

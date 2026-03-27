@@ -1147,10 +1147,10 @@
         "BIP 173"
       ],
       "body_extracted_llm": [
+        "BIP 9",
         "BIP 16",
         "BIP 143",
-        "BIP 144",
-        "BIP 173"
+        "BIP 144"
       ]
     }
   }

@@ -712,10 +712,7 @@
         "BIP 66"
       ],
       "body_extracted_llm": [
-        "BIP 9",
-        "BIP 34",
-        "BIP 65",
-        "BIP 66"
+        "BIP 9"
       ]
     }
   }

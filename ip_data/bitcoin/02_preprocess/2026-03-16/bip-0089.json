@@ -808,7 +808,8 @@
       ],
       "body_extracted_llm": [
         "BIP 32",
-        "BIP 340"
+        "BIP 340",
+        "BIP 341"
       ]
     }
   }

@@ -643,7 +643,9 @@
         "BIP 17"
       ],
       "body_extracted_llm": [
+        "BIP 11",
         "BIP 12",
+        "BIP 13",
         "BIP 16",
         "BIP 17"
       ]

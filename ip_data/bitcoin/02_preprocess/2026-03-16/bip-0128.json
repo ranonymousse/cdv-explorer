@@ -671,8 +671,7 @@
       "body_extracted_llm": [
         "BIP 65",
         "BIP 68",
-        "BIP 112",
-        "BIP 140"
+        "BIP 112"
       ]
     }
   }

@@ -1675,9 +1675,11 @@
         "BIP 375"
       ],
       "body_extracted_llm": [
+        "BIP 16",
         "BIP 32",
-        "BIP 341",
-        "BIP 353"
+        "BIP 127",
+        "BIP 143",
+        "BIP 341"
       ]
     }
   }

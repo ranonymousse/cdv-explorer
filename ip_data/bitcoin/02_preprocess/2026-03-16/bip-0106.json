@@ -547,10 +547,7 @@
         "BIP 100",
         "BIP 101"
       ],
-      "body_extracted_llm": [
-        "BIP 100",
-        "BIP 101"
-      ]
+      "body_extracted_llm": []
     }
   }
 }

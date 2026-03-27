@@ -13,7 +13,7 @@ from ecosystem_config import ACTIVE_ECOSYSTEM
 PROPOSAL_LABEL = ACTIVE_ECOSYSTEM["proposal_acronym"]
 PROPOSAL_SINGULAR = ACTIVE_ECOSYSTEM["proposal_term_singular"]
 REFERENCE_PATTERN = ACTIVE_ECOSYSTEM["reference_pattern"]
-LLM_MODEL = "gpt-5-nano"
+LLM_MODEL = "gpt-5"
 TOP_PRE_BLOCK_PATTERN = re.compile(r"^\s*<pre>.*?</pre>\s*", re.DOTALL | re.IGNORECASE)
 TOP_FENCED_BLOCK_PATTERN = re.compile(r"^\s*```[^\n]*\n.*?\n```\s*(?:\n|$)", re.DOTALL)
 STRUCTURED_OUTPUT_NAME = "implicit_dependency_list"

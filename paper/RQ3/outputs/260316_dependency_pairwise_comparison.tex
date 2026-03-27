@@ -1,21 +1,21 @@
 {
     \setlength{\tabcolsep}{4pt}
     \renewcommand{\arraystretch}{1.15}
-    \begin{tabular}{ll|ccc}
+    \begin{tabular}{lc|ccc}
     \toprule
     \diagbox{\textbf{$A$}}{\textbf{$B$}} & \textbf{Metric} & \textbf{Preamble} & \textbf{Regex} & \textbf{LLM} \\
     \midrule
-        \multirow{3}{*}{\textbf{Preamble}} & $A \cap B$ & 72 (100.0\%) & 64 (9.3\%) & 57 (13.6\%) \\
-         & $A' \cap B$ & 0 (0.0\%) & 621 (90.7\%) & 363 (86.4\%) \\
-         & $A \cap B'$ & 0 (0.0\%) & 8 (11.1\%) & 15 (20.8\%) \\
+        \multirow{3}{*}{\textbf{Preamble}} & $A \cap B$ & 72 (100.0\%) & 64 (9.3\%) & 58 (13.8\%) \\
+         & $A' \cap B$ & 0 (0.0\%) & 621 (90.7\%) & 362 (86.2\%) \\
+         & $A \cap B'$ & 0 (0.0\%) & 8 (11.1\%) & 14 (19.4\%) \\
         \midrule
-        \multirow{3}{*}{\textbf{Regex}} & $A \cap B$ & 64 (88.9\%) & 685 (100.0\%) & 387 (92.1\%) \\
-         & $A' \cap B$ & 8 (11.1\%) & 0 (0.0\%) & 33 (7.9\%) \\
-         & $A \cap B'$ & 621 (90.7\%) & 0 (0.0\%) & 298 (43.5\%) \\
+        \multirow{3}{*}{\textbf{Regex}} & $A \cap B$ & 64 (88.9\%) & 685 (100.0\%) & 383 (91.2\%) \\
+         & $A' \cap B$ & 8 (11.1\%) & 0 (0.0\%) & 37 (8.8\%) \\
+         & $A \cap B'$ & 621 (90.7\%) & 0 (0.0\%) & 302 (44.1\%) \\
         \midrule
-        \multirow{3}{*}{\textbf{LLM}} & $A \cap B$ & 57 (79.2\%) & 387 (56.5\%) & 420 (100.0\%) \\
-         & $A' \cap B$ & 15 (20.8\%) & 298 (43.5\%) & 0 (0.0\%) \\
-         & $A \cap B'$ & 363 (86.4\%) & 33 (7.9\%) & 0 (0.0\%) \\
+        \multirow{3}{*}{\textbf{LLM}} & $A \cap B$ & 58 (80.6\%) & 383 (55.9\%) & 420 (100.0\%) \\
+         & $A' \cap B$ & 14 (19.4\%) & 302 (44.1\%) & 0 (0.0\%) \\
+         & $A \cap B'$ & 362 (86.2\%) & 37 (8.8\%) & 0 (0.0\%) \\
     \bottomrule
     \end{tabular}
 }

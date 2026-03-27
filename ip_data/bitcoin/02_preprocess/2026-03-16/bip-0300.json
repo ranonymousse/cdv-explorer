@@ -822,7 +822,9 @@
         "BIP 118",
         "BIP 300301"
       ],
-      "body_extracted_llm": []
+      "body_extracted_llm": [
+        "BIP 118"
+      ]
     }
   }
 }

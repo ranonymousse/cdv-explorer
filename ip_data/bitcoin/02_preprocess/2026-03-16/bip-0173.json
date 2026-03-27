@@ -822,8 +822,9 @@
         "BIP 350"
       ],
       "body_extracted_llm": [
+        "BIP 13",
+        "BIP 16",
         "BIP 141",
-        "BIP 142",
         "BIP 143"
       ]
     }

@@ -546,10 +546,8 @@
         "BIP 155"
       ],
       "body_extracted_llm": [
-        "BIP 35",
         "BIP 37",
         "BIP 60",
-        "BIP 133",
         "BIP 152"
       ]
     }
