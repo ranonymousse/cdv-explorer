@@ -819,8 +819,7 @@
     "interrelations": {
       "preamble_extracted": [],
       "body_extracted_regex": [
-        "BIP 118",
-        "BIP 300301"
+        "BIP 118"
       ],
       "body_extracted_llm": []
     }
