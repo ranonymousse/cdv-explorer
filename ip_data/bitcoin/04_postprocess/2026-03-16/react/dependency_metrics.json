@@ -1,7 +1,7 @@
 {
   "by_approach": {
-    "explicit_dependencies": {
-      "label": "Explicit Dependencies (Preamble)",
+    "preamble_extracted": {
+      "label": "Preamble-Extracted Dependencies",
       "summary": {
         "node_count": 197,
         "edge_count": 72,
@@ -1588,8 +1588,8 @@
         }
       ]
     },
-    "explicit_references": {
-      "label": "Explicit References (Regex)",
+    "body_extracted_regex": {
+      "label": "Body-Extracted Dependencies (Regex)",
       "summary": {
         "node_count": 197,
         "edge_count": 685,
@@ -3176,8 +3176,8 @@
         }
       ]
     },
-    "implicit_dependencies": {
-      "label": "Implicit Dependencies (LLM)",
+    "body_extracted_llm": {
+      "label": "Body-Extracted Dependencies (LLM)",
       "summary": {
         "node_count": 197,
         "edge_count": 420,
@@ -4766,11 +4766,11 @@
     }
   },
   "pairwise_comparisons": {
-    "explicit_dependencies__vs__explicit_dependencies": {
-      "approach": "explicit_dependencies",
-      "approach_label": "Explicit Dependencies (Preamble)",
-      "baseline": "explicit_dependencies",
-      "baseline_label": "Explicit Dependencies (Preamble)",
+    "preamble_extracted__vs__preamble_extracted": {
+      "approach": "preamble_extracted",
+      "approach_label": "Preamble-Extracted Dependencies",
+      "baseline": "preamble_extracted",
+      "baseline_label": "Preamble-Extracted Dependencies",
       "summary": {
         "approach_only": 0,
         "overlap": 72,
@@ -5288,11 +5288,11 @@
         }
       ]
     },
-    "explicit_dependencies__vs__explicit_references": {
-      "approach": "explicit_dependencies",
-      "approach_label": "Explicit Dependencies (Preamble)",
-      "baseline": "explicit_references",
-      "baseline_label": "Explicit References (Regex)",
+    "preamble_extracted__vs__body_extracted_regex": {
+      "approach": "preamble_extracted",
+      "approach_label": "Preamble-Extracted Dependencies",
+      "baseline": "body_extracted_regex",
+      "baseline_label": "Body-Extracted Dependencies (Regex)",
       "summary": {
         "approach_only": 8,
         "overlap": 64,
@@ -10157,11 +10157,11 @@
         }
       ]
     },
-    "explicit_dependencies__vs__implicit_dependencies": {
-      "approach": "explicit_dependencies",
-      "approach_label": "Explicit Dependencies (Preamble)",
-      "baseline": "implicit_dependencies",
-      "baseline_label": "Implicit Dependencies (LLM)",
+    "preamble_extracted__vs__body_extracted_llm": {
+      "approach": "preamble_extracted",
+      "approach_label": "Preamble-Extracted Dependencies",
+      "baseline": "body_extracted_llm",
+      "baseline_label": "Body-Extracted Dependencies (LLM)",
       "summary": {
         "approach_only": 15,
         "overlap": 57,
@@ -13220,11 +13220,11 @@
         }
       ]
     },
-    "explicit_references__vs__explicit_dependencies": {
-      "approach": "explicit_references",
-      "approach_label": "Explicit References (Regex)",
-      "baseline": "explicit_dependencies",
-      "baseline_label": "Explicit Dependencies (Preamble)",
+    "body_extracted_regex__vs__preamble_extracted": {
+      "approach": "body_extracted_regex",
+      "approach_label": "Body-Extracted Dependencies (Regex)",
+      "baseline": "preamble_extracted",
+      "baseline_label": "Preamble-Extracted Dependencies",
       "summary": {
         "approach_only": 621,
         "overlap": 64,
@@ -18089,11 +18089,11 @@
         }
       ]
     },
-    "explicit_references__vs__explicit_references": {
-      "approach": "explicit_references",
-      "approach_label": "Explicit References (Regex)",
-      "baseline": "explicit_references",
-      "baseline_label": "Explicit References (Regex)",
+    "body_extracted_regex__vs__body_extracted_regex": {
+      "approach": "body_extracted_regex",
+      "approach_label": "Body-Extracted Dependencies (Regex)",
+      "baseline": "body_extracted_regex",
+      "baseline_label": "Body-Extracted Dependencies (Regex)",
       "summary": {
         "approach_only": 0,
         "overlap": 685,
@@ -22902,11 +22902,11 @@
         }
       ]
     },
-    "explicit_references__vs__implicit_dependencies": {
-      "approach": "explicit_references",
-      "approach_label": "Explicit References (Regex)",
-      "baseline": "implicit_dependencies",
-      "baseline_label": "Implicit Dependencies (LLM)",
+    "body_extracted_regex__vs__body_extracted_llm": {
+      "approach": "body_extracted_regex",
+      "approach_label": "Body-Extracted Dependencies (Regex)",
+      "baseline": "body_extracted_llm",
+      "baseline_label": "Body-Extracted Dependencies (LLM)",
       "summary": {
         "approach_only": 298,
         "overlap": 387,
@@ -27946,11 +27946,11 @@
         }
       ]
     },
-    "implicit_dependencies__vs__explicit_dependencies": {
-      "approach": "implicit_dependencies",
-      "approach_label": "Implicit Dependencies (LLM)",
-      "baseline": "explicit_dependencies",
-      "baseline_label": "Explicit Dependencies (Preamble)",
+    "body_extracted_llm__vs__preamble_extracted": {
+      "approach": "body_extracted_llm",
+      "approach_label": "Body-Extracted Dependencies (LLM)",
+      "baseline": "preamble_extracted",
+      "baseline_label": "Preamble-Extracted Dependencies",
       "summary": {
         "approach_only": 363,
         "overlap": 57,
@@ -31009,11 +31009,11 @@
         }
       ]
     },
-    "implicit_dependencies__vs__explicit_references": {
-      "approach": "implicit_dependencies",
-      "approach_label": "Implicit Dependencies (LLM)",
-      "baseline": "explicit_references",
-      "baseline_label": "Explicit References (Regex)",
+    "body_extracted_llm__vs__body_extracted_regex": {
+      "approach": "body_extracted_llm",
+      "approach_label": "Body-Extracted Dependencies (LLM)",
+      "baseline": "body_extracted_regex",
+      "baseline_label": "Body-Extracted Dependencies (Regex)",
       "summary": {
         "approach_only": 33,
         "overlap": 387,
@@ -36053,11 +36053,11 @@
         }
       ]
     },
-    "implicit_dependencies__vs__implicit_dependencies": {
-      "approach": "implicit_dependencies",
-      "approach_label": "Implicit Dependencies (LLM)",
-      "baseline": "implicit_dependencies",
-      "baseline_label": "Implicit Dependencies (LLM)",
+    "body_extracted_llm__vs__body_extracted_llm": {
+      "approach": "body_extracted_llm",
+      "approach_label": "Body-Extracted Dependencies (LLM)",
+      "baseline": "body_extracted_llm",
+      "baseline_label": "Body-Extracted Dependencies (LLM)",
       "summary": {
         "approach_only": 0,
         "overlap": 420,

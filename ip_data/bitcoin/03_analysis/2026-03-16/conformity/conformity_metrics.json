@@ -463,7 +463,7 @@
       "compliance_score": 67.74,
       "bip2_score": 50.0,
       "bip3_score": 78.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 67.74,
         "passed_checks": 21,
         "failed_checks": 10,
@@ -823,7 +823,7 @@
       "compliance_score": 87.88,
       "bip2_score": 75.0,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 87.88,
         "passed_checks": 29,
         "failed_checks": 4,
@@ -1183,7 +1183,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -1543,7 +1543,7 @@
       "compliance_score": 96.77,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.77,
         "passed_checks": 30,
         "failed_checks": 1,
@@ -1903,7 +1903,7 @@
       "compliance_score": 90.91,
       "bip2_score": 91.67,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -2263,7 +2263,7 @@
       "compliance_score": 76.67,
       "bip2_score": 66.67,
       "bip3_score": 83.33,
-      "compliance": {
+      "formal_compliance": {
         "score": 76.67,
         "passed_checks": 23,
         "failed_checks": 7,
@@ -2623,7 +2623,7 @@
       "compliance_score": 76.47,
       "bip2_score": 75.0,
       "bip3_score": 77.27,
-      "compliance": {
+      "formal_compliance": {
         "score": 76.47,
         "passed_checks": 26,
         "failed_checks": 8,
@@ -2983,7 +2983,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -3343,7 +3343,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -3703,7 +3703,7 @@
       "compliance_score": 61.76,
       "bip2_score": 50.0,
       "bip3_score": 68.18,
-      "compliance": {
+      "formal_compliance": {
         "score": 61.76,
         "passed_checks": 21,
         "failed_checks": 13,
@@ -4063,7 +4063,7 @@
       "compliance_score": 64.52,
       "bip2_score": 50.0,
       "bip3_score": 73.68,
-      "compliance": {
+      "formal_compliance": {
         "score": 64.52,
         "passed_checks": 20,
         "failed_checks": 11,
@@ -4423,7 +4423,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -4783,7 +4783,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -5143,7 +5143,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -5503,7 +5503,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -5863,7 +5863,7 @@
       "compliance_score": 96.97,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.97,
         "passed_checks": 32,
         "failed_checks": 1,
@@ -6223,7 +6223,7 @@
       "compliance_score": 84.85,
       "bip2_score": 75.0,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 84.85,
         "passed_checks": 28,
         "failed_checks": 5,
@@ -6583,7 +6583,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -6943,7 +6943,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -7303,7 +7303,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -7663,7 +7663,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -8023,7 +8023,7 @@
       "compliance_score": 54.17,
       "bip2_score": 83.33,
       "bip3_score": 25.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 54.17,
         "passed_checks": 13,
         "failed_checks": 11,
@@ -8383,7 +8383,7 @@
       "compliance_score": 77.42,
       "bip2_score": 66.67,
       "bip3_score": 84.21,
-      "compliance": {
+      "formal_compliance": {
         "score": 77.42,
         "passed_checks": 24,
         "failed_checks": 7,
@@ -8743,7 +8743,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -9103,7 +9103,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -9463,7 +9463,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -9823,7 +9823,7 @@
       "compliance_score": 94.12,
       "bip2_score": 100.0,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 94.12,
         "passed_checks": 32,
         "failed_checks": 2,
@@ -10183,7 +10183,7 @@
       "compliance_score": 96.88,
       "bip2_score": 100.0,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -10543,7 +10543,7 @@
       "compliance_score": 88.24,
       "bip2_score": 91.67,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -10903,7 +10903,7 @@
       "compliance_score": 82.35,
       "bip2_score": 83.33,
       "bip3_score": 81.82,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.35,
         "passed_checks": 28,
         "failed_checks": 6,
@@ -11263,7 +11263,7 @@
       "compliance_score": 72.73,
       "bip2_score": 66.67,
       "bip3_score": 76.19,
-      "compliance": {
+      "formal_compliance": {
         "score": 72.73,
         "passed_checks": 24,
         "failed_checks": 9,
@@ -11623,7 +11623,7 @@
       "compliance_score": 76.47,
       "bip2_score": 75.0,
       "bip3_score": 77.27,
-      "compliance": {
+      "formal_compliance": {
         "score": 76.47,
         "passed_checks": 26,
         "failed_checks": 8,
@@ -11983,7 +11983,7 @@
       "compliance_score": 75.76,
       "bip2_score": 75.0,
       "bip3_score": 76.19,
-      "compliance": {
+      "formal_compliance": {
         "score": 75.76,
         "passed_checks": 25,
         "failed_checks": 8,
@@ -12343,7 +12343,7 @@
       "compliance_score": 90.91,
       "bip2_score": 83.33,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -12703,7 +12703,7 @@
       "compliance_score": 45.83,
       "bip2_score": 75.0,
       "bip3_score": 16.67,
-      "compliance": {
+      "formal_compliance": {
         "score": 45.83,
         "passed_checks": 11,
         "failed_checks": 13,
@@ -13063,7 +13063,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -13423,7 +13423,7 @@
       "compliance_score": 85.29,
       "bip2_score": 91.67,
       "bip3_score": 81.82,
-      "compliance": {
+      "formal_compliance": {
         "score": 85.29,
         "passed_checks": 29,
         "failed_checks": 5,
@@ -13783,7 +13783,7 @@
       "compliance_score": 75.76,
       "bip2_score": 66.67,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 75.76,
         "passed_checks": 25,
         "failed_checks": 8,
@@ -14143,7 +14143,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -14503,7 +14503,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -14863,7 +14863,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -15223,7 +15223,7 @@
       "compliance_score": 96.88,
       "bip2_score": 100.0,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -15583,7 +15583,7 @@
       "compliance_score": 81.82,
       "bip2_score": 83.33,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 81.82,
         "passed_checks": 27,
         "failed_checks": 6,
@@ -15943,7 +15943,7 @@
       "compliance_score": 58.33,
       "bip2_score": 91.67,
       "bip3_score": 25.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 58.33,
         "passed_checks": 14,
         "failed_checks": 10,
@@ -16303,7 +16303,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -16663,7 +16663,7 @@
       "compliance_score": 85.29,
       "bip2_score": 83.33,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 85.29,
         "passed_checks": 29,
         "failed_checks": 5,
@@ -17023,7 +17023,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -17383,7 +17383,7 @@
       "compliance_score": 88.24,
       "bip2_score": 91.67,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -17743,7 +17743,7 @@
       "compliance_score": 75.76,
       "bip2_score": 75.0,
       "bip3_score": 76.19,
-      "compliance": {
+      "formal_compliance": {
         "score": 75.76,
         "passed_checks": 25,
         "failed_checks": 8,
@@ -18103,7 +18103,7 @@
       "compliance_score": 87.88,
       "bip2_score": 91.67,
       "bip3_score": 85.71,
-      "compliance": {
+      "formal_compliance": {
         "score": 87.88,
         "passed_checks": 29,
         "failed_checks": 4,
@@ -18463,7 +18463,7 @@
       "compliance_score": 72.73,
       "bip2_score": 66.67,
       "bip3_score": 76.19,
-      "compliance": {
+      "formal_compliance": {
         "score": 72.73,
         "passed_checks": 24,
         "failed_checks": 9,
@@ -18823,7 +18823,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -19183,7 +19183,7 @@
       "compliance_score": 78.79,
       "bip2_score": 75.0,
       "bip3_score": 80.95,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -19543,7 +19543,7 @@
       "compliance_score": 75.76,
       "bip2_score": 75.0,
       "bip3_score": 76.19,
-      "compliance": {
+      "formal_compliance": {
         "score": 75.76,
         "passed_checks": 25,
         "failed_checks": 8,
@@ -19903,7 +19903,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 32,
         "failed_checks": 0,
@@ -20263,7 +20263,7 @@
       "compliance_score": 85.29,
       "bip2_score": 91.67,
       "bip3_score": 81.82,
-      "compliance": {
+      "formal_compliance": {
         "score": 85.29,
         "passed_checks": 29,
         "failed_checks": 5,
@@ -20623,7 +20623,7 @@
       "compliance_score": 33.33,
       "bip2_score": 66.67,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 33.33,
         "passed_checks": 8,
         "failed_checks": 16,
@@ -20983,7 +20983,7 @@
       "compliance_score": 87.88,
       "bip2_score": 66.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 87.88,
         "passed_checks": 29,
         "failed_checks": 4,
@@ -21343,7 +21343,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -21703,7 +21703,7 @@
       "compliance_score": 90.32,
       "bip2_score": 83.33,
       "bip3_score": 94.74,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.32,
         "passed_checks": 28,
         "failed_checks": 3,
@@ -22063,7 +22063,7 @@
       "compliance_score": 90.32,
       "bip2_score": 83.33,
       "bip3_score": 94.74,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.32,
         "passed_checks": 28,
         "failed_checks": 3,
@@ -22423,7 +22423,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -22783,7 +22783,7 @@
       "compliance_score": 82.35,
       "bip2_score": 83.33,
       "bip3_score": 81.82,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.35,
         "passed_checks": 28,
         "failed_checks": 6,
@@ -23143,7 +23143,7 @@
       "compliance_score": 94.29,
       "bip2_score": 91.67,
       "bip3_score": 95.65,
-      "compliance": {
+      "formal_compliance": {
         "score": 94.29,
         "passed_checks": 33,
         "failed_checks": 2,
@@ -23503,7 +23503,7 @@
       "compliance_score": 82.35,
       "bip2_score": 75.0,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.35,
         "passed_checks": 28,
         "failed_checks": 6,
@@ -23863,7 +23863,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -24223,7 +24223,7 @@
       "compliance_score": 90.91,
       "bip2_score": 91.67,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -24583,7 +24583,7 @@
       "compliance_score": 97.06,
       "bip2_score": 100.0,
       "bip3_score": 95.45,
-      "compliance": {
+      "formal_compliance": {
         "score": 97.06,
         "passed_checks": 33,
         "failed_checks": 1,
@@ -24943,7 +24943,7 @@
       "compliance_score": 93.94,
       "bip2_score": 100.0,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.94,
         "passed_checks": 31,
         "failed_checks": 2,
@@ -25303,7 +25303,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -25663,7 +25663,7 @@
       "compliance_score": 84.38,
       "bip2_score": 66.67,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 84.38,
         "passed_checks": 27,
         "failed_checks": 5,
@@ -26023,7 +26023,7 @@
       "compliance_score": 88.57,
       "bip2_score": 91.67,
       "bip3_score": 86.96,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.57,
         "passed_checks": 31,
         "failed_checks": 4,
@@ -26383,7 +26383,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -26743,7 +26743,7 @@
       "compliance_score": 87.5,
       "bip2_score": 83.33,
       "bip3_score": 90.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 87.5,
         "passed_checks": 28,
         "failed_checks": 4,
@@ -27103,7 +27103,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -27463,7 +27463,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -27823,7 +27823,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -28183,7 +28183,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -28543,7 +28543,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -28903,7 +28903,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -29263,7 +29263,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -29623,7 +29623,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -29983,7 +29983,7 @@
       "compliance_score": 93.75,
       "bip2_score": 91.67,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.75,
         "passed_checks": 30,
         "failed_checks": 2,
@@ -30343,7 +30343,7 @@
       "compliance_score": 93.94,
       "bip2_score": 91.67,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.94,
         "passed_checks": 31,
         "failed_checks": 2,
@@ -30703,7 +30703,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -31063,7 +31063,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -31423,7 +31423,7 @@
       "compliance_score": 88.24,
       "bip2_score": 91.67,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -31783,7 +31783,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -32143,7 +32143,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -32503,7 +32503,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -32863,7 +32863,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -33223,7 +33223,7 @@
       "compliance_score": 90.91,
       "bip2_score": 75.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -33583,7 +33583,7 @@
       "compliance_score": 90.62,
       "bip2_score": 83.33,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.62,
         "passed_checks": 29,
         "failed_checks": 3,
@@ -33943,7 +33943,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -34303,7 +34303,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -34663,7 +34663,7 @@
       "compliance_score": 93.94,
       "bip2_score": 91.67,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.94,
         "passed_checks": 31,
         "failed_checks": 2,
@@ -35023,7 +35023,7 @@
       "compliance_score": 90.91,
       "bip2_score": 91.67,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -35383,7 +35383,7 @@
       "compliance_score": 93.75,
       "bip2_score": 91.67,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.75,
         "passed_checks": 30,
         "failed_checks": 2,
@@ -35743,7 +35743,7 @@
       "compliance_score": 88.24,
       "bip2_score": 91.67,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -36103,7 +36103,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -36463,7 +36463,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -36823,7 +36823,7 @@
       "compliance_score": 93.94,
       "bip2_score": 91.67,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.94,
         "passed_checks": 31,
         "failed_checks": 2,
@@ -37183,7 +37183,7 @@
       "compliance_score": 82.86,
       "bip2_score": 66.67,
       "bip3_score": 91.3,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.86,
         "passed_checks": 29,
         "failed_checks": 6,
@@ -37543,7 +37543,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -37903,7 +37903,7 @@
       "compliance_score": 93.75,
       "bip2_score": 91.67,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.75,
         "passed_checks": 30,
         "failed_checks": 2,
@@ -38263,7 +38263,7 @@
       "compliance_score": 93.55,
       "bip2_score": 83.33,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.55,
         "passed_checks": 29,
         "failed_checks": 2,
@@ -38623,7 +38623,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -38983,7 +38983,7 @@
       "compliance_score": 83.87,
       "bip2_score": 75.0,
       "bip3_score": 89.47,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -39343,7 +39343,7 @@
       "compliance_score": 93.94,
       "bip2_score": 91.67,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.94,
         "passed_checks": 31,
         "failed_checks": 2,
@@ -39703,7 +39703,7 @@
       "compliance_score": 87.1,
       "bip2_score": 66.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 87.1,
         "passed_checks": 27,
         "failed_checks": 4,
@@ -40063,7 +40063,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -40423,7 +40423,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -40783,7 +40783,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -41143,7 +41143,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -41503,7 +41503,7 @@
       "compliance_score": 88.24,
       "bip2_score": 91.67,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -41863,7 +41863,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -42223,7 +42223,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -42583,7 +42583,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -42943,7 +42943,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -43303,7 +43303,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -43663,7 +43663,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -44023,7 +44023,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 32,
         "failed_checks": 0,
@@ -44383,7 +44383,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 33,
         "failed_checks": 0,
@@ -44743,7 +44743,7 @@
       "compliance_score": 88.24,
       "bip2_score": 91.67,
       "bip3_score": 86.36,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -45103,7 +45103,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -45463,7 +45463,7 @@
       "compliance_score": 88.89,
       "bip2_score": 66.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.89,
         "passed_checks": 32,
         "failed_checks": 4,
@@ -45823,7 +45823,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -46183,7 +46183,7 @@
       "compliance_score": 91.43,
       "bip2_score": 91.67,
       "bip3_score": 91.3,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.43,
         "passed_checks": 32,
         "failed_checks": 3,
@@ -46543,7 +46543,7 @@
       "compliance_score": 91.43,
       "bip2_score": 91.67,
       "bip3_score": 91.3,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.43,
         "passed_checks": 32,
         "failed_checks": 3,
@@ -46903,7 +46903,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -47263,7 +47263,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 32,
         "failed_checks": 0,
@@ -47623,7 +47623,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 31,
         "failed_checks": 0,
@@ -47983,7 +47983,7 @@
       "compliance_score": 82.86,
       "bip2_score": 75.0,
       "bip3_score": 86.96,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.86,
         "passed_checks": 29,
         "failed_checks": 6,
@@ -48343,7 +48343,7 @@
       "compliance_score": 85.29,
       "bip2_score": 75.0,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 85.29,
         "passed_checks": 29,
         "failed_checks": 5,
@@ -48703,7 +48703,7 @@
       "compliance_score": 96.77,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.77,
         "passed_checks": 30,
         "failed_checks": 1,
@@ -49063,7 +49063,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 31,
         "failed_checks": 0,
@@ -49423,7 +49423,7 @@
       "compliance_score": 83.87,
       "bip2_score": 58.33,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.87,
         "passed_checks": 26,
         "failed_checks": 5,
@@ -49783,7 +49783,7 @@
       "compliance_score": 100.0,
       "bip2_score": 100.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 100.0,
         "passed_checks": 32,
         "failed_checks": 0,
@@ -50143,7 +50143,7 @@
       "compliance_score": 96.77,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.77,
         "passed_checks": 30,
         "failed_checks": 1,
@@ -50503,7 +50503,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -50863,7 +50863,7 @@
       "compliance_score": 90.62,
       "bip2_score": 83.33,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.62,
         "passed_checks": 29,
         "failed_checks": 3,
@@ -51223,7 +51223,7 @@
       "compliance_score": 93.75,
       "bip2_score": 91.67,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.75,
         "passed_checks": 30,
         "failed_checks": 2,
@@ -51583,7 +51583,7 @@
       "compliance_score": 93.94,
       "bip2_score": 91.67,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.94,
         "passed_checks": 31,
         "failed_checks": 2,
@@ -51943,7 +51943,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -52303,7 +52303,7 @@
       "compliance_score": 96.77,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.77,
         "passed_checks": 30,
         "failed_checks": 1,
@@ -52663,7 +52663,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -53023,7 +53023,7 @@
       "compliance_score": 91.43,
       "bip2_score": 91.67,
       "bip3_score": 91.3,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.43,
         "passed_checks": 32,
         "failed_checks": 3,
@@ -53383,7 +53383,7 @@
       "compliance_score": 93.75,
       "bip2_score": 91.67,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 93.75,
         "passed_checks": 30,
         "failed_checks": 2,
@@ -53743,7 +53743,7 @@
       "compliance_score": 89.19,
       "bip2_score": 66.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 89.19,
         "passed_checks": 33,
         "failed_checks": 4,
@@ -54103,7 +54103,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -54463,7 +54463,7 @@
       "compliance_score": 90.62,
       "bip2_score": 83.33,
       "bip3_score": 95.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.62,
         "passed_checks": 29,
         "failed_checks": 3,
@@ -54823,7 +54823,7 @@
       "compliance_score": 83.33,
       "bip2_score": 58.33,
       "bip3_score": 95.83,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.33,
         "passed_checks": 30,
         "failed_checks": 6,
@@ -55183,7 +55183,7 @@
       "compliance_score": 90.91,
       "bip2_score": 91.67,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -55543,7 +55543,7 @@
       "compliance_score": 96.77,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.77,
         "passed_checks": 30,
         "failed_checks": 1,
@@ -55903,7 +55903,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -56263,7 +56263,7 @@
       "compliance_score": 87.88,
       "bip2_score": 83.33,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 87.88,
         "passed_checks": 29,
         "failed_checks": 4,
@@ -56623,7 +56623,7 @@
       "compliance_score": 78.79,
       "bip2_score": 58.33,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 78.79,
         "passed_checks": 26,
         "failed_checks": 7,
@@ -56983,7 +56983,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -57343,7 +57343,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -57703,7 +57703,7 @@
       "compliance_score": 82.86,
       "bip2_score": 66.67,
       "bip3_score": 91.3,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.86,
         "passed_checks": 29,
         "failed_checks": 6,
@@ -58063,7 +58063,7 @@
       "compliance_score": 83.33,
       "bip2_score": 75.0,
       "bip3_score": 87.5,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.33,
         "passed_checks": 30,
         "failed_checks": 6,
@@ -58423,7 +58423,7 @@
       "compliance_score": 80.56,
       "bip2_score": 66.67,
       "bip3_score": 87.5,
-      "compliance": {
+      "formal_compliance": {
         "score": 80.56,
         "passed_checks": 29,
         "failed_checks": 7,
@@ -58783,7 +58783,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -59143,7 +59143,7 @@
       "compliance_score": 82.35,
       "bip2_score": 66.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.35,
         "passed_checks": 28,
         "failed_checks": 6,
@@ -59503,7 +59503,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -59863,7 +59863,7 @@
       "compliance_score": 92.11,
       "bip2_score": 91.67,
       "bip3_score": 92.31,
-      "compliance": {
+      "formal_compliance": {
         "score": 92.11,
         "passed_checks": 35,
         "failed_checks": 3,
@@ -60223,7 +60223,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -60583,7 +60583,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -60943,7 +60943,7 @@
       "compliance_score": 80.56,
       "bip2_score": 66.67,
       "bip3_score": 87.5,
-      "compliance": {
+      "formal_compliance": {
         "score": 80.56,
         "passed_checks": 29,
         "failed_checks": 7,
@@ -61303,7 +61303,7 @@
       "compliance_score": 90.32,
       "bip2_score": 83.33,
       "bip3_score": 94.74,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.32,
         "passed_checks": 28,
         "failed_checks": 3,
@@ -61663,7 +61663,7 @@
       "compliance_score": 83.78,
       "bip2_score": 66.67,
       "bip3_score": 92.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 83.78,
         "passed_checks": 31,
         "failed_checks": 6,
@@ -62023,7 +62023,7 @@
       "compliance_score": 88.57,
       "bip2_score": 91.67,
       "bip3_score": 86.96,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.57,
         "passed_checks": 31,
         "failed_checks": 4,
@@ -62383,7 +62383,7 @@
       "compliance_score": 88.24,
       "bip2_score": 66.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 88.24,
         "passed_checks": 30,
         "failed_checks": 4,
@@ -62743,7 +62743,7 @@
       "compliance_score": 82.35,
       "bip2_score": 66.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.35,
         "passed_checks": 28,
         "failed_checks": 6,
@@ -63103,7 +63103,7 @@
       "compliance_score": 82.35,
       "bip2_score": 66.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.35,
         "passed_checks": 28,
         "failed_checks": 6,
@@ -63463,7 +63463,7 @@
       "compliance_score": 84.85,
       "bip2_score": 66.67,
       "bip3_score": 95.24,
-      "compliance": {
+      "formal_compliance": {
         "score": 84.85,
         "passed_checks": 28,
         "failed_checks": 5,
@@ -63823,7 +63823,7 @@
       "compliance_score": 82.86,
       "bip2_score": 66.67,
       "bip3_score": 91.3,
-      "compliance": {
+      "formal_compliance": {
         "score": 82.86,
         "passed_checks": 29,
         "failed_checks": 6,
@@ -64183,7 +64183,7 @@
       "compliance_score": 85.29,
       "bip2_score": 66.67,
       "bip3_score": 95.45,
-      "compliance": {
+      "formal_compliance": {
         "score": 85.29,
         "passed_checks": 29,
         "failed_checks": 5,
@@ -64543,7 +64543,7 @@
       "compliance_score": 85.29,
       "bip2_score": 66.67,
       "bip3_score": 95.45,
-      "compliance": {
+      "formal_compliance": {
         "score": 85.29,
         "passed_checks": 29,
         "failed_checks": 5,
@@ -64903,7 +64903,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -65263,7 +65263,7 @@
       "compliance_score": 90.91,
       "bip2_score": 91.67,
       "bip3_score": 90.48,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,
@@ -65623,7 +65623,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -65983,7 +65983,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -66343,7 +66343,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -66703,7 +66703,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -67063,7 +67063,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -67423,7 +67423,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -67783,7 +67783,7 @@
       "compliance_score": 91.18,
       "bip2_score": 91.67,
       "bip3_score": 90.91,
-      "compliance": {
+      "formal_compliance": {
         "score": 91.18,
         "passed_checks": 31,
         "failed_checks": 3,
@@ -68143,7 +68143,7 @@
       "compliance_score": 94.29,
       "bip2_score": 91.67,
       "bip3_score": 95.65,
-      "compliance": {
+      "formal_compliance": {
         "score": 94.29,
         "passed_checks": 33,
         "failed_checks": 2,
@@ -68503,7 +68503,7 @@
       "compliance_score": 96.88,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.88,
         "passed_checks": 31,
         "failed_checks": 1,
@@ -68863,7 +68863,7 @@
       "compliance_score": 96.97,
       "bip2_score": 91.67,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 96.97,
         "passed_checks": 32,
         "failed_checks": 1,
@@ -69223,7 +69223,7 @@
       "compliance_score": 94.12,
       "bip2_score": 91.67,
       "bip3_score": 95.45,
-      "compliance": {
+      "formal_compliance": {
         "score": 94.12,
         "passed_checks": 32,
         "failed_checks": 2,
@@ -69583,7 +69583,7 @@
       "compliance_score": 84.38,
       "bip2_score": 75.0,
       "bip3_score": 90.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 84.38,
         "passed_checks": 27,
         "failed_checks": 5,
@@ -69943,7 +69943,7 @@
       "compliance_score": 84.38,
       "bip2_score": 75.0,
       "bip3_score": 90.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 84.38,
         "passed_checks": 27,
         "failed_checks": 5,
@@ -70303,7 +70303,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -70663,7 +70663,7 @@
       "compliance_score": 29.17,
       "bip2_score": 58.33,
       "bip3_score": 0.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 29.17,
         "passed_checks": 7,
         "failed_checks": 17,
@@ -71023,7 +71023,7 @@
       "compliance_score": 90.91,
       "bip2_score": 75.0,
       "bip3_score": 100.0,
-      "compliance": {
+      "formal_compliance": {
         "score": 90.91,
         "passed_checks": 30,
         "failed_checks": 3,

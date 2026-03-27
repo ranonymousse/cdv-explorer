@@ -39138,7 +39138,7 @@
     }
   ],
   "links": {
-    "explicit_references": [
+    "body_extracted_regex": [
       {
         "source": "1",
         "target": "8",
@@ -42565,7 +42565,7 @@
         "value": 1
       }
     ],
-    "explicit_dependencies": {
+    "preamble_extracted": {
       "requires": [
         {
           "source": "3",
@@ -42933,7 +42933,7 @@
         }
       ]
     },
-    "implicit_dependencies": [
+    "body_extracted_llm": [
       {
         "source": "2",
         "target": "1",
