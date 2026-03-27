@@ -16,6 +16,7 @@ BITCOIN_ECOSYSTEM = {
     "document_file_pattern": r"^bip-\d{4}\.(mediawiki|md|rst)$",
     "document_dir_pattern": r"^bip-\d{4}$",
     "reference_pattern": r"\bBIP[-#\s]?(\d+)\b",
+    "max_proposal_id": 999,
     "stop_words_file": "assets/stopwords/en_basic.txt",
     "preamble": {
         "required_fields": [

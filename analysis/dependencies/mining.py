@@ -13,6 +13,7 @@ from ecosystem_config import ACTIVE_ECOSYSTEM
 PROPOSAL_LABEL = ACTIVE_ECOSYSTEM["proposal_acronym"]
 PROPOSAL_SINGULAR = ACTIVE_ECOSYSTEM["proposal_term_singular"]
 REFERENCE_PATTERN = ACTIVE_ECOSYSTEM["reference_pattern"]
+MAX_PROPOSAL_ID = ACTIVE_ECOSYSTEM.get("max_proposal_id")
 LLM_MODEL = "gpt-5"
 TOP_PRE_BLOCK_PATTERN = re.compile(r"^\s*<pre>.*?</pre>\s*", re.DOTALL | re.IGNORECASE)
 TOP_FENCED_BLOCK_PATTERN = re.compile(r"^\s*```[^\n]*\n.*?\n```\s*(?:\n|$)", re.DOTALL)
@@ -36,6 +37,21 @@ def prepare_llm_dependency_text(raw_content: str) -> str:
     return _strip_top_preamble_block(raw_content).replace("\r\n", "\n").replace("\r", "\n").strip()
 
 
+def _normalize_reference_number(value: Any) -> int | None:
+    try:
+        number = int(value)
+    except (TypeError, ValueError):
+        return None
+
+    if number < 0:
+        return None
+
+    if MAX_PROPOSAL_ID is not None and number > int(MAX_PROPOSAL_ID):
+        return None
+
+    return number
+
+
 def create_reference_list(
     raw_content: str,
     proposal_label: str = PROPOSAL_LABEL,
@@ -44,14 +60,18 @@ def create_reference_list(
     normalized_reference_pattern = reference_pattern.replace(r"\d+", rf"\d{{1,{MAX_REFERENCE_DIGITS}}}")
     single_reference_pattern = re.compile(normalized_reference_pattern, re.IGNORECASE)
     proposal_references = {
-        f"{proposal_label} {int(num)}"
+        f"{proposal_label} {normalized_num}"
         for num in single_reference_pattern.findall(raw_content)
+        for normalized_num in [_normalize_reference_number(num)]
+        if normalized_num is not None
     }
 
     if proposal_label == PROPOSAL_LABEL:
         for match in REFERENCE_LIST_PATTERN.findall(raw_content):
             for num in re.findall(r"\d+", match):
-                proposal_references.add(f"{proposal_label} {int(num)}")
+                normalized_num = _normalize_reference_number(num)
+                if normalized_num is not None:
+                    proposal_references.add(f"{proposal_label} {normalized_num}")
 
     return sorted(proposal_references, key=lambda value: int(value.split()[-1]))
 
@@ -73,7 +93,9 @@ def create_explicit_dependency_list(
         raw_items = value if isinstance(value, list) else str(value).split(",")
         for item in raw_items:
             for proposal_id in id_pattern.findall(str(item)):
-                dependency_ids.add(f"{proposal_label} {int(proposal_id)}")
+                normalized_num = _normalize_reference_number(proposal_id)
+                if normalized_num is not None:
+                    dependency_ids.add(f"{proposal_label} {normalized_num}")
 
     return sorted(dependency_ids)
 
@@ -108,7 +130,10 @@ def normalize_dependency_output(
         match = id_pattern.match(str(item))
         if not match:
             continue
-        normalized = f"{proposal_label} {int(match.group(1))}"
+        normalized_num = _normalize_reference_number(match.group(1))
+        if normalized_num is None:
+            continue
+        normalized = f"{proposal_label} {normalized_num}"
         if normalized == current_normalized:
             continue
         normalized_ids.add(normalized)
