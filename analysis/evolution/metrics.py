@@ -164,14 +164,6 @@ def _format_quarter_label(value: date) -> str:
     return f"{value.year}-Q{_quarter_number(value)}"
 
 
-def _format_breakpoint_label(value: date) -> str:
-    return value.strftime("%Y-%b%d")
-
-
-def _format_breakpoint_remainder_label(value: date) -> str:
-    return f"{_format_breakpoint_label(value)}Q{_quarter_number(value)}"
-
-
 def _build_periods(start_date: date, end_date: date, *, breakpoint_date: date | None = None) -> List[Dict[str, Any]]:
     periods: List[Dict[str, Any]] = []
     current = _quarter_start(start_date)
@@ -179,23 +171,28 @@ def _build_periods(start_date: date, end_date: date, *, breakpoint_date: date | 
 
     while current <= final:
         quarter_end = _quarter_end(current)
+        quarter_label = _format_quarter_label(current)
 
         if breakpoint_date is not None and current <= breakpoint_date <= quarter_end:
-            periods.append(
-                {
-                    "label": _format_breakpoint_label(breakpoint_date),
-                    "start": current,
-                    "end": breakpoint_date,
-                    "kind": "milestone",
-                    "milestone_label": "BIP3 Activation",
-                }
-            )
+            pre_breakpoint_end = breakpoint_date - timedelta(days=1)
+            if current <= pre_breakpoint_end:
+                periods.append(
+                    {
+                        "key": f"{quarter_label}-pre-bip3",
+                        "label": quarter_label,
+                        "start": current,
+                        "end": pre_breakpoint_end,
+                        "kind": "milestone",
+                        "milestone_label": "BIP3 Activation",
+                    }
+                )
 
-            remainder_start = breakpoint_date + timedelta(days=1)
+            remainder_start = breakpoint_date
             if remainder_start <= quarter_end:
                 periods.append(
                     {
-                        "label": _format_breakpoint_remainder_label(breakpoint_date),
+                        "key": f"{quarter_label}-post-bip3",
+                        "label": quarter_label,
                         "start": remainder_start,
                         "end": quarter_end,
                         "kind": "milestone_remainder",
@@ -205,7 +202,8 @@ def _build_periods(start_date: date, end_date: date, *, breakpoint_date: date | 
         else:
             periods.append(
                 {
-                    "label": _format_quarter_label(current),
+                    "key": quarter_label,
+                    "label": quarter_label,
                     "start": current,
                     "end": quarter_end,
                     "kind": "quarter",
@@ -225,8 +223,8 @@ def _build_evolution_series(
     *,
     standard_filter: str | None = None,
 ) -> Dict[str, Any]:
-    counts_by_period = {period["label"]: Counter() for period in periods}
-    bips_by_period = {period["label"]: defaultdict(set) for period in periods}
+    counts_by_period = {period["key"]: Counter() for period in periods}
+    bips_by_period = {period["key"]: defaultdict(set) for period in periods}
 
     for timeline in proposal_timelines:
         event_index = 0
@@ -250,17 +248,18 @@ def _build_evolution_series(
             if standard_filter is not None and effective_standard != standard_filter:
                 continue
 
-            period_label = period["label"]
-            counts_by_period[period_label][active_status] += 1
-            bips_by_period[period_label][active_status].add(proposal_id)
+            period_key = period["key"]
+            counts_by_period[period_key][active_status] += 1
+            bips_by_period[period_key][active_status].add(proposal_id)
 
     rows = []
     for period in periods:
+        period_key = period["key"]
         period_label = period["label"]
-        values = {status: counts_by_period[period_label].get(status, 0) for status in ordered_categories}
+        values = {status: counts_by_period[period_key].get(status, 0) for status in ordered_categories}
         bips = {
             status: sorted(
-                bips_by_period[period_label].get(status, set()),
+                bips_by_period[period_key].get(status, set()),
                 key=lambda value: (not value.isdigit(), int(value) if value.isdigit() else value),
             )
             for status in ordered_categories
@@ -268,6 +267,7 @@ def _build_evolution_series(
         rows.append(
             {
                 "period": period_label,
+                "period_key": period_key,
                 "period_start": period["start"].isoformat(),
                 "period_end": period["end"].isoformat(),
                 "period_kind": period["kind"],
@@ -335,6 +335,7 @@ def _build_segmented_evolution_series(
         rows.append(
             {
                 "period": base_row.get("period"),
+                "period_key": base_row.get("period_key"),
                 "period_start": base_row.get("period_start"),
                 "period_end": base_row.get("period_end"),
                 "period_kind": base_row.get("period_kind"),

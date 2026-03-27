@@ -72,13 +72,33 @@ export function EvolutionStatusStackedBarChart({
     const categories = segmentDefinitions.map((segment) => segment.key);
     const segmentByKey = new Map(segmentDefinitions.map((segment) => [segment.key, segment]));
     const rawRows = Array.isArray(data?.rows) ? data.rows : [];
+    const formatPeriodDisplayLabel = (row) => {
+      const baseLabel = String(row?.periodLabel || '');
+      if (!baseLabel) {
+        return '';
+      }
+      if (String(row?.periodKey || '').endsWith('-pre-bip3')) {
+        return `${baseLabel}a`;
+      }
+      if (String(row?.periodKey || '').endsWith('-post-bip3')) {
+        return `${baseLabel}b`;
+      }
+      return baseLabel;
+    };
+    const formatMilestoneLabel = (label) => {
+      if (String(label || '').trim() === 'BIP3 Activation') {
+        return 'BIP-3 activation';
+      }
+      return String(label || '');
+    };
     if (!categories.length || !rawRows.length) {
       return;
     }
 
     const rows = rawRows
       .map((row, index) => ({
-        period: String(row?.period || row?.year || ''),
+        periodKey: String(row?.period_key || row?.period || row?.year || ''),
+        periodLabel: String(row?.period || row?.year || ''),
         periodStart: String(row?.period_start || ''),
         periodEnd: String(row?.period_end || ''),
         periodKind: String(row?.period_kind || 'quarter'),
@@ -87,7 +107,11 @@ export function EvolutionStatusStackedBarChart({
         bips: row?.bips || {},
         index,
       }))
-      .filter((row) => row.period);
+      .map((row) => ({
+        ...row,
+        displayLabel: formatPeriodDisplayLabel(row),
+      }))
+      .filter((row) => row.periodKey);
 
     rows.sort((left, right) => {
       if (left.periodEnd && right.periodEnd && left.periodEnd !== right.periodEnd) {
@@ -128,7 +152,17 @@ export function EvolutionStatusStackedBarChart({
     const margin = { top: 24, right: 140, bottom: 52, left: 50 };
     const innerWidth = containerWidth - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
-    const periods = rows.map((row) => row.period);
+    const periods = rows.map((row) => row.periodKey);
+    const xDomain = [];
+    const gapKeyByPeriod = new Map();
+    rows.forEach((row, index) => {
+      xDomain.push(row.periodKey);
+      if (row.periodKind === 'milestone' && index < rows.length - 1) {
+        const gapKey = `${row.periodKey}__gap`;
+        xDomain.push(gapKey);
+        gapKeyByPeriod.set(row.periodKey, gapKey);
+      }
+    });
     const colorMap = getClassificationColorMap(
       'status',
       Array.from(new Set(segmentDefinitions.map((segment) => segment.status)))
@@ -137,7 +171,16 @@ export function EvolutionStatusStackedBarChart({
 
     const normalizedRows = rows.map((row) => {
       const total = categories.reduce((sum, category) => sum + Number(row.values?.[category] || 0), 0);
-      const normalized = { period: row.period, bips: row.bips };
+      const normalized = {
+        period: row.periodLabel,
+        periodDisplay: row.displayLabel,
+        periodKey: row.periodKey,
+        periodStart: row.periodStart,
+        periodEnd: row.periodEnd,
+        periodKind: row.periodKind,
+        milestoneLabel: row.milestoneLabel,
+        bips: row.bips,
+      };
       categories.forEach((category) => {
         const rawValue = Number(row.values?.[category] || 0);
         normalized[category] = mode === 'relative' && total > 0 ? rawValue / total : rawValue;
@@ -190,10 +233,10 @@ export function EvolutionStatusStackedBarChart({
         visibleSegments.filter((segment) => BIP3_STATUS_ORDER.includes(segment.status)),
         BIP3_STATUS_ORDER,
       );
-    const rowByPeriod = new Map(rows.map((row) => [row.period, row]));
+    const rowByPeriod = new Map(rows.map((row) => [row.periodKey, row]));
 
     const x = d3.scaleBand()
-      .domain(periods)
+      .domain(xDomain)
       .range([0, innerWidth])
       .padding(0.18);
 
@@ -234,7 +277,7 @@ export function EvolutionStatusStackedBarChart({
       .call(
         d3.axisBottom(x)
           .tickValues(tickValues)
-          .tickFormat((value) => String(value))
+          .tickFormat((value) => rowByPeriod.get(String(value))?.displayLabel || String(value))
       )
       .selectAll('text')
       .attr('transform', 'rotate(-45)')
@@ -243,11 +286,26 @@ export function EvolutionStatusStackedBarChart({
     rows
       .filter((row) => row.periodKind === 'milestone')
       .forEach((row) => {
-        const centerX = (x(row.period) || 0) + (x.bandwidth() / 2);
+        const rowIndex = rows.findIndex((candidate) => candidate.periodKey === row.periodKey);
+        const nextRow = rowIndex >= 0 ? rows[rowIndex + 1] : null;
+        const currentX = x(row.periodKey);
+        const gapKey = gapKeyByPeriod.get(row.periodKey);
+        const gapX = gapKey ? x(gapKey) : undefined;
+        const nextX = nextRow ? x(nextRow.periodKey) : undefined;
+
+        if (currentX === undefined) {
+          return;
+        }
+
+        const boundaryX = gapX !== undefined
+          ? gapX + (x.bandwidth() / 2)
+          : (nextX === undefined
+            ? currentX + (x.bandwidth() / 2)
+            : ((currentX + x.bandwidth()) + nextX) / 2);
 
         root.append('line')
-          .attr('x1', centerX)
-          .attr('x2', centerX)
+          .attr('x1', boundaryX)
+          .attr('x2', boundaryX)
           .attr('y1', 0)
           .attr('y2', innerHeight)
           .attr('stroke', 'var(--chart-focus)')
@@ -257,12 +315,14 @@ export function EvolutionStatusStackedBarChart({
 
         if (row.milestoneLabel) {
           root.append('text')
-            .attr('x', Math.min(innerWidth, centerX + 6))
+            .attr('x', Math.max(0, boundaryX - 6))
             .attr('y', -8)
+            .attr('text-anchor', 'end')
             .style('font-size', '11px')
-            .style('font-weight', '600')
+            .style('font-style', 'italic')
+            .style('font-weight', '400')
             .style('fill', 'var(--chart-text)')
-            .text(row.milestoneLabel);
+            .text(formatMilestoneLabel(row.milestoneLabel));
         }
       });
 
@@ -321,17 +381,21 @@ export function EvolutionStatusStackedBarChart({
       legendOffsetY += 8;
     };
 
-    appendLegendSection('BIP2', bip2LegendSegments);
-    appendLegendSection('BIP3', bip3LegendSegments);
+    appendLegendSection('BIP2', [...bip2LegendSegments].reverse());
+    appendLegendSection('BIP3', [...bip3LegendSegments].reverse());
 
     const renderTooltipHtml = (segment) => {
       const bipList = Array.isArray(segment.data?.bips?.[segment.key])
         ? segment.data.bips[segment.key]
         : [];
+      const dateRange = segment.data.periodStart && segment.data.periodEnd
+        ? `Range: ${segment.data.periodStart} to ${segment.data.periodEnd}<br/>`
+        : '';
 
       return (
         `<strong>${title}</strong><br/>` +
-        `Period: ${segment.data.period}<br/>` +
+        `Period: ${segment.data.periodDisplay || segment.data.period}<br/>` +
+        dateRange +
         `${segmentByKey.get(segment.key)?.standard ? `Standard: ${String(segmentByKey.get(segment.key)?.standard).toUpperCase()}<br/>` : ''}` +
         `Status: ${segmentByKey.get(segment.key)?.status || segment.key}<br/>` +
         `Count: ${segment.data[`${segment.key}__raw`]}<br/>` +
@@ -343,7 +407,7 @@ export function EvolutionStatusStackedBarChart({
     const applyBaseBarStyles = () => {
       root.selectAll('rect.evolution-bar-segment')
         .attr('opacity', (segment) => {
-          const segmentKey = `${segment.data.period}|||${segment.key}`;
+          const segmentKey = `${segment.data.periodKey}|||${segment.key}`;
           if (pinnedSegmentKey) {
             return pinnedSegmentKey !== segmentKey ? 0.22 : 1;
           }
@@ -353,10 +417,10 @@ export function EvolutionStatusStackedBarChart({
           return 1;
         })
         .attr('stroke', (segment) => (
-          pinnedSegmentKey === `${segment.data.period}|||${segment.key}` ? 'var(--chart-focus)' : 'none'
+          pinnedSegmentKey === `${segment.data.periodKey}|||${segment.key}` ? 'var(--chart-focus)' : 'none'
         ))
         .attr('stroke-width', (segment) => (
-          pinnedSegmentKey === `${segment.data.period}|||${segment.key}` ? 1.5 : 0
+          pinnedSegmentKey === `${segment.data.periodKey}|||${segment.key}` ? 1.5 : 0
         ));
     };
 
@@ -371,7 +435,7 @@ export function EvolutionStatusStackedBarChart({
       .enter()
       .append('rect')
       .attr('class', 'evolution-bar-segment')
-      .attr('x', (segment) => x(segment.data.period))
+      .attr('x', (segment) => x(segment.data.periodKey))
       .attr('y', (segment) => y(segment[1]))
       .attr('width', x.bandwidth())
       .attr('height', (segment) => Math.max(0, y(segment[0]) - y(segment[1])))
@@ -410,7 +474,7 @@ export function EvolutionStatusStackedBarChart({
       })
       .on('click', function (event, segment) {
         event.stopPropagation();
-        pinnedSegmentKey = `${segment.data.period}|||${segment.key}`;
+        pinnedSegmentKey = `${segment.data.periodKey}|||${segment.key}`;
         applyBaseBarStyles();
         tooltip
           .style('opacity', 1)
