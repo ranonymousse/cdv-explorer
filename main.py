@@ -102,10 +102,10 @@ def main():
         ),
     )
 
-    # Process the metadata and insights
+    # Process the canonical meta and insights sections
     json_files = [path for path in output_directory.iterdir() if path.suffix == ".json"]
     run_stage(
-        "Process metadata and insights",
+        "Process meta and insights",
         total=len(json_files),
         unit="ip",
         runner=lambda update: process_ip_files(

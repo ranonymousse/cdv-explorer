@@ -2,18 +2,27 @@ from typing import Any, Dict, Iterable, List
 
 import networkx as nx
 
+from analysis.dependencies.constants import (
+    BODY_EXTRACTED_REGEX,
+    DEPENDENCY_APPROACH_LABELS,
+    DEPENDENCY_APPROACH_ORDER,
+    LEGACY_APPROACH_ALIASES,
+    PREAMBLE_DEPENDENCY_SUBTYPES,
+    PREAMBLE_EXTRACTED,
+)
+
 
 def _links_for_type(network_data: Dict[str, Any], link_type: str) -> List[Dict[str, Any]]:
     links = network_data.get("links", {})
-    explicit = links.get("explicit_dependencies", {})
+    explicit = links.get(PREAMBLE_EXTRACTED, {}) or links.get(LEGACY_APPROACH_ALIASES[PREAMBLE_EXTRACTED], {})
 
-    if link_type in {"requires", "replaces", "superseded_by"}:
+    if link_type in PREAMBLE_DEPENDENCY_SUBTYPES:
         return explicit.get(link_type, [])
 
-    if link_type == "explicit_dependencies":
+    if link_type == PREAMBLE_EXTRACTED:
         seen = set()
         merged: List[Dict[str, Any]] = []
-        for subtype in ("requires", "replaces", "superseded_by"):
+        for subtype in PREAMBLE_DEPENDENCY_SUBTYPES:
             for link in explicit.get(subtype, []):
                 key = (str(link.get("source")), str(link.get("target")))
                 if key in seen:
@@ -22,10 +31,10 @@ def _links_for_type(network_data: Dict[str, Any], link_type: str) -> List[Dict[s
                 merged.append(link)
         return merged
 
-    return links.get(link_type, [])
+    return links.get(link_type, links.get(LEGACY_APPROACH_ALIASES.get(link_type, ""), []))
 
 
-def build_graph(network_data: Dict[str, Any], link_type: str = "explicit_references") -> nx.DiGraph:
+def build_graph(network_data: Dict[str, Any], link_type: str = BODY_EXTRACTED_REGEX) -> nx.DiGraph:
     graph = nx.DiGraph()
 
     for node in network_data.get("nodes", []):
@@ -69,7 +78,7 @@ def compute_graph_depth(graph: nx.DiGraph) -> int:
     return longest_path_length
 
 
-def find_circular_dependencies(network_data: Dict[str, Any], link_type: str = "explicit_references") -> List[List[str]]:
+def find_circular_dependencies(network_data: Dict[str, Any], link_type: str = BODY_EXTRACTED_REGEX) -> List[List[str]]:
     graph = build_graph(network_data, link_type=link_type)
     return [list(cycle) for cycle in nx.simple_cycles(graph)]
 
@@ -87,11 +96,7 @@ def _safe_betweenness(graph: nx.DiGraph) -> Dict[str, float]:
 
 
 def _approach_labels() -> Dict[str, str]:
-    return {
-        "explicit_dependencies": "Explicit Dependencies (Preamble)",
-        "explicit_references": "Explicit References (Regex)",
-        "implicit_dependencies": "Implicit Dependencies (LLM)",
-    }
+    return dict(DEPENDENCY_APPROACH_LABELS)
 
 
 def _build_pairwise_comparisons(network_data: Dict[str, Any]) -> Dict[str, Any]:
@@ -168,7 +173,8 @@ def extract_dependency_metrics(network_data: Dict[str, Any]) -> Dict[str, Any]:
     approaches = _approach_labels()
     by_approach: Dict[str, Dict[str, Any]] = {}
 
-    for approach_key, approach_label in approaches.items():
+    for approach_key in DEPENDENCY_APPROACH_ORDER:
+        approach_label = approaches[approach_key]
         graph = build_graph(network_data, link_type=approach_key)
         cycles = find_circular_dependencies(network_data, link_type=approach_key)
         betweenness = _safe_betweenness(graph)

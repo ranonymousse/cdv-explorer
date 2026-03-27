@@ -4,13 +4,16 @@ import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { getBipUrl, normalizeBipId } from './bipLinks';
 import { getClassificationColorMap } from './classificationColors';
+import {
+  BODY_EXTRACTED_LLM,
+  BODY_EXTRACTED_REGEX,
+  DEFAULT_DEPENDENCY_APPROACH,
+  LINK_TYPE_OPTIONS as DEPENDENCY_LINK_TYPE_OPTIONS,
+  PREAMBLE_EXTRACTED,
+} from './dependencyApproaches';
 import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 
-export const LINK_TYPE_OPTIONS = [
-  { label: 'Preamble', value: 'explicit_dependencies' },
-  { label: 'Regex', value: 'explicit_references' },
-  { label: 'LLM', value: 'implicit_dependencies' },
-];
+export const LINK_TYPE_OPTIONS = DEPENDENCY_LINK_TYPE_OPTIONS;
 
 const BASELINE_NONE_VALUE = '__none__';
 
@@ -38,8 +41,8 @@ const EXPLICIT_DEPENDENCY_COLORS = {
 };
 
 const DEFAULT_EDGE_COLORS = {
-  explicit_references: '#939AA9',
-  implicit_dependencies: '#939AA9',
+  [BODY_EXTRACTED_REGEX]: '#939AA9',
+  [BODY_EXTRACTED_LLM]: '#939AA9',
 };
 
 const DIFFERENTIAL_EDGE_COLORS = {
@@ -77,7 +80,7 @@ function normalizeCategory(value, fallbackLabel) {
 }
 
 function buildDisplayedLinks(linksByType, linkType) {
-  if (linkType === 'explicit_dependencies') {
+  if (linkType === PREAMBLE_EXTRACTED) {
     return ['requires', 'replaces', 'superseded_by']
       .flatMap((relationType) => (linksByType?.[relationType] || []).map((edge, index) => ({
         ...edge,
@@ -94,7 +97,7 @@ function buildDisplayedLinks(linksByType, linkType) {
 }
 
 function getLinkSetForType(linksByType, linkType) {
-  if (linkType === 'explicit_dependencies') {
+  if (linkType === PREAMBLE_EXTRACTED) {
     return ['requires', 'replaces', 'superseded_by']
       .flatMap((relationType) => (linksByType?.[relationType] || []).map((edge) => ({
         source: String(edge.source),
@@ -153,7 +156,7 @@ export const NetworkDiagram = ({
   const snapshotLabel = useDashboardSnapshot();
   const linkMode = useDashboardLinkMode();
   const [colorBy, setColorBy] = useState('layer');
-  const [linkType, setLinkType] = useState('explicit_dependencies');
+  const [linkType, setLinkType] = useState(DEFAULT_DEPENDENCY_APPROACH);
   const [baselineType, setBaselineType] = useState(BASELINE_NONE_VALUE);
   const [layoutMode, setLayoutMode] = useState('balanced');
   const isDifferentialMode = baselineType !== BASELINE_NONE_VALUE;
@@ -322,7 +325,7 @@ export const NetworkDiagram = ({
 
     const getEdgeColor = (edge) => {
       if (!isDifferentialMode) {
-        if (linkType === 'explicit_dependencies') {
+        if (linkType === PREAMBLE_EXTRACTED) {
           return EXPLICIT_DEPENDENCY_COLORS[edge.relationType] || '#667085';
         }
         return DEFAULT_EDGE_COLORS[edge.relationType] || '#607d8b';
@@ -342,7 +345,7 @@ export const NetworkDiagram = ({
       if (isDifferentialMode) {
         return edge.comparisonStatus === 'baseline_only' ? '7 5' : null;
       }
-      if (linkType !== 'explicit_dependencies') {
+      if (linkType !== PREAMBLE_EXTRACTED) {
         return null;
       }
       return EXPLICIT_DEPENDENCY_STYLES[edge.relationType] || null;
@@ -404,8 +407,8 @@ export const NetworkDiagram = ({
     );
 
     const relationLabel = {
-      explicit_references: 'Explicit Reference',
-      implicit_dependencies: 'Implicit Dependency',
+      [BODY_EXTRACTED_REGEX]: 'Regex-Extracted Dependency',
+      [BODY_EXTRACTED_LLM]: 'LLM-Extracted Dependency',
       requires: 'Requires',
       replaces: 'Replaces',
       superseded_by: 'Superseded By',
@@ -843,7 +846,7 @@ export const NetworkDiagram = ({
         stroke: DIFFERENTIAL_EDGE_COLORS.baseline_only,
       },
     ]
-    : linkType === 'explicit_dependencies'
+    : linkType === PREAMBLE_EXTRACTED
       ? explicitLegendItems
       : [
         {

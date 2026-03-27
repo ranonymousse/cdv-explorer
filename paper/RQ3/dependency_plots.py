@@ -9,6 +9,13 @@ import numpy as np
 from matplotlib.colors import ListedColormap
 from matplotlib.lines import Line2D
 
+from analysis.dependencies.constants import (
+    BODY_EXTRACTED_LLM,
+    BODY_EXTRACTED_REGEX,
+    LEGACY_APPROACH_ALIASES,
+    PREAMBLE_DEPENDENCY_SUBTYPES,
+    PREAMBLE_EXTRACTED,
+)
 from analysis.external_links import get_bips_dev_base_url
 
 try:
@@ -135,13 +142,13 @@ def _slugify(parts) -> str:
 
 
 def get_links_by_type(network_links, link_type):
-    explicit = network_links.get("explicit_dependencies", {})
-    if link_type in {"requires", "replaces", "superseded_by"}:
+    explicit = network_links.get(PREAMBLE_EXTRACTED, {}) or network_links.get(LEGACY_APPROACH_ALIASES[PREAMBLE_EXTRACTED], {})
+    if link_type in PREAMBLE_DEPENDENCY_SUBTYPES:
         return explicit.get(link_type, [])
-    if link_type == "explicit_dependencies":
+    if link_type == PREAMBLE_EXTRACTED:
         seen = set()
         merged = []
-        for subtype in ("requires", "replaces", "superseded_by"):
+        for subtype in PREAMBLE_DEPENDENCY_SUBTYPES:
             for link in explicit.get(subtype, []):
                 key = (link.get("source"), link.get("target"))
                 if key in seen:
@@ -149,12 +156,12 @@ def get_links_by_type(network_links, link_type):
                 seen.add(key)
                 merged.append(link)
         return merged
-    return network_links.get(link_type, [])
+    return network_links.get(link_type, network_links.get(LEGACY_APPROACH_ALIASES.get(link_type, ""), []))
 
 
 def iter_all_links(network_links):
     for link_type, links in network_links.items():
-        if link_type == "explicit_dependencies" and isinstance(links, dict):
+        if link_type in {PREAMBLE_EXTRACTED, LEGACY_APPROACH_ALIASES[PREAMBLE_EXTRACTED]} and isinstance(links, dict):
             for subtype_links in links.values():
                 for link in subtype_links:
                     yield link
@@ -217,17 +224,17 @@ def draw_static_network_with_layouts(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if link_type is None:
-        link_type = ["explicit_references"]
+        link_type = [BODY_EXTRACTED_REGEX]
 
     if edge_type_styles is None:
         edge_type_styles = {
-            "implicit_dependencies": {
+            BODY_EXTRACTED_LLM: {
                 "color": "gray",
                 "style": "solid",
                 "alpha": 0.6,
                 "label": "implicit dependencies (LLM)",
             },
-            "explicit_references": {
+            BODY_EXTRACTED_REGEX: {
                 "color": "black",
                 "style": "dashed",
                 "alpha": 0.6,
@@ -457,14 +464,14 @@ def draw_static_network_with_layouts(
 def render_default_dependency_plot_suite(network_data, output_dir: Path, filename_prefix: str | None = None) -> None:
     plot_specs = [
         {
-            "filename_stem": "dependency_explicit_references_focus",
-            "link_type": ["explicit_references", "requires", "replaces", "superseded_by"],
+            "filename_stem": "dependency_body_extracted_regex_focus",
+            "link_type": [BODY_EXTRACTED_REGEX, "requires", "replaces", "superseded_by"],
             "color_by": "group",
             "bips_to_show": DEFAULT_BIPS_OF_INTEREST,
             "bips_to_exclude": DEFAULT_BIPS_TO_EXCLUDE,
             "full_title": "Selected proposals with explicit references (regex extraction)",
             "edge_type_styles": {
-                "explicit_references": {
+                BODY_EXTRACTED_REGEX: {
                     "color": "outgoing-color",
                     "style": "dashed",
                     "alpha": 0.8,
@@ -492,13 +499,13 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
         },
         {
             "filename_stem": "dependency_explicit_fields_focus",
-            "link_type": ["requires", "replaces", "superseded_by", "explicit_references"],
+            "link_type": ["requires", "replaces", "superseded_by", BODY_EXTRACTED_REGEX],
             "color_by": "group",
             "bips_to_show": DEFAULT_BIPS_OF_INTEREST,
             "bips_to_exclude": DEFAULT_BIPS_TO_EXCLUDE,
             "full_title": "Selected proposals with explicit dependencies (preamble fields)",
             "edge_type_styles": {
-                "explicit_references": {
+                BODY_EXTRACTED_REGEX: {
                     "color": "black",
                     "style": "solid",
                     "alpha": 0.0,
@@ -526,13 +533,13 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
         },
         {
             "filename_stem": "dependency_implicit_focus",
-            "link_type": ["implicit_dependencies"],
+            "link_type": [BODY_EXTRACTED_LLM],
             "color_by": "group",
             "bips_to_show": None,
             "bips_to_exclude": None,
             "full_title": "Selected proposals with implicit dependencies (LLM extraction)",
             "edge_type_styles": {
-                "implicit_dependencies": {
+                BODY_EXTRACTED_LLM: {
                     "color": "gray",
                     "style": "solid",
                     "alpha": 1.0,
@@ -542,7 +549,7 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
         },
         {
             "filename_stem": "dependency_full_network",
-            "link_type": ["explicit_references", "requires", "replaces", "superseded_by", "implicit_dependencies"],
+            "link_type": [BODY_EXTRACTED_REGEX, "requires", "replaces", "superseded_by", BODY_EXTRACTED_LLM],
             "color_by": "group",
             "bips_to_show": None,
             "bips_to_exclude": None,

@@ -2,15 +2,16 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { getBipUrl } from './bipLinks';
+import {
+  BODY_EXTRACTED_REGEX,
+  DEFAULT_DEPENDENCY_APPROACH,
+  DEPENDENCY_SHORT_LABELS,
+} from './dependencyApproaches';
 import { LINK_TYPE_OPTIONS } from './NetworkDiagram';
 import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
 import { normalizeProposalFilterValue, parseProposalFilterExpression } from './dashboard/dashboardData';
 
-const SHORT_LABELS = {
-  explicit_dependencies: 'Preamble',
-  explicit_references: 'Regex',
-  implicit_dependencies: 'LLM',
-};
+const SHORT_LABELS = DEPENDENCY_SHORT_LABELS;
 
 function getApproachDisplayLabel(approachKey) {
   return SHORT_LABELS[approachKey] || approachKey;
@@ -48,7 +49,7 @@ function formatPercent(value) {
 function buildDefaultSelection(pairwiseComparisons) {
   const comparisons = Object.values(pairwiseComparisons || {});
   return comparisons.find(
-    (entry) => entry.approach === 'explicit_references' && entry.baseline === 'explicit_dependencies'
+    (entry) => entry.approach === BODY_EXTRACTED_REGEX && entry.baseline === DEFAULT_DEPENDENCY_APPROACH
   ) || comparisons.find((entry) => entry.approach !== entry.baseline) || comparisons[0] || null;
 }
 

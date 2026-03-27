@@ -219,7 +219,8 @@ export const FormalConformitySwarmPlot = ({
 
       const renderTooltipHtml = (entry) => (
         (() => {
-          const panelCompliance = entry?.compliance?.[panel.key] || {};
+          const complianceDetails = entry?.formal_compliance || entry?.compliance || {};
+          const panelCompliance = complianceDetails?.[panel.key] || {};
           const checks = panelCompliance.checks || [];
           return (
             `<strong><a href="${getBipUrl(entry.id, snapshotLabel, { linkMode })}" target="_blank" rel="noreferrer">${proposalShortLabel} ${entry.id}</a></strong><br/>` +

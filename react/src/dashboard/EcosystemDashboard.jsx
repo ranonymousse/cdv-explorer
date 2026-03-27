@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Dropdown } from 'primereact/dropdown';
 import { InputSwitch } from 'primereact/inputswitch';
 import { Link, useParams } from 'react-router-dom';
+import { DEFAULT_DEPENDENCY_APPROACH } from '../dependencyApproaches';
 import { LINK_TYPE_OPTIONS } from '../NetworkDiagram';
 import { ecosystemsById } from '../ecosystems';
 import { getAvailableSnapshots, getDatasetForSelection } from '../data';
@@ -50,7 +51,7 @@ export function EcosystemDashboard() {
   const [dependencyMinRelationsIncludeConnections, setDependencyMinRelationsIncludeConnections] = useState(false);
   const [dependencyFilterText, setDependencyFilterText] = useState('');
   const [dependencyIncludeConnections, setDependencyIncludeConnections] = useState(true);
-  const [selectedDependencyMetricsApproach, setSelectedDependencyMetricsApproach] = useState('explicit_dependencies');
+  const [selectedDependencyMetricsApproach, setSelectedDependencyMetricsApproach] = useState(DEFAULT_DEPENDENCY_APPROACH);
   const [wordCloudFilterText, setWordCloudFilterText] = useState('');
   const [highlightedConformityProposal, setHighlightedConformityProposal] = useState('');
   const [linkMode, setLinkMode] = useState('history');
@@ -95,7 +96,7 @@ export function EcosystemDashboard() {
     (option) => option.value === selectedDependencyMetricsApproach
   )
     ? selectedDependencyMetricsApproach
-    : (dependencyMetricsApproachOptions[0]?.value || 'explicit_dependencies');
+    : (dependencyMetricsApproachOptions[0]?.value || DEFAULT_DEPENDENCY_APPROACH);
   const activeDependencyMetrics = dependencyMetrics?.by_approach?.[activeDependencyMetricsApproach] || {
     summary: {},
     per_bip: [],
@@ -157,7 +158,7 @@ export function EcosystemDashboard() {
 
   useEffect(() => {
     if (!dependencyMetricsApproachOptions.some((option) => option.value === selectedDependencyMetricsApproach)) {
-      setSelectedDependencyMetricsApproach(dependencyMetricsApproachOptions[0]?.value || 'explicit_dependencies');
+      setSelectedDependencyMetricsApproach(dependencyMetricsApproachOptions[0]?.value || DEFAULT_DEPENDENCY_APPROACH);
     }
   }, [dependencyMetricsApproachOptions, selectedDependencyMetricsApproach]);
 

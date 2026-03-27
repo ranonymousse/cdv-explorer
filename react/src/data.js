@@ -1,3 +1,10 @@
+import {
+  BODY_EXTRACTED_LLM,
+  BODY_EXTRACTED_REGEX,
+  PREAMBLE_EXTRACTED,
+  normalizeDependencyLinks,
+} from './dependencyApproaches';
+
 const analysisContext = require.context('../../ip_data/bitcoin/03_analysis', true, /\.json$/);
 const analysisFiles = analysisContext.keys();
 
@@ -5,8 +12,8 @@ const EMPTY_DATASET = {
   snapshot: null,
   nodes: [],
   links: {
-    explicit_references: [],
-    explicit_dependencies: {
+    [BODY_EXTRACTED_REGEX]: [],
+    [PREAMBLE_EXTRACTED]: {
       requires: [],
       replaces: [],
       superseded_by: [],
@@ -14,17 +21,17 @@ const EMPTY_DATASET = {
     requires: [],
     replaces: [],
     superseded_by: [],
-    implicit_dependencies: []
+    [BODY_EXTRACTED_LLM]: []
   },
   network: {
     nodes: [],
     links: {
-      explicit_references: [],
-      explicit_dependencies: [],
+      [BODY_EXTRACTED_REGEX]: [],
+      [PREAMBLE_EXTRACTED]: [],
       requires: [],
       replaces: [],
       superseded_by: [],
-      implicit_dependencies: [],
+      [BODY_EXTRACTED_LLM]: [],
     },
   },
   dependencyMetrics: { by_approach: {}, pairwise_comparisons: {} },
@@ -42,40 +49,19 @@ function extractSnapshotLabel(filename) {
 
 function countAllLinks(linksByType) {
   const links = linksByType || {};
-  const explicit = links.explicit_dependencies || {};
+  const explicit = links[PREAMBLE_EXTRACTED] || {};
   return (
-    (links.explicit_references?.length || 0)
-    + (links.implicit_dependencies?.length || 0)
+    (links[BODY_EXTRACTED_REGEX]?.length || 0)
+    + (links[BODY_EXTRACTED_LLM]?.length || 0)
     + (explicit.requires?.length || links.requires?.length || 0)
     + (explicit.replaces?.length || links.replaces?.length || 0)
     + (explicit.superseded_by?.length || links.superseded_by?.length || 0)
   );
 }
 
-function normalizeLinks(rawLinks) {
-  const links = rawLinks || {};
-  const explicitDependencies = links.explicit_dependencies || {};
-  const requires = explicitDependencies.requires || links.requires || [];
-  const replaces = explicitDependencies.replaces || links.replaces || [];
-  const supersededBy = explicitDependencies.superseded_by || links.superseded_by || [];
-
-  return {
-    explicit_references: links.explicit_references || [],
-    explicit_dependencies: {
-      requires,
-      replaces,
-      superseded_by: supersededBy,
-    },
-    requires,
-    replaces,
-    superseded_by: supersededBy,
-    implicit_dependencies: links.implicit_dependencies || [],
-  };
-}
-
 function ensureSnapshotShape(snapshotLabel, snapshotData) {
   const network = snapshotData.network || EMPTY_DATASET.network;
-  const links = normalizeLinks(network.links || EMPTY_DATASET.links);
+  const links = normalizeDependencyLinks(network.links || EMPTY_DATASET.links);
 
   return {
     snapshot: snapshotLabel,

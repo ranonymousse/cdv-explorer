@@ -13,6 +13,7 @@ from analysis.conformity.compliance import (
     check_required_fields as conformity_check_required_fields,
 )
 from analysis.classification.preprocess import normalize_classification_fields
+from analysis.proposal_schema import normalize_proposal_document
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 
@@ -188,7 +189,7 @@ def save_preamble_to_json(
             with open(output_path, 'r', encoding='utf-8') as json_file:
                 loaded_json = json.load(json_file)
             if isinstance(loaded_json, dict):
-                existing_json = loaded_json
+                existing_json = normalize_proposal_document(loaded_json)
         except (json.JSONDecodeError, OSError):
             existing_json = {}
 
@@ -197,29 +198,9 @@ def save_preamble_to_json(
     for field in REQUIRED_FIELDS + OPTIONAL_FIELDS:
         ordered_preamble[field] = preamble.get(field, None)
 
-    # Structure the JSON data with stable top-level key order.
-    json_data = {
-        "raw": {
-            "preamble": ordered_preamble,
-            # Add other sections to "raw" here in the future
-        },
-        "metadata": {
-            "last_commit": None,
-            "total_commits": None,
-            "git_history": [],
-            "contributors": None,
-        },
-        "compliance": compliance_payload or {},
-    }
-
-    existing_metadata = existing_json.get("metadata")
-    if isinstance(existing_metadata, dict):
-        json_data["metadata"].update(existing_metadata)
-        json_data["metadata"].pop("metadata_last_updated", None)
-
-    existing_insights = existing_json.get("insights")
-    if isinstance(existing_insights, dict):
-        json_data["insights"] = existing_insights
+    json_data = normalize_proposal_document(existing_json)
+    json_data["raw"]["preamble"] = ordered_preamble
+    json_data["insights"]["formal_compliance"] = compliance_payload or {}
 
     for key, value in existing_json.items():
         if key not in json_data:

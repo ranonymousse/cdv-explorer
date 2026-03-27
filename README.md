@@ -19,8 +19,8 @@ The project produces:
 
 - `main.py`: runs the full pipeline for a selected snapshot
 - `download.py`: clones or updates the source repository and checks out a snapshot
-- `preamble_extraction.py`: extracts proposal preambles into JSON
-- `ip_processing.py`: enriches JSON with metadata and insights
+- `preamble_extraction.py`: extracts proposal preambles into canonical preprocess JSON
+- `ip_processing.py`: enriches preprocess JSON with `meta` and `insights`
 - `ecosystem_config.py`: active ecosystem configuration
 
 ### Analysis module
@@ -67,10 +67,39 @@ What this does:
 
 1. prepares Python dependencies
 2. fetches the source proposal repository at the snapshot date
-3. extracts preamble data to preprocess JSON
-4. enriches metadata and insights
+3. extracts preamble data to preprocess JSON with top-level `raw`, `meta`, and `insights`
+4. enriches `meta` and `insights`
 5. builds analysis artifacts in `03_analysis`
 6. builds React-ready exports in `04_postprocess`
+
+## Preprocess Schema
+
+Preprocessed proposal JSONs now use the canonical structure:
+
+```json
+{
+  "raw": {
+    "preamble": {}
+  },
+  "meta": {
+    "last_commit": null,
+    "total_commits": null,
+    "git_history": []
+  },
+  "insights": {
+    "formal_compliance": {},
+    "word_list": {},
+    "changes_in_status": [],
+    "interrelations": {
+      "preamble_extracted": [],
+      "body_extracted_regex": [],
+      "body_extracted_llm": []
+    }
+  }
+}
+```
+
+Readers temporarily accept both the old and new preprocess shapes so existing snapshots do not break during the transition.
 
 ## Analysis Submodule Commands
 
@@ -154,4 +183,3 @@ To enable Pages:
 1. open repository settings
 2. go to `Settings > Pages`
 3. set source to `GitHub Actions`
-

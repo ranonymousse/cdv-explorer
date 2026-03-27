@@ -7,6 +7,7 @@ from analysis.authorship import extract_authorship_metrics
 from analysis.authorship import prepare_authorship_payload
 from analysis.classification import prepare_classification_payload
 from analysis.conformity import extract_conformity_metrics
+from analysis.dependencies.constants import PREAMBLE_EXTRACTED
 from analysis.dependencies import (
     build_network_data,
     extract_dependency_metrics,
@@ -95,7 +96,7 @@ def _save_react_ready_exports(
 
     flat_edges: List[Dict[str, Any]] = []
     for link_type, links in network_data.get("links", {}).items():
-        if link_type == "explicit_dependencies" and isinstance(links, dict):
+        if link_type == PREAMBLE_EXTRACTED and isinstance(links, dict):
             for subtype, subtype_links in links.items():
                 for link in subtype_links:
                     flat_edges.append(

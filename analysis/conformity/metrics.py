@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import Any, Dict, List
 
+from analysis.proposal_schema import get_formal_compliance
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 
@@ -21,17 +22,17 @@ def extract_conformity_metrics(proposal_data: List[Dict[str, Any]], id_field: st
 
     for proposal in proposal_data:
         preamble = proposal.get("raw", {}).get("preamble", {})
-        compliance = proposal.get("compliance", {}) or proposal.get("raw", {}).get("compliance", {})
+        formal_compliance = get_formal_compliance(proposal)
         proposal_id = preamble.get(id_field)
         if proposal_id is None:
             continue
 
-        score = compliance.get("score")
+        score = formal_compliance.get("score")
         if score is None:
             score = preamble.get("compliance_score")
         status = _apply_status_alias(preamble.get("status"))
-        bip2_score = (compliance.get("bip2") or {}).get("score")
-        bip3_score = (compliance.get("bip3") or {}).get("score")
+        bip2_score = (formal_compliance.get("bip2") or {}).get("score")
+        bip3_score = (formal_compliance.get("bip3") or {}).get("score")
 
         entry = {
             "id": str(proposal_id),
@@ -39,7 +40,7 @@ def extract_conformity_metrics(proposal_data: List[Dict[str, Any]], id_field: st
             "compliance_score": score,
             "bip2_score": bip2_score,
             "bip3_score": bip3_score,
-            "compliance": compliance,
+            "formal_compliance": formal_compliance,
         }
         per_proposal.append(entry)
 
@@ -51,7 +52,7 @@ def extract_conformity_metrics(proposal_data: List[Dict[str, Any]], id_field: st
                 by_standard[standard_key].append(float(standard_score))
 
         for standard_key in ("bip2", "bip3"):
-            assessment = compliance.get(standard_key) or {}
+            assessment = formal_compliance.get(standard_key) or {}
             for check in assessment.get("checks", []):
                 check_id = check.get("id")
                 if not check_id:

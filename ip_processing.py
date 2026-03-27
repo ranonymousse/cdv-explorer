@@ -4,10 +4,15 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from collections import Counter
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Tuple
 from tqdm import tqdm
 
 from analysis.authorship.mining import update_metadata_from_git
+from analysis.dependencies.constants import (
+    BODY_EXTRACTED_LLM,
+    BODY_EXTRACTED_REGEX,
+    PREAMBLE_EXTRACTED,
+)
 from analysis.dependencies.mining import (
     create_explicit_dependency_list,
     create_reference_list,
@@ -16,6 +21,7 @@ from analysis.dependencies.mining import (
     prepare_llm_dependency_text,
 )
 from analysis.evolution import extract_status_timeline
+from analysis.proposal_schema import normalize_proposal_document
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 PROPOSAL_LABEL = ACTIVE_ECOSYSTEM["proposal_acronym"]
@@ -81,11 +87,11 @@ def build_word_list(raw_content: str) -> Dict[str, int]:
 
 
 def build_base_insights(
-    json_data: Dict[str, any],
+    json_data: Dict[str, Any],
     bip_file_path: Path,
     proposal_label: str = PROPOSAL_LABEL,
     id_field: str = PRIMARY_ID_FIELD,
-) -> Tuple[Dict[str, any], str, str]:
+) -> Tuple[Dict[str, Any], str, str]:
     raw_content = load_bip_content(bip_file_path)
     body_content = prepare_llm_dependency_text(raw_content)
     preamble = json_data.get("raw", {}).get("preamble", {})
@@ -103,8 +109,10 @@ def build_base_insights(
     return (
         {
             "word_list": build_word_list(raw_content),
-            "explicit_references": filtered_references,
-            "explicit_dependencies": filtered_explicit_dependencies,
+            "interrelations": {
+                PREAMBLE_EXTRACTED: filtered_explicit_dependencies,
+                BODY_EXTRACTED_REGEX: filtered_references,
+            },
         },
         body_content,
         proposal_number,
@@ -138,7 +146,7 @@ def process_ip_files(
     api_key = None if skip_llm else load_api_key()
     max_workers = max(1, LLM_MAX_CONCURRENCY)
     llm_enabled = bool(api_key) and not skip_llm
-    pending_futures: Dict[object, Dict[str, any]] = {}
+    pending_futures: Dict[object, Dict[str, Any]] = {}
     submitted_llm_jobs = 0
     completed_llm_jobs = 0
 
@@ -150,7 +158,7 @@ def process_ip_files(
 
     executor = ThreadPoolExecutor(max_workers=max_workers) if llm_enabled else None
 
-    def write_record(output_path: Path, json_data: Dict[str, any], status_message: str) -> None:
+    def write_record(output_path: Path, json_data: Dict[str, Any], status_message: str) -> None:
         with output_path.open('w', encoding='utf-8') as f:
             json.dump(json_data, f, ensure_ascii=False, indent=2)
 
@@ -170,8 +178,7 @@ def process_ip_files(
 
         implicit_dependencies = result if isinstance(result, list) else []
         json_data = record["json_data"]
-        json_data.setdefault("insights", {})
-        json_data["insights"]["implicit_dependencies"] = implicit_dependencies
+        json_data["insights"]["interrelations"][BODY_EXTRACTED_LLM] = implicit_dependencies
 
         completed_llm_jobs += 1
         status_message = (
@@ -187,7 +194,7 @@ def process_ip_files(
                 progress_callback(json_file.name, 0)
 
             with json_file.open('r', encoding='utf-8') as f:
-                json_data = json.load(f)
+                json_data = normalize_proposal_document(json.load(f))
 
             preamble = json_data.get("raw", {}).get("preamble", {})
             bip_number = str(preamble.get(id_field, "")).zfill(4)
@@ -201,24 +208,23 @@ def process_ip_files(
                 continue
 
             json_data = update_metadata_from_git(json_data, bip_file_path, repo_dir)
-            json_data.setdefault("history", {})
-            json_data["history"]["status_timeline"] = extract_status_timeline(repo_dir, bip_file_path)
+            json_data["insights"]["changes_in_status"] = extract_status_timeline(repo_dir, bip_file_path)
             base_insights, llm_content, proposal_number = build_base_insights(
                 json_data,
                 bip_file_path,
                 proposal_label=proposal_label,
                 id_field=id_field,
             )
-            json_data.setdefault("insights", {})
-            json_data["insights"].update(base_insights)
+            json_data["insights"]["word_list"] = base_insights["word_list"]
+            json_data["insights"]["interrelations"].update(base_insights["interrelations"])
 
             output_path = output_dir / json_file.name
 
             if not llm_enabled or executor is None:
-                existing_implicit_dependencies = json_data["insights"].get("implicit_dependencies")
+                existing_implicit_dependencies = json_data["insights"]["interrelations"].get(BODY_EXTRACTED_LLM)
                 if not isinstance(existing_implicit_dependencies, list):
                     existing_implicit_dependencies = []
-                json_data["insights"]["implicit_dependencies"] = existing_implicit_dependencies
+                json_data["insights"]["interrelations"][BODY_EXTRACTED_LLM] = existing_implicit_dependencies
                 write_record(output_path, json_data, output_path.name)
                 continue
 

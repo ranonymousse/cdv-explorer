@@ -2,6 +2,8 @@ import subprocess
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+from analysis.proposal_schema import normalize_proposal_document
+
 
 def get_git_history(repo_dir: Path, file_path: Path) -> List[Tuple[str, str, str]]:
     """Retrieve commit history for a file using local Git."""
@@ -19,39 +21,25 @@ def get_git_history(repo_dir: Path, file_path: Path) -> List[Tuple[str, str, str
         return []
 
 
-def get_unique_authors(history: List[Tuple[str, str, str]]) -> int:
-    return len(set(commit[2] for commit in history))
-
-
 def update_metadata_from_git(
     json_data: Dict[str, Any],
     proposal_file_path: Path,
     repo_dir: Path,
 ) -> Dict[str, Any]:
     """Populate metadata from Git history in-place and return payload."""
-    if "metadata" not in json_data:
-        json_data["metadata"] = {
-            "last_commit": None,
-            "total_commits": None,
-            "git_history": [],
-            "contributors": None,
-        }
+    json_data = normalize_proposal_document(json_data)
 
     commit_info = get_git_history(repo_dir, proposal_file_path)
     if commit_info:
         last_commit_date = commit_info[0][1]
-        contributors = get_unique_authors(commit_info)
     else:
         last_commit_date = None
-        contributors = 0
 
-    json_data["metadata"].update(
+    json_data["meta"].update(
         {
             "last_commit": last_commit_date,
             "total_commits": len(commit_info),
             "git_history": commit_info,
-            "contributors": contributors,
         }
     )
-    json_data["metadata"].pop("metadata_last_updated", None)
     return json_data

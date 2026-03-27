@@ -3,6 +3,7 @@ from datetime import date
 from typing import Any, Dict, List
 
 from analysis.classification.preprocess import normalize_classification_fields
+from analysis.proposal_schema import get_changes_in_status
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 
@@ -220,7 +221,7 @@ def prepare_evolution_payload(
     for proposal in proposal_data:
         preamble = proposal.get("raw", {}).get("preamble", {})
         proposal_id = _normalize_proposal_id(preamble.get(id_field))
-        raw_timeline = proposal.get("history", {}).get("status_timeline", [])
+        raw_timeline = get_changes_in_status(proposal)
 
         timeline = []
         for event in raw_timeline if isinstance(raw_timeline, list) else []:

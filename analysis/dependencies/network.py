@@ -4,6 +4,16 @@ import re
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
+from analysis.dependencies.constants import (
+    BODY_EXTRACTED_LLM,
+    BODY_EXTRACTED_REGEX,
+    PREAMBLE_EXTRACTED,
+)
+from analysis.proposal_schema import (
+    get_formal_compliance,
+    get_interrelations,
+    normalize_proposal_document,
+)
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 
@@ -64,7 +74,7 @@ def load_proposal_json_documents(source_dir: Path) -> List[Dict[str, Any]]:
     for file_path in sorted(source_dir.glob("*.json")):
         try:
             with file_path.open("r", encoding="utf-8") as handle:
-                documents.append(json.load(handle))
+                documents.append(normalize_proposal_document(json.load(handle)))
         except json.JSONDecodeError:
             continue
     return documents
@@ -88,7 +98,7 @@ def build_network_data(
             continue
 
         preamble = proposal.get("raw", {}).get("preamble", {})
-        compliance = proposal.get("compliance", {}) or proposal.get("raw", {}).get("compliance", {})
+        formal_compliance = get_formal_compliance(proposal)
         insights = proposal.get("insights", {})
         proposal_id = preamble.get(id_field)
 
@@ -102,7 +112,7 @@ def build_network_data(
                     "id": proposal_id,
                     "title": preamble.get("title"),
                     "layer": _apply_alias(preamble.get("layer"), LAYER_ALIASES),
-                    "compliance_score": compliance.get("score", preamble.get("compliance_score")),
+                    "compliance_score": formal_compliance.get("score", preamble.get("compliance_score")),
                     "created": preamble.get("created"),
                     "author": preamble.get("author"),
                     "word_list": insights.get("word_list"),
@@ -117,7 +127,7 @@ def build_network_data(
             continue
 
         preamble = proposal.get("raw", {}).get("preamble", {})
-        insights = proposal.get("insights", {})
+        interrelations = get_interrelations(proposal)
         proposal_id = preamble.get(id_field)
 
         if not proposal_id:
@@ -127,13 +137,13 @@ def build_network_data(
         if proposal_id not in node_ids:
             continue
 
-        references_field = insights.get("explicit_references")
+        references_field = interrelations.get(BODY_EXTRACTED_REGEX)
 
         for ref_id in normalize_proposal_ids(references_field, proposal_label=proposal_label):
             if ref_id in node_ids:
                 explicit_reference_links.append({"source": proposal_id, "target": ref_id, "value": 1})
 
-        for dep_id in normalize_proposal_ids(insights.get("implicit_dependencies"), proposal_label=proposal_label):
+        for dep_id in normalize_proposal_ids(interrelations.get(BODY_EXTRACTED_LLM), proposal_label=proposal_label):
             if dep_id in node_ids:
                 implicit_dependency_links.append({"source": proposal_id, "target": dep_id, "value": 1})
 
@@ -158,9 +168,9 @@ def build_network_data(
     return {
         "nodes": nodes,
         "links": {
-            "explicit_references": explicit_reference_links,
-            "explicit_dependencies": explicit_dependency_links,
-            "implicit_dependencies": implicit_dependency_links,
+            BODY_EXTRACTED_REGEX: explicit_reference_links,
+            PREAMBLE_EXTRACTED: explicit_dependency_links,
+            BODY_EXTRACTED_LLM: implicit_dependency_links,
         },
     }
 
@@ -186,7 +196,7 @@ def save_network_data_artifacts(network_data: Dict[str, Any], output_stem: Path)
 
     links_by_type = network_data.get("links", {})
     for link_type, links in links_by_type.items():
-        if link_type == "explicit_dependencies" and isinstance(links, dict):
+        if link_type == PREAMBLE_EXTRACTED and isinstance(links, dict):
             aggregate_links = _aggregate_explicit_dependencies(links)
             aggregate_path = output_stem.parent / f"{output_stem.name}_{link_type}_edges.csv"
             with aggregate_path.open("w", encoding="utf-8", newline="") as handle:

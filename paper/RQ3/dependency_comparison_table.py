@@ -1,20 +1,22 @@
 from pathlib import Path
 from typing import Any, Dict
 
+from analysis.dependencies.constants import (
+    BODY_EXTRACTED_LLM,
+    BODY_EXTRACTED_REGEX,
+    DEPENDENCY_APPROACH_SHORT_LABELS,
+    PREAMBLE_EXTRACTED,
+)
 from analysis.dependencies.metrics import _build_pairwise_comparisons
 
 
 LATEX_TABCOLSEP_PT = 4
 APPROACH_ORDER = [
-    "explicit_dependencies",
-    "explicit_references",
-    "implicit_dependencies",
+    PREAMBLE_EXTRACTED,
+    BODY_EXTRACTED_REGEX,
+    BODY_EXTRACTED_LLM,
 ]
-SHORT_LABELS = {
-    "explicit_dependencies": "Preamble",
-    "explicit_references": "Regex",
-    "implicit_dependencies": "LLM",
-}
+SHORT_LABELS = DEPENDENCY_APPROACH_SHORT_LABELS
 
 
 def _latex_escape(value: str) -> str:

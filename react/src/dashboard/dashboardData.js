@@ -632,8 +632,9 @@ export function buildDashboardData(dataset) {
     const failuresByCheck = new Map();
 
     conformityRows.forEach((entry) => {
-      const checks = Array.isArray(entry?.compliance?.[standardKey]?.checks)
-        ? entry.compliance[standardKey].checks
+      const complianceDetails = entry?.formal_compliance || entry?.compliance || {};
+      const checks = Array.isArray(complianceDetails?.[standardKey]?.checks)
+        ? complianceDetails[standardKey].checks
         : [];
 
       checks
