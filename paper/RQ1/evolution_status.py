@@ -7,10 +7,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator, MultipleLocator
+from matplotlib.transforms import ScaledTranslation
 
 from paper.RQ3._plotting import (
     BAR_EDGE_COLOR,
-    BAR_EDGE_WIDTH,
     bar_style,
     despine,
     match_axis_label_fontsize,
@@ -52,14 +52,44 @@ REACT_CLASSIFICATION_PALETTE = [
 
 HATCH_BIP3 = "////"
 BIP3_ALLOWED_STATUSES = {"Draft", "Complete", "Deployed", "Closed"}
-BIP3_DRAFT_START_PERIOD = "2025-Q2"
+BIP3_DRAFT_START_PERIOD = "2026-Q1"
+ACTIVATION_GAP = 0.45
+ACTIVATION_YEAR_LABEL_NUDGE_POINTS = 6
+BAR_WIDTH = 0.82
+EVOLUTION_BAR_EDGE_WIDTH = 0.5
+FIXED_STATUS_COLORS = {
+    "Closed": "#868e96",
+}
+
+
+def _evolution_bar_style(color: str) -> dict[str, object]:
+    style = bar_style(color)
+    style["linewidth"] = EVOLUTION_BAR_EDGE_WIDTH
+    return style
 
 
 def _react_color_map(categories: list[str]) -> dict[str, str]:
     return {
-        category: REACT_CLASSIFICATION_PALETTE[index % len(REACT_CLASSIFICATION_PALETTE)]
+        category: FIXED_STATUS_COLORS.get(
+            category,
+            REACT_CLASSIFICATION_PALETTE[index % len(REACT_CLASSIFICATION_PALETTE)],
+        )
         for index, category in enumerate(categories)
     }
+
+
+def _format_period_display_label(period_key: str, period_label: str) -> str:
+    if period_key.endswith("-pre-bip3"):
+        return f"{period_label}a"
+    if period_key.endswith("-post-bip3"):
+        return f"{period_label}b"
+    return period_label
+
+
+def _format_milestone_label(label: str) -> str:
+    if label.strip() == "BIP3 Activation":
+        return "BIP-3 activation"
+    return label
 
 
 def _normalize_evolution_series(
@@ -134,6 +164,81 @@ def _normalize_standard_rows(
     return normalized
 
 
+def _normalize_segmented_rows(
+    status_evolution_segmented: dict[str, Any] | None,
+) -> tuple[list[dict[str, Any]], list[dict[str, str]], list[str], dict[str, list[int]], dict[str, list[str]]]:
+    segmented = status_evolution_segmented or {}
+    raw_segment_definitions = segmented.get("segmentDefinitions") or []
+    raw_rows = segmented.get("rows") or []
+    if not raw_segment_definitions or not raw_rows:
+        raise ValueError("Segmented evolution data is unavailable.")
+
+    rows = [
+        {
+            "period_key": str(row.get("period_key") or row.get("period") or row.get("year") or "").strip(),
+            "period": str(row.get("period") or row.get("year") or "").strip(),
+            "period_end": str(row.get("period_end") or "").strip(),
+            "period_kind": str(row.get("period_kind") or "quarter").strip(),
+            "milestone_label": str(row.get("milestone_label") or "").strip(),
+            "values": {
+                str(key).strip(): int(value)
+                for key, value in (row.get("values") or {}).items()
+                if str(key).strip()
+            },
+            "index": index,
+        }
+        for index, row in enumerate(raw_rows)
+        if str(row.get("period_key") or row.get("period") or row.get("year") or "").strip()
+    ]
+    if not rows:
+        raise ValueError("Segmented evolution data is missing rows.")
+
+    rows.sort(key=lambda row: (row["period_end"], row["index"]))
+
+    segment_definitions = [
+        {
+            "key": str(segment.get("key") or "").strip(),
+            "status": str(segment.get("status") or "").strip(),
+            "standard": str(segment.get("standard") or "").strip(),
+        }
+        for segment in raw_segment_definitions
+        if str(segment.get("key") or "").strip()
+    ]
+    if not segment_definitions:
+        raise ValueError("Segmented evolution data is missing segment definitions.")
+
+    totals_by_segment = {
+        segment["key"]: sum(int(row["values"].get(segment["key"], 0)) for row in rows)
+        for segment in segment_definitions
+    }
+    visible_segment_definitions = [
+        segment
+        for segment in segment_definitions
+        if totals_by_segment.get(segment["key"], 0) > 0
+    ]
+    if not visible_segment_definitions:
+        raise ValueError("Segmented evolution plot requires at least one positive segment.")
+
+    ordered_statuses = list(dict.fromkeys(segment["status"] for segment in visible_segment_definitions))
+    segment_series = {
+        segment["key"]: [int(row["values"].get(segment["key"], 0)) for row in rows]
+        for segment in visible_segment_definitions
+    }
+    legend_statuses = {
+        "bip2": list(dict.fromkeys(
+            segment["status"] for segment in visible_segment_definitions if segment["standard"] == "bip2"
+        )),
+        "bip3": list(dict.fromkeys(
+            segment["status"] for segment in visible_segment_definitions if segment["standard"] == "bip3"
+        )),
+    }
+
+    for row in rows:
+        row["display_label"] = _format_period_display_label(row["period_key"], row["period"])
+
+    return rows, visible_segment_definitions, ordered_statuses, segment_series, legend_statuses
+
+
 def _can_render_as_bip3(status: str, period: str) -> bool:
     if status not in BIP3_ALLOWED_STATUSES:
         return False
@@ -180,13 +285,55 @@ def _build_segment_definitions(
     return segment_order, segment_series, legend_statuses
 
 
-def _select_year_tick_indices(periods: list[str]) -> list[int]:
-    indices_by_year: dict[str, int] = {}
-    for index, period in enumerate(periods):
-        year = period.split("-", 1)[0]
-        if period.endswith("Q1"):
-            indices_by_year[year] = index
-    return [indices_by_year[year] for year in sorted(indices_by_year)]
+def _build_period_positions(rows: list[dict[str, Any]]) -> np.ndarray:
+    positions: list[float] = []
+    current_position = 0.0
+    for index, row in enumerate(rows):
+        positions.append(current_position)
+        current_position += 1.0
+        if row.get("period_kind") == "milestone" and index < len(rows) - 1:
+            current_position += ACTIVATION_GAP
+    return np.array(positions, dtype=float)
+
+
+def _select_tick_positions(rows: list[dict[str, Any]], x_positions: np.ndarray) -> tuple[np.ndarray, list[str]]:
+    positions_by_label: dict[str, list[float]] = {}
+    label_order: list[str] = []
+    activation_years = {
+        str(row.get("period") or "").strip().split("-", 1)[0]
+        for row in rows
+        if str(row.get("period_key") or "").strip().endswith("-post-bip3")
+        and str(row.get("period") or "").strip()
+        and "-" in str(row.get("period") or "").strip()
+    }
+
+    for index, row in enumerate(rows):
+        period_label = str(row.get("period") or "").strip()
+        if not period_label or "-" not in period_label:
+            continue
+        year = period_label.split("-", 1)[0]
+        period_key = str(row.get("period_key") or "").strip()
+
+        if year in activation_years:
+            tick_label = year[-2:] if period_key.endswith("-pre-bip3") else f"{year[-2:]}'"
+        else:
+            tick_label = year
+
+        if tick_label not in positions_by_label:
+            label_order.append(tick_label)
+        positions_by_label.setdefault(tick_label, []).append(float(x_positions[index]))
+
+    if positions_by_label:
+        tick_labels = label_order
+        tick_positions = [
+            sum(positions_by_label[label]) / len(positions_by_label[label])
+            for label in tick_labels
+        ]
+        return np.array(tick_positions, dtype=float), tick_labels
+
+    fallback_positions = [float(value) for value in x_positions]
+    fallback_labels = [str(row.get("period") or "") for row in rows]
+    return np.array(fallback_positions, dtype=float), fallback_labels
 
 
 def plot_evolution_status(
@@ -195,72 +342,131 @@ def plot_evolution_status(
     snapshot_label: str,
     *,
     status_evolution_by_standard: dict[str, Any] | None = None,
+    status_evolution_segmented: dict[str, Any] | None = None,
+    meta: dict[str, Any] | None = None,
     category_title: str = "Status Evolution",
     y_axis_title: str = "Number of BIPs",
 ) -> None:
-    periods, ordered_statuses, series = _normalize_evolution_series(status_evolution)
+    del meta
+
+    try:
+        rows, visible_segment_definitions, ordered_statuses, segment_series, legend_statuses = _normalize_segmented_rows(
+            status_evolution_segmented,
+        )
+        plot_segments = [
+            {
+                "key": segment["key"],
+                "status": segment["status"],
+                "standard": segment["standard"] or "bip2",
+            }
+            for segment in visible_segment_definitions
+        ]
+    except ValueError:
+        periods, ordered_statuses, series = _normalize_evolution_series(status_evolution)
+        segment_order, segment_series, legend_statuses = _build_segment_definitions(
+            periods,
+            ordered_statuses,
+            series,
+            status_evolution_by_standard,
+        )
+        if not segment_order:
+            segment_order = [(status, "bip2") for status in ordered_statuses]
+            segment_series = {
+                f"{status}|||bip2": counts
+                for status, counts in series.items()
+            }
+            legend_statuses = {
+                "bip2": list(ordered_statuses),
+                "bip3": [],
+            }
+
+        rows = [
+            {
+                "period_key": period,
+                "period": period,
+                "display_label": period,
+                "period_kind": "quarter",
+                "milestone_label": "",
+            }
+            for period in periods
+        ]
+        plot_segments = [
+            {
+                "key": f"{status}|||{standard}",
+                "status": status,
+                "standard": standard,
+            }
+            for status, standard in segment_order
+        ]
+
+    x_positions = _build_period_positions(rows)
     color_map = _react_color_map(ordered_statuses)
-    segment_order, segment_series, legend_statuses = _build_segment_definitions(
-        periods,
-        ordered_statuses,
-        series,
-        status_evolution_by_standard,
-    )
-    if not segment_order:
-        segment_order = [(status, "bip2") for status in ordered_statuses]
-        segment_series = {
-            f"{status}|||bip2": counts
-            for status, counts in series.items()
-        }
-        legend_statuses = {
-            "bip2": list(ordered_statuses),
-            "bip3": [],
-        }
 
     bip2_handles = [
         Patch(
-            facecolor=bar_style(color_map[status])["color"],
+            facecolor=_evolution_bar_style(color_map[status])["color"],
             edgecolor=BAR_EDGE_COLOR,
-            linewidth=BAR_EDGE_WIDTH,
+            linewidth=EVOLUTION_BAR_EDGE_WIDTH,
             label=status,
         )
-        for status in legend_statuses["bip2"]
+        for status in reversed(legend_statuses["bip2"])
     ]
     bip3_handles = [
         Patch(
-            facecolor=bar_style(color_map[status])["color"],
+            facecolor=_evolution_bar_style(color_map[status])["color"],
             edgecolor=BAR_EDGE_COLOR,
-            linewidth=BAR_EDGE_WIDTH,
+            linewidth=EVOLUTION_BAR_EDGE_WIDTH,
             hatch=HATCH_BIP3,
             label=status,
         )
-        for status in legend_statuses["bip3"]
+        for status in reversed(legend_statuses["bip3"])
     ]
-    x_positions = np.arange(len(periods))
-    bar_bottom = np.zeros(len(periods), dtype=int)
+    bar_bottom = np.zeros(len(rows), dtype=int)
 
-    figure, axis = plt.subplots(figsize=(10.5, 4.5))
+    figure, axis = plt.subplots(figsize=(10.5, 5))
 
-    for status, standard in segment_order:
-        counts = np.array(segment_series[f"{status}|||{standard}"], dtype=int)
-        axis.bar(
-            x_positions,
-            counts,
-            bottom=bar_bottom,
-            width=0.82,
-            zorder=3,
-            hatch=HATCH_BIP3 if standard == "bip3" else None,
-            **bar_style(color_map[status]),
-        )
+    for segment in plot_segments:
+        counts = np.array(segment_series[segment["key"]], dtype=int)
+        positive_mask = counts > 0
+        if np.any(positive_mask):
+            axis.bar(
+                x_positions[positive_mask],
+                counts[positive_mask],
+                bottom=bar_bottom[positive_mask],
+                width=BAR_WIDTH,
+                zorder=3,
+                hatch=HATCH_BIP3 if segment["standard"] == "bip3" else None,
+                **_evolution_bar_style(color_map[segment["status"]]),
+            )
         bar_bottom = bar_bottom + counts
 
-    major_tick_indices = _select_year_tick_indices(periods)
-    axis.set_xticks(x_positions[major_tick_indices])
-    axis.set_xticklabels([periods[index].split("-", 1)[0] for index in major_tick_indices])
+    major_tick_positions, major_tick_labels = _select_tick_positions(rows, x_positions)
+    axis.set_xticks(major_tick_positions)
+    axis.set_xticklabels(major_tick_labels, rotation=0, ha="center")
+    for tick_label in axis.get_xticklabels():
+        text = tick_label.get_text().strip()
+        if text == "26 ":
+            tick_label.set_transform(
+                tick_label.get_transform()
+                + ScaledTranslation(
+                    -ACTIVATION_YEAR_LABEL_NUDGE_POINTS / 72,
+                    0,
+                    figure.dpi_scale_trans,
+                )
+            )
+        elif text == " 26'":
+            tick_label.set_transform(
+                tick_label.get_transform()
+                + ScaledTranslation(
+                    ACTIVATION_YEAR_LABEL_NUDGE_POINTS / 72,
+                    0,
+                    figure.dpi_scale_trans,
+                )
+            )
     axis.set_xticks(x_positions, minor=True)
     axis.tick_params(axis="x", which="major", length=6)
     axis.tick_params(axis="x", which="minor", length=3, labelbottom=False)
-    axis.set_xlim(-0.6, len(periods) - 0.4)
+    axis.set_xlim(float(x_positions.min()) - 0.6, float(x_positions.max()) + 0.6)
     axis.set_ylabel(y_axis_title)
     axis.set_title(f"{category_title} ({snapshot_label})")
     axis.set_ylim(0, max(200, int(bar_bottom.max())))
@@ -273,30 +479,61 @@ def plot_evolution_status(
     match_axis_label_fontsize(axis)
     despine(axis)
 
+    for index, row in enumerate(rows):
+        if row.get("period_kind") != "milestone" or index >= len(rows) - 1:
+            continue
+
+        boundary_x = (float(x_positions[index]) + float(x_positions[index + 1])) / 2
+        axis.axvline(
+            boundary_x,
+            color="#495057",
+            linestyle=(0, (4, 4)),
+            linewidth=1,
+            alpha=0.9,
+            zorder=4,
+        )
+
+        milestone_label = _format_milestone_label(str(row.get("milestone_label") or "").strip())
+        if milestone_label:
+            axis.text(
+                boundary_x - 0.08,
+                axis.get_ylim()[1] * 0.98,
+                milestone_label,
+                ha="right",
+                va="bottom",
+                fontsize=9,
+                fontstyle="italic",
+                fontweight="normal",
+                color="#495057",
+                zorder=5,
+            )
+
     if bip2_handles:
         bip2_legend = axis.legend(
             handles=bip2_handles,
             loc="upper left",
-            bbox_to_anchor=(1.02, 1.0),
+            bbox_to_anchor=(1.0, 1.0),
             frameon=False,
-            title="BIP2",
+            title="BIP2 Status:",
             borderaxespad=0,
             fontsize=9,
             title_fontsize=9.5,
         )
+        bip2_legend._legend_box.align = "left"
         axis.add_artist(bip2_legend)
 
     if bip3_handles:
-        axis.legend(
+        bip3_legend = axis.legend(
             handles=bip3_handles,
             loc="upper left",
-            bbox_to_anchor=(1.02, 0.30),
+            bbox_to_anchor=(1.0, 0.30),
             frameon=False,
-            title="BIP3",
+            title="BIP3 Status:",
             borderaxespad=0,
             fontsize=9,
             title_fontsize=9.5,
         )
+        bip3_legend._legend_box.align = "left"
 
     figure.tight_layout()
     output_path.parent.mkdir(parents=True, exist_ok=True)

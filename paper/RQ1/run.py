@@ -65,7 +65,9 @@ def main() -> None:
         evolution_payload = load_evolution_payload(snapshot=SNAPSHOT)
         plot_evolution_status(
             status_evolution=evolution_payload.get("status_evolution", {}),
+            status_evolution_segmented=evolution_payload.get("status_evolution_segmented", {}),
             status_evolution_by_standard=evolution_payload.get("status_evolution_by_standard", {}),
+            meta=evolution_payload.get("meta", {}),
             output_path=output_dir / f"{filename_prefix}_evolution_status.pdf",
             snapshot_label=snapshot_label,
         )
