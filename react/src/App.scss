@@ -773,8 +773,13 @@
     opacity 120ms ease;
 }
 
-.proposal-event-history__marker-label span:last-child {
+.proposal-event-history__marker-label span:not(:first-child) {
   color: var(--app-text-muted);
+}
+
+.proposal-event-history__marker-time {
+  font-size: 0.72rem;
+  line-height: 1.1;
 }
 
 .proposal-event-history__marker.is-active .proposal-event-history__marker-label {
@@ -861,11 +866,20 @@
 .proposal-event-history__item-date {
   grid-column: 1;
   grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08rem;
   font-size: 0.98rem;
   font-weight: 600;
   line-height: 1.25;
   color: var(--app-text-muted);
   padding-top: 0.05rem;
+}
+
+.proposal-event-history__item-time {
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.15;
 }
 
 .proposal-event-history__item-body {

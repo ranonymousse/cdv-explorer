@@ -22,6 +22,29 @@ function formatDate(value, options) {
   }).format(parsed);
 }
 
+function parseEventMoment(event) {
+  const timestampText = String(event?.timestamp || '').trim();
+  if (timestampText) {
+    const parsedTimestamp = Date.parse(timestampText);
+    if (!Number.isNaN(parsedTimestamp)) {
+      return parsedTimestamp;
+    }
+  }
+
+  const dateText = String(event?.date || '').trim();
+  if (!dateText) {
+    return Number.NaN;
+  }
+
+  return Date.parse(`${dateText}T00:00:00Z`);
+}
+
+function formatEventTime(timestamp) {
+  const text = String(timestamp || '').trim();
+  const match = text.match(/T(\d{2}:\d{2}(?::\d{2})?)/);
+  return match ? match[1] : '';
+}
+
 function getEventTitle(event) {
   return event.kind === 'creation' ? 'Created' : String(event.label || event.status || 'Status update');
 }
@@ -58,10 +81,21 @@ export function ProposalEventTimeline({
   const linkMode = useDashboardLinkMode();
   const [activeEventKey, setActiveEventKey] = useState('');
 
-  const events = useMemo(() => (Array.isArray(timeline?.events) ? timeline.events : []).map((event, index) => ({
-    ...event,
-    key: `${event.kind || 'event'}-${event.date || 'unknown'}-${event.status || event.label || 'unknown'}-${index}`,
-  })), [timeline]);
+  const events = useMemo(() => {
+    const timelineEvents = Array.isArray(timeline?.events) ? timeline.events : [];
+    return timelineEvents.map((event, index) => {
+      const sameDayNeighbor = timelineEvents[index - 1]?.date === event?.date
+        || timelineEvents[index + 1]?.date === event?.date;
+
+      return {
+        ...event,
+        key: `${event.kind || 'event'}-${event.date || 'unknown'}-${event.status || event.label || 'unknown'}-${index}`,
+        moment: parseEventMoment(event),
+        showTime: sameDayNeighbor,
+        timeLabel: sameDayNeighbor ? formatEventTime(event.timestamp) : '',
+      };
+    });
+  }, [timeline]);
 
   useEffect(() => {
     setActiveEventKey(events[0]?.key || '');
@@ -74,7 +108,7 @@ export function ProposalEventTimeline({
 
   const eventDomain = useMemo(() => {
     const timestamps = events
-      .map((event) => Date.parse(`${event.date}T00:00:00Z`))
+      .map((event) => event.moment)
       .filter((value) => !Number.isNaN(value));
     if (!timestamps.length) {
       return null;
@@ -134,7 +168,7 @@ export function ProposalEventTimeline({
   const proposalHref = getBipUrl(timeline.proposal_id, snapshotLabel, { linkMode });
 
   const getOffsetPercent = (event) => {
-    const timestamp = Date.parse(`${event.date}T00:00:00Z`);
+    const timestamp = event.moment;
     if (!eventDomain || Number.isNaN(timestamp)) {
       return 0;
     }
@@ -195,9 +229,11 @@ export function ProposalEventTimeline({
           ) : null}
           <div className="proposal-event-history__axis-label is-start">
             {formatDate(events[0]?.date, { year: 'numeric', month: 'short', day: 'numeric' })}
+            {events[0]?.timeLabel ? `, ${events[0].timeLabel}` : ''}
           </div>
           <div className="proposal-event-history__axis-label is-end">
             {formatDate(events[events.length - 1]?.date, { year: 'numeric', month: 'short', day: 'numeric' })}
+            {events[events.length - 1]?.timeLabel ? `, ${events[events.length - 1].timeLabel}` : ''}
           </div>
           {events.map((event, index) => {
             const color = event.kind === 'creation'
@@ -221,6 +257,7 @@ export function ProposalEventTimeline({
                 <div className="proposal-event-history__marker-label">
                   <span>{getEventTitle(event)}</span>
                   <span>{formatDate(event.date, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                  {event.timeLabel ? <span className="proposal-event-history__marker-time">{event.timeLabel}</span> : null}
                 </div>
                 {href !== '#' ? (
                   <a
@@ -268,7 +305,8 @@ export function ProposalEventTimeline({
                 onMouseEnter={() => setActiveEventKey(event.key)}
               >
                 <div className="proposal-event-history__item-date">
-                  {formatDate(event.date, { year: 'numeric', month: 'short', day: 'numeric' })}
+                  <span>{formatDate(event.date, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                  {event.timeLabel ? <span className="proposal-event-history__item-time">{event.timeLabel}</span> : null}
                 </div>
                 <div className="proposal-event-history__item-body">
                   <div className="proposal-event-history__item-header">
