@@ -1,5 +1,4 @@
 import { RadioButton } from 'primereact/radiobutton';
-import { Tag } from 'primereact/tag';
 import { useState } from 'react';
 import { EvolutionStatusStackedBarChart } from '../../EvolutionStatusStackedBarChart';
 import { ExportableCard } from '../ExportableCard';
@@ -29,14 +28,7 @@ export function EvolutionSection({
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
-        <h2 className="dashboard-section__title">
-          Evolution
-          <Tag
-            className="dashboard-section__tag"
-            severity="warning"
-            value="Experimental"
-          />
-        </h2>
+        <h2 className="dashboard-section__title">Evolution</h2>
       </div>
       <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Status Evolution`}>
         <h3>{ecosystem.acronym} Status Evolution</h3>

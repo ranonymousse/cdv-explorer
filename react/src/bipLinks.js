@@ -62,6 +62,14 @@ function getSnapshotBipFileName(id, snapshotLabel) {
   return SNAPSHOT_FILES[snapshotLabel]?.[normalizedId] || '';
 }
 
+function buildRepositoryBipUrl(ref, fileName) {
+  if (!BITCOIN_BIPS_REPOSITORY_URL || !ref || !fileName) {
+    return '#';
+  }
+
+  return `${BITCOIN_BIPS_REPOSITORY_URL}/blob/${ref}/${fileName}`;
+}
+
 export function getBipUrl(id, snapshotLabel = null, options = {}) {
   const { linkMode = 'history' } = options;
   const normalizedId = normalizeBipId(id);
@@ -72,23 +80,12 @@ export function getBipUrl(id, snapshotLabel = null, options = {}) {
 
   const snapshotFileName = getSnapshotBipFileName(normalizedId, snapshotLabel);
   if (snapshotLabel) {
-    if (!BITCOIN_BIPS_REPOSITORY_URL || !snapshotFileName) {
-      return '#';
-    }
-
     const commitHash = getSnapshotCommit(snapshotLabel);
-    if (!commitHash) {
-      return '#';
+    if (snapshotFileName && commitHash) {
+      return buildRepositoryBipUrl(commitHash, snapshotFileName);
     }
-
-    return `${BITCOIN_BIPS_REPOSITORY_URL}/blob/${commitHash}/${snapshotFileName}`;
   }
 
   const fileName = getLatestKnownBipFileName(normalizedId);
-  if (!BITCOIN_BIPS_REPOSITORY_URL || !fileName) {
-    return '#';
-  }
-
-  const ref = BITCOIN_BIPS_DEFAULT_BRANCH;
-  return `${BITCOIN_BIPS_REPOSITORY_URL}/blob/${ref}/${fileName}`;
+  return buildRepositoryBipUrl(BITCOIN_BIPS_DEFAULT_BRANCH, fileName);
 }

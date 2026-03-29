@@ -288,6 +288,11 @@ export function EcosystemDashboard() {
         classificationRelationRows={classificationRelationRows}
       />
 
+      <EvolutionSection
+        ecosystem={ecosystem}
+        evolutionPayload={evolutionPayload}
+      />
+
       <DependenciesSection
         ecosystem={ecosystem}
         selectedDataset={selectedDataset}
@@ -309,11 +314,6 @@ export function EcosystemDashboard() {
         setSelectedDependencyMetricsApproach={setSelectedDependencyMetricsApproach}
         activeDependencyMetrics={activeDependencyMetrics}
         dependencyMetrics={dependencyMetrics}
-      />
-
-      <EvolutionSection
-        ecosystem={ecosystem}
-        evolutionPayload={evolutionPayload}
       />
 
       <ConformitySection

@@ -6,6 +6,7 @@ import {
   PREAMBLE_EXTRACTED,
   normalizeDependencyLinks,
 } from './dependencyApproaches';
+import { getBipUrl } from './bipLinks';
 
 test('dependency link options default to the canonical preamble approach', () => {
   expect(DEFAULT_DEPENDENCY_APPROACH).toBe(PREAMBLE_EXTRACTED);
@@ -30,4 +31,16 @@ test('normalizes legacy dependency link keys into canonical keys', () => {
   expect(normalized[BODY_EXTRACTED_REGEX]).toHaveLength(1);
   expect(normalized[PREAMBLE_EXTRACTED].requires).toHaveLength(1);
   expect(normalized[BODY_EXTRACTED_LLM]).toHaveLength(1);
+});
+
+test('uses the snapshot commit for historic BIP links when the file exists in that snapshot', () => {
+  expect(getBipUrl(2, '2026-03-16', { linkMode: 'history' })).toBe(
+    'https://github.com/bitcoin/bips/blob/351ceef2747e46078efaa073246fce54d52e665d/bip-0002.mediawiki'
+  );
+});
+
+test('falls back to the latest repository file when a historic snapshot file lookup misses', () => {
+  expect(getBipUrl(3, '2021-01-01', { linkMode: 'history' })).toBe(
+    'https://github.com/bitcoin/bips/blob/master/bip-0003.md'
+  );
 });
