@@ -242,11 +242,11 @@ def draw_static_network_with_layouts(
             },
             "requires": {"color": "red", "style": "solid", "alpha": 1.0, "label": "requires"},
             "replaces": {"color": "blue", "style": "solid", "alpha": 1.0, "label": "replaces"},
-            "superseded_by": {
+            "proposed_replacement": {
                 "color": "green",
                 "style": "solid",
                 "alpha": 1.0,
-                "label": "superseded by",
+                "label": "proposed-replacement",
             },
         }
 
@@ -465,7 +465,7 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
     plot_specs = [
         {
             "filename_stem": "dependency_body_extracted_regex_focus",
-            "link_type": [BODY_EXTRACTED_REGEX, "requires", "replaces", "superseded_by"],
+            "link_type": [BODY_EXTRACTED_REGEX, "requires", "replaces", "proposed_replacement"],
             "color_by": "group",
             "bips_to_show": DEFAULT_BIPS_OF_INTEREST,
             "bips_to_exclude": DEFAULT_BIPS_TO_EXCLUDE,
@@ -489,17 +489,17 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
                     "alpha": 0.0,
                     "label": "replaces",
                 },
-                "superseded_by": {
+                "proposed_replacement": {
                     "color": "green",
                     "style": "solid",
                     "alpha": 0.0,
-                    "label": "superseded by",
+                    "label": "proposed replacement",
                 },
             },
         },
         {
             "filename_stem": "dependency_explicit_fields_focus",
-            "link_type": ["requires", "replaces", "superseded_by", BODY_EXTRACTED_REGEX],
+            "link_type": ["requires", "replaces", "proposed_replacement", BODY_EXTRACTED_REGEX],
             "color_by": "group",
             "bips_to_show": DEFAULT_BIPS_OF_INTEREST,
             "bips_to_exclude": DEFAULT_BIPS_TO_EXCLUDE,
@@ -523,11 +523,11 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
                     "alpha": 1.0,
                     "label": "replaces",
                 },
-                "superseded_by": {
+                "proposed_replacement": {
                     "color": "green",
                     "style": "solid",
                     "alpha": 1.0,
-                    "label": "superseded by",
+                    "label": "proposed replacement",
                 },
             },
         },
@@ -549,7 +549,7 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
         },
         {
             "filename_stem": "dependency_full_network",
-            "link_type": [BODY_EXTRACTED_REGEX, "requires", "replaces", "superseded_by", BODY_EXTRACTED_LLM],
+            "link_type": [BODY_EXTRACTED_REGEX, "requires", "replaces", "proposed_replacement", BODY_EXTRACTED_LLM],
             "color_by": "group",
             "bips_to_show": None,
             "bips_to_exclude": None,

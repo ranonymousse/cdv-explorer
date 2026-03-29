@@ -12,6 +12,7 @@ from analysis.dependencies.constants import (
 from analysis.proposal_schema import (
     get_formal_compliance,
     get_interrelations,
+    get_preamble_interrelations,
     normalize_proposal_document,
 )
 from ecosystem_config import ACTIVE_ECOSYSTEM
@@ -90,7 +91,7 @@ def build_network_data(
     implicit_dependency_links = []
     requires_links = []
     replaces_links = []
-    superseded_by_links = []
+    proposed_replacement_links = []
     node_ids = set()
 
     for proposal in proposal_data:
@@ -147,22 +148,27 @@ def build_network_data(
             if dep_id in node_ids:
                 implicit_dependency_links.append({"source": proposal_id, "target": dep_id, "value": 1})
 
-        for req_id in normalize_proposal_ids(preamble.get("requires"), proposal_label=proposal_label):
+        preamble_interrelations = get_preamble_interrelations(preamble)
+
+        for req_id in normalize_proposal_ids(preamble_interrelations.get("requires"), proposal_label=proposal_label):
             if req_id in node_ids:
                 requires_links.append({"source": proposal_id, "target": req_id, "value": 1})
 
-        for rep_id in normalize_proposal_ids(preamble.get("replaces"), proposal_label=proposal_label):
+        for rep_id in normalize_proposal_ids(preamble_interrelations.get("replaces"), proposal_label=proposal_label):
             if rep_id in node_ids:
                 replaces_links.append({"source": proposal_id, "target": rep_id, "value": 1})
 
-        for sup_id in normalize_proposal_ids(preamble.get("superseded_by"), proposal_label=proposal_label):
+        for sup_id in normalize_proposal_ids(
+            preamble_interrelations.get("proposed_replacement"),
+            proposal_label=proposal_label,
+        ):
             if sup_id in node_ids:
-                superseded_by_links.append({"source": proposal_id, "target": sup_id, "value": 1})
+                proposed_replacement_links.append({"source": proposal_id, "target": sup_id, "value": 1})
 
     explicit_dependency_links = {
         "requires": requires_links,
         "replaces": replaces_links,
-        "superseded_by": superseded_by_links,
+        "proposed_replacement": proposed_replacement_links,
     }
 
     return {

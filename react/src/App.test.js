@@ -31,6 +31,7 @@ test('normalizes legacy dependency link keys into canonical keys', () => {
 
   expect(normalized[BODY_EXTRACTED_REGEX]).toHaveLength(1);
   expect(normalized[PREAMBLE_EXTRACTED].requires).toHaveLength(1);
+  expect(normalized[PREAMBLE_EXTRACTED].proposed_replacement).toHaveLength(0);
   expect(normalized[BODY_EXTRACTED_LLM]).toHaveLength(1);
 });
 

@@ -16,11 +16,11 @@ const EMPTY_DATASET = {
     [PREAMBLE_EXTRACTED]: {
       requires: [],
       replaces: [],
-      superseded_by: [],
+      proposed_replacement: [],
     },
     requires: [],
     replaces: [],
-    superseded_by: [],
+    proposed_replacement: [],
     [BODY_EXTRACTED_LLM]: []
   },
   network: {
@@ -30,7 +30,7 @@ const EMPTY_DATASET = {
       [PREAMBLE_EXTRACTED]: [],
       requires: [],
       replaces: [],
-      superseded_by: [],
+      proposed_replacement: [],
       [BODY_EXTRACTED_LLM]: [],
     },
   },
@@ -55,7 +55,7 @@ function countAllLinks(linksByType) {
     + (links[BODY_EXTRACTED_LLM]?.length || 0)
     + (explicit.requires?.length || links.requires?.length || 0)
     + (explicit.replaces?.length || links.replaces?.length || 0)
-    + (explicit.superseded_by?.length || links.superseded_by?.length || 0)
+    + (explicit.proposed_replacement?.length || links.proposed_replacement?.length || 0)
   );
 }
 

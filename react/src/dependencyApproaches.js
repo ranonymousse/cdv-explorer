@@ -20,18 +20,23 @@ export function normalizeDependencyLinks(rawLinks) {
   const preambleExtracted = links[PREAMBLE_EXTRACTED] || links.explicit_dependencies || {};
   const requires = preambleExtracted.requires || links.requires || [];
   const replaces = preambleExtracted.replaces || links.replaces || [];
-  const supersededBy = preambleExtracted.superseded_by || links.superseded_by || [];
+  const proposedReplacement =
+    preambleExtracted.proposed_replacement
+    || preambleExtracted.superseded_by
+    || links.proposed_replacement
+    || links.superseded_by
+    || [];
 
   return {
     [BODY_EXTRACTED_REGEX]: links[BODY_EXTRACTED_REGEX] || links.explicit_references || [],
     [PREAMBLE_EXTRACTED]: {
       requires,
       replaces,
-      superseded_by: supersededBy,
+      proposed_replacement: proposedReplacement,
     },
     requires,
     replaces,
-    superseded_by: supersededBy,
+    proposed_replacement: proposedReplacement,
     [BODY_EXTRACTED_LLM]: links[BODY_EXTRACTED_LLM] || links.implicit_dependencies || [],
   };
 }

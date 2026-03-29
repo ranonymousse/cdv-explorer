@@ -37,12 +37,12 @@ BITCOIN_ECOSYSTEM = {
             "post_history",
             "requires",
             "replaces",
-            "superseded_by",
+            "proposed_replacement",
         ],
         "field_aliases": {
             "authors": "author",
             "assigned": "created",
-            "proposed_replacement": "superseded_by",
+            "superseded_by": "proposed_replacement",
         },
         "expected_headlines": {
             "abstract": 2,

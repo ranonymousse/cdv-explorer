@@ -7,6 +7,7 @@ from typing import Any, Dict, List
 
 from openai import OpenAI
 
+from analysis.proposal_schema import get_preamble_interrelations
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 
@@ -80,13 +81,12 @@ def create_explicit_dependency_list(
     preamble: Dict[str, Any],
     proposal_label: str = PROPOSAL_LABEL,
 ) -> List[str]:
-    dependency_fields = ["requires", "replaces", "superseded_by"]
     label = re.escape(proposal_label)
     id_pattern = re.compile(rf"(?i)(?:{label}[-\s]*)?(\d+)")
     dependency_ids = set()
+    preamble_interrelations = get_preamble_interrelations(preamble)
 
-    for field in dependency_fields:
-        value = preamble.get(field)
+    for value in preamble_interrelations.values():
         if not value:
             continue
 

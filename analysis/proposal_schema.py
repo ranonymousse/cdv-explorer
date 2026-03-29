@@ -1,5 +1,7 @@
 from typing import Any, Dict, List
 
+from ecosystem_config import ACTIVE_ECOSYSTEM
+
 
 META_KEYS = ("last_commit", "total_commits", "git_history")
 INTERRELATION_KEY_MAP = {
@@ -8,6 +10,8 @@ INTERRELATION_KEY_MAP = {
     "body_extracted_llm": "implicit_dependencies",
 }
 LEGACY_TOP_LEVEL_KEYS = {"metadata", "history", "compliance"}
+PREAMBLE_FIELD_ALIASES = ACTIVE_ECOSYSTEM.get("preamble", {}).get("field_aliases", {})
+PREAMBLE_INTERRELATION_KEYS = ("requires", "replaces", "proposed_replacement")
 
 
 def empty_meta() -> Dict[str, Any]:
@@ -37,6 +41,47 @@ def empty_insights() -> Dict[str, Any]:
 
 def _as_dict(value: Any) -> Dict[str, Any]:
     return dict(value) if isinstance(value, dict) else {}
+
+
+def _has_value(value: Any) -> bool:
+    return value not in (None, "", [], {})
+
+
+def get_preamble_interrelations(preamble: Dict[str, Any] | None) -> Dict[str, Any]:
+    source = _as_dict(preamble)
+    interrelations: Dict[str, Any] = {}
+
+    for subtype in PREAMBLE_INTERRELATION_KEYS:
+        value = source.get(subtype)
+        if not _has_value(value):
+            for source_key, canonical_key in PREAMBLE_FIELD_ALIASES.items():
+                if canonical_key != subtype:
+                    continue
+                alias_value = source.get(source_key)
+                if _has_value(alias_value):
+                    value = alias_value
+                    break
+        if _has_value(value):
+            interrelations[subtype] = value
+
+    return interrelations
+
+
+def normalize_raw_preamble(preamble: Dict[str, Any] | None) -> Dict[str, Any]:
+    normalized = _as_dict(preamble)
+
+    for source_key, canonical_key in PREAMBLE_FIELD_ALIASES.items():
+        if canonical_key in normalized:
+            continue
+        if source_key not in normalized:
+            continue
+        normalized[canonical_key] = normalized[source_key]
+
+    for source_key, canonical_key in PREAMBLE_FIELD_ALIASES.items():
+        if canonical_key != source_key:
+            normalized.pop(source_key, None)
+
+    return normalized
 
 
 def get_meta(proposal: Dict[str, Any]) -> Dict[str, Any]:
@@ -107,7 +152,7 @@ def normalize_proposal_document(proposal: Dict[str, Any] | None) -> Dict[str, An
     insights = _as_dict(source.get("insights"))
 
     normalized_raw: Dict[str, Any] = {
-        "preamble": _as_dict(raw.get("preamble")),
+        "preamble": normalize_raw_preamble(raw.get("preamble")),
     }
     for key, value in raw.items():
         if key in {"preamble", "compliance"}:

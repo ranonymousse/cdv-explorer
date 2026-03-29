@@ -37,7 +37,7 @@ const COLOR_BY_OPTIONS = [
 const EXPLICIT_DEPENDENCY_COLORS = {
   requires: '#667085',
   replaces: '#667085',
-  superseded_by: '#667085',
+  proposed_replacement: '#667085',
 };
 
 const DEFAULT_EDGE_COLORS = {
@@ -58,7 +58,7 @@ const PINNED_LINK_WIDTH = 2.6;
 const EXPLICIT_DEPENDENCY_STYLES = {
   requires: null,
   replaces: '8 5',
-  superseded_by: '2.5 4',
+  proposed_replacement: '2.5 4',
 };
 
 function getProposalLabel(id) {
@@ -81,7 +81,7 @@ function normalizeCategory(value, fallbackLabel) {
 
 function buildDisplayedLinks(linksByType, linkType) {
   if (linkType === PREAMBLE_EXTRACTED) {
-    return ['requires', 'replaces', 'superseded_by']
+    return ['requires', 'replaces', 'proposed_replacement']
       .flatMap((relationType) => (linksByType?.[relationType] || []).map((edge, index) => ({
         ...edge,
         relationType,
@@ -98,7 +98,7 @@ function buildDisplayedLinks(linksByType, linkType) {
 
 function getLinkSetForType(linksByType, linkType) {
   if (linkType === PREAMBLE_EXTRACTED) {
-    return ['requires', 'replaces', 'superseded_by']
+    return ['requires', 'replaces', 'proposed_replacement']
       .flatMap((relationType) => (linksByType?.[relationType] || []).map((edge) => ({
         source: String(edge.source),
         target: String(edge.target),
@@ -411,7 +411,7 @@ export const NetworkDiagram = ({
       [BODY_EXTRACTED_LLM]: 'LLM-Extracted Dependency',
       requires: 'Requires',
       replaces: 'Replaces',
-      superseded_by: 'Superseded By',
+      proposed_replacement: 'Proposed Replacement',
     };
 
     const renderEdgeTooltip = (edge) => (
@@ -825,7 +825,7 @@ export const NetworkDiagram = ({
   const explicitLegendItems = [
     { label: 'Requires', dasharray: EXPLICIT_DEPENDENCY_STYLES.requires, stroke: '#667085' },
     { label: 'Replaces', dasharray: EXPLICIT_DEPENDENCY_STYLES.replaces, stroke: '#667085' },
-    { label: 'Superseded By', dasharray: EXPLICIT_DEPENDENCY_STYLES.superseded_by, stroke: '#667085' },
+    { label: 'Proposed Replacement', dasharray: EXPLICIT_DEPENDENCY_STYLES.proposed_replacement, stroke: '#667085' },
   ];
 
   const edgeLegendItems = isDifferentialMode

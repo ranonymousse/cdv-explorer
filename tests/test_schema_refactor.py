@@ -55,6 +55,7 @@ def legacy_proposal(
     proposal_id: str,
     *,
     requires: str | None = None,
+    superseded_by: str | None = None,
     explicit_references: list[str] | None = None,
     implicit_dependencies: list[str] | None = None,
 ) -> dict:
@@ -70,7 +71,7 @@ def legacy_proposal(
                 "layer": "Consensus",
                 "requires": requires,
                 "replaces": None,
-                "superseded_by": None,
+                "superseded_by": superseded_by,
             }
         },
         "metadata": {
@@ -135,9 +136,19 @@ class SchemaRefactorTests(unittest.TestCase):
         self.assertEqual(normalized["meta"]["last_commit"], "2020-01-02")
         self.assertEqual(normalized["insights"]["formal_compliance"]["score"], 75.0)
         self.assertEqual(normalized["insights"]["changes_in_status"][0]["status"], "Draft")
+        self.assertNotIn("interrelations", normalized["raw"]["preamble"])
         self.assertEqual(normalized["insights"]["interrelations"]["preamble_extracted"], ["BIP 2"])
         self.assertEqual(normalized["insights"]["interrelations"]["body_extracted_regex"], ["BIP 2"])
         self.assertEqual(normalized["insights"]["interrelations"]["body_extracted_llm"], ["BIP 3"])
+
+    def test_normalize_legacy_preamble_aliases_to_proposed_replacement(self) -> None:
+        normalized = normalize_proposal_document(
+            legacy_proposal("1", superseded_by="7")
+        )
+
+        self.assertEqual(normalized["raw"]["preamble"]["proposed_replacement"], "7")
+        self.assertNotIn("superseded_by", normalized["raw"]["preamble"])
+        self.assertNotIn("interrelations", normalized["raw"]["preamble"])
 
     def test_save_preamble_to_json_writes_only_canonical_top_level_keys(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -164,12 +175,14 @@ class SchemaRefactorTests(unittest.TestCase):
             self.assertNotIn("history", payload)
             self.assertNotIn("compliance", payload)
             self.assertEqual(payload["insights"]["formal_compliance"]["score"], 91.0)
+            self.assertNotIn("interrelations", payload["raw"]["preamble"])
 
     def test_analysis_builders_accept_old_and_new_shapes(self) -> None:
         legacy_documents = [
             legacy_proposal(
                 "1",
                 requires="2",
+                superseded_by="2",
                 explicit_references=["BIP 2"],
                 implicit_dependencies=["BIP 2"],
             ),
@@ -210,7 +223,7 @@ class SchemaRefactorTests(unittest.TestCase):
                             "created": "2020-01-01",
                             "requires": "2",
                             "replaces": None,
-                            "superseded_by": None,
+                            "proposed_replacement": None,
                         }
                     }
                 }
@@ -264,6 +277,7 @@ class SchemaRefactorTests(unittest.TestCase):
             self.assertEqual(payload["meta"]["total_commits"], 3)
             self.assertIsInstance(payload["insights"]["word_list"], dict)
             self.assertEqual(payload["insights"]["changes_in_status"][0]["status"], "Draft")
+            self.assertNotIn("interrelations", payload["raw"]["preamble"])
             self.assertEqual(payload["insights"]["interrelations"]["preamble_extracted"], ["BIP 2"])
             self.assertEqual(payload["insights"]["interrelations"]["body_extracted_regex"], ["BIP 2"])
             self.assertEqual(payload["insights"]["interrelations"]["body_extracted_llm"], [])
