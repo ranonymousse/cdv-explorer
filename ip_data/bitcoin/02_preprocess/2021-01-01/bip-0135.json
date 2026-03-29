@@ -21,7 +21,7 @@
       "post_history": "https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2017-April/013969.html",
       "requires": null,
       "replaces": "9",
-      "superseded_by": null
+      "proposed_replacement": null
     }
   },
   "meta": {

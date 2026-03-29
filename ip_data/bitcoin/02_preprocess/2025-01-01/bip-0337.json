@@ -20,7 +20,7 @@
       "post_history": "https://github.com/bitcoin/bitcoin/pull/29134\nhttps://lists.linuxfoundation.org/pipermail/bitcoin-dev/2023-August/021924.html",
       "requires": null,
       "replaces": null,
-      "superseded_by": null
+      "proposed_replacement": null
     }
   },
   "meta": {

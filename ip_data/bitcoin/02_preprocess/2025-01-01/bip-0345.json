@@ -21,7 +21,7 @@
       "post_history": "2023-01-09: https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2023-January/021318.html [bitcoin-dev] OP_VAULT announcement\n2023-03-01: https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2023-March/021510.html [bitcoin-dev] BIP for OP_VAULT",
       "requires": null,
       "replaces": null,
-      "superseded_by": null
+      "proposed_replacement": null
     }
   },
   "meta": {

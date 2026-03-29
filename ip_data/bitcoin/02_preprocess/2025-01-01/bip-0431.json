@@ -20,7 +20,7 @@
       "post_history": "2022-01-27: https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2022-January/019817.html [bitcoin-dev] discussion\n2022-01-27: https://gist.github.com/glozow/25d9662c52453bd08b4b4b1d3783b9ff gist discussion\n2022-09-23: https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2022-September/020937.html [bitcoin-dev] proposal\n2024-01-02: https://delvingbitcoin.org/t/v3-transaction-policy-for-anti-pinning/340 Delving Bitcoin post\n2024-01-16: https://delvingbitcoin.org/t/lightning-transactions-with-v3-and-ephemeral-anchors/418 Delving Bitcoin post",
       "requires": null,
       "replaces": null,
-      "superseded_by": null
+      "proposed_replacement": null
     }
   },
   "meta": {

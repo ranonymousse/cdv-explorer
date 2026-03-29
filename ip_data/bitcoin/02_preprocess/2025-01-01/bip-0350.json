@@ -20,7 +20,7 @@
       "post_history": "2021-01-05: https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2021-January/018338.html [bitcoin-dev] Bech32m BIP: new checksum, and usage for segwit address",
       "requires": null,
       "replaces": "173",
-      "superseded_by": null
+      "proposed_replacement": null
     }
   },
   "meta": {

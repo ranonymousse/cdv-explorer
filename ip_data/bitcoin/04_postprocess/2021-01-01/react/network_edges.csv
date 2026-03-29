@@ -391,5 +391,5 @@ replaces,2,1,1
 replaces,78,79,1
 replaces,135,9,1
 replaces,173,142,1
-superseded_by,1,2,1
-superseded_by,79,78,1
+proposed_replacement,1,2,1
+proposed_replacement,79,78,1

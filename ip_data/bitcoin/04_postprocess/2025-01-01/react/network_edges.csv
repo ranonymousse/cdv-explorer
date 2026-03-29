@@ -600,10 +600,10 @@ replaces,135,9,1
 replaces,173,142,1
 replaces,324,151,1
 replaces,350,173,1
-superseded_by,1,2,1
-superseded_by,79,78,1
-superseded_by,151,324,1
-superseded_by,173,350,1
+proposed_replacement,1,2,1
+proposed_replacement,79,78,1
+proposed_replacement,151,324,1
+proposed_replacement,173,350,1
 body_extracted_llm,2,1,1
 body_extracted_llm,2,123,1
 body_extracted_llm,8,9,1
