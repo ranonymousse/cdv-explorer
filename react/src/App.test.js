@@ -6,7 +6,8 @@ import {
   PREAMBLE_EXTRACTED,
   normalizeDependencyLinks,
 } from './dependencyApproaches';
-import { getBipUrl } from './bipLinks';
+import { getBipCommitUrl, getBipUrl, getBipUrlAtCommit } from './bipLinks';
+import { getClassificationColorMap } from './classificationColors';
 
 test('dependency link options default to the canonical preamble approach', () => {
   expect(DEFAULT_DEPENDENCY_APPROACH).toBe(PREAMBLE_EXTRACTED);
@@ -43,4 +44,25 @@ test('falls back to the latest repository file when a historic snapshot file loo
   expect(getBipUrl(3, '2021-01-01', { linkMode: 'history' })).toBe(
     'https://github.com/bitcoin/bips/blob/master/bip-0003.md'
   );
+});
+
+test('builds commit-specific historic links when a repository path is provided', () => {
+  expect(getBipUrlAtCommit(1, 'ce40c0f8f02e83892eb185aabea306ee2a3ab10e', { filePath: 'bip-0001.txt' })).toBe(
+    'https://github.com/bitcoin/bips/blob/ce40c0f8f02e83892eb185aabea306ee2a3ab10e/bip-0001.txt'
+  );
+});
+
+test('builds GitHub commit links for proposal event timeline markers', () => {
+  expect(getBipCommitUrl('76132ec28493c690034771c9b2289df1e37d99a6')).toBe(
+    'https://github.com/bitcoin/bips/commit/76132ec28493c690034771c9b2289df1e37d99a6'
+  );
+});
+
+test('uses fixed status colors so evolution views stay aligned across subsets', () => {
+  expect(getClassificationColorMap('status', ['Rejected', 'Proposed', 'Closed', 'Draft'])).toEqual({
+    Rejected: '#e15759',
+    Proposed: '#59a14f',
+    Closed: '#868e96',
+    Draft: '#4e79a7',
+  });
 });

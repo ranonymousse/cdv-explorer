@@ -132,6 +132,8 @@ def main():
             snapshot=snapshot,
             id_field=ACTIVE_ECOSYSTEM["primary_id_field"],
             proposal_label=ACTIVE_ECOSYSTEM["proposal_acronym"],
+            repo_dir=input_directory,
+            file_prefix=ACTIVE_ECOSYSTEM["document_prefix"],
             progress_callback=update,
         ),
     )

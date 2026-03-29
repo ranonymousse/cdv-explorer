@@ -46,6 +46,7 @@ class EvolutionStatusTests(unittest.TestCase):
                     "timestamp": "2025-10-01T10:00:00+00:00",
                     "date": "2025-10-01",
                     "author": "Alice",
+                    "path": "bip-0001.mediawiki",
                     "status": "Draft",
                     "standard": "bip2",
                 },
@@ -54,6 +55,7 @@ class EvolutionStatusTests(unittest.TestCase):
                     "timestamp": "2026-01-12T14:22:25-08:00",
                     "date": "2026-01-12",
                     "author": "Murch",
+                    "path": "bip-0001.mediawiki",
                     "status": "Draft",
                     "standard": "bip3",
                 },
@@ -183,6 +185,83 @@ class EvolutionStatusTests(unittest.TestCase):
         self.assertEqual(segmented_rows["2026-Q1-pre-bip3"]["values"]["bip2:Draft"], 1)
         self.assertEqual(segmented_rows["2026-Q1-post-bip3"]["values"]["bip3:Draft"], 1)
 
+    def test_prepare_evolution_payload_serializes_per_proposal_event_timelines(self) -> None:
+        proposal_data = [
+            {
+                "raw": {
+                    "preamble": {
+                        "bip": "1",
+                        "title": "Example Proposal",
+                        "created": "2025-09-15",
+                    }
+                },
+                "insights": {
+                    "changes_in_status": [
+                        {
+                            "date": "2025-10-01",
+                            "timestamp": "2025-10-01T10:00:00+00:00",
+                            "status": "Draft",
+                            "standard": "bip2",
+                            "commit": "draftcommit",
+                            "author": "Alice",
+                            "path": "bip-0001.mediawiki",
+                        },
+                        {
+                            "date": "2026-01-15",
+                            "timestamp": "2026-01-15T10:00:00+00:00",
+                            "status": "Draft",
+                            "standard": "bip3",
+                            "commit": "bip3commit",
+                            "author": "Bob",
+                            "path": "bip-0001.mediawiki",
+                        },
+                    ]
+                },
+            }
+        ]
+
+        payload = prepare_evolution_payload(
+            proposal_data=proposal_data,
+            snapshot_label="2025-12-31",
+            id_field="bip",
+        )
+
+        self.assertEqual(len(payload["proposal_timelines"]), 1)
+        proposal_timeline = payload["proposal_timelines"][0]
+        self.assertEqual(proposal_timeline["proposal_id"], "1")
+        self.assertEqual(proposal_timeline["title"], "Example Proposal")
+        self.assertEqual(proposal_timeline["current_status"], "Draft")
+        self.assertEqual(proposal_timeline["current_standard"], "bip2")
+        self.assertEqual(
+            proposal_timeline["events"],
+            [
+                {
+                    "kind": "creation",
+                    "label": "Created",
+                    "date": "2025-09-15",
+                    "timestamp": "2025-10-01T10:00:00+00:00",
+                    "status": "Draft",
+                    "standard": "bip2",
+                    "commit": "draftcommit",
+                    "author": "Alice",
+                    "path": "bip-0001.mediawiki",
+                    "previous_status": "",
+                },
+                {
+                    "kind": "status_change",
+                    "label": "Draft",
+                    "date": "2025-10-01",
+                    "timestamp": "2025-10-01T10:00:00+00:00",
+                    "status": "Draft",
+                    "standard": "bip2",
+                    "commit": "draftcommit",
+                    "author": "Alice",
+                    "path": "bip-0001.mediawiki",
+                    "previous_status": "Draft",
+                },
+            ],
+        )
+
     def test_extract_status_timeline_ignores_reused_placeholder_history_from_other_proposals(self) -> None:
         log_stdout = "\n".join(
             [
@@ -267,6 +346,7 @@ class EvolutionStatusTests(unittest.TestCase):
                     "timestamp": "2019-02-27T10:28:34+01:00",
                     "date": "2019-02-27",
                     "author": "Wladimir J. van der Laan",
+                    "path": "bip-XXXX.mediawiki",
                     "status": "Draft",
                     "standard": "bip2",
                 },
@@ -275,6 +355,7 @@ class EvolutionStatusTests(unittest.TestCase):
                     "timestamp": "2025-09-01T09:08:50-06:00",
                     "date": "2025-09-01",
                     "author": "Jon Atack",
+                    "path": "bip-0155.mediawiki",
                     "status": "Final",
                     "standard": "bip2",
                 },

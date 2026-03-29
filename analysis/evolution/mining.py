@@ -413,6 +413,7 @@ def extract_status_timeline(repo_dir: Path, file_path: Path) -> List[Dict[str, s
                 "timestamp": entry["timestamp"],
                 "date": entry["timestamp"][:10],
                 "author": entry["author"],
+                "path": entry["path"],
                 "status": status,
                 "standard": standard,
             }

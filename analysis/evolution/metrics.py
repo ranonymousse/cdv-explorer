@@ -1,9 +1,11 @@
 from collections import Counter, defaultdict
 from datetime import date, timedelta
+from pathlib import Path
 from typing import Any, Dict, List
 
 from analysis.classification.preprocess import normalize_classification_fields
 from analysis.proposal_schema import get_changes_in_status
+from analysis.evolution.mining import extract_status_timeline
 from ecosystem_config import ACTIVE_ECOSYSTEM
 
 
@@ -73,8 +75,137 @@ def _fallback_timeline(proposal: Dict[str, Any], id_field: str) -> List[Dict[str
             "date": created_date,
             "status": status,
             "standard": _resolve_event_standard(None, created_date, status),
+            "commit": "",
+            "timestamp": created_date.isoformat(),
+            "author": "",
+            "path": "",
         }
     ]
+
+
+def _find_proposal_file(repo_dir: Path, proposal_id: str, file_prefix: str) -> Path | None:
+    normalized_id = proposal_id.zfill(4) if proposal_id.isdigit() else proposal_id
+    for extension in ("md", "mediawiki", "rst"):
+        candidate = repo_dir / f"{file_prefix}-{normalized_id}.{extension}"
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def _timeline_needs_path_rehydration(raw_timeline: Any) -> bool:
+    if not isinstance(raw_timeline, list) or not raw_timeline:
+        return False
+
+    return any(
+        isinstance(event, dict)
+        and str(event.get("commit") or "").strip()
+        and not str(event.get("path") or "").strip()
+        for event in raw_timeline
+    )
+
+
+def _normalize_timeline_event(proposal_id: str, event: Dict[str, Any]) -> Dict[str, Any] | None:
+    event_date = _parse_event_date(event.get("date") or event.get("timestamp"))
+    status = _normalize_status(event.get("status"))
+    if event_date is None or not status or not proposal_id:
+        return None
+
+    standard = _resolve_event_standard(
+        event.get("standard"),
+        event_date,
+        status,
+    )
+    return {
+        "proposal_id": proposal_id,
+        "date": event_date,
+        "status": status,
+        "standard": standard,
+        "commit": str(event.get("commit") or "").strip(),
+        "timestamp": str(event.get("timestamp") or "").strip(),
+        "author": str(event.get("author") or "").strip(),
+        "path": str(event.get("path") or "").strip(),
+    }
+
+
+def _serialize_proposal_timeline(
+    proposal: Dict[str, Any],
+    timeline: List[Dict[str, Any]],
+    snapshot_date: date | None,
+) -> Dict[str, Any] | None:
+    visible_timeline = [
+        event for event in timeline
+        if snapshot_date is None or event["date"] <= snapshot_date
+    ]
+    if not visible_timeline:
+        return None
+
+    preamble = proposal.get("raw", {}).get("preamble", {})
+    proposal_id = visible_timeline[0]["proposal_id"]
+    created_date = _parse_event_date(preamble.get("created"))
+    title = str(preamble.get("title") or "").strip()
+    latest_visible_event = visible_timeline[-1]
+
+    creation_event = None
+    if created_date is not None and (snapshot_date is None or created_date <= snapshot_date):
+        creation_source = visible_timeline[0]
+        creation_event = {
+            "kind": "creation",
+            "label": "Created",
+            "date": created_date.isoformat(),
+            "timestamp": creation_source.get("timestamp", ""),
+            "status": creation_source.get("status", ""),
+            "standard": creation_source.get("standard", ""),
+            "commit": creation_source.get("commit", ""),
+            "author": creation_source.get("author", ""),
+            "path": creation_source.get("path", ""),
+            "previous_status": "",
+        }
+
+    events: List[Dict[str, Any]] = []
+    if creation_event is not None:
+        events.append(creation_event)
+
+    prior_status = creation_event["status"] if creation_event is not None else ""
+    for index, event in enumerate(visible_timeline):
+        if (
+            index == 0
+            and creation_event is not None
+            and created_date is not None
+            and event["date"] == created_date
+            and event["status"] == creation_event["status"]
+        ):
+            prior_status = event["status"]
+            continue
+
+        previous_status = prior_status or (visible_timeline[index - 1]["status"] if index > 0 else "")
+        events.append(
+            {
+                "kind": "status_change",
+                "label": event["status"],
+                "date": event["date"].isoformat(),
+                "timestamp": event.get("timestamp", ""),
+                "status": event["status"],
+                "standard": event["standard"],
+                "commit": event.get("commit", ""),
+                "author": event.get("author", ""),
+                "path": event.get("path", ""),
+                "previous_status": previous_status,
+            }
+        )
+        prior_status = event["status"]
+
+    if not events:
+        return None
+
+    return {
+        "proposal_id": proposal_id,
+        "title": title,
+        "created": created_date.isoformat() if created_date is not None else "",
+        "current_status": latest_visible_event["status"],
+        "current_standard": latest_visible_event["standard"],
+        "event_count": len(events),
+        "events": events,
+    }
 
 
 def _build_status_order(categories: List[str]) -> List[str]:
@@ -356,36 +487,32 @@ def prepare_evolution_payload(
     proposal_data: List[Dict[str, Any]],
     snapshot_label: str | None,
     id_field: str,
+    *,
+    repo_dir: Path | None = None,
+    file_prefix: str = "bip",
 ) -> Dict[str, Any]:
     proposal_timelines: List[List[Dict[str, Any]]] = []
+    serialized_timelines: List[Dict[str, Any]] = []
     category_set = set()
     min_date = None
     max_date = None
+    snapshot_date = _parse_event_date(snapshot_label)
 
     for proposal in proposal_data:
         preamble = proposal.get("raw", {}).get("preamble", {})
         proposal_id = _normalize_proposal_id(preamble.get(id_field))
         raw_timeline = get_changes_in_status(proposal)
 
+        if proposal_id and repo_dir is not None and _timeline_needs_path_rehydration(raw_timeline):
+            proposal_file_path = _find_proposal_file(repo_dir, proposal_id, file_prefix)
+            if proposal_file_path is not None:
+                raw_timeline = extract_status_timeline(repo_dir, proposal_file_path)
+
         timeline = []
         for event in raw_timeline if isinstance(raw_timeline, list) else []:
-            event_date = _parse_event_date(event.get("date") or event.get("timestamp"))
-            status = _normalize_status(event.get("status"))
-            if event_date is None or not status or not proposal_id:
-                continue
-            standard = _resolve_event_standard(
-                event.get("standard"),
-                event_date,
-                status,
-            )
-            timeline.append(
-                {
-                    "proposal_id": proposal_id,
-                    "date": event_date,
-                    "status": status,
-                    "standard": standard,
-                }
-            )
+            normalized_event = _normalize_timeline_event(proposal_id, event) if isinstance(event, dict) else None
+            if normalized_event is not None:
+                timeline.append(normalized_event)
 
         if not timeline:
             timeline = _fallback_timeline(proposal, id_field=id_field)
@@ -395,6 +522,13 @@ def prepare_evolution_payload(
 
         timeline.sort(key=lambda entry: entry["date"])
         proposal_timelines.append(timeline)
+        serialized_timeline = _serialize_proposal_timeline(
+            proposal,
+            timeline,
+            snapshot_date,
+        )
+        if serialized_timeline is not None:
+            serialized_timelines.append(serialized_timeline)
 
         for event in timeline:
             category_set.add(event["status"])
@@ -402,7 +536,6 @@ def prepare_evolution_payload(
             min_date = event_date if min_date is None else min(min_date, event_date)
             max_date = event_date if max_date is None else max(max_date, event_date)
 
-    snapshot_date = _parse_event_date(snapshot_label)
     if snapshot_date is not None:
         max_date = snapshot_date if max_date is None else max(max_date, snapshot_date)
 
@@ -430,6 +563,7 @@ def prepare_evolution_payload(
                 "bip2": {"categories": [], "rows": []},
                 "bip3": {"categories": [], "rows": []},
             },
+            "proposal_timelines": [],
         }
 
     bip3_start_date = _resolve_bip3_start_date()
@@ -467,6 +601,12 @@ def prepare_evolution_payload(
             standard_filter="bip3",
         ),
     }
+    serialized_timelines.sort(
+        key=lambda entry: (
+            not str(entry.get("proposal_id") or "").isdigit(),
+            int(entry["proposal_id"]) if str(entry.get("proposal_id") or "").isdigit() else str(entry.get("proposal_id") or ""),
+        )
+    )
 
     return {
         "meta": {
@@ -486,4 +626,5 @@ def prepare_evolution_payload(
         "status_evolution": status_evolution,
         "status_evolution_segmented": _build_segmented_evolution_series(status_evolution_by_standard),
         "status_evolution_by_standard": status_evolution_by_standard,
+        "proposal_timelines": serialized_timelines,
     }

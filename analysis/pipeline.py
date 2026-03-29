@@ -206,6 +206,8 @@ def prepare_ecosystem_artifacts(
     snapshot: str,
     id_field: str,
     proposal_label: str,
+    repo_dir: Path | None = None,
+    file_prefix: str = "bip",
     status_callback=None,
     progress_callback=None,
 ) -> Dict[str, Path]:
@@ -284,6 +286,8 @@ def prepare_ecosystem_artifacts(
         proposal_data,
         snapshot_label=snapshot,
         id_field=id_field,
+        repo_dir=repo_dir,
+        file_prefix=file_prefix,
     )
     evolution_payload_path = snapshot_root / "evolution" / "evolution_payload.json"
     _save_json(evolution_payload, evolution_payload_path)
