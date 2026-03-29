@@ -149,8 +149,8 @@ export function ProposalEventTimeline({
   return (
     <div className="proposal-event-history">
       <div className="proposal-event-history__summary">
-        <div>
-          <h4>
+        <strong className="proposal-event-history__summary-heading">
+          <span>
             {proposalHref !== '#' ? (
               <a
                 className="proposal-event-history__summary-link"
@@ -164,19 +164,19 @@ export function ProposalEventTimeline({
             {timeline.title ? (
               <span className="proposal-event-history__summary-title"> ({timeline.title})</span>
             ) : null}
-          </h4>
-          <p>
-            {events.length} recorded events
-            {timeline.created ? ` from ${formatDate(timeline.created, { year: 'numeric', month: 'short', day: 'numeric' })}` : ''}
-            {timeline.current_status ? (
-              <>
-                {', current status '}
-                <span className="proposal-event-history__badge">{timeline.current_status}</span>
-              </>
-            ) : null}
-            .
-          </p>
-        </div>
+          </span>
+        </strong>
+        <p className="proposal-event-history__summary-copy">
+          {events.length} recorded events
+          {timeline.created ? ` from ${formatDate(timeline.created, { year: 'numeric', month: 'short', day: 'numeric' })}` : ''}
+          {timeline.current_status ? (
+            <>
+              {', current status '}
+              <span className="proposal-event-history__badge">{timeline.current_status}</span>
+            </>
+          ) : null}
+          .
+        </p>
       </div>
 
       <div className="proposal-event-history__plot-wrap">

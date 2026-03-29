@@ -25,13 +25,21 @@ export function EvolutionSection({
   ), [evolutionPayload]);
   const milestoneLabel = evolutionPayload?.meta?.milestones?.[0]?.label || '';
   const milestoneDate = evolutionPayload?.meta?.milestones?.[0]?.date || '';
+  const formattedMilestoneLabel = milestoneLabel === 'BIP3 Activation'
+    ? 'BIP-3 activation'
+    : (milestoneLabel || 'the process change');
   const hasData = hasPositiveValues(overallEvolution);
-  const proposalTimelineOptions = useMemo(() => proposalTimelines.map((entry) => ({
-    label: entry?.title
+  const proposalTimelineOptions = useMemo(() => proposalTimelines.map((entry) => {
+    const eventCount = Number(entry?.event_count ?? entry?.events?.length ?? 0);
+    const baseLabel = entry?.title
       ? `${ecosystem.acronym} ${entry.proposal_id} - ${entry.title}`
-      : `${ecosystem.acronym} ${entry?.proposal_id || ''}`,
-    value: entry?.proposal_id || '',
-  })), [ecosystem.acronym, proposalTimelines]);
+      : `${ecosystem.acronym} ${entry?.proposal_id || ''}`;
+
+    return {
+      label: `${baseLabel} - [${eventCount} Events]`,
+      value: entry?.proposal_id || '',
+    };
+  }), [ecosystem.acronym, proposalTimelines]);
   const selectedProposalTimeline = useMemo(() => (
     proposalTimelines.find((entry) => entry?.proposal_id === selectedProposalId) || null
   ), [proposalTimelines, selectedProposalId]);
@@ -56,7 +64,10 @@ export function EvolutionSection({
       <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Status Evolution`}>
         <h3>{ecosystem.acronym} Status Evolution</h3>
         <p>
-          Stacked status counts reconstructed from proposal Git history using landed commit dates. Bars show quarter-end states, with a separate breakpoint for {milestoneLabel || 'major process changes'}{milestoneDate ? ` on ${milestoneDate}` : ''}.
+          Stacked status counts reconstructed from proposal git history using commit dates.
+          Each bar assigns a {ecosystem.acronym} to the status it had at the end of that quarter, not the status it held for the largest share of days within that quarter. {milestoneDate
+            ? `If the selected snapshot extends beyond ${milestoneDate}, the chart also marks ${formattedMilestoneLabel} with a separate breakpoint inside that quarter.`
+            : ''}
         </p>
         <div className="network-layout-controls">
           <div className="network-layout-picker">
@@ -92,9 +103,9 @@ export function EvolutionSection({
       </ExportableCard>
       {proposalTimelines.length ? (
         <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Event Timeline`}>
-          <h3>{ecosystem.acronym} Event Timeline</h3>
+          <h3>{ecosystem.acronym} Status Changes Timeline</h3>
           <p>
-            Inspect the event history of a specific {ecosystem.acronym}: creation plus all mined status changes. Timeline markers open the historic repository version for the corresponding Git commit.
+            Visualizes the status changes of a specific {ecosystem.acronym}. Timeline markers open the historic repository version for the corresponding git commit.
           </p>
           <div className="dependency-metrics-toolbar">
             <div className="dependency-metrics-toolbar__copy">

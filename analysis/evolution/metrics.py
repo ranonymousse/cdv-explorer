@@ -521,7 +521,12 @@ def prepare_evolution_payload(
             continue
 
         timeline.sort(key=lambda entry: entry["date"])
-        proposal_timelines.append(timeline)
+        visible_timeline = [
+            event for event in timeline
+            if snapshot_date is None or event["date"] <= snapshot_date
+        ]
+        if visible_timeline:
+            proposal_timelines.append(visible_timeline)
         serialized_timeline = _serialize_proposal_timeline(
             proposal,
             timeline,
@@ -530,7 +535,7 @@ def prepare_evolution_payload(
         if serialized_timeline is not None:
             serialized_timelines.append(serialized_timeline)
 
-        for event in timeline:
+        for event in visible_timeline:
             category_set.add(event["status"])
             event_date = event["date"]
             min_date = event_date if min_date is None else min(min_date, event_date)

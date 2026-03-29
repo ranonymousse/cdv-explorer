@@ -609,11 +609,20 @@
 }
 
 .proposal-event-history__summary {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
-.proposal-event-history__summary h4 {
-  margin: 0 0 0.3rem;
+.proposal-event-history__summary-heading {
+  display: inline-flex;
+  align-items: baseline;
+  min-width: 0;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: var(--app-text);
+  font-weight: 700;
 }
 
 .proposal-event-history__summary-link {
@@ -626,10 +635,11 @@
   color: var(--app-text);
 }
 
-.proposal-event-history__summary p {
+.proposal-event-history__summary-copy {
   margin: 0;
   color: var(--app-text-muted);
   line-height: 1.4;
+  font-size: 0.95rem;
 }
 
 .proposal-event-history__badge {

@@ -262,6 +262,68 @@ class EvolutionStatusTests(unittest.TestCase):
             ],
         )
 
+    def test_prepare_evolution_payload_truncates_status_series_for_any_snapshot(self) -> None:
+        proposal_data = [
+            {
+                "raw": {"preamble": {"bip": "1", "created": "2020-09-15"}},
+                "insights": {
+                    "changes_in_status": [
+                        {"date": "2020-10-01", "status": "Draft", "standard": "bip2"},
+                        {"date": "2022-01-15", "status": "Final", "standard": "bip2"},
+                    ]
+                },
+            }
+        ]
+
+        expectations = {
+            "2021-01-01": {
+                "last_period": "2021-Q1",
+                "period_keys": ["2020-Q4", "2021-Q1"],
+                "categories": ["Draft"],
+                "current_status": "Draft",
+            },
+            "2025-01-01": {
+                "last_period": "2025-Q1",
+                "period_keys": [
+                    "2020-Q4",
+                    "2021-Q1",
+                    "2021-Q2",
+                    "2021-Q3",
+                    "2021-Q4",
+                    "2022-Q1",
+                    "2022-Q2",
+                    "2022-Q3",
+                    "2022-Q4",
+                    "2023-Q1",
+                    "2023-Q2",
+                    "2023-Q3",
+                    "2023-Q4",
+                    "2024-Q1",
+                    "2024-Q2",
+                    "2024-Q3",
+                    "2024-Q4",
+                    "2025-Q1",
+                ],
+                "categories": ["Draft", "Final"],
+                "current_status": "Final",
+            },
+        }
+
+        for snapshot_label, expected in expectations.items():
+            payload = prepare_evolution_payload(
+                proposal_data=proposal_data,
+                snapshot_label=snapshot_label,
+                id_field="bip",
+            )
+
+            self.assertEqual(payload["meta"]["last_period"], expected["last_period"])
+            self.assertEqual(
+                [row["period_key"] for row in payload["status_evolution"]["rows"]],
+                expected["period_keys"],
+            )
+            self.assertEqual(payload["status_evolution"]["categories"], expected["categories"])
+            self.assertEqual(payload["proposal_timelines"][0]["current_status"], expected["current_status"])
+
     def test_extract_status_timeline_ignores_reused_placeholder_history_from_other_proposals(self) -> None:
         log_stdout = "\n".join(
             [
