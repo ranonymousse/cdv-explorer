@@ -41,6 +41,10 @@ def _format_count_share(count: int, total: int) -> str:
     return f"{count} ({share:.1f}\\%)"
 
 
+def _comment_latex_block(latex_block: str) -> str:
+    return "\n".join(f"% {line}" if line else "%" for line in latex_block.splitlines())
+
+
 def export_classification_status_type_latex_table(
     network_data: dict,
     output_path: Path,
@@ -70,37 +74,71 @@ def export_classification_status_type_latex_table(
     )
     total_bips = sum(sum(counts.values()) for counts in pivot.values())
 
-    header_line = " & ".join(
+    rendered_header_line = " & ".join(
+        [r"\multicolumn{1}{c|}{\diagbox{\textbf{Type}}{\textbf{Status}}}"]
+        + [_latex_escape(status) for status in ordered_statuses]
+    ) + r" \\"
+    commented_header_line = " & ".join(
         [r"\multicolumn{1}{|c}{\diagbox{\textbf{Type}}{\textbf{Status}}}"]
         + [_latex_escape(status) for status in ordered_statuses]
     ) + r" \\"
-    header_cline = rf"    \cline{{2-{len(ordered_statuses) + 1}}}"
+    commented_header_cline = rf"    \cline{{2-{len(ordered_statuses) + 1}}}"
 
-    body_lines = []
+    rendered_body_lines = []
+    commented_body_lines = []
     for row_index, proposal_type in enumerate(ordered_types):
-        first_cell = _latex_escape(proposal_type)
+        rendered_row_cells = [_latex_escape(proposal_type)]
+        commented_first_cell = _latex_escape(proposal_type)
         if row_index == 0:
-            first_cell = rf"\rule{{0pt}}{{{first_body_row_strut_ex}ex}}{first_cell}"
-        row_cells = [first_cell]
-        for status in ordered_statuses:
-            row_cells.append(
-                _format_count_share(int(pivot[proposal_type].get(status, 0)), total_bips)
+            commented_first_cell = (
+                rf"\rule{{0pt}}{{{first_body_row_strut_ex}ex}}{commented_first_cell}"
             )
-        body_lines.append("        " + " & ".join(row_cells) + r" \\")
+        commented_row_cells = [commented_first_cell]
+        for status in ordered_statuses:
+            cell_value = _format_count_share(
+                int(pivot[proposal_type].get(status, 0)),
+                total_bips,
+            )
+            rendered_row_cells.append(cell_value)
+            commented_row_cells.append(cell_value)
+        rendered_body_lines.append("        " + " & ".join(rendered_row_cells) + r" \\")
+        commented_body_lines.append("        " + " & ".join(commented_row_cells) + r" \\")
 
-    alignment = "|l|" + ("c" * len(ordered_statuses) + "|")
-    latex_table = "\n".join(
+    rendered_alignment = "l|" + ("c" * len(ordered_statuses))
+    rendered_table = "\n".join(
         [
             "{",
             rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
-            rf"    \begin{{tabular}}{{{alignment}}}",
+            rf"    \begin{{tabular}}{{{rendered_alignment}}}",
+            r"    \toprule",
+            f"    {rendered_header_line}",
+            r"    \midrule",
+            *rendered_body_lines,
+            r"    \bottomrule",
+            r"    \end{tabular}",
+            "}",
+        ]
+    )
+    commented_alignment = "|l|" + ("c" * len(ordered_statuses) + "|")
+    commented_table = "\n".join(
+        [
+            "{",
+            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
+            rf"    \begin{{tabular}}{{{commented_alignment}}}",
             r"    \hline",
-            f"    {header_line}",
-            header_cline,
-            *body_lines,
+            f"    {commented_header_line}",
+            commented_header_cline,
+            *commented_body_lines,
             r"    \hline",
             r"    \end{tabular}",
             "}",
+        ]
+    )
+    latex_table = "\n".join(
+        [
+            rendered_table,
+            "",
+            _comment_latex_block(commented_table),
             "",
         ]
     )
