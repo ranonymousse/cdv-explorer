@@ -74,7 +74,7 @@ TYPE_COLORS = {
 FALLBACK_TYPE_COLOR = "#9e9e9e"
 COMPARISON_PLOTS = (
     {
-        "filename_stem": "preamlbe_vs_reges",
+        "filename_stem": "preamlbe_vs_regex",
         "approach": BODY_EXTRACTED_REGEX,
         "baseline": PREAMBLE_EXTRACTED,
         "title": "Selected proposals with differential dependencies (Regex vs. Preamble)",

@@ -16,7 +16,7 @@ GENERATE_DEPENDENCY_COMPARISON_TABLE = False
 DIFFERENTIAL_FOCUS_BIPS = [379,382,350]
 DIFFERENTIAL_LAYOUT = "kamada_kawai"
 DIFFERENTIAL_LAYOUT_EXPORT = Path("paper") / "RQ2" / "dependency_layout_260316_350_379_382.json"
-DIFFERENTIAL_LAYOUT_EXPORT_LABEL = "react_balanced"
+DIFFERENTIAL_LAYOUT_EXPORT_LABEL = "react"
 DIFFERENTIAL_ALTERNATIVE_LAYOUTS = ["spring_scaled", "planar", "spectral", "shell", "circular", "bipartite", "multipartite"]
 
 
