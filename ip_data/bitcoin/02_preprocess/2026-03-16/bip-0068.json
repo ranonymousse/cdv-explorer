@@ -779,6 +779,7 @@
         "timestamp": "2015-06-21T20:12:58-07:00",
         "date": "2015-06-21",
         "author": "Mark Friedenbach",
+        "path": "bip-0068.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -787,6 +788,7 @@
         "timestamp": "2016-07-18T23:37:42Z",
         "date": "2016-07-18",
         "author": "Luke Dashjr",
+        "path": "bip-0068.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -795,6 +797,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0068.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

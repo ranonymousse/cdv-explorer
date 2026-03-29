@@ -793,6 +793,7 @@
         "timestamp": "2014-11-10T04:43:48-05:00",
         "date": "2014-11-10",
         "author": "Peter Todd",
+        "path": "bip-checklocktimeverify.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -801,6 +802,7 @@
         "timestamp": "2015-10-31T23:38:23+11:00",
         "date": "2015-10-31",
         "author": "Daniel Cousens",
+        "path": "bip-0065.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -809,6 +811,7 @@
         "timestamp": "2015-11-13T12:13:03-05:00",
         "date": "2015-11-13",
         "author": "Peter Todd",
+        "path": "bip-0065.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -817,6 +820,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0065.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -825,6 +829,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0065.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

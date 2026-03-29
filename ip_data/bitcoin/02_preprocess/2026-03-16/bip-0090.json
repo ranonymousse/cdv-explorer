@@ -551,6 +551,7 @@
         "timestamp": "2016-11-14T12:01:26-05:00",
         "date": "2016-11-14",
         "author": "Suhas Daftuar",
+        "path": "bip-buried-deployments.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -559,6 +560,7 @@
         "timestamp": "2020-06-25T23:00:59-05:00",
         "date": "2020-06-25",
         "author": "Janus",
+        "path": "bip-0090.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -567,6 +569,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0090.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

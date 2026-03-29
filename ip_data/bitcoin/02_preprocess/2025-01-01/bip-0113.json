@@ -531,9 +531,10 @@
     "changes_in_status": [
       {
         "commit": "4e06ec12b46b81e6169b1818950cbdf71fc5e0c4",
-        "timestamp": "2015-08-12T00:06:41+01:00",
-        "date": "2015-08-12",
+        "timestamp": "2015-09-04T00:38:55+01:00",
+        "date": "2015-09-04",
         "author": "Thomas Kerin",
+        "path": "bip-median-past-timelock.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -542,6 +543,7 @@
         "timestamp": "2016-07-18T23:37:42Z",
         "date": "2016-07-18",
         "author": "Luke Dashjr",
+        "path": "bip-0113.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

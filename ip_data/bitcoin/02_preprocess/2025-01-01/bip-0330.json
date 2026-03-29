@@ -727,6 +727,7 @@
         "timestamp": "2019-09-25T14:11:03+03:00",
         "date": "2019-09-25",
         "author": "Gleb Naumenko",
+        "path": "bip-reconcil.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

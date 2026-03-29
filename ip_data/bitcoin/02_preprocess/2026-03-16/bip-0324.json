@@ -1294,6 +1294,7 @@
         "timestamp": "2023-01-04T08:46:46-08:00",
         "date": "2023-01-04",
         "author": "dhruv",
+        "path": "bip-0324.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1302,6 +1303,7 @@
         "timestamp": "2024-07-10T14:59:46-04:00",
         "date": "2024-07-10",
         "author": "Pieter Wuille",
+        "path": "bip-0324.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -1310,6 +1312,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0324.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

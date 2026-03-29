@@ -654,9 +654,10 @@
     "changes_in_status": [
       {
         "commit": "c947050ed87b18be580f540951704d35809f92c9",
-        "timestamp": "2018-04-20T18:34:22-04:00",
-        "date": "2018-04-20",
+        "timestamp": "2018-07-20T15:06:50-07:00",
+        "date": "2018-07-20",
         "author": "Brad Denby",
+        "path": "bip-dandelion.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -665,6 +666,7 @@
         "timestamp": "2020-06-25T22:55:32-05:00",
         "date": "2020-06-25",
         "author": "Janus",
+        "path": "bip-0156.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

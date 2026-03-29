@@ -472,9 +472,10 @@
     "changes_in_status": [
       {
         "commit": "f667e7a3c737bb983f31632837c24cf0863d5f7b",
-        "timestamp": "2018-04-04T14:38:00+09:00",
-        "date": "2018-04-04",
+        "timestamp": "2018-05-21T08:31:50+09:00",
+        "date": "2018-05-21",
         "author": "Karl-Johan Alm",
+        "path": "bip-0178.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

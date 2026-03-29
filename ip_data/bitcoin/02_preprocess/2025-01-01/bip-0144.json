@@ -565,17 +565,19 @@
     "changes_in_status": [
       {
         "commit": "9b9a8c4b71317afb946ef5198836df31914ed6f9",
-        "timestamp": "2015-12-24T14:23:27-05:00",
+        "timestamp": "2015-12-24T14:28:02-05:00",
         "date": "2015-12-24",
         "author": "Eric Lombrozo",
+        "path": "bip-codeshark-segwit-peer-services.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "824ce9da50158497ebd33057fbf8c4bc3a642c60",
-        "timestamp": "2017-08-30T15:37:48+08:00",
-        "date": "2017-08-30",
+        "timestamp": "2017-09-17T19:09:50+08:00",
+        "date": "2017-09-17",
         "author": "Johnson Lau",
+        "path": "bip-0144.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -584,6 +586,7 @@
         "timestamp": "2017-10-29T04:22:13Z",
         "date": "2017-10-29",
         "author": "Luke Dashjr",
+        "path": "bip-0144.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -592,6 +595,7 @@
         "timestamp": "2019-05-13T18:24:52-04:00",
         "date": "2019-05-13",
         "author": "MarcoFalke",
+        "path": "bip-0144.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

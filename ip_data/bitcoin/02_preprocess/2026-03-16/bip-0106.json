@@ -521,6 +521,7 @@
         "timestamp": "2015-09-06T01:22:34+05:30",
         "date": "2015-09-06",
         "author": "UpalChakraborty",
+        "path": "bip-0106.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -529,6 +530,7 @@
         "timestamp": "2020-04-30T09:37:22-05:00",
         "date": "2020-04-30",
         "author": "Janus",
+        "path": "bip-0106.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -537,6 +539,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0106.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

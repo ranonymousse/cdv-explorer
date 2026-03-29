@@ -650,6 +650,7 @@
         "timestamp": "2012-01-30T00:01:49Z",
         "date": "2012-01-30",
         "author": "genjix",
+        "path": "bip-0021.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -658,6 +659,7 @@
         "timestamp": "2012-02-05T12:15:42Z",
         "date": "2012-02-05",
         "author": "genjix",
+        "path": "bip-0021.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -666,6 +668,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0021.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -674,6 +677,7 @@
         "timestamp": "2016-02-01T20:36:37Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0021.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -682,6 +686,7 @@
         "timestamp": "2016-02-16T22:18:45Z",
         "date": "2016-02-16",
         "author": "Sandro Machado",
+        "path": "bip-0021.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -690,6 +695,7 @@
         "timestamp": "2025-08-07T11:57:06Z",
         "date": "2025-08-07",
         "author": "Matt Corallo",
+        "path": "bip-0021.mediawiki",
         "status": "Replaced",
         "standard": "bip2"
       },
@@ -698,6 +704,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0021.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

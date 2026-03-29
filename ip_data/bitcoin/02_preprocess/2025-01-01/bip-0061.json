@@ -499,9 +499,10 @@
     "changes_in_status": [
       {
         "commit": "4d9e7bc20cef9b296f1c1e9112e729186b54fc61",
-        "timestamp": "2014-06-18T11:13:44-04:00",
+        "timestamp": "2014-06-18T11:25:04-04:00",
         "date": "2014-06-18",
         "author": "Gavin Andresen",
+        "path": "bip-0061.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

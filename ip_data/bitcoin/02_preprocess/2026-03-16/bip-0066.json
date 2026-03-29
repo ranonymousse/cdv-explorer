@@ -599,6 +599,7 @@
         "timestamp": "2015-01-26T23:10:29-04:00",
         "date": "2015-01-26",
         "author": "Pieter Wuille",
+        "path": "bip-0066.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -607,6 +608,7 @@
         "timestamp": "2015-08-14T09:52:24+10:00",
         "date": "2015-08-14",
         "author": "Daniel Cousens",
+        "path": "bip-0066.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -615,6 +617,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0066.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

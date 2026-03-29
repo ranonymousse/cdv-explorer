@@ -525,6 +525,7 @@
         "timestamp": "2014-04-01T23:50:43+02:00",
         "date": "2014-04-01",
         "author": "Pieter Wuille",
+        "path": "bip-0042.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -533,6 +534,7 @@
         "timestamp": "2018-07-05T05:09:05Z",
         "date": "2018-07-05",
         "author": "Luke Dashjr",
+        "path": "bip-0042.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -541,6 +543,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0042.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

@@ -481,9 +481,10 @@
     "changes_in_status": [
       {
         "commit": "37b55d2fde5d7d724822ab121492aac9731ac286",
-        "timestamp": "2021-05-09T10:03:13+01:00",
+        "timestamp": "2021-05-09T10:42:33+01:00",
         "date": "2021-05-09",
         "author": "Michael Folkson",
+        "path": "bip-mandatory-activation.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -492,6 +493,7 @@
         "timestamp": "2023-02-21T22:05:30+01:00",
         "date": "2023-02-21",
         "author": "Christian Lewe",
+        "path": "bip-0343.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

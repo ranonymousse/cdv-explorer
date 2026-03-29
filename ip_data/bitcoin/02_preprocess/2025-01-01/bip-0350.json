@@ -775,9 +775,10 @@
     "changes_in_status": [
       {
         "commit": "6128a7bcb60ae2eca2461ccb17d29b5186d13820",
-        "timestamp": "2020-12-24T14:37:19-08:00",
-        "date": "2020-12-24",
+        "timestamp": "2021-01-29T13:41:08-08:00",
+        "date": "2021-01-29",
         "author": "Pieter Wuille",
+        "path": "bip-0350.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -786,6 +787,7 @@
         "timestamp": "2023-05-18T18:08:00+02:00",
         "date": "2023-05-18",
         "author": "Christian Lewe",
+        "path": "bip-0350.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

@@ -548,9 +548,10 @@
     "changes_in_status": [
       {
         "commit": "96927344e7a50116aceab6c0f648362cc3bab296",
-        "timestamp": "2020-04-11T11:29:51Z",
-        "date": "2020-04-11",
+        "timestamp": "2020-06-11T12:11:06Z",
+        "date": "2020-06-11",
         "author": "Ethan Kosakovsky",
+        "path": "bip-0085.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

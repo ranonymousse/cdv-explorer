@@ -487,9 +487,10 @@
     "changes_in_status": [
       {
         "commit": "5f18700477e2c09653591b940caa40d285a21d95",
-        "timestamp": "2020-09-03T16:51:17-04:00",
-        "date": "2020-09-03",
+        "timestamp": "2021-01-06T11:41:06-05:00",
+        "date": "2021-01-06",
         "author": "Suhas Daftuar",
+        "path": "bip-disable-tx.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -498,6 +499,7 @@
         "timestamp": "2024-07-10T15:36:54-04:00",
         "date": "2024-07-10",
         "author": "Suhas Daftuar",
+        "path": "bip-0338.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

@@ -466,6 +466,7 @@
         "timestamp": "2016-02-25T13:29:01-05:00",
         "date": "2016-02-25",
         "author": "Alex Morcos",
+        "path": "bip-0133.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

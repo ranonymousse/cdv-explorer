@@ -477,9 +477,10 @@
     "changes_in_status": [
       {
         "commit": "39b441f2ff18e7dcf71f357e43e4dd78a1b198b1",
-        "timestamp": "2014-04-09T15:59:32+02:00",
-        "date": "2014-04-09",
+        "timestamp": "2014-04-24T13:42:10+02:00",
+        "date": "2014-04-24",
         "author": "slush0",
+        "path": "bip-0043.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -488,14 +489,16 @@
         "timestamp": "2020-04-30T09:43:09-05:00",
         "date": "2020-04-30",
         "author": "Janus",
+        "path": "bip-0043.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
       {
         "commit": "cb8956396e7b3636f970795c58459110b0b1a34a",
-        "timestamp": "2017-04-21T17:29:33Z",
-        "date": "2017-04-21",
+        "timestamp": "2021-08-29T21:33:54Z",
+        "date": "2021-08-29",
         "author": "Luke Dashjr",
+        "path": "bip-0043.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -504,6 +507,7 @@
         "timestamp": "2024-03-18T23:48:22+01:00",
         "date": "2024-03-18",
         "author": "Pavol Rusnak",
+        "path": "bip-0043.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

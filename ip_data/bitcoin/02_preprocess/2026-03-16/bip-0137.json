@@ -640,6 +640,7 @@
         "timestamp": "2019-03-29T09:03:01-07:00",
         "date": "2019-03-29",
         "author": "cgilliard",
+        "path": "bip-XXXX.mediawiki",
         "status": "Proposal",
         "standard": "bip2"
       },
@@ -648,6 +649,7 @@
         "timestamp": "2019-03-29T10:44:16-07:00",
         "date": "2019-03-29",
         "author": "cgilliard",
+        "path": "bip-0137.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -656,6 +658,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0137.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

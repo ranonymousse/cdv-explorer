@@ -455,9 +455,10 @@
     "changes_in_status": [
       {
         "commit": "11e16622f225a0d5a87a3206528066cd920e5368",
-        "timestamp": "2018-03-06T12:01:17Z",
-        "date": "2018-03-06",
+        "timestamp": "2018-03-26T10:50:12Z",
+        "date": "2018-03-26",
         "author": "BtcDrak",
+        "path": "bip-reservedbits.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

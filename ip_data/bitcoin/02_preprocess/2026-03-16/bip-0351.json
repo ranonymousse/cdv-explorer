@@ -650,6 +650,7 @@
         "timestamp": "2022-07-22T08:57:37Z",
         "date": "2022-07-22",
         "author": "Alfred Hodler",
+        "path": "bip-alfredhodler-privatepayments.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -658,6 +659,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0351.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

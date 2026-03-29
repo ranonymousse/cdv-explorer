@@ -516,9 +516,10 @@
     "changes_in_status": [
       {
         "commit": "ce40c0f8f02e83892eb185aabea306ee2a3ab10e",
-        "timestamp": "2011-10-29T11:39:58+01:00",
+        "timestamp": "2011-10-29T11:53:18+01:00",
         "date": "2011-10-29",
         "author": "genjix",
+        "path": "bip-0011.txt",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -527,6 +528,7 @@
         "timestamp": "2011-12-13T17:35:53Z",
         "date": "2011-12-13",
         "author": "genjix",
+        "path": "bip-0011.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -535,6 +537,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0011.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

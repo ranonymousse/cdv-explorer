@@ -483,10 +483,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "bd5e1ead70eed7aa3cb9398be73e761e96b36678",
-        "timestamp": "2015-11-30T16:40:31-08:00",
-        "date": "2015-11-30",
+        "commit": "bdd7c9ff76405b265af1f1822736cc95b0a44228",
+        "timestamp": "2015-12-04T15:48:37-08:00",
+        "date": "2015-12-04",
         "author": "Chris Priest",
+        "path": "bip-coalesc-wildcard.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -495,6 +496,7 @@
         "timestamp": "2020-08-01T17:17:43-05:00",
         "date": "2020-08-01",
         "author": "Janus",
+        "path": "bip-0131.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

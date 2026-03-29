@@ -863,6 +863,7 @@
         "timestamp": "2015-09-07T00:03:50+01:00",
         "date": "2015-09-07",
         "author": "BtcDrak",
+        "path": "bip-csv.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -871,6 +872,7 @@
         "timestamp": "2016-07-18T23:37:42Z",
         "date": "2016-07-18",
         "author": "Luke Dashjr",
+        "path": "bip-0112.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -879,6 +881,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0112.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

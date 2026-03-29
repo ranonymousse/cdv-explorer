@@ -515,6 +515,7 @@
         "timestamp": "2021-01-06T11:41:06-05:00",
         "date": "2021-01-06",
         "author": "Suhas Daftuar",
+        "path": "bip-disable-tx.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -523,6 +524,7 @@
         "timestamp": "2024-07-10T15:36:54-04:00",
         "date": "2024-07-10",
         "author": "Suhas Daftuar",
+        "path": "bip-0338.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -531,6 +533,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0338.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

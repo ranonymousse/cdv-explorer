@@ -548,9 +548,10 @@
     "changes_in_status": [
       {
         "commit": "b004187f14ef3fadd0851e1f3296e8ebac6109bd",
-        "timestamp": "2016-08-16T17:26:08+08:00",
-        "date": "2016-08-16",
+        "timestamp": "2016-08-17T02:14:18+08:00",
+        "date": "2016-08-17",
         "author": "Johnson Lau",
+        "path": "bip-lows.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -559,6 +560,7 @@
         "timestamp": "2020-06-25T05:11:46Z",
         "date": "2020-06-25",
         "author": "Luke Dashjr",
+        "path": "bip-0146.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

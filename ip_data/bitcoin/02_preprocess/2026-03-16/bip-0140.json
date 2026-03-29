@@ -651,6 +651,7 @@
         "timestamp": "2016-01-08T17:47:46Z",
         "date": "2016-01-08",
         "author": "Luke Dashjr",
+        "path": "bip-0140.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -659,6 +660,7 @@
         "timestamp": "2020-06-25T22:42:52-05:00",
         "date": "2020-06-25",
         "author": "Janus",
+        "path": "bip-0140.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -667,6 +669,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0140.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

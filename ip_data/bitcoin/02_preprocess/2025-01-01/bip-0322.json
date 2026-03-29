@@ -654,9 +654,10 @@
     "changes_in_status": [
       {
         "commit": "b925137d5f302863f4f1002c191858ef350ba1fc",
-        "timestamp": "2018-09-10T12:26:13+09:00",
-        "date": "2018-09-10",
+        "timestamp": "2018-09-12T15:01:04+09:00",
+        "date": "2018-09-12",
         "author": "Karl-Johan Alm",
+        "path": "bip-0322.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

@@ -827,6 +827,7 @@
         "timestamp": "2013-10-21T00:59:06-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0070.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -835,6 +836,7 @@
         "timestamp": "2014-06-12T10:46:59-04:00",
         "date": "2014-06-12",
         "author": "Gavin Andresen",
+        "path": "bip-0070.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

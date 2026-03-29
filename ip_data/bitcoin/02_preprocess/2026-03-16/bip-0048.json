@@ -647,6 +647,7 @@
         "timestamp": "2020-12-16T19:22:20+08:00",
         "date": "2020-12-16",
         "author": "Fonta1n3",
+        "path": "bip-0048.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -655,6 +656,7 @@
         "timestamp": "2025-05-13T13:07:53-07:00",
         "date": "2025-05-13",
         "author": "Murch",
+        "path": "bip-0048.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -663,6 +665,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0048.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

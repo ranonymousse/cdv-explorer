@@ -1216,6 +1216,7 @@
         "timestamp": "2019-05-06T10:40:58-07:00",
         "date": "2019-05-06",
         "author": "Pieter Wuille",
+        "path": "bip-schnorr.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1224,6 +1225,7 @@
         "timestamp": "2023-02-19T16:16:13+01:00",
         "date": "2023-02-19",
         "author": "Christian Lewe",
+        "path": "bip-0340.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -1232,6 +1234,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0340.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

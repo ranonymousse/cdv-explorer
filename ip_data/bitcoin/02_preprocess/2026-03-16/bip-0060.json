@@ -536,6 +536,7 @@
         "timestamp": "2013-10-21T00:58:23-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0060.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -544,6 +545,7 @@
         "timestamp": "2019-06-20T16:04:19-05:00",
         "date": "2019-06-20",
         "author": "Janus",
+        "path": "bip-0060.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -552,6 +554,7 @@
         "timestamp": "2023-12-07T02:13:58+01:00",
         "date": "2023-12-07",
         "author": "Vehorny",
+        "path": "bip-0060.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -560,6 +563,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0060.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

@@ -611,9 +611,10 @@
     "changes_in_status": [
       {
         "commit": "136d85ea56f4ab1d04c7c3df6b982a76d286e449",
-        "timestamp": "2017-03-04T08:04:20Z",
+        "timestamp": "2017-03-04T08:05:45Z",
         "date": "2017-03-04",
         "author": "Luke Dashjr",
+        "path": "bip-xchgrate.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -622,6 +623,7 @@
         "timestamp": "2020-08-01T17:34:53-05:00",
         "date": "2020-08-01",
         "author": "Janus",
+        "path": "bip-0171.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

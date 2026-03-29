@@ -764,6 +764,7 @@
         "timestamp": "2019-06-13T08:14:39+02:00",
         "date": "2019-06-13",
         "author": "Велеслав",
+        "path": "bip-0136.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -772,6 +773,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0136.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

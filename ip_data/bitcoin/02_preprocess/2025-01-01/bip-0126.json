@@ -540,6 +540,7 @@
         "timestamp": "2016-06-22T18:43:56-05:00",
         "date": "2016-06-22",
         "author": "Justus Ranvier",
+        "path": "bip-0126.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

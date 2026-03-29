@@ -780,6 +780,7 @@
         "timestamp": "2017-05-07T15:25:13-07:00",
         "date": "2017-05-07",
         "author": "Pieter Wuille",
+        "path": "bip-0173.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -788,6 +789,7 @@
         "timestamp": "2018-01-03T09:06:47-08:00",
         "date": "2018-01-03",
         "author": "Pieter Wuille",
+        "path": "bip-0173.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -796,6 +798,7 @@
         "timestamp": "2018-07-05T05:09:05Z",
         "date": "2018-07-05",
         "author": "Luke Dashjr",
+        "path": "bip-0173.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -804,6 +807,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0173.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

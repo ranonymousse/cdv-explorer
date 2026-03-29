@@ -1631,6 +1631,7 @@
         "timestamp": "2017-09-18T00:24:47-04:00",
         "date": "2017-09-18",
         "author": "Andrew Chow",
+        "path": "bip-0174.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1639,6 +1640,7 @@
         "timestamp": "2018-07-11T14:01:20-07:00",
         "date": "2018-07-11",
         "author": "Andrew Chow",
+        "path": "bip-0174.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -1647,6 +1649,7 @@
         "timestamp": "2021-01-25T17:13:57-05:00",
         "date": "2021-01-25",
         "author": "Andrew Chow",
+        "path": "bip-0174.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -1655,6 +1658,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0174.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

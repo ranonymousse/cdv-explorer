@@ -496,9 +496,10 @@
     "changes_in_status": [
       {
         "commit": "5cc40831e6e27041b8258738496f4c3d09260cda",
-        "timestamp": "2014-04-01T23:50:03+02:00",
+        "timestamp": "2014-04-01T23:50:43+02:00",
         "date": "2014-04-01",
         "author": "Pieter Wuille",
+        "path": "bip-0042.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -507,6 +508,7 @@
         "timestamp": "2018-07-05T05:09:05Z",
         "date": "2018-07-05",
         "author": "Luke Dashjr",
+        "path": "bip-0042.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

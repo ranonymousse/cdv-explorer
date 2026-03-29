@@ -535,6 +535,7 @@
         "timestamp": "2011-12-31T12:14:49Z",
         "date": "2011-12-31",
         "author": "genjix",
+        "path": "bip-0010.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -543,6 +544,7 @@
         "timestamp": "2014-11-26T11:51:15-06:00",
         "date": "2014-11-26",
         "author": "Umpei Kay Kurokawa",
+        "path": "bip-0010.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

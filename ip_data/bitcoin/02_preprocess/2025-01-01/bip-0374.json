@@ -536,9 +536,10 @@
     "changes_in_status": [
       {
         "commit": "4f5d87adc8bed41db534e2a3ec31096eb24a0851",
-        "timestamp": "2024-10-23T21:41:26-04:00",
-        "date": "2024-10-23",
+        "timestamp": "2024-11-02T23:23:57-04:00",
+        "date": "2024-11-02",
         "author": "Andrew Toth",
+        "path": "bip-DLEQ.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

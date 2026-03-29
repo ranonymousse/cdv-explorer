@@ -653,6 +653,7 @@
         "timestamp": "2026-02-27T12:24:33-08:00",
         "date": "2026-02-27",
         "author": "Oren",
+        "path": "bip-0128.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

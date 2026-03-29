@@ -819,6 +819,7 @@
         "timestamp": "2026-02-06T16:28:07-08:00",
         "date": "2026-02-06",
         "author": "Dathon Ohm",
+        "path": "bip-0110.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

@@ -561,14 +561,16 @@
         "timestamp": "2013-10-21T00:57:32-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0050.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "a74ea14bc66d6be699f3e3d5aae2fa308ad7adad",
-        "timestamp": "2016-02-01T21:17:02Z",
-        "date": "2016-02-01",
+        "timestamp": "2016-02-24T05:27:08Z",
+        "date": "2016-02-24",
         "author": "Luke Dashjr",
+        "path": "bip-0050.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

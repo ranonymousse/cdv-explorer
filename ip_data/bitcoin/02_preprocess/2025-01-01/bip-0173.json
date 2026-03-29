@@ -757,17 +757,19 @@
     "changes_in_status": [
       {
         "commit": "b93d9ea5d9dd0c0046198e05a14a59f5a023dfee",
-        "timestamp": "2017-05-07T14:48:08-07:00",
+        "timestamp": "2017-05-07T15:25:13-07:00",
         "date": "2017-05-07",
         "author": "Pieter Wuille",
+        "path": "bip-0173.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "97a55878e61fd19b8e9eb68759a8dc902a1831a6",
-        "timestamp": "2018-01-03T08:52:13-08:00",
+        "timestamp": "2018-01-03T09:06:47-08:00",
         "date": "2018-01-03",
         "author": "Pieter Wuille",
+        "path": "bip-0173.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -776,6 +778,7 @@
         "timestamp": "2018-07-05T05:09:05Z",
         "date": "2018-07-05",
         "author": "Luke Dashjr",
+        "path": "bip-0173.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

@@ -853,6 +853,7 @@
         "timestamp": "2026-02-11T13:01:47-08:00",
         "date": "2026-02-11",
         "author": "Hunter Beast",
+        "path": "bip-0360.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

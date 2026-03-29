@@ -506,6 +506,7 @@
         "timestamp": "2016-02-03T07:02:36Z",
         "date": "2016-02-03",
         "author": "Luke Dashjr",
+        "path": "bip-0074.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -514,6 +515,7 @@
         "timestamp": "2019-06-20T16:11:19-05:00",
         "date": "2019-06-20",
         "author": "Janus",
+        "path": "bip-0074.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

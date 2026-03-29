@@ -778,9 +778,10 @@
     "changes_in_status": [
       {
         "commit": "e761066fbcd41b6a10b1614d974ea09531c3f945",
-        "timestamp": "2023-03-17T02:39:01Z",
+        "timestamp": "2023-03-17T11:39:01+09:00",
         "date": "2023-03-17",
         "author": "Andrew Poelstra",
+        "path": "bip-0093.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

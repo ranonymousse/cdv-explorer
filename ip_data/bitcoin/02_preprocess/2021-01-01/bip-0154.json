@@ -825,9 +825,10 @@
     "changes_in_status": [
       {
         "commit": "c39c7f88add33d40fc9b66b50ba29343cae3e5b0",
-        "timestamp": "2017-03-26T15:19:22-07:00",
-        "date": "2017-03-26",
+        "timestamp": "2017-05-24T11:25:08+09:00",
+        "date": "2017-05-24",
         "author": "Karl-Johan Alm",
+        "path": "bip-0154.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -836,6 +837,7 @@
         "timestamp": "2019-07-30T00:22:42+09:00",
         "date": "2019-07-30",
         "author": "Karl-Johan Alm",
+        "path": "bip-0154.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

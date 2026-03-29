@@ -743,6 +743,7 @@
         "timestamp": "2013-10-21T00:55:59-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0037.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -751,6 +752,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0037.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -759,6 +761,7 @@
         "timestamp": "2016-02-03T07:02:36Z",
         "date": "2016-02-03",
         "author": "Luke Dashjr",
+        "path": "bip-0037.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -767,6 +770,7 @@
         "timestamp": "2016-05-22T18:23:15-07:00",
         "date": "2016-05-22",
         "author": "Matt Corallo",
+        "path": "bip-0037.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -775,6 +779,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0037.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

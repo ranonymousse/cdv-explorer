@@ -474,9 +474,10 @@
     "changes_in_status": [
       {
         "commit": "ec403b0ac53bbf248493da219a191df494795a4a",
-        "timestamp": "2017-08-07T19:29:04+02:00",
+        "timestamp": "2017-08-07T19:50:10+02:00",
         "date": "2017-08-07",
         "author": "Jonas Schnelli",
+        "path": "bip-0159.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

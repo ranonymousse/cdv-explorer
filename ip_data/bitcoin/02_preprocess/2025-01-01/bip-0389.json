@@ -513,9 +513,10 @@
     "changes_in_status": [
       {
         "commit": "a3ad2547bc4643912f67a7aaea951fcc3b24dc82",
-        "timestamp": "2022-07-26T17:16:53-04:00",
-        "date": "2022-07-26",
+        "timestamp": "2023-02-09T15:16:19-05:00",
+        "date": "2023-02-09",
         "author": "Andrew Chow",
+        "path": "bip-0389.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

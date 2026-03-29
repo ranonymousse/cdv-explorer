@@ -748,9 +748,10 @@
     "changes_in_status": [
       {
         "commit": "04d3a0609b548805fa2ebaf5d3a495f1b81a003c",
-        "timestamp": "2024-01-15T16:26:55Z",
-        "date": "2024-01-15",
+        "timestamp": "2024-05-23T16:33:00+01:00",
+        "date": "2024-05-23",
         "author": "glozow",
+        "path": "bip-0431.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

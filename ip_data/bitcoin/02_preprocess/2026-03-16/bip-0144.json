@@ -591,6 +591,7 @@
         "timestamp": "2015-12-24T14:28:02-05:00",
         "date": "2015-12-24",
         "author": "Eric Lombrozo",
+        "path": "bip-codeshark-segwit-peer-services.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -599,6 +600,7 @@
         "timestamp": "2017-09-17T19:09:50+08:00",
         "date": "2017-09-17",
         "author": "Johnson Lau",
+        "path": "bip-0144.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -607,6 +609,7 @@
         "timestamp": "2017-10-29T04:22:13Z",
         "date": "2017-10-29",
         "author": "Luke Dashjr",
+        "path": "bip-0144.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -615,6 +618,7 @@
         "timestamp": "2019-05-13T18:24:52-04:00",
         "date": "2019-05-13",
         "author": "MarcoFalke",
+        "path": "bip-0144.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -623,6 +627,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0144.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

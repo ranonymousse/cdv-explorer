@@ -648,6 +648,7 @@
         "timestamp": "2014-04-24T13:42:10+02:00",
         "date": "2014-04-24",
         "author": "slush0",
+        "path": "bip-0044.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -656,6 +657,7 @@
         "timestamp": "2016-08-23T19:47:29Z",
         "date": "2016-08-23",
         "author": "Luke Dashjr",
+        "path": "bip-0044.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -664,6 +666,7 @@
         "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0044.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -672,6 +675,7 @@
         "timestamp": "2017-04-24T11:16:45+02:00",
         "date": "2017-04-24",
         "author": "Michael Rotarius",
+        "path": "bip-0044.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -680,6 +684,7 @@
         "timestamp": "2017-11-29T00:18:50+02:00",
         "date": "2017-11-29",
         "author": "Nikos Baxevanis",
+        "path": "bip-0044.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -688,6 +693,7 @@
         "timestamp": "2024-03-18T23:48:44+01:00",
         "date": "2024-03-18",
         "author": "Pavol Rusnak",
+        "path": "bip-0044.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -696,6 +702,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0044.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

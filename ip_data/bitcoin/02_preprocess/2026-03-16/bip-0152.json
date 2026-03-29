@@ -928,6 +928,7 @@
         "timestamp": "2016-05-22T18:21:32-07:00",
         "date": "2016-05-22",
         "author": "Matt Corallo",
+        "path": "bip-0152.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -936,6 +937,7 @@
         "timestamp": "2020-02-29T18:29:02-06:00",
         "date": "2020-02-29",
         "author": "Janus",
+        "path": "bip-0152.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -944,6 +946,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0152.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

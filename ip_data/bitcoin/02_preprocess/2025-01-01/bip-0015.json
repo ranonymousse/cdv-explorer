@@ -724,6 +724,7 @@
         "timestamp": "2011-12-13T17:28:52Z",
         "date": "2011-12-13",
         "author": "genjix",
+        "path": "bip-0015.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -732,6 +733,7 @@
         "timestamp": "2011-12-30T20:20:01Z",
         "date": "2011-12-30",
         "author": "genjix",
+        "path": "bip-0015.md",
         "status": "Deferred",
         "standard": "bip2"
       },
@@ -740,6 +742,7 @@
         "timestamp": "2012-01-31T14:00:15Z",
         "date": "2012-01-31",
         "author": "genjix",
+        "path": "bip-0015.md",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -748,6 +751,7 @@
         "timestamp": "2013-10-21T00:42:26-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0015.mediawiki",
         "status": "Deferred",
         "standard": "bip2"
       }

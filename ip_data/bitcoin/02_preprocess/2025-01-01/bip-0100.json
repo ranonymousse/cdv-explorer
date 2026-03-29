@@ -506,6 +506,7 @@
         "timestamp": "2017-03-08T11:46:12-05:00",
         "date": "2017-03-08",
         "author": "Jeff Garzik",
+        "path": "bip-0100.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -514,6 +515,7 @@
         "timestamp": "2019-09-24T19:33:03Z",
         "date": "2019-09-24",
         "author": "Luke Dashjr",
+        "path": "bip-0100.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

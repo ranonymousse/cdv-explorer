@@ -532,9 +532,10 @@
     "changes_in_status": [
       {
         "commit": "4d5e1cc162e5d93bcf8e0ea94cf2bb96e1d7594a",
-        "timestamp": "2022-01-08T15:32:00Z",
-        "date": "2022-01-08",
+        "timestamp": "2022-03-04T21:36:24Z",
+        "date": "2022-03-04",
         "author": "chris-belcher",
+        "path": "bip-0326.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

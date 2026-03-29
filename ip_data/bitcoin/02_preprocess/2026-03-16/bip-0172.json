@@ -532,6 +532,7 @@
         "timestamp": "2025-05-08T10:24:02-07:00",
         "date": "2025-05-08",
         "author": "0ceanSlim",
+        "path": "bip-0172.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -540,6 +541,7 @@
         "timestamp": "2026-01-12T14:29:00-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0172.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

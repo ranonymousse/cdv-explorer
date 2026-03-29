@@ -480,6 +480,7 @@
         "timestamp": "2018-03-26T10:50:12Z",
         "date": "2018-03-26",
         "author": "BtcDrak",
+        "path": "bip-reservedbits.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -488,6 +489,7 @@
         "timestamp": "2026-01-12T14:22:40-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0320.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

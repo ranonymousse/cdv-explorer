@@ -425,9 +425,10 @@
     "changes_in_status": [
       {
         "commit": "d3ff4b1e9e3358893c5c5c5c2b5b1642f65ea98c",
-        "timestamp": "2019-10-17T21:26:08+02:00",
-        "date": "2019-10-17",
+        "timestamp": "2019-11-07T14:58:29+01:00",
+        "date": "2019-11-07",
         "author": "Emil Engler",
+        "path": "bip-0179.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

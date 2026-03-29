@@ -699,6 +699,7 @@
         "timestamp": "2015-06-24T17:02:43-04:00",
         "date": "2015-06-24",
         "author": "Kristov Atlas",
+        "path": "bip-0069.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -707,6 +708,7 @@
         "timestamp": "2016-08-27T20:21:26Z",
         "date": "2016-08-27",
         "author": "Luke Dashjr",
+        "path": "bip-0069.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -715,6 +717,7 @@
         "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0069.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -723,6 +726,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0069.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

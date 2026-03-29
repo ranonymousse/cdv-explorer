@@ -851,6 +851,7 @@
         "timestamp": "2018-01-22T13:52:54-08:00",
         "date": "2018-01-22",
         "author": "Jim Posen",
+        "path": "bip-0158.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -859,6 +860,7 @@
         "timestamp": "2025-09-10T21:29:43-06:00",
         "date": "2025-09-10",
         "author": "Jon Atack",
+        "path": "bip-0158.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -867,6 +869,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0158.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

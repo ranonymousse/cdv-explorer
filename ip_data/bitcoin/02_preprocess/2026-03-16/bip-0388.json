@@ -913,6 +913,7 @@
         "timestamp": "2024-05-07T10:58:01+02:00",
         "date": "2024-05-07",
         "author": "Salvatore Ingala",
+        "path": "bip-wallet-policies.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -921,6 +922,7 @@
         "timestamp": "2024-05-12T11:56:08+02:00",
         "date": "2024-05-12",
         "author": "Salvatore Ingala",
+        "path": "bip-0388.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -929,6 +931,7 @@
         "timestamp": "2024-05-12T11:08:30-06:00",
         "date": "2024-05-12",
         "author": "Jon Atack",
+        "path": "bip-0388.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -937,6 +940,7 @@
         "timestamp": "2024-07-10T17:58:48+02:00",
         "date": "2024-07-10",
         "author": "Salvatore Ingala",
+        "path": "bip-0388.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -945,6 +949,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0388.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

@@ -491,6 +491,7 @@
         "timestamp": "2024-05-06T18:26:11-04:00",
         "date": "2024-05-06",
         "author": "Ava Chow",
+        "path": "bip-0387.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -499,6 +500,7 @@
         "timestamp": "2024-07-10T19:06:05-04:00",
         "date": "2024-07-10",
         "author": "Ava Chow",
+        "path": "bip-0387.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -507,6 +509,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0387.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

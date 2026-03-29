@@ -1133,6 +1133,7 @@
         "timestamp": "2024-05-08T18:14:55+02:00",
         "date": "2024-05-08",
         "author": "josibake",
+        "path": "bip-0352.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1141,6 +1142,7 @@
         "timestamp": "2024-05-08T18:34:34+02:00",
         "date": "2024-05-08",
         "author": "josibake",
+        "path": "bip-0352.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -1149,6 +1151,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0352.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

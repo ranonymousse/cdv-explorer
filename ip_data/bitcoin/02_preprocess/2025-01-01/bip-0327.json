@@ -1111,17 +1111,19 @@
     "changes_in_status": [
       {
         "commit": "87394eaeb436d02e0a68b38a1e94bc526d50056e",
-        "timestamp": "2022-04-05T22:29:59Z",
-        "date": "2022-04-05",
+        "timestamp": "2023-03-27T11:48:22+09:00",
+        "date": "2023-03-27",
         "author": "Jonas Nick",
+        "path": "bip-0327.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "2eb22b8ec67374573efc158ea64dde1d1da7c6dc",
-        "timestamp": "2024-10-11T11:09:08-06:00",
+        "timestamp": "2024-10-11T11:19:56-06:00",
         "date": "2024-10-11",
         "author": "Jon Atack",
+        "path": "bip-0327.mediawiki",
         "status": "Active",
         "standard": "bip2"
       }

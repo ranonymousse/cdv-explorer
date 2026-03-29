@@ -790,6 +790,7 @@
         "timestamp": "2026-02-04T12:58:08-08:00",
         "date": "2026-02-04",
         "author": "Jurvis Tan",
+        "path": "bip-0089.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

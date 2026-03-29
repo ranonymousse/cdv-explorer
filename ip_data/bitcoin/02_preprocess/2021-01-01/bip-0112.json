@@ -809,9 +809,10 @@
     "changes_in_status": [
       {
         "commit": "ae46943f11faf80c1f69542f0976989c09cfa192",
-        "timestamp": "2015-08-11T00:49:09+01:00",
-        "date": "2015-08-11",
+        "timestamp": "2015-09-07T00:03:50+01:00",
+        "date": "2015-09-07",
         "author": "BtcDrak",
+        "path": "bip-csv.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -820,6 +821,7 @@
         "timestamp": "2016-07-18T23:37:42Z",
         "date": "2016-07-18",
         "author": "Luke Dashjr",
+        "path": "bip-0112.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

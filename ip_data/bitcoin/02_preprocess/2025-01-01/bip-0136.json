@@ -748,9 +748,10 @@
     "changes_in_status": [
       {
         "commit": "e78c384755f2bd6bf233d585a0ffd70b57eb43db",
-        "timestamp": "2018-09-12T20:17:33+10:00",
-        "date": "2018-09-12",
+        "timestamp": "2019-06-13T08:14:39+02:00",
+        "date": "2019-06-13",
         "author": "Велеслав",
+        "path": "bip-0136.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

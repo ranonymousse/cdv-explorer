@@ -576,6 +576,7 @@
         "timestamp": "2016-08-17T02:14:18+08:00",
         "date": "2016-08-17",
         "author": "Johnson Lau",
+        "path": "bip-lows.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -584,6 +585,7 @@
         "timestamp": "2020-06-25T05:11:46Z",
         "date": "2020-06-25",
         "author": "Luke Dashjr",
+        "path": "bip-0146.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -592,6 +594,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0146.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

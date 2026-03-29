@@ -727,9 +727,10 @@
     "changes_in_status": [
       {
         "commit": "9a81f01a3db13c9d2f1f93ba79dd78144df4273c",
-        "timestamp": "2015-06-20T23:10:46+02:00",
-        "date": "2015-06-20",
+        "timestamp": "2015-07-31T22:22:22+02:00",
+        "date": "2015-07-31",
         "author": "Jorge Timón",
+        "path": "bip-0099.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -738,6 +739,7 @@
         "timestamp": "2020-04-30T09:29:35-05:00",
         "date": "2020-04-30",
         "author": "Janus",
+        "path": "bip-0099.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

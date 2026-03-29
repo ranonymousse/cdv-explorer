@@ -726,6 +726,7 @@
         "timestamp": "2025-04-28T14:30:31-04:00",
         "date": "2025-04-28",
         "author": "Antoine Poinsot",
+        "path": "bip-0054.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -734,6 +735,7 @@
         "timestamp": "2026-01-12T14:22:40-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0054.md",
         "status": "Draft",
         "standard": "bip3"
       }

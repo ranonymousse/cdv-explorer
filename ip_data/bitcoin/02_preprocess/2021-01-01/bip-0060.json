@@ -499,6 +499,7 @@
         "timestamp": "2013-10-21T00:58:23-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0060.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

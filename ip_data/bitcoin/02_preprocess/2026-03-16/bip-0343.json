@@ -512,6 +512,7 @@
         "timestamp": "2021-05-09T10:42:33+01:00",
         "date": "2021-05-09",
         "author": "Michael Folkson",
+        "path": "bip-mandatory-activation.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -520,6 +521,7 @@
         "timestamp": "2023-02-21T22:05:30+01:00",
         "date": "2023-02-21",
         "author": "Christian Lewe",
+        "path": "bip-0343.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -528,6 +530,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0343.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

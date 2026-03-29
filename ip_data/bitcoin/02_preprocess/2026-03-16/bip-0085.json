@@ -919,6 +919,7 @@
         "timestamp": "2020-06-11T12:11:06Z",
         "date": "2020-06-11",
         "author": "Ethan Kosakovsky",
+        "path": "bip-0085.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -927,6 +928,7 @@
         "timestamp": "2024-10-05T16:07:40+02:00",
         "date": "2024-10-05",
         "author": "scgbckbone",
+        "path": "bip-0085.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -935,6 +937,7 @@
         "timestamp": "2024-10-13T17:02:11-07:00",
         "date": "2024-10-13",
         "author": "Aneesh Karve",
+        "path": "bip-0085.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -943,6 +946,7 @@
         "timestamp": "2024-10-25T12:03:06-07:00",
         "date": "2024-10-25",
         "author": "Aneesh Karve",
+        "path": "bip-0085.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -951,6 +955,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0085.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

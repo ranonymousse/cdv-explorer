@@ -1090,6 +1090,7 @@
         "timestamp": "2023-02-13T18:58:59-05:00",
         "date": "2023-02-13",
         "author": "James O'Beirne",
+        "path": "bip-vaults.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1098,6 +1099,7 @@
         "timestamp": "2025-05-08T11:33:31-07:00",
         "date": "2025-05-08",
         "author": "James O'Beirne",
+        "path": "bip-0345.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -1106,6 +1108,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0345.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

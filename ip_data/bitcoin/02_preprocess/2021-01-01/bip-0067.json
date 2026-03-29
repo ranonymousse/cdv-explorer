@@ -573,10 +573,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "b56a04c300c00609f38b1b70cf005458abbe705d",
-        "timestamp": "2015-02-12T21:02:56Z",
-        "date": "2015-02-12",
-        "author": "BitWasp",
+        "commit": "08655a0ccc3a89b2e714248e6ded127ee26a2874",
+        "timestamp": "2015-03-15T12:43:02Z",
+        "date": "2015-03-15",
+        "author": "Thomas Kerin",
+        "path": "bip-0067.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -585,14 +586,16 @@
         "timestamp": "2016-08-23T19:47:29Z",
         "date": "2016-08-23",
         "author": "Luke Dashjr",
+        "path": "bip-0067.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0067.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -601,6 +604,7 @@
         "timestamp": "2016-11-30T17:48:54+01:00",
         "date": "2016-11-30",
         "author": "Ruben de Vries",
+        "path": "bip-0067.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -609,6 +613,7 @@
         "timestamp": "2020-04-29T01:43:50+02:00",
         "date": "2020-04-29",
         "author": "Ferdinando M. Ametrano",
+        "path": "bip-0067.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       }

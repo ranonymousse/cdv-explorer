@@ -551,6 +551,7 @@
         "timestamp": "2015-07-28T22:41:35+02:00",
         "date": "2015-07-28",
         "author": "Kalle Rosenbaum",
+        "path": "bip-0121.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -559,6 +560,7 @@
         "timestamp": "2018-02-08T22:22:50+01:00",
         "date": "2018-02-08",
         "author": "Kalle Rosenbaum",
+        "path": "bip-0121.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

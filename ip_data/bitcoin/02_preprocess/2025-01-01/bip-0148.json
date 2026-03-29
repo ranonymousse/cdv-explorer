@@ -512,9 +512,10 @@
     "changes_in_status": [
       {
         "commit": "ccef12cc4226edda0222d98861f2296f6cb9e26d",
-        "timestamp": "2017-03-18T20:09:37Z",
-        "date": "2017-03-18",
+        "timestamp": "2017-03-19T20:29:21Z",
+        "date": "2017-03-19",
         "author": "shaolinfry",
+        "path": "bip-0148.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -523,6 +524,7 @@
         "timestamp": "2017-08-11T05:36:07Z",
         "date": "2017-08-11",
         "author": "shaolinfry",
+        "path": "bip-0148.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

@@ -923,9 +923,10 @@
     "changes_in_status": [
       {
         "commit": "3faf6e7540e9925b536701c9644e6622b8d25b19",
-        "timestamp": "2020-05-09T17:33:59+09:00",
-        "date": "2020-05-09",
+        "timestamp": "2020-05-17T05:59:23+09:00",
+        "date": "2020-05-17",
         "author": "nicolas.dorier",
+        "path": "bip-xxxx.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

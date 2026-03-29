@@ -519,6 +519,7 @@
         "timestamp": "2017-12-31T14:32:35+01:00",
         "date": "2017-12-31",
         "author": "Pavol Rusnak",
+        "path": "bip-0084.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -527,6 +528,7 @@
         "timestamp": "2023-04-10T16:22:24+02:00",
         "date": "2023-04-10",
         "author": "Vojtěch Strnad",
+        "path": "bip-0084.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -535,6 +537,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0084.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

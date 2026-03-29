@@ -749,9 +749,10 @@
     "changes_in_status": [
       {
         "commit": "735a55612949f5b0bcec6fe2e5f89e65bf0602c6",
-        "timestamp": "2016-04-01T15:17:24+08:00",
-        "date": "2016-04-01",
+        "timestamp": "2016-04-02T01:06:35+08:00",
+        "date": "2016-04-02",
         "author": "jl2012",
+        "path": "bip-mast.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -760,6 +761,7 @@
         "timestamp": "2020-08-21T08:08:17+02:00",
         "date": "2020-08-21",
         "author": "Janus",
+        "path": "bip-0114.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

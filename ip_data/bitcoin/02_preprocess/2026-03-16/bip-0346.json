@@ -647,6 +647,7 @@
         "timestamp": "2026-01-22T22:59:40-03:00",
         "date": "2026-01-22",
         "author": "Steven Roose",
+        "path": "bip-0346.md",
         "status": "Draft",
         "standard": "bip3"
       }

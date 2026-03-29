@@ -1039,17 +1039,19 @@
     "changes_in_status": [
       {
         "commit": "96f4e5a4c4cd2e5ba4e74212077b858a3b047f31",
-        "timestamp": "2024-01-15T12:23:22+01:00",
-        "date": "2024-01-15",
+        "timestamp": "2024-05-08T18:14:55+02:00",
+        "date": "2024-05-08",
         "author": "josibake",
+        "path": "bip-0352.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "9929215dcf47235bc8a54b8549c2f32f2987463c",
-        "timestamp": "2024-05-08T18:05:51+02:00",
+        "timestamp": "2024-05-08T18:34:34+02:00",
         "date": "2024-05-08",
         "author": "josibake",
+        "path": "bip-0352.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       }

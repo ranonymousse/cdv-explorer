@@ -610,6 +610,7 @@
         "timestamp": "2019-09-20T17:50:14Z",
         "date": "2019-09-20",
         "author": "Luke Dashjr",
+        "path": "bip-0300.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

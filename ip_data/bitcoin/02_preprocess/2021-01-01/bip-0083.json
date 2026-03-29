@@ -519,6 +519,7 @@
         "timestamp": "2016-01-12T19:16:46-05:00",
         "date": "2016-01-12",
         "author": "Eric Lombrozo",
+        "path": "bip-0083.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -527,6 +528,7 @@
         "timestamp": "2019-06-20T16:31:52-05:00",
         "date": "2019-06-20",
         "author": "Janus",
+        "path": "bip-0083.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

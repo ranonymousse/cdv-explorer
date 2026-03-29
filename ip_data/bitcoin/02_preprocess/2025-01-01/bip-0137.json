@@ -615,26 +615,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "6d42bc0c5b560f42c2b4c7ac459cfa3ee5cb3701",
-        "timestamp": "2019-02-18T13:45:02-08:00",
-        "date": "2019-02-18",
+        "commit": "a7136d5ca8f9fe251b8122b1b17fd274c7e50a7e",
+        "timestamp": "2019-03-29T09:03:01-07:00",
+        "date": "2019-03-29",
         "author": "cgilliard",
-        "status": "Proposal",
-        "standard": "bip2"
-      },
-      {
-        "commit": "ec8b400259d74de507f0e7856899397fc5a15671",
-        "timestamp": "2019-02-27T10:28:34+01:00",
-        "date": "2019-02-27",
-        "author": "Wladimir J. van der Laan",
-        "status": "Draft",
-        "standard": "bip2"
-      },
-      {
-        "commit": "fe6899a294c5d437f727981f69a660a833bcba6b",
-        "timestamp": "2019-03-02T14:50:23-08:00",
-        "date": "2019-03-02",
-        "author": "cgilliard",
+        "path": "bip-XXXX.mediawiki",
         "status": "Proposal",
         "standard": "bip2"
       },
@@ -643,6 +628,7 @@
         "timestamp": "2019-03-29T10:44:16-07:00",
         "date": "2019-03-29",
         "author": "cgilliard",
+        "path": "bip-0137.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

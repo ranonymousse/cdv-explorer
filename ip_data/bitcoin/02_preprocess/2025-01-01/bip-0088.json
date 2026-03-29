@@ -637,17 +637,19 @@
     "changes_in_status": [
       {
         "commit": "2305c5bda6a2a7cbcb948eb6c5838f39db4fe4fc",
-        "timestamp": "2020-10-26T17:30:32+05:00",
-        "date": "2020-10-26",
+        "timestamp": "2021-05-15T11:24:36+05:00",
+        "date": "2021-05-15",
         "author": "Dmitry Petukhov",
+        "path": "bip-path-templates.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "3d9a359d1de6232975042f0a5a5c99f2fc112a6b",
-        "timestamp": "2021-05-15T11:18:16+05:00",
+        "timestamp": "2021-05-15T11:37:02+05:00",
         "date": "2021-05-15",
         "author": "Dmitry Petukhov",
+        "path": "bip-0088.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       }

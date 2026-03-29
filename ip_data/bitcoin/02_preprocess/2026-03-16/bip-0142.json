@@ -571,6 +571,7 @@
         "timestamp": "2015-12-24T21:45:11+08:00",
         "date": "2015-12-24",
         "author": "Johnson Lau",
+        "path": "bip-segwitaddress.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -579,6 +580,7 @@
         "timestamp": "2016-03-16T23:20:58+08:00",
         "date": "2016-03-16",
         "author": "Johnson Lau",
+        "path": "bip-0142.mediawiki",
         "status": "Deferred",
         "standard": "bip2"
       },
@@ -587,6 +589,7 @@
         "timestamp": "2017-09-16T03:00:24Z",
         "date": "2017-09-16",
         "author": "Johnson Lau",
+        "path": "bip-0142.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -595,6 +598,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0142.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

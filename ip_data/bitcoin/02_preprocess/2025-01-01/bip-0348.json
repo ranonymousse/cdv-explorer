@@ -520,9 +520,10 @@
     "changes_in_status": [
       {
         "commit": "d2932bd00d16992d90df82d2a37db79c355046c4",
-        "timestamp": "2024-04-24T14:40:53-07:00",
-        "date": "2024-04-24",
+        "timestamp": "2024-11-26T11:23:59-08:00",
+        "date": "2024-11-26",
         "author": "Brandon Black",
+        "path": "bip-0348.md",
         "status": "Draft",
         "standard": "bip2"
       }

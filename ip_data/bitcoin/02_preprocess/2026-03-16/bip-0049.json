@@ -570,6 +570,7 @@
         "timestamp": "2016-10-05T11:35:37Z",
         "date": "2016-10-05",
         "author": "Luke Dashjr",
+        "path": "bip-0049.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -578,6 +579,7 @@
         "timestamp": "2019-07-24T14:54:29+02:00",
         "date": "2019-07-24",
         "author": "DanielWeigl",
+        "path": "bip-0049.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -586,6 +588,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0049.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

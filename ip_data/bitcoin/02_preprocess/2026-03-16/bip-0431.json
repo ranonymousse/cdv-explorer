@@ -768,6 +768,7 @@
         "timestamp": "2024-05-23T16:33:00+01:00",
         "date": "2024-05-23",
         "author": "glozow",
+        "path": "bip-0431.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -776,6 +777,7 @@
         "timestamp": "2026-01-12T14:28:06-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0431.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

@@ -471,14 +471,16 @@
         "timestamp": "2016-02-25T13:29:01-05:00",
         "date": "2016-02-25",
         "author": "Alex Morcos",
+        "path": "bip-0133.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "e2547df1cd2317e7db86b9d519df8dc02a16d102",
-        "timestamp": "2020-10-11T16:59:38-05:00",
-        "date": "2020-10-11",
+        "timestamp": "2024-05-01T16:55:55-06:00",
+        "date": "2024-05-01",
         "author": "Janus",
+        "path": "bip-0133.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

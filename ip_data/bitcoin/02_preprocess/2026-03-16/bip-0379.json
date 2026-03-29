@@ -795,6 +795,7 @@
         "timestamp": "2024-06-27T11:08:49-06:00",
         "date": "2024-06-27",
         "author": "Ava Chow",
+        "path": "bip-0379.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -803,6 +804,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0379.md",
         "status": "Draft",
         "standard": "bip3"
       }

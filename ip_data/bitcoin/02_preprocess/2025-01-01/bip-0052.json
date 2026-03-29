@@ -795,9 +795,10 @@
     "changes_in_status": [
       {
         "commit": "250cf5440961e769deb88cf3e0a134243a6604fb",
-        "timestamp": "2021-05-26T19:48:37+02:00",
+        "timestamp": "2021-05-26T19:57:34+02:00",
         "date": "2021-05-26",
         "author": "PoWx Team",
+        "path": "bip-powx-low-energy-pow.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

@@ -492,9 +492,10 @@
     "changes_in_status": [
       {
         "commit": "ba4062ab0d1b88e598487e1db5ae6113dd65b3f8",
-        "timestamp": "2015-08-28T01:34:48+01:00",
+        "timestamp": "2015-08-28T21:23:26+01:00",
         "date": "2015-08-28",
         "author": "BtcDrak",
+        "path": "bip-cbbrsa.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -503,6 +504,7 @@
         "timestamp": "2020-04-30T09:37:22-05:00",
         "date": "2020-04-30",
         "author": "Janus",
+        "path": "bip-0105.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

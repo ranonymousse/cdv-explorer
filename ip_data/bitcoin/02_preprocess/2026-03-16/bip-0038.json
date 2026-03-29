@@ -959,6 +959,7 @@
         "timestamp": "2013-11-19T18:54:36+01:00",
         "date": "2013-11-19",
         "author": "Wladimir J. van der Laan",
+        "path": "bip-0038.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -967,6 +968,7 @@
         "timestamp": "2026-01-12T14:22:40-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0038.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

@@ -523,6 +523,7 @@
         "timestamp": "2016-01-18T17:34:06-08:00",
         "date": "2016-01-18",
         "author": "Andy Chase",
+        "path": "bip-andychase.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -531,6 +532,7 @@
         "timestamp": "2016-08-23T19:47:29Z",
         "date": "2016-08-23",
         "author": "Luke Dashjr",
+        "path": "bip-0132.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

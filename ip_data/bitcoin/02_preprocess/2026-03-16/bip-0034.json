@@ -494,6 +494,7 @@
         "timestamp": "2012-07-06T20:06:10+02:00",
         "date": "2012-07-06",
         "author": "Amir Taaki",
+        "path": "bip-0034.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -502,6 +503,7 @@
         "timestamp": "2012-08-27T22:54:22+01:00",
         "date": "2012-08-27",
         "author": "Amir Taaki",
+        "path": "bip-0034.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -510,6 +512,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0034.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -518,6 +521,7 @@
         "timestamp": "2016-02-05T02:13:31+08:00",
         "date": "2016-02-05",
         "author": "Johnson Lau",
+        "path": "bip-0034.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -526,6 +530,7 @@
         "timestamp": "2016-11-30T09:45:33Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0034.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -534,6 +539,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0034.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

@@ -731,6 +731,7 @@
         "timestamp": "2021-04-04T23:46:06-07:00",
         "date": "2021-04-04",
         "author": "Hugo Nguyen",
+        "path": "bip-hugonguyen-bsms.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -739,6 +740,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0129.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

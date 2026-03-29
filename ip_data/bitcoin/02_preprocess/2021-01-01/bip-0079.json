@@ -587,10 +587,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "605c31a9e01c1cb0113cca91811571d7ad48f3c8",
-        "timestamp": "2018-10-08T01:53:25+06:00",
-        "date": "2018-10-08",
+        "commit": "6322865e9d9101207725842381387afb8e241d17",
+        "timestamp": "2018-10-16T20:02:01-02:00",
+        "date": "2018-10-16",
         "author": "Ryan Havar",
+        "path": "bip-bustapay.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -599,6 +600,7 @@
         "timestamp": "2020-08-05T20:20:11+01:00",
         "date": "2020-08-05",
         "author": "Yahia Chiheb",
+        "path": "bip-0079.mediawiki",
         "status": "Replaced",
         "standard": "bip2"
       }

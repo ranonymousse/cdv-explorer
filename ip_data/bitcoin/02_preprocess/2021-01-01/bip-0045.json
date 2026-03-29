@@ -577,9 +577,10 @@
     "changes_in_status": [
       {
         "commit": "bd0da6f44a9a66ccbd76f709b03b5d9d405dabc3",
-        "timestamp": "2014-04-28T16:04:16-03:00",
-        "date": "2014-04-28",
+        "timestamp": "2014-10-21T17:37:40-03:00",
+        "date": "2014-10-21",
         "author": "Manuel Araoz",
+        "path": "bip-0045.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -588,14 +589,16 @@
         "timestamp": "2016-08-25T21:10:19Z",
         "date": "2016-08-25",
         "author": "Luke Dashjr",
+        "path": "bip-0045.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0045.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       }

@@ -576,6 +576,7 @@
         "timestamp": "2013-10-21T00:45:22-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0018.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -584,14 +585,16 @@
         "timestamp": "2016-08-23T19:47:29Z",
         "date": "2016-08-23",
         "author": "Luke Dashjr",
+        "path": "bip-0018.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0018.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -600,6 +603,7 @@
         "timestamp": "2016-11-30T10:09:54Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0018.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       }

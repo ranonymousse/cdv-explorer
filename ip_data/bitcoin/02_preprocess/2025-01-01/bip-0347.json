@@ -666,10 +666,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "83ca57f22268edb1ff2815085a4383ba8d1b55fe",
-        "timestamp": "2023-12-11T18:11:22-05:00",
-        "date": "2023-12-11",
+        "commit": "6c729c4b418006def78caad0d921f1841c4db1ee",
+        "timestamp": "2024-04-25T13:03:00-04:00",
+        "date": "2024-04-25",
         "author": "Ethan Heilman",
+        "path": "bip-0347.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

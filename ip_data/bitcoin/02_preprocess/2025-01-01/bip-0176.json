@@ -463,9 +463,10 @@
     "changes_in_status": [
       {
         "commit": "7e4d6025851f18ace21838023bf7d5daf4b92e7d",
-        "timestamp": "2017-12-13T06:21:23-08:00",
-        "date": "2017-12-13",
+        "timestamp": "2017-12-22T19:54:17-08:00",
+        "date": "2017-12-22",
         "author": "Jimmy Song",
+        "path": "bip-0176.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

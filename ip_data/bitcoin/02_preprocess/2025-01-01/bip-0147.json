@@ -477,17 +477,19 @@
     "changes_in_status": [
       {
         "commit": "89a9829ec4703f7d7d69db60d6cd99e66eb2a3de",
-        "timestamp": "2016-09-02T12:28:34+08:00",
+        "timestamp": "2016-09-02T16:07:46+08:00",
         "date": "2016-09-02",
         "author": "Johnson Lau",
+        "path": "bip-nulldummy.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "824ce9da50158497ebd33057fbf8c4bc3a642c60",
-        "timestamp": "2017-08-30T15:37:48+08:00",
-        "date": "2017-08-30",
+        "timestamp": "2017-09-17T19:09:50+08:00",
+        "date": "2017-09-17",
         "author": "Johnson Lau",
+        "path": "bip-0147.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -496,6 +498,7 @@
         "timestamp": "2017-10-29T04:22:13Z",
         "date": "2017-10-29",
         "author": "Luke Dashjr",
+        "path": "bip-0147.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       }

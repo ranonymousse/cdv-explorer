@@ -526,9 +526,10 @@
     "changes_in_status": [
       {
         "commit": "1554541db444a375c0453e3c7cc3510be31a32bb",
-        "timestamp": "2017-01-26T21:48:59Z",
+        "timestamp": "2017-01-26T22:44:49Z",
         "date": "2017-01-26",
         "author": "Luke Dashjr",
+        "path": "bip-noreplay.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -537,6 +538,7 @@
         "timestamp": "2020-06-25T22:47:11-05:00",
         "date": "2020-06-25",
         "author": "Janus",
+        "path": "bip-0115.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

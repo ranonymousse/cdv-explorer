@@ -1239,6 +1239,7 @@
         "timestamp": "2016-02-01T22:38:01Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-biprevised.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1247,6 +1248,7 @@
         "timestamp": "2016-03-18T20:03:56Z",
         "date": "2016-03-18",
         "author": "Luke Dashjr",
+        "path": "bip-0002.mediawiki",
         "status": "Deferred",
         "standard": "bip2"
       },
@@ -1255,6 +1257,7 @@
         "timestamp": "2016-09-24T06:27:51Z",
         "date": "2016-09-24",
         "author": "Luke Dashjr",
+        "path": "bip-0002.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -1263,6 +1266,7 @@
         "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0002.mediawiki",
         "status": "Active",
         "standard": "bip2"
       },
@@ -1271,6 +1275,7 @@
         "timestamp": "2026-01-12T14:22:25-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0002.mediawiki",
         "status": "Replaced",
         "standard": "bip3"
       },
@@ -1279,6 +1284,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0002.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

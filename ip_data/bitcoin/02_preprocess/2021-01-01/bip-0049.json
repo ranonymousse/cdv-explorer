@@ -536,18 +536,20 @@
     },
     "changes_in_status": [
       {
-        "commit": "b1e7db53760d8b4c4a976876f99f7fac1bebf4e9",
-        "timestamp": "2016-06-14T14:49:09+02:00",
-        "date": "2016-06-14",
-        "author": "Daniel Weigl",
+        "commit": "0f0dad6b89925d8cc5d8bd4ebf06da0fea9c8081",
+        "timestamp": "2016-10-05T11:35:37Z",
+        "date": "2016-10-05",
+        "author": "Luke Dashjr",
+        "path": "bip-0049.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "fd4aab24a4383480edbaa750834337292dc03004",
-        "timestamp": "2019-07-24T10:28:09+02:00",
+        "timestamp": "2019-07-24T14:54:29+02:00",
         "date": "2019-07-24",
         "author": "DanielWeigl",
+        "path": "bip-0049.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

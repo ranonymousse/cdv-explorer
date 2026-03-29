@@ -577,9 +577,10 @@
     "changes_in_status": [
       {
         "commit": "fd99a8ce04dbad96fb275e0300a7ee669e70f418",
-        "timestamp": "2015-06-22T12:56:10-04:00",
-        "date": "2015-06-22",
+        "timestamp": "2015-06-30T09:17:54-04:00",
+        "date": "2015-06-30",
         "author": "Gavin Andresen",
+        "path": "bip-0101.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -588,6 +589,7 @@
         "timestamp": "2016-02-11T15:25:06-05:00",
         "date": "2016-02-11",
         "author": "Gavin Andresen",
+        "path": "bip-0101.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

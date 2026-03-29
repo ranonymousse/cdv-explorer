@@ -607,6 +607,7 @@
         "timestamp": "2016-01-30T18:46:54Z",
         "date": "2016-01-30",
         "author": "Luke Dashjr",
+        "path": "bip-segwit-gbt.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -615,6 +616,7 @@
         "timestamp": "2017-09-16T03:01:49Z",
         "date": "2017-09-16",
         "author": "Johnson Lau",
+        "path": "bip-0145.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -623,6 +625,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0145.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

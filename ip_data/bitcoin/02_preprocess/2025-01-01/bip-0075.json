@@ -989,14 +989,16 @@
         "timestamp": "2015-12-03T17:24:29-08:00",
         "date": "2015-12-03",
         "author": "Matt David",
+        "path": "bip-invoicerequest-extension.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "213fb62ceabdbcfe3576d83c3ca3d986e4b45ae9",
-        "timestamp": "2019-07-26T16:28:21Z",
+        "timestamp": "2019-07-26T16:29:02Z",
         "date": "2019-07-26",
         "author": "Luke Dashjr",
+        "path": "bip-0075.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

@@ -557,9 +557,10 @@
     "changes_in_status": [
       {
         "commit": "a35650e14e5e3afce269efa0926233c30871b140",
-        "timestamp": "2024-05-27T23:23:06+02:00",
-        "date": "2024-05-27",
+        "timestamp": "2024-07-31T16:43:31-04:00",
+        "date": "2024-07-31",
         "author": "Fabian Jahr",
+        "path": "bip-0094.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

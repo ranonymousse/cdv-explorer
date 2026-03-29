@@ -533,17 +533,19 @@
     "changes_in_status": [
       {
         "commit": "836d2dc91e1e21a77c0b0364ec4a0a9722c02a4f",
-        "timestamp": "2016-11-08T12:03:32-05:00",
-        "date": "2016-11-08",
+        "timestamp": "2016-11-14T12:01:26-05:00",
+        "date": "2016-11-14",
         "author": "Suhas Daftuar",
+        "path": "bip-buried-deployments.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "7fecce0751c56899043b91aad1236fea5d300682",
-        "timestamp": "2020-06-02T02:02:56-05:00",
-        "date": "2020-06-02",
+        "timestamp": "2020-06-25T23:00:59-05:00",
+        "date": "2020-06-25",
         "author": "Janus",
+        "path": "bip-0090.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

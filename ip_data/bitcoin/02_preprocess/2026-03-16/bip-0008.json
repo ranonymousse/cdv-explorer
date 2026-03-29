@@ -840,6 +840,7 @@
         "timestamp": "2017-04-16T16:38:46+01:00",
         "date": "2017-04-16",
         "author": "shaolinfry",
+        "path": "bip-uaversionbits.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -848,6 +849,7 @@
         "timestamp": "2020-02-26T11:54:45-06:00",
         "date": "2020-02-26",
         "author": "Janus",
+        "path": "bip-0008.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -856,6 +858,7 @@
         "timestamp": "2020-06-25T05:01:43Z",
         "date": "2020-06-25",
         "author": "Luke Dashjr",
+        "path": "bip-0008.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -864,6 +867,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0008.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

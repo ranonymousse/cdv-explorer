@@ -496,9 +496,10 @@
     "changes_in_status": [
       {
         "commit": "2382e31f12a8ea292eaa3904439c6653fe0eb036",
-        "timestamp": "2017-12-28T18:19:10+01:00",
-        "date": "2017-12-28",
+        "timestamp": "2017-12-31T14:32:35+01:00",
+        "date": "2017-12-31",
         "author": "Pavol Rusnak",
+        "path": "bip-0084.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -507,6 +508,7 @@
         "timestamp": "2023-04-10T16:22:24+02:00",
         "date": "2023-04-10",
         "author": "Vojtěch Strnad",
+        "path": "bip-0084.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

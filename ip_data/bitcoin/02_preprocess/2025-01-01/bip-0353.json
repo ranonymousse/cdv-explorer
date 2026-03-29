@@ -660,9 +660,10 @@
     "changes_in_status": [
       {
         "commit": "4f75edb2b85f55f5723e379584e52181f5f44269",
-        "timestamp": "2024-02-10T22:46:16Z",
-        "date": "2024-02-10",
+        "timestamp": "2024-06-04T20:40:24Z",
+        "date": "2024-06-04",
         "author": "Matt Corallo",
+        "path": "bip-0353.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

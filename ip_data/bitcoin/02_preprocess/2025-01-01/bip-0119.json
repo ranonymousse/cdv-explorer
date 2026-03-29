@@ -1186,9 +1186,10 @@
     "changes_in_status": [
       {
         "commit": "1a42897287ab5b2a1a700000b8eef1d660037505",
-        "timestamp": "2019-05-17T10:46:10-07:00",
-        "date": "2019-05-17",
+        "timestamp": "2020-01-20T20:17:28-08:00",
+        "date": "2020-01-20",
         "author": "Jeremy Rubin",
+        "path": "bip-ctv.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

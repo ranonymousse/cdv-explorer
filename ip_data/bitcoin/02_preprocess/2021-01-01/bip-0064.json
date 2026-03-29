@@ -481,17 +481,19 @@
     "changes_in_status": [
       {
         "commit": "ca48f2ce30ca937983bd006e30d783f4e9e3ec61",
-        "timestamp": "2014-07-10T16:18:29+02:00",
-        "date": "2014-07-10",
+        "timestamp": "2014-08-11T14:56:09+02:00",
+        "date": "2014-08-11",
         "author": "Mike Hearn",
+        "path": "bip-0064.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "3d2f68c359ccb4516e5517e8754d835c5f8f6681",
-        "timestamp": "2020-04-30T09:27:42-05:00",
-        "date": "2020-04-30",
+        "timestamp": "2020-06-02T01:52:33-05:00",
+        "date": "2020-06-02",
         "author": "Janus",
+        "path": "bip-0064.mediawiki",
         "status": "Obsolete",
         "standard": "bip2"
       }

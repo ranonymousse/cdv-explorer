@@ -681,6 +681,7 @@
         "timestamp": "2017-05-07T10:18:24+02:00",
         "date": "2017-05-07",
         "author": "sanch0panza",
+        "path": "bip-genvbvoting.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -689,6 +690,7 @@
         "timestamp": "2020-08-21T08:12:58+02:00",
         "date": "2020-08-21",
         "author": "Janus",
+        "path": "bip-0135.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -697,6 +699,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0135.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

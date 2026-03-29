@@ -593,6 +593,7 @@
         "timestamp": "2012-01-06T15:37:19Z",
         "date": "2012-01-06",
         "author": "genjix",
+        "path": "bip-0016.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -601,6 +602,7 @@
         "timestamp": "2012-03-13T19:47:32-04:00",
         "date": "2012-03-13",
         "author": "Luke Dashjr",
+        "path": "bip-0016.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -609,6 +611,7 @@
         "timestamp": "2013-10-21T00:43:57-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0016.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

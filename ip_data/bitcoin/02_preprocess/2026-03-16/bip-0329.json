@@ -621,6 +621,7 @@
         "timestamp": "2023-01-17T08:40:46+09:00",
         "date": "2023-01-17",
         "author": "craigraw",
+        "path": "bip-0329.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -629,6 +630,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0329.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

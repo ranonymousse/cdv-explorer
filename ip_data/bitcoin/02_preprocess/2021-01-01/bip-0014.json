@@ -533,6 +533,7 @@
         "timestamp": "2011-11-13T20:56:30Z",
         "date": "2011-11-13",
         "author": "genjix",
+        "path": "bip-0014.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -541,6 +542,7 @@
         "timestamp": "2011-12-13T17:24:13Z",
         "date": "2011-12-13",
         "author": "genjix",
+        "path": "bip-0014.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -549,6 +551,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0014.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -557,6 +560,7 @@
         "timestamp": "2016-02-03T07:02:36Z",
         "date": "2016-02-03",
         "author": "Luke Dashjr",
+        "path": "bip-0014.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -565,6 +569,7 @@
         "timestamp": "2016-11-30T09:45:33Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0014.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

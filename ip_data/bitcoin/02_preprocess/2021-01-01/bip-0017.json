@@ -564,6 +564,7 @@
         "timestamp": "2012-01-27T18:51:24Z",
         "date": "2012-01-27",
         "author": "genjix",
+        "path": "bip-0017.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -572,6 +573,7 @@
         "timestamp": "2012-03-13T19:45:23-04:00",
         "date": "2012-03-13",
         "author": "Luke Dashjr",
+        "path": "bip-0017.md",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -580,6 +582,7 @@
         "timestamp": "2013-10-21T00:44:39-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0017.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -588,6 +591,7 @@
         "timestamp": "2015-09-04T02:13:37Z",
         "date": "2015-09-04",
         "author": "Luke Dashjr",
+        "path": "bip-0017.mediawiki",
         "status": "Withdrawn",
         "standard": "bip2"
       }

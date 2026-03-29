@@ -1022,9 +1022,10 @@
     "changes_in_status": [
       {
         "commit": "b30e37c8a26d6b18415406a5664aaef9929a8ac5",
-        "timestamp": "2023-02-08T16:11:18-05:00",
-        "date": "2023-02-08",
+        "timestamp": "2023-02-13T18:58:59-05:00",
+        "date": "2023-02-13",
         "author": "James O'Beirne",
+        "path": "bip-vaults.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

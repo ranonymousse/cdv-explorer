@@ -575,14 +575,16 @@
         "timestamp": "2016-01-30T18:46:54Z",
         "date": "2016-01-30",
         "author": "Luke Dashjr",
+        "path": "bip-segwit-gbt.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "41e06840ebb7b5459bb77707e427fa2687831ed4",
-        "timestamp": "2017-08-30T15:37:48+08:00",
-        "date": "2017-08-30",
+        "timestamp": "2017-09-16T03:01:49Z",
+        "date": "2017-09-16",
         "author": "Johnson Lau",
+        "path": "bip-0145.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

@@ -490,6 +490,7 @@
         "timestamp": "2020-06-23T14:52:25-04:00",
         "date": "2020-06-23",
         "author": "Suhas Daftuar",
+        "path": "bip-wtxid-relay.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -498,6 +499,7 @@
         "timestamp": "2024-07-10T15:48:05-04:00",
         "date": "2024-07-10",
         "author": "Suhas Daftuar",
+        "path": "bip-0339.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -506,6 +508,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0339.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

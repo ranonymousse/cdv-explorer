@@ -568,6 +568,7 @@
         "timestamp": "2016-08-17T09:44:33+02:00",
         "date": "2016-08-17",
         "author": "Jonas Schnelli",
+        "path": "bip-0150.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -576,6 +577,7 @@
         "timestamp": "2024-07-17T21:56:18+02:00",
         "date": "2024-07-17",
         "author": "Jonas Schnelli",
+        "path": "bip-0150.mediawiki",
         "status": "Deferred",
         "standard": "bip2"
       },
@@ -584,6 +586,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0150.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

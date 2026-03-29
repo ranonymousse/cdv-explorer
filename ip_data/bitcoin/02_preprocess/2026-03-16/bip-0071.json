@@ -463,6 +463,7 @@
         "timestamp": "2013-10-21T00:59:49-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0071.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -471,6 +472,7 @@
         "timestamp": "2014-06-12T10:46:26-04:00",
         "date": "2014-06-12",
         "author": "Gavin Andresen",
+        "path": "bip-0071.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -479,6 +481,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0071.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

@@ -993,6 +993,7 @@
         "timestamp": "2019-05-06T10:46:09-07:00",
         "date": "2019-05-06",
         "author": "Pieter Wuille",
+        "path": "bip-taproot.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

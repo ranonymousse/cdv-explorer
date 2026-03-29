@@ -634,9 +634,10 @@
     "changes_in_status": [
       {
         "commit": "ae247aa6cfe512d647fa1178b161213b7187d225",
-        "timestamp": "2022-07-22T08:51:32Z",
+        "timestamp": "2022-07-22T08:57:37Z",
         "date": "2022-07-22",
         "author": "Alfred Hodler",
+        "path": "bip-alfredhodler-privatepayments.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

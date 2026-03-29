@@ -527,6 +527,7 @@
         "timestamp": "2014-06-18T11:25:04-04:00",
         "date": "2014-06-18",
         "author": "Gavin Andresen",
+        "path": "bip-0061.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -535,6 +536,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0061.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

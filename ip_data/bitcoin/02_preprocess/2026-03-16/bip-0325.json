@@ -635,6 +635,7 @@
         "timestamp": "2019-11-06T17:39:25+09:00",
         "date": "2019-11-06",
         "author": "Karl-Johan Alm",
+        "path": "bip-0325.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -643,6 +644,7 @@
         "timestamp": "2020-10-14T13:21:20+09:00",
         "date": "2020-10-14",
         "author": "Karl-Johan Alm",
+        "path": "bip-0325.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -651,6 +653,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0325.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

@@ -648,6 +648,7 @@
         "timestamp": "2016-09-23T11:13:22+02:00",
         "date": "2016-09-23",
         "author": "TomZ",
+        "path": "bip-flexibleTransactions.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -656,6 +657,7 @@
         "timestamp": "2020-08-01T17:18:43-05:00",
         "date": "2020-08-01",
         "author": "Janus",
+        "path": "bip-0134.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -664,6 +666,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0134.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

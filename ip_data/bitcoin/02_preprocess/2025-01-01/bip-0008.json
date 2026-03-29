@@ -822,9 +822,10 @@
     "changes_in_status": [
       {
         "commit": "7ca054213626ae0c1192b39cf827659823e30a17",
-        "timestamp": "2017-03-27T18:40:07+01:00",
-        "date": "2017-03-27",
+        "timestamp": "2017-04-16T16:38:46+01:00",
+        "date": "2017-04-16",
         "author": "shaolinfry",
+        "path": "bip-uaversionbits.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -833,6 +834,7 @@
         "timestamp": "2020-02-26T11:54:45-06:00",
         "date": "2020-02-26",
         "author": "Janus",
+        "path": "bip-0008.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -841,6 +843,7 @@
         "timestamp": "2020-06-25T05:01:43Z",
         "date": "2020-06-25",
         "author": "Luke Dashjr",
+        "path": "bip-0008.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

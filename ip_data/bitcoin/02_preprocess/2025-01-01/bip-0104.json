@@ -479,10 +479,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "2a9e9503cd8604d36f966b95005ef7a88ee979c6",
-        "timestamp": "2017-01-13T18:23:15-05:00",
-        "date": "2017-01-13",
-        "author": "t.khan",
+        "commit": "834db1b0fbcff8ca97c28192e33c6b49063adcb8",
+        "timestamp": "2017-01-14T07:04:54Z",
+        "date": "2017-01-14",
+        "author": "Luke Dashjr",
+        "path": "bip-0104.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -491,6 +492,7 @@
         "timestamp": "2020-04-30T09:37:22-05:00",
         "date": "2020-04-30",
         "author": "Janus",
+        "path": "bip-0104.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

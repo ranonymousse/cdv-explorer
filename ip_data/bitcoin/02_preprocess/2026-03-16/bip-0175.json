@@ -620,6 +620,7 @@
         "timestamp": "2017-09-06T16:42:37+03:00",
         "date": "2017-09-06",
         "author": "Omar Shibli",
+        "path": "bip-draft.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -628,6 +629,7 @@
         "timestamp": "2021-01-31T21:38:39+02:00",
         "date": "2021-01-31",
         "author": "omar shibli",
+        "path": "bip-0175.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -636,6 +638,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0175.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

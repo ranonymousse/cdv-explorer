@@ -488,6 +488,7 @@
         "timestamp": "2024-06-18T20:09:26-04:00",
         "date": "2024-06-18",
         "author": "Ava Chow",
+        "path": "bip-0328.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -496,6 +497,7 @@
         "timestamp": "2025-02-14T09:26:11-05:00",
         "date": "2025-02-14",
         "author": "Ava Chow",
+        "path": "bip-0328.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -504,6 +506,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0328.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

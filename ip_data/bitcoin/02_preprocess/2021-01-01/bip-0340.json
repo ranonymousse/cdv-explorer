@@ -1016,9 +1016,10 @@
     "changes_in_status": [
       {
         "commit": "aeffa075271912f506ed06b860d271461fe99c8d",
-        "timestamp": "2018-07-05T18:45:34-07:00",
-        "date": "2018-07-05",
+        "timestamp": "2019-05-06T10:40:58-07:00",
+        "date": "2019-05-06",
         "author": "Pieter Wuille",
+        "path": "bip-schnorr.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

@@ -620,6 +620,7 @@
         "timestamp": "2018-08-24T15:19:52+02:00",
         "date": "2018-08-24",
         "author": "Jan Čapek",
+        "path": "bip-stratum-extension.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -628,6 +629,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0310.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

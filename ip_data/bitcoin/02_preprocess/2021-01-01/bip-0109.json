@@ -515,9 +515,10 @@
     "changes_in_status": [
       {
         "commit": "6cf43331706934e6e5c97e4a57e0f6be8eb0899e",
-        "timestamp": "2016-01-28T10:53:43-05:00",
-        "date": "2016-01-28",
+        "timestamp": "2016-02-11T09:22:10-05:00",
+        "date": "2016-02-11",
         "author": "Gavin Andresen",
+        "path": "bip-0109.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -526,6 +527,7 @@
         "timestamp": "2016-11-30T23:33:24Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0109.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

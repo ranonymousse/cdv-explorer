@@ -601,6 +601,7 @@
         "timestamp": "2026-03-03T14:38:26-05:00",
         "date": "2026-03-03",
         "author": "moonsettler",
+        "path": "bip-0442.md",
         "status": "Draft",
         "standard": "bip3"
       }

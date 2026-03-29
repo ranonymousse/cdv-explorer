@@ -533,9 +533,10 @@
     "changes_in_status": [
       {
         "commit": "41490b74f7a9d52a58d9a1e1fd94f3ee6d8553e7",
-        "timestamp": "2023-01-17T01:40:46+02:00",
+        "timestamp": "2023-01-17T08:40:46+09:00",
         "date": "2023-01-17",
         "author": "craigraw",
+        "path": "bip-0329.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

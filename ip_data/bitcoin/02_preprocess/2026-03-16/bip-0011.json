@@ -546,6 +546,7 @@
         "timestamp": "2011-10-29T11:53:18+01:00",
         "date": "2011-10-29",
         "author": "genjix",
+        "path": "bip-0011.txt",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -554,6 +555,7 @@
         "timestamp": "2011-12-13T17:35:53Z",
         "date": "2011-12-13",
         "author": "genjix",
+        "path": "bip-0011.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -562,6 +564,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0011.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -570,6 +573,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0011.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

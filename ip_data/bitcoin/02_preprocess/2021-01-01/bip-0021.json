@@ -581,18 +581,11 @@
     },
     "changes_in_status": [
       {
-        "commit": "bd3808c4ca96313f8d194b828cd6b0579fc74a58",
-        "timestamp": "2012-01-30T00:01:31Z",
-        "date": "2012-01-30",
-        "author": "genjix",
-        "status": "Final",
-        "standard": "bip2"
-      },
-      {
         "commit": "6a5b4f3b080815c1ddff881e7a8491f5acca4fab",
         "timestamp": "2012-01-30T00:01:49Z",
         "date": "2012-01-30",
         "author": "genjix",
+        "path": "bip-0021.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -601,6 +594,7 @@
         "timestamp": "2012-02-05T12:15:42Z",
         "date": "2012-02-05",
         "author": "genjix",
+        "path": "bip-0021.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -609,6 +603,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0021.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -617,6 +612,7 @@
         "timestamp": "2016-02-01T20:36:37Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0021.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -625,6 +621,7 @@
         "timestamp": "2016-02-16T22:18:45Z",
         "date": "2016-02-16",
         "author": "Sandro Machado",
+        "path": "bip-0021.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

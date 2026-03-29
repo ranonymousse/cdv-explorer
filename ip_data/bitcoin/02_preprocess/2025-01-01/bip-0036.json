@@ -572,6 +572,7 @@
         "timestamp": "2013-10-21T00:55:26-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0036.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -580,6 +581,7 @@
         "timestamp": "2020-03-13T17:10:23-06:00",
         "date": "2020-03-13",
         "author": "Janus",
+        "path": "bip-0036.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       }

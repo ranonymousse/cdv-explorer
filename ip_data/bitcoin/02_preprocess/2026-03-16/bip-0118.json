@@ -727,6 +727,7 @@
         "timestamp": "2018-05-20T22:05:29-07:00",
         "date": "2018-05-20",
         "author": "Christian Decker",
+        "path": "bip-0118.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -735,6 +736,7 @@
         "timestamp": "2026-01-12T14:22:40-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0118.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

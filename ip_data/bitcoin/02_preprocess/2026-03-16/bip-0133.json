@@ -494,6 +494,7 @@
         "timestamp": "2016-02-25T13:29:01-05:00",
         "date": "2016-02-25",
         "author": "Alex Morcos",
+        "path": "bip-0133.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -502,6 +503,7 @@
         "timestamp": "2024-05-01T16:55:55-06:00",
         "date": "2024-05-01",
         "author": "Janus",
+        "path": "bip-0133.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -510,6 +512,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0133.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

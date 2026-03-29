@@ -445,6 +445,7 @@
         "timestamp": "2019-11-07T14:58:29+01:00",
         "date": "2019-11-07",
         "author": "Emil Engler",
+        "path": "bip-0179.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -453,6 +454,7 @@
         "timestamp": "2026-01-12T14:28:37-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0179.mediawiki",
         "status": "Draft",
         "standard": "bip3"
       }

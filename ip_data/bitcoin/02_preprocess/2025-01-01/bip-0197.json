@@ -577,9 +577,10 @@
     "changes_in_status": [
       {
         "commit": "823f6ac0db3674987b70380ac2555a5ad98bb2eb",
-        "timestamp": "2019-03-27T10:28:52-04:00",
-        "date": "2019-03-27",
+        "timestamp": "2019-03-29T12:49:49-04:00",
+        "date": "2019-03-29",
         "author": "Matthew Black",
+        "path": "bip-0197.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

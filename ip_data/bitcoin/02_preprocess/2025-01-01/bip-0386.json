@@ -497,17 +497,19 @@
     "changes_in_status": [
       {
         "commit": "761ef12782dc02af48b3e3b5a5238faeec6870fe",
-        "timestamp": "2021-06-29T16:33:02-04:00",
-        "date": "2021-06-29",
+        "timestamp": "2021-08-29T20:12:58-04:00",
+        "date": "2021-08-29",
         "author": "Andrew Chow",
+        "path": "bip-0386.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
       {
         "commit": "d71428ade56ad9a90e18d643eefefefb6088fbd7",
-        "timestamp": "2024-07-10T19:02:19-04:00",
+        "timestamp": "2024-07-10T19:06:05-04:00",
         "date": "2024-07-10",
         "author": "Ava Chow",
+        "path": "bip-0386.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

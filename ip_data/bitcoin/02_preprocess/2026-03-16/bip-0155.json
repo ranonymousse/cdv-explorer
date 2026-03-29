@@ -675,6 +675,7 @@
         "timestamp": "2019-02-27T10:28:34+01:00",
         "date": "2019-02-27",
         "author": "Wladimir J. van der Laan",
+        "path": "bip-XXXX.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -683,6 +684,7 @@
         "timestamp": "2025-09-01T09:08:50-06:00",
         "date": "2025-09-01",
         "author": "Jon Atack",
+        "path": "bip-0155.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -691,6 +693,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0155.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

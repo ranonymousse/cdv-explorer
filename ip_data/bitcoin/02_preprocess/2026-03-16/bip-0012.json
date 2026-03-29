@@ -547,6 +547,7 @@
         "timestamp": "2011-10-29T11:53:18+01:00",
         "date": "2011-10-29",
         "author": "genjix",
+        "path": "bip-0012.txt",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -555,6 +556,7 @@
         "timestamp": "2011-12-13T17:35:53Z",
         "date": "2011-12-13",
         "author": "genjix",
+        "path": "bip-0012.md",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -563,6 +565,7 @@
         "timestamp": "2012-01-03T21:31:06Z",
         "date": "2012-01-03",
         "author": "genjix",
+        "path": "bip-0012.md",
         "status": "Withdrawn",
         "standard": "bip2"
       },
@@ -571,6 +574,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0012.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

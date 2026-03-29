@@ -482,9 +482,10 @@
     "changes_in_status": [
       {
         "commit": "679c5495d2b0e0a6fd7da61411328144322a0253",
-        "timestamp": "2017-03-27T10:58:06-06:00",
+        "timestamp": "2017-03-27T22:55:28-06:00",
         "date": "2017-03-27",
         "author": "Sean Bowe",
+        "path": "bip-0199.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       }

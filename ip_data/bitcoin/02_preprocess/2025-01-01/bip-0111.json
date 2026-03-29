@@ -490,9 +490,10 @@
     "changes_in_status": [
       {
         "commit": "94db3f90c39b38ff04adb9ca43ff577340283eef",
-        "timestamp": "2015-08-26T01:15:19-07:00",
+        "timestamp": "2015-08-26T01:17:18-07:00",
         "date": "2015-08-26",
         "author": "Andy Chase",
+        "path": "bip-0111.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -501,14 +502,16 @@
         "timestamp": "2016-08-23T19:47:29Z",
         "date": "2016-08-23",
         "author": "Luke Dashjr",
+        "path": "bip-0111.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
       {
         "commit": "959fecc15bdad070afa63455468b1dba54655fa6",
-        "timestamp": "2016-11-30T09:47:31Z",
+        "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0111.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       }

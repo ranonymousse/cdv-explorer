@@ -933,6 +933,7 @@
         "timestamp": "2012-04-16T18:14:15+01:00",
         "date": "2012-04-16",
         "author": "genjix",
+        "path": "bip-0032.md",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -941,6 +942,7 @@
         "timestamp": "2013-10-21T00:52:38-04:00",
         "date": "2013-10-21",
         "author": "Peter Todd",
+        "path": "bip-0032.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -949,6 +951,7 @@
         "timestamp": "2016-02-01T20:14:22Z",
         "date": "2016-02-01",
         "author": "Luke Dashjr",
+        "path": "bip-0032.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -957,6 +960,7 @@
         "timestamp": "2016-02-03T07:02:36Z",
         "date": "2016-02-03",
         "author": "Luke Dashjr",
+        "path": "bip-0032.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -965,6 +969,7 @@
         "timestamp": "2016-03-17T18:12:15+01:00",
         "date": "2016-03-17",
         "author": "Robert Jesionek",
+        "path": "bip-0032.mediawiki",
         "status": "Final",
         "standard": "bip2"
       }

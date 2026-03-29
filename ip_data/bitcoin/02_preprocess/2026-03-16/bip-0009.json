@@ -840,6 +840,7 @@
         "timestamp": "2015-09-24T10:02:51+09:30",
         "date": "2015-09-24",
         "author": "Rusty Russell",
+        "path": "bip-wuille-todd-maxwell-russell.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -848,6 +849,7 @@
         "timestamp": "2016-08-20T23:50:14Z",
         "date": "2016-08-20",
         "author": "Luke Dashjr",
+        "path": "bip-0009.mediawiki",
         "status": "Final",
         "standard": "bip2"
       },
@@ -856,6 +858,7 @@
         "timestamp": "2026-01-12T14:22:33-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0009.mediawiki",
         "status": "Deployed",
         "standard": "bip3"
       }

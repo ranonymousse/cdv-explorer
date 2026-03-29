@@ -628,6 +628,7 @@
         "timestamp": "2015-03-15T12:43:02Z",
         "date": "2015-03-15",
         "author": "Thomas Kerin",
+        "path": "bip-0067.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -636,6 +637,7 @@
         "timestamp": "2016-08-23T19:47:29Z",
         "date": "2016-08-23",
         "author": "Luke Dashjr",
+        "path": "bip-0067.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -644,6 +646,7 @@
         "timestamp": "2016-11-30T09:51:01Z",
         "date": "2016-11-30",
         "author": "Luke Dashjr",
+        "path": "bip-0067.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -652,6 +655,7 @@
         "timestamp": "2016-11-30T17:48:54+01:00",
         "date": "2016-11-30",
         "author": "Ruben de Vries",
+        "path": "bip-0067.mediawiki",
         "status": "Accepted",
         "standard": "bip2"
       },
@@ -660,6 +664,7 @@
         "timestamp": "2020-04-29T01:43:50+02:00",
         "date": "2020-04-29",
         "author": "Ferdinando M. Ametrano",
+        "path": "bip-0067.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -668,6 +673,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0067.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }

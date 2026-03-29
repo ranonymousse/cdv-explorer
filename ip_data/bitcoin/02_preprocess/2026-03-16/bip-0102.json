@@ -481,6 +481,7 @@
         "timestamp": "2015-06-23T18:18:39-04:00",
         "date": "2015-06-23",
         "author": "Jeff Garzik",
+        "path": "bip-0102.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -489,6 +490,7 @@
         "timestamp": "2019-09-19T22:16:51Z",
         "date": "2019-09-19",
         "author": "Luke Dashjr",
+        "path": "bip-0102.mediawiki",
         "status": "Rejected",
         "standard": "bip2"
       },
@@ -497,6 +499,7 @@
         "timestamp": "2026-01-12T14:22:36-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0102.mediawiki",
         "status": "Closed",
         "standard": "bip3"
       }

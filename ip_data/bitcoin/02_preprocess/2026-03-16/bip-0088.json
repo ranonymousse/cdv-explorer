@@ -665,6 +665,7 @@
         "timestamp": "2021-05-15T11:24:36+05:00",
         "date": "2021-05-15",
         "author": "Dmitry Petukhov",
+        "path": "bip-path-templates.mediawiki",
         "status": "Draft",
         "standard": "bip2"
       },
@@ -673,6 +674,7 @@
         "timestamp": "2021-05-15T11:37:02+05:00",
         "date": "2021-05-15",
         "author": "Dmitry Petukhov",
+        "path": "bip-0088.mediawiki",
         "status": "Proposed",
         "standard": "bip2"
       },
@@ -681,6 +683,7 @@
         "timestamp": "2026-01-12T14:22:30-08:00",
         "date": "2026-01-12",
         "author": "Murch",
+        "path": "bip-0088.mediawiki",
         "status": "Complete",
         "standard": "bip3"
       }
