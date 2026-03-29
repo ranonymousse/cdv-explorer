@@ -10,11 +10,13 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 
 # Set this directly only when RQ2 needs a custom output location.
 OUTPUT_DIR = None
-GENERATE_DEPENDENCY_PLOTS = True
+GENERATE_DEPENDENCY_PLOTS = False
 GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS = True
-GENERATE_DEPENDENCY_COMPARISON_TABLE = True
+GENERATE_DEPENDENCY_COMPARISON_TABLE = False
 DIFFERENTIAL_FOCUS_BIPS = [379,382,350]
 DIFFERENTIAL_LAYOUT = "kamada_kawai"
+DIFFERENTIAL_LAYOUT_EXPORT = Path("paper") / "RQ2" / "dependency_layout_260316_350_379_382.json"
+DIFFERENTIAL_LAYOUT_EXPORT_LABEL = "react_balanced"
 DIFFERENTIAL_ALTERNATIVE_LAYOUTS = ["spring_scaled", "planar", "spectral", "shell", "circular", "bipartite", "multipartite"]
 
 
@@ -37,6 +39,15 @@ def main() -> None:
             filename_prefix=filename_prefix,
         )
     if GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS:
+        if DIFFERENTIAL_LAYOUT_EXPORT:
+            render_differential_dependency_plots(
+                network_data,
+                output_dir=output_dir,
+                filename_prefix=filename_prefix,
+                focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+                layout_name=DIFFERENTIAL_LAYOUT_EXPORT_LABEL,
+                layout_export_path=Path(DIFFERENTIAL_LAYOUT_EXPORT),
+            )
         render_differential_dependency_plots(
             network_data,
             output_dir=output_dir,
@@ -51,7 +62,7 @@ def main() -> None:
                 filename_prefix=filename_prefix,
                 focus_bips=DIFFERENTIAL_FOCUS_BIPS,
                 layout_name=alt_layout,
-            )
+                )
     if GENERATE_DEPENDENCY_COMPARISON_TABLE:
         export_dependency_comparison_latex_table(
             network_data=network_data,

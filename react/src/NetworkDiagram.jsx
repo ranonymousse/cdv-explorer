@@ -79,6 +79,24 @@ function normalizeCategory(value, fallbackLabel) {
   return text || fallbackLabel;
 }
 
+function sanitizeFilePart(value, fallback = 'unknown') {
+  const text = String(value ?? '')
+    .trim()
+    .replace(/[^a-z0-9._-]+/gi, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  return text || fallback;
+}
+
+function formatSnapshotFilePart(value) {
+  const text = String(value ?? '').trim();
+  const match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (match) {
+    return `${match[1].slice(2)}${match[2]}${match[3]}`;
+  }
+  return sanitizeFilePart(text, 'snapshot');
+}
+
 function buildDisplayedLinks(linksByType, linkType) {
   if (linkType === PREAMBLE_EXTRACTED) {
     return ['requires', 'replaces', 'proposed_replacement']
@@ -153,6 +171,7 @@ export const NetworkDiagram = ({
 }) => {
   const ref = useRef();
   const legendRef = useRef();
+  const exportPayloadRef = useRef(null);
   const snapshotLabel = useDashboardSnapshot();
   const linkMode = useDashboardLinkMode();
   const [colorBy, setColorBy] = useState('layer');
@@ -160,6 +179,29 @@ export const NetworkDiagram = ({
   const [baselineType, setBaselineType] = useState(BASELINE_NONE_VALUE);
   const [layoutMode, setLayoutMode] = useState('balanced');
   const isDifferentialMode = baselineType !== BASELINE_NONE_VALUE;
+
+  const handleLayoutExport = () => {
+    if (!exportPayloadRef.current) {
+      return;
+    }
+
+    const focusSuffix = (proposalFilterIds || [])
+      .map((value) => normalizeBipId(value))
+      .filter(Boolean)
+      .sort((left, right) => Number(left) - Number(right))
+      .join('_') || 'all';
+    const snapshotSlug = formatSnapshotFilePart(snapshotLabel);
+    const fileName = `dependency_layout_${snapshotSlug}_${focusSuffix}.json`;
+    const blob = new Blob([`${JSON.stringify(exportPayloadRef.current, null, 2)}\n`], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = fileName;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    window.URL.revokeObjectURL(url);
+  };
 
   const nodes = useMemo(
     () => (Array.isArray(data?.nodes) ? data.nodes.map((node) => ({ ...node })) : []),
@@ -181,6 +223,7 @@ export const NetworkDiagram = ({
     const svg = d3.select(ref.current);
     svg.selectAll('*').remove();
     d3.select('body').selectAll('.dependency-network-tooltip').remove();
+    exportPayloadRef.current = null;
 
     if (nodes.length === 0) {
       return;
@@ -287,6 +330,7 @@ export const NetworkDiagram = ({
     const filteredNodes = localNodes.filter((node) => relationFilteredNodeIds.has(String(node.id)));
 
     if (filteredNodes.length === 0) {
+      exportPayloadRef.current = null;
       svg
         .attr('width', width)
         .attr('height', height)
@@ -349,6 +393,49 @@ export const NetworkDiagram = ({
         return null;
       }
       return EXPLICIT_DEPENDENCY_STYLES[edge.relationType] || null;
+    };
+
+    const updateExportPayload = () => {
+      const exportedNodes = filteredNodes.map((entry) => ({
+        id: String(entry.id),
+        x: Number(entry.x || 0),
+        y: Number(entry.y || 0),
+        degree: Number(entry.degree || 0),
+        incomingDegree: Number(entry.incomingDegree || 0),
+        outgoingDegree: Number(entry.outgoingDegree || 0),
+        group: String(entry.colorGroup || ''),
+        layer: entry.layer || null,
+        status: entry.status || null,
+        type: entry.type || null,
+      }));
+
+      exportPayloadRef.current = {
+        snapshot: snapshotLabel || null,
+        exported_at: new Date().toISOString(),
+        width,
+        height,
+        color_by: colorBy,
+        link_type: linkType,
+        baseline_type: isDifferentialMode ? baselineType : null,
+        layout_mode: layoutMode,
+        is_differential_mode: isDifferentialMode,
+        filter: {
+          proposal_ids: (proposalFilterIds || []).map((value) => String(value)),
+          include_connections: Boolean(includeConnections),
+          min_relations: relationThreshold,
+          include_threshold_connections: Boolean(includeThresholdConnections),
+        },
+        nodes: exportedNodes,
+        links: filteredLinks.map((edge) => ({
+          source: getEdgeSourceId(edge),
+          target: getEdgeTargetId(edge),
+          relation_type: edge.relationType || null,
+          comparison_status: edge.comparisonStatus || 'approach_only',
+        })),
+        positions: Object.fromEntries(
+          exportedNodes.map((entry) => [String(entry.id), [entry.x, entry.y]])
+        ),
+      };
     };
 
     svg
@@ -788,6 +875,8 @@ export const NetworkDiagram = ({
       labels
         .attr('x', (entry) => entry.x + getNodeRadius(entry) + 5)
         .attr('y', (entry) => entry.y + 3);
+
+      updateExportPayload();
     });
 
     const legend = d3.select(legendRef.current);
@@ -816,6 +905,7 @@ export const NetworkDiagram = ({
     }
 
     return () => {
+      exportPayloadRef.current = null;
       simulation.stop();
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.dependency-network-tooltip').remove();
@@ -973,7 +1063,7 @@ export const NetworkDiagram = ({
         <div className="network-layout-controls">
           <div className="network-layout-picker">
             <div className="network-layout-picker__label">Layout</div>
-            <div className="network-layout-picker__options">
+            <div className="network-layout-picker__options network-layout-picker__options--with-export">
               {LAYOUT_OPTIONS.map((option) => (
                 <label key={option.value} className="network-layout-picker__option">
                   <input
@@ -986,6 +1076,16 @@ export const NetworkDiagram = ({
                   <span>{option.label}</span>
                 </label>
               ))}
+              <button
+                type="button"
+                className="network-layout-export-button"
+                onClick={handleLayoutExport}
+                title="Download the current visible network layout as JSON for paper plotting."
+                aria-label="Download current network layout as JSON"
+                disabled={nodes.length === 0}
+              >
+                export layout
+              </button>
             </div>
           </div>
           <div className="network-layout-picker network-layout-picker--filter">

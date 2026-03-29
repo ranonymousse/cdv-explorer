@@ -496,6 +496,13 @@
   flex-wrap: wrap;
 }
 
+.network-layout-picker__options--with-export:hover .network-layout-export-button:not(:disabled),
+.network-layout-picker__options--with-export:focus-within .network-layout-export-button:not(:disabled) {
+  opacity: 0.88;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 .network-layout-picker__option {
   display: inline-flex;
   align-items: center;
@@ -567,6 +574,39 @@
 .network-layout-picker__option input[type='radio'] {
   margin: 0;
   accent-color: var(--primary-color);
+}
+
+.network-layout-export-button {
+  padding: 0.14rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--app-border);
+  background: transparent;
+  color: var(--app-text-muted);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-left: 0.3rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  cursor: pointer;
+  transition: opacity 120ms ease, color 120ms ease, border-color 120ms ease, visibility 120ms ease;
+}
+
+.network-layout-export-button:hover:not(:disabled),
+.network-layout-export-button:focus-visible:not(:disabled) {
+  opacity: 0.9;
+  visibility: visible;
+  pointer-events: auto;
+  color: var(--app-text);
+  border-color: var(--primary-color);
+}
+
+.network-layout-export-button:disabled {
+  opacity: 0.2;
+  visibility: hidden;
+  pointer-events: none;
+  cursor: default;
 }
 
 .dependency-metrics-toolbar {
