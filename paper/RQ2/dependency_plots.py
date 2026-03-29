@@ -209,6 +209,84 @@ def relocate_manually(pos, node_id, relative_x=0.0, relative_y=0.0):
         raise KeyError(f"Node ID {node_id} not found in position dictionary.")
 
 
+def compute_layout_positions(graph: nx.DiGraph, layout_name: str) -> dict:
+    layout_configs = {
+        "spring_default": {"algo": "spring", "params": {"k": 0.3, "iterations": 100, "seed": 41}},
+        "spring_spread": {"algo": "spring", "params": {"k": 3, "iterations": 200, "seed": 41}},
+        "spring_scaled": {"algo": "spring_scaled", "params": {"iterations": 200, "seed": 41}},
+        "planar": {"algo": "planar", "params": {}},
+        "spectral": {"algo": "spectral", "params": {"scale": 1.45}},
+        "shell": {"algo": "shell", "params": {"scale": 1.2}},
+        "circular": {"algo": "circular", "params": {"scale": 1.2}},
+        "bipartite": {"algo": "bipartite", "params": {"scale": 1.25, "align": "vertical"}},
+        "multipartite": {"algo": "multipartite", "params": {"scale": 1.25, "align": "vertical", "subset_key": "subset"}},
+        "kamada_kawai": {"algo": "kamada_kawai", "params": {"scale": 0.8}},
+    }
+
+    if graphviz_available:
+        layout_configs.update(
+            {
+                "graphviz_dot": {"algo": "graphviz", "prog": "dot"},
+                "graphviz_neato": {"algo": "graphviz", "prog": "neato"},
+                "graphviz_fdp": {"algo": "graphviz", "prog": "fdp"},
+            }
+        )
+
+    if layout_name not in layout_configs:
+        raise ValueError(f"Unsupported layout name: {layout_name}")
+
+    config = layout_configs[layout_name]
+    if config["algo"] == "spring":
+        return nx.spring_layout(graph, **config["params"])
+    if config["algo"] == "spring_scaled":
+        node_count = max(graph.order(), 1)
+        return nx.spring_layout(graph, k=5 / math.sqrt(node_count), **config["params"])
+    if config["algo"] == "planar":
+        return nx.planar_layout(graph.to_undirected(), **config["params"])
+    if config["algo"] == "spectral":
+        pos = nx.spectral_layout(graph.to_undirected(), **config["params"])
+        resolve_near_overlaps(pos, threshold=0.1)
+        return pos
+    if config["algo"] == "shell":
+        ordered_nodes = sorted(graph.nodes(), key=lambda node_id: (-graph.degree(node_id), int(node_id)))
+        inner_count = max(1, math.ceil(len(ordered_nodes) / 3))
+        shells = [ordered_nodes[:inner_count], ordered_nodes[inner_count:]]
+        shells = [shell for shell in shells if shell]
+        pos = nx.shell_layout(graph.to_undirected(), nlist=shells, **config["params"])
+        resolve_near_overlaps(pos, threshold=0.09)
+        return pos
+    if config["algo"] == "circular":
+        pos = nx.circular_layout(graph.to_undirected(), **config["params"])
+        resolve_near_overlaps(pos, threshold=0.08)
+        return pos
+    if config["algo"] == "bipartite":
+        left_nodes = sorted(
+            [node_id for node_id in graph.nodes() if graph.out_degree(node_id) >= graph.in_degree(node_id)],
+            key=int,
+        )
+        if not left_nodes or len(left_nodes) == graph.number_of_nodes():
+            ordered_nodes = sorted(graph.nodes(), key=int)
+            midpoint = max(1, math.ceil(len(ordered_nodes) / 2))
+            left_nodes = ordered_nodes[:midpoint]
+        pos = nx.bipartite_layout(graph.to_undirected(), left_nodes, **config["params"])
+        resolve_near_overlaps(pos, threshold=0.08)
+        return pos
+    if config["algo"] == "multipartite":
+        pos = nx.multipartite_layout(graph, **config["params"])
+        resolve_near_overlaps(pos, threshold=0.08)
+        return pos
+    if config["algo"] == "kamada_kawai":
+        pos = nx.kamada_kawai_layout(graph, **config["params"])
+        resolve_near_overlaps(pos, threshold=0.1)
+        for node_id, dx, dy in [(142, 0.049, -0.58), (173, -0.04, -0.14), (83, 0.05, 0.08), (146, 0, 0.12)]:
+            if node_id in pos:
+                relocate_manually(pos, node_id=node_id, relative_x=dx, relative_y=dy)
+        return pos
+    if config["algo"] == "graphviz":
+        return graphviz_layout(graph, prog=config["prog"])
+    raise ValueError(f"Unsupported layout algorithm: {config['algo']}")
+
+
 def draw_static_network_with_layouts(
     network_data,
     output_dir: Path,
@@ -329,37 +407,13 @@ def draw_static_network_with_layouts(
     else:
         node_colors_data = ["grey"] * len(graph.nodes())
 
-    layout_configs = [
-        {"name": "spring_default", "algo": "spring", "params": {"k": 0.3, "iterations": 100, "seed": 41}},
-        {"name": "spring_spread", "algo": "spring", "params": {"k": 3, "iterations": 200, "seed": 41}},
-        {"name": "kamada_kawai", "algo": "kamada_kawai", "params": {"scale": 0.8}},
-    ]
-
+    layout_names = ["spring_default", "spring_spread", "kamada_kawai"]
     if graphviz_available:
-        layout_configs.extend(
-            [
-                {"name": "graphviz_dot", "algo": "graphviz", "prog": "dot"},
-                {"name": "graphviz_neato", "algo": "graphviz", "prog": "neato"},
-                {"name": "graphviz_fdp", "algo": "graphviz", "prog": "fdp"},
-            ]
-        )
+        layout_names.extend(["graphviz_dot", "graphviz_neato", "graphviz_fdp"])
 
-    for config in layout_configs:
-        layout_name = config["name"]
-
+    for layout_name in layout_names:
         try:
-            if config["algo"] == "spring":
-                pos = nx.spring_layout(graph, **config["params"])
-            elif config["algo"] == "kamada_kawai":
-                pos = nx.kamada_kawai_layout(graph, **config["params"])
-                resolve_near_overlaps(pos, threshold=0.1)
-                for node_id, dx, dy in [(142, 0.049, -0.58), (173, -0.04, -0.14), (83, 0.05, 0.08), (146, 0, 0.12)]:
-                    if node_id in pos:
-                        relocate_manually(pos, node_id=node_id, relative_x=dx, relative_y=dy)
-            elif config["algo"] == "graphviz":
-                pos = graphviz_layout(graph, prog=config["prog"])
-            else:
-                continue
+            pos = compute_layout_positions(graph, layout_name)
         except (ImportError, nx.NetworkXException, RuntimeError, ValueError, TypeError):
             continue
 

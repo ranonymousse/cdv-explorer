@@ -10,11 +10,17 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 
 # Set this directly only when RQ2 needs a custom output location.
 OUTPUT_DIR = None
+GENERATE_DEPENDENCY_PLOTS = True
+GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS = True
 GENERATE_DEPENDENCY_COMPARISON_TABLE = True
+DIFFERENTIAL_FOCUS_BIPS = [379,382,350]
+DIFFERENTIAL_LAYOUT = "kamada_kawai"
+DIFFERENTIAL_ALTERNATIVE_LAYOUTS = ["spring_scaled", "planar", "spectral", "shell", "circular", "bipartite", "multipartite"]
 
 
 def main() -> None:
     from analysis.artifact_io import load_network_data, resolve_latest_snapshot_label
+    from paper.RQ2.dependency_differential_plots import render_differential_dependency_plots
     from paper.RQ2.dependency_plots import render_default_dependency_plot_suite
     from paper.RQ2.dependency_comparison_table import export_dependency_comparison_latex_table
 
@@ -24,11 +30,28 @@ def main() -> None:
     filename_prefix = snapshot_prefix(snapshot_label)
 
     network_data = load_network_data(snapshot=SNAPSHOT)
-    render_default_dependency_plot_suite(
-        network_data,
-        output_dir=output_dir,
-        filename_prefix=filename_prefix,
-    )
+    if GENERATE_DEPENDENCY_PLOTS:
+        render_default_dependency_plot_suite(
+            network_data,
+            output_dir=output_dir,
+            filename_prefix=filename_prefix,
+        )
+    if GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS:
+        render_differential_dependency_plots(
+            network_data,
+            output_dir=output_dir,
+            filename_prefix=filename_prefix,
+            focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+            layout_name=DIFFERENTIAL_LAYOUT,
+        )
+        for alt_layout in DIFFERENTIAL_ALTERNATIVE_LAYOUTS:
+            render_differential_dependency_plots(
+                network_data,
+                output_dir=output_dir,
+                filename_prefix=filename_prefix,
+                focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+                layout_name=alt_layout,
+            )
     if GENERATE_DEPENDENCY_COMPARISON_TABLE:
         export_dependency_comparison_latex_table(
             network_data=network_data,
