@@ -5,6 +5,7 @@ from paper.RQ1.classification_type import TYPE_ORDER
 
 
 LATEX_TABCOLSEP_PT = 5
+FIRST_BODY_ROW_STRUT_EX = 2.8
 TABLE_STATUS_ORDER = [
     "Draft",
     "Complete",
@@ -46,6 +47,7 @@ def export_classification_status_type_latex_table(
     snapshot_label: str,
     *,
     tabcolsep_pt: int = LATEX_TABCOLSEP_PT,
+    first_body_row_strut_ex: float = FIRST_BODY_ROW_STRUT_EX,
 ) -> None:
     nodes = network_data.get("nodes", [])
     pivot = defaultdict(Counter)
@@ -69,30 +71,34 @@ def export_classification_status_type_latex_table(
     total_bips = sum(sum(counts.values()) for counts in pivot.values())
 
     header_line = " & ".join(
-        [r"\diagbox{\textbf{Type}}{\textbf{Status}}"]
+        [r"\multicolumn{1}{|c}{\diagbox{\textbf{Type}}{\textbf{Status}}}"]
         + [_latex_escape(status) for status in ordered_statuses]
     ) + r" \\"
+    header_cline = rf"    \cline{{2-{len(ordered_statuses) + 1}}}"
 
     body_lines = []
-    for proposal_type in ordered_types:
-        row_cells = [_latex_escape(proposal_type)]
+    for row_index, proposal_type in enumerate(ordered_types):
+        first_cell = _latex_escape(proposal_type)
+        if row_index == 0:
+            first_cell = rf"\rule{{0pt}}{{{first_body_row_strut_ex}ex}}{first_cell}"
+        row_cells = [first_cell]
         for status in ordered_statuses:
             row_cells.append(
                 _format_count_share(int(pivot[proposal_type].get(status, 0)), total_bips)
             )
         body_lines.append("        " + " & ".join(row_cells) + r" \\")
 
-    alignment = "l|" + ("c" * len(ordered_statuses))
+    alignment = "|l|" + ("c" * len(ordered_statuses) + "|")
     latex_table = "\n".join(
         [
             "{",
             rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
             rf"    \begin{{tabular}}{{{alignment}}}",
-            r"    \toprule",
+            r"    \hline",
             f"    {header_line}",
-            r"    \midrule",
+            header_cline,
             *body_lines,
-            r"    \bottomrule",
+            r"    \hline",
             r"    \end{tabular}",
             "}",
             "",
