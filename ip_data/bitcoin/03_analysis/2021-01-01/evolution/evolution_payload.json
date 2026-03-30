@@ -4,7 +4,7 @@
     "timeline_count": 135,
     "first_year": 2011,
     "last_year": 2021,
-    "first_period": "2011-Q4",
+    "first_period": "2011-Q1",
     "last_period": "2021-Q1",
     "milestones": [
       {
@@ -30,6 +30,122 @@
     ],
     "rows": [
       {
+        "period": "2011-Q1",
+        "period_key": "2011-Q1",
+        "period_start": "2011-01-01",
+        "period_end": "2011-03-31",
+        "period_kind": "quarter",
+        "milestone_label": "",
+        "values": {
+          "Draft": 0,
+          "Proposed": 0,
+          "Rejected": 0,
+          "Withdrawn": 0,
+          "Deferred": 0,
+          "Final": 1,
+          "Active": 0,
+          "Replaced": 0,
+          "Obsolete": 0,
+          "Accepted": 0,
+          "Pre-Draft": 0,
+          "Proposal": 0
+        },
+        "bips": {
+          "Draft": [],
+          "Proposed": [],
+          "Rejected": [],
+          "Withdrawn": [],
+          "Deferred": [],
+          "Final": [
+            "20"
+          ],
+          "Active": [],
+          "Replaced": [],
+          "Obsolete": [],
+          "Accepted": [],
+          "Pre-Draft": [],
+          "Proposal": []
+        }
+      },
+      {
+        "period": "2011-Q2",
+        "period_key": "2011-Q2",
+        "period_start": "2011-04-01",
+        "period_end": "2011-06-30",
+        "period_kind": "quarter",
+        "milestone_label": "",
+        "values": {
+          "Draft": 0,
+          "Proposed": 0,
+          "Rejected": 0,
+          "Withdrawn": 0,
+          "Deferred": 0,
+          "Final": 1,
+          "Active": 0,
+          "Replaced": 0,
+          "Obsolete": 0,
+          "Accepted": 0,
+          "Pre-Draft": 0,
+          "Proposal": 0
+        },
+        "bips": {
+          "Draft": [],
+          "Proposed": [],
+          "Rejected": [],
+          "Withdrawn": [],
+          "Deferred": [],
+          "Final": [
+            "20"
+          ],
+          "Active": [],
+          "Replaced": [],
+          "Obsolete": [],
+          "Accepted": [],
+          "Pre-Draft": [],
+          "Proposal": []
+        }
+      },
+      {
+        "period": "2011-Q3",
+        "period_key": "2011-Q3",
+        "period_start": "2011-07-01",
+        "period_end": "2011-09-30",
+        "period_kind": "quarter",
+        "milestone_label": "",
+        "values": {
+          "Draft": 1,
+          "Proposed": 0,
+          "Rejected": 0,
+          "Withdrawn": 0,
+          "Deferred": 0,
+          "Final": 1,
+          "Active": 0,
+          "Replaced": 0,
+          "Obsolete": 0,
+          "Accepted": 0,
+          "Pre-Draft": 0,
+          "Proposal": 0
+        },
+        "bips": {
+          "Draft": [
+            "1"
+          ],
+          "Proposed": [],
+          "Rejected": [],
+          "Withdrawn": [],
+          "Deferred": [],
+          "Final": [
+            "20"
+          ],
+          "Active": [],
+          "Replaced": [],
+          "Obsolete": [],
+          "Accepted": [],
+          "Pre-Draft": [],
+          "Proposal": []
+        }
+      },
+      {
         "period": "2011-Q4",
         "period_key": "2011-Q4",
         "period_start": "2011-10-01",
@@ -42,7 +158,7 @@
           "Rejected": 0,
           "Withdrawn": 0,
           "Deferred": 1,
-          "Final": 0,
+          "Final": 1,
           "Active": 0,
           "Replaced": 0,
           "Obsolete": 0,
@@ -62,7 +178,9 @@
           "Deferred": [
             "15"
           ],
-          "Final": [],
+          "Final": [
+            "20"
+          ],
           "Active": [],
           "Replaced": [],
           "Obsolete": [],
@@ -83,7 +201,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 2,
+          "Draft": 4,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -92,14 +210,16 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 6,
+          "Accepted": 8,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
-            "19"
+            "18",
+            "19",
+            "32"
           ],
           "Proposed": [],
           "Rejected": [
@@ -123,6 +243,8 @@
             "14",
             "16",
             "21",
+            "22",
+            "23",
             "30"
           ],
           "Pre-Draft": [],
@@ -137,7 +259,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 5,
+          "Draft": 6,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -146,13 +268,14 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 7,
+          "Accepted": 8,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
@@ -181,6 +304,7 @@
             "16",
             "21",
             "22",
+            "23",
             "30"
           ],
           "Pre-Draft": [],
@@ -195,7 +319,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 5,
+          "Draft": 7,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -204,17 +328,19 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 9,
+          "Accepted": 10,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36"
           ],
           "Proposed": [],
           "Rejected": [
@@ -239,6 +365,7 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
             "35"
@@ -255,7 +382,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 5,
+          "Draft": 8,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -264,17 +391,20 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 9,
+          "Accepted": 11,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38"
           ],
           "Proposed": [],
           "Rejected": [
@@ -299,9 +429,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ],
           "Pre-Draft": [],
           "Proposal": []
@@ -315,7 +447,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 5,
+          "Draft": 9,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -324,17 +456,21 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 9,
+          "Accepted": 11,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38",
+            "50"
           ],
           "Proposed": [],
           "Rejected": [
@@ -359,9 +495,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ],
           "Pre-Draft": [],
           "Proposal": []
@@ -375,7 +513,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 5,
+          "Draft": 10,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -384,17 +522,22 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 9,
+          "Accepted": 11,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38",
+            "50",
+            "60"
           ],
           "Proposed": [],
           "Rejected": [
@@ -419,9 +562,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ],
           "Pre-Draft": [],
           "Proposal": []
@@ -435,7 +580,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 5,
+          "Draft": 15,
           "Proposed": 0,
           "Rejected": 1,
           "Withdrawn": 3,
@@ -444,17 +589,27 @@
           "Active": 1,
           "Replaced": 0,
           "Obsolete": 0,
-          "Accepted": 9,
+          "Accepted": 11,
           "Pre-Draft": 0,
           "Proposal": 0
         },
         "bips": {
           "Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38",
+            "39",
+            "50",
+            "60",
+            "70",
+            "71",
+            "72",
+            "73"
           ],
           "Proposed": [],
           "Rejected": [
@@ -479,9 +634,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ],
           "Pre-Draft": [],
           "Proposal": []
@@ -642,7 +799,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 15,
+          "Draft": 17,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 1,
@@ -668,9 +825,11 @@
             "42",
             "43",
             "44",
+            "45",
             "50",
             "60",
             "62",
+            "64",
             "73"
           ],
           "Proposed": [],
@@ -720,7 +879,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 16,
+          "Draft": 19,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 1,
@@ -746,11 +905,14 @@
             "42",
             "43",
             "44",
+            "45",
             "50",
             "60",
             "62",
             "64",
-            "73"
+            "73",
+            "80",
+            "81"
           ],
           "Proposed": [],
           "Rejected": [],
@@ -799,7 +961,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 17,
+          "Draft": 19,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 2,
@@ -830,7 +992,9 @@
             "62",
             "64",
             "65",
-            "73"
+            "73",
+            "80",
+            "81"
           ],
           "Proposed": [],
           "Rejected": [],
@@ -880,7 +1044,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 19,
+          "Draft": 21,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 2,
@@ -913,7 +1077,9 @@
             "65",
             "66",
             "67",
-            "73"
+            "73",
+            "80",
+            "81"
           ],
           "Proposed": [],
           "Rejected": [],
@@ -963,7 +1129,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 23,
+          "Draft": 29,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 2,
@@ -989,6 +1155,7 @@
             "43",
             "44",
             "45",
+            "47",
             "50",
             "60",
             "62",
@@ -999,8 +1166,13 @@
             "68",
             "69",
             "73",
+            "80",
+            "81",
+            "99",
+            "100",
             "101",
-            "102"
+            "102",
+            "130"
           ],
           "Proposed": [],
           "Rejected": [],
@@ -1050,7 +1222,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 32,
+          "Draft": 40,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 3,
@@ -1086,9 +1258,13 @@
             "68",
             "69",
             "73",
+            "80",
+            "81",
             "99",
+            "100",
             "101",
             "102",
+            "103",
             "105",
             "106",
             "107",
@@ -1096,7 +1272,11 @@
             "112",
             "113",
             "120",
-            "121"
+            "121",
+            "122",
+            "123",
+            "130",
+            "132"
           ],
           "Proposed": [],
           "Rejected": [],
@@ -1148,7 +1328,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 40,
+          "Draft": 48,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 4,
@@ -1184,7 +1364,11 @@
             "69",
             "73",
             "75",
+            "80",
+            "81",
+            "83",
             "99",
+            "100",
             "101",
             "102",
             "103",
@@ -1198,9 +1382,13 @@
             "121",
             "122",
             "123",
+            "124",
             "125",
             "130",
             "131",
+            "132",
+            "140",
+            "141",
             "142",
             "144"
           ],
@@ -1256,7 +1444,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 47,
+          "Draft": 51,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 5,
@@ -1294,6 +1482,7 @@
             "81",
             "83",
             "99",
+            "100",
             "102",
             "103",
             "105",
@@ -1309,6 +1498,7 @@
             "123",
             "124",
             "125",
+            "126",
             "130",
             "131",
             "132",
@@ -1317,7 +1507,9 @@
             "141",
             "143",
             "144",
-            "145"
+            "145",
+            "150",
+            "151"
           ],
           "Proposed": [],
           "Rejected": [],
@@ -1377,7 +1569,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 51,
+          "Draft": 54,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 5,
@@ -1404,6 +1596,7 @@
             "44",
             "45",
             "47",
+            "49",
             "60",
             "64",
             "67",
@@ -1415,6 +1608,7 @@
             "81",
             "83",
             "99",
+            "100",
             "102",
             "103",
             "105",
@@ -1441,6 +1635,7 @@
             "143",
             "144",
             "145",
+            "150",
             "151",
             "152"
           ],
@@ -1502,7 +1697,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 40,
+          "Draft": 43,
           "Proposed": 0,
           "Rejected": 0,
           "Withdrawn": 6,
@@ -1525,12 +1720,14 @@
             "42",
             "43",
             "47",
+            "49",
             "60",
             "64",
             "74",
             "75",
             "83",
             "99",
+            "100",
             "102",
             "103",
             "105",
@@ -1538,6 +1735,7 @@
             "107",
             "109",
             "114",
+            "115",
             "120",
             "121",
             "122",
@@ -1631,7 +1829,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 39,
+          "Draft": 41,
           "Proposed": 7,
           "Rejected": 1,
           "Withdrawn": 6,
@@ -1661,12 +1859,14 @@
             "83",
             "90",
             "99",
+            "100",
             "102",
             "103",
             "105",
             "106",
             "107",
             "114",
+            "115",
             "120",
             "121",
             "122",
@@ -1764,7 +1964,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 46,
+          "Draft": 50,
           "Proposed": 7,
           "Rejected": 1,
           "Withdrawn": 6,
@@ -1779,6 +1979,7 @@
         },
         "bips": {
           "Draft": [
+            "8",
             "19",
             "33",
             "36",
@@ -1803,6 +2004,7 @@
             "107",
             "114",
             "115",
+            "118",
             "120",
             "121",
             "122",
@@ -1811,6 +2013,7 @@
             "131",
             "133",
             "134",
+            "135",
             "140",
             "141",
             "143",
@@ -1823,6 +2026,7 @@
             "151",
             "152",
             "171",
+            "173",
             "180",
             "199"
           ],
@@ -1904,7 +2108,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 52,
+          "Draft": 57,
           "Proposed": 6,
           "Rejected": 1,
           "Withdrawn": 6,
@@ -1945,6 +2149,7 @@
             "107",
             "114",
             "115",
+            "118",
             "120",
             "121",
             "122",
@@ -1967,6 +2172,10 @@
             "151",
             "152",
             "154",
+            "156",
+            "157",
+            "158",
+            "159",
             "171",
             "173",
             "180",
@@ -2050,7 +2259,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 48,
+          "Draft": 57,
           "Proposed": 6,
           "Rejected": 1,
           "Withdrawn": 8,
@@ -2080,6 +2289,7 @@
             "75",
             "83",
             "90",
+            "98",
             "99",
             "100",
             "102",
@@ -2090,6 +2300,9 @@
             "107",
             "114",
             "115",
+            "116",
+            "117",
+            "118",
             "120",
             "121",
             "122",
@@ -2099,6 +2312,7 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "141",
             "146",
@@ -2106,13 +2320,17 @@
             "151",
             "152",
             "154",
+            "156",
+            "157",
+            "158",
             "159",
             "171",
             "173",
             "174",
             "175",
             "180",
-            "199"
+            "199",
+            "300"
           ],
           "Proposed": [
             "39",
@@ -2199,7 +2417,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 52,
+          "Draft": 58,
           "Proposed": 11,
           "Rejected": 1,
           "Withdrawn": 8,
@@ -2243,6 +2461,7 @@
             "115",
             "116",
             "117",
+            "118",
             "120",
             "121",
             "122",
@@ -2252,12 +2471,16 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
             "151",
             "152",
             "154",
+            "156",
+            "157",
+            "158",
             "159",
             "171",
             "173",
@@ -2265,7 +2488,8 @@
             "175",
             "176",
             "180",
-            "199"
+            "199",
+            "300"
           ],
           "Proposed": [
             "39",
@@ -2353,7 +2577,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 52,
+          "Draft": 57,
           "Proposed": 11,
           "Rejected": 1,
           "Withdrawn": 10,
@@ -2397,6 +2621,7 @@
             "115",
             "116",
             "117",
+            "118",
             "122",
             "124",
             "126",
@@ -2404,12 +2629,14 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
             "151",
             "152",
             "154",
+            "156",
             "157",
             "158",
             "159",
@@ -2419,6 +2646,8 @@
             "176",
             "180",
             "199",
+            "300",
+            "310",
             "320"
           ],
           "Proposed": [
@@ -2510,7 +2739,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 54,
+          "Draft": 58,
           "Proposed": 11,
           "Rejected": 1,
           "Withdrawn": 10,
@@ -2562,12 +2791,14 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
             "151",
             "152",
             "154",
+            "156",
             "157",
             "158",
             "159",
@@ -2578,6 +2809,8 @@
             "178",
             "180",
             "199",
+            "300",
+            "310",
             "320"
           ],
           "Proposed": [
@@ -2669,7 +2902,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 55,
+          "Draft": 57,
           "Proposed": 10,
           "Rejected": 1,
           "Withdrawn": 10,
@@ -2720,6 +2953,7 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
@@ -2736,6 +2970,7 @@
             "178",
             "180",
             "199",
+            "300",
             "310",
             "320",
             "322"
@@ -2831,7 +3066,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 55,
+          "Draft": 57,
           "Proposed": 11,
           "Rejected": 1,
           "Withdrawn": 10,
@@ -2882,6 +3117,7 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
@@ -2898,6 +3134,7 @@
             "178",
             "180",
             "199",
+            "300",
             "310",
             "320",
             "322"
@@ -2994,7 +3231,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 56,
+          "Draft": 60,
           "Proposed": 11,
           "Rejected": 1,
           "Withdrawn": 11,
@@ -3041,10 +3278,12 @@
             "122",
             "124",
             "126",
+            "127",
             "131",
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
@@ -3062,9 +3301,11 @@
             "180",
             "197",
             "199",
+            "300",
             "310",
             "320",
-            "322"
+            "322",
+            "325"
           ],
           "Proposed": [
             "39",
@@ -3160,7 +3401,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 59,
+          "Draft": 62,
           "Proposed": 10,
           "Rejected": 3,
           "Withdrawn": 11,
@@ -3186,6 +3427,7 @@
             "60",
             "64",
             "75",
+            "78",
             "84",
             "90",
             "98",
@@ -3228,9 +3470,11 @@
             "180",
             "197",
             "199",
+            "300",
             "310",
             "320",
             "322",
+            "325",
             "340",
             "341",
             "342"
@@ -3331,7 +3575,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 57,
+          "Draft": 59,
           "Proposed": 10,
           "Rejected": 5,
           "Withdrawn": 12,
@@ -3355,6 +3599,7 @@
             "47",
             "60",
             "64",
+            "78",
             "84",
             "90",
             "98",
@@ -3399,6 +3644,7 @@
             "310",
             "320",
             "322",
+            "325",
             "330",
             "340",
             "341",
@@ -3505,7 +3751,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 58,
+          "Draft": 59,
           "Proposed": 10,
           "Rejected": 5,
           "Withdrawn": 13,
@@ -3529,6 +3775,7 @@
             "47",
             "60",
             "64",
+            "78",
             "84",
             "90",
             "98",
@@ -3681,7 +3928,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "Draft": 54,
+          "Draft": 57,
           "Proposed": 10,
           "Rejected": 9,
           "Withdrawn": 13,
@@ -3701,7 +3948,9 @@
             "47",
             "60",
             "64",
+            "78",
             "84",
+            "85",
             "90",
             "98",
             "99",
@@ -3747,6 +3996,7 @@
             "322",
             "325",
             "330",
+            "339",
             "340",
             "341",
             "342"
@@ -4653,6 +4903,110 @@
     ],
     "rows": [
       {
+        "period": "2011-Q1",
+        "period_key": "2011-Q1",
+        "period_start": "2011-01-01",
+        "period_end": "2011-03-31",
+        "period_kind": "quarter",
+        "milestone_label": "",
+        "values": {
+          "bip2:Draft": 0,
+          "bip2:Active": 0,
+          "bip2:Proposed": 0,
+          "bip2:Deferred": 0,
+          "bip2:Rejected": 0,
+          "bip2:Withdrawn": 0,
+          "bip2:Final": 1,
+          "bip2:Replaced": 0,
+          "bip2:Obsolete": 0,
+          "bip2:Accepted": 0
+        },
+        "bips": {
+          "bip2:Draft": [],
+          "bip2:Active": [],
+          "bip2:Proposed": [],
+          "bip2:Deferred": [],
+          "bip2:Rejected": [],
+          "bip2:Withdrawn": [],
+          "bip2:Final": [
+            "20"
+          ],
+          "bip2:Replaced": [],
+          "bip2:Obsolete": [],
+          "bip2:Accepted": []
+        }
+      },
+      {
+        "period": "2011-Q2",
+        "period_key": "2011-Q2",
+        "period_start": "2011-04-01",
+        "period_end": "2011-06-30",
+        "period_kind": "quarter",
+        "milestone_label": "",
+        "values": {
+          "bip2:Draft": 0,
+          "bip2:Active": 0,
+          "bip2:Proposed": 0,
+          "bip2:Deferred": 0,
+          "bip2:Rejected": 0,
+          "bip2:Withdrawn": 0,
+          "bip2:Final": 1,
+          "bip2:Replaced": 0,
+          "bip2:Obsolete": 0,
+          "bip2:Accepted": 0
+        },
+        "bips": {
+          "bip2:Draft": [],
+          "bip2:Active": [],
+          "bip2:Proposed": [],
+          "bip2:Deferred": [],
+          "bip2:Rejected": [],
+          "bip2:Withdrawn": [],
+          "bip2:Final": [
+            "20"
+          ],
+          "bip2:Replaced": [],
+          "bip2:Obsolete": [],
+          "bip2:Accepted": []
+        }
+      },
+      {
+        "period": "2011-Q3",
+        "period_key": "2011-Q3",
+        "period_start": "2011-07-01",
+        "period_end": "2011-09-30",
+        "period_kind": "quarter",
+        "milestone_label": "",
+        "values": {
+          "bip2:Draft": 1,
+          "bip2:Active": 0,
+          "bip2:Proposed": 0,
+          "bip2:Deferred": 0,
+          "bip2:Rejected": 0,
+          "bip2:Withdrawn": 0,
+          "bip2:Final": 1,
+          "bip2:Replaced": 0,
+          "bip2:Obsolete": 0,
+          "bip2:Accepted": 0
+        },
+        "bips": {
+          "bip2:Draft": [
+            "1"
+          ],
+          "bip2:Active": [],
+          "bip2:Proposed": [],
+          "bip2:Deferred": [],
+          "bip2:Rejected": [],
+          "bip2:Withdrawn": [],
+          "bip2:Final": [
+            "20"
+          ],
+          "bip2:Replaced": [],
+          "bip2:Obsolete": [],
+          "bip2:Accepted": []
+        }
+      },
+      {
         "period": "2011-Q4",
         "period_key": "2011-Q4",
         "period_start": "2011-10-01",
@@ -4666,7 +5020,7 @@
           "bip2:Deferred": 1,
           "bip2:Rejected": 0,
           "bip2:Withdrawn": 0,
-          "bip2:Final": 0,
+          "bip2:Final": 1,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
           "bip2:Accepted": 3
@@ -4684,7 +5038,9 @@
           ],
           "bip2:Rejected": [],
           "bip2:Withdrawn": [],
-          "bip2:Final": [],
+          "bip2:Final": [
+            "20"
+          ],
           "bip2:Replaced": [],
           "bip2:Obsolete": [],
           "bip2:Accepted": [
@@ -4702,7 +5058,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 2,
+          "bip2:Draft": 4,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -4711,12 +5067,14 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 6
+          "bip2:Accepted": 8
         },
         "bips": {
           "bip2:Draft": [
             "10",
-            "19"
+            "18",
+            "19",
+            "32"
           ],
           "bip2:Active": [
             "1"
@@ -4740,6 +5098,8 @@
             "14",
             "16",
             "21",
+            "22",
+            "23",
             "30"
           ]
         }
@@ -4752,7 +5112,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 5,
+          "bip2:Draft": 6,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -4761,11 +5121,12 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 7
+          "bip2:Accepted": 8
         },
         "bips": {
           "bip2:Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
@@ -4794,6 +5155,7 @@
             "16",
             "21",
             "22",
+            "23",
             "30"
           ]
         }
@@ -4806,7 +5168,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 5,
+          "bip2:Draft": 7,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -4815,15 +5177,17 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 9
+          "bip2:Accepted": 10
         },
         "bips": {
           "bip2:Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36"
           ],
           "bip2:Active": [
             "1"
@@ -4848,6 +5212,7 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
             "35"
@@ -4862,7 +5227,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 5,
+          "bip2:Draft": 8,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -4871,15 +5236,18 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 9
+          "bip2:Accepted": 11
         },
         "bips": {
           "bip2:Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38"
           ],
           "bip2:Active": [
             "1"
@@ -4904,9 +5272,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ]
         }
       },
@@ -4918,7 +5288,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 5,
+          "bip2:Draft": 9,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -4927,15 +5297,19 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 9
+          "bip2:Accepted": 11
         },
         "bips": {
           "bip2:Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38",
+            "50"
           ],
           "bip2:Active": [
             "1"
@@ -4960,9 +5334,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ]
         }
       },
@@ -4974,7 +5350,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 5,
+          "bip2:Draft": 10,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -4983,15 +5359,20 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 9
+          "bip2:Accepted": 11
         },
         "bips": {
           "bip2:Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38",
+            "50",
+            "60"
           ],
           "bip2:Active": [
             "1"
@@ -5016,9 +5397,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ]
         }
       },
@@ -5030,7 +5413,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 5,
+          "bip2:Draft": 15,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 0,
@@ -5039,15 +5422,25 @@
           "bip2:Final": 0,
           "bip2:Replaced": 0,
           "bip2:Obsolete": 0,
-          "bip2:Accepted": 9
+          "bip2:Accepted": 11
         },
         "bips": {
           "bip2:Draft": [
             "10",
+            "18",
             "19",
             "31",
             "32",
-            "33"
+            "33",
+            "36",
+            "38",
+            "39",
+            "50",
+            "60",
+            "70",
+            "71",
+            "72",
+            "73"
           ],
           "bip2:Active": [
             "1"
@@ -5072,9 +5465,11 @@
             "16",
             "21",
             "22",
+            "23",
             "30",
             "34",
-            "35"
+            "35",
+            "37"
           ]
         }
       },
@@ -5225,7 +5620,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 15,
+          "bip2:Draft": 17,
           "bip2:Active": 0,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5249,9 +5644,11 @@
             "42",
             "43",
             "44",
+            "45",
             "50",
             "60",
             "62",
+            "64",
             "73"
           ],
           "bip2:Active": [],
@@ -5299,7 +5696,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 16,
+          "bip2:Draft": 19,
           "bip2:Active": 0,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5323,11 +5720,14 @@
             "42",
             "43",
             "44",
+            "45",
             "50",
             "60",
             "62",
             "64",
-            "73"
+            "73",
+            "80",
+            "81"
           ],
           "bip2:Active": [],
           "bip2:Proposed": [],
@@ -5374,7 +5774,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 17,
+          "bip2:Draft": 19,
           "bip2:Active": 0,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5403,7 +5803,9 @@
             "62",
             "64",
             "65",
-            "73"
+            "73",
+            "80",
+            "81"
           ],
           "bip2:Active": [],
           "bip2:Proposed": [],
@@ -5451,7 +5853,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 19,
+          "bip2:Draft": 21,
           "bip2:Active": 0,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5482,7 +5884,9 @@
             "65",
             "66",
             "67",
-            "73"
+            "73",
+            "80",
+            "81"
           ],
           "bip2:Active": [],
           "bip2:Proposed": [],
@@ -5530,7 +5934,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 23,
+          "bip2:Draft": 29,
           "bip2:Active": 0,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5554,6 +5958,7 @@
             "43",
             "44",
             "45",
+            "47",
             "50",
             "60",
             "62",
@@ -5564,8 +5969,13 @@
             "68",
             "69",
             "73",
+            "80",
+            "81",
+            "99",
+            "100",
             "101",
-            "102"
+            "102",
+            "130"
           ],
           "bip2:Active": [],
           "bip2:Proposed": [],
@@ -5613,7 +6023,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 32,
+          "bip2:Draft": 40,
           "bip2:Active": 0,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5647,9 +6057,13 @@
             "68",
             "69",
             "73",
+            "80",
+            "81",
             "99",
+            "100",
             "101",
             "102",
+            "103",
             "105",
             "106",
             "107",
@@ -5657,7 +6071,11 @@
             "112",
             "113",
             "120",
-            "121"
+            "121",
+            "122",
+            "123",
+            "130",
+            "132"
           ],
           "bip2:Active": [],
           "bip2:Proposed": [],
@@ -5707,7 +6125,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 40,
+          "bip2:Draft": 48,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 1,
@@ -5741,7 +6159,11 @@
             "69",
             "73",
             "75",
+            "80",
+            "81",
+            "83",
             "99",
+            "100",
             "101",
             "102",
             "103",
@@ -5755,9 +6177,13 @@
             "121",
             "122",
             "123",
+            "124",
             "125",
             "130",
             "131",
+            "132",
+            "140",
+            "141",
             "142",
             "144"
           ],
@@ -5811,7 +6237,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 47,
+          "bip2:Draft": 51,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 3,
@@ -5847,6 +6273,7 @@
             "81",
             "83",
             "99",
+            "100",
             "102",
             "103",
             "105",
@@ -5862,6 +6289,7 @@
             "123",
             "124",
             "125",
+            "126",
             "130",
             "131",
             "132",
@@ -5870,7 +6298,9 @@
             "141",
             "143",
             "144",
-            "145"
+            "145",
+            "150",
+            "151"
           ],
           "bip2:Active": [
             "1"
@@ -5928,7 +6358,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 51,
+          "bip2:Draft": 54,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 3,
@@ -5953,6 +6383,7 @@
             "44",
             "45",
             "47",
+            "49",
             "60",
             "64",
             "67",
@@ -5964,6 +6395,7 @@
             "81",
             "83",
             "99",
+            "100",
             "102",
             "103",
             "105",
@@ -5990,6 +6422,7 @@
             "143",
             "144",
             "145",
+            "150",
             "151",
             "152"
           ],
@@ -6049,7 +6482,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 40,
+          "bip2:Draft": 43,
           "bip2:Active": 1,
           "bip2:Proposed": 0,
           "bip2:Deferred": 4,
@@ -6070,12 +6503,14 @@
             "42",
             "43",
             "47",
+            "49",
             "60",
             "64",
             "74",
             "75",
             "83",
             "99",
+            "100",
             "102",
             "103",
             "105",
@@ -6083,6 +6518,7 @@
             "107",
             "109",
             "114",
+            "115",
             "120",
             "121",
             "122",
@@ -6174,7 +6610,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 39,
+          "bip2:Draft": 41,
           "bip2:Active": 2,
           "bip2:Proposed": 7,
           "bip2:Deferred": 4,
@@ -6202,12 +6638,14 @@
             "83",
             "90",
             "99",
+            "100",
             "102",
             "103",
             "105",
             "106",
             "107",
             "114",
+            "115",
             "120",
             "121",
             "122",
@@ -6303,7 +6741,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 46,
+          "bip2:Draft": 50,
           "bip2:Active": 2,
           "bip2:Proposed": 7,
           "bip2:Deferred": 4,
@@ -6316,6 +6754,7 @@
         },
         "bips": {
           "bip2:Draft": [
+            "8",
             "19",
             "33",
             "36",
@@ -6340,6 +6779,7 @@
             "107",
             "114",
             "115",
+            "118",
             "120",
             "121",
             "122",
@@ -6348,6 +6788,7 @@
             "131",
             "133",
             "134",
+            "135",
             "140",
             "141",
             "143",
@@ -6360,6 +6801,7 @@
             "151",
             "152",
             "171",
+            "173",
             "180",
             "199"
           ],
@@ -6439,7 +6881,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 52,
+          "bip2:Draft": 57,
           "bip2:Active": 2,
           "bip2:Proposed": 6,
           "bip2:Deferred": 4,
@@ -6478,6 +6920,7 @@
             "107",
             "114",
             "115",
+            "118",
             "120",
             "121",
             "122",
@@ -6500,6 +6943,10 @@
             "151",
             "152",
             "154",
+            "156",
+            "157",
+            "158",
+            "159",
             "171",
             "173",
             "180",
@@ -6581,7 +7028,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 48,
+          "bip2:Draft": 57,
           "bip2:Active": 2,
           "bip2:Proposed": 6,
           "bip2:Deferred": 3,
@@ -6609,6 +7056,7 @@
             "75",
             "83",
             "90",
+            "98",
             "99",
             "100",
             "102",
@@ -6619,6 +7067,9 @@
             "107",
             "114",
             "115",
+            "116",
+            "117",
+            "118",
             "120",
             "121",
             "122",
@@ -6628,6 +7079,7 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "141",
             "146",
@@ -6635,13 +7087,17 @@
             "151",
             "152",
             "154",
+            "156",
+            "157",
+            "158",
             "159",
             "171",
             "173",
             "174",
             "175",
             "180",
-            "199"
+            "199",
+            "300"
           ],
           "bip2:Active": [
             "2",
@@ -6726,7 +7182,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 52,
+          "bip2:Draft": 58,
           "bip2:Active": 2,
           "bip2:Proposed": 11,
           "bip2:Deferred": 3,
@@ -6768,6 +7224,7 @@
             "115",
             "116",
             "117",
+            "118",
             "120",
             "121",
             "122",
@@ -6777,12 +7234,16 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
             "151",
             "152",
             "154",
+            "156",
+            "157",
+            "158",
             "159",
             "171",
             "173",
@@ -6790,7 +7251,8 @@
             "175",
             "176",
             "180",
-            "199"
+            "199",
+            "300"
           ],
           "bip2:Active": [
             "2",
@@ -6876,7 +7338,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 52,
+          "bip2:Draft": 57,
           "bip2:Active": 2,
           "bip2:Proposed": 11,
           "bip2:Deferred": 3,
@@ -6918,6 +7380,7 @@
             "115",
             "116",
             "117",
+            "118",
             "122",
             "124",
             "126",
@@ -6925,12 +7388,14 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
             "151",
             "152",
             "154",
+            "156",
             "157",
             "158",
             "159",
@@ -6940,6 +7405,8 @@
             "176",
             "180",
             "199",
+            "300",
+            "310",
             "320"
           ],
           "bip2:Active": [
@@ -7029,7 +7496,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 54,
+          "bip2:Draft": 58,
           "bip2:Active": 2,
           "bip2:Proposed": 11,
           "bip2:Deferred": 3,
@@ -7079,12 +7546,14 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
             "151",
             "152",
             "154",
+            "156",
             "157",
             "158",
             "159",
@@ -7095,6 +7564,8 @@
             "178",
             "180",
             "199",
+            "300",
+            "310",
             "320"
           ],
           "bip2:Active": [
@@ -7184,7 +7655,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 55,
+          "bip2:Draft": 57,
           "bip2:Active": 2,
           "bip2:Proposed": 10,
           "bip2:Deferred": 3,
@@ -7233,6 +7704,7 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
@@ -7249,6 +7721,7 @@
             "178",
             "180",
             "199",
+            "300",
             "310",
             "320",
             "322"
@@ -7342,7 +7815,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 55,
+          "bip2:Draft": 57,
           "bip2:Active": 2,
           "bip2:Proposed": 11,
           "bip2:Deferred": 3,
@@ -7391,6 +7864,7 @@
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
@@ -7407,6 +7881,7 @@
             "178",
             "180",
             "199",
+            "300",
             "310",
             "320",
             "322"
@@ -7501,7 +7976,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 56,
+          "bip2:Draft": 60,
           "bip2:Active": 2,
           "bip2:Proposed": 11,
           "bip2:Deferred": 3,
@@ -7546,10 +8021,12 @@
             "122",
             "124",
             "126",
+            "127",
             "131",
             "133",
             "134",
             "135",
+            "136",
             "140",
             "146",
             "150",
@@ -7567,9 +8044,11 @@
             "180",
             "197",
             "199",
+            "300",
             "310",
             "320",
-            "322"
+            "322",
+            "325"
           ],
           "bip2:Active": [
             "2",
@@ -7663,7 +8142,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 59,
+          "bip2:Draft": 62,
           "bip2:Active": 2,
           "bip2:Proposed": 10,
           "bip2:Deferred": 3,
@@ -7687,6 +8166,7 @@
             "60",
             "64",
             "75",
+            "78",
             "84",
             "90",
             "98",
@@ -7729,9 +8209,11 @@
             "180",
             "197",
             "199",
+            "300",
             "310",
             "320",
             "322",
+            "325",
             "340",
             "341",
             "342"
@@ -7830,7 +8312,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 57,
+          "bip2:Draft": 59,
           "bip2:Active": 2,
           "bip2:Proposed": 10,
           "bip2:Deferred": 3,
@@ -7852,6 +8334,7 @@
             "47",
             "60",
             "64",
+            "78",
             "84",
             "90",
             "98",
@@ -7896,6 +8379,7 @@
             "310",
             "320",
             "322",
+            "325",
             "330",
             "340",
             "341",
@@ -8000,7 +8484,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 58,
+          "bip2:Draft": 59,
           "bip2:Active": 2,
           "bip2:Proposed": 10,
           "bip2:Deferred": 3,
@@ -8022,6 +8506,7 @@
             "47",
             "60",
             "64",
+            "78",
             "84",
             "90",
             "98",
@@ -8172,7 +8657,7 @@
         "period_kind": "quarter",
         "milestone_label": "",
         "values": {
-          "bip2:Draft": 54,
+          "bip2:Draft": 57,
           "bip2:Active": 2,
           "bip2:Proposed": 10,
           "bip2:Deferred": 3,
@@ -8190,7 +8675,9 @@
             "47",
             "60",
             "64",
+            "78",
             "84",
+            "85",
             "90",
             "98",
             "99",
@@ -8236,6 +8723,7 @@
             "322",
             "325",
             "330",
+            "339",
             "340",
             "341",
             "342"
@@ -9065,6 +9553,122 @@
       ],
       "rows": [
         {
+          "period": "2011-Q1",
+          "period_key": "2011-Q1",
+          "period_start": "2011-01-01",
+          "period_end": "2011-03-31",
+          "period_kind": "quarter",
+          "milestone_label": "",
+          "values": {
+            "Draft": 0,
+            "Active": 0,
+            "Proposed": 0,
+            "Deferred": 0,
+            "Rejected": 0,
+            "Withdrawn": 0,
+            "Final": 1,
+            "Replaced": 0,
+            "Obsolete": 0,
+            "Accepted": 0,
+            "Pre-Draft": 0,
+            "Proposal": 0
+          },
+          "bips": {
+            "Draft": [],
+            "Active": [],
+            "Proposed": [],
+            "Deferred": [],
+            "Rejected": [],
+            "Withdrawn": [],
+            "Final": [
+              "20"
+            ],
+            "Replaced": [],
+            "Obsolete": [],
+            "Accepted": [],
+            "Pre-Draft": [],
+            "Proposal": []
+          }
+        },
+        {
+          "period": "2011-Q2",
+          "period_key": "2011-Q2",
+          "period_start": "2011-04-01",
+          "period_end": "2011-06-30",
+          "period_kind": "quarter",
+          "milestone_label": "",
+          "values": {
+            "Draft": 0,
+            "Active": 0,
+            "Proposed": 0,
+            "Deferred": 0,
+            "Rejected": 0,
+            "Withdrawn": 0,
+            "Final": 1,
+            "Replaced": 0,
+            "Obsolete": 0,
+            "Accepted": 0,
+            "Pre-Draft": 0,
+            "Proposal": 0
+          },
+          "bips": {
+            "Draft": [],
+            "Active": [],
+            "Proposed": [],
+            "Deferred": [],
+            "Rejected": [],
+            "Withdrawn": [],
+            "Final": [
+              "20"
+            ],
+            "Replaced": [],
+            "Obsolete": [],
+            "Accepted": [],
+            "Pre-Draft": [],
+            "Proposal": []
+          }
+        },
+        {
+          "period": "2011-Q3",
+          "period_key": "2011-Q3",
+          "period_start": "2011-07-01",
+          "period_end": "2011-09-30",
+          "period_kind": "quarter",
+          "milestone_label": "",
+          "values": {
+            "Draft": 1,
+            "Active": 0,
+            "Proposed": 0,
+            "Deferred": 0,
+            "Rejected": 0,
+            "Withdrawn": 0,
+            "Final": 1,
+            "Replaced": 0,
+            "Obsolete": 0,
+            "Accepted": 0,
+            "Pre-Draft": 0,
+            "Proposal": 0
+          },
+          "bips": {
+            "Draft": [
+              "1"
+            ],
+            "Active": [],
+            "Proposed": [],
+            "Deferred": [],
+            "Rejected": [],
+            "Withdrawn": [],
+            "Final": [
+              "20"
+            ],
+            "Replaced": [],
+            "Obsolete": [],
+            "Accepted": [],
+            "Pre-Draft": [],
+            "Proposal": []
+          }
+        },
+        {
           "period": "2011-Q4",
           "period_key": "2011-Q4",
           "period_start": "2011-10-01",
@@ -9078,7 +9682,7 @@
             "Deferred": 1,
             "Rejected": 0,
             "Withdrawn": 0,
-            "Final": 0,
+            "Final": 1,
             "Replaced": 0,
             "Obsolete": 0,
             "Accepted": 3,
@@ -9098,7 +9702,9 @@
             ],
             "Rejected": [],
             "Withdrawn": [],
-            "Final": [],
+            "Final": [
+              "20"
+            ],
             "Replaced": [],
             "Obsolete": [],
             "Accepted": [
@@ -9118,7 +9724,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 2,
+            "Draft": 4,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9127,14 +9733,16 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 6,
+            "Accepted": 8,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
-              "19"
+              "18",
+              "19",
+              "32"
             ],
             "Active": [
               "1"
@@ -9158,6 +9766,8 @@
               "14",
               "16",
               "21",
+              "22",
+              "23",
               "30"
             ],
             "Pre-Draft": [],
@@ -9172,7 +9782,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 5,
+            "Draft": 6,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9181,13 +9791,14 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 7,
+            "Accepted": 8,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
+              "18",
               "19",
               "31",
               "32",
@@ -9216,6 +9827,7 @@
               "16",
               "21",
               "22",
+              "23",
               "30"
             ],
             "Pre-Draft": [],
@@ -9230,7 +9842,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 5,
+            "Draft": 7,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9239,17 +9851,19 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 9,
+            "Accepted": 10,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
+              "18",
               "19",
               "31",
               "32",
-              "33"
+              "33",
+              "36"
             ],
             "Active": [
               "1"
@@ -9274,6 +9888,7 @@
               "16",
               "21",
               "22",
+              "23",
               "30",
               "34",
               "35"
@@ -9290,7 +9905,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 5,
+            "Draft": 8,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9299,17 +9914,20 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 9,
+            "Accepted": 11,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
+              "18",
               "19",
               "31",
               "32",
-              "33"
+              "33",
+              "36",
+              "38"
             ],
             "Active": [
               "1"
@@ -9334,9 +9952,11 @@
               "16",
               "21",
               "22",
+              "23",
               "30",
               "34",
-              "35"
+              "35",
+              "37"
             ],
             "Pre-Draft": [],
             "Proposal": []
@@ -9350,7 +9970,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 5,
+            "Draft": 9,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9359,17 +9979,21 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 9,
+            "Accepted": 11,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
+              "18",
               "19",
               "31",
               "32",
-              "33"
+              "33",
+              "36",
+              "38",
+              "50"
             ],
             "Active": [
               "1"
@@ -9394,9 +10018,11 @@
               "16",
               "21",
               "22",
+              "23",
               "30",
               "34",
-              "35"
+              "35",
+              "37"
             ],
             "Pre-Draft": [],
             "Proposal": []
@@ -9410,7 +10036,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 5,
+            "Draft": 10,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9419,17 +10045,22 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 9,
+            "Accepted": 11,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
+              "18",
               "19",
               "31",
               "32",
-              "33"
+              "33",
+              "36",
+              "38",
+              "50",
+              "60"
             ],
             "Active": [
               "1"
@@ -9454,9 +10085,11 @@
               "16",
               "21",
               "22",
+              "23",
               "30",
               "34",
-              "35"
+              "35",
+              "37"
             ],
             "Pre-Draft": [],
             "Proposal": []
@@ -9470,7 +10103,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 5,
+            "Draft": 15,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 0,
@@ -9479,17 +10112,27 @@
             "Final": 0,
             "Replaced": 0,
             "Obsolete": 0,
-            "Accepted": 9,
+            "Accepted": 11,
             "Pre-Draft": 0,
             "Proposal": 0
           },
           "bips": {
             "Draft": [
               "10",
+              "18",
               "19",
               "31",
               "32",
-              "33"
+              "33",
+              "36",
+              "38",
+              "39",
+              "50",
+              "60",
+              "70",
+              "71",
+              "72",
+              "73"
             ],
             "Active": [
               "1"
@@ -9514,9 +10157,11 @@
               "16",
               "21",
               "22",
+              "23",
               "30",
               "34",
-              "35"
+              "35",
+              "37"
             ],
             "Pre-Draft": [],
             "Proposal": []
@@ -9677,7 +10322,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 15,
+            "Draft": 17,
             "Active": 0,
             "Proposed": 0,
             "Deferred": 1,
@@ -9703,9 +10348,11 @@
               "42",
               "43",
               "44",
+              "45",
               "50",
               "60",
               "62",
+              "64",
               "73"
             ],
             "Active": [],
@@ -9755,7 +10402,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 16,
+            "Draft": 19,
             "Active": 0,
             "Proposed": 0,
             "Deferred": 1,
@@ -9781,11 +10428,14 @@
               "42",
               "43",
               "44",
+              "45",
               "50",
               "60",
               "62",
               "64",
-              "73"
+              "73",
+              "80",
+              "81"
             ],
             "Active": [],
             "Proposed": [],
@@ -9834,7 +10484,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 17,
+            "Draft": 19,
             "Active": 0,
             "Proposed": 0,
             "Deferred": 1,
@@ -9865,7 +10515,9 @@
               "62",
               "64",
               "65",
-              "73"
+              "73",
+              "80",
+              "81"
             ],
             "Active": [],
             "Proposed": [],
@@ -9915,7 +10567,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 19,
+            "Draft": 21,
             "Active": 0,
             "Proposed": 0,
             "Deferred": 1,
@@ -9948,7 +10600,9 @@
               "65",
               "66",
               "67",
-              "73"
+              "73",
+              "80",
+              "81"
             ],
             "Active": [],
             "Proposed": [],
@@ -9998,7 +10652,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 23,
+            "Draft": 29,
             "Active": 0,
             "Proposed": 0,
             "Deferred": 1,
@@ -10024,6 +10678,7 @@
               "43",
               "44",
               "45",
+              "47",
               "50",
               "60",
               "62",
@@ -10034,8 +10689,13 @@
               "68",
               "69",
               "73",
+              "80",
+              "81",
+              "99",
+              "100",
               "101",
-              "102"
+              "102",
+              "130"
             ],
             "Active": [],
             "Proposed": [],
@@ -10085,7 +10745,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 32,
+            "Draft": 40,
             "Active": 0,
             "Proposed": 0,
             "Deferred": 1,
@@ -10121,9 +10781,13 @@
               "68",
               "69",
               "73",
+              "80",
+              "81",
               "99",
+              "100",
               "101",
               "102",
+              "103",
               "105",
               "106",
               "107",
@@ -10131,7 +10795,11 @@
               "112",
               "113",
               "120",
-              "121"
+              "121",
+              "122",
+              "123",
+              "130",
+              "132"
             ],
             "Active": [],
             "Proposed": [],
@@ -10183,7 +10851,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 40,
+            "Draft": 48,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 1,
@@ -10219,7 +10887,11 @@
               "69",
               "73",
               "75",
+              "80",
+              "81",
+              "83",
               "99",
+              "100",
               "101",
               "102",
               "103",
@@ -10233,9 +10905,13 @@
               "121",
               "122",
               "123",
+              "124",
               "125",
               "130",
               "131",
+              "132",
+              "140",
+              "141",
               "142",
               "144"
             ],
@@ -10291,7 +10967,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 47,
+            "Draft": 51,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 3,
@@ -10329,6 +11005,7 @@
               "81",
               "83",
               "99",
+              "100",
               "102",
               "103",
               "105",
@@ -10344,6 +11021,7 @@
               "123",
               "124",
               "125",
+              "126",
               "130",
               "131",
               "132",
@@ -10352,7 +11030,9 @@
               "141",
               "143",
               "144",
-              "145"
+              "145",
+              "150",
+              "151"
             ],
             "Active": [
               "1"
@@ -10412,7 +11092,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 51,
+            "Draft": 54,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 3,
@@ -10439,6 +11119,7 @@
               "44",
               "45",
               "47",
+              "49",
               "60",
               "64",
               "67",
@@ -10450,6 +11131,7 @@
               "81",
               "83",
               "99",
+              "100",
               "102",
               "103",
               "105",
@@ -10476,6 +11158,7 @@
               "143",
               "144",
               "145",
+              "150",
               "151",
               "152"
             ],
@@ -10537,7 +11220,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 40,
+            "Draft": 43,
             "Active": 1,
             "Proposed": 0,
             "Deferred": 4,
@@ -10560,12 +11243,14 @@
               "42",
               "43",
               "47",
+              "49",
               "60",
               "64",
               "74",
               "75",
               "83",
               "99",
+              "100",
               "102",
               "103",
               "105",
@@ -10573,6 +11258,7 @@
               "107",
               "109",
               "114",
+              "115",
               "120",
               "121",
               "122",
@@ -10666,7 +11352,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 39,
+            "Draft": 41,
             "Active": 2,
             "Proposed": 7,
             "Deferred": 4,
@@ -10696,12 +11382,14 @@
               "83",
               "90",
               "99",
+              "100",
               "102",
               "103",
               "105",
               "106",
               "107",
               "114",
+              "115",
               "120",
               "121",
               "122",
@@ -10799,7 +11487,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 46,
+            "Draft": 50,
             "Active": 2,
             "Proposed": 7,
             "Deferred": 4,
@@ -10814,6 +11502,7 @@
           },
           "bips": {
             "Draft": [
+              "8",
               "19",
               "33",
               "36",
@@ -10838,6 +11527,7 @@
               "107",
               "114",
               "115",
+              "118",
               "120",
               "121",
               "122",
@@ -10846,6 +11536,7 @@
               "131",
               "133",
               "134",
+              "135",
               "140",
               "141",
               "143",
@@ -10858,6 +11549,7 @@
               "151",
               "152",
               "171",
+              "173",
               "180",
               "199"
             ],
@@ -10939,7 +11631,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 52,
+            "Draft": 57,
             "Active": 2,
             "Proposed": 6,
             "Deferred": 4,
@@ -10980,6 +11672,7 @@
               "107",
               "114",
               "115",
+              "118",
               "120",
               "121",
               "122",
@@ -11002,6 +11695,10 @@
               "151",
               "152",
               "154",
+              "156",
+              "157",
+              "158",
+              "159",
               "171",
               "173",
               "180",
@@ -11085,7 +11782,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 48,
+            "Draft": 57,
             "Active": 2,
             "Proposed": 6,
             "Deferred": 3,
@@ -11115,6 +11812,7 @@
               "75",
               "83",
               "90",
+              "98",
               "99",
               "100",
               "102",
@@ -11125,6 +11823,9 @@
               "107",
               "114",
               "115",
+              "116",
+              "117",
+              "118",
               "120",
               "121",
               "122",
@@ -11134,6 +11835,7 @@
               "133",
               "134",
               "135",
+              "136",
               "140",
               "141",
               "146",
@@ -11141,13 +11843,17 @@
               "151",
               "152",
               "154",
+              "156",
+              "157",
+              "158",
               "159",
               "171",
               "173",
               "174",
               "175",
               "180",
-              "199"
+              "199",
+              "300"
             ],
             "Active": [
               "2",
@@ -11234,7 +11940,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 52,
+            "Draft": 58,
             "Active": 2,
             "Proposed": 11,
             "Deferred": 3,
@@ -11278,6 +11984,7 @@
               "115",
               "116",
               "117",
+              "118",
               "120",
               "121",
               "122",
@@ -11287,12 +11994,16 @@
               "133",
               "134",
               "135",
+              "136",
               "140",
               "146",
               "150",
               "151",
               "152",
               "154",
+              "156",
+              "157",
+              "158",
               "159",
               "171",
               "173",
@@ -11300,7 +12011,8 @@
               "175",
               "176",
               "180",
-              "199"
+              "199",
+              "300"
             ],
             "Active": [
               "2",
@@ -11388,7 +12100,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 52,
+            "Draft": 57,
             "Active": 2,
             "Proposed": 11,
             "Deferred": 3,
@@ -11432,6 +12144,7 @@
               "115",
               "116",
               "117",
+              "118",
               "122",
               "124",
               "126",
@@ -11439,12 +12152,14 @@
               "133",
               "134",
               "135",
+              "136",
               "140",
               "146",
               "150",
               "151",
               "152",
               "154",
+              "156",
               "157",
               "158",
               "159",
@@ -11454,6 +12169,8 @@
               "176",
               "180",
               "199",
+              "300",
+              "310",
               "320"
             ],
             "Active": [
@@ -11545,7 +12262,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 54,
+            "Draft": 58,
             "Active": 2,
             "Proposed": 11,
             "Deferred": 3,
@@ -11597,12 +12314,14 @@
               "133",
               "134",
               "135",
+              "136",
               "140",
               "146",
               "150",
               "151",
               "152",
               "154",
+              "156",
               "157",
               "158",
               "159",
@@ -11613,6 +12332,8 @@
               "178",
               "180",
               "199",
+              "300",
+              "310",
               "320"
             ],
             "Active": [
@@ -11704,7 +12425,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 55,
+            "Draft": 57,
             "Active": 2,
             "Proposed": 10,
             "Deferred": 3,
@@ -11755,6 +12476,7 @@
               "133",
               "134",
               "135",
+              "136",
               "140",
               "146",
               "150",
@@ -11771,6 +12493,7 @@
               "178",
               "180",
               "199",
+              "300",
               "310",
               "320",
               "322"
@@ -11866,7 +12589,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 55,
+            "Draft": 57,
             "Active": 2,
             "Proposed": 11,
             "Deferred": 3,
@@ -11917,6 +12640,7 @@
               "133",
               "134",
               "135",
+              "136",
               "140",
               "146",
               "150",
@@ -11933,6 +12657,7 @@
               "178",
               "180",
               "199",
+              "300",
               "310",
               "320",
               "322"
@@ -12029,7 +12754,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 56,
+            "Draft": 60,
             "Active": 2,
             "Proposed": 11,
             "Deferred": 3,
@@ -12076,10 +12801,12 @@
               "122",
               "124",
               "126",
+              "127",
               "131",
               "133",
               "134",
               "135",
+              "136",
               "140",
               "146",
               "150",
@@ -12097,9 +12824,11 @@
               "180",
               "197",
               "199",
+              "300",
               "310",
               "320",
-              "322"
+              "322",
+              "325"
             ],
             "Active": [
               "2",
@@ -12195,7 +12924,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 59,
+            "Draft": 62,
             "Active": 2,
             "Proposed": 10,
             "Deferred": 3,
@@ -12221,6 +12950,7 @@
               "60",
               "64",
               "75",
+              "78",
               "84",
               "90",
               "98",
@@ -12263,9 +12993,11 @@
               "180",
               "197",
               "199",
+              "300",
               "310",
               "320",
               "322",
+              "325",
               "340",
               "341",
               "342"
@@ -12366,7 +13098,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 57,
+            "Draft": 59,
             "Active": 2,
             "Proposed": 10,
             "Deferred": 3,
@@ -12390,6 +13122,7 @@
               "47",
               "60",
               "64",
+              "78",
               "84",
               "90",
               "98",
@@ -12434,6 +13167,7 @@
               "310",
               "320",
               "322",
+              "325",
               "330",
               "340",
               "341",
@@ -12540,7 +13274,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 58,
+            "Draft": 59,
             "Active": 2,
             "Proposed": 10,
             "Deferred": 3,
@@ -12564,6 +13298,7 @@
               "47",
               "60",
               "64",
+              "78",
               "84",
               "90",
               "98",
@@ -12716,7 +13451,7 @@
           "period_kind": "quarter",
           "milestone_label": "",
           "values": {
-            "Draft": 54,
+            "Draft": 57,
             "Active": 2,
             "Proposed": 10,
             "Deferred": 3,
@@ -12736,7 +13471,9 @@
               "47",
               "60",
               "64",
+              "78",
               "84",
+              "85",
               "90",
               "98",
               "99",
@@ -12782,6 +13519,7 @@
               "322",
               "325",
               "330",
+              "339",
               "340",
               "341",
               "342"
@@ -13627,6 +14365,114 @@
         "Withdrawn"
       ],
       "rows": [
+        {
+          "period": "2011-Q1",
+          "period_key": "2011-Q1",
+          "period_start": "2011-01-01",
+          "period_end": "2011-03-31",
+          "period_kind": "quarter",
+          "milestone_label": "",
+          "values": {
+            "Draft": 0,
+            "Accepted": 0,
+            "Active": 0,
+            "Deferred": 0,
+            "Final": 0,
+            "Obsolete": 0,
+            "Pre-Draft": 0,
+            "Proposal": 0,
+            "Proposed": 0,
+            "Rejected": 0,
+            "Replaced": 0,
+            "Withdrawn": 0
+          },
+          "bips": {
+            "Draft": [],
+            "Accepted": [],
+            "Active": [],
+            "Deferred": [],
+            "Final": [],
+            "Obsolete": [],
+            "Pre-Draft": [],
+            "Proposal": [],
+            "Proposed": [],
+            "Rejected": [],
+            "Replaced": [],
+            "Withdrawn": []
+          }
+        },
+        {
+          "period": "2011-Q2",
+          "period_key": "2011-Q2",
+          "period_start": "2011-04-01",
+          "period_end": "2011-06-30",
+          "period_kind": "quarter",
+          "milestone_label": "",
+          "values": {
+            "Draft": 0,
+            "Accepted": 0,
+            "Active": 0,
+            "Deferred": 0,
+            "Final": 0,
+            "Obsolete": 0,
+            "Pre-Draft": 0,
+            "Proposal": 0,
+            "Proposed": 0,
+            "Rejected": 0,
+            "Replaced": 0,
+            "Withdrawn": 0
+          },
+          "bips": {
+            "Draft": [],
+            "Accepted": [],
+            "Active": [],
+            "Deferred": [],
+            "Final": [],
+            "Obsolete": [],
+            "Pre-Draft": [],
+            "Proposal": [],
+            "Proposed": [],
+            "Rejected": [],
+            "Replaced": [],
+            "Withdrawn": []
+          }
+        },
+        {
+          "period": "2011-Q3",
+          "period_key": "2011-Q3",
+          "period_start": "2011-07-01",
+          "period_end": "2011-09-30",
+          "period_kind": "quarter",
+          "milestone_label": "",
+          "values": {
+            "Draft": 0,
+            "Accepted": 0,
+            "Active": 0,
+            "Deferred": 0,
+            "Final": 0,
+            "Obsolete": 0,
+            "Pre-Draft": 0,
+            "Proposal": 0,
+            "Proposed": 0,
+            "Rejected": 0,
+            "Replaced": 0,
+            "Withdrawn": 0
+          },
+          "bips": {
+            "Draft": [],
+            "Accepted": [],
+            "Active": [],
+            "Deferred": [],
+            "Final": [],
+            "Obsolete": [],
+            "Pre-Draft": [],
+            "Proposal": [],
+            "Proposed": [],
+            "Rejected": [],
+            "Replaced": [],
+            "Withdrawn": []
+          }
+        },
         {
           "period": "2011-Q4",
           "period_key": "2011-Q4",

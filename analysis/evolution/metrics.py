@@ -127,6 +127,59 @@ def _normalize_timeline_event(proposal_id: str, event: Dict[str, Any]) -> Dict[s
     }
 
 
+def _build_created_seed_event(
+    proposal: Dict[str, Any],
+    source_event: Dict[str, Any] | None,
+    snapshot_date: date | None,
+) -> Dict[str, Any] | None:
+    if source_event is None:
+        return None
+
+    created_date = _parse_event_date(proposal.get("raw", {}).get("preamble", {}).get("created"))
+    if created_date is None:
+        return None
+    if snapshot_date is not None and created_date > snapshot_date:
+        return None
+    if created_date >= source_event["date"]:
+        return None
+
+    status = str(source_event.get("status") or "").strip()
+    proposal_id = str(source_event.get("proposal_id") or "").strip()
+    if not status or not proposal_id:
+        return None
+
+    return {
+        "proposal_id": proposal_id,
+        "date": created_date,
+        "status": status,
+        "standard": _resolve_event_standard(None, created_date, status),
+        "commit": "",
+        "timestamp": created_date.isoformat(),
+        "author": "",
+        "path": "",
+    }
+
+
+def _build_countable_timeline(
+    proposal: Dict[str, Any],
+    timeline: List[Dict[str, Any]],
+    snapshot_date: date | None,
+) -> List[Dict[str, Any]]:
+    visible_timeline = [
+        event for event in timeline
+        if snapshot_date is None or event["date"] <= snapshot_date
+    ]
+    created_seed = _build_created_seed_event(
+        proposal,
+        timeline[0] if timeline else None,
+        snapshot_date,
+    )
+
+    if created_seed is not None:
+        return [created_seed, *visible_timeline]
+    return visible_timeline
+
+
 def _serialize_proposal_timeline(
     proposal: Dict[str, Any],
     timeline: List[Dict[str, Any]],
@@ -136,25 +189,27 @@ def _serialize_proposal_timeline(
         event for event in timeline
         if snapshot_date is None or event["date"] <= snapshot_date
     ]
-    if not visible_timeline:
-        return None
 
     preamble = proposal.get("raw", {}).get("preamble", {})
-    proposal_id = visible_timeline[0]["proposal_id"]
+    proposal_source = visible_timeline[0] if visible_timeline else (timeline[0] if timeline else None)
+    if proposal_source is None:
+        return None
+
+    proposal_id = proposal_source["proposal_id"]
     created_date = _parse_event_date(preamble.get("created"))
     title = str(preamble.get("title") or "").strip()
-    latest_visible_event = visible_timeline[-1]
+    latest_visible_event = visible_timeline[-1] if visible_timeline else None
 
     creation_event = None
-    if created_date is not None and (snapshot_date is None or created_date <= snapshot_date):
-        creation_source = visible_timeline[0]
+    if created_date is not None and (snapshot_date is None or created_date <= snapshot_date) and timeline:
+        creation_source = timeline[0]
         creation_event = {
             "kind": "creation",
             "label": "Created",
             "date": created_date.isoformat(),
             "timestamp": creation_source.get("timestamp", ""),
             "status": creation_source.get("status", ""),
-            "standard": creation_source.get("standard", ""),
+            "standard": _resolve_event_standard(None, created_date, creation_source.get("status", "")),
             "commit": creation_source.get("commit", ""),
             "author": creation_source.get("author", ""),
             "path": creation_source.get("path", ""),
@@ -197,12 +252,17 @@ def _serialize_proposal_timeline(
     if not events:
         return None
 
+    current_status = latest_visible_event["status"] if latest_visible_event is not None else creation_event["status"]
+    current_standard = (
+        latest_visible_event["standard"] if latest_visible_event is not None else creation_event["standard"]
+    )
+
     return {
         "proposal_id": proposal_id,
         "title": title,
         "created": created_date.isoformat() if created_date is not None else "",
-        "current_status": latest_visible_event["status"],
-        "current_standard": latest_visible_event["standard"],
+        "current_status": current_status,
+        "current_standard": current_standard,
         "event_count": len(events),
         "events": events,
     }
@@ -521,12 +581,13 @@ def prepare_evolution_payload(
             continue
 
         timeline.sort(key=lambda entry: entry["date"])
-        visible_timeline = [
-            event for event in timeline
-            if snapshot_date is None or event["date"] <= snapshot_date
-        ]
-        if visible_timeline:
-            proposal_timelines.append(visible_timeline)
+        countable_timeline = _build_countable_timeline(
+            proposal,
+            timeline,
+            snapshot_date,
+        )
+        if countable_timeline:
+            proposal_timelines.append(countable_timeline)
         serialized_timeline = _serialize_proposal_timeline(
             proposal,
             timeline,
@@ -535,7 +596,7 @@ def prepare_evolution_payload(
         if serialized_timeline is not None:
             serialized_timelines.append(serialized_timeline)
 
-        for event in visible_timeline:
+        for event in countable_timeline:
             category_set.add(event["status"])
             event_date = event["date"]
             min_date = event_date if min_date is None else min(min_date, event_date)

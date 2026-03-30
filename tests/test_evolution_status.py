@@ -262,6 +262,62 @@ class EvolutionStatusTests(unittest.TestCase):
             ],
         )
 
+    def test_prepare_evolution_payload_counts_from_created_date_before_first_observed_status(self) -> None:
+        proposal_data = [
+            {
+                "raw": {
+                    "preamble": {
+                        "bip": "431",
+                        "title": "Topology Restrictions for Pinning",
+                        "created": "2024-01-10",
+                    }
+                },
+                "insights": {
+                    "changes_in_status": [
+                        {
+                            "date": "2024-05-23",
+                            "timestamp": "2024-05-23T16:33:00+01:00",
+                            "status": "Draft",
+                            "standard": "bip2",
+                            "commit": "draftcommit",
+                            "author": "glozow",
+                            "path": "bip-0431.mediawiki",
+                        }
+                    ]
+                },
+            }
+        ]
+
+        payload = prepare_evolution_payload(
+            proposal_data=proposal_data,
+            snapshot_label="2024-03-31",
+            id_field="bip",
+        )
+
+        self.assertEqual(payload["meta"]["first_period"], "2024-Q1")
+        self.assertEqual(payload["meta"]["last_period"], "2024-Q1")
+        self.assertEqual(payload["status_evolution"]["rows"][0]["values"]["Draft"], 1)
+        self.assertEqual(payload["status_evolution_segmented"]["rows"][0]["values"]["bip2:Draft"], 1)
+        self.assertEqual(payload["proposal_timelines"][0]["current_status"], "Draft")
+        self.assertEqual(payload["proposal_timelines"][0]["current_standard"], "bip2")
+        self.assertEqual(
+            payload["proposal_timelines"][0]["events"],
+            [
+                {
+                    "kind": "creation",
+                    "label": "Created",
+                    "date": "2024-01-10",
+                    "timestamp": "2024-05-23T16:33:00+01:00",
+                    "status": "Draft",
+                    "standard": "bip2",
+                    "commit": "draftcommit",
+                    "author": "glozow",
+                    "path": "bip-0431.mediawiki",
+                    "previous_status": "",
+                }
+            ],
+        )
+
     def test_prepare_evolution_payload_truncates_status_series_for_any_snapshot(self) -> None:
         proposal_data = [
             {
@@ -278,13 +334,14 @@ class EvolutionStatusTests(unittest.TestCase):
         expectations = {
             "2021-01-01": {
                 "last_period": "2021-Q1",
-                "period_keys": ["2020-Q4", "2021-Q1"],
+                "period_keys": ["2020-Q3", "2020-Q4", "2021-Q1"],
                 "categories": ["Draft"],
                 "current_status": "Draft",
             },
             "2025-01-01": {
                 "last_period": "2025-Q1",
                 "period_keys": [
+                    "2020-Q3",
                     "2020-Q4",
                     "2021-Q1",
                     "2021-Q2",
