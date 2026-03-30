@@ -1,0 +1,524 @@
+import argparse
+import json
+import math
+import sys
+from collections.abc import Sequence as SequenceABC
+from pathlib import Path
+from typing import Any
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.pyplot as plt
+import networkx as nx
+from matplotlib.colors import to_rgba
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from analysis.artifact_io import load_authorship_payload, load_network_data, resolve_latest_snapshot_label
+from paper.RQ3._plotting import save_figure
+from paper.RQ3.collaboration_common import build_author_bip_map
+from paper._utils.io import resolve_output_dir, snapshot_prefix
+from paper.config import SNAPSHOT
+
+
+DEFAULT_OUTPUT_DIR = Path("paper") / "RQ3" / "outputs"
+DEFAULT_FIGSIZE = (11.2, 6.5)
+DEFAULT_AXIS_MARGIN_SCALE = 0.08
+EDGE_WIDTH_RANGE = (1.2, 5.0)
+NODE_RADIUS_RANGE = (6.0, 18.0)
+NODE_FILL_ALPHA = 1.0
+EDGE_ALPHA = 0.7
+EDGE_CURVATURE = 0.08
+NODE_LABEL_DEGREE_THRESHOLD = 3
+NODE_LABEL_FONT_SIZE = 9.5
+COLLABORATION_CLUSTER_COLORS = [
+    "#2a6f97",
+    "#bc4749",
+    "#6a994e",
+    "#7b2cbf",
+    "#c77dff",
+    "#f4a261",
+    "#457b9d",
+    "#e76f51",
+    "#8d99ae",
+    "#2b9348",
+    "#ffb703",
+    "#577590",
+]
+SPECIAL_CLUSTER_COLOR_BY_MEMBER = {
+    "Ethan Heilman": "#8c564b",
+}
+
+
+def _sanitize_file_part(value: Any, fallback: str = "unknown") -> str:
+    text = str(value or "").strip()
+    if not text:
+        return fallback
+
+    sanitized = []
+    last_was_dash = False
+    for char in text:
+        if char.isalnum() or char in {".", "_"}:
+            sanitized.append(char)
+            last_was_dash = False
+            continue
+
+        if not last_was_dash:
+            sanitized.append("-")
+            last_was_dash = True
+
+    out = "".join(sanitized).strip("-")
+    return out or fallback
+
+
+def _normalize_imported_positions(payload: dict[str, Any]) -> dict[str, tuple[float, float]]:
+    normalized_positions: dict[str, tuple[float, float]] = {}
+    raw_positions = payload.get("positions")
+
+    if isinstance(raw_positions, dict):
+        for node_id, coords in raw_positions.items():
+            if isinstance(coords, SequenceABC) and len(coords) >= 2:
+                x_coord = float(coords[0])
+                y_coord = float(coords[1])
+                normalized_positions[str(node_id)] = (x_coord, y_coord)
+
+    if normalized_positions:
+        return normalized_positions
+
+    for node in payload.get("nodes", []):
+        node_id = node.get("id")
+        x_coord = node.get("x")
+        y_coord = node.get("y")
+        if node_id is None or x_coord is None or y_coord is None:
+            continue
+        normalized_positions[str(node_id)] = (float(x_coord), float(y_coord))
+
+    return normalized_positions
+
+
+def _build_display_collaboration_components(nodes: list[dict[str, Any]], adjacency: dict[str, set[str]]) -> list[list[str]]:
+    isolated_ids: list[str] = []
+    visited: set[str] = set()
+    components: list[list[str]] = []
+
+    for node in nodes:
+        node_id = str(node.get("id"))
+        neighbors = adjacency.get(node_id, set())
+        if len(neighbors) == 0:
+            isolated_ids.append(node_id)
+            continue
+
+        if node_id in visited:
+            continue
+
+        queue = [node_id]
+        members: list[str] = []
+        visited.add(node_id)
+
+        while queue:
+            current = queue.pop(0)
+            members.append(current)
+
+            for neighbor in adjacency.get(current, set()):
+                if neighbor in visited:
+                    continue
+                visited.add(neighbor)
+                queue.append(neighbor)
+
+        components.append(members)
+
+    components.sort(key=len, reverse=True)
+
+    if isolated_ids:
+        components.append(sorted(isolated_ids))
+
+    return components
+
+
+def _compute_axis_limits(
+    positions: dict[str, tuple[float, float]],
+    *,
+    margin_scale: float = DEFAULT_AXIS_MARGIN_SCALE,
+) -> tuple[float, float, float, float]:
+    if not positions:
+        return (-1.0, 1.0, -1.0, 1.0)
+
+    x_values = [coords[0] for coords in positions.values()]
+    y_values = [coords[1] for coords in positions.values()]
+    x_span = (max(x_values) - min(x_values)) or 1.0
+    y_span = (max(y_values) - min(y_values)) or 1.0
+    x_margin = margin_scale * x_span
+    y_margin = margin_scale * y_span
+    return (
+        min(x_values) - x_margin,
+        max(x_values) + x_margin,
+        min(y_values) - y_margin,
+        max(y_values) + y_margin,
+    )
+
+
+def _sqrt_scaled_value(
+    value: float,
+    *,
+    domain_min: float,
+    domain_max: float,
+    range_min: float,
+    range_max: float,
+) -> float:
+    if domain_max <= domain_min:
+        return (range_min + range_max) * 0.5
+
+    clamped_value = min(max(value, domain_min), domain_max)
+    domain_span = math.sqrt(domain_max) - math.sqrt(domain_min)
+    if domain_span <= 0:
+        return (range_min + range_max) * 0.5
+
+    fraction = (math.sqrt(clamped_value) - math.sqrt(domain_min)) / domain_span
+    return range_min + fraction * (range_max - range_min)
+
+
+def _linear_scaled_value(
+    value: float,
+    *,
+    domain_min: float,
+    domain_max: float,
+    range_min: float,
+    range_max: float,
+) -> float:
+    if domain_max <= domain_min:
+        return (range_min + range_max) * 0.5
+
+    clamped_value = min(max(value, domain_min), domain_max)
+    fraction = (clamped_value - domain_min) / (domain_max - domain_min)
+    return range_min + fraction * (range_max - range_min)
+
+
+def _build_visible_graph(
+    network_data: dict[str, Any],
+    authorship_payload: dict[str, Any],
+    layout_payload: dict[str, Any],
+) -> tuple[nx.Graph, dict[str, tuple[float, float]], list[dict[str, Any]]]:
+    collaboration_network = authorship_payload.get("collaboration_network", {}) or {}
+    raw_nodes = collaboration_network.get("nodes", []) or []
+    raw_edges = collaboration_network.get("edges", []) or []
+    author_bip_map = build_author_bip_map(network_data)
+    exported_positions = _normalize_imported_positions(layout_payload)
+    if not exported_positions:
+        raise ValueError("Layout export does not contain any node positions.")
+
+    raw_node_ids = {
+        str(node.get("id"))
+        for node in raw_nodes
+        if node.get("id") is not None
+    }
+    display_node_ids = {
+        node_id
+        for node_id in exported_positions
+        if node_id in raw_node_ids
+    }
+    if not display_node_ids:
+        raise ValueError("No exported layout nodes matched the authorship collaboration network.")
+
+    adjacency: dict[str, set[str]] = {
+        str(node.get("id")): set()
+        for node in raw_nodes
+        if node.get("id") is not None
+    }
+    for edge in raw_edges:
+        source_id = str(edge.get("source"))
+        target_id = str(edge.get("target"))
+        if source_id not in adjacency or target_id not in adjacency:
+            continue
+        adjacency[source_id].add(target_id)
+        adjacency[target_id].add(source_id)
+
+    components = _build_display_collaboration_components(raw_nodes, adjacency)
+    cluster_meta: list[dict[str, Any]] = []
+    for cluster_index, members in enumerate(components):
+        member_ids = set(members)
+        edge_count = sum(
+            1
+            for edge in raw_edges
+            if str(edge.get("source")) in member_ids and str(edge.get("target")) in member_ids
+        )
+        cluster_meta.append(
+            {
+                "clusterId": cluster_index,
+                "members": members,
+                "clusterSize": len(members),
+                "edgeCount": edge_count,
+            }
+        )
+
+    cluster_by_node_id: dict[str, dict[str, int]] = {}
+    for cluster in cluster_meta:
+        for member in cluster["members"]:
+            cluster_by_node_id[member] = {
+                "clusterId": int(cluster["clusterId"]),
+                "clusterSize": int(cluster["clusterSize"]),
+                "clusterCollaborations": int(cluster["edgeCount"]),
+            }
+
+    filtered_cluster_ids = {
+        cluster_by_node_id[node_id]["clusterId"]
+        for node_id in display_node_ids
+        if node_id in cluster_by_node_id
+    }
+    visible_clusters = [
+        cluster
+        for cluster in cluster_meta
+        if int(cluster["clusterId"]) in filtered_cluster_ids
+    ]
+    cluster_color_by_id = {
+        int(cluster["clusterId"]): COLLABORATION_CLUSTER_COLORS[index % len(COLLABORATION_CLUSTER_COLORS)]
+        for index, cluster in enumerate(visible_clusters)
+    }
+    for cluster in visible_clusters:
+        members = {str(member) for member in cluster.get("members", [])}
+        for member_name, color in SPECIAL_CLUSTER_COLOR_BY_MEMBER.items():
+            if member_name in members:
+                cluster_color_by_id[int(cluster["clusterId"])] = color
+                break
+
+    graph = nx.Graph()
+    for node in raw_nodes:
+        node_id = str(node.get("id"))
+        if node_id not in display_node_ids:
+            continue
+
+        cluster = cluster_by_node_id.get(node_id, {"clusterId": -1, "clusterSize": 1, "clusterCollaborations": 0})
+        graph.add_node(
+            node_id,
+            degree=int(node.get("degree", 0) or 0),
+            bip_count=len(author_bip_map.get(node_id, [])),
+            cluster_id=int(cluster["clusterId"]),
+            cluster_size=int(cluster["clusterSize"]),
+            cluster_collaborations=int(cluster["clusterCollaborations"]),
+            cluster_color=cluster_color_by_id.get(int(cluster["clusterId"]), COLLABORATION_CLUSTER_COLORS[0]),
+        )
+
+    for edge in raw_edges:
+        source_id = str(edge.get("source"))
+        target_id = str(edge.get("target"))
+        if source_id not in display_node_ids or target_id not in display_node_ids:
+            continue
+
+        graph.add_edge(
+            source_id,
+            target_id,
+            weight=int(edge.get("weight", 1) or 1),
+        )
+
+    visible_positions = {
+        node_id: exported_positions[node_id]
+        for node_id in graph.nodes()
+        if node_id in exported_positions
+    }
+    if not visible_positions:
+        raise ValueError("No graph nodes remained after applying exported layout positions.")
+
+    return graph, visible_positions, visible_clusters
+
+
+def plot_collaboration_network_from_exported_layout(
+    network_data: dict[str, Any],
+    authorship_payload: dict[str, Any],
+    layout_export_path: Path,
+    output_path: Path,
+    snapshot_label: str,
+    *,
+    title: str | None = None,
+) -> None:
+    layout_payload = json.loads(layout_export_path.read_text(encoding="utf8"))
+    graph, positions, visible_clusters = _build_visible_graph(network_data, authorship_payload, layout_payload)
+    if graph.number_of_nodes() == 0:
+        raise ValueError("Exported collaboration graph is empty.")
+
+    ordered_nodes = sorted(
+        graph.nodes(),
+        key=lambda author: (
+            -int(graph.nodes[author].get("degree", 0) or 0),
+            author.lower(),
+        ),
+    )
+    degree_values = [int(graph.nodes[node_id].get("degree", 0) or 0) for node_id in ordered_nodes]
+    degree_min = min(degree_values) if degree_values else 0
+    degree_max = max(degree_values) if degree_values else 1
+    node_radii = {
+        node_id: _sqrt_scaled_value(
+            float(graph.nodes[node_id].get("degree", 0) or 0),
+            domain_min=float(degree_min),
+            domain_max=float(degree_max if degree_max > degree_min else degree_min + 1),
+            range_min=NODE_RADIUS_RANGE[0],
+            range_max=NODE_RADIUS_RANGE[1],
+        )
+        for node_id in ordered_nodes
+    }
+    node_sizes = [math.pi * (node_radii[node_id] ** 2) for node_id in ordered_nodes]
+
+    edge_list = sorted(
+        graph.edges(data=True),
+        key=lambda item: (
+            -int(item[2].get("weight", 1) or 1),
+            str(item[0]).lower(),
+            str(item[1]).lower(),
+        ),
+    )
+    edge_weights = [int(data.get("weight", 1) or 1) for _, _, data in edge_list]
+    weight_min = min(edge_weights) if edge_weights else 1
+    weight_max = max(edge_weights) if edge_weights else 1
+    edge_widths = [
+        _linear_scaled_value(
+            float(data.get("weight", 1) or 1),
+            domain_min=float(weight_min),
+            domain_max=float(weight_max if weight_max > weight_min else weight_min + 1),
+            range_min=EDGE_WIDTH_RANGE[0],
+            range_max=EDGE_WIDTH_RANGE[1],
+        )
+        for _, _, data in edge_list
+    ]
+    edge_colors = [
+        to_rgba(graph.nodes[source_id].get("cluster_color", COLLABORATION_CLUSTER_COLORS[0]), EDGE_ALPHA)
+        for source_id, _, _ in edge_list
+    ]
+
+    figure, axis = plt.subplots(figsize=DEFAULT_FIGSIZE)
+    axis_limits = _compute_axis_limits(positions)
+    axis.set_xlim(axis_limits[0], axis_limits[1])
+    axis.set_ylim(axis_limits[2], axis_limits[3])
+    axis.set_aspect("equal", adjustable="box")
+
+    if edge_list:
+        nx.draw_networkx_edges(
+            graph,
+            positions,
+            edgelist=[(source_id, target_id) for source_id, target_id, _ in edge_list],
+            width=edge_widths,
+            edge_color=edge_colors,
+            alpha=None,
+            arrows=True,
+            arrowstyle="-",
+            connectionstyle=f"arc3,rad={EDGE_CURVATURE}",
+            ax=axis,
+        )
+
+    nx.draw_networkx_nodes(
+        graph,
+        positions,
+        nodelist=ordered_nodes,
+        node_size=node_sizes,
+        node_color=[
+            to_rgba(graph.nodes[node_id].get("cluster_color", COLLABORATION_CLUSTER_COLORS[0]), NODE_FILL_ALPHA)
+            for node_id in ordered_nodes
+        ],
+        edgecolors="white",
+        linewidths=1.5,
+        ax=axis,
+    )
+
+    for node_id in ordered_nodes:
+        degree = int(graph.nodes[node_id].get("degree", 0) or 0)
+        if degree < NODE_LABEL_DEGREE_THRESHOLD:
+            continue
+
+        x_coord, y_coord = positions[node_id]
+        text = axis.text(
+            x_coord + node_radii[node_id] + 4.0,
+            y_coord + 1.5,
+            node_id,
+            fontsize=NODE_LABEL_FONT_SIZE,
+            ha="left",
+            va="center",
+            color="#111111",
+            zorder=6,
+            bbox={
+                "boxstyle": "round,pad=0.16",
+                "facecolor": "white",
+                "edgecolor": "none",
+                "alpha": 0.9,
+            },
+        )
+
+    layout_mode = str(layout_payload.get("layout_mode") or "layout").strip() or "layout"
+    cluster_count = len(visible_clusters)
+    default_title = f"Collaboration Network ({snapshot_label}, {layout_mode}, {cluster_count} clusters)"
+    axis.set_title(title or default_title, pad=14)
+    axis.axis("off")
+    figure.tight_layout()
+    save_figure(figure, output_path)
+
+
+def _resolve_default_output_path(
+    *,
+    snapshot_label: str,
+    layout_payload: dict[str, Any],
+    output_dir: Path,
+) -> Path:
+    layout_mode = _sanitize_file_part(layout_payload.get("layout_mode"), "layout")
+    filename_prefix = snapshot_prefix(snapshot_label)
+    return output_dir / f"{filename_prefix}_collaboration_network_exported_{layout_mode}.pdf"
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Render a static collaboration network figure from an exported authorship layout JSON."
+    )
+    parser.add_argument(
+        "--layout-export",
+        required=True,
+        help="Path to an exported authorship layout JSON file.",
+    )
+    parser.add_argument(
+        "--snapshot",
+        default=SNAPSHOT,
+        help="Snapshot label to load authorship payload from. Defaults to paper.config.SNAPSHOT or the layout file snapshot.",
+    )
+    parser.add_argument(
+        "--output",
+        help="Optional explicit PDF output path.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        help="Optional output directory used when --output is omitted.",
+    )
+    parser.add_argument(
+        "--title",
+        help="Optional custom plot title.",
+    )
+    args = parser.parse_args()
+
+    layout_export_path = Path(args.layout_export)
+    layout_payload = json.loads(layout_export_path.read_text(encoding="utf8"))
+    snapshot_label = (
+        str(args.snapshot).strip()
+        if args.snapshot is not None and str(args.snapshot).strip()
+        else str(layout_payload.get("snapshot") or "").strip()
+    )
+    if not snapshot_label:
+        snapshot_label = resolve_latest_snapshot_label() or "latest"
+
+    network_data = load_network_data(snapshot=snapshot_label)
+    authorship_payload = load_authorship_payload(snapshot=snapshot_label)
+    output_dir = resolve_output_dir(args.output_dir, DEFAULT_OUTPUT_DIR)
+    output_path = Path(args.output) if args.output else _resolve_default_output_path(
+        snapshot_label=snapshot_label,
+        layout_payload=layout_payload,
+        output_dir=output_dir,
+    )
+
+    plot_collaboration_network_from_exported_layout(
+        network_data=network_data,
+        authorship_payload=authorship_payload,
+        layout_export_path=layout_export_path,
+        output_path=output_path,
+        snapshot_label=snapshot_label,
+        title=args.title,
+    )
+
+
+if __name__ == "__main__":
+    main()
