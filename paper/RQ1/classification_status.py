@@ -242,8 +242,8 @@ def plot_classification_status(
     figure, (axis_left, axis_right) = plt.subplots(
         1,
         2,
-        figsize=(10, 4),
-        gridspec_kw={"width_ratios": [0.35, 0.65]},
+        figsize=(10, 3.5),
+        gridspec_kw={"width_ratios": [0.33, 0.67]},
     )
     axis_right_secondary = axis_right.twinx()
 

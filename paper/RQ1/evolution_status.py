@@ -19,12 +19,12 @@ from paper.RQ3._plotting import (
 
 REACT_CLASSIFICATION_PALETTE = [
     "#4e79a7",
-    "#f28e2b",
+    "#f28e2c",
     "#e15759",
     "#76b7b2",
     "#59a14f",
-    "#edc948",
-    "#b07aa1",
+    "#edc949",
+    "#af7aa1",
     "#ff9da7",
     "#9c755f",
     "#bab0ab",
@@ -58,6 +58,18 @@ ACTIVATION_YEAR_LABEL_NUDGE_POINTS = 6
 BAR_WIDTH = 0.82
 EVOLUTION_BAR_EDGE_WIDTH = 0.5
 FIXED_STATUS_COLORS = {
+    "Draft": "#4e79a7",
+    "Active": "#f28e2c",
+    "Proposed": "#59a14f",
+    "Deferred": "#76b7b2",
+    "Rejected": "#e15759",
+    "Withdrawn": "#edc949",
+    "Final": "#af7aa1",
+    "Replaced": "#ff9da7",
+    "Obsolete": "#9c755f",
+    "Accepted": "#bab0ab",
+    "Complete": "#66c2a5",
+    "Deployed": "#fc8d62",
     "Closed": "#868e96",
 }
 
@@ -88,7 +100,7 @@ def _format_period_display_label(period_key: str, period_label: str) -> str:
 
 def _format_milestone_label(label: str) -> str:
     if label.strip() == "BIP3 Activation":
-        return "BIP-3 activation"
+        return "BIP3 activation"
     return label
 
 
@@ -423,7 +435,7 @@ def plot_evolution_status(
     ]
     bar_bottom = np.zeros(len(rows), dtype=int)
 
-    figure, axis = plt.subplots(figsize=(10.5, 5))
+    figure, axis = plt.subplots(figsize=(10, 5))
 
     for segment in plot_segments:
         counts = np.array(segment_series[segment["key"]], dtype=int)
@@ -512,7 +524,7 @@ def plot_evolution_status(
         bip2_legend = axis.legend(
             handles=bip2_handles,
             loc="upper left",
-            bbox_to_anchor=(1.0, 1.0),
+            bbox_to_anchor=(1.0, 0.94),
             frameon=False,
             title="BIP2 Status:",
             borderaxespad=0,

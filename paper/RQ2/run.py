@@ -12,7 +12,7 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 OUTPUT_DIR = None
 GENERATE_DEPENDENCY_PLOTS = False
 GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS = True
-GENERATE_DEPENDENCY_COMPARISON_TABLE = False
+GENERATE_DEPENDENCY_COMPARISON_TABLE = True
 DIFFERENTIAL_FOCUS_BIPS = [67,93,350]
 DIFFERENTIAL_LAYOUT = "kamada_kawai"
 DIFFERENTIAL_LAYOUT_EXPORT = Path("paper") / "RQ2" / "dependency_layout_260316_67_93_350.json"
@@ -24,7 +24,11 @@ def main() -> None:
     from analysis.artifact_io import load_network_data, resolve_latest_snapshot_label
     from paper.RQ2.dependency_differential_plots import render_differential_dependency_plots
     from paper.RQ2.dependency_plots import render_default_dependency_plot_suite
-    from paper.RQ2.dependency_comparison_table import export_dependency_comparison_latex_table
+    from paper.RQ2.dependency_comparison_table import (
+        export_dependency_comparison_latex_table,
+        export_preamble_dependency_comparison_latex_table,
+        export_preamble_plus_regex_llm_dependency_comparison_latex_table,
+    )
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
     default_relative_path = Path("paper") / "RQ2" / "outputs"
@@ -68,6 +72,14 @@ def main() -> None:
         export_dependency_comparison_latex_table(
             network_data=network_data,
             output_path=output_dir / f"{filename_prefix}_dependency_pairwise_comparison.tex",
+        )
+        export_preamble_dependency_comparison_latex_table(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_dependency_pairwise_comparison_preamble_only.tex",
+        )
+        export_preamble_plus_regex_llm_dependency_comparison_latex_table(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_dependency_pairwise_comparison_preamble_plus_regex_llm.tex",
         )
 
 
