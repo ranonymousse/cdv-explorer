@@ -25,12 +25,16 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 from paper.config import SNAPSHOT
 
 
+LAYOUT_EXPORT_DIR = Path("paper") / "RQ3"
+LAYOUT_EXPORT_FILENAME = "authorship_layout_260316_balanced"
 DEFAULT_OUTPUT_DIR = Path("paper") / "RQ3" / "outputs"
-DEFAULT_FIGSIZE = (11.2, 6.5)
+DEFAULT_FIGSIZE = (11,6)
 DEFAULT_AXIS_MARGIN_SCALE = 0.08
 EDGE_WIDTH_RANGE = (1.2, 5.0)
 NODE_RADIUS_RANGE = (6.0, 18.0)
 NODE_FILL_ALPHA = 1.0
+NODE_BORDER_COLOR = "#111111"
+NODE_BORDER_WIDTH = 1.5
 EDGE_ALPHA = 0.7
 EDGE_CURVATURE = 0.08
 NODE_LABEL_DEGREE_THRESHOLD = 3
@@ -98,6 +102,19 @@ def _normalize_imported_positions(payload: dict[str, Any]) -> dict[str, tuple[fl
         normalized_positions[str(node_id)] = (float(x_coord), float(y_coord))
 
     return normalized_positions
+
+
+def resolve_layout_export_path(layout_export_value: str | None) -> Path:
+    if layout_export_value is not None and str(layout_export_value).strip():
+        candidate = Path(str(layout_export_value).strip())
+        if candidate.suffix:
+            return candidate
+        return candidate.with_suffix(".json")
+
+    default_candidate = LAYOUT_EXPORT_DIR / LAYOUT_EXPORT_FILENAME
+    if default_candidate.suffix:
+        return default_candidate
+    return default_candidate.with_suffix(".json")
 
 
 def _build_display_collaboration_components(nodes: list[dict[str, Any]], adjacency: dict[str, set[str]]) -> list[list[str]]:
@@ -415,8 +432,8 @@ def plot_collaboration_network_from_exported_layout(
             to_rgba(graph.nodes[node_id].get("cluster_color", COLLABORATION_CLUSTER_COLORS[0]), NODE_FILL_ALPHA)
             for node_id in ordered_nodes
         ],
-        edgecolors="white",
-        linewidths=1.5,
+        edgecolors=NODE_BORDER_COLOR,
+        linewidths=NODE_BORDER_WIDTH,
         ax=axis,
     )
 
@@ -452,7 +469,7 @@ def plot_collaboration_network_from_exported_layout(
     save_figure(figure, output_path)
 
 
-def _resolve_default_output_path(
+def resolve_default_output_path(
     *,
     snapshot_label: str,
     layout_payload: dict[str, Any],
@@ -469,8 +486,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--layout-export",
-        required=True,
-        help="Path to an exported authorship layout JSON file.",
+        help="Optional path to an exported authorship layout JSON file. Defaults to the module-level LAYOUT_EXPORT_FILENAME.",
     )
     parser.add_argument(
         "--snapshot",
@@ -491,7 +507,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    layout_export_path = Path(args.layout_export)
+    layout_export_path = resolve_layout_export_path(args.layout_export)
     layout_payload = json.loads(layout_export_path.read_text(encoding="utf8"))
     snapshot_label = (
         str(args.snapshot).strip()
@@ -504,7 +520,7 @@ def main() -> None:
     network_data = load_network_data(snapshot=snapshot_label)
     authorship_payload = load_authorship_payload(snapshot=snapshot_label)
     output_dir = resolve_output_dir(args.output_dir, DEFAULT_OUTPUT_DIR)
-    output_path = Path(args.output) if args.output else _resolve_default_output_path(
+    output_path = Path(args.output) if args.output else resolve_default_output_path(
         snapshot_label=snapshot_label,
         layout_payload=layout_payload,
         output_dir=output_dir,

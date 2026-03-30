@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -12,7 +13,9 @@ from paper._utils.io import resolve_output_dir, snapshot_prefix
 OUTPUT_DIR = None
 GENERATE_AUTHORSHIP_PLOTS = True
 GENERATE_COLLABORATION_NETWORK_PLOT = True
+GENERATE_COLLABORATION_NETWORK_EXPORTED_PLOT = True
 GENERATE_COLLABORATION_METRICS_TABLE = True
+COLLABORATION_NETWORK_EXPORTED_LAYOUT = None
 
 
 def main() -> None:
@@ -28,6 +31,11 @@ def main() -> None:
         export_collaboration_metrics_table,
     )
     from paper.RQ3.collaboration_network import render_collaboration_network_layout_suite
+    from paper.RQ3.collaboration_network_exported_layout import (
+        plot_collaboration_network_from_exported_layout,
+        resolve_default_output_path as resolve_exported_network_output_path,
+        resolve_layout_export_path,
+    )
     from paper.RQ3.creation_over_time import plot_creation_over_time
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
@@ -49,6 +57,32 @@ def main() -> None:
             output_path=output_dir / f"{filename_prefix}_authorship_overview.pdf",
             snapshot_label=snapshot_label,
         )
+
+    if GENERATE_COLLABORATION_NETWORK_EXPORTED_PLOT:
+        if authorship_payload is None:
+            authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
+        if network_data is None:
+            network_data = load_network_data(snapshot=SNAPSHOT)
+
+        layout_export_path = resolve_layout_export_path(COLLABORATION_NETWORK_EXPORTED_LAYOUT)
+        if layout_export_path.exists():
+            layout_payload = json.loads(layout_export_path.read_text(encoding="utf8"))
+            plot_collaboration_network_from_exported_layout(
+                network_data=network_data,
+                authorship_payload=authorship_payload,
+                layout_export_path=layout_export_path,
+                output_path=resolve_exported_network_output_path(
+                    snapshot_label=snapshot_label,
+                    layout_payload=layout_payload,
+                    output_dir=output_dir,
+                ),
+                snapshot_label=snapshot_label,
+            )
+        else:
+            print(
+                "Skipping exported collaboration network plot; layout export not found: "
+                f"{layout_export_path}"
+            )
 
     if GENERATE_COLLABORATION_NETWORK_PLOT:
         if authorship_payload is None:
