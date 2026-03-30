@@ -66,7 +66,7 @@ def _compute_weighted_eigenvector(node_ids, adjacency, max_iterations=1000, tole
     return values
 
 
-def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_centrality: list[dict]) -> list[dict]:
+def build_collaboration_adjacency(collaboration_network: dict) -> tuple[list[str], dict[str, list[dict[str, int | str]]], dict[str, int]]:
     raw_nodes = collaboration_network.get("nodes", []) or []
     raw_edges = collaboration_network.get("edges", []) or []
     node_ids = [str(node.get("id")) for node in raw_nodes if node.get("id")]
@@ -89,6 +89,12 @@ def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_
         weighted_degree_by_author[source] += weight
         weighted_degree_by_author[target] += weight
 
+    return node_ids, adjacency, weighted_degree_by_author
+
+
+def build_true_collaboration_components(collaboration_network: dict) -> list[list[str]]:
+    node_ids, adjacency, _ = build_collaboration_adjacency(collaboration_network)
+
     visited = set()
     components = []
     for node_id in node_ids:
@@ -104,7 +110,7 @@ def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_
             members.append(current)
 
             for neighbor in adjacency.get(current, []):
-                neighbor_id = neighbor["id"]
+                neighbor_id = str(neighbor["id"])
                 if neighbor_id in visited:
                     continue
                 visited.add(neighbor_id)
@@ -113,6 +119,52 @@ def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_
         components.append(members)
 
     components.sort(key=len, reverse=True)
+    return components
+
+
+def build_collaboration_component_size_distribution(collaboration_network: dict) -> list[dict[str, int]]:
+    component_size_counts = defaultdict(int)
+
+    for members in build_true_collaboration_components(collaboration_network):
+        component_size_counts[len(members)] += 1
+
+    return [
+        {
+            "cluster_size": int(cluster_size),
+            "cluster_count": int(cluster_count),
+            "author_count": int(cluster_size) * int(cluster_count),
+        }
+        for cluster_size, cluster_count in sorted(component_size_counts.items())
+    ]
+
+
+def build_collaboration_degree_distribution(collaboration_network: dict) -> list[dict[str, int]]:
+    raw_nodes = collaboration_network.get("nodes", []) or []
+    node_ids, adjacency, _ = build_collaboration_adjacency(collaboration_network)
+    known_node_ids = set(node_ids)
+
+    for node in raw_nodes:
+        node_id = str(node.get("id"))
+        if node_id and node_id not in known_node_ids:
+            adjacency.setdefault(node_id, [])
+
+    degree_counts = defaultdict(int)
+    for node_id in adjacency:
+        degree_counts[len(adjacency.get(node_id, []))] += 1
+
+    return [
+        {
+            "degree": int(degree),
+            "author_count": int(author_count),
+        }
+        for degree, author_count in sorted(degree_counts.items())
+    ]
+
+
+def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_centrality: list[dict]) -> list[dict]:
+    raw_nodes = collaboration_network.get("nodes", []) or []
+    node_ids, adjacency, weighted_degree_by_author = build_collaboration_adjacency(collaboration_network)
+    components = build_true_collaboration_components(collaboration_network)
 
     cluster_meta_by_author = {}
     for index, members in enumerate(components, start=1):

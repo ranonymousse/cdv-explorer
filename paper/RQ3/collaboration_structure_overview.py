@@ -1,0 +1,229 @@
+from pathlib import Path
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+from paper.RQ3._plotting import bar_style, despine, match_axis_label_fontsize, save_figure
+from paper.RQ3.collaboration_common import (
+    build_collaboration_component_size_distribution,
+    build_collaboration_degree_distribution,
+)
+
+
+COMPONENT_BAR_COLOR = "#f08c00"
+DEGREE_BAR_COLOR = "#4c78a8"
+MIN_COMPRESSED_GAP_LENGTH = 10
+COMPONENT_GAP_LABEL = "..."
+
+
+def _expand_integer_series(
+    points: list[dict[str, int]],
+    *,
+    x_key: str,
+    y_key: str,
+) -> list[dict[str, int]]:
+    if not points:
+        return []
+
+    sorted_points = sorted(points, key=lambda entry: int(entry[x_key]))
+    min_x = int(sorted_points[0][x_key])
+    max_x = int(sorted_points[-1][x_key])
+    y_by_x = {
+        int(entry[x_key]): int(entry[y_key])
+        for entry in sorted_points
+    }
+
+    return [
+        {
+            x_key: x_value,
+            y_key: int(y_by_x.get(x_value, 0)),
+        }
+        for x_value in range(min_x, max_x + 1)
+    ]
+
+
+def _compress_largest_zero_gap(
+    series: list[dict[str, int]],
+    *,
+    x_key: str,
+    y_key: str,
+    min_gap_length: int = MIN_COMPRESSED_GAP_LENGTH,
+) -> list[dict[str, int | str | bool]]:
+    if not series:
+        return []
+
+    zero_runs: list[tuple[int, int]] = []
+    run_start: int | None = None
+
+    for index, entry in enumerate(series):
+        if int(entry[y_key]) == 0:
+            if run_start is None:
+                run_start = index
+            continue
+
+        if run_start is not None:
+            zero_runs.append((run_start, index - 1))
+            run_start = None
+
+    if run_start is not None:
+        zero_runs.append((run_start, len(series) - 1))
+
+    eligible_runs = [
+        (start, end)
+        for start, end in zero_runs
+        if (end - start + 1) >= min_gap_length
+    ]
+    if not eligible_runs:
+        return [
+            {
+                **entry,
+                "axis_label": str(int(entry[x_key])),
+                "is_gap": False,
+            }
+            for entry in series
+        ]
+
+    gap_start, gap_end = max(
+        eligible_runs,
+        key=lambda run: (run[1] - run[0] + 1, -run[0]),
+    )
+
+    compressed = []
+    for index, entry in enumerate(series):
+        if index < gap_start or index > gap_end:
+            compressed.append(
+                {
+                    **entry,
+                    "axis_label": str(int(entry[x_key])),
+                    "is_gap": False,
+                }
+            )
+            continue
+
+        if index == gap_start:
+            compressed.append(
+                {
+                    x_key: -1,
+                    y_key: 0,
+                    "axis_label": COMPONENT_GAP_LABEL,
+                    "is_gap": True,
+                }
+            )
+
+    return compressed
+
+
+def plot_collaboration_structure_overview(
+    collaboration_network: dict,
+    output_path: Path,
+    snapshot_label: str,
+) -> None:
+    component_distribution = build_collaboration_component_size_distribution(collaboration_network)
+    degree_distribution = build_collaboration_degree_distribution(collaboration_network)
+
+    if not component_distribution:
+        raise ValueError("Collaboration structure overview requires non-empty component-size data.")
+    if not degree_distribution:
+        raise ValueError("Collaboration structure overview requires non-empty degree-distribution data.")
+
+    full_component_series = _expand_integer_series(
+        component_distribution,
+        x_key="cluster_size",
+        y_key="cluster_count",
+    )
+    displayed_component_series = _compress_largest_zero_gap(
+        full_component_series,
+        x_key="cluster_size",
+        y_key="cluster_count",
+    )
+
+    full_degree_series = _expand_integer_series(
+        degree_distribution,
+        x_key="degree",
+        y_key="author_count",
+    )
+
+    component_positions = np.arange(len(displayed_component_series))
+    component_counts = [int(entry["cluster_count"]) for entry in displayed_component_series]
+    component_labels = [str(entry["axis_label"]) for entry in displayed_component_series]
+    degree_positions = np.arange(len(full_degree_series))
+    degree_counts = [int(entry["author_count"]) for entry in full_degree_series]
+    degree_labels = [str(int(entry["degree"])) for entry in full_degree_series]
+
+    figure, (axis_left, axis_right) = plt.subplots(
+        1,
+        2,
+        figsize=(9.2, 2.8),
+    )
+
+    axis_left.bar(
+        component_positions,
+        component_counts,
+        width=0.82,
+        zorder=2,
+        **bar_style(COMPONENT_BAR_COLOR),
+    )
+    axis_right.bar(
+        degree_positions,
+        degree_counts,
+        width=0.82,
+        zorder=2,
+        **bar_style(DEGREE_BAR_COLOR),
+    )
+
+    component_max = max(component_counts) if component_counts else 0
+    degree_max = max(degree_counts) if degree_counts else 0
+    component_label_offset = max(component_max * 0.015, 0.15)
+    degree_label_offset = max(degree_max * 0.015, 0.15)
+
+    axis_left.set_title("(a) Connected Component Size Distribution")
+    axis_left.set_xlabel("Authors in connected component")
+    axis_left.set_ylabel("# of connected components")
+    axis_left.set_xticks(component_positions)
+    axis_left.set_xticklabels(component_labels)
+    axis_left.set_xlim(-0.6, len(component_positions) - 0.4)
+    axis_left.set_ylim(0, component_max * 1.16 if component_max > 0 else 1)
+    axis_left.grid(axis="y", alpha=0.35)
+    axis_left.grid(axis="x", visible=False)
+    match_axis_label_fontsize(axis_left)
+    for x_position, count, entry in zip(component_positions, component_counts, displayed_component_series):
+        if count <= 0 or bool(entry.get("is_gap")):
+            continue
+        axis_left.text(
+            x_position,
+            count + component_label_offset,
+            str(count),
+            ha="center",
+            va="bottom",
+        )
+    if COMPONENT_GAP_LABEL in component_labels:
+        gap_position = component_labels.index(COMPONENT_GAP_LABEL)
+        axis_left.get_xticklabels()[gap_position].set_color("#666666")
+        axis_left.get_xticklabels()[gap_position].set_fontweight("bold")
+    despine(axis_left)
+
+    axis_right.set_title("(b) Co-Author Degree Distribution")
+    axis_right.set_xlabel("Distinct co-authors per author")
+    axis_right.set_ylabel("Number of authors")
+    axis_right.set_xticks(degree_positions)
+    axis_right.set_xticklabels(degree_labels)
+    axis_right.set_xlim(-0.6, len(degree_positions) - 0.4)
+    axis_right.set_ylim(0, degree_max * 1.16 if degree_max > 0 else 1)
+    axis_right.grid(axis="y", alpha=0.35)
+    axis_right.grid(axis="x", visible=False)
+    match_axis_label_fontsize(axis_right)
+    for x_position, count in zip(degree_positions, degree_counts):
+        if count <= 0:
+            continue
+        axis_right.text(
+            x_position,
+            count + degree_label_offset,
+            str(count),
+            ha="center",
+            va="bottom",
+        )
+    despine(axis_right)
+
+    figure.suptitle(f"Collaboration Structure Overview ({snapshot_label})", y=1.02)
+    figure.tight_layout()
+    save_figure(figure, output_path)

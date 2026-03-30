@@ -26,6 +26,7 @@ def main() -> None:
         resolve_latest_snapshot_label,
     )
     from paper.RQ3.authorship_overview import plot_authorship_overview
+    from paper.RQ3.collaboration_structure_overview import plot_collaboration_structure_overview
     from paper.RQ3.collaboration_metrics_table import (
         export_collaboration_metrics_latex_table,
         export_collaboration_metrics_table,
@@ -55,6 +56,11 @@ def main() -> None:
             top_authors=authorship_metrics.get("top_authors", []),
             contribution_histogram=authorship_metrics.get("author_contribution_histogram", []),
             output_path=output_dir / f"{filename_prefix}_authorship_overview.pdf",
+            snapshot_label=snapshot_label,
+        )
+        plot_collaboration_structure_overview(
+            collaboration_network=authorship_metrics.get("collaboration_network", {}),
+            output_path=output_dir / f"{filename_prefix}_collaboration_structure_overview.pdf",
             snapshot_label=snapshot_label,
         )
 
