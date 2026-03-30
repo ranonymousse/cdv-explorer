@@ -1,7 +1,71 @@
 import * as d3 from 'd3';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { renderBipListHtml } from './bipTooltipContent';
 import { useDashboardLinkMode, useDashboardSnapshot } from './dashboard/DashboardSnapshotContext';
+import { COLLABORATION_LAYOUT_OPTIONS } from './dashboard/constants';
+
+const COLLABORATION_LAYOUT_OPTION_VALUES = new Set(
+  COLLABORATION_LAYOUT_OPTIONS.map((option) => option.value)
+);
+
+function sanitizeFilePart(value, fallback = 'unknown') {
+  const text = String(value ?? '')
+    .trim()
+    .replace(/[^a-z0-9._-]+/gi, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  return text || fallback;
+}
+
+function formatSnapshotFilePart(value) {
+  const text = String(value ?? '').trim();
+  const match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (match) {
+    return `${match[1].slice(2)}${match[2]}${match[3]}`;
+  }
+  return sanitizeFilePart(text, 'snapshot');
+}
+
+function normalizeImportedPositions(payload) {
+  const normalizedPositions = {};
+  const rawPositions = payload?.positions;
+
+  if (rawPositions && typeof rawPositions === 'object' && !Array.isArray(rawPositions)) {
+    Object.entries(rawPositions).forEach(([nodeId, coords]) => {
+      if (!Array.isArray(coords) || coords.length < 2) {
+        return;
+      }
+
+      const xCoord = Number(coords[0]);
+      const yCoord = Number(coords[1]);
+      if (!Number.isFinite(xCoord) || !Number.isFinite(yCoord)) {
+        return;
+      }
+
+      normalizedPositions[String(nodeId)] = [xCoord, yCoord];
+    });
+  }
+
+  if (Object.keys(normalizedPositions).length > 0) {
+    return normalizedPositions;
+  }
+
+  if (Array.isArray(payload?.nodes)) {
+    payload.nodes.forEach((node) => {
+      const nodeId = node?.id;
+      const xCoord = Number(node?.x);
+      const yCoord = Number(node?.y);
+
+      if (nodeId == null || !Number.isFinite(xCoord) || !Number.isFinite(yCoord)) {
+        return;
+      }
+
+      normalizedPositions[String(nodeId)] = [xCoord, yCoord];
+    });
+  }
+
+  return normalizedPositions;
+}
 
 function buildDisplayCollaborationComponents(nodes, adjacency) {
   const isolatedIds = [];
@@ -54,16 +118,114 @@ export const AuthorCollaborationNetwork = ({
   height = 700,
   highlightAuthor = '',
   layoutMode = 'balanced',
+  setLayoutMode,
   minClusterCollaborations = '0',
+  setMinClusterCollaborations,
 }) => {
   const ref = useRef();
+  const importInputRef = useRef(null);
+  const exportPayloadRef = useRef(null);
+  const simulationRef = useRef(null);
+  const redrawGraphRef = useRef(() => {});
+  const updateExportPayloadRef = useRef(() => {});
+  const physicsEnabledRef = useRef(true);
   const snapshotLabel = useDashboardSnapshot();
   const linkMode = useDashboardLinkMode();
+  const [physicsEnabled, setPhysicsEnabled] = useState(true);
+  const [importedLayout, setImportedLayout] = useState(null);
+
+  const handleLayoutExport = () => {
+    if (!exportPayloadRef.current) {
+      return;
+    }
+
+    const snapshotSlug = formatSnapshotFilePart(snapshotLabel);
+    const fileName = `authorship_layout_${snapshotSlug}_${sanitizeFilePart(layoutMode, 'balanced')}.json`;
+    const blob = new Blob([`${JSON.stringify(exportPayloadRef.current, null, 2)}\n`], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = fileName;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    window.URL.revokeObjectURL(url);
+  };
+
+  const handlePhysicsToggle = () => {
+    setPhysicsEnabled((current) => !current);
+  };
+
+  const handleLayoutImportClick = () => {
+    importInputRef.current?.click();
+  };
+
+  const handleLayoutImport = async (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+
+    if (!file) {
+      return;
+    }
+
+    try {
+      const payload = JSON.parse(await file.text());
+      const importedPositions = normalizeImportedPositions(payload);
+
+      if (Object.keys(importedPositions).length === 0) {
+        throw new Error('The selected file does not contain any layout positions.');
+      }
+
+      if (COLLABORATION_LAYOUT_OPTION_VALUES.has(payload?.layout_mode)) {
+        setLayoutMode?.(payload.layout_mode);
+      }
+
+      const importedThreshold = payload?.filter?.min_cluster_collaborations;
+      if (importedThreshold != null) {
+        setMinClusterCollaborations?.(String(Math.max(0, Number(importedThreshold) || 0)));
+      }
+
+      setImportedLayout({
+        fileName: file.name,
+        positions: importedPositions,
+      });
+      setPhysicsEnabled(false);
+    } catch (error) {
+      window.alert(
+        error instanceof Error
+          ? `Could not import layout JSON: ${error.message}`
+          : 'Could not import layout JSON.'
+      );
+    }
+  };
+
+  useEffect(() => {
+    physicsEnabledRef.current = physicsEnabled;
+
+    const simulation = simulationRef.current;
+    if (!simulation) {
+      return;
+    }
+
+    if (physicsEnabled) {
+      simulation.alpha(0.35).alphaTarget(0).restart();
+      return;
+    }
+
+    simulation.alphaTarget(0);
+    simulation.stop();
+    redrawGraphRef.current();
+    updateExportPayloadRef.current();
+  }, [physicsEnabled]);
 
   useEffect(() => {
     const svg = d3.select(ref.current);
     svg.selectAll('*').remove();
     d3.select('body').selectAll('.author-network-tooltip').remove();
+    exportPayloadRef.current = null;
+    simulationRef.current = null;
+    redrawGraphRef.current = () => {};
+    updateExportPayloadRef.current = () => {};
 
     const rawNodes = Array.isArray(data?.nodes) ? data.nodes : [];
     const rawEdges = Array.isArray(data?.edges) ? data.edges : [];
@@ -132,6 +294,23 @@ export const AuthorCollaborationNetwork = ({
       visibleNodeIds.has(getEdgeSourceId(edge)) && visibleNodeIds.has(getEdgeTargetId(edge))
     ));
     const visibleClusters = clusterMeta.filter((cluster) => visibleClusterIds.has(cluster.clusterId));
+    const importedPositions = importedLayout?.positions || null;
+    const importedPositionedNodeCount = importedPositions
+      ? visibleNodes.filter((node) => importedPositions[String(node.id)]).length
+      : 0;
+
+    visibleNodes.forEach((node) => {
+      const coords = importedPositions?.[String(node.id)];
+      if (!coords) {
+        return;
+      }
+      node.x = coords[0];
+      node.y = coords[1];
+      if (!physicsEnabledRef.current) {
+        node.fx = coords[0];
+        node.fy = coords[1];
+      }
+    });
 
     const clusterColor = d3.scaleOrdinal()
       .domain(visibleClusters.map((cluster) => cluster.clusterId))
@@ -301,6 +480,7 @@ export const AuthorCollaborationNetwork = ({
 
     let link;
     let node;
+    let labels;
 
     const applyDefaultLinkStyles = () => {
       link
@@ -519,7 +699,7 @@ export const AuthorCollaborationNetwork = ({
       .call(
         d3.drag()
           .on('start', (event, entry) => {
-            if (!event.active) {
+            if (physicsEnabledRef.current && !event.active) {
               simulation.alphaTarget(0.3).restart();
             }
             entry.fx = entry.x;
@@ -528,13 +708,17 @@ export const AuthorCollaborationNetwork = ({
           .on('drag', (event, entry) => {
             entry.fx = event.x;
             entry.fy = event.y;
+            entry.x = event.x;
+            entry.y = event.y;
+            redrawGraphRef.current();
           })
           .on('end', (event, entry) => {
-            if (!event.active) {
+            if (physicsEnabledRef.current && !event.active) {
               simulation.alphaTarget(0);
             }
             entry.fx = null;
             entry.fy = null;
+            redrawGraphRef.current();
           })
       );
 
@@ -542,7 +726,7 @@ export const AuthorCollaborationNetwork = ({
       clearPinnedInteraction();
     });
 
-    const labels = root.append('g')
+    labels = root.append('g')
       .selectAll('text')
       .data(visibleNodes.filter((entry) => Number(entry.degree || 0) >= 3 || matchedIds.has(entry.id)))
       .join('text')
@@ -562,8 +746,40 @@ export const AuthorCollaborationNetwork = ({
       .style('stroke-linecap', 'round')
       .style('stroke-linejoin', 'round');
 
-    let hasFocusedHighlight = false;
-    simulation.on('tick', () => {
+    const updateExportPayload = () => {
+      const positions = Object.fromEntries(
+        visibleNodes.map((entry) => [
+          String(entry.id),
+          [
+            Number.isFinite(entry.x) ? entry.x : (width / 2),
+            Number.isFinite(entry.y) ? entry.y : (height / 2),
+          ],
+        ])
+      );
+
+      exportPayloadRef.current = {
+        snapshot: snapshotLabel,
+        network: 'authorship_collaboration',
+        layout_mode: layoutMode,
+        filter: {
+          min_cluster_collaborations: collaborationThreshold,
+        },
+        meta: {
+          width,
+          height,
+          node_count: visibleNodes.length,
+          edge_count: visibleLinks.length,
+        },
+        positions,
+        nodes: Object.entries(positions).map(([id, [xCoord, yCoord]]) => ({
+          id,
+          x: xCoord,
+          y: yCoord,
+        })),
+      };
+    };
+
+    const renderGraph = () => {
       link
         .attr('d', (edge) => {
           const sourceX = edge.source.x;
@@ -584,12 +800,23 @@ export const AuthorCollaborationNetwork = ({
         });
 
       node
-        .attr('cx', (entry) => entry.x = Math.max(24, Math.min(width - 24, entry.x)))
-        .attr('cy', (entry) => entry.y = Math.max(24, Math.min(height - 24, entry.y)));
+        .attr('cx', (entry) => entry.x = Math.max(24, Math.min(width - 24, entry.x ?? (width / 2))))
+        .attr('cy', (entry) => entry.y = Math.max(24, Math.min(height - 24, entry.y ?? (height / 2))));
 
       labels
         .attr('x', (entry) => entry.x + radius(Number(entry.degree || 0)) + 4)
         .attr('y', (entry) => entry.y + 3);
+
+      updateExportPayload();
+    };
+
+    simulationRef.current = simulation;
+    redrawGraphRef.current = renderGraph;
+    updateExportPayloadRef.current = updateExportPayload;
+
+    let hasFocusedHighlight = false;
+    simulation.on('tick', () => {
+      renderGraph();
 
       if (
         exactMatch
@@ -610,12 +837,122 @@ export const AuthorCollaborationNetwork = ({
       }
     });
 
+    if (physicsEnabledRef.current) {
+      renderGraph();
+    } else {
+      if (!(importedPositions && importedPositionedNodeCount === visibleNodes.length)) {
+        for (let iteration = 0; iteration < 140; iteration += 1) {
+          simulation.tick();
+        }
+      }
+
+      visibleNodes.forEach((entry) => {
+        if (!importedPositions?.[String(entry.id)]) {
+          return;
+        }
+        entry.fx = null;
+        entry.fy = null;
+      });
+      renderGraph();
+      simulation.alphaTarget(0);
+      simulation.stop();
+    }
+
     return () => {
+      exportPayloadRef.current = null;
+      if (simulationRef.current === simulation) {
+        simulationRef.current = null;
+      }
+      redrawGraphRef.current = () => {};
+      updateExportPayloadRef.current = () => {};
       simulation.stop();
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.author-network-tooltip').remove();
     };
-  }, [data, height, highlightAuthor, layoutMode, linkMode, minClusterCollaborations, snapshotLabel, width]);
+  }, [data, height, highlightAuthor, importedLayout, layoutMode, linkMode, minClusterCollaborations, snapshotLabel, width]);
 
-  return <svg ref={ref} role="img"  />;
+  const hasNodes = Array.isArray(data?.nodes) && data.nodes.length > 0;
+
+  return (
+    <div>
+      <div className="network-layout-controls">
+        <div className="network-layout-picker">
+          <div className="network-layout-picker__label">Layout</div>
+          <div className="network-layout-picker__options network-layout-picker__options--with-actions">
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              onChange={handleLayoutImport}
+              hidden
+            />
+            {COLLABORATION_LAYOUT_OPTIONS.map((option) => (
+              <label key={option.value} className="network-layout-picker__option">
+                <input
+                  type="radio"
+                  name="collaboration-layout"
+                  value={option.value}
+                  checked={layoutMode === option.value}
+                  onChange={() => setLayoutMode?.(option.value)}
+                />
+                <span>{option.label}</span>
+              </label>
+            ))}
+            <button
+              type="button"
+              className={`network-layout-action-button ${physicsEnabled ? '' : 'network-layout-action-button--active'}`.trim()}
+              onClick={handlePhysicsToggle}
+              title={physicsEnabled
+                ? 'Pause the force simulation so you can manually adjust author positions before exporting the layout.'
+                : 'Resume the force simulation for the collaboration graph.'}
+              aria-label={physicsEnabled
+                ? 'Pause network physics for manual layout adjustments'
+                : 'Resume network physics'}
+              aria-pressed={!physicsEnabled}
+              disabled={!hasNodes}
+            >
+              {physicsEnabled ? 'freeze physics' : 'resume physics'}
+            </button>
+            <button
+              type="button"
+              className={`network-layout-action-button ${importedLayout ? 'network-layout-action-button--active' : ''}`.trim()}
+              onClick={handleLayoutImportClick}
+              title={importedLayout
+                ? `Upload a layout JSON to replace the active imported layout. Current import: ${importedLayout.fileName}.`
+                : 'Upload a layout JSON export and apply it to the collaboration graph.'}
+              aria-label="Upload authorship network layout JSON"
+              disabled={!hasNodes}
+            >
+              import layout
+            </button>
+            <button
+              type="button"
+              className="network-layout-action-button"
+              onClick={handleLayoutExport}
+              title="Download the current visible collaboration layout as JSON."
+              aria-label="Download current authorship network layout as JSON"
+              disabled={!hasNodes}
+            >
+              export layout
+            </button>
+          </div>
+        </div>
+        <div className="network-layout-picker network-layout-picker--filter">
+          <div className="network-layout-picker__label">Filter</div>
+          <label className="network-layout-threshold">
+            <span className="network-layout-threshold__copy">Only show clusters with</span>
+            <input
+              value={minClusterCollaborations}
+              onChange={(event) => setMinClusterCollaborations?.(event.target.value.replace(/[^\d]/g, ''))}
+              placeholder="0"
+              inputMode="numeric"
+              className="p-inputtext p-component network-layout-threshold__input"
+            />
+            <span className="network-layout-threshold__suffix">or more collaborations.</span>
+          </label>
+        </div>
+      </div>
+      <svg ref={ref} role="img" />
+    </div>
+  );
 };

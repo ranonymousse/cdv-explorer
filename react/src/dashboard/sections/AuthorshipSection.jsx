@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
-import { RadioButton } from 'primereact/radiobutton';
 import { Card } from 'primereact/card';
 import { Tag } from 'primereact/tag';
 import { ProposalTimelineChart } from '../../ProposalTimelineChart';
@@ -12,7 +11,6 @@ import { AuthorCentralityTable } from '../../AuthorCentralityTable';
 import { WordCloud } from '../../WordCloud';
 import { useAnalysisMetricTooltip } from '../../useAnalysisMetricTooltip';
 import { ExportableCard } from '../ExportableCard';
-import { COLLABORATION_LAYOUT_OPTIONS } from '../constants';
 
 export function AuthorshipSection({
   ecosystem,
@@ -135,39 +133,6 @@ export function AuthorshipSection({
             />
           </div>
         </div>
-        <div className="network-layout-controls">
-          <div className="network-layout-picker">
-            <div className="network-layout-picker__label">Layout</div>
-            <div className="network-layout-picker__options">
-              {COLLABORATION_LAYOUT_OPTIONS.map((option) => (
-                <label key={option.value} className="network-layout-picker__option">
-                  <RadioButton
-                    inputId={`collaboration-layout-${option.value}`}
-                    name="collaboration-layout"
-                    value={option.value}
-                    onChange={(event) => setCollaborationLayoutMode(event.value)}
-                    checked={collaborationLayoutMode === option.value}
-                  />
-                  <span>{option.label}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-          <div className="network-layout-picker network-layout-picker--filter">
-            <div className="network-layout-picker__label">Filter</div>
-            <label className="network-layout-threshold">
-              <span className="network-layout-threshold__copy">Only show clusters with</span>
-              <InputText
-                value={collaborationMinClusterCollaborations}
-                onChange={(event) => setCollaborationMinClusterCollaborations(event.target.value.replace(/[^\d]/g, ''))}
-                placeholder="0"
-                inputMode="numeric"
-                className="network-layout-threshold__input"
-              />
-              <span className="network-layout-threshold__suffix">or more collaborations.</span>
-            </label>
-          </div>
-        </div>
         <div>
           <AuthorCollaborationNetwork
             data={collaborationNetwork}
@@ -175,7 +140,9 @@ export function AuthorshipSection({
             height={700}
             highlightAuthor={highlightedAuthor}
             layoutMode={collaborationLayoutMode}
+            setLayoutMode={setCollaborationLayoutMode}
             minClusterCollaborations={collaborationMinClusterCollaborations}
+            setMinClusterCollaborations={setCollaborationMinClusterCollaborations}
           />
         </div>
       </ExportableCard>
