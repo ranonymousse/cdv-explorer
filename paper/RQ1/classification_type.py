@@ -29,8 +29,9 @@ TYPE_COLORS = {
     "Unknown Type": "#7f7f7f",
 }
 
-STACKED_TYPE_FIGSIZE = (10.5, 3.5)
-STACKED_TYPE_WIDTH_RATIOS = (0.2, 0.8)
+STACKED_TYPE_FIGSIZE = (10, 3.5)
+STACKED_TYPE_WIDTH_RATIOS = (0.63, 0.21)
+STACKED_TYPE_WSPACE = 0.04
 STACKED_TYPE_BAR_WIDTH = 0.8
 STACKED_TYPE_SHARE_LABEL_X_PADDING = 0.5
 STACKED_TYPE_RIGHT_MARGIN = 1.45
@@ -77,33 +78,39 @@ def plot_classification_type_stacked(
 
     colors = [TYPE_COLORS.get(kind, "#868e96") for kind in ordered_types]
     legend_handles = [
-        Patch(facecolor=bar_style(color)["color"], edgecolor="none", label=kind)
+        Patch(
+            facecolor=bar_style(color)["color"],
+            edgecolor="none",
+            label=f"{kind} ({totals[kind]})",
+        )
         for kind, color in zip(ordered_types, colors)
     ]
     x_positions = np.arange(len(years), dtype=float)
 
-    figure, (legend_axis, axis_right) = plt.subplots(
+    figure, (axis_right, legend_axis) = plt.subplots(
         1,
         2,
         figsize=STACKED_TYPE_FIGSIZE,
         gridspec_kw={
             "width_ratios": list(STACKED_TYPE_WIDTH_RATIOS),
-            "wspace": 0.06,
+            "wspace": STACKED_TYPE_WSPACE,
         },
     )
     legend_axis.axis("off")
     axis_right_secondary = axis_right.twinx()
 
-    legend_axis.legend(
+    legend = legend_axis.legend(
         handles=legend_handles,
-        loc="center left",
+        loc="center right",
+        bbox_to_anchor=(0.98, 0.5),
         frameon=False,
         ncol=1,
-        title="BIP Type",
+        title="BIP Type:",
         handlelength=1.2,
         labelspacing=0.8,
         borderaxespad=0,
     )
+    legend._legend_box.align = "left"
 
     bar_bottom = np.zeros(len(years), dtype=int)
     for kind, color in zip(ordered_types, colors):
@@ -118,7 +125,7 @@ def plot_classification_type_stacked(
         )
         bar_bottom = bar_bottom + np.array(counts)
 
-    axis_right.set_xlabel("Year")
+    # axis_right.set_xlabel("Year")
     axis_right.set_ylabel("Number of BIPs")
     axis_right.set_xticks(x_positions)
     axis_right.set_xticklabels(years, rotation=0, ha="center", fontsize=9)
@@ -225,5 +232,5 @@ def plot_classification_type_stacked(
         ])
 
     figure.suptitle(f"Classification Type ({snapshot_label})", y=0.98)
-    figure.subplots_adjust(left=0.04, right=0.92, bottom=0.14, top=0.88, wspace=0.06)
+    figure.subplots_adjust(left=0.07, right=0.98, bottom=0.14, top=0.88, wspace=STACKED_TYPE_WSPACE)
     save_figure(figure, output_path)

@@ -80,14 +80,14 @@ def plot_authorship_overview(
     figure, (axis_left, axis_right) = plt.subplots(
         1,
         2,
-        figsize=(9, 3),
-        gridspec_kw={"width_ratios": [0.3, 0.7]},
+        figsize=(9, 2.8),
+        gridspec_kw={"width_ratios": [0.18, 0.82]},
     )
 
     axis_left.barh(author_names, author_counts, zorder=2, **bar_style(TOP_AUTHORS_COLOR))
     axis_right.bar(histogram_positions, histogram_y, width=0.8, zorder=2, **bar_style(HISTOGRAM_COLOR))
 
-    axis_left.set_title("Top 10 Authors")
+    axis_left.set_title("(a) Top 10 Authors")
     axis_left.set_xlabel("Proposals authored")
     axis_left.set_ylabel("")
     axis_left.invert_yaxis()
@@ -98,7 +98,7 @@ def plot_authorship_overview(
     match_axis_label_fontsize(axis_left)
     despine(axis_left)
 
-    axis_right.set_title("Authorship Distribution")
+    axis_right.set_title("(b) Authorship Distribution")
     axis_right.set_xlabel("BIPs written per author")
     axis_right.set_ylabel("Number of authors")
     axis_right.set_xticks(labeled_histogram_positions)
