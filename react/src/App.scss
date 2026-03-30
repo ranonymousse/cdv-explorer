@@ -496,8 +496,9 @@
   flex-wrap: wrap;
 }
 
-.network-layout-picker__options--with-export:hover .network-layout-export-button:not(:disabled),
-.network-layout-picker__options--with-export:focus-within .network-layout-export-button:not(:disabled) {
+.network-layout-picker__options--with-actions:hover .network-layout-action-button:not(:disabled),
+.network-layout-picker__options--with-actions:focus-within .network-layout-action-button:not(:disabled),
+.network-layout-action-button--active:not(:disabled) {
   opacity: 0.88;
   visibility: visible;
   pointer-events: auto;
@@ -576,7 +577,7 @@
   accent-color: var(--primary-color);
 }
 
-.network-layout-export-button {
+.network-layout-action-button {
   padding: 0.14rem 0.5rem;
   border-radius: 999px;
   border: 1px solid var(--app-border);
@@ -593,8 +594,8 @@
   transition: opacity 120ms ease, color 120ms ease, border-color 120ms ease, visibility 120ms ease;
 }
 
-.network-layout-export-button:hover:not(:disabled),
-.network-layout-export-button:focus-visible:not(:disabled) {
+.network-layout-action-button:hover:not(:disabled),
+.network-layout-action-button:focus-visible:not(:disabled) {
   opacity: 0.9;
   visibility: visible;
   pointer-events: auto;
@@ -602,7 +603,13 @@
   border-color: var(--primary-color);
 }
 
-.network-layout-export-button:disabled {
+.network-layout-action-button--active:not(:disabled) {
+  color: var(--app-text);
+  border-color: color-mix(in srgb, var(--primary-color) 55%, var(--app-border));
+  background: color-mix(in srgb, var(--primary-color) 10%, transparent);
+}
+
+.network-layout-action-button:disabled {
   opacity: 0.2;
   visibility: hidden;
   pointer-events: none;

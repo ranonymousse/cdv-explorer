@@ -1,0 +1,533 @@
+{
+  "snapshot": "2026-03-16",
+  "exported_at": "2026-03-30T08:32:24.446Z",
+  "width": 1200,
+  "height": 700,
+  "color_by": "type",
+  "link_type": "body_extracted_llm",
+  "baseline_type": "body_extracted_regex",
+  "layout_mode": "balanced",
+  "is_differential_mode": true,
+  "filter": {
+    "proposal_ids": [
+      "67",
+      "93",
+      "350"
+    ],
+    "include_connections": true,
+    "min_relations": 0,
+    "include_threshold_connections": false
+  },
+  "nodes": [
+    {
+      "id": "11",
+      "x": 522.676557774966,
+      "y": 285.7043327718071,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "13",
+      "x": 625.3789827869032,
+      "y": 251.17902766595512,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "16",
+      "x": 555.522435000345,
+      "y": 246.82706178950235,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Consensus (soft fork)",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "32",
+      "x": 482.7994352285173,
+      "y": 251.5286752404355,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Informational",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Informational"
+    },
+    {
+      "id": "39",
+      "x": 479.3444680431294,
+      "y": 397.6653801013382,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "45",
+      "x": 674.4571704719987,
+      "y": 302.7834105226634,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Complete",
+      "type": "Specification"
+    },
+    {
+      "id": "48",
+      "x": 621.783783671735,
+      "y": 415.60584460091417,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "67",
+      "x": 578.4612984294704,
+      "y": 333.68722423018846,
+      "degree": 8,
+      "incomingDegree": 4,
+      "outgoingDegree": 4,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Complete",
+      "type": "Specification"
+    },
+    {
+      "id": "87",
+      "x": 664.4661724075255,
+      "y": 270.4673177720875,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Complete",
+      "type": "Specification"
+    },
+    {
+      "id": "93",
+      "x": 482.6020593679331,
+      "y": 322.0164715393163,
+      "degree": 3,
+      "incomingDegree": 0,
+      "outgoingDegree": 3,
+      "group": "Informational",
+      "layer": "Applications",
+      "status": "Draft",
+      "type": "Informational"
+    },
+    {
+      "id": "118",
+      "x": 654.2734572562886,
+      "y": 540.0848267698949,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Consensus (soft fork)",
+      "status": "Draft",
+      "type": "Specification"
+    },
+    {
+      "id": "123",
+      "x": 680.1577852452469,
+      "y": 387.12944508300757,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Process",
+      "layer": null,
+      "status": "Deployed",
+      "type": "Process"
+    },
+    {
+      "id": "136",
+      "x": 669.5849583786203,
+      "y": 510.4151199694621,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Informational",
+      "layer": "Applications",
+      "status": "Draft",
+      "type": "Informational"
+    },
+    {
+      "id": "141",
+      "x": 676.9405045070555,
+      "y": 434.1462675238785,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Consensus (soft fork)",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "173",
+      "x": 543.8240923785792,
+      "y": 397.53220075395257,
+      "degree": 3,
+      "incomingDegree": 2,
+      "outgoingDegree": 1,
+      "group": "Informational",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Informational"
+    },
+    {
+      "id": "321",
+      "x": 502.00426573269635,
+      "y": 440.52169204911263,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Complete",
+      "type": "Specification"
+    },
+    {
+      "id": "341",
+      "x": 571.3398167440148,
+      "y": 546.8663302254548,
+      "degree": 2,
+      "incomingDegree": 1,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Consensus (soft fork)",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "350",
+      "x": 570.8083889438043,
+      "y": 469.8879994673785,
+      "degree": 12,
+      "incomingDegree": 9,
+      "outgoingDegree": 3,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "351",
+      "x": 674.6888496937701,
+      "y": 477.17438833805943,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Informational",
+      "layer": "Applications",
+      "status": "Draft",
+      "type": "Informational"
+    },
+    {
+      "id": "352",
+      "x": 485.32186657180023,
+      "y": 544.6627149322456,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Complete",
+      "type": "Specification"
+    },
+    {
+      "id": "360",
+      "x": 475.80967345209433,
+      "y": 468.45465547048013,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Consensus (soft fork)",
+      "status": "Draft",
+      "type": "Specification"
+    },
+    {
+      "id": "383",
+      "x": 679.5518454220207,
+      "y": 346.06252225632426,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Informational",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Informational"
+    },
+    {
+      "id": "392",
+      "x": 474.0603913051225,
+      "y": 502.68097232712944,
+      "degree": 1,
+      "incomingDegree": 0,
+      "outgoingDegree": 1,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Draft",
+      "type": "Specification"
+    }
+  ],
+  "links": [
+    {
+      "source": "48",
+      "target": "67",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "67",
+      "target": "11",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "67",
+      "target": "13",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "approach_only"
+    },
+    {
+      "source": "67",
+      "target": "16",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "93",
+      "target": "32",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "93",
+      "target": "173",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "136",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "321",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "approach_only"
+    },
+    {
+      "source": "350",
+      "target": "141",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "350",
+      "target": "173",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "351",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "approach_only"
+    },
+    {
+      "source": "352",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "360",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "383",
+      "target": "67",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "approach_only"
+    },
+    {
+      "source": "392",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "67",
+      "target": "45",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "87",
+      "target": "67",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "93",
+      "target": "39",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "118",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "123",
+      "target": "67",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "173",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "341",
+      "target": "350",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
+      "source": "350",
+      "target": "341",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    }
+  ],
+  "positions": {
+    "11": [
+      522.676557774966,
+      285.7043327718071
+    ],
+    "13": [
+      625.3789827869032,
+      251.17902766595512
+    ],
+    "16": [
+      555.522435000345,
+      246.82706178950235
+    ],
+    "32": [
+      482.7994352285173,
+      251.5286752404355
+    ],
+    "39": [
+      479.3444680431294,
+      397.6653801013382
+    ],
+    "45": [
+      674.4571704719987,
+      270.7834105226634
+    ],
+    "48": [
+      621.783783671735,
+      415.60584460091417
+    ],
+    "67": [
+      578.4612984294704,
+      333.68722423018846
+    ],
+    "87": [
+      664.4661724075255,
+      310.4673177720875
+    ],
+    "93": [
+      482.6020593679331,
+      322.0164715393163
+    ],
+    "118": [
+      654.2734572562886,
+      540.0848267698949
+    ],
+    "123": [
+      680.1577852452469,
+      387.12944508300757
+    ],
+    "136": [
+      669.5849583786203,
+      510.4151199694621
+    ],
+    "141": [
+      676.9405045070555,
+      434.1462675238785
+    ],
+    "173": [
+      543.8240923785792,
+      397.53220075395257
+    ],
+    "321": [
+      502.00426573269635,
+      440.52169204911263
+    ],
+    "341": [
+      571.3398167440148,
+      546.8663302254548
+    ],
+    "350": [
+      570.8083889438043,
+      469.8879994673785
+    ],
+    "351": [
+      674.6888496937701,
+      477.17438833805943
+    ],
+    "352": [
+      485.32186657180023,
+      544.6627149322456
+    ],
+    "360": [
+      475.80967345209433,
+      468.45465547048013
+    ],
+    "383": [
+      679.5518454220207,
+      346.06252225632426
+    ],
+    "392": [
+      474.0603913051225,
+      502.68097232712944
+    ]
+  }
+}

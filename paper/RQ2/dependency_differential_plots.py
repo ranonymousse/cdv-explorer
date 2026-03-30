@@ -52,11 +52,9 @@ DIFF_NODE_SIZE_MAX = 980
 DIFF_EDGE_WIDTH = 1.5
 DIFF_ARROWHEAD_OVERLAY_WIDTH = 0.0
 DIFF_ARROW_SIZE = 14
-DIFF_LABEL_FONT_SIZE = 5.8
-DIFF_FOCUS_LABEL_FONT_SIZE = 6.2
+NODE_FILL_ALPHA = 0.7
+NODE_LABEL_FONT_SIZE = 7
 DIFF_LABEL_OFFSET = 0.035
-DIFF_LABEL_BOX_ALPHA = 0.55
-DIFF_LABEL_BOX_PAD = 0.12
 EDGE_CURVATURE = 0.2
 RECIPROCAL_EDGE_CURVATURE = 0.2
 APPROACH_ONLY_EDGE_COLOR = "#9A9A9AF8"
@@ -516,7 +514,7 @@ def _draw_comparison_plot(
     node_colors = [_type_color(node_groups.get(node_id, "Unknown Type")) for node_id in ordered_nodes]
     node_sizes = _compute_node_sizes(graph, ordered_nodes)
 
-    plt.figure(figsize=(6.5, 6.5))
+    plt.figure(figsize=(3, 5))
     ax = plt.gca()
     ax.set_xlim(axis_limits[0], axis_limits[1])
     ax.set_ylim(axis_limits[2], axis_limits[3])
@@ -528,7 +526,7 @@ def _draw_comparison_plot(
         nodelist=ordered_nodes,
         node_size=node_sizes,
         node_color=node_colors,
-        alpha=1.0,
+        alpha=NODE_FILL_ALPHA,
         edgecolors="black",
         linewidths=1.0,
     )
@@ -596,7 +594,7 @@ def _draw_comparison_plot(
             x,
             y,
             label_text,
-            fontsize=DIFF_FOCUS_LABEL_FONT_SIZE if node_id in focus_ids else DIFF_LABEL_FONT_SIZE,
+            fontsize=NODE_LABEL_FONT_SIZE,
             fontweight="bold",
             family="monospace",
             ha="center",
@@ -604,12 +602,6 @@ def _draw_comparison_plot(
             url=url,
             color="black",
             zorder=5,
-            bbox={
-                "boxstyle": f"round,pad={DIFF_LABEL_BOX_PAD}",
-                "facecolor": "white",
-                "edgecolor": "none",
-                "alpha": DIFF_LABEL_BOX_ALPHA,
-            },
         )
 
     plt.title(title, pad=25, y=1.0)

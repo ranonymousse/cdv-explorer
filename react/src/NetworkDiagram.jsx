@@ -172,12 +172,17 @@ export const NetworkDiagram = ({
   const ref = useRef();
   const legendRef = useRef();
   const exportPayloadRef = useRef(null);
+  const simulationRef = useRef(null);
+  const redrawGraphRef = useRef(() => {});
+  const updateExportPayloadRef = useRef(() => {});
+  const physicsEnabledRef = useRef(true);
   const snapshotLabel = useDashboardSnapshot();
   const linkMode = useDashboardLinkMode();
   const [colorBy, setColorBy] = useState('layer');
   const [linkType, setLinkType] = useState(DEFAULT_DEPENDENCY_APPROACH);
   const [baselineType, setBaselineType] = useState(BASELINE_NONE_VALUE);
   const [layoutMode, setLayoutMode] = useState('balanced');
+  const [physicsEnabled, setPhysicsEnabled] = useState(true);
   const isDifferentialMode = baselineType !== BASELINE_NONE_VALUE;
 
   const handleLayoutExport = () => {
@@ -203,6 +208,10 @@ export const NetworkDiagram = ({
     window.URL.revokeObjectURL(url);
   };
 
+  const handlePhysicsToggle = () => {
+    setPhysicsEnabled((current) => !current);
+  };
+
   const nodes = useMemo(
     () => (Array.isArray(data?.nodes) ? data.nodes.map((node) => ({ ...node })) : []),
     [data]
@@ -220,10 +229,32 @@ export const NetworkDiagram = ({
   }, [baselineType, data, isDifferentialMode, linkType]);
 
   useEffect(() => {
+    physicsEnabledRef.current = physicsEnabled;
+
+    const simulation = simulationRef.current;
+    if (!simulation) {
+      return;
+    }
+
+    if (physicsEnabled) {
+      simulation.alpha(0.35).alphaTarget(0).restart();
+      return;
+    }
+
+    simulation.alphaTarget(0);
+    simulation.stop();
+    redrawGraphRef.current();
+    updateExportPayloadRef.current();
+  }, [physicsEnabled]);
+
+  useEffect(() => {
     const svg = d3.select(ref.current);
     svg.selectAll('*').remove();
     d3.select('body').selectAll('.dependency-network-tooltip').remove();
     exportPayloadRef.current = null;
+    simulationRef.current = null;
+    redrawGraphRef.current = () => {};
+    updateExportPayloadRef.current = () => {};
 
     if (nodes.length === 0) {
       return;
@@ -601,6 +632,8 @@ export const NetworkDiagram = ({
     let pinnedInteraction = null;
     let link;
     let node;
+    let labels;
+    let renderGraph = () => {};
 
     const applyDefaultLinkStyles = () => {
       link
@@ -785,7 +818,7 @@ export const NetworkDiagram = ({
       .call(
         d3.drag()
           .on('start', (event, entry) => {
-            if (!event.active) {
+            if (physicsEnabledRef.current && !event.active) {
               simulation.alphaTarget(0.3).restart();
             }
             entry.fx = entry.x;
@@ -794,13 +827,17 @@ export const NetworkDiagram = ({
           .on('drag', (event, entry) => {
             entry.fx = event.x;
             entry.fy = event.y;
+            entry.x = event.x;
+            entry.y = event.y;
+            renderGraph();
           })
           .on('end', (event, entry) => {
-            if (!event.active) {
+            if (physicsEnabledRef.current && !event.active) {
               simulation.alphaTarget(0);
             }
             entry.fx = null;
             entry.fy = null;
+            renderGraph();
           })
       );
 
@@ -813,7 +850,7 @@ export const NetworkDiagram = ({
         .map((entry) => String(entry.id))
     );
 
-    const labels = root.append('g')
+    labels = root.append('g')
       .selectAll('text')
       .data(filteredNodes.filter((entry) => labeledNodeIds.has(String(entry.id)) || searchMatchedIds.has(String(entry.id))))
       .join('text')
@@ -833,17 +870,13 @@ export const NetworkDiagram = ({
       .style('stroke-linecap', 'round')
       .style('stroke-linejoin', 'round');
 
-    svg.on('click', () => {
-      clearPinnedInteraction();
-    });
-
-    simulation.on('tick', () => {
+    renderGraph = () => {
       link
         .attr('d', (edge) => {
-          const rawSourceX = edge.source.x;
-          const rawSourceY = edge.source.y;
-          const rawTargetX = edge.target.x;
-          const rawTargetY = edge.target.y;
+          const rawSourceX = edge.source.x ?? (width / 2);
+          const rawSourceY = edge.source.y ?? (height / 2);
+          const rawTargetX = edge.target.x ?? (width / 2);
+          const rawTargetY = edge.target.y ?? (height / 2);
           const dx = rawTargetX - rawSourceX;
           const dy = rawTargetY - rawSourceY;
           const distance = Math.sqrt((dx * dx) + (dy * dy)) || 1;
@@ -869,15 +902,35 @@ export const NetworkDiagram = ({
         });
 
       node
-        .attr('cx', (entry) => entry.x = Math.max(24, Math.min(width - 24, entry.x)))
-        .attr('cy', (entry) => entry.y = Math.max(24, Math.min(height - 24, entry.y)));
+        .attr('cx', (entry) => entry.x = Math.max(24, Math.min(width - 24, entry.x ?? (width / 2))))
+        .attr('cy', (entry) => entry.y = Math.max(24, Math.min(height - 24, entry.y ?? (height / 2))));
 
       labels
         .attr('x', (entry) => entry.x + getNodeRadius(entry) + 5)
         .attr('y', (entry) => entry.y + 3);
 
       updateExportPayload();
+    };
+
+    simulationRef.current = simulation;
+    redrawGraphRef.current = renderGraph;
+    updateExportPayloadRef.current = updateExportPayload;
+
+    svg.on('click', () => {
+      clearPinnedInteraction();
     });
+
+    simulation.on('tick', renderGraph);
+    if (physicsEnabledRef.current) {
+      renderGraph();
+    } else {
+      for (let iteration = 0; iteration < 140; iteration += 1) {
+        simulation.tick();
+      }
+      renderGraph();
+      simulation.alphaTarget(0);
+      simulation.stop();
+    }
 
     const legend = d3.select(legendRef.current);
     legend.selectAll('*').remove();
@@ -906,6 +959,11 @@ export const NetworkDiagram = ({
 
     return () => {
       exportPayloadRef.current = null;
+      if (simulationRef.current === simulation) {
+        simulationRef.current = null;
+      }
+      redrawGraphRef.current = () => {};
+      updateExportPayloadRef.current = () => {};
       simulation.stop();
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.dependency-network-tooltip').remove();
@@ -1063,7 +1121,7 @@ export const NetworkDiagram = ({
         <div className="network-layout-controls">
           <div className="network-layout-picker">
             <div className="network-layout-picker__label">Layout</div>
-            <div className="network-layout-picker__options network-layout-picker__options--with-export">
+            <div className="network-layout-picker__options network-layout-picker__options--with-actions">
               {LAYOUT_OPTIONS.map((option) => (
                 <label key={option.value} className="network-layout-picker__option">
                   <input
@@ -1078,9 +1136,24 @@ export const NetworkDiagram = ({
               ))}
               <button
                 type="button"
-                className="network-layout-export-button"
+                className={`network-layout-action-button ${physicsEnabled ? '' : 'network-layout-action-button--active'}`.trim()}
+                onClick={handlePhysicsToggle}
+                title={physicsEnabled
+                  ? 'Pause the force simulation so you can manually adjust node positions before exporting the layout.'
+                  : 'Resume the force simulation for the relationship graph.'}
+                aria-label={physicsEnabled
+                  ? 'Pause network physics for manual layout adjustments'
+                  : 'Resume network physics'}
+                aria-pressed={!physicsEnabled}
+                disabled={nodes.length === 0}
+              >
+                {physicsEnabled ? 'freeze physics' : 'resume physics'}
+              </button>
+              <button
+                type="button"
+                className="network-layout-action-button"
                 onClick={handleLayoutExport}
-                title="Download the current visible network layout as JSON for paper plotting."
+                title="Download the current visible network layout as JSON."
                 aria-label="Download current network layout as JSON"
                 disabled={nodes.length === 0}
               >
