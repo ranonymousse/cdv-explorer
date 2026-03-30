@@ -1,6 +1,6 @@
 {
   "snapshot": "2026-03-16",
-  "exported_at": "2026-03-30T09:18:21.559Z",
+  "exported_at": "2026-03-30T17:11:46.901Z",
   "width": 1200,
   "height": 700,
   "color_by": "type",
@@ -11,6 +11,7 @@
   "filter": {
     "proposal_ids": [
       "67",
+      "77",
       "93",
       "350"
     ],
@@ -34,7 +35,7 @@
     {
       "id": "13",
       "x": 423.76223364471133,
-      "y": 174.65729778333184,
+      "y": 180.65729778333184,
       "degree": 1,
       "incomingDegree": 1,
       "outgoingDegree": 0,
@@ -56,9 +57,21 @@
       "type": "Specification"
     },
     {
+      "id": "21",
+      "x": 566.2459942513585,
+      "y": 83.82804107666016,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Closed",
+      "type": "Specification"
+    },
+    {
       "id": "32",
-      "x": 420.84488147068043,
-      "y": 340.9970686463514,
+      "x": 430.84488147068043,
+      "y": 330.9970686463514,
       "degree": 1,
       "incomingDegree": 1,
       "outgoingDegree": 0,
@@ -69,8 +82,8 @@
     },
     {
       "id": "39",
-      "x": 538.5576811629535,
-      "y": 278.28811015728047,
+      "x": 540.3472319442035,
+      "y": 298.41991557720235,
       "degree": 1,
       "incomingDegree": 1,
       "outgoingDegree": 0,
@@ -82,7 +95,7 @@
     {
       "id": "45",
       "x": 482.29819064290996,
-      "y": 173.0205787057686,
+      "y": 180.0205787057686,
       "degree": 1,
       "incomingDegree": 1,
       "outgoingDegree": 0,
@@ -116,6 +129,30 @@
       "type": "Specification"
     },
     {
+      "id": "77",
+      "x": 556.3769271307473,
+      "y": 262.9477135241076,
+      "degree": 5,
+      "incomingDegree": 0,
+      "outgoingDegree": 5,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Draft",
+      "type": "Specification"
+    },
+    {
+      "id": "78",
+      "x": 537.5592864791661,
+      "y": 73.91355514526367,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Draft",
+      "type": "Specification"
+    },
+    {
       "id": "87",
       "x": 524.3831660131541,
       "y": 192.40664714757338,
@@ -129,8 +166,8 @@
     },
     {
       "id": "93",
-      "x": 504.2316463099679,
-      "y": 344.5488208201198,
+      "x": 510.2316463099679,
+      "y": 330.5488208201198,
       "degree": 3,
       "incomingDegree": 0,
       "outgoingDegree": 3,
@@ -189,8 +226,8 @@
     },
     {
       "id": "173",
-      "x": 572.2879367472281,
-      "y": 322.7960621452874,
+      "x": 578.2879367472281,
+      "y": 305.7960621452874,
       "degree": 3,
       "incomingDegree": 2,
       "outgoingDegree": 1,
@@ -200,11 +237,23 @@
       "type": "Informational"
     },
     {
-      "id": "321",
-      "x": 557.6920981937398,
-      "y": 247.23069187619578,
+      "id": "174",
+      "x": 598.4517504698907,
+      "y": 93.04712677001953,
       "degree": 1,
-      "incomingDegree": 0,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Applications",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
+      "id": "321",
+      "x": 545.1656699710835,
+      "y": 211.4408206603755,
+      "degree": 2,
+      "incomingDegree": 1,
       "outgoingDegree": 1,
       "group": "Specification",
       "layer": "Applications",
@@ -212,9 +261,21 @@
       "type": "Specification"
     },
     {
+      "id": "324",
+      "x": 513.7132292803487,
+      "y": 90.61940002441406,
+      "degree": 1,
+      "incomingDegree": 1,
+      "outgoingDegree": 0,
+      "group": "Specification",
+      "layer": "Peer Services",
+      "status": "Deployed",
+      "type": "Specification"
+    },
+    {
       "id": "341",
       "x": 650.3817809220452,
-      "y": 177.49472788381377,
+      "y": 180.49472788381377,
       "degree": 2,
       "incomingDegree": 1,
       "outgoingDegree": 1,
@@ -250,7 +311,7 @@
     {
       "id": "352",
       "x": 665.4552903409596,
-      "y": 339.73199859138725,
+      "y": 330.73199859138725,
       "degree": 1,
       "incomingDegree": 0,
       "outgoingDegree": 1,
@@ -261,8 +322,8 @@
     },
     {
       "id": "360",
-      "x": 589.7146871900452,
-      "y": 186.69880048197814,
+      "x": 578.9777487134827,
+      "y": 184.01456586283751,
       "degree": 1,
       "incomingDegree": 0,
       "outgoingDegree": 1,
@@ -273,8 +334,8 @@
     },
     {
       "id": "383",
-      "x": 539.7454400709664,
-      "y": 221.55319303626152,
+      "x": 514.2451959303414,
+      "y": 284.1854104434881,
       "degree": 1,
       "incomingDegree": 0,
       "outgoingDegree": 1,
@@ -285,8 +346,8 @@
     },
     {
       "id": "392",
-      "x": 632.3754728076406,
-      "y": 342.78134414123105,
+      "x": 625.3754728076406,
+      "y": 330.78134414123105,
       "degree": 1,
       "incomingDegree": 0,
       "outgoingDegree": 1,
@@ -318,6 +379,30 @@
     {
       "source": "67",
       "target": "16",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "77",
+      "target": "21",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "77",
+      "target": "78",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "77",
+      "target": "174",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "overlap"
+    },
+    {
+      "source": "77",
+      "target": "324",
       "relation_type": "body_extracted_llm",
       "comparison_status": "overlap"
     },
@@ -394,6 +479,12 @@
       "comparison_status": "baseline_only"
     },
     {
+      "source": "77",
+      "target": "321",
+      "relation_type": "body_extracted_llm",
+      "comparison_status": "baseline_only"
+    },
+    {
       "source": "87",
       "target": "67",
       "relation_type": "body_extracted_llm",
@@ -449,13 +540,17 @@
       404.8968411231447,
       264.84193516889434
     ],
+    "21": [
+      566.2459942513585,
+      83.82804107666016
+    ],
     "32": [
       430.84488147068043,
       330.9970686463514
     ],
     "39": [
-      538.5576811629535,
-      278.28811015728047
+      545.3472319442035,
+      293.41991557720235
     ],
     "45": [
       482.29819064290996,
@@ -466,8 +561,16 @@
       219.70236453050052
     ],
     "67": [
-      475.1443464114687,
-      253.70851958451004
+      468.1443464114687,
+      245.70851958451004
+    ],
+    "77": [
+      556.3769271307473,
+      262.9477135241076
+    ],
+    "78": [
+      537.5592864791661,
+      73.91355514526367
     ],
     "87": [
       524.3831660131541,
@@ -495,11 +598,19 @@
     ],
     "173": [
       578.2879367472281,
-      305.7960621452874
+      325.7960621452874
+    ],
+    "174": [
+      598.4517504698907,
+      93.04712677001953
     ],
     "321": [
-      557.6920981937398,
-      247.23069187619578
+      560.1656699710835,
+      211.4408206603755
+    ],
+    "324": [
+      513.7132292803487,
+      90.61940002441406
     ],
     "341": [
       650.3817809220452,
@@ -518,12 +629,12 @@
       330.73199859138725
     ],
     "360": [
-      589.7146871900452,
-      186.69880048197814
+      578.9777487134827,
+      184.01456586283751
     ],
     "383": [
-      539.7454400709664,
-      221.55319303626152
+      514.2451959303414,
+      270.1854104434881
     ],
     "392": [
       625.3754728076406,

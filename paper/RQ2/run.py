@@ -13,7 +13,9 @@ OUTPUT_DIR = None
 GENERATE_DEPENDENCY_PLOTS = False
 GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS = True
 GENERATE_DEPENDENCY_COMPARISON_TABLE = True
-DIFFERENTIAL_FOCUS_BIPS = [67,93,350]
+DIFFERENTIAL_FOCUS_BIPS = [67,93,350,77]
+EXCLUDE_BIPS = [174,21,78,324]
+
 DIFFERENTIAL_LAYOUT = "kamada_kawai"
 DIFFERENTIAL_LAYOUT_EXPORT = Path("paper") / "RQ2" / "dependency_layout_260316_67_93_350.json"
 DIFFERENTIAL_LAYOUT_EXPORT_LABEL = "react"
@@ -49,6 +51,7 @@ def main() -> None:
                 output_dir=output_dir,
                 filename_prefix=filename_prefix,
                 focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+                exclude_bips=EXCLUDE_BIPS,
                 layout_name=DIFFERENTIAL_LAYOUT_EXPORT_LABEL,
                 layout_export_path=Path(DIFFERENTIAL_LAYOUT_EXPORT),
             )
@@ -58,6 +61,7 @@ def main() -> None:
                 output_dir=output_dir,
                 filename_prefix=filename_prefix,
                 focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+                exclude_bips=EXCLUDE_BIPS,
                 layout_name=DIFFERENTIAL_LAYOUT,
             )
             for alt_layout in DIFFERENTIAL_ALTERNATIVE_LAYOUTS:
@@ -66,6 +70,7 @@ def main() -> None:
                     output_dir=output_dir,
                     filename_prefix=filename_prefix,
                     focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+                    exclude_bips=EXCLUDE_BIPS,
                     layout_name=alt_layout,
                     )
     if GENERATE_DEPENDENCY_COMPARISON_TABLE:

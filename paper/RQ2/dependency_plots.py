@@ -7,7 +7,9 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 from matplotlib.colors import ListedColormap
+from matplotlib.legend_handler import HandlerBase
 from matplotlib.lines import Line2D
+from matplotlib.patches import FancyArrowPatch
 
 from analysis.dependencies.constants import (
     BODY_EXTRACTED_LLM,
@@ -16,7 +18,6 @@ from analysis.dependencies.constants import (
     PREAMBLE_DEPENDENCY_SUBTYPES,
     PREAMBLE_EXTRACTED,
 )
-from analysis.external_links import get_bips_dev_base_url
 
 try:
     from networkx.drawing.nx_agraph import graphviz_layout
@@ -25,9 +26,6 @@ try:
     graphviz_available = True
 except ImportError:
     graphviz_available = False
-
-
-BIPS_DEV_BASE_URL = get_bips_dev_base_url()
 
 DEFAULT_BIPS_OF_INTEREST = [
     9,
@@ -135,6 +133,58 @@ DEFAULT_BIPS_TO_EXCLUDE = [
     93,
     62,
 ]
+
+LEGEND_ARROW_STYLE = "-|>"
+LEGEND_ARROW_SCALE = 5
+LEGEND_ARROWHEAD_MARKER_SIZE = 4
+
+
+class SolidArrowHeadLegendHandler(HandlerBase):
+    def create_artists(self, legend, orig_handle, xdescent, ydescent, width, height, fontsize, trans):
+        color = orig_handle.get_edgecolor()
+        x_start = xdescent + width * 0.05
+        x_end = xdescent + width * 0.68
+        x_head = xdescent + width * 0.82
+        y_mid = ydescent + height / 2
+
+        shaft = Line2D(
+            [x_start, x_end],
+            [y_mid, y_mid],
+            linestyle=orig_handle.get_linestyle(),
+            linewidth=orig_handle.get_linewidth(),
+            color=color,
+            solid_capstyle="butt",
+        )
+        head = Line2D(
+            [x_head],
+            [y_mid],
+            linestyle="None",
+            marker=">",
+            markersize=LEGEND_ARROWHEAD_MARKER_SIZE,
+            markerfacecolor=color,
+            markeredgecolor=color,
+        )
+
+        shaft.set_transform(trans)
+        head.set_transform(trans)
+        return [shaft, head]
+
+
+ARROW_LEGEND_HANDLER_MAP = {FancyArrowPatch: SolidArrowHeadLegendHandler()}
+
+
+def build_arrow_legend_handle(*, color, linestyle, linewidth, label):
+    handle = FancyArrowPatch(
+        (0, 0),
+        (1, 0),
+        arrowstyle=LEGEND_ARROW_STYLE,
+        mutation_scale=LEGEND_ARROW_SCALE,
+        linewidth=linewidth,
+        linestyle=linestyle,
+        color=color,
+    )
+    handle.set_label(label)
+    return handle
 
 
 def _slugify(parts) -> str:
@@ -465,8 +515,7 @@ def draw_static_network_with_layouts(
 
         for node, (x, y) in pos.items():
             label = f"{node}"
-            url = f"{BIPS_DEV_BASE_URL}/{node}"
-            plt.text(x, y, label, fontsize=7, fontweight="bold", family="monospace", ha="center", va="center", url=url)
+            plt.text(x, y, label, fontsize=7, fontweight="bold", family="monospace", ha="center", va="center")
 
         plt.title(full_title, pad=25, y=1.0)
 
@@ -480,7 +529,14 @@ def draw_static_network_with_layouts(
             base_label = style_info.get("label", lt)
             edge_count = len(edges_by_type.get(lt, []))
             label_with_count = f"{base_label} $(n={edge_count})$"
-            edge_legend_handles.append(Line2D([1], [0], color=color, linestyle=linestyle, linewidth=1.2, label=label_with_count))
+            edge_legend_handles.append(
+                build_arrow_legend_handle(
+                    color=color,
+                    linestyle=linestyle,
+                    linewidth=1.2,
+                    label=label_with_count,
+                )
+            )
 
         all_legend_handles = legend_handles + edge_legend_handles
         if all_legend_handles:
@@ -490,11 +546,14 @@ def draw_static_network_with_layouts(
                 loc="lower center",
                 bbox_to_anchor=(0.5, 0.95),
                 ncol=ncol,
+                handler_map=ARROW_LEGEND_HANDLER_MAP,
+                frameon=False,
                 fancybox=False,
                 shadow=False,
                 fontsize=8.5,
+                handlelength=1.8,
                 columnspacing=1.0,
-                handletextpad=0.2,
+                handletextpad=0.35,
                 labelspacing=0.6,
             )
         elif color_by == "compliance_score" and nodes_plot:

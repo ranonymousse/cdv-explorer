@@ -27,15 +27,18 @@ from analysis.dependencies.constants import (
     DEPENDENCY_APPROACH_SHORT_LABELS,
     PREAMBLE_EXTRACTED,
 )
-from analysis.external_links import get_bips_dev_base_url
-from paper.RQ2.dependency_plots import compute_layout_positions, get_links_by_type, resolve_near_overlaps
+from paper.RQ2.dependency_plots import (
+    ARROW_LEGEND_HANDLER_MAP,
+    build_arrow_legend_handle,
+    compute_layout_positions,
+    get_links_by_type,
+    resolve_near_overlaps,
+)
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 from paper.config import SNAPSHOT
 
-
-BIPS_DEV_BASE_URL = get_bips_dev_base_url()
-
 DEFAULT_FOCUS_BIPS = [1, 2, 3]
+DEFAULT_EXCLUDE_BIPS: list[int] = []
 DEFAULT_LAYOUT_NAME = "kamada_kawai"
 DEFAULT_OUTPUT_DIR = Path("paper") / "RQ2" / "outputs"
 DIFF_LAYOUT_COMPACTION = 0.6
@@ -133,9 +136,19 @@ def _edge_in_focus_neighborhood(source_id: str, target_id: str, focus_ids: set[s
     return source_id in focus_ids or target_id in focus_ids
 
 
-def _collect_display_node_ids(network_data: Dict[str, Any], focus_bips: Sequence[int | str] | None) -> tuple[set[str], set[str]]:
-    node_ids = {str(node.get("id")) for node in network_data.get("nodes", []) if node.get("id") is not None}
+def _collect_display_node_ids(
+    network_data: Dict[str, Any],
+    focus_bips: Sequence[int | str] | None,
+    exclude_bips: Sequence[int | str] | None = None,
+) -> tuple[set[str], set[str]]:
+    excluded_ids = _normalize_focus_ids(exclude_bips)
+    node_ids = {
+        str(node.get("id"))
+        for node in network_data.get("nodes", [])
+        if node.get("id") is not None and str(node.get("id")) not in excluded_ids
+    }
     focus_ids = _normalize_focus_ids(focus_bips)
+    focus_ids -= excluded_ids
     if not focus_ids:
         return node_ids, focus_ids
 
@@ -412,32 +425,26 @@ def _build_edge_legend_handles(
     comparison_edges: dict[str, list[tuple[str, str]]],
     edge_styles: dict[str, dict[str, Any]] | None = None,
     comparison_ordered: bool = False,
-) -> list[Line2D]:
+) -> list[Any]:
     approach_label = DEPENDENCY_APPROACH_SHORT_LABELS[approach_type]
     baseline_label = DEPENDENCY_APPROACH_SHORT_LABELS[baseline_type]
     styles = edge_styles or _build_edge_styles(comparison_ordered=comparison_ordered)
 
     if comparison_ordered:
         return [
-            Line2D(
-                [1],
-                [0],
+            build_arrow_legend_handle(
                 color=styles["overlap"]["color"],
                 linestyle=styles["overlap"]["style"],
                 linewidth=DIFF_EDGE_WIDTH,
                 label=f"In both $({len(comparison_edges['overlap'])})$",
             ),
-            Line2D(
-                [1],
-                [0],
+            build_arrow_legend_handle(
                 color=styles["baseline_only"]["color"],
                 linestyle=styles["baseline_only"]["style"],
                 linewidth=DIFF_EDGE_WIDTH,
                 label=f"Only in {baseline_label} $({len(comparison_edges['baseline_only'])})$",
             ),
-            Line2D(
-                [1],
-                [0],
+            build_arrow_legend_handle(
                 color=styles["approach_only"]["color"],
                 linestyle=styles["approach_only"]["style"],
                 linewidth=DIFF_EDGE_WIDTH,
@@ -446,25 +453,19 @@ def _build_edge_legend_handles(
         ]
 
     return [
-        Line2D(
-            [1],
-            [0],
+        build_arrow_legend_handle(
             color=styles["approach_only"]["color"],
             linestyle=styles["approach_only"]["style"],
             linewidth=DIFF_EDGE_WIDTH,
             label=f"{approach_label} only $(n={len(comparison_edges['approach_only'])})$",
         ),
-        Line2D(
-            [1],
-            [0],
+        build_arrow_legend_handle(
             color=styles["overlap"]["color"],
             linestyle=styles["overlap"]["style"],
             linewidth=DIFF_EDGE_WIDTH,
             label=f"Also in {baseline_label} $(n={len(comparison_edges['overlap'])})$",
         ),
-        Line2D(
-            [1],
-            [0],
+        build_arrow_legend_handle(
             color=styles["baseline_only"]["color"],
             linestyle=styles["baseline_only"]["style"],
             linewidth=DIFF_EDGE_WIDTH,
@@ -632,7 +633,6 @@ def _draw_comparison_plot(
             )
 
     for node_id in ordered_nodes:
-        url = f"{BIPS_DEV_BASE_URL}/{node_id}"
         label_text = f"{int(node_id)}"
         x, y = pos[node_id]
         ax.text(
@@ -644,7 +644,6 @@ def _draw_comparison_plot(
             family="monospace",
             ha="center",
             va="center",
-            url=url,
             color="black",
             zorder=5,
         )
@@ -695,11 +694,14 @@ def _save_single_comparison_plot(
             loc="lower center",
             bbox_to_anchor=(0.5, 0.95),
             ncol=ncol,
+            handler_map=ARROW_LEGEND_HANDLER_MAP,
+            frameon=False,
             fancybox=False,
             shadow=False,
             fontsize=8.5,
+            handlelength=1.9,
             columnspacing=1.0,
-            handletextpad=0.2,
+            handletextpad=0.35,
             labelspacing=0.6,
         )
 
@@ -755,10 +757,13 @@ def _save_combined_comparison_plot(
             loc="upper center",
             bbox_to_anchor=(0.5, -0.03),
             ncol=3,
+            handler_map=ARROW_LEGEND_HANDLER_MAP,
+            frameon=False,
             fancybox=False,
             shadow=False,
             fontsize=COMBINED_EDGE_LEGEND_FONT_SIZE,
-            columnspacing=1.0,
+            handlelength=1.9,
+            columnspacing=0.85,
             handletextpad=0.35,
             labelspacing=0.4,
             title="Edges",
@@ -772,6 +777,7 @@ def _save_combined_comparison_plot(
             loc="upper center",
             bbox_to_anchor=(0.5, 0.82),
             ncol=3,
+            frameon=False,
             fancybox=False,
             fontsize=COMBINED_NODE_LEGEND_FONT_SIZE,
             columnspacing=1.0,
@@ -793,12 +799,13 @@ def render_differential_dependency_plots(
     *,
     filename_prefix: str | None = None,
     focus_bips: Sequence[int | str] = DEFAULT_FOCUS_BIPS,
+    exclude_bips: Sequence[int | str] | None = DEFAULT_EXCLUDE_BIPS,
     layout_name: str = DEFAULT_LAYOUT_NAME,
     layout_export_path: Path | None = None,
 ) -> list[Path]:
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    display_ids, focus_ids = _collect_display_node_ids(network_data, focus_bips)
+    display_ids, focus_ids = _collect_display_node_ids(network_data, focus_bips, exclude_bips)
     layout_graph = _build_layout_graph(network_data, display_ids, focus_ids)
 
     # Keep one shared union-layout graph so both plots inherit identical node positions.
@@ -903,6 +910,11 @@ def main() -> None:
         help="Comma-separated focus BIP ids used to define the local comparison neighborhood.",
     )
     parser.add_argument(
+        "--exclude-bips",
+        default=",".join(str(bip) for bip in DEFAULT_EXCLUDE_BIPS),
+        help="Comma-separated BIP ids to exclude from the plotted local neighborhood.",
+    )
+    parser.add_argument(
         "--layout",
         default=DEFAULT_LAYOUT_NAME,
         choices=["spring_default", "spring_spread", "spring_scaled", "planar", "spectral", "shell", "circular", "bipartite", "multipartite", "kamada_kawai"],
@@ -919,6 +931,7 @@ def main() -> None:
         output_dir=output_dir,
         filename_prefix=snapshot_prefix(snapshot_label),
         focus_bips=_parse_bips_argument(args.bips),
+        exclude_bips=_parse_bips_argument(args.exclude_bips),
         layout_name=args.layout_export_label if args.layout_export else args.layout,
         layout_export_path=Path(args.layout_export) if args.layout_export else None,
     )
