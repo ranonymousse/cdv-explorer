@@ -12,6 +12,7 @@ OUTPUT_DIR = None
 GENERATE_CLASSIFICATION_STATUS_PLOT = True
 GENERATE_EVOLUTION_STATUS_PLOT = True
 GENERATE_CLASSIFICATION_TYPE_PLOT = True
+GENERATE_CLASSIFICATION_TYPE_STACKED_PLOT = True
 GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE = True
 GENERATE_CLASSIFICATION_SANKEY_PLOT = True
 CLASSIFICATION_STATUS_ORDER = [
@@ -34,13 +35,17 @@ def main() -> None:
     from paper.RQ1.classification_status_type_table import (
         export_classification_status_type_latex_table,
     )
-    from paper.RQ1.classification_type import plot_classification_type
+    from paper.RQ1.classification_type import (
+        plot_classification_type,
+        plot_classification_type_stacked,
+    )
     from paper.RQ1.evolution_status import plot_evolution_status
 
     if (
         not GENERATE_CLASSIFICATION_STATUS_PLOT
         and not GENERATE_EVOLUTION_STATUS_PLOT
         and not GENERATE_CLASSIFICATION_TYPE_PLOT
+        and not GENERATE_CLASSIFICATION_TYPE_STACKED_PLOT
         and not GENERATE_CLASSIFICATION_STATUS_TYPE_TABLE
         and not GENERATE_CLASSIFICATION_SANKEY_PLOT
     ):
@@ -72,11 +77,20 @@ def main() -> None:
             snapshot_label=snapshot_label,
         )
 
-    if GENERATE_CLASSIFICATION_TYPE_PLOT:
+    if GENERATE_CLASSIFICATION_TYPE_PLOT or GENERATE_CLASSIFICATION_TYPE_STACKED_PLOT:
         network_data = load_network_data(snapshot=SNAPSHOT)
+
+    if GENERATE_CLASSIFICATION_TYPE_PLOT:
         plot_classification_type(
             network_data=network_data,
             output_path=output_dir / f"{filename_prefix}_classification_type.pdf",
+            snapshot_label=snapshot_label,
+        )
+
+    if GENERATE_CLASSIFICATION_TYPE_STACKED_PLOT:
+        plot_classification_type_stacked(
+            network_data=network_data,
+            output_path=output_dir / f"{filename_prefix}_classification_type_stacked.pdf",
             snapshot_label=snapshot_label,
         )
 
