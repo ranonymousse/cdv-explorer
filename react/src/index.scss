@@ -37,6 +37,10 @@
   --chart-contrast: #ffffff;
   --chart-focus: #0f172a;
   --chart-outline: #ffffff;
+  --chart-accent-blue: #4c78a8;
+  --chart-accent-blue-hover: #003f5c;
+  --chart-accent-orange: #f08c00;
+  --chart-accent-orange-hover: #e67700;
   --tooltip-bg: #0f172a;
   --tooltip-text: #ffffff;
   --tooltip-border: rgba(100, 116, 139, 0.6);
@@ -67,6 +71,10 @@ html[data-theme='dark'] {
   --chart-contrast: #dbe7f3;
   --chart-focus: #f8fafc;
   --chart-outline: #08111b;
+  --chart-accent-blue: #8ec5ff;
+  --chart-accent-blue-hover: #bfdbfe;
+  --chart-accent-orange: #f4a261;
+  --chart-accent-orange-hover: #f6b26b;
   --tooltip-bg: #0d1724;
   --tooltip-text: #f8fafc;
   --tooltip-border: rgba(148, 163, 184, 0.46);

@@ -84,6 +84,8 @@ export function EcosystemDashboard() {
     collaborationNetwork,
     collaborationMetricsSummary,
     collaborationMetricsRows,
+    collaborationClusterSizeDistribution,
+    collaborationDegreeDistribution,
     dependencyMetrics,
   } = buildDashboardData(selectedDataset);
   const dependencyMetricsApproachOptions = useMemo(
@@ -265,6 +267,8 @@ export function EcosystemDashboard() {
         collaborationNetwork={collaborationNetwork}
         collaborationMetricsSummary={collaborationMetricsSummary}
         collaborationMetricsRows={collaborationMetricsRows}
+        collaborationClusterSizeDistribution={collaborationClusterSizeDistribution}
+        collaborationDegreeDistribution={collaborationDegreeDistribution}
         highlightedAuthor={highlightedAuthor}
         setHighlightedAuthor={setHighlightedAuthor}
         collaborationLayoutMode={collaborationLayoutMode}

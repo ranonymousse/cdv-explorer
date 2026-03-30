@@ -139,18 +139,11 @@ function computeWeightedEigenvectorCentrality(nodeIds, adjacency, maxIterations 
   return values;
 }
 
-function buildDisplayCollaborationComponents(nodeIds, adjacency) {
-  const isolatedIds = [];
+function buildTrueCollaborationComponents(nodeIds, adjacency) {
   const visited = new Set();
   const components = [];
 
   nodeIds.forEach((id) => {
-    const neighbors = adjacency.get(id) || [];
-    if (neighbors.length === 0) {
-      isolatedIds.push(id);
-      return;
-    }
-
     if (visited.has(id)) {
       return;
     }
@@ -176,6 +169,22 @@ function buildDisplayCollaborationComponents(nodeIds, adjacency) {
   });
 
   components.sort((left, right) => right.length - left.length);
+
+  return components;
+}
+
+function buildDisplayCollaborationComponents(nodeIds, adjacency) {
+  const isolatedIds = [];
+  const components = [];
+
+  buildTrueCollaborationComponents(nodeIds, adjacency).forEach((members) => {
+    if (members.length === 1) {
+      isolatedIds.push(members[0]);
+      return;
+    }
+
+    components.push(members);
+  });
 
   if (isolatedIds.length > 0) {
     components.push(isolatedIds.sort((left, right) => left.localeCompare(right)));
@@ -211,7 +220,20 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
     weightedDegreeByAuthor.set(target, (weightedDegreeByAuthor.get(target) || 0) + weight);
   });
 
+  const trueComponents = buildTrueCollaborationComponents(nodeIds, adjacency);
   const components = buildDisplayCollaborationComponents(nodeIds, adjacency);
+  const clusterSizeDistribution = Array.from(
+    trueComponents.reduce((counts, members) => {
+      counts.set(members.length, (counts.get(members.length) || 0) + 1);
+      return counts;
+    }, new Map())
+  )
+    .map(([clusterSize, clusterCount]) => ({
+      clusterSize: Number(clusterSize),
+      clusterCount: Number(clusterCount),
+      authorCount: Number(clusterSize) * Number(clusterCount),
+    }))
+    .sort((left, right) => left.clusterSize - right.clusterSize);
 
   const clusterMetaByAuthor = new Map();
   components.forEach((members, index) => {
@@ -283,11 +305,35 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
       weightedEigenvector: Number(eigenvectorRow.weightedEigenvector || 0),
     };
   });
+  const degreeDistribution = Array.from(
+    degreeRows.reduce((counts, row) => {
+      const degree = Number(row.rawDegree || 0);
+      counts.set(degree, (counts.get(degree) || 0) + 1);
+      return counts;
+    }, new Map())
+  )
+    .map(([degree, authorCount]) => ({
+      degree: Number(degree),
+      authorCount: Number(authorCount),
+    }))
+    .sort((left, right) => left.degree - right.degree);
   const nodeCount = nodeIds.length;
   const edgeCount = rawEdges.length;
   const isolatedAuthorCount = degreeRows.filter((row) => Number(row.rawDegree || 0) === 0).length;
   const clusterCount = components.length;
   const density = nodeCount > 1 ? edgeCount / ((nodeCount * (nodeCount - 1)) / 2) : 0;
+  const largestClusterSize = trueComponents[0]?.length || 0;
+  const trueClusterCount = trueComponents.length;
+  const soloClusterCount = clusterSizeDistribution.find((entry) => entry.clusterSize === 1)?.clusterCount || 0;
+  const pairClusterCount = clusterSizeDistribution.find((entry) => entry.clusterSize === 2)?.clusterCount || 0;
+  const singleCoauthorCount = degreeDistribution.find((entry) => entry.degree === 1)?.authorCount || 0;
+  const lowDegreeAuthorCount = degreeDistribution
+    .filter((entry) => entry.degree <= 1)
+    .reduce((sum, entry) => sum + entry.authorCount, 0);
+  const averageDegree = nodeCount > 0
+    ? degreeRows.reduce((sum, row) => sum + Number(row.rawDegree || 0), 0) / nodeCount
+    : 0;
+  const maxDegree = degreeDistribution[degreeDistribution.length - 1]?.degree || 0;
 
   return {
     summary: {
@@ -296,8 +342,18 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
       isolatedAuthorCount,
       clusterCount,
       density,
+      trueClusterCount,
+      soloClusterCount,
+      pairClusterCount,
+      largestClusterSize,
+      singleCoauthorCount,
+      lowDegreeAuthorCount,
+      averageDegree,
+      maxDegree,
     },
     metricsRows,
+    clusterSizeDistribution,
+    degreeDistribution,
   };
 }
 
@@ -764,6 +820,8 @@ export function buildDashboardData(dataset) {
   const {
     summary: collaborationMetricsSummary,
     metricsRows: collaborationMetricsRows,
+    clusterSizeDistribution: collaborationClusterSizeDistribution,
+    degreeDistribution: collaborationDegreeDistribution,
   } = buildCollaborationDerivedData(
     collaborationNetwork,
     authorship.collaboration_centrality || [],
@@ -789,6 +847,8 @@ export function buildDashboardData(dataset) {
     collaborationNetwork,
     collaborationMetricsSummary,
     collaborationMetricsRows,
+    collaborationClusterSizeDistribution,
+    collaborationDegreeDistribution,
     dependencyMetrics,
   };
 }

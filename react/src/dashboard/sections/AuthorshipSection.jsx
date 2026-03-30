@@ -7,6 +7,8 @@ import { ProposalTimelineChart } from '../../ProposalTimelineChart';
 import { TopAuthorsChart } from '../../TopAuthorsChart';
 import { AuthorContributionHistogram } from '../../AuthorContributionHistogram';
 import { AuthorCollaborationNetwork } from '../../AuthorCollaborationNetwork';
+import { CollaborationClusterSizeDistribution } from '../../CollaborationClusterSizeDistribution';
+import { CollaborationDegreeDistribution } from '../../CollaborationDegreeDistribution';
 import { AuthorCentralityTable } from '../../AuthorCentralityTable';
 import { WordCloud } from '../../WordCloud';
 import { useAnalysisMetricTooltip } from '../../useAnalysisMetricTooltip';
@@ -20,6 +22,8 @@ export function AuthorshipSection({
   collaborationNetwork,
   collaborationMetricsSummary,
   collaborationMetricsRows,
+  collaborationClusterSizeDistribution,
+  collaborationDegreeDistribution,
   highlightedAuthor,
   setHighlightedAuthor,
   collaborationLayoutMode,
@@ -66,7 +70,6 @@ export function AuthorshipSection({
       description: 'Share of all possible author-to-author links that actually exist. Higher density means collaboration is more broadly interconnected.',
     },
   ]), [collaborationMetricsSummary]);
-
   return (
     <section className="dashboard-section">
       <div className="dashboard-section__header">
@@ -183,6 +186,42 @@ export function AuthorshipSection({
           ]}
         />
       </Card>
+      <div className="dashboard-grid dashboard-grid--two-up">
+        <ExportableCard className="mb-4 dashboard-plot-card-shell" exportTitle="Collaboration Component Size Distribution">
+          <div className="dashboard-plot-card">
+            <div className="dashboard-plot-card__copy">
+              <h3>Connected Component Size Distribution</h3>
+              <p>
+                Connected components in co-authorship graph, grouped by size.
+              </p>
+            </div>
+            <div className="dashboard-plot-card__plot">
+              <CollaborationClusterSizeDistribution
+                data={collaborationClusterSizeDistribution}
+                width={640}
+                height={410}
+              />
+            </div>
+          </div>
+        </ExportableCard>
+        <ExportableCard className="mb-4 dashboard-plot-card-shell" exportTitle="Collaboration Degree Distribution">
+          <div className="dashboard-plot-card">
+            <div className="dashboard-plot-card__copy">
+              <h3>Co-Author Degree Distribution</h3>
+              <p>
+                Distinct co-authors per author.
+              </p>
+            </div>
+            <div className="dashboard-plot-card__plot">
+              <CollaborationDegreeDistribution
+                data={collaborationDegreeDistribution}
+                width={640}
+                height={410}
+              />
+            </div>
+          </div>
+        </ExportableCard>
+      </div>
       <ExportableCard className="mb-4" exportTitle="Word Cloud of Document Text">
         <h3 className="card-title-with-badge">
           Word Cloud of Document Text
