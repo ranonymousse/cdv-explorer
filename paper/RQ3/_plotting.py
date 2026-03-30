@@ -7,6 +7,8 @@ from matplotlib.colors import to_rgba
 BAR_FILL_ALPHA = 0.85
 BAR_EDGE_WIDTH = 1.0
 BAR_EDGE_COLOR = "#000000"
+ELLIPSIS_TICK_COLOR = "#666666"
+ELLIPSIS_TICK_WEIGHT = "bold"
 
 
 def despine(axis, *, right: bool = True) -> None:
@@ -41,6 +43,17 @@ def match_axis_label_fontsize(axis) -> None:
 
     axis.xaxis.label.set_size(tick_fontsize)
     axis.yaxis.label.set_size(tick_fontsize)
+
+
+def style_ellipsis_ticklabels(axis, tick_labels: list[str], *, ellipsis_label: str = "...") -> None:
+    xticklabels = axis.get_xticklabels()
+    for tick_index, label in enumerate(tick_labels):
+        if label != ellipsis_label:
+            continue
+        if tick_index >= len(xticklabels):
+            continue
+        xticklabels[tick_index].set_color(ELLIPSIS_TICK_COLOR)
+        xticklabels[tick_index].set_fontweight(ELLIPSIS_TICK_WEIGHT)
 
 
 def save_figure(figure, output_path: Path) -> None:

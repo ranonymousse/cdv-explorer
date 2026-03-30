@@ -26,7 +26,15 @@ def main() -> None:
         resolve_latest_snapshot_label,
     )
     from paper.RQ3.authorship_overview import plot_authorship_overview
-    from paper.RQ3.collaboration_structure_overview import plot_collaboration_structure_overview
+    from paper.RQ3.authorship_overview import (
+        plot_authorship_distribution,
+        plot_top_authors,
+    )
+    from paper.RQ3.collaboration_structure_overview import (
+        plot_coauthor_degree_distribution,
+        plot_collaboration_structure_overview,
+        plot_connected_component_size_distribution,
+    )
     from paper.RQ3.collaboration_metrics_table import (
         export_collaboration_metrics_latex_table,
         export_collaboration_metrics_table,
@@ -58,10 +66,26 @@ def main() -> None:
             output_path=output_dir / f"{filename_prefix}_authorship_overview.pdf",
             snapshot_label=snapshot_label,
         )
+        plot_top_authors(
+            top_authors=authorship_metrics.get("top_authors", []),
+            output_path=output_dir / f"{filename_prefix}_top_10_authors.pdf",
+        )
+        plot_authorship_distribution(
+            contribution_histogram=authorship_metrics.get("author_contribution_histogram", []),
+            output_path=output_dir / f"{filename_prefix}_authorship_distribution.pdf",
+        )
         plot_collaboration_structure_overview(
             collaboration_network=authorship_metrics.get("collaboration_network", {}),
             output_path=output_dir / f"{filename_prefix}_collaboration_structure_overview.pdf",
             snapshot_label=snapshot_label,
+        )
+        plot_connected_component_size_distribution(
+            collaboration_network=authorship_metrics.get("collaboration_network", {}),
+            output_path=output_dir / f"{filename_prefix}_connected_component_size_distribution.pdf",
+        )
+        plot_coauthor_degree_distribution(
+            collaboration_network=authorship_metrics.get("collaboration_network", {}),
+            output_path=output_dir / f"{filename_prefix}_coauthor_degree_distribution.pdf",
         )
 
     if GENERATE_COLLABORATION_NETWORK_EXPORTED_PLOT:
@@ -95,13 +119,19 @@ def main() -> None:
             authorship_payload = load_authorship_payload(snapshot=SNAPSHOT)
         if network_data is None:
             network_data = load_network_data(snapshot=SNAPSHOT)
-        render_collaboration_network_layout_suite(
-            network_data=network_data,
-            authorship_payload=authorship_payload,
-            output_dir=output_dir,
-            filename_prefix=filename_prefix,
-            snapshot_label=snapshot_label,
-        )
+        try:
+            render_collaboration_network_layout_suite(
+                network_data=network_data,
+                authorship_payload=authorship_payload,
+                output_dir=output_dir,
+                filename_prefix=filename_prefix,
+                snapshot_label=snapshot_label,
+            )
+        except ModuleNotFoundError as exc:
+            if exc.name == "scipy":
+                print("Skipping collaboration network layout suite; scipy is not installed.")
+            else:
+                raise
 
     if GENERATE_COLLABORATION_METRICS_TABLE:
         if authorship_payload is None:
