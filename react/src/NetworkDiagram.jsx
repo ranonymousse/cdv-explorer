@@ -34,6 +34,10 @@ const COLOR_BY_OPTIONS = [
   { label: 'Type', value: 'type' },
 ];
 
+const COLOR_BY_OPTION_VALUES = new Set(COLOR_BY_OPTIONS.map((option) => option.value));
+const LAYOUT_OPTION_VALUES = new Set(LAYOUT_OPTIONS.map((option) => option.value));
+const LINK_TYPE_OPTION_VALUES = new Set(LINK_TYPE_OPTIONS.map((option) => option.value));
+
 const EXPLICIT_DEPENDENCY_COLORS = {
   requires: '#667085',
   replaces: '#667085',
@@ -95,6 +99,47 @@ function formatSnapshotFilePart(value) {
     return `${match[1].slice(2)}${match[2]}${match[3]}`;
   }
   return sanitizeFilePart(text, 'snapshot');
+}
+
+function normalizeImportedPositions(payload) {
+  const normalizedPositions = {};
+  const rawPositions = payload?.positions;
+
+  if (rawPositions && typeof rawPositions === 'object' && !Array.isArray(rawPositions)) {
+    Object.entries(rawPositions).forEach(([nodeId, coords]) => {
+      if (!Array.isArray(coords) || coords.length < 2) {
+        return;
+      }
+
+      const xCoord = Number(coords[0]);
+      const yCoord = Number(coords[1]);
+      if (!Number.isFinite(xCoord) || !Number.isFinite(yCoord)) {
+        return;
+      }
+
+      normalizedPositions[String(nodeId)] = [xCoord, yCoord];
+    });
+  }
+
+  if (Object.keys(normalizedPositions).length > 0) {
+    return normalizedPositions;
+  }
+
+  if (Array.isArray(payload?.nodes)) {
+    payload.nodes.forEach((node) => {
+      const nodeId = node?.id;
+      const xCoord = Number(node?.x);
+      const yCoord = Number(node?.y);
+
+      if (nodeId == null || !Number.isFinite(xCoord) || !Number.isFinite(yCoord)) {
+        return;
+      }
+
+      normalizedPositions[String(nodeId)] = [xCoord, yCoord];
+    });
+  }
+
+  return normalizedPositions;
 }
 
 function buildDisplayedLinks(linksByType, linkType) {
@@ -165,12 +210,15 @@ export const NetworkDiagram = ({
   minRelations = '0',
   setMinRelations,
   proposalFilterIds = [],
+  setProposalFilterText,
   includeConnections = true,
+  setIncludeConnections,
   includeThresholdConnections = false,
   setIncludeThresholdConnections,
 }) => {
   const ref = useRef();
   const legendRef = useRef();
+  const importInputRef = useRef(null);
   const exportPayloadRef = useRef(null);
   const simulationRef = useRef(null);
   const redrawGraphRef = useRef(() => {});
@@ -183,6 +231,7 @@ export const NetworkDiagram = ({
   const [baselineType, setBaselineType] = useState(BASELINE_NONE_VALUE);
   const [layoutMode, setLayoutMode] = useState('balanced');
   const [physicsEnabled, setPhysicsEnabled] = useState(true);
+  const [importedLayout, setImportedLayout] = useState(null);
   const isDifferentialMode = baselineType !== BASELINE_NONE_VALUE;
 
   const handleLayoutExport = () => {
@@ -210,6 +259,76 @@ export const NetworkDiagram = ({
 
   const handlePhysicsToggle = () => {
     setPhysicsEnabled((current) => !current);
+  };
+
+  const handleLayoutImportClick = () => {
+    importInputRef.current?.click();
+  };
+
+  const handleLayoutImport = async (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = '';
+
+    if (!file) {
+      return;
+    }
+
+    try {
+      const payload = JSON.parse(await file.text());
+      const importedPositions = normalizeImportedPositions(payload);
+
+      if (Object.keys(importedPositions).length === 0) {
+        throw new Error('The selected file does not contain any layout positions.');
+      }
+
+      if (COLOR_BY_OPTION_VALUES.has(payload?.color_by)) {
+        setColorBy(payload.color_by);
+      }
+
+      if (LINK_TYPE_OPTION_VALUES.has(payload?.link_type)) {
+        setLinkType(payload.link_type);
+      }
+
+      const importedBaselineType = payload?.baseline_type;
+      if (importedBaselineType == null || importedBaselineType === BASELINE_NONE_VALUE) {
+        setBaselineType(BASELINE_NONE_VALUE);
+      } else if (LINK_TYPE_OPTION_VALUES.has(importedBaselineType)) {
+        setBaselineType(importedBaselineType);
+      }
+
+      if (LAYOUT_OPTION_VALUES.has(payload?.layout_mode)) {
+        setLayoutMode(payload.layout_mode);
+      }
+
+      const importedMinRelations = payload?.filter?.min_relations;
+      if (importedMinRelations != null && setMinRelations) {
+        setMinRelations(String(Math.max(0, Number(importedMinRelations) || 0)));
+      }
+
+      if (typeof payload?.filter?.include_threshold_connections === 'boolean') {
+        setIncludeThresholdConnections?.(payload.filter.include_threshold_connections);
+      }
+
+      if (typeof payload?.filter?.include_connections === 'boolean') {
+        setIncludeConnections?.(payload.filter.include_connections);
+      }
+
+      if (Array.isArray(payload?.filter?.proposal_ids)) {
+        setProposalFilterText?.(payload.filter.proposal_ids.map((value) => String(value)).join(','));
+      }
+
+      setImportedLayout({
+        fileName: file.name,
+        positions: importedPositions,
+      });
+      setPhysicsEnabled(false);
+    } catch (error) {
+      window.alert(
+        error instanceof Error
+          ? `Could not import layout JSON: ${error.message}`
+          : 'Could not import layout JSON.'
+      );
+    }
   };
 
   const nodes = useMemo(
@@ -374,6 +493,19 @@ export const NetworkDiagram = ({
         .text('No proposals match the current relations filter.');
       return;
     }
+
+    const importedPositions = importedLayout?.positions || null;
+    let importedPositionedNodeCount = 0;
+    filteredNodes.forEach((node) => {
+      const coords = importedPositions?.[String(node.id)];
+      if (!coords) {
+        return;
+      }
+
+      node.x = coords[0];
+      node.y = coords[1];
+      importedPositionedNodeCount += 1;
+    });
 
     const normalizedHighlight = normalizeBipId(highlightProposal);
     const searchMatchedIds = normalizedHighlight
@@ -924,9 +1056,30 @@ export const NetworkDiagram = ({
     if (physicsEnabledRef.current) {
       renderGraph();
     } else {
-      for (let iteration = 0; iteration < 140; iteration += 1) {
-        simulation.tick();
+      if (importedPositions && importedPositionedNodeCount > 0 && importedPositionedNodeCount < filteredNodes.length) {
+        filteredNodes.forEach((entry) => {
+          const coords = importedPositions[String(entry.id)];
+          if (!coords) {
+            return;
+          }
+          entry.fx = coords[0];
+          entry.fy = coords[1];
+        });
       }
+
+      if (!(importedPositions && importedPositionedNodeCount === filteredNodes.length)) {
+        for (let iteration = 0; iteration < 140; iteration += 1) {
+          simulation.tick();
+        }
+      }
+
+      filteredNodes.forEach((entry) => {
+        if (!importedPositions?.[String(entry.id)]) {
+          return;
+        }
+        entry.fx = null;
+        entry.fy = null;
+      });
       renderGraph();
       simulation.alphaTarget(0);
       simulation.stop();
@@ -968,7 +1121,7 @@ export const NetworkDiagram = ({
       svg.selectAll('*').remove();
       d3.select('body').selectAll('.dependency-network-tooltip').remove();
     };
-  }, [baselineType, colorBy, data, height, highlightProposal, includeConnections, includeThresholdConnections, isDifferentialMode, layoutMode, linkMode, linkType, links, minRelations, nodes, proposalFilterIds, snapshotLabel, width]);
+  }, [baselineType, colorBy, data, height, highlightProposal, importedLayout, includeConnections, includeThresholdConnections, isDifferentialMode, layoutMode, linkMode, linkType, links, minRelations, nodes, proposalFilterIds, snapshotLabel, width]);
 
   const explicitLegendItems = [
     { label: 'Requires', dasharray: EXPLICIT_DEPENDENCY_STYLES.requires, stroke: '#667085' },
@@ -1122,6 +1275,13 @@ export const NetworkDiagram = ({
           <div className="network-layout-picker">
             <div className="network-layout-picker__label">Layout</div>
             <div className="network-layout-picker__options network-layout-picker__options--with-actions">
+              <input
+                ref={importInputRef}
+                type="file"
+                accept="application/json,.json"
+                onChange={handleLayoutImport}
+                hidden
+              />
               {LAYOUT_OPTIONS.map((option) => (
                 <label key={option.value} className="network-layout-picker__option">
                   <input
@@ -1146,9 +1306,21 @@ export const NetworkDiagram = ({
                   : 'Resume network physics'}
                 aria-pressed={!physicsEnabled}
                 disabled={nodes.length === 0}
-              >
-                {physicsEnabled ? 'freeze physics' : 'resume physics'}
-              </button>
+                  >
+                    {physicsEnabled ? 'freeze physics' : 'resume physics'}
+                  </button>
+                  <button
+                    type="button"
+                    className={`network-layout-action-button ${importedLayout ? 'network-layout-action-button--active' : ''}`.trim()}
+                    onClick={handleLayoutImportClick}
+                    title={importedLayout
+                      ? `Upload a layout JSON to replace the active imported layout. Current import: ${importedLayout.fileName}.`
+                      : 'Upload a layout JSON export and apply its graph construction to the current card.'}
+                    aria-label="Upload network layout JSON"
+                    disabled={nodes.length === 0}
+                  >
+                    import layout
+                  </button>
               <button
                 type="button"
                 className="network-layout-action-button"

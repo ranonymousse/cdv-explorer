@@ -139,7 +139,9 @@ export function DependenciesSection({
           minRelations={dependencyMinRelations}
           setMinRelations={setDependencyMinRelations}
           proposalFilterIds={selectedDependencyProposalIds}
+          setProposalFilterText={setDependencyFilterText}
           includeConnections={dependencyIncludeConnections}
+          setIncludeConnections={setDependencyIncludeConnections}
           includeThresholdConnections={dependencyMinRelationsIncludeConnections}
           setIncludeThresholdConnections={setDependencyMinRelationsIncludeConnections}
         />

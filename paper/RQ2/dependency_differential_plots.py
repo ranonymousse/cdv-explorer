@@ -75,15 +75,36 @@ COMPARISON_PLOTS = (
         "filename_stem": "preamlbe_vs_regex",
         "approach": BODY_EXTRACTED_REGEX,
         "baseline": PREAMBLE_EXTRACTED,
-        "title": "Selected proposals with differential dependencies (Regex vs. Preamble)",
+        "title": "Selected proposals with differential dependencies (Preamble vs. Regex)",
+        "subplot_title": "Preamble vs. Regex",
     },
     {
         "filename_stem": "regex_vs_llm",
         "approach": BODY_EXTRACTED_LLM,
         "baseline": BODY_EXTRACTED_REGEX,
-        "title": "Selected proposals with differential dependencies (LLM vs. Regex)",
+        "title": "Selected proposals with differential dependencies (Regex vs. LLM)",
+        "subplot_title": "Regex vs. LLM",
     },
 )
+COMBINED_REACT_DIFFDEP_FILENAME_STEM = "combined"
+SINGLE_COMPARISON_FIGSIZE = (3, 5)
+COMBINED_COMPARISON_FIGSIZE = (8, 5)
+DEFAULT_AXIS_MARGIN_SCALE = 0.18
+COMBINED_AXIS_MARGIN_SCALE = 0.1
+COMBINED_SUBPLOT_TITLE_FONT_SIZE = 9.0
+COMBINED_SUBPLOT_TITLE_PAD = 9
+COMBINED_EDGE_LEGEND_FONT_SIZE = 7
+COMBINED_EDGE_LEGEND_TITLE_FONT_SIZE = 7
+COMBINED_NODE_LEGEND_FONT_SIZE = 7
+COMBINED_NODE_LEGEND_TITLE_FONT_SIZE = 7
+
+
+def _build_edge_styles(*, comparison_ordered: bool = False) -> dict[str, dict[str, Any]]:
+    return {
+        "approach_only": {"color": APPROACH_ONLY_EDGE_COLOR, "style": APPROACH_ONLY_EDGE_STYLE, "alpha": 1.0},
+        "overlap": {"color": OVERLAP_EDGE_COLOR, "style": "solid", "alpha": 1.0},
+        "baseline_only": {"color": BASELINE_ONLY_EDGE_COLOR, "style": BASELINE_ONLY_EDGE_STYLE, "alpha": 1.0},
+    }
 
 
 def _build_edge_key(source: Any, target: Any) -> tuple[str, str]:
@@ -292,7 +313,11 @@ def _project_fallback_positions_into_export_space(
     return projected
 
 
-def _compute_axis_limits(pos: dict[str, Any]) -> tuple[float, float, float, float]:
+def _compute_axis_limits(
+    pos: dict[str, Any],
+    *,
+    margin_scale: float = DEFAULT_AXIS_MARGIN_SCALE,
+) -> tuple[float, float, float, float]:
     if not pos:
         return (-1.0, 1.0, -1.0, 1.0)
 
@@ -300,8 +325,8 @@ def _compute_axis_limits(pos: dict[str, Any]) -> tuple[float, float, float, floa
     y_values = [coords[1] for coords in pos.values()]
     x_span = (max(x_values) - min(x_values)) or 1.0
     y_span = (max(y_values) - min(y_values)) or 1.0
-    x_margin = 0.18 * x_span
-    y_margin = 0.18 * y_span
+    x_margin = margin_scale * x_span
+    y_margin = margin_scale * y_span
     return (
         min(x_values) - x_margin,
         max(x_values) + x_margin,
@@ -353,25 +378,16 @@ def _build_type_legend_handles(graph: nx.DiGraph) -> list[Line2D]:
     group_counts = Counter(group_attr.values())
     handles = []
 
-    for group in TYPE_ORDER:
-        if group not in group_counts:
-            continue
-        handles.append(
-            Line2D(
-                [],
-                [],
-                marker="o",
-                color="w",
-                label=f"{group} $(n={group_counts[group]})$",
-                markerfacecolor=_type_color(group),
-                markeredgecolor="black",
-                markeredgewidth=0.9,
-                markersize=10,
-            )
-        )
-
-    remaining_groups = sorted(set(group_counts) - set(TYPE_ORDER))
-    for group in remaining_groups:
+    type_order_rank = {group: index for index, group in enumerate(TYPE_ORDER)}
+    ordered_groups = sorted(
+        group_counts,
+        key=lambda group: (
+            -group_counts[group],
+            type_order_rank.get(group, len(TYPE_ORDER)),
+            str(group),
+        ),
+    )
+    for group in ordered_groups:
         handles.append(
             Line2D(
                 [],
@@ -394,31 +410,63 @@ def _build_edge_legend_handles(
     approach_type: str,
     baseline_type: str,
     comparison_edges: dict[str, list[tuple[str, str]]],
+    edge_styles: dict[str, dict[str, Any]] | None = None,
+    comparison_ordered: bool = False,
 ) -> list[Line2D]:
     approach_label = DEPENDENCY_APPROACH_SHORT_LABELS[approach_type]
     baseline_label = DEPENDENCY_APPROACH_SHORT_LABELS[baseline_type]
+    styles = edge_styles or _build_edge_styles(comparison_ordered=comparison_ordered)
+
+    if comparison_ordered:
+        return [
+            Line2D(
+                [1],
+                [0],
+                color=styles["overlap"]["color"],
+                linestyle=styles["overlap"]["style"],
+                linewidth=DIFF_EDGE_WIDTH,
+                label=f"In both $({len(comparison_edges['overlap'])})$",
+            ),
+            Line2D(
+                [1],
+                [0],
+                color=styles["baseline_only"]["color"],
+                linestyle=styles["baseline_only"]["style"],
+                linewidth=DIFF_EDGE_WIDTH,
+                label=f"Only in {baseline_label} $({len(comparison_edges['baseline_only'])})$",
+            ),
+            Line2D(
+                [1],
+                [0],
+                color=styles["approach_only"]["color"],
+                linestyle=styles["approach_only"]["style"],
+                linewidth=DIFF_EDGE_WIDTH,
+                label=f"Only in {approach_label} $({len(comparison_edges['approach_only'])})$",
+            ),
+        ]
+
     return [
         Line2D(
             [1],
             [0],
-            color=APPROACH_ONLY_EDGE_COLOR,
-            linestyle=APPROACH_ONLY_EDGE_STYLE,
+            color=styles["approach_only"]["color"],
+            linestyle=styles["approach_only"]["style"],
             linewidth=DIFF_EDGE_WIDTH,
             label=f"{approach_label} only $(n={len(comparison_edges['approach_only'])})$",
         ),
         Line2D(
             [1],
             [0],
-            color=OVERLAP_EDGE_COLOR,
-            linestyle="solid",
+            color=styles["overlap"]["color"],
+            linestyle=styles["overlap"]["style"],
             linewidth=DIFF_EDGE_WIDTH,
             label=f"Also in {baseline_label} $(n={len(comparison_edges['overlap'])})$",
         ),
         Line2D(
             [1],
             [0],
-            color=BASELINE_ONLY_EDGE_COLOR,
-            linestyle=BASELINE_ONLY_EDGE_STYLE,
+            color=styles["baseline_only"]["color"],
+            linestyle=styles["baseline_only"]["style"],
             linewidth=DIFF_EDGE_WIDTH,
             label=f"Missing from {approach_label} $(n={len(comparison_edges['baseline_only'])})$",
         ),
@@ -494,6 +542,7 @@ def _edge_connectionstyle(
 
 
 def _draw_comparison_plot(
+    ax: plt.Axes,
     graph: nx.DiGraph,
     pos: dict[str, Any],
     axis_limits: tuple[float, float, float, float],
@@ -502,9 +551,10 @@ def _draw_comparison_plot(
     approach_type: str,
     baseline_type: str,
     layout_name: str,
-    focus_ids: set[str],
     title: str,
-    output_path: Path,
+    edge_styles: dict[str, dict[str, Any]] | None = None,
+    title_fontsize: float | None = None,
+    title_pad: float = 20,
 ) -> None:
     if graph.number_of_nodes() == 0:
         return
@@ -513,9 +563,8 @@ def _draw_comparison_plot(
     node_groups = nx.get_node_attributes(graph, "group")
     node_colors = [_type_color(node_groups.get(node_id, "Unknown Type")) for node_id in ordered_nodes]
     node_sizes = _compute_node_sizes(graph, ordered_nodes)
+    styles = edge_styles or _build_edge_styles()
 
-    plt.figure(figsize=(3, 5))
-    ax = plt.gca()
     ax.set_xlim(axis_limits[0], axis_limits[1])
     ax.set_ylim(axis_limits[2], axis_limits[3])
     ax.set_aspect("equal", adjustable="box")
@@ -529,13 +578,9 @@ def _draw_comparison_plot(
         alpha=NODE_FILL_ALPHA,
         edgecolors="black",
         linewidths=1.0,
+        ax=ax,
     )
 
-    edge_styles = {
-        "approach_only": {"color": APPROACH_ONLY_EDGE_COLOR, "style": APPROACH_ONLY_EDGE_STYLE, "alpha": 1.0},
-        "overlap": {"color": OVERLAP_EDGE_COLOR, "style": "solid", "alpha": 1.0},
-        "baseline_only": {"color": BASELINE_ONLY_EDGE_COLOR, "style": BASELINE_ONLY_EDGE_STYLE, "alpha": 1.0},
-    }
     all_edges = {
         edge
         for edgelist in comparison_edges.values()
@@ -544,7 +589,7 @@ def _draw_comparison_plot(
     for status, edgelist in comparison_edges.items():
         if not edgelist:
             continue
-        style_info = edge_styles[status]
+        style_info = styles[status]
         for edge in edgelist:
             connectionstyle = _edge_connectionstyle(edge, all_edges, layout_name=layout_name)
             nx.draw_networkx_edges(
@@ -590,7 +635,7 @@ def _draw_comparison_plot(
         url = f"{BIPS_DEV_BASE_URL}/{node_id}"
         label_text = f"{int(node_id)}"
         x, y = pos[node_id]
-        plt.text(
+        ax.text(
             x,
             y,
             label_text,
@@ -604,16 +649,48 @@ def _draw_comparison_plot(
             zorder=5,
         )
 
-    plt.title(title, pad=25, y=1.0)
+    ax.set_title(title, pad=title_pad, y=1.0, fontsize=title_fontsize)
+    ax.axis("off")
+
+
+def _save_single_comparison_plot(
+    graph: nx.DiGraph,
+    pos: dict[str, Any],
+    axis_limits: tuple[float, float, float, float],
+    *,
+    comparison_edges: dict[str, list[tuple[str, str]]],
+    approach_type: str,
+    baseline_type: str,
+    layout_name: str,
+    title: str,
+    output_path: Path,
+) -> None:
+    if graph.number_of_nodes() == 0:
+        return
+
+    fig, ax = plt.subplots(figsize=SINGLE_COMPARISON_FIGSIZE)
+    _draw_comparison_plot(
+        ax,
+        graph,
+        pos,
+        axis_limits,
+        comparison_edges=comparison_edges,
+        approach_type=approach_type,
+        baseline_type=baseline_type,
+        layout_name=layout_name,
+        title=title,
+        edge_styles=_build_edge_styles(),
+    )
 
     legend_handles = _build_type_legend_handles(graph) + _build_edge_legend_handles(
         approach_type=approach_type,
         baseline_type=baseline_type,
         comparison_edges=comparison_edges,
+        edge_styles=_build_edge_styles(),
     )
     if legend_handles:
         ncol = math.ceil(len(legend_handles) / 2)
-        plt.legend(
+        ax.legend(
             handles=legend_handles,
             loc="lower center",
             bbox_to_anchor=(0.5, 0.95),
@@ -626,11 +703,88 @@ def _draw_comparison_plot(
             labelspacing=0.6,
         )
 
-    plt.axis("off")
-    plt.tight_layout(rect=[0, 0, 1, 0.99])
+    fig.tight_layout(rect=[0, 0, 1, 0.99])
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    plt.savefig(output_path, format="pdf")
-    plt.close()
+    fig.savefig(output_path, format="pdf")
+    plt.close(fig)
+
+
+def _save_combined_comparison_plot(
+    graph: nx.DiGraph,
+    pos: dict[str, Any],
+    axis_limits: tuple[float, float, float, float],
+    *,
+    plot_payloads: Sequence[dict[str, Any]],
+    layout_name: str,
+    output_path: Path,
+) -> None:
+    if graph.number_of_nodes() == 0 or not plot_payloads:
+        return
+
+    fig, axes = plt.subplots(1, len(plot_payloads), figsize=COMBINED_COMPARISON_FIGSIZE)
+    if hasattr(axes, "flat"):
+        axes = list(axes.flat)
+    else:
+        axes = [axes]
+
+    combined_edge_styles = _build_edge_styles(comparison_ordered=True)
+    for index, (ax, payload) in enumerate(zip(axes, plot_payloads), start=1):
+        _draw_comparison_plot(
+            ax,
+            graph,
+            pos,
+            axis_limits,
+            comparison_edges=payload["comparison_edges"],
+            approach_type=payload["approach_type"],
+            baseline_type=payload["baseline_type"],
+            layout_name=layout_name,
+            title=f"({chr(96 + index)}) {payload['subplot_title']}",
+            edge_styles=combined_edge_styles,
+            title_fontsize=COMBINED_SUBPLOT_TITLE_FONT_SIZE,
+            title_pad=COMBINED_SUBPLOT_TITLE_PAD,
+        )
+        edge_legend_handles = _build_edge_legend_handles(
+            approach_type=payload["approach_type"],
+            baseline_type=payload["baseline_type"],
+            comparison_edges=payload["comparison_edges"],
+            edge_styles=combined_edge_styles,
+            comparison_ordered=True,
+        )
+        ax.legend(
+            handles=edge_legend_handles,
+            loc="upper center",
+            bbox_to_anchor=(0.5, -0.03),
+            ncol=3,
+            fancybox=True,
+            shadow=False,
+            fontsize=COMBINED_EDGE_LEGEND_FONT_SIZE,
+            columnspacing=1.0,
+            handletextpad=0.35,
+            labelspacing=0.4,
+            title="Edges",
+            title_fontsize=COMBINED_EDGE_LEGEND_TITLE_FONT_SIZE,
+        )
+
+    type_handles = _build_type_legend_handles(graph)
+    if type_handles:
+        fig.legend(
+            handles=type_handles,
+            loc="upper center",
+            bbox_to_anchor=(0.5, 0.82),
+            ncol=3,
+            fancybox=True,
+            fontsize=COMBINED_NODE_LEGEND_FONT_SIZE,
+            columnspacing=1.0,
+            handletextpad=0.2,
+            labelspacing=0.6,
+            title="Nodes",
+            title_fontsize=COMBINED_NODE_LEGEND_TITLE_FONT_SIZE,
+        )
+
+    fig.tight_layout(rect=[0.015, 0.13, 0.985, 0.87], w_pad=-2)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, format="pdf")
+    plt.close(fig)
 
 
 def render_differential_dependency_plots(
@@ -672,7 +826,9 @@ def render_differential_dependency_plots(
         base_pos = _compute_base_positions(layout_graph, layout_name=layout_name)
         pos = _compact_positions(base_pos, compaction=_get_layout_compaction(layout_name))
     axis_limits = _compute_axis_limits(base_pos)
+    combined_axis_limits = _compute_axis_limits(base_pos, margin_scale=COMBINED_AXIS_MARGIN_SCALE)
 
+    plot_payloads: list[dict[str, Any]] = []
     output_paths: list[Path] = []
     for plot_spec in COMPARISON_PLOTS:
         comparison_edges = _build_comparison_edges(
@@ -682,9 +838,17 @@ def render_differential_dependency_plots(
             display_ids=display_ids,
             focus_ids=focus_ids,
         )
+        plot_payloads.append(
+            {
+                "comparison_edges": comparison_edges,
+                "approach_type": plot_spec["approach"],
+                "baseline_type": plot_spec["baseline"],
+                "subplot_title": plot_spec.get("subplot_title", plot_spec["title"]),
+            }
+        )
         prefix = f"{filename_prefix}_" if filename_prefix else ""
         output_path = output_dir / f"{prefix}diffdep_{layout_name}_{plot_spec['filename_stem']}.pdf"
-        _draw_comparison_plot(
+        _save_single_comparison_plot(
             layout_graph,
             pos,
             axis_limits,
@@ -692,11 +856,23 @@ def render_differential_dependency_plots(
             approach_type=plot_spec["approach"],
             baseline_type=plot_spec["baseline"],
             layout_name=layout_name,
-            focus_ids=focus_ids,
             title=plot_spec["title"],
             output_path=output_path,
         )
         output_paths.append(output_path)
+
+    if layout_export_path is not None and len(plot_payloads) > 1:
+        prefix = f"{filename_prefix}_" if filename_prefix else ""
+        combined_output_path = output_dir / f"{prefix}diffdep_{layout_name}_{COMBINED_REACT_DIFFDEP_FILENAME_STEM}.pdf"
+        _save_combined_comparison_plot(
+            layout_graph,
+            pos,
+            combined_axis_limits,
+            plot_payloads=plot_payloads,
+            layout_name=layout_name,
+            output_path=combined_output_path,
+        )
+        output_paths.append(combined_output_path)
 
     return output_paths
 

@@ -48,21 +48,22 @@ def main() -> None:
                 layout_name=DIFFERENTIAL_LAYOUT_EXPORT_LABEL,
                 layout_export_path=Path(DIFFERENTIAL_LAYOUT_EXPORT),
             )
-        render_differential_dependency_plots(
-            network_data,
-            output_dir=output_dir,
-            filename_prefix=filename_prefix,
-            focus_bips=DIFFERENTIAL_FOCUS_BIPS,
-            layout_name=DIFFERENTIAL_LAYOUT,
-        )
-        for alt_layout in DIFFERENTIAL_ALTERNATIVE_LAYOUTS:
+        else: 
             render_differential_dependency_plots(
                 network_data,
                 output_dir=output_dir,
                 filename_prefix=filename_prefix,
                 focus_bips=DIFFERENTIAL_FOCUS_BIPS,
-                layout_name=alt_layout,
-                )
+                layout_name=DIFFERENTIAL_LAYOUT,
+            )
+            for alt_layout in DIFFERENTIAL_ALTERNATIVE_LAYOUTS:
+                render_differential_dependency_plots(
+                    network_data,
+                    output_dir=output_dir,
+                    filename_prefix=filename_prefix,
+                    focus_bips=DIFFERENTIAL_FOCUS_BIPS,
+                    layout_name=alt_layout,
+                    )
     if GENERATE_DEPENDENCY_COMPARISON_TABLE:
         export_dependency_comparison_latex_table(
             network_data=network_data,
