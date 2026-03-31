@@ -150,7 +150,12 @@ export function DependenciesSection({
         <h3>Relationship Graph Metrics</h3>
         <p>
           Compare simple graph-level structure and per-{ecosystem.acronym} centrality measures across
-          {' '}Preamble, Regex, and LLM.
+          {' '}Preamble, Regex, and LLM.{' '} 
+          <strong>In Degree</strong> measures how many other BIPs refer to a given BIP (incoming relation).{' '}
+          <strong>Out Degree</strong> measures how many other BIPs a given BIP refers to (outgoing relation).
+          <strong>Weighted Eigenvector</strong> measures how central a BIP is by considering how well-connected the BIPs it is linked to are.{' '}
+          <strong>PageRank</strong> is similar, but additionally accounts for direction and distributes importance across outgoing links, giving more weight to BIPs referenced by many others.{' '}
+          <strong>Betweenness</strong> measures how often a BIP lies on the shortest paths between other BIPs, indicating its role in connecting otherwise separate parts of the dependency graph. 
         </p>
         <div className="dependency-metrics-toolbar">
           <div className="dependency-metrics-toolbar__copy">

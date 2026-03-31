@@ -1,4 +1,9 @@
 import * as d3 from 'd3';
+import {
+  BODY_EXTRACTED_LLM,
+  BODY_EXTRACTED_REGEX,
+  PREAMBLE_EXTRACTED,
+} from '../dependencyApproaches';
 import { CLASSIFICATION_DIMENSIONS } from './constants';
 
 const WORD_CLOUD_STOPWORDS = new Set([
@@ -139,6 +144,123 @@ function computeWeightedEigenvectorCentrality(nodeIds, adjacency, maxIterations 
   return values;
 }
 
+function computeWeightedPageRank(nodeIds, adjacency, damping = 0.85, maxIterations = 1000, tolerance = 1e-6) {
+  const authorIds = Array.from(new Set((nodeIds || []).map((id) => String(id))));
+  const nodeCount = authorIds.length;
+
+  if (nodeCount === 0) {
+    return new Map();
+  }
+
+  const ranks = new Map(authorIds.map((id) => [id, 1 / nodeCount]));
+  const outgoingWeightByAuthor = new Map(
+    authorIds.map((id) => [
+      id,
+      (adjacency.get(id) || []).reduce((sum, neighbor) => sum + Number(neighbor.weight || 0), 0),
+    ])
+  );
+
+  for (let iteration = 0; iteration < maxIterations; iteration += 1) {
+    const danglingMass = authorIds.reduce((sum, id) => (
+      (outgoingWeightByAuthor.get(id) || 0) === 0 ? sum + (ranks.get(id) || 0) : sum
+    ), 0);
+    const baseScore = ((1 - damping) + (damping * danglingMass)) / nodeCount;
+    const nextRanks = new Map(authorIds.map((id) => [id, baseScore]));
+
+    authorIds.forEach((id) => {
+      const neighbors = adjacency.get(id) || [];
+      const totalOutgoingWeight = outgoingWeightByAuthor.get(id) || 0;
+
+      if (totalOutgoingWeight === 0) {
+        return;
+      }
+
+      neighbors.forEach(({ id: neighborId, weight }) => {
+        const contribution = damping * (ranks.get(id) || 0) * (Number(weight || 0) / totalOutgoingWeight);
+        nextRanks.set(neighborId, (nextRanks.get(neighborId) || 0) + contribution);
+      });
+    });
+
+    let delta = 0;
+    authorIds.forEach((id) => {
+      delta += Math.abs((nextRanks.get(id) || 0) - (ranks.get(id) || 0));
+      ranks.set(id, nextRanks.get(id) || 0);
+    });
+
+    if (delta < tolerance) {
+      break;
+    }
+  }
+
+  return ranks;
+}
+
+function computeDirectedWeightedEigenvectorCentrality(nodeIds, links, maxIterations = 1000, tolerance = 1e-6) {
+  const proposalIds = Array.from(new Set((nodeIds || []).map((id) => String(id))));
+  const nodeCount = proposalIds.length;
+
+  if (nodeCount === 0) {
+    return new Map();
+  }
+
+  const incomingAdjacency = new Map(proposalIds.map((id) => [id, []]));
+  const weightedEdges = new Map();
+
+  (links || []).forEach((link) => {
+    const source = String(link?.source || '');
+    const target = String(link?.target || '');
+
+    if (!source || !target) {
+      return;
+    }
+
+    const edgeKey = `${source}|||${target}`;
+    weightedEdges.set(edgeKey, (weightedEdges.get(edgeKey) || 0) + 1);
+  });
+
+  weightedEdges.forEach((weight, edgeKey) => {
+    const [source, target] = edgeKey.split('|||');
+    if (!incomingAdjacency.has(target)) {
+      incomingAdjacency.set(target, []);
+    }
+    incomingAdjacency.get(target).push({ id: source, weight });
+  });
+
+  const values = new Map(proposalIds.map((id) => [id, 1 / Math.sqrt(nodeCount)]));
+
+  for (let iteration = 0; iteration < maxIterations; iteration += 1) {
+    const nextValues = new Map(proposalIds.map((id) => [id, 0]));
+
+    proposalIds.forEach((id) => {
+      const predecessors = incomingAdjacency.get(id) || [];
+      predecessors.forEach(({ id: predecessorId, weight }) => {
+        nextValues.set(id, nextValues.get(id) + Number(weight || 0) * (values.get(predecessorId) || 0));
+      });
+    });
+
+    const norm = Math.sqrt(
+      Array.from(nextValues.values()).reduce((sum, value) => sum + value ** 2, 0)
+    );
+
+    if (norm === 0) {
+      return new Map(proposalIds.map((id) => [id, 0]));
+    }
+
+    let delta = 0;
+    proposalIds.forEach((id) => {
+      const normalizedValue = nextValues.get(id) / norm;
+      delta += Math.abs(normalizedValue - (values.get(id) || 0));
+      values.set(id, normalizedValue);
+    });
+
+    if (delta < nodeCount * tolerance) {
+      break;
+    }
+  }
+
+  return values;
+}
+
 function buildTrueCollaborationComponents(nodeIds, adjacency) {
   const visited = new Set();
   const components = [];
@@ -191,6 +313,69 @@ function buildDisplayCollaborationComponents(nodeIds, adjacency) {
   }
 
   return components;
+}
+
+function getDependencyLinksForApproach(linksByType, approachKey) {
+  if (approachKey === PREAMBLE_EXTRACTED) {
+    const seen = new Set();
+    const merged = [];
+
+    [
+      ...(linksByType?.[PREAMBLE_EXTRACTED]?.requires || []),
+      ...(linksByType?.[PREAMBLE_EXTRACTED]?.replaces || []),
+      ...(linksByType?.[PREAMBLE_EXTRACTED]?.proposed_replacement || []),
+    ].forEach((link) => {
+      const source = String(link?.source || '');
+      const target = String(link?.target || '');
+      const edgeKey = `${source}|||${target}`;
+
+      if (!source || !target || seen.has(edgeKey)) {
+        return;
+      }
+
+      seen.add(edgeKey);
+      merged.push({ source, target });
+    });
+
+    return merged;
+  }
+
+  if (approachKey === BODY_EXTRACTED_REGEX || approachKey === BODY_EXTRACTED_LLM) {
+    return (linksByType?.[approachKey] || []).map((link) => ({
+      source: String(link?.source || ''),
+      target: String(link?.target || ''),
+    }));
+  }
+
+  return [];
+}
+
+function augmentDependencyMetricsWithWeightedEigenvector(dependencyMetrics, nodes, linksByType) {
+  const byApproach = dependencyMetrics?.by_approach || {};
+  const nodeIds = (nodes || []).map((node) => String(node?.id || '')).filter(Boolean);
+
+  return {
+    ...dependencyMetrics,
+    by_approach: Object.fromEntries(
+      Object.entries(byApproach).map(([approachKey, approachMetrics]) => {
+        const weightedEigenvectorByNode = computeDirectedWeightedEigenvectorCentrality(
+          nodeIds,
+          getDependencyLinksForApproach(linksByType, approachKey),
+        );
+
+        return [
+          approachKey,
+          {
+            ...approachMetrics,
+            per_bip: (approachMetrics?.per_bip || []).map((row) => ({
+              ...row,
+              weighted_eigenvector: Number(weightedEigenvectorByNode.get(String(row.id)) || 0),
+            })),
+          },
+        ];
+      }),
+    ),
+  };
 }
 
 function buildCollaborationDerivedData(collaborationNetwork, collaborationCentrality, topAuthorSet = new Set()) {
@@ -249,6 +434,7 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
     (collaborationCentrality || []).map((entry) => [String(entry.author), entry])
   );
   const weightedEigenvectorByAuthor = computeWeightedEigenvectorCentrality(nodeIds, adjacency);
+  const pageRankByAuthor = computeWeightedPageRank(nodeIds, adjacency);
 
   const degreeRows = rawNodes
     .map((node) => {
@@ -262,7 +448,9 @@ function buildCollaborationDerivedData(collaborationNetwork, collaborationCentra
         clusterSize: clusterMeta.clusterSize,
         rawDegree: Number((adjacency.get(author) || []).length),
         weightedDegree: Number(weightedDegreeByAuthor.get(author) || 0),
+        betweenness: Number(centrality.betweenness || 0),
         normalizedDegree: Number(centrality.degree || 0),
+        pagerank: Number(pageRankByAuthor.get(author) || 0),
       };
     })
     .sort((left, right) => {
@@ -616,7 +804,11 @@ function buildClassificationRelationRows(nodes) {
 
 export function buildDashboardData(dataset) {
   const authorship = dataset.authorship || {};
-  const dependencyMetrics = dataset.dependencyMetrics || { by_approach: {} };
+  const dependencyMetrics = augmentDependencyMetricsWithWeightedEigenvector(
+    dataset.dependencyMetrics || { by_approach: {} },
+    dataset.nodes || [],
+    dataset.links || {},
+  );
   const conformity = dataset.conformity || {};
   const authorBipsByAuthor = new Map();
   const bipsByYear = new Map();

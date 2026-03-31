@@ -89,16 +89,23 @@ export const ProposalGraphMetricsTable = ({
       <Column field="in_degree" header="In Degree" sortable body={(row) => Number(row.in_degree || 0)} />
       <Column field="out_degree" header="Out Degree" sortable body={(row) => Number(row.out_degree || 0)} />
       <Column
-        field="betweenness"
-        header="Betweenness"
+        field="weighted_eigenvector"
+        header="Weighted Eigenvector"
         sortable
-        body={(row) => formatNumber(row.betweenness, 4)}
+        body={(row) => formatNumber(row.weighted_eigenvector, 4)}
       />
+      
       <Column
         field="pagerank"
         header="PageRank"
         sortable
         body={(row) => formatNumber(row.pagerank, 4)}
+      />
+      <Column
+        field="betweenness"
+        header="Betweenness"
+        sortable
+        body={(row) => formatNumber(row.betweenness, 4)}
       />
     </DataTable>
   );

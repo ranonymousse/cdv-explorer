@@ -155,10 +155,11 @@ export function AuthorshipSection({
           {ecosystem.acronym} co-authorship according to preamble. 
           Author names marked with <strong><code>*</code></strong> are in the top 10 by authored {ecosystem.proposalShortPlural}. <strong>Cluster</strong>
           {' '}and <strong>Cluster Size</strong> show the connected co-authorship group an author belongs to and how large
-          that group is. Authors with no co-authorship links are grouped into one shared display cluster for readability.
-          <strong>Degree</strong> counts distinct co-authors, <strong>Weighted Degree</strong> counts repeated
-          collaborations, and <strong>Weighted Eigenvector</strong> is higher for authors connected to other highly
-          collaborative authors.
+          that group is. Authors with no co-authorship links are grouped into one shared display cluster for readability.{' '} 
+          <strong>Degree</strong> measures how many different co-authors an author has. 
+          <strong>Weighted Degree</strong> captures how often an author collaborates in total, including repeated collaborations.{' '}
+          <strong>Weighted Eigenvector</strong> reflects how strongly an author is connected to other well-connected authors.{' '}
+          <strong>Betweenness</strong> measures how often an author lies on the shortest paths between other authors, indicating their role in connecting otherwise separate groups.
         </p>
         <div className="analysis-grid collaboration-metrics-summary">
           {collaborationMetricCards.map((metric) => (
@@ -183,6 +184,7 @@ export function AuthorshipSection({
             { field: 'rawDegree', header: 'Degree', format: 'integer' },
             { field: 'weightedDegree', header: 'Weighted Degree', format: 'integer' },
             { field: 'weightedEigenvector', header: 'Weighted Eigenvector', digits: 4 },
+            { field: 'betweenness', header: 'Betweenness', digits: 4 },
           ]}
         />
       </Card>
