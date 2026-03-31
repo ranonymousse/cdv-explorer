@@ -166,12 +166,12 @@ def _build_partial_dependency_comparison_tabular(
     return "\n".join(
         [
             rf"\begin{{tabular}}{{{tabular_spec}}}",
-            r"\toprule",
+            r"    \toprule",
             header_line,
-            r"\midrule",
+            r"    \midrule%",
             *body_lines,
-            r"\bottomrule",
-            r"\end{tabular}",
+            r"    \bottomrule",
+            r"\end{tabular}%",
         ]
     )
 
@@ -207,24 +207,26 @@ def export_dependency_comparison_latex_table(
             row_cells.append(metric_label)
             for metric_values in metric_values_by_baseline:
                 row_cells.append(metric_values[metric_label])
-            line_prefix = "        "
-            line_suffix = r" \\"
-            if metric_index == len(metric_order) - 1 and approach != APPROACH_ORDER[-1]:
-                line_suffix = r" \\" + "\n        " + r"\midrule"
-            body_lines.append(line_prefix + " & ".join(row_cells) + line_suffix)
+            body_lines.append("        " + " & ".join(row_cells) + r" \\")
+        if approach != APPROACH_ORDER[-1]:
+            body_lines.append(r"        \midrule%")
 
     latex_table = "\n".join(
         [
-            "{",
-            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
-            r"    \renewcommand{\arraystretch}{1.15}",
+            "{%",
+            r"    \setlength{\abovetopsep}{0pt}%",
+            r"    \setlength{\belowbottomsep}{0pt}%",
+            r"    \setlength{\aboverulesep}{0pt}%",
+            r"    \setlength{\belowrulesep}{0pt}%",
+            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}%",
+            r"    \renewcommand{\arraystretch}{1.3}%",
             r"    \begin{tabular}{lc|ccc}",
-            r"    \toprule",
-            f"    {header_line}",
-            r"    \midrule",
+            r"        \toprule",
+            f"        {header_line}",
+            r"        \midrule%",
             *body_lines,
-            r"    \bottomrule",
-            r"    \end{tabular}",
+            r"        \bottomrule",
+            r"    \end{tabular}%",
             "}",
             "",
         ]
@@ -249,9 +251,13 @@ def export_preamble_dependency_comparison_latex_table(
 
     latex_table = "\n".join(
         [
-            "{",
-            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
-            r"    \renewcommand{\arraystretch}{1.15}",
+            "{%",
+            r"    \setlength{\abovetopsep}{0pt}%",
+            r"    \setlength{\belowbottomsep}{0pt}%",
+            r"    \setlength{\aboverulesep}{0pt}%",
+            r"    \setlength{\belowrulesep}{0pt}%",
+            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}%",
+            r"    \renewcommand{\arraystretch}{1.3}%",
             *_indent_block(tabular_block),
             "}",
             "",
@@ -284,9 +290,13 @@ def export_preamble_plus_regex_llm_dependency_comparison_latex_table(
 
     latex_table = "\n".join(
         [
-            "{",
-            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
-            r"    \renewcommand{\arraystretch}{1.15}",
+            "{%",
+            r"    \setlength{\abovetopsep}{0pt}%",
+            r"    \setlength{\belowbottomsep}{0pt}%",
+            r"    \setlength{\aboverulesep}{0pt}%",
+            r"    \setlength{\belowrulesep}{0pt}%",
+            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}%",
+            r"    \renewcommand{\arraystretch}{1.3}%",
             r"    \begin{minipage}[t]{0.59\linewidth}",
             r"    \vspace{0pt}",
             r"    \centering",

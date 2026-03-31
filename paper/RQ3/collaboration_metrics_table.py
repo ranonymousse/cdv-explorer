@@ -19,6 +19,7 @@ LATEX_TOP_N = 5
 LATEX_AUTHOR_TOP_N = 10
 LATEX_HEADER_WRAP_WIDTH = 14
 LATEX_TABCOLSEP_PT = 5
+LATEX_TABULAR_ALIGNMENT = "l|cccc"
 
 LATEX_TABLE_HEADERS = [
     "Author",
@@ -210,15 +211,20 @@ def export_collaboration_metrics_latex_table(
 
     latex_table = "\n".join(
         [
-            "{",
-            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}",
-            r"    \begin{tabular}{lcccc}",
-            r"    \toprule",
-            f"    {header_line}",
-            r"    \midrule",
+            "{%",
+            r"    \setlength{\abovetopsep}{0pt}%",
+            r"    \setlength{\belowbottomsep}{0pt}%",
+            r"    \setlength{\aboverulesep}{0pt}%",
+            r"    \setlength{\belowrulesep}{0pt}%",
+            rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}%",
+            r"    \renewcommand{\arraystretch}{1.3}%",
+            rf"    \begin{{tabular}}{{{LATEX_TABULAR_ALIGNMENT}}}",
+            r"        \toprule",
+            f"        {header_line}",
+            r"        \midrule%",
             *body_lines,
-            r"    \bottomrule",
-            r"    \end{tabular}",
+            r"        \bottomrule",
+            r"    \end{tabular}%",
             "}",
             "",
         ]

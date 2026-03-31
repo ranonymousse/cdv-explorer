@@ -1,14 +1,19 @@
-{
-    \setlength{\tabcolsep}{5pt}
-    \begin{tabular}{lcccc}
-    \toprule
-    \begin{tabular}[c]{@{}c@{}}\textbf{Author}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{BIPs}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Degree}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Weighted} \\ \textbf{Degree}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Weighted} \\ \textbf{Eigenvector}\end{tabular} \\
-    \midrule
+{%
+    \setlength{\abovetopsep}{0pt}%
+    \setlength{\belowbottomsep}{0pt}%
+    \setlength{\aboverulesep}{0pt}%
+    \setlength{\belowrulesep}{0pt}%
+    \setlength{\tabcolsep}{5pt}%
+    \renewcommand{\arraystretch}{1.3}%
+    \begin{tabular}{l|cccc}
+        \toprule
+        \begin{tabular}[c]{@{}c@{}}\textbf{Author}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{BIPs}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Degree}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Weighted} \\ \textbf{Degree}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Weighted} \\ \textbf{Eigenvector}\end{tabular} \\
+        \midrule%
         Pieter Wuille* & 27 & 15 & 31 & 0.672 \\
         Ava Chow* & 18 & 6 & 14 & 0.547 \\
         Mark Friedenbach* & 6 & 6 & 12 & 0.027 \\
         BtcDrak* & 7 & 5 & 11 & 0.026 \\
         Jonas Nick & 4 & 4 & 8 & 0.225 \\
-    \bottomrule
-    \end{tabular}
+        \bottomrule
+    \end{tabular}%
 }
