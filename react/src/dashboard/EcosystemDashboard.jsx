@@ -65,9 +65,12 @@ export function EcosystemDashboard() {
     });
   }, [ecosystemId, availableSnapshots]);
 
-  const selectedDataset = ecosystem?.status === 'available'
-    ? getDatasetForSelection(ecosystemId, selectedSnapshot)
-    : emptyDataset;
+  const selectedDataset = useMemo(
+    () => (ecosystem?.status === 'available'
+      ? getDatasetForSelection(ecosystemId, selectedSnapshot)
+      : emptyDataset),
+    [ecosystem, ecosystemId, selectedSnapshot, emptyDataset]
+  );
   const {
     yearData,
     wordCloudData,
@@ -87,7 +90,7 @@ export function EcosystemDashboard() {
     collaborationClusterSizeDistribution,
     collaborationDegreeDistribution,
     dependencyMetrics,
-  } = buildDashboardData(selectedDataset);
+  } = useMemo(() => buildDashboardData(selectedDataset), [selectedDataset]);
   const dependencyMetricsApproachOptions = useMemo(
     () => LINK_TYPE_OPTIONS.filter(
       (option) => dependencyMetrics?.by_approach?.[option.value]
@@ -230,32 +233,37 @@ export function EcosystemDashboard() {
         </div>
       </div>
       <div className="dashboard-sticky-controls">
-        <label htmlFor="snapshot-select" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>
-          SNAPSHOT
-        </label>
-        <Dropdown
-          inputId="snapshot-select"
-          value={selectedSnapshot}
-          options={snapshotOptions}
-          onChange={(event) => setSelectedSnapshot(event.value)}
-          placeholder="Select snapshot date"
-          className="w-full"
-        />
-        <div className="dashboard-sticky-controls__link-row">
-          <span className="dashboard-sticky-controls__label-inline">IP Links:</span>
-          <span className={`dashboard-link-mode-text${linkMode === 'history' ? ' is-active' : ''}`}>
-            Historic
-          </span>
-          <InputSwitch
-            checked={linkMode === 'current'}
-            onChange={(event) => setLinkMode(event.value ? 'current' : 'history')}
-            inputId="link-mode-switch"
-            aria-label="IP links mode"
-            className="dashboard-link-mode-switch"
+        <span className="dashboard-sticky-controls__indicator" aria-hidden="true">
+          <i className="pi pi-sliders-h" />
+        </span>
+        <div className="dashboard-sticky-controls__panel">
+          <label htmlFor="snapshot-select" style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>
+            SNAPSHOT
+          </label>
+          <Dropdown
+            inputId="snapshot-select"
+            value={selectedSnapshot}
+            options={snapshotOptions}
+            onChange={(event) => setSelectedSnapshot(event.value)}
+            placeholder="Select snapshot date"
+            className="w-full"
           />
-          <span className={`dashboard-link-mode-text${linkMode === 'current' ? ' is-active' : ''}`}>
-            Current
-          </span>
+          <div className="dashboard-sticky-controls__link-row">
+            <span className="dashboard-sticky-controls__label-inline">IP Links:</span>
+            <span className={`dashboard-link-mode-text${linkMode === 'history' ? ' is-active' : ''}`}>
+              Historic
+            </span>
+            <InputSwitch
+              checked={linkMode === 'current'}
+              onChange={(event) => setLinkMode(event.value ? 'current' : 'history')}
+              inputId="link-mode-switch"
+              aria-label="IP links mode"
+              className="dashboard-link-mode-switch"
+            />
+            <span className={`dashboard-link-mode-text${linkMode === 'current' ? ' is-active' : ''}`}>
+              Current
+            </span>
+          </div>
         </div>
       </div>
 

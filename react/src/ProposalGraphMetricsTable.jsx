@@ -38,10 +38,13 @@ export const ProposalGraphMetricsTable = ({
       return rows;
     }
 
-    return rows.filter((row) => String(row.id || '').toLowerCase().includes(search));
+    return rows.filter((row) =>
+      String(row.id || '').toLowerCase().includes(search)
+      || String(row.title || '').toLowerCase().includes(search)
+    );
   }, [globalFilter, rows]);
 
-  const header = (
+  const header = useMemo(() => (
     <div className="centrality-table__header">
       <span className="p-input-icon-left centrality-table__filter">
         <InputText
@@ -51,7 +54,7 @@ export const ProposalGraphMetricsTable = ({
         />
       </span>
     </div>
-  );
+  ), [globalFilter]);
 
   return (
     <DataTable

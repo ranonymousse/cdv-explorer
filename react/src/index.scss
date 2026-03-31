@@ -301,3 +301,69 @@ p {
 .p-card svg .tick line {
   stroke: var(--chart-grid);
 }
+
+/* ── Dark theme: PrimeReact component overrides ─────────────────────── */
+html[data-theme='dark'] {
+  /* InputSwitch — off-state track is hardcoded #d1d5db in lara-light-blue */
+  .p-inputswitch .p-inputswitch-slider {
+    background: var(--surface-d);
+  }
+
+  .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover) .p-inputswitch-slider {
+    background: color-mix(in srgb, var(--surface-d) 80%, var(--primary-color) 20%);
+  }
+
+  .p-inputswitch.p-highlight .p-inputswitch-slider {
+    background: var(--primary-color);
+  }
+
+  .p-inputswitch:not(.p-disabled):has(.p-inputswitch-input:hover).p-highlight .p-inputswitch-slider {
+    background: color-mix(in srgb, var(--primary-color) 85%, white 15%);
+  }
+
+  /* Tags — severity backgrounds are hardcoded saturated colors */
+  .p-tag {
+    background: color-mix(in srgb, var(--primary-color) 22%, var(--app-surface-elevated));
+    color: var(--primary-color);
+  }
+
+  .p-tag.p-tag-success {
+    background: color-mix(in srgb, #22c55e 18%, var(--app-surface-elevated));
+    color: #86efac;
+  }
+
+  .p-tag.p-tag-warning {
+    background: color-mix(in srgb, #f97316 18%, var(--app-surface-elevated));
+    color: #fdba74;
+  }
+
+  .p-tag.p-tag-info {
+    background: color-mix(in srgb, #0ea5e9 18%, var(--app-surface-elevated));
+    color: #7dd3fc;
+  }
+
+  .p-tag.p-tag-danger {
+    background: color-mix(in srgb, #ef4444 18%, var(--app-surface-elevated));
+    color: #fca5a5;
+  }
+
+  .p-tag.p-tag-secondary {
+    background: var(--surface-d);
+    color: var(--app-text-muted);
+  }
+
+  /* Secondary text buttons — hardcoded color: #64748b is invisible in dark */
+  .p-button.p-button-secondary.p-button-text,
+  .p-button.p-button-secondary.p-button-text:not(:disabled):hover,
+  .p-button.p-button-secondary.p-button-text:not(:disabled):active {
+    color: var(--app-text-muted);
+  }
+
+  .p-button.p-button-secondary.p-button-text:not(:disabled):hover {
+    background: var(--surface-hover);
+  }
+
+  .p-button.p-button-secondary.p-button-text:not(:disabled):active {
+    background: color-mix(in srgb, var(--surface-hover) 200%, transparent);
+  }
+}

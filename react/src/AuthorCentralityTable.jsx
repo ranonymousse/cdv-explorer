@@ -26,7 +26,7 @@ export const AuthorCentralityTable = ({
     return rows.filter((row) => String(row.author || '').toLowerCase().includes(search));
   }, [globalFilter, rows]);
 
-  const header = (
+  const header = useMemo(() => (
     <div className="centrality-table__header">
       <span className="p-input-icon-left centrality-table__filter">
         <InputText
@@ -36,7 +36,7 @@ export const AuthorCentralityTable = ({
         />
       </span>
     </div>
-  );
+  ), [globalFilter]);
 
   return (
     <DataTable

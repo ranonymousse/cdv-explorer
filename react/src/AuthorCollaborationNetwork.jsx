@@ -84,11 +84,12 @@ function buildDisplayCollaborationComponents(nodes, adjacency) {
     }
 
     const queue = [node.id];
+    let head = 0;
     const members = [];
     visited.add(node.id);
 
-    while (queue.length > 0) {
-      const current = queue.shift();
+    while (head < queue.length) {
+      const current = queue[head++];
       members.push(current);
 
       (adjacency.get(current) || new Set()).forEach((neighbor) => {

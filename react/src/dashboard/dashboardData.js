@@ -271,11 +271,12 @@ function buildTrueCollaborationComponents(nodeIds, adjacency) {
     }
 
     const queue = [id];
+    let head = 0;
     const members = [];
     visited.add(id);
 
-    while (queue.length > 0) {
-      const current = queue.shift();
+    while (head < queue.length) {
+      const current = queue[head++];
       members.push(current);
 
       (adjacency.get(current) || []).forEach(({ id: neighborId }) => {

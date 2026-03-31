@@ -15,6 +15,7 @@
   background: var(--app-surface);
   border: 1px solid var(--app-border);
   box-shadow: var(--app-shadow);
+  color: var(--app-text);
 }
 
 .p-card .p-card-body {
@@ -244,6 +245,94 @@
     border: none;
     padding: 0;
     background: transparent;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+  }
+
+  .dashboard-sticky-controls__panel {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    width: auto;
+  }
+}
+
+.dashboard-sticky-controls__indicator {
+  display: none;
+}
+
+.dashboard-sticky-controls__panel {
+  /* mobile fallback — full styles applied in desktop media query */
+}
+
+@media (min-width: 901px) {
+  /* Outer element: fixed 2.4rem × 2.4rem anchor in the flow — never shifts content */
+  .dashboard-sticky-controls {
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* Indicator icon — visible when panel is hidden */
+  .dashboard-sticky-controls__indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.6rem;
+    background: var(--app-surface);
+    border: 1px solid var(--app-border);
+    box-shadow: var(--app-shadow);
+    color: var(--app-text-muted);
+    font-size: 0.95rem;
+    opacity: 0.45;
+    transition: opacity 160ms ease;
+  }
+
+  .dashboard-sticky-controls:hover .dashboard-sticky-controls__indicator,
+  .dashboard-sticky-controls:focus-within .dashboard-sticky-controls__indicator {
+    display: none;
+  }
+
+  /* Panel: absolutely positioned — floats over content, zero layout impact */
+  .dashboard-sticky-controls__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(280px, 90vw);
+    background: var(--app-surface);
+    border: 1px solid var(--app-border);
+    border-radius: 0.75rem;
+    padding: 0.8rem;
+    box-shadow: var(--app-shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.95) translateY(-6px);
+    transform-origin: top right;
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .dashboard-sticky-controls:hover .dashboard-sticky-controls__panel,
+  .dashboard-sticky-controls:focus-within .dashboard-sticky-controls__panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -455,7 +544,8 @@
 .network-layout-controls {
   display: flex;
   align-items: center;
-  gap: 6rem;
+  row-gap: 0.5rem;
+  column-gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
 }
@@ -593,13 +683,53 @@
   cursor: pointer;
 }
 
-.dependency-filter-checkbox input {
+.dependency-filter-checkbox input[type='checkbox'] {
+  appearance: none;
   margin: 0;
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 3px;
+  border: 1.5px solid var(--app-border);
+  background: var(--app-surface);
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+
+  &:checked {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    /* SVG checkmark */
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+  }
+
+  &:hover:not(:checked) {
+    border-color: var(--primary-color);
+  }
 }
 
 .network-layout-picker__option input[type='radio'] {
+  appearance: none;
   margin: 0;
-  accent-color: var(--primary-color);
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--app-border);
+  background: var(--app-surface);
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease, box-shadow 120ms ease;
+
+  &:checked {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    /* inner dot via inset shadow using surface colour */
+    box-shadow: inset 0 0 0 3px var(--app-surface);
+  }
+
+  &:hover:not(:checked) {
+    border-color: var(--primary-color);
+  }
 }
 
 .network-layout-action-button {
