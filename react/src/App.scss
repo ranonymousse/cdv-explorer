@@ -1418,6 +1418,14 @@
   background: var(--app-surface-subtle);
 }
 
+.rank-badge {
+  font-family: monospace;
+  font-size: 0.72em;
+  opacity: 0.35;
+  margin-left: 0.3em;
+  color: var(--app-text);
+}
+
 .analysis-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

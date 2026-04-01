@@ -160,6 +160,7 @@ export function AuthorshipSection({
           <strong>Weighted Degree</strong> captures how often an author collaborates in total, including repeated collaborations.{' '}
           <strong>Weighted Eigenvector</strong> reflects how strongly an author is connected to other well-connected authors.{' '}
           <strong>Betweenness</strong> measures how often an author lies on the shortest paths between other authors, indicating their role in connecting otherwise separate groups.
+          Each metric value is annotated with its rank among all authors in the network (e.g. <code>#1</code> = highest).
         </p>
         <div className="analysis-grid collaboration-metrics-summary">
           {collaborationMetricCards.map((metric) => (
@@ -181,10 +182,10 @@ export function AuthorshipSection({
           columns={[
             { field: 'clusterId', header: 'Cluster', format: 'integer' },
             { field: 'clusterSize', header: 'Cluster Size', format: 'integer' },
-            { field: 'rawDegree', header: 'Degree', format: 'integer' },
-            { field: 'weightedDegree', header: 'Weighted Degree', format: 'integer' },
-            { field: 'weightedEigenvector', header: 'Weighted Eigenvector', digits: 4 },
-            { field: 'betweenness', header: 'Betweenness', digits: 4 },
+            { field: 'rawDegree', header: 'Degree', format: 'integer', showRank: true },
+            { field: 'weightedDegree', header: 'Weighted Degree', format: 'integer', showRank: true },
+            { field: 'weightedEigenvector', header: 'Weighted Eigenvector', digits: 4, showRank: true },
+            { field: 'betweenness', header: 'Betweenness', digits: 4, showRank: true },
           ]}
         />
       </Card>

@@ -9,6 +9,22 @@ function formatNumber(value, digits = 4) {
     .replace(/\.?0+$/, '');
 }
 
+function buildRankMap(rows, field) {
+  const sorted = [...rows].sort((a, b) => (b[field] || 0) - (a[field] || 0));
+  const rankMap = {};
+  let currentRank = 0;
+  let prevVal = null;
+  sorted.forEach((row, i) => {
+    const val = row[field] || 0;
+    if (val !== prevVal) {
+      currentRank = i + 1;
+      prevVal = val;
+    }
+    rankMap[row.author] = currentRank;
+  });
+  return rankMap;
+}
+
 export const AuthorCentralityTable = ({
   rows,
   columns,
@@ -16,6 +32,14 @@ export const AuthorCentralityTable = ({
   defaultSortOrder = -1,
 }) => {
   const [globalFilter, setGlobalFilter] = useState('');
+
+  const ranksByField = useMemo(() => {
+    const result = {};
+    columns.filter((col) => col.showRank).forEach((col) => {
+      result[col.field] = buildRankMap(rows, col.field);
+    });
+    return result;
+  }, [rows, columns]);
 
   const filteredRows = useMemo(() => {
     const search = globalFilter.trim().toLowerCase();
@@ -63,11 +87,20 @@ export const AuthorCentralityTable = ({
           field={column.field}
           header={column.header}
           sortable
-          body={(row) => (
-            column.format === 'integer'
+          body={(row) => {
+            const value = column.format === 'integer'
               ? Number(row[column.field] || 0)
-              : formatNumber(row[column.field], column.digits || 4)
-          )}
+              : formatNumber(row[column.field], column.digits || 4);
+            const rank = column.showRank ? ranksByField[column.field]?.[row.author] : null;
+            return (
+              <span>
+                {value}
+                {rank != null && (
+                  <span className="rank-badge">#{rank}</span>
+                )}
+              </span>
+            );
+          }}
         />
       ))}
     </DataTable>

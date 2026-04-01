@@ -204,11 +204,13 @@ def build_collaboration_metrics_rows(collaboration_network: dict, collaboration_
     metrics_rows = []
     for row in degree_rows:
         eigenvector_row = eigenvector_by_author.get(row["author"], {})
+        centrality = centrality_by_author.get(row["author"], {})
         metrics_rows.append(
             {
                 **row,
                 "eigenvector": float(eigenvector_row.get("eigenvector", 0) or 0),
                 "weightedEigenvector": float(eigenvector_row.get("weightedEigenvector", 0) or 0),
+                "betweenness": float(centrality.get("betweenness", 0) or 0),
             }
         )
 

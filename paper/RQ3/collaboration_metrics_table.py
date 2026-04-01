@@ -18,15 +18,17 @@ TABLE_COLUMNS = [
 LATEX_TOP_N = 5
 LATEX_AUTHOR_TOP_N = 10
 LATEX_HEADER_WRAP_WIDTH = 14
-LATEX_TABCOLSEP_PT = 5
-LATEX_TABULAR_ALIGNMENT = "l|cccc"
+LATEX_TABCOLSEP_PT = 4.25
+LATEX_ARRAYSTRETCH = 1.15
+LATEX_TABULAR_ALIGNMENT = "l|ccccc"
 
 LATEX_TABLE_HEADERS = [
     "Author",
     "BIPs",
-    "Degree",
-    "Weighted Degree",
-    "Weighted Eigenvector",
+    "Deg.",
+    ("W. Deg.", r"$^{\downarrow}$"),
+    "W. EV",
+    "BC",
 ]
 
 
@@ -135,7 +137,7 @@ def _latex_escape(value: str) -> str:
     )
 
 
-def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDTH) -> str:
+def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDTH, raw_suffix: str = "") -> str:
     wrapped_lines = []
     for line in str(title).splitlines() or [""]:
         wrapped_lines.extend(
@@ -149,15 +151,30 @@ def _latex_header_cell(title: str, max_line_length: int = LATEX_HEADER_WRAP_WIDT
         )
 
     escaped_lines = [_latex_escape(line) for line in wrapped_lines if line] or [""]
-    return r"\begin{tabular}[c]{@{}c@{}}" + r" \\ ".join(
-        rf"\textbf{{{line}}}" for line in escaped_lines
-    ) + r"\end{tabular}"
+    parts = [rf"\textbf{{{line}}}" for line in escaped_lines]
+    if raw_suffix:
+        parts[-1] += raw_suffix
+    return r"\begin{tabular}[c]{@{}c@{}}" + r" \\ ".join(parts) + r"\end{tabular}"
 
 
 def _format_float(value: float) -> str:
     if not math.isfinite(value):
         return "0.000"
     return f"{value:.3f}"
+
+
+def _rank_dict(rows: list[dict], key_fn) -> dict[str, int]:
+    sorted_rows = sorted(rows, key=key_fn, reverse=True)
+    ranks: dict[str, int] = {}
+    current_rank = 0
+    prev_val = None
+    for i, row in enumerate(sorted_rows):
+        val = key_fn(row)
+        if val != prev_val:
+            current_rank = i + 1
+            prev_val = val
+        ranks[str(row.get("author", ""))] = current_rank
+    return ranks
 
 
 def export_collaboration_metrics_latex_table(
@@ -181,6 +198,16 @@ def export_collaboration_metrics_latex_table(
         )[:LATEX_AUTHOR_TOP_N]
     }
 
+    n = len(metrics_rows)
+    bip_ranks = _rank_dict(metrics_rows, lambda r: len(author_bip_map.get(str(r.get("author", "")), [])))
+    degree_ranks = _rank_dict(metrics_rows, lambda r: int(r.get("rawDegree", 0) or 0))
+    w_degree_ranks = _rank_dict(metrics_rows, lambda r: int(r.get("weightedDegree", 0) or 0))
+    w_eigen_ranks = _rank_dict(metrics_rows, lambda r: float(r.get("weightedEigenvector", 0) or 0))
+    between_ranks = _rank_dict(metrics_rows, lambda r: float(r.get("betweenness", 0) or 0))
+
+    def _ranked(value_str: str, rank: int) -> str:
+        return rf"{value_str} {{\textcolor{{gray}}{{\textit{{({rank})}}}}}}"
+
     top_rows = sorted(
         metrics_rows,
         key=lambda row: (-int(row.get("weightedDegree", 0) or 0), str(row.get("author", ""))),
@@ -190,22 +217,32 @@ def export_collaboration_metrics_latex_table(
     for row in top_rows:
         author = str(row.get("author", ""))
         display_author = f"{author}*" if author in top_author_set else author
+        bip_count = len(author_bip_map.get(author, []))
+        degree = int(row.get("rawDegree", 0) or 0)
+        w_degree = int(row.get("weightedDegree", 0) or 0)
+        w_eigen = float(row.get("weightedEigenvector", 0) or 0)
+        between = float(row.get("betweenness", 0) or 0)
         body_lines.append(
             "        "
             + " & ".join(
                 [
                     _latex_escape(display_author),
-                    str(len(author_bip_map.get(author, []))),
-                    str(int(row.get("rawDegree", 0) or 0)),
-                    str(int(row.get("weightedDegree", 0) or 0)),
-                    _format_float(float(row.get("weightedEigenvector", 0) or 0)),
+                    _ranked(str(bip_count), bip_ranks.get(author, n)),
+                    _ranked(str(degree), degree_ranks.get(author, n)),
+                    _ranked(str(w_degree), w_degree_ranks.get(author, n)),
+                    _ranked(_format_float(w_eigen), w_eigen_ranks.get(author, n)),
+                    _ranked(_format_float(between), between_ranks.get(author, n)),
                 ]
             )
             + r" \\"
         )
 
     header_line = " & ".join(
-        _latex_header_cell(title, max_line_length=header_wrap_width)
+        _latex_header_cell(
+            title if isinstance(title, str) else title[0],
+            max_line_length=header_wrap_width,
+            raw_suffix="" if isinstance(title, str) else title[1],
+        )
         for title in LATEX_TABLE_HEADERS
     ) + r" \\"
 
@@ -217,7 +254,7 @@ def export_collaboration_metrics_latex_table(
             r"    \setlength{\aboverulesep}{0pt}%",
             r"    \setlength{\belowrulesep}{0pt}%",
             rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}%",
-            r"    \renewcommand{\arraystretch}{1.3}%",
+            rf"    \renewcommand{{\arraystretch}}{{{LATEX_ARRAYSTRETCH}}}%",
             rf"    \begin{{tabular}}{{{LATEX_TABULAR_ALIGNMENT}}}",
             r"        \toprule",
             f"        {header_line}",
