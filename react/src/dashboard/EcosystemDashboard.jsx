@@ -84,6 +84,7 @@ export function EcosystemDashboard() {
     evolutionPayload,
     topAuthors,
     authorContributionHistogram,
+    bipAuthorCountHistogram,
     collaborationNetwork,
     collaborationMetricsSummary,
     collaborationMetricsRows,
@@ -272,6 +273,7 @@ export function EcosystemDashboard() {
         yearData={yearData}
         topAuthors={topAuthors}
         authorContributionHistogram={authorContributionHistogram}
+        bipAuthorCountHistogram={bipAuthorCountHistogram}
         collaborationNetwork={collaborationNetwork}
         collaborationMetricsSummary={collaborationMetricsSummary}
         collaborationMetricsRows={collaborationMetricsRows}

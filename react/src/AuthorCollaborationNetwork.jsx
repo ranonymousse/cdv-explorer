@@ -378,10 +378,9 @@ export const AuthorCollaborationNetwork = ({
       const authoredBips = Array.isArray(entry.bips) ? entry.bips : [];
       return (
         `<strong>${entry.id}</strong><br/>` +
-        `Collaborators: ${entry.degree}<br/>` +
-        `Cluster size: ${entry.clusterSize}<br/>` +
-        `Cluster collaborations: ${entry.clusterCollaborations}<br/>` +
         `Authored BIPs: ${authoredBips.length}<br/>` +
+        `Collaborations: ${entry.degree}<br/>` +
+        (entry.degree > 0 ? `Connected component size: ${entry.clusterSize}<br/>` : '') +
         renderBipListHtml(authoredBips, snapshotLabel, { emptyText: 'No authored BIPs available.', linkMode })
       );
     };
@@ -409,10 +408,10 @@ export const AuthorCollaborationNetwork = ({
 
     let pinnedInteraction = null;
 
-    const degreeExtent = d3.extent(visibleNodes, (node) => Number(node.degree || 0));
+    const bipsExtent = d3.extent(visibleNodes, (node) => (node.bips?.length || 0));
     const radius = d3.scaleSqrt()
-      .domain([degreeExtent[0] || 0, degreeExtent[1] || 1])
-      .range([6, 18]);
+      .domain([bipsExtent[0] || 0, bipsExtent[1] || 1])
+      .range([6, 25]);
 
     const weightExtent = d3.extent(visibleLinks, (link) => Number(link.weight || 1));
     const strokeWidth = d3.scaleLinear()
@@ -432,7 +431,7 @@ export const AuthorCollaborationNetwork = ({
 
     const linkForce = d3.forceLink(visibleLinks).id((node) => node.id);
     const chargeForce = d3.forceManyBody();
-    const collisionForce = d3.forceCollide().radius((node) => radius(Number(node.degree || 0)) + 6);
+    const collisionForce = d3.forceCollide().radius((node) => radius(node.bips?.length || 0) + 6);
     const centerForce = d3.forceCenter(width / 2, height / 2);
     const xForce = d3.forceX(width / 2).strength(0.04);
     const yForce = d3.forceY(height / 2).strength(0.04);
@@ -625,8 +624,8 @@ export const AuthorCollaborationNetwork = ({
       .join('circle')
       .attr('r', (entry) => (
         matchedIds.has(entry.id)
-          ? radius(Number(entry.degree || 0)) + 5
-          : radius(Number(entry.degree || 0))
+          ? radius(entry.bips?.length || 0) + 5
+          : radius(entry.bips?.length || 0)
       ))
       .attr('fill', (entry) => getNodeFill(entry))
       .attr('fill-opacity', (entry) => {
@@ -805,7 +804,7 @@ export const AuthorCollaborationNetwork = ({
         .attr('cy', (entry) => entry.y = Math.max(24, Math.min(height - 24, entry.y ?? (height / 2))));
 
       labels
-        .attr('x', (entry) => entry.x + radius(Number(entry.degree || 0)) + 4)
+        .attr('x', (entry) => entry.x + radius(entry.bips?.length || 0) + 4)
         .attr('y', (entry) => entry.y + 3);
 
       updateExportPayload();

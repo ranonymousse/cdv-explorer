@@ -6,6 +6,7 @@ import { Tag } from 'primereact/tag';
 import { ProposalTimelineChart } from '../../ProposalTimelineChart';
 import { TopAuthorsChart } from '../../TopAuthorsChart';
 import { AuthorContributionHistogram } from '../../AuthorContributionHistogram';
+import { BipAuthorCountHistogram } from '../../BipAuthorCountHistogram';
 import { AuthorCollaborationNetwork } from '../../AuthorCollaborationNetwork';
 import { CollaborationClusterSizeDistribution } from '../../CollaborationClusterSizeDistribution';
 import { CollaborationDegreeDistribution } from '../../CollaborationDegreeDistribution';
@@ -19,6 +20,7 @@ export function AuthorshipSection({
   yearData,
   topAuthors,
   authorContributionHistogram,
+  bipAuthorCountHistogram,
   collaborationNetwork,
   collaborationMetricsSummary,
   collaborationMetricsRows,
@@ -75,40 +77,49 @@ export function AuthorshipSection({
       <div className="dashboard-section__header">
         <h2 className="dashboard-section__title">Authorship Diversity</h2>
       </div>
-      <ExportableCard className="mb-4" exportTitle="Creation Over Time">
-        <h3>Creation Over Time</h3>
-        <p>
-          Creation date of {ecosystem.proposalShortPlural} according to date provided in preamble.
-        </p>
-        <div>
-          <ProposalTimelineChart data={yearData} width={1200} height={420} />
-        </div>
-      </ExportableCard>
-      <div className="dashboard-grid dashboard-grid--two-up">
-        <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Top 10 Authors">
+      <div className="dashboard-grid dashboard-grid--wide-left">
+        <ExportableCard className="mb-4" exportTitle="Creation Over Time">
+          <h3>Creation Timeline</h3>
+          <p>
+            Creation date of {ecosystem.proposalShortPlural} according to date provided in preamble.
+          </p>
+          <ProposalTimelineChart data={yearData} width={800} height={320} />
+        </ExportableCard>
+        <ExportableCard className="mb-4" exportTitle="Top 10 Authors">
           <h3>Top 10 Authors</h3>
           <p>
             Preamble authorship counts for the most mentioned contributors.
           </p>
           <div>
-            <TopAuthorsChart data={{ topAuthors }} width={640} height={410} />
+            <TopAuthorsChart data={{ topAuthors }} width={340} height={300} />
           </div>
         </ExportableCard>
-        <ExportableCard className="mb-4" style={{ flex: 1 }} exportTitle="Authorship Distribution">
-          <h3>Authorship Distribution</h3>
+      </div>
+      <div className="dashboard-grid dashboard-grid--two-up">
+        <ExportableCard className="mb-4" exportTitle="BIPs per Author">
+          <h3>BIPs per Author</h3>
           <p>
             Number of preamble authors who have written a given number of {ecosystem.proposalShortPlural}.
           </p>
           <div>
-            <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={410} />
+            <AuthorContributionHistogram data={authorContributionHistogram} width={640} height={380} />
+          </div>
+        </ExportableCard>
+        <ExportableCard className="mb-4" exportTitle="Authors per BIP">
+          <h3>Authors per BIP</h3>
+          <p>
+            Distribution of {ecosystem.proposalShortPlural} by their preamble author count.
+          </p>
+          <div>
+            <BipAuthorCountHistogram data={bipAuthorCountHistogram} width={640} height={380} />
           </div>
         </ExportableCard>
       </div>
 
-      <ExportableCard className="mb-4" exportTitle="Collaboration Network">
-        <h3>Collaboration Network</h3>
+      <ExportableCard className="mb-4" exportTitle="Author Collaboration Graph">
+        <h3>Author Collaboration Graph</h3>
         <p>
-          {ecosystem.acronym} co-authorship according to preamble visualized as collaboration graph.
+          {ecosystem.acronym} co-authorship according to preamble, visualized as a collaboration graph. Nodes represent authors (larger nodes indicate more authored {ecosystem.proposalShortPlural}) and edges represent collaborations. Colors indicate connected components. Authors who never collaborated are grouped into one shared component.
         </p>
         <div className="network-finder">
           <div className="network-finder__copy">
@@ -150,7 +161,7 @@ export function AuthorshipSection({
         </div>
       </ExportableCard>
       <Card className="mb-4">
-        <h3>Collaboration Metrics</h3>
+        <h3>Author Collaboration Metrics</h3>
         <p>
           {ecosystem.acronym} co-authorship according to preamble. 
           Author names marked with <strong><code>*</code></strong> are in the top 10 by authored {ecosystem.proposalShortPlural}. <strong>Cluster</strong>

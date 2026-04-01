@@ -28,15 +28,15 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
       return;
     }
 
-    const minBipsWritten = d3.min(sparseSeries, (entry) => entry.bipsWritten) || 1;
-    const maxBipsWritten = d3.max(sparseSeries, (entry) => entry.bipsWritten) || minBipsWritten;
-    const authorsByBipsWritten = new Map(
-      sparseSeries.map((entry) => [entry.bipsWritten, entry.authors])
-    );
-    const series = d3.range(minBipsWritten, maxBipsWritten + 1).map((bipsWritten) => ({
-      bipsWritten,
-      authors: authorsByBipsWritten.get(bipsWritten) || 0,
-    }));
+    // Build display items: one slot per real data point + one '…' slot per gap ≥ 3
+    const displayItems = [];
+    let ellipsisIdx = 0;
+    sparseSeries.forEach((entry, i) => {
+      if (i > 0 && entry.bipsWritten - sparseSeries[i - 1].bipsWritten >= 3) {
+        displayItems.push({ key: `…_${ellipsisIdx++}`, isEllipsis: true, bipsWritten: null, authors: 0 });
+      }
+      displayItems.push({ key: String(entry.bipsWritten), isEllipsis: false, bipsWritten: entry.bipsWritten, authors: entry.authors });
+    });
 
     svg
       .attr('viewBox', `0 0 ${width} ${height}`)
@@ -61,14 +61,13 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const x = d3.scaleLinear()
-      .domain([minBipsWritten - 0.5, maxBipsWritten + 0.5])
-      .range([0, innerWidth]);
-
-    const barWidth = Math.max(6, innerWidth / series.length - 6);
+    const x = d3.scaleBand()
+      .domain(displayItems.map((d) => d.key))
+      .range([0, innerWidth])
+      .padding(0.18);
 
     const y = d3.scaleLinear()
-      .domain([0, d3.max(series, (entry) => entry.authors) || 0])
+      .domain([0, d3.max(displayItems, (d) => d.authors) || 0])
       .nice()
       .range([innerHeight, 0]);
 
@@ -85,18 +84,18 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
 
     g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(x).ticks(series.length).tickFormat(d3.format('d')))
+      .call(d3.axisBottom(x).tickFormat((key) => (key.startsWith('…') ? '…' : key)))
       .selectAll('text')
       .style('font-size', '13px');
 
     g.selectAll('rect')
-      .data(series)
+      .data(displayItems.filter((d) => !d.isEllipsis))
       .enter()
       .append('rect')
-      .attr('x', (entry) => x(entry.bipsWritten) - barWidth / 2)
-      .attr('y', (entry) => y(entry.authors))
-      .attr('width', barWidth)
-      .attr('height', (entry) => innerHeight - y(entry.authors))
+      .attr('x', (d) => x(d.key))
+      .attr('y', (d) => y(d.authors))
+      .attr('width', x.bandwidth())
+      .attr('height', (d) => innerHeight - y(d.authors))
       .attr('rx', 4)
       .attr('fill', HISTOGRAM_BAR_COLOR)
       .on('mouseover', function (event, entry) {
@@ -104,8 +103,9 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
         tooltip
           .style('opacity', 1)
           .html(
-            `<strong>${entry.bipsWritten}</strong> BIPs written<br/>` +
-            `${entry.authors} author${entry.authors === 1 ? '' : 's'}`
+            `There ${entry.authors === 1 ? 'is' : 'are'} <strong>${entry.authors}</strong> ` +
+            `author${entry.authors === 1 ? '' : 's'} that authored <strong>${entry.bipsWritten}</strong> ` +
+            `BIP${entry.bipsWritten === 1 ? '' : 's'}.`
           );
       })
       .on('mousemove', function (event) {
@@ -119,16 +119,16 @@ export const AuthorContributionHistogram = ({ data, width = 600, height = 400 })
       });
 
     g.selectAll('text.bar-label')
-      .data(series.filter((entry) => entry.authors > 0))
+      .data(displayItems.filter((d) => !d.isEllipsis && d.authors > 0))
       .enter()
       .append('text')
       .attr('class', 'bar-label')
-      .attr('x', (entry) => x(entry.bipsWritten))
-      .attr('y', (entry) => y(entry.authors) - 6)
+      .attr('x', (d) => x(d.key) + x.bandwidth() / 2)
+      .attr('y', (d) => y(d.authors) - 6)
       .attr('text-anchor', 'middle')
       .style('font-size', '12px')
       .style('fill', 'var(--chart-text)')
-      .text((entry) => entry.authors);
+      .text((d) => d.authors);
 
     g.append('text')
       .attr('x', innerWidth / 2)

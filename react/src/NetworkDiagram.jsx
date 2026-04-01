@@ -652,8 +652,7 @@ export const NetworkDiagram = ({
       `Incoming: ${entry.incomingDegree}<br/>` +
       `Layer: ${entry.layer || 'Unknown'}<br/>` +
       `Status: ${entry.status || 'Unknown'}<br/>` +
-      `Type: ${entry.type || 'Unknown'}<br/>` +
-      `Compliance Score: ${entry.compliance_score ?? 'N/A'}`
+      `Type: ${entry.type || 'Unknown'}`
     );
 
     const relationLabel = {
@@ -692,14 +691,19 @@ export const NetworkDiagram = ({
       )
     );
 
-    const degreeExtent = d3.extent(filteredNodes, (node) => Number(node.degree || 0));
+    const getWordCount = (node) => {
+      const wl = node.word_list;
+      if (!wl || typeof wl !== 'object') return 0;
+      return Object.values(wl).reduce((sum, count) => sum + Number(count || 0), 0);
+    };
+    const wordCountExtent = d3.extent(filteredNodes, getWordCount);
     const radius = d3.scaleSqrt()
-      .domain([degreeExtent[0] || 0, degreeExtent[1] || 1])
-      .range([7, 16]);
+      .domain([wordCountExtent[0] || 0, wordCountExtent[1] || 1])
+      .range([7, 20]);
     const getNodeRadius = (entry) => (
       searchMatchedIds.has(String(entry.id))
-        ? radius(Number(entry.degree || 0)) + 5
-        : radius(Number(entry.degree || 0))
+        ? radius(getWordCount(entry)) + 5
+        : radius(getWordCount(entry))
     );
 
     const groupAnchors = new Map();

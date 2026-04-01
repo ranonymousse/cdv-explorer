@@ -17,7 +17,7 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
       return;
     }
 
-    const series = [];
+const series = [];
     let cumulative = 0;
     data.forEach((entry) => {
       cumulative += Number(entry.count || 0);
@@ -67,7 +67,7 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
         .style('top', `${pageY - 28}px`);
     };
 
-    const margin = { top: 24, right: 60, bottom: 60, left: 56 };
+    const margin = { top: 24, right: 60, bottom: 36, left: 56 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -115,12 +115,12 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
       .call((axis) => axis.select('.domain').attr('stroke', '#e45756'))
       .call((axis) => axis.selectAll('text').attr('fill', '#e45756'));
 
+    const everyOtherYear = series.filter((_, i) => i % 2 === 0).map((d) => d.year);
     g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(x))
+      .call(d3.axisBottom(x).tickValues(everyOtherYear))
       .selectAll('text')
-      .attr('transform', 'rotate(-45)')
-      .style('text-anchor', 'end');
+      .style('font-size', '13px');
 
     g.selectAll('rect')
       .data(series)
@@ -176,6 +176,19 @@ export const ProposalTimelineChart = ({ data, width = 600, height = 300 }) => {
           .html(renderTooltipHtml(d));
         setTooltipPosition(event.pageX, event.pageY);
       });
+
+    g.selectAll('text.bar-label')
+      .data(series.filter((d) => d.count > 0))
+      .enter()
+      .append('text')
+      .attr('class', 'bar-label')
+      .attr('x', (d) => x(d.year) + x.bandwidth() / 2)
+      .attr('y', (d) => yBars(d.count) - 4)
+      .attr('text-anchor', 'middle')
+      .style('font-size', '11px')
+      .style('fill', 'var(--chart-text)')
+      .style('pointer-events', 'none')
+      .text((d) => d.count);
 
     const line = d3.line()
       .x((d) => x(d.year) + x.bandwidth() / 2)

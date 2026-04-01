@@ -180,9 +180,9 @@ export function CollaborationClusterSizeDistribution({ data, width = 640, height
         tooltip
           .style('opacity', 1)
           .html(
-            `<strong>${entry.clusterCount}</strong> cluster${entry.clusterCount === 1 ? '' : 's'}<br/>` +
-            `${entry.clusterSize} author${entry.clusterSize === 1 ? '' : 's'} per cluster<br/>` +
-            `${entry.authorCount} author${entry.authorCount === 1 ? '' : 's'} total`
+            `There ${entry.clusterCount === 1 ? 'is' : 'are'} <strong>${entry.clusterCount}</strong> ` +
+            `connected component${entry.clusterCount === 1 ? '' : 's'} of size ${entry.clusterSize},<br/>` +
+            `accounting for ${entry.authorCount} author${entry.authorCount === 1 ? '' : 's'} in total.`
           );
       })
       .on('mousemove', function (event) {

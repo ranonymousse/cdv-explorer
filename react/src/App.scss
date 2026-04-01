@@ -432,6 +432,10 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
+.dashboard-grid--wide-left {
+  grid-template-columns: 2fr 1fr;
+}
+
 .dashboard-grid--classification {
   grid-template-columns: minmax(300px, 0.35fr) minmax(420px, 0.65fr);
 }
@@ -1313,7 +1317,8 @@
 .classification-pie-tooltip a,
 .classification-timeline-tooltip a,
 .proposal-sankey-tooltip a,
-.classification-chord-tooltip a {
+.classification-chord-tooltip a,
+.bip-author-count-tooltip a {
   color: var(--tooltip-link);
   text-decoration: underline;
 }

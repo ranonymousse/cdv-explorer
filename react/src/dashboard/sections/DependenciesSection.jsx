@@ -41,7 +41,7 @@ export function DependenciesSection({
     {
       label: 'Nodes',
       value: activeDependencyMetrics.summary?.node_count ?? 0,
-      description: `Total number of distinct ${ecosystem.proposalShortPlural} represented as nodes in the selected relationship graph.`,
+      description: `Total number of distinct ${ecosystem.proposalShortPlural} represented as nodes in the selected interrelation graph.`,
     },
     {
       label: 'Edges',
@@ -56,7 +56,7 @@ export function DependenciesSection({
     {
       label: 'Circular Dependencies',
       value: activeDependencyMetrics.summary?.circular_dependency_count ?? 0,
-      description: `Number of dependency cycles detected in the selected relationship graph.`,
+      description: `Number of dependency cycles detected in the selected interrelation graph.`,
     },
     {
       label: 'Density',
@@ -70,10 +70,10 @@ export function DependenciesSection({
       <div className="dashboard-section__header">
         <h2 className="dashboard-section__title">Dependencies</h2>
       </div>
-      <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Relationship Network`}>
-        <h3>{ecosystem.acronym} Relationship Network</h3>
+      <ExportableCard className="mb-4" exportTitle={`${ecosystem.acronym} Interrelation Graph`}>
+        <h3>{ecosystem.acronym} Interrelation Graph</h3>
         <p>
-          The graph below shows three {ecosystem.acronym} relationship-extraction approaches. In the <strong>Preamble</strong> approach, we extract explicitly stated dependencies from the preamble only. The <strong>Regex</strong> approach extracts explicit {ecosystem.acronym} references using regular expressions. The <strong>LLM</strong> approach is designed to capture implicit dependencies inferred by the language model.
+          Three {ecosystem.acronym} relationship-extraction approaches visualized as a directed graph. Node size reflects document length (word count) and edges represent relationships between {ecosystem.proposalShortPlural}. <strong>Preamble</strong> extracts explicitly stated dependencies from the preamble. <strong>Regex</strong> captures explicit {ecosystem.acronym} references via pattern matching. <strong>LLM</strong> infers implicit dependencies using a language model.
         </p>
         <div className="network-finder">
           <div className="network-finder__copy">
@@ -147,7 +147,7 @@ export function DependenciesSection({
         />
       </ExportableCard>
       <Card className="mb-4">
-        <h3>Relationship Graph Metrics</h3>
+        <h3>{ecosystem.acronym} Interrelation Metrics</h3>
         <p>
           Compare simple graph-level structure and per-{ecosystem.acronym} centrality measures across
           {' '}Preamble, Regex, and LLM.{' '} 
@@ -191,8 +191,8 @@ export function DependenciesSection({
           defaultSortOrder={-1}
         />
       </Card>
-      <ExportableCard className="mb-4" exportTitle="Comparison of Pairwise Relationship Extraction Approach">
-        <h3>Comparison of Pairwise Relationship Extraction Approach</h3>
+      <ExportableCard className="mb-4" exportTitle="Comparison of Pairwise Interrelation Extraction Approach">
+        <h3>Comparison of Pairwise Interrelation Extraction Approach</h3>
         <p>
           This matrix compares Preamble, Regex, and LLM pairwise. Each cell splits into
           three clickable shares: same, missing from the selected approach, and only in the selected approach.

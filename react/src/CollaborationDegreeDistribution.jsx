@@ -28,15 +28,15 @@ export function CollaborationDegreeDistribution({ data, width = 640, height = 41
       return;
     }
 
-    const minDegree = d3.min(sparseSeries, (entry) => entry.degree) || 0;
-    const maxDegree = d3.max(sparseSeries, (entry) => entry.degree) || minDegree;
-    const authorsByDegree = new Map(
-      sparseSeries.map((entry) => [entry.degree, entry.authorCount])
-    );
-    const series = d3.range(minDegree, maxDegree + 1).map((degree) => ({
-      degree,
-      authorCount: authorsByDegree.get(degree) || 0,
-    }));
+    // Build display items: one slot per real data point + one '…' slot per gap ≥ 3
+    const displayItems = [];
+    let ellipsisIdx = 0;
+    sparseSeries.forEach((entry, i) => {
+      if (i > 0 && entry.degree - sparseSeries[i - 1].degree >= 3) {
+        displayItems.push({ key: `…_${ellipsisIdx++}`, isEllipsis: true, degree: null, authorCount: 0 });
+      }
+      displayItems.push({ key: String(entry.degree), isEllipsis: false, degree: entry.degree, authorCount: entry.authorCount });
+    });
 
     svg
       .attr('viewBox', `0 0 ${width} ${height}`)
@@ -62,11 +62,11 @@ export function CollaborationDegreeDistribution({ data, width = 640, height = 41
     const innerHeight = height - margin.top - margin.bottom;
 
     const x = d3.scaleBand()
-      .domain(series.map((entry) => String(entry.degree)))
+      .domain(displayItems.map((entry) => entry.key))
       .range([0, innerWidth])
       .padding(0.14);
 
-    const maxAuthorCount = d3.max(series, (entry) => entry.authorCount) || 0;
+    const maxAuthorCount = d3.max(displayItems, (entry) => entry.authorCount) || 0;
 
     const y = d3.scaleLinear()
       .domain([0, maxAuthorCount > 0 ? maxAuthorCount * 1.16 : 1])
@@ -86,17 +86,17 @@ export function CollaborationDegreeDistribution({ data, width = 640, height = 41
 
     g.append('g')
       .attr('transform', `translate(0,${innerHeight})`)
-      .call(d3.axisBottom(x).tickSizeOuter(0))
+      .call(d3.axisBottom(x).tickSizeOuter(0).tickFormat((key) => (key.startsWith('…') ? '…' : key)))
       .selectAll('text')
       .style('font-size', '12px')
       .attr('text-anchor', 'middle')
       .attr('dy', '0.8rem');
 
     g.selectAll('rect')
-      .data(series)
+      .data(displayItems.filter((entry) => !entry.isEllipsis))
       .enter()
       .append('rect')
-      .attr('x', (entry) => x(String(entry.degree)))
+      .attr('x', (entry) => x(entry.key))
       .attr('y', (entry) => y(entry.authorCount))
       .attr('width', x.bandwidth())
       .attr('height', (entry) => innerHeight - y(entry.authorCount))
@@ -107,8 +107,9 @@ export function CollaborationDegreeDistribution({ data, width = 640, height = 41
         tooltip
           .style('opacity', 1)
           .html(
-            `<strong>${entry.authorCount}</strong> author${entry.authorCount === 1 ? '' : 's'}<br/>` +
-            `with ${entry.degree} co-author${entry.degree === 1 ? '' : 's'}`
+            `There ${entry.authorCount === 1 ? 'is' : 'are'} <strong>${entry.authorCount}</strong> ` +
+            `author${entry.authorCount === 1 ? '' : 's'} with exactly ${entry.degree} ` +
+            `distinct co-author${entry.degree === 1 ? '' : 's'}.`
           );
       })
       .on('mousemove', function (event) {
@@ -116,17 +117,17 @@ export function CollaborationDegreeDistribution({ data, width = 640, height = 41
           .style('left', `${event.pageX + 10}px`)
           .style('top', `${event.pageY - 28}px`);
       })
-      .on('mouseout', function (event, entry) {
+      .on('mouseout', function () {
         d3.select(this).attr('fill', DEGREE_BAR_COLOR);
         tooltip.style('opacity', 0);
       });
 
     g.selectAll('text.bar-label')
-      .data(series.filter((entry) => entry.authorCount > 0))
+      .data(displayItems.filter((entry) => !entry.isEllipsis && entry.authorCount > 0))
       .enter()
       .append('text')
       .attr('class', 'bar-label')
-      .attr('x', (entry) => (x(String(entry.degree)) || 0) + x.bandwidth() / 2)
+      .attr('x', (entry) => (x(entry.key) || 0) + x.bandwidth() / 2)
       .attr('y', (entry) => y(entry.authorCount) - 8)
       .attr('text-anchor', 'middle')
       .style('font-size', '12px')

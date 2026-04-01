@@ -1037,6 +1037,21 @@ export function buildDashboardData(dataset) {
     evolutionPayload,
     topAuthors,
     authorContributionHistogram: authorship.author_contribution_histogram || [],
+    bipAuthorCountHistogram: (() => {
+      const bipsMap = new Map();
+      dataset.nodes.forEach((node) => {
+        if (node?.id == null) return;
+        const authors = Array.isArray(node.author)
+          ? node.author.map(cleanAuthorName).filter(Boolean)
+          : [];
+        const n = authors.length;
+        if (!bipsMap.has(n)) bipsMap.set(n, []);
+        bipsMap.get(n).push(String(node.id));
+      });
+      return Array.from(bipsMap.entries())
+        .map(([authorCount, bips]) => ({ authorCount, bipCount: bips.length, bips }))
+        .sort((a, b) => a.authorCount - b.authorCount);
+    })(),
     collaborationNetwork,
     collaborationMetricsSummary,
     collaborationMetricsRows,
