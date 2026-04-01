@@ -10,7 +10,7 @@ from typing import Any, Dict, Iterable, Sequence
 
 import matplotlib
 
-# matplotlib.use("Agg")
+matplotlib.use("Agg")
 # matplotlib.rcParams["mathtext.fontset"] = "cm"
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -36,6 +36,7 @@ from paper.RQ2.dependency_plots import (
 )
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 from paper.config import SNAPSHOT
+from paper.plot_colors import BIP_TYPE_COLORS, BIP_TYPE_ORDER, NEUTRAL_PLOT_COLOR
 
 DEFAULT_FOCUS_BIPS = [1, 2, 3]
 DEFAULT_EXCLUDE_BIPS: list[int] = []
@@ -51,7 +52,7 @@ DIFF_LAYOUT_COMPACTION_BY_LAYOUT = {
 }
 DIFF_LAYOUT_OVERLAP_THRESHOLD = 0.085
 DIFF_NODE_SIZE_MIN = 320
-DIFF_NODE_SIZE_MAX = 980
+DIFF_NODE_SIZE_MAX = 880
 DIFF_EDGE_WIDTH = 1.5
 DIFF_ARROWHEAD_OVERLAY_WIDTH = 0.0
 DIFF_ARROW_SIZE = 14
@@ -60,19 +61,21 @@ NODE_LABEL_FONT_SIZE = 7
 DIFF_LABEL_OFFSET = 0.035
 EDGE_CURVATURE = 0.2
 RECIPROCAL_EDGE_CURVATURE = 0.2
+EDGE_CURVATURE_OVERRIDES = {
+    # Nudge this reciprocal edge a bit further left than the shared default.
+    ("350", "173"): 0.1,
+    ("350", "141"): 0.1,
+    ("67", "13"): -0.1,
+}
 APPROACH_ONLY_EDGE_COLOR = "#9A9A9AF8"
 APPROACH_ONLY_EDGE_STYLE = "dotted"
 OVERLAP_EDGE_COLOR = "#16A34A"
 BASELINE_ONLY_EDGE_COLOR = "#FF0000"
 BASELINE_ONLY_EDGE_STYLE = "dashed"
 LAYOUT_EDGE_TYPES = (PREAMBLE_EXTRACTED, BODY_EXTRACTED_REGEX, BODY_EXTRACTED_LLM)
-TYPE_ORDER = ["Process", "Informational", "Specification"]
-TYPE_COLORS = {
-    "Process": "#4e79a7",
-    "Informational": "#f28e2c",
-    "Specification": "#e15759",
-}
-FALLBACK_TYPE_COLOR = "#9e9e9e"
+TYPE_ORDER = BIP_TYPE_ORDER
+TYPE_COLORS = BIP_TYPE_COLORS
+FALLBACK_TYPE_COLOR = NEUTRAL_PLOT_COLOR
 COMPARISON_PLOTS = (
     {
         "filename_stem": "preamlbe_vs_regex",
@@ -91,7 +94,7 @@ COMPARISON_PLOTS = (
 )
 COMBINED_REACT_DIFFDEP_FILENAME_STEM = "combined"
 SINGLE_COMPARISON_FIGSIZE = (3, 5)
-COMBINED_COMPARISON_FIGSIZE = (8, 5)
+COMBINED_COMPARISON_FIGSIZE = (8, 4.5)
 DEFAULT_AXIS_MARGIN_SCALE = 0.18
 COMBINED_AXIS_MARGIN_SCALE = 0.1
 COMBINED_SUBPLOT_TITLE_FONT_SIZE = 9.0
@@ -391,14 +394,9 @@ def _build_type_legend_handles(graph: nx.DiGraph) -> list[Line2D]:
     group_counts = Counter(group_attr.values())
     handles = []
 
-    type_order_rank = {group: index for index, group in enumerate(TYPE_ORDER)}
-    ordered_groups = sorted(
-        group_counts,
-        key=lambda group: (
-            -group_counts[group],
-            type_order_rank.get(group, len(TYPE_ORDER)),
-            str(group),
-        ),
+    ordered_groups = [group for group in TYPE_ORDER if group in group_counts]
+    ordered_groups.extend(
+        sorted(group for group in group_counts if group not in ordered_groups)
     )
     for group in ordered_groups:
         handles.append(
@@ -535,6 +533,10 @@ def _edge_connectionstyle(
     layout_name: str,
 ) -> str:
     source_id, target_id = edge
+    override = EDGE_CURVATURE_OVERRIDES.get((str(source_id), str(target_id)))
+    if override is not None:
+        return f"arc3,rad={override}"
+
     is_reciprocal = (target_id, source_id) in all_edges
 
     _ = layout_name
@@ -702,7 +704,7 @@ def _save_single_comparison_plot(
             handlelength=1.9,
             columnspacing=1.0,
             handletextpad=0.35,
-            labelspacing=0.6,
+            labelspacing=0.5,
         )
 
     fig.tight_layout(rect=[0, 0, 1, 0.99])
@@ -755,7 +757,7 @@ def _save_combined_comparison_plot(
         ax.legend(
             handles=edge_legend_handles,
             loc="upper center",
-            bbox_to_anchor=(0.5, -0.03),
+            bbox_to_anchor=(0.5, 0.07),
             ncol=3,
             handler_map=ARROW_LEGEND_HANDLER_MAP,
             frameon=False,
@@ -765,7 +767,7 @@ def _save_combined_comparison_plot(
             handlelength=1.9,
             columnspacing=0.85,
             handletextpad=0.35,
-            labelspacing=0.4,
+            labelspacing=0.5,
             title="Edges",
             title_fontsize=COMBINED_EDGE_LEGEND_TITLE_FONT_SIZE,
         )
@@ -775,14 +777,14 @@ def _save_combined_comparison_plot(
         fig.legend(
             handles=type_handles,
             loc="upper center",
-            bbox_to_anchor=(0.5, 0.82),
+            bbox_to_anchor=(0.5, 0.85),
             ncol=3,
             frameon=False,
             fancybox=False,
             fontsize=COMBINED_NODE_LEGEND_FONT_SIZE,
             columnspacing=1.0,
             handletextpad=0.2,
-            labelspacing=0.6,
+            labelspacing=0.5,
             title="Nodes",
             title_fontsize=COMBINED_NODE_LEGEND_TITLE_FONT_SIZE,
         )

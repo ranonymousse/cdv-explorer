@@ -23,6 +23,7 @@ from paper.RQ3._plotting import save_figure
 from paper.RQ3.collaboration_common import build_author_bip_map
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 from paper.config import SNAPSHOT
+from paper.plot_colors import ORDERED_PLOT_PALETTE
 
 
 LAYOUT_EXPORT_DIR = Path("paper") / "RQ3"
@@ -43,23 +44,7 @@ NODE_LABEL_MIN_BIP_COUNT = 3
 NODE_LABEL_MIN_DEGREE = 3
 NODE_LABEL_FONT_SIZE = 9.5
 NODE_LABEL_BOX_ALPHA = 0.6
-COLLABORATION_CLUSTER_COLORS = [
-    "#2a6f97",
-    "#bc4749",
-    "#6a994e",
-    "#7b2cbf",
-    "#c77dff",
-    "#f4a261",
-    "#457b9d",
-    "#e76f51",
-    "#8d99ae",
-    "#2b9348",
-    "#ffb703",
-    "#577590",
-]
-SPECIAL_CLUSTER_COLOR_BY_MEMBER = {
-    "Ethan Heilman": "#8c564b",
-}
+COLLABORATION_CLUSTER_COLORS = ORDERED_PLOT_PALETTE
 
 
 def _sanitize_file_part(value: Any, fallback: str = "unknown") -> str:
@@ -361,12 +346,6 @@ def _build_visible_graph(
         int(cluster["clusterId"]): COLLABORATION_CLUSTER_COLORS[index % len(COLLABORATION_CLUSTER_COLORS)]
         for index, cluster in enumerate(visible_clusters)
     }
-    for cluster in visible_clusters:
-        members = {str(member) for member in cluster.get("members", [])}
-        for member_name, color in SPECIAL_CLUSTER_COLOR_BY_MEMBER.items():
-            if member_name in members:
-                cluster_color_by_id[int(cluster["clusterId"])] = color
-                break
 
     graph = nx.Graph()
     for node in raw_nodes:

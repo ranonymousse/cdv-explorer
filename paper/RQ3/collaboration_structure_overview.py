@@ -14,9 +14,10 @@ from paper.RQ3.collaboration_common import (
     build_collaboration_component_size_distribution,
     build_collaboration_degree_distribution,
 )
+from paper.plot_colors import COLLABORATION_COMPONENT_COLOR
 
 
-COMPONENT_BAR_COLOR = "#f08c00"
+COMPONENT_BAR_COLOR = COLLABORATION_COMPONENT_COLOR
 DEGREE_BAR_COLOR = "#4c78a8"
 MIN_COMPRESSED_GAP_LENGTH = 2
 COMPONENT_GAP_LABEL = "..."

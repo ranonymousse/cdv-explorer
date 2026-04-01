@@ -7,6 +7,7 @@ from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator
 
 from analysis.classification.metrics import build_type_over_time
+from paper.plot_colors import BIP_TYPE_COLORS, BIP_TYPE_ORDER
 from paper.RQ1.classification_status import (
     _monotone_cubic_curve,
     _normalize_status_series,
@@ -15,19 +16,8 @@ from paper.RQ1.classification_status import (
 from paper.RQ3._plotting import bar_style, despine, match_axis_label_fontsize, save_figure
 
 
-TYPE_ORDER = [
-    "Specification",
-    "Informational",
-    "Process",
-    "Unknown Type",
-]
-
-TYPE_COLORS = {
-    "Specification": "#9467bd",
-    "Informational": "#bcbd22",
-    "Process": "#17becf",
-    "Unknown Type": "#7f7f7f",
-}
+TYPE_ORDER = BIP_TYPE_ORDER
+TYPE_COLORS = BIP_TYPE_COLORS
 
 STACKED_TYPE_FIGSIZE = (9.8, 2.6)
 STACKED_TYPE_WIDTH_RATIOS = (0.63, 0.21)

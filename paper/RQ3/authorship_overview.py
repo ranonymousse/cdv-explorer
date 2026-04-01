@@ -10,11 +10,11 @@ from paper.RQ3._plotting import (
     save_figure,
     style_ellipsis_ticklabels,
 )
+from paper.plot_colors import AUTHORSHIP_DISTRIBUTION_COLOR, AUTHORS_PER_BIP_COLOR
 
 
 TOP_AUTHORS_COLOR = "#d94841"
-HISTOGRAM_COLOR = "#2f9e44"
-AUTHORS_PER_BIP_COLOR = "#7048e8"
+HISTOGRAM_COLOR = AUTHORSHIP_DISTRIBUTION_COLOR
 MIN_HISTOGRAM_GAP_LENGTH = 3
 HISTOGRAM_GAP_LABEL = "..."
 
