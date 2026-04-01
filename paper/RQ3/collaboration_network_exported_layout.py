@@ -23,7 +23,7 @@ from paper.RQ3._plotting import save_figure
 from paper.RQ3.collaboration_common import build_author_bip_map
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 from paper.config import SNAPSHOT
-from paper.plot_colors import ORDERED_PLOT_PALETTE
+from paper.plot_colors import ORDERED_PLOT_PALETTE, PLOT_COLOR_ALPHA
 
 
 LAYOUT_EXPORT_DIR = Path("paper") / "RQ3"
@@ -33,7 +33,7 @@ DEFAULT_FIGSIZE = (11,6)
 DEFAULT_AXIS_MARGIN_SCALE = 0.08
 EDGE_WIDTH_RANGE = (1.2, 5.0)
 NODE_RADIUS_RANGE = (6.0, 18.0)
-NODE_FILL_ALPHA = 1.0
+NODE_FILL_ALPHA = PLOT_COLOR_ALPHA
 NODE_BORDER_COLOR = "#111111"
 NODE_BORDER_WIDTH = 1.5
 EDGE_ALPHA = 0.7

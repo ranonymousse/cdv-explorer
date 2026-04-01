@@ -11,6 +11,7 @@ from matplotlib.ticker import MaxNLocator
 
 from analysis.artifact_io import resolve_latest_snapshot_label
 from ecosystem_config import ACTIVE_ECOSYSTEM
+from paper.plot_colors import with_plot_alpha
 from paper.RQ3._plotting import (
     BAR_EDGE_COLOR,
     BAR_EDGE_WIDTH,
@@ -233,7 +234,7 @@ def plot_classification_status(
     palette = colors or STATUS_COLORS
     colors = [palette.get(status, "#868e96") for status in ordered_statuses]
     legend_handles = [
-        Patch(facecolor=color, edgecolor="none", label=status)
+        Patch(facecolor=with_plot_alpha(color), edgecolor="none", label=status)
         for status, color in zip(ordered_statuses, colors)
     ]
     donut_colors = [bar_style(color)["color"] for color in colors]
@@ -321,9 +322,8 @@ def plot_classification_status(
         line, = axis_right_secondary.plot(
             smooth_x,
             smooth_y,
-            color=color,
+            color=with_plot_alpha(color),
             linewidth=1,
-            alpha=0.95,
             zorder=4,
         )
         line.set_path_effects([
@@ -333,7 +333,7 @@ def plot_classification_status(
         axis_right_secondary.scatter(
             x_positions,
             cumulative_counts,
-            color=color,
+            color=with_plot_alpha(color),
             s=18,
             zorder=5,
             edgecolors="white",

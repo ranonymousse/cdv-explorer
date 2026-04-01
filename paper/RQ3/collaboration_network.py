@@ -3,8 +3,8 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import networkx as nx
-from matplotlib.colors import to_rgba
 
+from paper.plot_colors import PLOT_COLOR_ALPHA, with_plot_alpha
 from paper.RQ3._plotting import save_figure
 from paper.RQ3.collaboration_common import build_author_bip_map
 
@@ -218,8 +218,8 @@ def plot_collaboration_network(
         author: CLUSTER_COLORS[cluster_by_author.get(author, 0) % len(CLUSTER_COLORS)]
         for author in graph.nodes()
     }
-    node_facecolors = [to_rgba(cluster_colors[author], alpha=0.82) for author in graph.nodes()]
-    node_edgecolors = [cluster_colors[author] for author in graph.nodes()]
+    node_facecolors = [with_plot_alpha(cluster_colors[author], PLOT_COLOR_ALPHA) for author in graph.nodes()]
+    node_edgecolors = [with_plot_alpha(cluster_colors[author], PLOT_COLOR_ALPHA) for author in graph.nodes()]
     edge_colors = [cluster_colors[source] for source, _, _ in graph.edges(data=True)]
 
     figure, axis = plt.subplots(figsize=(11, 6.5))

@@ -3,6 +3,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
+from paper.plot_colors import with_plot_alpha
 from paper.RQ3._plotting import bar_style, despine, match_axis_label_fontsize, save_figure
 
 
@@ -36,7 +37,7 @@ def plot_creation_over_time(
     axis_right.plot(
         x_positions,
         cumulative_counts,
-        color=TIMELINE_LINE_COLOR,
+        color=with_plot_alpha(TIMELINE_LINE_COLOR),
         linewidth=2.2,
         marker="o",
         zorder=3,

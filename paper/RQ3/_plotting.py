@@ -1,10 +1,11 @@
 from pathlib import Path
 
 import matplotlib.pyplot as plt
-from matplotlib.colors import to_rgba
+
+from paper.plot_colors import PLOT_COLOR_ALPHA, with_plot_alpha
 
 
-BAR_FILL_ALPHA = 0.85
+BAR_FILL_ALPHA = PLOT_COLOR_ALPHA
 BAR_EDGE_WIDTH = 1.0
 BAR_EDGE_COLOR = "#000000"
 ELLIPSIS_TICK_COLOR = "#666666"
@@ -19,7 +20,7 @@ def despine(axis, *, right: bool = True) -> None:
 
 def bar_style(color: str, *, edgecolor: str | None = None) -> dict[str, object]:
     return {
-        "color": to_rgba(color, BAR_FILL_ALPHA),
+        "color": with_plot_alpha(color, BAR_FILL_ALPHA),
         "edgecolor": edgecolor or BAR_EDGE_COLOR,
         "linewidth": BAR_EDGE_WIDTH,
     }

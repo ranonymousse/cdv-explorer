@@ -7,7 +7,7 @@ from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator
 
 from analysis.classification.metrics import build_type_over_time
-from paper.plot_colors import BIP_TYPE_COLORS, BIP_TYPE_ORDER
+from paper.plot_colors import BIP_TYPE_COLORS, BIP_TYPE_ORDER, with_plot_alpha
 from paper.RQ1.classification_status import (
     _monotone_cubic_curve,
     _normalize_status_series,
@@ -141,9 +141,8 @@ def plot_classification_type_stacked(
         line, = axis_right_secondary.plot(
             smooth_x,
             smooth_y,
-            color=color,
+            color=with_plot_alpha(color),
             linewidth=1.2,
-            alpha=0.95,
             zorder=4,
         )
         line.set_path_effects([
@@ -153,7 +152,7 @@ def plot_classification_type_stacked(
         axis_right_secondary.scatter(
             x_positions,
             cumulative_counts,
-            color=color,
+            color=with_plot_alpha(color),
             s=28,
             zorder=5,
             edgecolors="white",
@@ -198,9 +197,8 @@ def plot_classification_type_stacked(
             axis_right_secondary.plot(
                 [float(x_positions[-1]), label_x - 0.5],
                 [point["y"], adjusted_y],
-                color=point["color"],
+                color=with_plot_alpha(point["color"], 0.7),
                 linewidth=0.8,
-                alpha=0.7,
                 zorder=5,
             )
         share_label = f"{point['share'] * 100:.0f}%"
@@ -208,7 +206,7 @@ def plot_classification_type_stacked(
             label_x,
             adjusted_y,
             share_label,
-            color=point["color"],
+            color=with_plot_alpha(point["color"]),
             fontsize=10,
             fontweight="bold",
             ha="left",

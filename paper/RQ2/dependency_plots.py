@@ -18,6 +18,7 @@ from analysis.dependencies.constants import (
     PREAMBLE_DEPENDENCY_SUBTYPES,
     PREAMBLE_EXTRACTED,
 )
+from paper.plot_colors import PLOT_COLOR_ALPHA, with_plot_alpha
 
 try:
     from networkx.drawing.nx_agraph import graphviz_layout
@@ -368,12 +369,12 @@ def draw_static_network_with_layouts(
                 "alpha": 0.6,
                 "label": "explicit references (regex)",
             },
-            "requires": {"color": "red", "style": "solid", "alpha": 1.0, "label": "requires"},
-            "replaces": {"color": "blue", "style": "solid", "alpha": 1.0, "label": "replaces"},
+            "requires": {"color": "red", "style": "solid", "alpha": PLOT_COLOR_ALPHA, "label": "requires"},
+            "replaces": {"color": "blue", "style": "solid", "alpha": PLOT_COLOR_ALPHA, "label": "replaces"},
             "proposed_replacement": {
                 "color": "green",
                 "style": "solid",
-                "alpha": 1.0,
+                "alpha": PLOT_COLOR_ALPHA,
                 "label": "proposed-replacement",
             },
         }
@@ -446,7 +447,15 @@ def draw_static_network_with_layouts(
             label_with_count = f"{group} $(n={count})$"
             color_for_legend = cmap_for_plot(i / (len(sorted_group_names) - 1) if len(sorted_group_names) > 1 else 0.5)
             legend_handles.append(
-                plt.Line2D([], [], marker="o", color="w", label=label_with_count, markerfacecolor=color_for_legend, markersize=10)
+                plt.Line2D(
+                    [],
+                    [],
+                    marker="o",
+                    color="w",
+                    label=label_with_count,
+                    markerfacecolor=with_plot_alpha(color_for_legend),
+                    markersize=10,
+                )
             )
     elif color_by == "compliance_score":
         compliance_scores = nx.get_node_attributes(graph, "compliance_score")
@@ -474,7 +483,7 @@ def draw_static_network_with_layouts(
             node_size=350,
             node_color=node_colors_data,
             cmap=cmap_for_plot,
-            alpha=0.85,
+            alpha=PLOT_COLOR_ALPHA,
             vmin=vmin_for_plot,
             vmax=vmax_for_plot,
             edgecolors="black",
@@ -485,7 +494,7 @@ def draw_static_network_with_layouts(
             style_info = edge_type_styles.get(lt, {})
             color = style_info.get("color", "black")
             linestyle = style_info.get("style", "solid")
-            alpha = style_info.get("alpha", 1.0)
+            alpha = style_info.get("alpha", PLOT_COLOR_ALPHA)
             edgelist = edges_by_type[lt]
 
             if color == "outgoing-color":
@@ -522,16 +531,17 @@ def draw_static_network_with_layouts(
         edge_legend_handles = []
         for lt in link_type:
             style_info = edge_type_styles.get(lt, {})
-            if style_info.get("alpha", 1.0) == 0.0:
+            if style_info.get("alpha", PLOT_COLOR_ALPHA) == 0.0:
                 continue
             color = "gray" if style_info.get("color", "black") == "outgoing-color" else style_info.get("color", "black")
             linestyle = style_info.get("style", "solid")
             base_label = style_info.get("label", lt)
             edge_count = len(edges_by_type.get(lt, []))
             label_with_count = f"{base_label} $(n={edge_count})$"
+            legend_color = with_plot_alpha(color, style_info.get("alpha", PLOT_COLOR_ALPHA))
             edge_legend_handles.append(
                 build_arrow_legend_handle(
-                    color=color,
+                    color=legend_color,
                     linestyle=linestyle,
                     linewidth=1.2,
                     label=label_with_count,
@@ -627,19 +637,19 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
                 "requires": {
                     "color": "red",
                     "style": "solid",
-                    "alpha": 1.0,
+                    "alpha": PLOT_COLOR_ALPHA,
                     "label": "requires",
                 },
                 "replaces": {
                     "color": "blue",
                     "style": "solid",
-                    "alpha": 1.0,
+                    "alpha": PLOT_COLOR_ALPHA,
                     "label": "replaces",
                 },
                 "proposed_replacement": {
                     "color": "green",
                     "style": "solid",
-                    "alpha": 1.0,
+                    "alpha": PLOT_COLOR_ALPHA,
                     "label": "proposed replacement",
                 },
             },
@@ -655,7 +665,7 @@ def render_default_dependency_plot_suite(network_data, output_dir: Path, filenam
                 BODY_EXTRACTED_LLM: {
                     "color": "gray",
                     "style": "solid",
-                    "alpha": 1.0,
+                    "alpha": PLOT_COLOR_ALPHA,
                     "label": "implicit dependencies (LLM)",
                 }
             },

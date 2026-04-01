@@ -36,7 +36,7 @@ from paper.RQ2.dependency_plots import (
 )
 from paper._utils.io import resolve_output_dir, snapshot_prefix
 from paper.config import SNAPSHOT
-from paper.plot_colors import BIP_TYPE_COLORS, BIP_TYPE_ORDER, NEUTRAL_PLOT_COLOR
+from paper.plot_colors import BIP_TYPE_COLORS, BIP_TYPE_ORDER, NEUTRAL_PLOT_COLOR, PLOT_COLOR_ALPHA, with_plot_alpha
 
 DEFAULT_FOCUS_BIPS = [1, 2, 3]
 DEFAULT_EXCLUDE_BIPS: list[int] = []
@@ -56,7 +56,7 @@ DIFF_NODE_SIZE_MAX = 880
 DIFF_EDGE_WIDTH = 1.5
 DIFF_ARROWHEAD_OVERLAY_WIDTH = 0.0
 DIFF_ARROW_SIZE = 14
-NODE_FILL_ALPHA = 0.7
+NODE_FILL_ALPHA = PLOT_COLOR_ALPHA
 NODE_LABEL_FONT_SIZE = 7
 DIFF_LABEL_OFFSET = 0.035
 EDGE_CURVATURE = 0.2
@@ -107,9 +107,9 @@ COMBINED_NODE_LEGEND_TITLE_FONT_SIZE = 7
 
 def _build_edge_styles(*, comparison_ordered: bool = False) -> dict[str, dict[str, Any]]:
     return {
-        "approach_only": {"color": APPROACH_ONLY_EDGE_COLOR, "style": APPROACH_ONLY_EDGE_STYLE, "alpha": 1.0},
-        "overlap": {"color": OVERLAP_EDGE_COLOR, "style": "solid", "alpha": 1.0},
-        "baseline_only": {"color": BASELINE_ONLY_EDGE_COLOR, "style": BASELINE_ONLY_EDGE_STYLE, "alpha": 1.0},
+        "approach_only": {"color": with_plot_alpha(APPROACH_ONLY_EDGE_COLOR), "style": APPROACH_ONLY_EDGE_STYLE, "alpha": 1.0},
+        "overlap": {"color": with_plot_alpha(OVERLAP_EDGE_COLOR), "style": "solid", "alpha": 1.0},
+        "baseline_only": {"color": with_plot_alpha(BASELINE_ONLY_EDGE_COLOR), "style": BASELINE_ONLY_EDGE_STYLE, "alpha": 1.0},
     }
 
 
@@ -406,7 +406,7 @@ def _build_type_legend_handles(graph: nx.DiGraph) -> list[Line2D]:
                 marker="o",
                 color="w",
                 label=f"{group} $(n={group_counts[group]})$",
-                markerfacecolor=_type_color(group),
+                markerfacecolor=with_plot_alpha(_type_color(group)),
                 markeredgecolor="black",
                 markeredgewidth=0.9,
                 markersize=10,
@@ -564,7 +564,10 @@ def _draw_comparison_plot(
 
     ordered_nodes = sorted(graph.nodes(), key=int)
     node_groups = nx.get_node_attributes(graph, "group")
-    node_colors = [_type_color(node_groups.get(node_id, "Unknown Type")) for node_id in ordered_nodes]
+    node_colors = [
+        with_plot_alpha(_type_color(node_groups.get(node_id, "Unknown Type")), NODE_FILL_ALPHA)
+        for node_id in ordered_nodes
+    ]
     node_sizes = _compute_node_sizes(graph, ordered_nodes)
     styles = edge_styles or _build_edge_styles()
 
@@ -578,7 +581,7 @@ def _draw_comparison_plot(
         nodelist=ordered_nodes,
         node_size=node_sizes,
         node_color=node_colors,
-        alpha=NODE_FILL_ALPHA,
+        alpha=None,
         edgecolors="black",
         linewidths=1.0,
         ax=ax,
