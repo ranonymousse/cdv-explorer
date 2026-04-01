@@ -2,9 +2,13 @@ import json
 import sys
 from pathlib import Path
 
+import matplotlib
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
+
+matplotlib.use("Agg")
 
 from paper.config import SNAPSHOT
 from paper._utils.io import resolve_output_dir, snapshot_prefix
@@ -25,9 +29,13 @@ def main() -> None:
         load_network_data,
         resolve_latest_snapshot_label,
     )
+    from paper.RQ3.authorship_collaboration_triptych import (
+        plot_authorship_collaboration_triptych,
+    )
     from paper.RQ3.authorship_overview import plot_authorship_overview
     from paper.RQ3.authorship_overview import (
         plot_authorship_distribution,
+        plot_authors_per_bip,
         plot_top_authors,
     )
     from paper.RQ3.collaboration_structure_overview import (
@@ -73,6 +81,16 @@ def main() -> None:
         plot_authorship_distribution(
             contribution_histogram=authorship_metrics.get("author_contribution_histogram", []),
             output_path=output_dir / f"{filename_prefix}_authorship_distribution.pdf",
+        )
+        plot_authors_per_bip(
+            bip_author_count_histogram=authorship_metrics.get("bip_author_count_histogram", []),
+            output_path=output_dir / f"{filename_prefix}_authors_per_bip.pdf",
+        )
+        plot_authorship_collaboration_triptych(
+            contribution_histogram=authorship_metrics.get("author_contribution_histogram", []),
+            bip_author_count_histogram=authorship_metrics.get("bip_author_count_histogram", []),
+            collaboration_network=authorship_metrics.get("collaboration_network", {}),
+            output_path=output_dir / f"{filename_prefix}_authorship_collaboration_triptych.pdf",
         )
         plot_collaboration_structure_overview(
             collaboration_network=authorship_metrics.get("collaboration_network", {}),
