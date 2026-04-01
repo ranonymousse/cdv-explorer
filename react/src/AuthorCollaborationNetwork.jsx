@@ -7,6 +7,9 @@ import { COLLABORATION_LAYOUT_OPTIONS } from './dashboard/constants';
 const COLLABORATION_LAYOUT_OPTION_VALUES = new Set(
   COLLABORATION_LAYOUT_OPTIONS.map((option) => option.value)
 );
+const EDGE_STROKE_WIDTH_RANGE = [1.5, 10];
+const EDGE_STROKE_WIDTH_EXPONENT = 0.6;
+const EDGE_STROKE_WIDTH_HOVER_DELTA = 1.5;
 
 function sanitizeFilePart(value, fallback = 'unknown') {
   const text = String(value ?? '')
@@ -111,6 +114,32 @@ function buildDisplayCollaborationComponents(nodes, adjacency) {
   }
 
   return components;
+}
+
+function createEdgeStrokeWidthScale(links) {
+  const weights = links
+    .map((link) => Number(link?.weight || 1))
+    .filter((value) => Number.isFinite(value) && value > 0);
+
+  if (weights.length === 0) {
+    return () => EDGE_STROKE_WIDTH_RANGE[0];
+  }
+
+  const [minWeight, maxWeight] = d3.extent(weights);
+  if (!Number.isFinite(minWeight) || !Number.isFinite(maxWeight)) {
+    return () => EDGE_STROKE_WIDTH_RANGE[0];
+  }
+
+  if (minWeight === maxWeight) {
+    const midpoint = (EDGE_STROKE_WIDTH_RANGE[0] + EDGE_STROKE_WIDTH_RANGE[1]) / 2;
+    return () => midpoint;
+  }
+
+  return d3.scalePow()
+    .exponent(EDGE_STROKE_WIDTH_EXPONENT)
+    .domain([minWeight, maxWeight])
+    .range(EDGE_STROKE_WIDTH_RANGE)
+    .clamp(true);
 }
 
 export const AuthorCollaborationNetwork = ({
@@ -413,10 +442,8 @@ export const AuthorCollaborationNetwork = ({
       .domain([bipsExtent[0] || 0, bipsExtent[1] || 1])
       .range([6, 25]);
 
-    const weightExtent = d3.extent(visibleLinks, (link) => Number(link.weight || 1));
-    const strokeWidth = d3.scaleLinear()
-      .domain([weightExtent[0] || 1, weightExtent[1] || 1])
-      .range([1.2, 5]);
+    const strokeWidth = createEdgeStrokeWidthScale(visibleLinks);
+    const edgeStrokeWidth = (edge) => strokeWidth(Number(edge.weight || 1));
 
     const clusterAnchors = new Map();
     const clusterCount = Math.max(visibleClusters.length, 1);
@@ -491,7 +518,7 @@ export const AuthorCollaborationNetwork = ({
           }
           return matchedIds.has(getEdgeSourceId(edge)) || matchedIds.has(getEdgeTargetId(edge)) ? 0.95 : 0.08;
         })
-        .attr('stroke-width', (edge) => strokeWidth(Number(edge.weight || 1)));
+        .attr('stroke-width', edgeStrokeWidth);
     };
 
     const applyDefaultNodeStyles = () => {
@@ -515,7 +542,7 @@ export const AuthorCollaborationNetwork = ({
         .attr('stroke-width', (edge) => {
           const isSelected = getEdgeSourceId(edge) === getEdgeSourceId(pinnedEdge)
             && getEdgeTargetId(edge) === getEdgeTargetId(pinnedEdge);
-          return isSelected ? strokeWidth(Number(edge.weight || 1)) + 1.5 : strokeWidth(Number(edge.weight || 1));
+          return isSelected ? edgeStrokeWidth(edge) + EDGE_STROKE_WIDTH_HOVER_DELTA : edgeStrokeWidth(edge);
         });
     };
 
@@ -533,7 +560,7 @@ export const AuthorCollaborationNetwork = ({
             ? '#f4a261'
             : clusterColor(clusterByNodeId.get(getEdgeSourceId(edge))?.clusterId ?? 0)
         ))
-        .attr('stroke-width', (edge) => strokeWidth(Number(edge.weight || 1)));
+        .attr('stroke-width', edgeStrokeWidth);
     };
 
     const clearPinnedInteraction = () => {
@@ -559,7 +586,7 @@ export const AuthorCollaborationNetwork = ({
         }
         return matchedIds.has(getEdgeSourceId(edge)) || matchedIds.has(getEdgeTargetId(edge)) ? 0.95 : 0.08;
       })
-      .attr('stroke-width', (edge) => strokeWidth(Number(edge.weight || 1)))
+      .attr('stroke-width', edgeStrokeWidth)
       .on('mouseover', function (event, edge) {
         if (pinnedInteraction) {
           return;
@@ -568,7 +595,7 @@ export const AuthorCollaborationNetwork = ({
         d3.select(this)
           .attr('stroke', '#f4a261')
           .attr('stroke-opacity', 1)
-          .attr('stroke-width', strokeWidth(Number(edge.weight || 1)) + 1.5);
+          .attr('stroke-width', edgeStrokeWidth(edge) + EDGE_STROKE_WIDTH_HOVER_DELTA);
 
         tooltip
           .style('opacity', 1)
@@ -594,7 +621,7 @@ export const AuthorCollaborationNetwork = ({
             }
             return matchedIds.has(getEdgeSourceId(edge)) || matchedIds.has(getEdgeTargetId(edge)) ? 0.95 : 0.08;
           })
-          .attr('stroke-width', strokeWidth(Number(edge.weight || 1)));
+          .attr('stroke-width', edgeStrokeWidth(edge));
 
         tooltip.style('opacity', 0);
       })
@@ -940,7 +967,7 @@ export const AuthorCollaborationNetwork = ({
         <div className="network-layout-picker network-layout-picker--filter">
           <div className="network-layout-picker__label">Filter</div>
           <label className="network-layout-threshold">
-            <span className="network-layout-threshold__copy">Only show clusters with</span>
+            <span className="network-layout-threshold__copy">Only show components with</span>
             <input
               value={minClusterCollaborations}
               onChange={(event) => setMinClusterCollaborations?.(event.target.value.replace(/[^\d]/g, ''))}

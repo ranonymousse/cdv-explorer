@@ -119,7 +119,7 @@ export function AuthorshipSection({
       <ExportableCard className="mb-4" exportTitle="Author Collaboration Graph">
         <h3>Author Collaboration Graph</h3>
         <p>
-          {ecosystem.acronym} co-authorship according to preamble, visualized as a collaboration graph. Nodes represent authors (larger nodes indicate more authored {ecosystem.proposalShortPlural}) and edges represent collaborations. Colors indicate connected components. Authors who never collaborated are grouped into one shared component.
+          {ecosystem.acronym} co-authorship based on preambles, shown as a collaboration graph. Larger nodes indicate authors of more {ecosystem.proposalShortPlural}, while thicker edges indicate more co-authored BIPs. Colors encode connected components, while authors without collaborations are grouped into one shared component.
         </p>
         <div className="network-finder">
           <div className="network-finder__copy">
