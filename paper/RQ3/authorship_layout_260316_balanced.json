@@ -13,92 +13,92 @@
   },
   "positions": {
     "Pieter Wuille": [
-      581.6588963327454,
-      396.2777457369395
+      565.5671604929016,
+      407.48935462365824
     ],
     "Peter Todd": [
-      553.9582152885741,
-      453.32720775076496
+      670.1995482963866,
+      504.44903392263996
     ],
     "Greg Maxwell": [
-      577.6743703484092,
-      523.0996355572713
+      559.4165578484092,
+      517.6223406353963
     ],
     "Rusty Russell": [
-      700.4332613530632,
-      515.8139666932329
+      542.1989473882195,
+      464.0834674256548
     ],
     "Gavin Andresen": [
-      870.9496222453591,
-      335.37712536719357
+      833.5546637492654,
+      356.0998121347717
     ],
     "Nils Schneider": [
-      920.3550517921576,
-      410.43405356131024
+      853.2036846046576,
+      421.5029927702946
     ],
     "Matt Corallo": [
-      806.839100116172,
-      397.06328348160133
+      788.3377573427344,
+      405.8803611183201
     ],
     "Mike Hearn": [
-      833.7971473053384,
-      358.98560323386613
+      868.6783728912759,
+      376.83011617331925
     ],
     "Mike Caldwell": [
-      222.59341835455825,
-      163.32762726097747
+      280.8897135205739,
+      200.22400482445403
     ],
     "Aaron Voisine": [
-      251.8379721495665,
-      180.84678894350776
+      392.0441946837462,
+      213.31561523745307
     ],
     "Marek Palatinus": [
-      324.59699391089833,
-      143.2558913652411
+      387.3208403464452,
+      276.0828719560614
     ],
     "Pavol Rusnak": [
-      383.51890278956637,
-      195.95571236659288
+      438.8634462465976,
+      315.5000086312413
     ],
     "Sean Bowe": [
-      337.7213024878184,
-      252.24426460266113
+      351.00398681399025,
+      346.6989917755127
     ],
     "Antoine Poinsot": [
-      688.7915132255648,
-      381.4177121438986
+      669.6054170341586,
+      385.10734837436735
     ],
     "Thomas Kerin": [
-      682.8291968071744,
-      218.38426142167475
+      652.5741308892057,
+      244.94964533280756
     ],
     "Jean-Pierre Rupp": [
-      739.9458732187875,
-      253.13228746031132
+      613.6908073008187,
+      228.36159654234257
     ],
     "Ruben de Vries": [
-      774.5657669673257,
-      234.23383508436137
+      689.7040115962319,
+      220.95113549940044
     ],
     "Mark Friedenbach": [
-      606.1865313721312,
-      260.26006212007223
+      620.2071002197874,
+      282.39787950288473
     ],
     "BtcDrak": [
-      522.117845762086,
-      281.00472163199424
+      514.7385733011484,
+      290.59776972769737
     ],
     "Nicolas Dorier": [
-      591.1378920613305,
-      193.28104483609366
+      544.1057265339867,
+      208.44330679898428
     ],
     "kinoshitajona": [
-      424.8422881300011,
-      227.64689400612173
+      470.5937529737511,
+      251.99850228248891
     ],
     "Justin Newton": [
-      288.0491278080599,
-      299.42688597916833
+      285.09740661665364,
+      304.5923828053402
     ],
     "Matt David": [
       206.50223052018018,
@@ -109,88 +109,88 @@
       271.23481145125834
     ],
     "Eric Lombrozo": [
-      581.5905777356579,
-      332.8801760207672
+      566.6674820325329,
+      352.8788637649078
     ],
     "Ava Chow": [
       678.6995312188324,
       466.76701630483274
     ],
     "Leon Olsson Curr and Pearlwort Sneed": [
-      752.6055548552245,
-      336.1543969754379
+      667.2747443083495,
+      344.15763183871917
     ],
     "Andrew Poelstra": [
-      686.1050770164846,
-      309.0980363496617
+      695.4927112938284,
+      361.5821366914586
     ],
     "Kalle Alm": [
-      553.682223307413,
-      206.44724023998214
+      561.604098307413,
+      245.0432485407634
     ],
     "Johnson Lau": [
-      478.0542498910743,
-      305.01182485438017
+      473.2178241098243,
+      338.3882286629739
     ],
     "Christian Decker": [
-      379.0421267514236,
-      484.8237779125684
+      418.6007205014236,
+      479.3464524731153
     ],
     "Anthony Towns": [
-      437.83608969311365,
-      517.9391779983014
+      439.05325277905115,
+      515.5048518264264
     ],
     "William Swanson": [
-      639.8957925846125,
-      288.2811447783607
+      601.1095987369563,
+      376.90702978812635
     ],
     "David A. Harding": [
-      630.7323061075994,
-      478.8289143743915
+      726.8900209513494,
+      522.0390278997821
     ],
     "Hugo Nguyen": [
-      847.2327068006631,
-      159.3310670171203
+      751.3021648084756,
+      219.84110730032342
     ],
     "Peter Gray": [
-      873.1108968348393,
-      294.1616516113281
+      863.5178182215581,
+      277.1893310546875
     ],
     "Marko Bencun": [
-      804.1269770770502,
-      204.12482139707436
+      829.9544306903315,
+      238.06947776914467
     ],
     "Aaron Chen": [
       810.5997183200781,
       314.8314124450344
     ],
     "Rodolfo Novak": [
-      828.459635945423,
-      266.4698791503906
+      751.7151901446417,
+      291.5594024658203
     ],
     "Велеслав": [
-      406.1456739554113,
-      330.245849609375
+      403.19392224642695,
+      443.14874267578125
     ],
     "Jonas Schnelli": [
-      458.602347491107,
-      342.82708405535845
+      423.91976082118515,
+      404.8129849342647
     ],
     "Daniel Pape": [
-      376.780688328479,
-      368.8579406738281
+      355.38072494957277,
+      440.4368896484375
     ],
     "Karl-Johan Alm": [
-      414.4058145052132,
-      477.553178997617
+      306.68471465169756,
+      493.98524686871076
     ],
     "Brad Denby": [
       204.61978864812977,
       434.07641983032227
     ],
     "Andrew Miller": [
-      276.4856057448918,
-      472.7010078430176
+      286.81656887965744,
+      409.2392463684082
     ],
     "Giulia Fanti": [
       248.69035309664218,
@@ -205,64 +205,64 @@
       518.0598659515381
     ],
     "Pramod Viswanath": [
-      301.3765506107587,
-      397.3197613229201
+      276.28701203654,
+      465.9469891061232
     ],
     "Daira Hopwood": [
-      407.1297532245435,
-      283.97523498535156
+      312.67501079290287,
+      374.0023956298828
     ],
     "Dhruv Mehta": [
-      508.42445948002523,
-      494.0072547979645
+      504.1642971265096,
+      494.61583634093324
     ],
     "Tim Ruffing": [
-      450.8412120998236,
-      374.7785909819943
+      466.33770257833925,
+      381.4199484038693
     ],
     "Jonas Nick": [
       444.648262757342,
       460.88543228757004
     ],
     "Elliott Jin": [
-      384.5898336489179,
-      445.4094420951957
+      364.665791900871,
+      376.0442382377738
     ],
     "Gleb Naumenko": [
       482.1052688312143,
       441.58617517447306
     ],
     "Ethan Heilman": [
-      643.7183225318203,
-      157.86449241638184
+      749.9798581763515,
+      327.5878047943115
     ],
     "Armin Sabouri": [
-      769.1800740628348,
-      182.56933975219727
+      706.4561971097098,
+      341.22375869750977
     ],
     "josibake": [
-      745.6690751829244,
-      488.8307458712595
+      747.4948808469869,
+      487.6135522677439
     ],
     "Ruben Somsen": [
-      857.4037404012714,
-      487.87726897469867
+      845.8404469442402,
+      486.0514938282143
     ],
     "Sebastian Falbesoner": [
       803.720915351696,
       521.5624300760513
     ],
     "Bastien Teinturier": [
-      890.1261632914636,
-      359.5999677602038
+      798.9159582133386,
+      372.37477855121944
     ],
     "Hunter Beast": [
-      466.0847081966267,
-      139.00008392333984
+      641.711478216158,
+      324.2198715209961
     ],
     "Isabel Foxen Duke": [
-      539.7268795536845,
-      173.00944328308105
+      694.691601233372,
+      302.1467571258545
     ],
     "Andrew Toth": [
       854.6528420014134,
@@ -273,116 +273,784 @@
       431.6297328711786
     ]
   },
+  "edge_curves": [
+    {
+      "source": "Aaron Chen",
+      "target": "Rodolfo Novak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Aaron Voisine",
+      "target": "James MacWhyte",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Aaron Voisine",
+      "target": "Justin Newton",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Aaron Voisine",
+      "target": "Marek Palatinus",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Aaron Voisine",
+      "target": "Matt David",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Aaron Voisine",
+      "target": "Pavol Rusnak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Aaron Voisine",
+      "target": "Sean Bowe",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Andrew Miller",
+      "target": "Giulia Fanti",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Andrew Miller",
+      "target": "Pramod Viswanath",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Andrew Miller",
+      "target": "Shaileshh Bojja Venkatakrishnan",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Andrew Miller",
+      "target": "Surya Bakshi",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Andrew Poelstra",
+      "target": "Sanket Kanjalkar",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Anthony Towns",
+      "target": "Jonas Nick",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Anthony Towns",
+      "target": "Karl-Johan Alm",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Antoine Poinsot",
+      "target": "Andrew Poelstra",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Antoine Poinsot",
+      "target": "Ava Chow",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Antoine Poinsot",
+      "target": "Sanket Kanjalkar",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ava Chow",
+      "target": "Andrew Poelstra",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ava Chow",
+      "target": "Andrew Toth",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ava Chow",
+      "target": "josibake",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ava Chow",
+      "target": "Sanket Kanjalkar",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Brad Denby",
+      "target": "Andrew Miller",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Brad Denby",
+      "target": "Giulia Fanti",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Brad Denby",
+      "target": "Pramod Viswanath",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Brad Denby",
+      "target": "Shaileshh Bojja Venkatakrishnan",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Brad Denby",
+      "target": "Surya Bakshi",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "BtcDrak",
+      "target": "Eric Lombrozo",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "BtcDrak",
+      "target": "Kalle Alm",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "BtcDrak",
+      "target": "kinoshitajona",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "BtcDrak",
+      "target": "Nicolas Dorier",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Christian Decker",
+      "target": "Anthony Towns",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Dhruv Mehta",
+      "target": "Tim Ruffing",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Eric Lombrozo",
+      "target": "Johnson Lau",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Eric Lombrozo",
+      "target": "William Swanson",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ethan Heilman",
+      "target": "Armin Sabouri",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ethan Heilman",
+      "target": "Hunter Beast",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ethan Heilman",
+      "target": "Isabel Foxen Duke",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Gavin Andresen",
+      "target": "Mike Hearn",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Giulia Fanti",
+      "target": "Pramod Viswanath",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Giulia Fanti",
+      "target": "Shaileshh Bojja Venkatakrishnan",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Giulia Fanti",
+      "target": "Surya Bakshi",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Greg Maxwell",
+      "target": "Rusty Russell",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Hugo Nguyen",
+      "target": "Aaron Chen",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Hugo Nguyen",
+      "target": "Marko Bencun",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Hugo Nguyen",
+      "target": "Peter Gray",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Hugo Nguyen",
+      "target": "Rodolfo Novak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Hunter Beast",
+      "target": "Isabel Foxen Duke",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Jean-Pierre Rupp",
+      "target": "Ruben de Vries",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Jonas Nick",
+      "target": "Elliott Jin",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Jonas Schnelli",
+      "target": "Daniel Pape",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Jonas Schnelli",
+      "target": "Dhruv Mehta",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Jonas Schnelli",
+      "target": "Tim Ruffing",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "josibake",
+      "target": "Andrew Toth",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "josibake",
+      "target": "Ruben Somsen",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "josibake",
+      "target": "Sebastian Falbesoner",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Justin Newton",
+      "target": "James MacWhyte",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Justin Newton",
+      "target": "Matt David",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Leon Olsson Curr and Pearlwort Sneed",
+      "target": "Andrew Poelstra",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Marek Palatinus",
+      "target": "Pavol Rusnak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Marek Palatinus",
+      "target": "Sean Bowe",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Mark Friedenbach",
+      "target": "BtcDrak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Mark Friedenbach",
+      "target": "Eric Lombrozo",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Mark Friedenbach",
+      "target": "Kalle Alm",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Mark Friedenbach",
+      "target": "kinoshitajona",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Mark Friedenbach",
+      "target": "Nicolas Dorier",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Marko Bencun",
+      "target": "Aaron Chen",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Marko Bencun",
+      "target": "Rodolfo Novak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Matt Corallo",
+      "target": "Antoine Poinsot",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Matt Corallo",
+      "target": "Bastien Teinturier",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Matt Corallo",
+      "target": "Mike Hearn",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Matt David",
+      "target": "James MacWhyte",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Mike Caldwell",
+      "target": "Aaron Voisine",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Nicolas Dorier",
+      "target": "kinoshitajona",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Nils Schneider",
+      "target": "Matt Corallo",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pavol Rusnak",
+      "target": "Sean Bowe",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Gray",
+      "target": "Aaron Chen",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Gray",
+      "target": "Marko Bencun",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Gray",
+      "target": "Rodolfo Novak",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Todd",
+      "target": "David A. Harding",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Todd",
+      "target": "Greg Maxwell",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Todd",
+      "target": "Matt Corallo",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Peter Todd",
+      "target": "Rusty Russell",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Andrew Poelstra",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Anthony Towns",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Antoine Poinsot",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Ava Chow",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Dhruv Mehta",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Eric Lombrozo",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Gleb Naumenko",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Greg Maxwell",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Johnson Lau",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Jonas Nick",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Jonas Schnelli",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Peter Todd",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Rusty Russell",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Sanket Kanjalkar",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Pieter Wuille",
+      "target": "Tim Ruffing",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Ruben Somsen",
+      "target": "Andrew Toth",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Ruben Somsen",
+      "target": "Sebastian Falbesoner",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Sean Bowe",
+      "target": "Daira Hopwood",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Sebastian Falbesoner",
+      "target": "Andrew Toth",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Shaileshh Bojja Venkatakrishnan",
+      "target": "Pramod Viswanath",
+      "direction": -1,
+      "strength": 1
+    },
+    {
+      "source": "Surya Bakshi",
+      "target": "Pramod Viswanath",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Surya Bakshi",
+      "target": "Shaileshh Bojja Venkatakrishnan",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Thomas Kerin",
+      "target": "Jean-Pierre Rupp",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Thomas Kerin",
+      "target": "Mark Friedenbach",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Thomas Kerin",
+      "target": "Ruben de Vries",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Tim Ruffing",
+      "target": "Elliott Jin",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Tim Ruffing",
+      "target": "Jonas Nick",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Велеслав",
+      "target": "Daniel Pape",
+      "direction": 1,
+      "strength": 1
+    },
+    {
+      "source": "Велеслав",
+      "target": "Jonas Schnelli",
+      "direction": 1,
+      "strength": 1
+    }
+  ],
   "nodes": [
     {
       "id": "Pieter Wuille",
-      "x": 581.6588963327454,
-      "y": 396.2777457369395
+      "x": 565.5671604929016,
+      "y": 407.48935462365824
     },
     {
       "id": "Peter Todd",
-      "x": 553.9582152885741,
-      "y": 453.32720775076496
+      "x": 670.1995482963866,
+      "y": 504.44903392263996
     },
     {
       "id": "Greg Maxwell",
-      "x": 577.6743703484092,
-      "y": 523.0996355572713
+      "x": 559.4165578484092,
+      "y": 517.6223406353963
     },
     {
       "id": "Rusty Russell",
-      "x": 700.4332613530632,
-      "y": 515.8139666932329
+      "x": 542.1989473882195,
+      "y": 464.0834674256548
     },
     {
       "id": "Gavin Andresen",
-      "x": 870.9496222453591,
-      "y": 335.37712536719357
+      "x": 833.5546637492654,
+      "y": 356.0998121347717
     },
     {
       "id": "Nils Schneider",
-      "x": 920.3550517921576,
-      "y": 410.43405356131024
+      "x": 853.2036846046576,
+      "y": 421.5029927702946
     },
     {
       "id": "Matt Corallo",
-      "x": 806.839100116172,
-      "y": 397.06328348160133
+      "x": 788.3377573427344,
+      "y": 405.8803611183201
     },
     {
       "id": "Mike Hearn",
-      "x": 833.7971473053384,
-      "y": 358.98560323386613
+      "x": 868.6783728912759,
+      "y": 376.83011617331925
     },
     {
       "id": "Mike Caldwell",
-      "x": 222.59341835455825,
-      "y": 163.32762726097747
+      "x": 280.8897135205739,
+      "y": 200.22400482445403
     },
     {
       "id": "Aaron Voisine",
-      "x": 251.8379721495665,
-      "y": 180.84678894350776
+      "x": 392.0441946837462,
+      "y": 213.31561523745307
     },
     {
       "id": "Marek Palatinus",
-      "x": 324.59699391089833,
-      "y": 143.2558913652411
+      "x": 387.3208403464452,
+      "y": 276.0828719560614
     },
     {
       "id": "Pavol Rusnak",
-      "x": 383.51890278956637,
-      "y": 195.95571236659288
+      "x": 438.8634462465976,
+      "y": 315.5000086312413
     },
     {
       "id": "Sean Bowe",
-      "x": 337.7213024878184,
-      "y": 252.24426460266113
+      "x": 351.00398681399025,
+      "y": 346.6989917755127
     },
     {
       "id": "Antoine Poinsot",
-      "x": 688.7915132255648,
-      "y": 381.4177121438986
+      "x": 669.6054170341586,
+      "y": 385.10734837436735
     },
     {
       "id": "Thomas Kerin",
-      "x": 682.8291968071744,
-      "y": 218.38426142167475
+      "x": 652.5741308892057,
+      "y": 244.94964533280756
     },
     {
       "id": "Jean-Pierre Rupp",
-      "x": 739.9458732187875,
-      "y": 253.13228746031132
+      "x": 613.6908073008187,
+      "y": 228.36159654234257
     },
     {
       "id": "Ruben de Vries",
-      "x": 774.5657669673257,
-      "y": 234.23383508436137
+      "x": 689.7040115962319,
+      "y": 220.95113549940044
     },
     {
       "id": "Mark Friedenbach",
-      "x": 606.1865313721312,
-      "y": 260.26006212007223
+      "x": 620.2071002197874,
+      "y": 282.39787950288473
     },
     {
       "id": "BtcDrak",
-      "x": 522.117845762086,
-      "y": 281.00472163199424
+      "x": 514.7385733011484,
+      "y": 290.59776972769737
     },
     {
       "id": "Nicolas Dorier",
-      "x": 591.1378920613305,
-      "y": 193.28104483609366
+      "x": 544.1057265339867,
+      "y": 208.44330679898428
     },
     {
       "id": "kinoshitajona",
-      "x": 424.8422881300011,
-      "y": 227.64689400612173
+      "x": 470.5937529737511,
+      "y": 251.99850228248891
     },
     {
       "id": "Justin Newton",
-      "x": 288.0491278080599,
-      "y": 299.42688597916833
+      "x": 285.09740661665364,
+      "y": 304.5923828053402
     },
     {
       "id": "Matt David",
@@ -396,8 +1064,8 @@
     },
     {
       "id": "Eric Lombrozo",
-      "x": 581.5905777356579,
-      "y": 332.8801760207672
+      "x": 566.6674820325329,
+      "y": 352.8788637649078
     },
     {
       "id": "Ava Chow",
@@ -406,58 +1074,58 @@
     },
     {
       "id": "Leon Olsson Curr and Pearlwort Sneed",
-      "x": 752.6055548552245,
-      "y": 336.1543969754379
+      "x": 667.2747443083495,
+      "y": 344.15763183871917
     },
     {
       "id": "Andrew Poelstra",
-      "x": 686.1050770164846,
-      "y": 309.0980363496617
+      "x": 695.4927112938284,
+      "y": 361.5821366914586
     },
     {
       "id": "Kalle Alm",
-      "x": 553.682223307413,
-      "y": 206.44724023998214
+      "x": 561.604098307413,
+      "y": 245.0432485407634
     },
     {
       "id": "Johnson Lau",
-      "x": 478.0542498910743,
-      "y": 305.01182485438017
+      "x": 473.2178241098243,
+      "y": 338.3882286629739
     },
     {
       "id": "Christian Decker",
-      "x": 379.0421267514236,
-      "y": 484.8237779125684
+      "x": 418.6007205014236,
+      "y": 479.3464524731153
     },
     {
       "id": "Anthony Towns",
-      "x": 437.83608969311365,
-      "y": 517.9391779983014
+      "x": 439.05325277905115,
+      "y": 515.5048518264264
     },
     {
       "id": "William Swanson",
-      "x": 639.8957925846125,
-      "y": 288.2811447783607
+      "x": 601.1095987369563,
+      "y": 376.90702978812635
     },
     {
       "id": "David A. Harding",
-      "x": 630.7323061075994,
-      "y": 478.8289143743915
+      "x": 726.8900209513494,
+      "y": 522.0390278997821
     },
     {
       "id": "Hugo Nguyen",
-      "x": 847.2327068006631,
-      "y": 159.3310670171203
+      "x": 751.3021648084756,
+      "y": 219.84110730032342
     },
     {
       "id": "Peter Gray",
-      "x": 873.1108968348393,
-      "y": 294.1616516113281
+      "x": 863.5178182215581,
+      "y": 277.1893310546875
     },
     {
       "id": "Marko Bencun",
-      "x": 804.1269770770502,
-      "y": 204.12482139707436
+      "x": 829.9544306903315,
+      "y": 238.06947776914467
     },
     {
       "id": "Aaron Chen",
@@ -466,28 +1134,28 @@
     },
     {
       "id": "Rodolfo Novak",
-      "x": 828.459635945423,
-      "y": 266.4698791503906
+      "x": 751.7151901446417,
+      "y": 291.5594024658203
     },
     {
       "id": "Велеслав",
-      "x": 406.1456739554113,
-      "y": 330.245849609375
+      "x": 403.19392224642695,
+      "y": 443.14874267578125
     },
     {
       "id": "Jonas Schnelli",
-      "x": 458.602347491107,
-      "y": 342.82708405535845
+      "x": 423.91976082118515,
+      "y": 404.8129849342647
     },
     {
       "id": "Daniel Pape",
-      "x": 376.780688328479,
-      "y": 368.8579406738281
+      "x": 355.38072494957277,
+      "y": 440.4368896484375
     },
     {
       "id": "Karl-Johan Alm",
-      "x": 414.4058145052132,
-      "y": 477.553178997617
+      "x": 306.68471465169756,
+      "y": 493.98524686871076
     },
     {
       "id": "Brad Denby",
@@ -496,8 +1164,8 @@
     },
     {
       "id": "Andrew Miller",
-      "x": 276.4856057448918,
-      "y": 472.7010078430176
+      "x": 286.81656887965744,
+      "y": 409.2392463684082
     },
     {
       "id": "Giulia Fanti",
@@ -516,23 +1184,23 @@
     },
     {
       "id": "Pramod Viswanath",
-      "x": 301.3765506107587,
-      "y": 397.3197613229201
+      "x": 276.28701203654,
+      "y": 465.9469891061232
     },
     {
       "id": "Daira Hopwood",
-      "x": 407.1297532245435,
-      "y": 283.97523498535156
+      "x": 312.67501079290287,
+      "y": 374.0023956298828
     },
     {
       "id": "Dhruv Mehta",
-      "x": 508.42445948002523,
-      "y": 494.0072547979645
+      "x": 504.1642971265096,
+      "y": 494.61583634093324
     },
     {
       "id": "Tim Ruffing",
-      "x": 450.8412120998236,
-      "y": 374.7785909819943
+      "x": 466.33770257833925,
+      "y": 381.4199484038693
     },
     {
       "id": "Jonas Nick",
@@ -541,8 +1209,8 @@
     },
     {
       "id": "Elliott Jin",
-      "x": 384.5898336489179,
-      "y": 445.4094420951957
+      "x": 364.665791900871,
+      "y": 376.0442382377738
     },
     {
       "id": "Gleb Naumenko",
@@ -551,23 +1219,23 @@
     },
     {
       "id": "Ethan Heilman",
-      "x": 643.7183225318203,
-      "y": 157.86449241638184
+      "x": 749.9798581763515,
+      "y": 327.5878047943115
     },
     {
       "id": "Armin Sabouri",
-      "x": 769.1800740628348,
-      "y": 182.56933975219727
+      "x": 706.4561971097098,
+      "y": 341.22375869750977
     },
     {
       "id": "josibake",
-      "x": 745.6690751829244,
-      "y": 488.8307458712595
+      "x": 747.4948808469869,
+      "y": 487.6135522677439
     },
     {
       "id": "Ruben Somsen",
-      "x": 857.4037404012714,
-      "y": 487.87726897469867
+      "x": 845.8404469442402,
+      "y": 486.0514938282143
     },
     {
       "id": "Sebastian Falbesoner",
@@ -576,18 +1244,18 @@
     },
     {
       "id": "Bastien Teinturier",
-      "x": 890.1261632914636,
-      "y": 359.5999677602038
+      "x": 798.9159582133386,
+      "y": 372.37477855121944
     },
     {
       "id": "Hunter Beast",
-      "x": 466.0847081966267,
-      "y": 139.00008392333984
+      "x": 641.711478216158,
+      "y": 324.2198715209961
     },
     {
       "id": "Isabel Foxen Duke",
-      "x": 539.7268795536845,
-      "y": 173.00944328308105
+      "x": 694.691601233372,
+      "y": 302.1467571258545
     },
     {
       "id": "Andrew Toth",

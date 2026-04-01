@@ -37,8 +37,12 @@ NODE_BORDER_COLOR = "#111111"
 NODE_BORDER_WIDTH = 1.5
 EDGE_ALPHA = 0.7
 EDGE_CURVATURE = 0.08
-NODE_LABEL_DEGREE_THRESHOLD = 3
+DEFAULT_EDGE_CURVE_DIRECTION = 1
+DEFAULT_EDGE_CURVE_STRENGTH = 1.0
+NODE_LABEL_MIN_BIP_COUNT = 3
+NODE_LABEL_MIN_DEGREE = 3
 NODE_LABEL_FONT_SIZE = 9.5
+NODE_LABEL_BOX_ALPHA = 0.6
 COLLABORATION_CLUSTER_COLORS = [
     "#2a6f97",
     "#bc4749",
@@ -102,6 +106,49 @@ def _normalize_imported_positions(payload: dict[str, Any]) -> dict[str, tuple[fl
         normalized_positions[str(node_id)] = (float(x_coord), float(y_coord))
 
     return normalized_positions
+
+
+def _build_canonical_edge_key(source_id: str, target_id: str) -> str:
+    left = str(source_id)
+    right = str(target_id)
+    if left <= right:
+        return f"{left}\0{right}"
+    return f"{right}\0{left}"
+
+
+def _normalize_imported_edge_curves(payload: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    normalized_curves: dict[str, dict[str, Any]] = {}
+    raw_curves = payload.get("edge_curves")
+    if not isinstance(raw_curves, list):
+        return normalized_curves
+
+    for entry in raw_curves:
+        if not isinstance(entry, dict):
+            continue
+
+        source_id = str(entry.get("source") or "").strip()
+        target_id = str(entry.get("target") or "").strip()
+        if not source_id or not target_id or source_id == target_id:
+            continue
+
+        raw_direction = entry.get("direction")
+        direction = -1 if isinstance(raw_direction, (int, float)) and float(raw_direction) < 0 else DEFAULT_EDGE_CURVE_DIRECTION
+
+        raw_strength = entry.get("strength")
+        strength = (
+            float(raw_strength)
+            if isinstance(raw_strength, (int, float)) and float(raw_strength) > 0
+            else DEFAULT_EDGE_CURVE_STRENGTH
+        )
+
+        normalized_curves[_build_canonical_edge_key(source_id, target_id)] = {
+            "source": source_id,
+            "target": target_id,
+            "direction": direction,
+            "strength": strength,
+        }
+
+    return normalized_curves
 
 
 def resolve_layout_export_path(layout_export_value: str | None) -> Path:
@@ -214,16 +261,36 @@ def _linear_scaled_value(
     return range_min + fraction * (range_max - range_min)
 
 
+def _should_draw_node_label(node_attrs: dict[str, Any]) -> bool:
+    bip_count = int(node_attrs.get("bip_count", 0) or 0)
+    degree = int(node_attrs.get("degree", 0) or 0)
+    return bip_count >= NODE_LABEL_MIN_BIP_COUNT or degree >= NODE_LABEL_MIN_DEGREE
+
+
+def _resolve_edge_curve(source_id: str, target_id: str, edge_curve_overrides: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    curve = edge_curve_overrides.get(_build_canonical_edge_key(source_id, target_id))
+    if curve is not None:
+        return curve
+
+    return {
+        "source": source_id,
+        "target": target_id,
+        "direction": DEFAULT_EDGE_CURVE_DIRECTION,
+        "strength": DEFAULT_EDGE_CURVE_STRENGTH,
+    }
+
+
 def _build_visible_graph(
     network_data: dict[str, Any],
     authorship_payload: dict[str, Any],
     layout_payload: dict[str, Any],
-) -> tuple[nx.Graph, dict[str, tuple[float, float]], list[dict[str, Any]]]:
+) -> tuple[nx.Graph, dict[str, tuple[float, float]], list[dict[str, Any]], dict[str, dict[str, Any]]]:
     collaboration_network = authorship_payload.get("collaboration_network", {}) or {}
     raw_nodes = collaboration_network.get("nodes", []) or []
     raw_edges = collaboration_network.get("edges", []) or []
     author_bip_map = build_author_bip_map(network_data)
     exported_positions = _normalize_imported_positions(layout_payload)
+    edge_curve_overrides = _normalize_imported_edge_curves(layout_payload)
     if not exported_positions:
         raise ValueError("Layout export does not contain any node positions.")
 
@@ -328,6 +395,8 @@ def _build_visible_graph(
             source_id,
             target_id,
             weight=int(edge.get("weight", 1) or 1),
+            raw_source=source_id,
+            raw_target=target_id,
         )
 
     visible_positions = {
@@ -338,7 +407,7 @@ def _build_visible_graph(
     if not visible_positions:
         raise ValueError("No graph nodes remained after applying exported layout positions.")
 
-    return graph, visible_positions, visible_clusters
+    return graph, visible_positions, visible_clusters, edge_curve_overrides
 
 
 def plot_collaboration_network_from_exported_layout(
@@ -351,25 +420,30 @@ def plot_collaboration_network_from_exported_layout(
     title: str | None = None,
 ) -> None:
     layout_payload = json.loads(layout_export_path.read_text(encoding="utf8"))
-    graph, positions, visible_clusters = _build_visible_graph(network_data, authorship_payload, layout_payload)
+    graph, positions, visible_clusters, edge_curve_overrides = _build_visible_graph(
+        network_data,
+        authorship_payload,
+        layout_payload,
+    )
     if graph.number_of_nodes() == 0:
         raise ValueError("Exported collaboration graph is empty.")
 
     ordered_nodes = sorted(
         graph.nodes(),
         key=lambda author: (
+            -int(graph.nodes[author].get("bip_count", 0) or 0),
             -int(graph.nodes[author].get("degree", 0) or 0),
             author.lower(),
         ),
     )
-    degree_values = [int(graph.nodes[node_id].get("degree", 0) or 0) for node_id in ordered_nodes]
-    degree_min = min(degree_values) if degree_values else 0
-    degree_max = max(degree_values) if degree_values else 1
+    bip_count_values = [int(graph.nodes[node_id].get("bip_count", 0) or 0) for node_id in ordered_nodes]
+    bip_count_min = min(bip_count_values) if bip_count_values else 0
+    bip_count_max = max(bip_count_values) if bip_count_values else 1
     node_radii = {
         node_id: _sqrt_scaled_value(
-            float(graph.nodes[node_id].get("degree", 0) or 0),
-            domain_min=float(degree_min),
-            domain_max=float(degree_max if degree_max > degree_min else degree_min + 1),
+            float(graph.nodes[node_id].get("bip_count", 0) or 0),
+            domain_min=float(bip_count_min),
+            domain_max=float(bip_count_max if bip_count_max > bip_count_min else bip_count_min + 1),
             range_min=NODE_RADIUS_RANGE[0],
             range_max=NODE_RADIUS_RANGE[1],
         )
@@ -381,8 +455,8 @@ def plot_collaboration_network_from_exported_layout(
         graph.edges(data=True),
         key=lambda item: (
             -int(item[2].get("weight", 1) or 1),
-            str(item[0]).lower(),
-            str(item[1]).lower(),
+            str(item[2].get("raw_source") or item[0]).lower(),
+            str(item[2].get("raw_target") or item[1]).lower(),
         ),
     )
     edge_weights = [int(data.get("weight", 1) or 1) for _, _, data in edge_list]
@@ -399,8 +473,14 @@ def plot_collaboration_network_from_exported_layout(
         for _, _, data in edge_list
     ]
     edge_colors = [
-        to_rgba(graph.nodes[source_id].get("cluster_color", COLLABORATION_CLUSTER_COLORS[0]), EDGE_ALPHA)
-        for source_id, _, _ in edge_list
+        to_rgba(
+            graph.nodes[str(data.get("raw_source") or source_id)].get(
+                "cluster_color",
+                COLLABORATION_CLUSTER_COLORS[0],
+            ),
+            EDGE_ALPHA,
+        )
+        for source_id, _, data in edge_list
     ]
 
     figure, axis = plt.subplots(figsize=DEFAULT_FIGSIZE)
@@ -410,18 +490,34 @@ def plot_collaboration_network_from_exported_layout(
     axis.set_aspect("equal", adjustable="box")
 
     if edge_list:
-        nx.draw_networkx_edges(
-            graph,
-            positions,
-            edgelist=[(source_id, target_id) for source_id, target_id, _ in edge_list],
-            width=edge_widths,
-            edge_color=edge_colors,
-            alpha=None,
-            arrows=True,
-            arrowstyle="-",
-            connectionstyle=f"arc3,rad={EDGE_CURVATURE}",
-            ax=axis,
-        )
+        for (source_id, target_id, data), edge_width, edge_color in zip(edge_list, edge_widths, edge_colors):
+            edge_source = str(data.get("raw_source") or source_id)
+            edge_target = str(data.get("raw_target") or target_id)
+            curve = _resolve_edge_curve(edge_source, edge_target, edge_curve_overrides)
+            orientation_matches = (
+                1
+                if curve.get("source") == edge_source and curve.get("target") == edge_target
+                else -1
+            )
+            signed_curvature = (
+                EDGE_CURVATURE
+                * float(curve.get("direction", DEFAULT_EDGE_CURVE_DIRECTION))
+                * orientation_matches
+                * float(curve.get("strength", DEFAULT_EDGE_CURVE_STRENGTH))
+            )
+
+            nx.draw_networkx_edges(
+                graph,
+                positions,
+                edgelist=[(edge_source, edge_target)],
+                width=edge_width,
+                edge_color=[edge_color],
+                alpha=None,
+                arrows=True,
+                arrowstyle="-",
+                connectionstyle=f"arc3,rad={signed_curvature}",
+                ax=axis,
+            )
 
     nx.draw_networkx_nodes(
         graph,
@@ -438,8 +534,8 @@ def plot_collaboration_network_from_exported_layout(
     )
 
     for node_id in ordered_nodes:
-        degree = int(graph.nodes[node_id].get("degree", 0) or 0)
-        if degree < NODE_LABEL_DEGREE_THRESHOLD:
+        node_attrs = graph.nodes[node_id]
+        if not _should_draw_node_label(node_attrs):
             continue
 
         x_coord, y_coord = positions[node_id]
@@ -456,7 +552,7 @@ def plot_collaboration_network_from_exported_layout(
                 "boxstyle": "round,pad=0.16",
                 "facecolor": "white",
                 "edgecolor": "none",
-                "alpha": 0.9,
+                "alpha": NODE_LABEL_BOX_ALPHA,
             },
         )
 

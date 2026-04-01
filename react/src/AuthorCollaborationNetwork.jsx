@@ -10,6 +10,8 @@ const COLLABORATION_LAYOUT_OPTION_VALUES = new Set(
 const EDGE_STROKE_WIDTH_RANGE = [1.5, 10];
 const EDGE_STROKE_WIDTH_EXPONENT = 0.6;
 const EDGE_STROKE_WIDTH_HOVER_DELTA = 1.5;
+const DEFAULT_EDGE_CURVE_DIRECTION = 1;
+const DEFAULT_EDGE_CURVE_STRENGTH = 1;
 
 function sanitizeFilePart(value, fallback = 'unknown') {
   const text = String(value ?? '')
@@ -68,6 +70,41 @@ function normalizeImportedPositions(payload) {
   }
 
   return normalizedPositions;
+}
+
+function buildCanonicalEdgeKey(left, right) {
+  const a = String(left ?? '');
+  const b = String(right ?? '');
+  return a.localeCompare(b) <= 0 ? `${a}\u0000${b}` : `${b}\u0000${a}`;
+}
+
+function normalizeImportedEdgeCurves(payload) {
+  const normalizedCurves = new Map();
+  const rawCurves = Array.isArray(payload?.edge_curves) ? payload.edge_curves : [];
+
+  rawCurves.forEach((entry) => {
+    const source = String(entry?.source ?? '').trim();
+    const target = String(entry?.target ?? '').trim();
+    if (!source || !target || source === target) {
+      return;
+    }
+
+    const rawDirection = Number(entry?.direction);
+    const direction = Number.isFinite(rawDirection) && rawDirection < 0 ? -1 : DEFAULT_EDGE_CURVE_DIRECTION;
+    const rawStrength = Number(entry?.strength);
+    const strength = Number.isFinite(rawStrength) && rawStrength > 0
+      ? rawStrength
+      : DEFAULT_EDGE_CURVE_STRENGTH;
+
+    normalizedCurves.set(buildCanonicalEdgeKey(source, target), {
+      source,
+      target,
+      direction,
+      strength,
+    });
+  });
+
+  return normalizedCurves;
 }
 
 function buildDisplayCollaborationComponents(nodes, adjacency) {
@@ -201,6 +238,7 @@ export const AuthorCollaborationNetwork = ({
     try {
       const payload = JSON.parse(await file.text());
       const importedPositions = normalizeImportedPositions(payload);
+      const importedEdgeCurves = normalizeImportedEdgeCurves(payload);
 
       if (Object.keys(importedPositions).length === 0) {
         throw new Error('The selected file does not contain any layout positions.');
@@ -218,6 +256,7 @@ export const AuthorCollaborationNetwork = ({
       setImportedLayout({
         fileName: file.name,
         positions: importedPositions,
+        edgeCurves: importedEdgeCurves,
       });
       setPhysicsEnabled(false);
     } catch (error) {
@@ -325,6 +364,7 @@ export const AuthorCollaborationNetwork = ({
     ));
     const visibleClusters = clusterMeta.filter((cluster) => visibleClusterIds.has(cluster.clusterId));
     const importedPositions = importedLayout?.positions || null;
+    const importedEdgeCurves = importedLayout?.edgeCurves || new Map();
     const importedPositionedNodeCount = importedPositions
       ? visibleNodes.filter((node) => importedPositions[String(node.id)]).length
       : 0;
@@ -433,6 +473,29 @@ export const AuthorCollaborationNetwork = ({
       Number(entry.degree || 0) === 0
         ? '#111111'
         : clusterColor(entry.clusterId)
+    );
+    const getDefaultEdgeCurve = (edge) => ({
+      source: String(getEdgeSourceId(edge)),
+      target: String(getEdgeTargetId(edge)),
+      direction: DEFAULT_EDGE_CURVE_DIRECTION,
+      strength: DEFAULT_EDGE_CURVE_STRENGTH,
+    });
+    const getResolvedEdgeCurve = (edge) => (
+      importedEdgeCurves.get(
+        buildCanonicalEdgeKey(getEdgeSourceId(edge), getEdgeTargetId(edge))
+      ) || getDefaultEdgeCurve(edge)
+    );
+    const getSignedEdgeCurveStrength = (edge) => {
+      const curve = getResolvedEdgeCurve(edge);
+      const sourceId = String(getEdgeSourceId(edge));
+      const targetId = String(getEdgeTargetId(edge));
+      const orientationMatches = curve.source === sourceId && curve.target === targetId ? 1 : -1;
+      return curve.direction * orientationMatches * curve.strength;
+    };
+    const shouldShowNodeLabel = (entry) => (
+      matchedIds.has(entry.id)
+      || Number(entry.bips?.length || 0) >= 3
+      || Number(entry.degree || 0) >= 3
     );
 
     let pinnedInteraction = null;
@@ -755,7 +818,7 @@ export const AuthorCollaborationNetwork = ({
 
     labels = root.append('g')
       .selectAll('text')
-      .data(visibleNodes.filter((entry) => Number(entry.degree || 0) >= 3 || matchedIds.has(entry.id)))
+      .data(visibleNodes.filter(shouldShowNodeLabel))
       .join('text')
       .text((entry) => entry.id)
       .style('font-size', '11px')
@@ -765,7 +828,7 @@ export const AuthorCollaborationNetwork = ({
         if (!normalizedHighlight) {
           return 1;
         }
-        return matchedIds.has(entry.id) || Number(entry.degree || 0) >= 3 ? 1 : 0.2;
+        return shouldShowNodeLabel(entry) ? 1 : 0.2;
       })
       .style('paint-order', 'stroke')
       .style('stroke', 'var(--chart-outline)')
@@ -783,6 +846,11 @@ export const AuthorCollaborationNetwork = ({
           ],
         ])
       );
+      const edgeCurves = visibleLinks
+        .map((edge) => getResolvedEdgeCurve(edge))
+        .sort((left, right) => (
+          left.source.localeCompare(right.source) || left.target.localeCompare(right.target)
+        ));
 
       exportPayloadRef.current = {
         snapshot: snapshotLabel,
@@ -798,6 +866,7 @@ export const AuthorCollaborationNetwork = ({
           edge_count: visibleLinks.length,
         },
         positions,
+        edge_curves: edgeCurves,
         nodes: Object.entries(positions).map(([id, [xCoord, yCoord]]) => ({
           id,
           x: xCoord,
@@ -820,7 +889,7 @@ export const AuthorCollaborationNetwork = ({
           const midpointY = (sourceY + targetY) / 2;
           const normalX = -dy / distance;
           const normalY = dx / distance;
-          const curveOffset = Math.min(24, Math.max(8, distance * 0.07));
+          const curveOffset = Math.min(24, Math.max(8, distance * 0.07)) * getSignedEdgeCurveStrength(edge);
           const controlX = midpointX + (normalX * curveOffset);
           const controlY = midpointY + (normalY * curveOffset);
           return `M ${sourceX},${sourceY} Q ${controlX},${controlY} ${targetX},${targetY}`;
