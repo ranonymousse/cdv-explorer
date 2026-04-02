@@ -198,7 +198,9 @@
     "433": "bip-0433.mediawiki",
     "434": "bip-0434.md",
     "442": "bip-0442.md",
-    "443": "bip-0443.mediawiki"
+    "443": "bip-0443.mediawiki",
+    "446": "bip-0446.md",
+    "448": "bip-0448.md"
   },
   "snapshotCommits": {
     "2021-01-01": "c624414119573e41466dcf407b3c53507624678f",

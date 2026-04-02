@@ -114,13 +114,13 @@ function buildIndex() {
 
     snapshotCommits[snapshotLabel] = commitHash;
     snapshotFiles[snapshotLabel] = listBipFilesForCommit(harvestRoot, commitHash);
-
-    Object.entries(snapshotFiles[snapshotLabel]).forEach(([bipId, fileName]) => {
-      if (!bipFiles[bipId]) {
-        bipFiles[bipId] = fileName;
-      }
-    });
   });
+
+  // Build bipFiles from the current HEAD so fallback links to master use the correct file names.
+  // Building from snapshots is wrong: it uses the oldest known name per BIP, causing renamed
+  // files (e.g. .mediawiki → .md) or BIPs added after all snapshots to resolve incorrectly.
+  const headCommit = branchRef ? runGit(['-C', harvestRoot, 'rev-parse', branchRef]) : '';
+  Object.assign(bipFiles, listBipFilesForCommit(harvestRoot, headCommit));
 
   return {
     repositoryUrl: externalLinks.bitcoinBipsRepositoryUrl || 'https://github.com/bitcoin/bips',
