@@ -1,9 +1,4 @@
 import * as d3 from 'd3';
-import {
-  BODY_EXTRACTED_LLM,
-  BODY_EXTRACTED_REGEX,
-  PREAMBLE_EXTRACTED,
-} from '../dependencyApproaches';
 import { CLASSIFICATION_DIMENSIONS } from './constants';
 
 const WORD_CLOUD_STOPWORDS = new Set([
