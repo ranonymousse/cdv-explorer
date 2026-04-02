@@ -25,6 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "postinstall": "patch-package",
     "prestart": "node scripts/generateBipLinkIndex.js",
     "start": "react-scripts start",
     "prebuild": "node scripts/generateBipLinkIndex.js",
@@ -49,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "patch-package": "^8.0.1"
   }
 }
