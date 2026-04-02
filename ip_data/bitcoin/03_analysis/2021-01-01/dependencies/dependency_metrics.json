@@ -16,7 +16,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.041224414542279826
+          "pagerank": 0.041224414542279826,
+          "weighted_eigenvector": 0.5
         },
         {
           "id": "2",
@@ -24,7 +25,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.041224414542279826
+          "pagerank": 0.041224414542279826,
+          "weighted_eigenvector": 0.5
         },
         {
           "id": "8",
@@ -32,7 +34,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "9",
@@ -40,7 +43,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.011464633394020759
+          "pagerank": 0.011464633394020759,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "10",
@@ -48,7 +52,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "11",
@@ -56,7 +61,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "12",
@@ -64,7 +70,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "13",
@@ -72,7 +79,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "14",
@@ -80,7 +88,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "15",
@@ -88,7 +97,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "16",
@@ -96,7 +106,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "17",
@@ -104,7 +115,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "18",
@@ -112,7 +124,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "19",
@@ -120,7 +133,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "20",
@@ -128,7 +142,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "21",
@@ -136,7 +151,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "22",
@@ -144,7 +160,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "23",
@@ -152,7 +169,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "30",
@@ -160,7 +178,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "31",
@@ -168,7 +187,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "32",
@@ -176,7 +196,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "33",
@@ -184,7 +205,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "34",
@@ -192,7 +214,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "35",
@@ -200,7 +223,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "36",
@@ -208,7 +232,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "37",
@@ -216,7 +241,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "38",
@@ -224,7 +250,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "39",
@@ -232,7 +259,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "42",
@@ -240,7 +268,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "43",
@@ -248,7 +277,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "44",
@@ -256,7 +286,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "45",
@@ -264,7 +295,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "47",
@@ -272,7 +304,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "49",
@@ -280,7 +313,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "50",
@@ -288,7 +322,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "60",
@@ -296,7 +331,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "61",
@@ -304,7 +340,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "62",
@@ -312,7 +349,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "64",
@@ -320,7 +358,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "65",
@@ -328,7 +367,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "66",
@@ -336,7 +376,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "67",
@@ -344,7 +385,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "68",
@@ -352,7 +394,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "69",
@@ -360,7 +403,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "70",
@@ -368,7 +412,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "71",
@@ -376,7 +421,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "72",
@@ -384,7 +430,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "73",
@@ -392,7 +439,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "74",
@@ -400,7 +448,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "75",
@@ -408,7 +457,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "78",
@@ -416,7 +466,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.041224414542279826
+          "pagerank": 0.041224414542279826,
+          "weighted_eigenvector": 0.5
         },
         {
           "id": "79",
@@ -424,7 +475,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.041224414542279826
+          "pagerank": 0.041224414542279826,
+          "weighted_eigenvector": 0.5
         },
         {
           "id": "80",
@@ -432,7 +484,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "81",
@@ -440,7 +493,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "83",
@@ -448,7 +502,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "84",
@@ -456,7 +511,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "85",
@@ -464,7 +520,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "90",
@@ -472,7 +529,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "91",
@@ -480,7 +538,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "98",
@@ -488,7 +547,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "99",
@@ -496,7 +556,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "100",
@@ -504,7 +565,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "101",
@@ -512,7 +574,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "102",
@@ -520,7 +583,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "103",
@@ -528,7 +592,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "104",
@@ -536,7 +601,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "105",
@@ -544,7 +610,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "106",
@@ -552,7 +619,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "107",
@@ -560,7 +628,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "109",
@@ -568,7 +637,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "111",
@@ -576,7 +646,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "112",
@@ -584,7 +655,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "113",
@@ -592,7 +664,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "114",
@@ -600,7 +673,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "115",
@@ -608,7 +682,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "116",
@@ -616,7 +691,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "117",
@@ -624,7 +700,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "118",
@@ -632,7 +709,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "119",
@@ -640,7 +718,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "120",
@@ -648,7 +727,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "121",
@@ -656,7 +736,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "122",
@@ -664,7 +745,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "123",
@@ -672,7 +754,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "124",
@@ -680,7 +763,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "125",
@@ -688,7 +772,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "126",
@@ -696,7 +781,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "127",
@@ -704,7 +790,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "130",
@@ -712,7 +799,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "131",
@@ -720,7 +808,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "132",
@@ -728,7 +817,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "133",
@@ -736,7 +826,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "134",
@@ -744,7 +835,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "135",
@@ -752,7 +844,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "136",
@@ -760,7 +853,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "137",
@@ -768,7 +862,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "140",
@@ -776,7 +871,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "141",
@@ -784,7 +880,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "142",
@@ -792,7 +889,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.011464633394020759
+          "pagerank": 0.011464633394020759,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "143",
@@ -800,7 +898,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "144",
@@ -808,7 +907,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "145",
@@ -816,7 +916,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "146",
@@ -824,7 +925,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "147",
@@ -832,7 +934,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "148",
@@ -840,7 +943,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "149",
@@ -848,7 +952,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "150",
@@ -856,7 +961,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "151",
@@ -864,7 +970,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "152",
@@ -872,7 +979,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "154",
@@ -880,7 +988,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "155",
@@ -888,7 +997,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "156",
@@ -896,7 +1006,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "157",
@@ -904,7 +1015,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "158",
@@ -912,7 +1024,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "159",
@@ -920,7 +1033,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "171",
@@ -928,7 +1042,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "173",
@@ -936,7 +1051,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "174",
@@ -944,7 +1060,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "175",
@@ -952,7 +1069,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "176",
@@ -960,7 +1078,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "178",
@@ -968,7 +1087,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "179",
@@ -976,7 +1096,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "180",
@@ -984,7 +1105,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "197",
@@ -992,7 +1114,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "199",
@@ -1000,7 +1123,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "300",
@@ -1008,7 +1132,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "301",
@@ -1016,7 +1141,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "310",
@@ -1024,7 +1150,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "320",
@@ -1032,7 +1159,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "322",
@@ -1040,7 +1168,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "325",
@@ -1048,7 +1177,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "330",
@@ -1056,7 +1186,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "339",
@@ -1064,7 +1195,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "340",
@@ -1072,7 +1204,8 @@
           "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.016337498350560992
+          "pagerank": 0.016337498350560992,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "341",
@@ -1080,7 +1213,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.008830760853854574
+          "pagerank": 0.008830760853854574,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "342",
@@ -1088,7 +1222,8 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.006196888313688387
+          "pagerank": 0.006196888313688387,
+          "weighted_eigenvector": 0.0
         }
       ]
     },
@@ -1108,7 +1243,8 @@
           "in_degree": 4,
           "out_degree": 1,
           "betweenness": 0.0010660980810234541,
-          "pagerank": 0.0058330033267135414
+          "pagerank": 0.0058330033267135414,
+          "weighted_eigenvector": 2.3322268979694173e-22
         },
         {
           "id": "2",
@@ -1116,7 +1252,8 @@
           "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.00476938615194703,
-          "pagerank": 0.003098897133160307
+          "pagerank": 0.003098897133160307,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "8",
@@ -1124,7 +1261,8 @@
           "in_degree": 5,
           "out_degree": 7,
           "betweenness": 0.0024791456252571727,
-          "pagerank": 0.009298770752878714
+          "pagerank": 0.009298770752878714,
+          "weighted_eigenvector": 2.2855823600100283e-21
         },
         {
           "id": "9",
@@ -1132,7 +1270,8 @@
           "in_degree": 24,
           "out_degree": 6,
           "betweenness": 0.010666324660264737,
-          "pagerank": 0.044773007000150244
+          "pagerank": 0.044773007000150244,
+          "weighted_eigenvector": 0.48197890580892244
         },
         {
           "id": "10",
@@ -1140,7 +1279,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "11",
@@ -1148,7 +1288,8 @@
           "in_degree": 8,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.02821578452000114
+          "pagerank": 0.02821578452000114,
+          "weighted_eigenvector": 0.11190535993902359
         },
         {
           "id": "12",
@@ -1156,7 +1297,8 @@
           "in_degree": 6,
           "out_degree": 1,
           "betweenness": 3.740695021134927e-05,
-          "pagerank": 0.015943716961350808
+          "pagerank": 0.015943716961350808,
+          "weighted_eigenvector": 0.10299390258019951
         },
         {
           "id": "13",
@@ -1164,7 +1306,8 @@
           "in_degree": 6,
           "out_degree": 3,
           "betweenness": 0.003532151273706655,
-          "pagerank": 0.013744558578886406
+          "pagerank": 0.013744558578886406,
+          "weighted_eigenvector": 0.07683328169409696
         },
         {
           "id": "14",
@@ -1172,7 +1315,8 @@
           "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0031116322028451626
+          "pagerank": 0.0031116322028451626,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "15",
@@ -1180,7 +1324,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "16",
@@ -1188,7 +1333,8 @@
           "in_degree": 21,
           "out_degree": 3,
           "betweenness": 0.011290352747540497,
-          "pagerank": 0.027679698001918954
+          "pagerank": 0.027679698001918954,
+          "weighted_eigenvector": 0.19931861793054745
         },
         {
           "id": "17",
@@ -1196,7 +1342,8 @@
           "in_degree": 4,
           "out_degree": 4,
           "betweenness": 6.546216286986121e-05,
-          "pagerank": 0.006681193781200529
+          "pagerank": 0.006681193781200529,
+          "weighted_eigenvector": 0.02617557334343962
         },
         {
           "id": "18",
@@ -1204,7 +1351,8 @@
           "in_degree": 1,
           "out_degree": 5,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "19",
@@ -1212,7 +1360,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "20",
@@ -1220,7 +1369,8 @@
           "in_degree": 2,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.037746767154857266
+          "pagerank": 0.037746767154857266,
+          "weighted_eigenvector": 2.9926661456260824e-06
         },
         {
           "id": "21",
@@ -1228,7 +1378,8 @@
           "in_degree": 7,
           "out_degree": 1,
           "betweenness": 0.0024688587139490518,
-          "pagerank": 0.04187100982932272
+          "pagerank": 0.04187100982932272,
+          "weighted_eigenvector": 7.3132332701255975e-06
         },
         {
           "id": "22",
@@ -1236,7 +1387,8 @@
           "in_degree": 3,
           "out_degree": 3,
           "betweenness": 0.00044888340253619125,
-          "pagerank": 0.006452022998715652
+          "pagerank": 0.006452022998715652,
+          "weighted_eigenvector": 6.1104344726798716e-21
         },
         {
           "id": "23",
@@ -1244,7 +1396,8 @@
           "in_degree": 3,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.004475713446465624
+          "pagerank": 0.004475713446465624,
+          "weighted_eigenvector": 6.1104344726798716e-21
         },
         {
           "id": "30",
@@ -1252,7 +1405,8 @@
           "in_degree": 4,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.006959699204938004
+          "pagerank": 0.006959699204938004,
+          "weighted_eigenvector": 3.731563036751068e-22
         },
         {
           "id": "31",
@@ -1260,7 +1414,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "32",
@@ -1268,7 +1423,8 @@
           "in_degree": 17,
           "out_degree": 1,
           "betweenness": 0.002524969139266076,
-          "pagerank": 0.08908067509770787
+          "pagerank": 0.08908067509770787,
+          "weighted_eigenvector": 5.090625285529967e-06
         },
         {
           "id": "33",
@@ -1276,7 +1432,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "34",
@@ -1284,7 +1441,8 @@
           "in_degree": 13,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.046320829441541596
+          "pagerank": 0.046320829441541596,
+          "weighted_eigenvector": 0.2989722532829444
         },
         {
           "id": "35",
@@ -1292,7 +1450,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "36",
@@ -1300,7 +1459,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "37",
@@ -1308,7 +1468,8 @@
           "in_degree": 5,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0073943479112617665
+          "pagerank": 0.0073943479112617665,
+          "weighted_eigenvector": 3.731563036751068e-22
         },
         {
           "id": "38",
@@ -1316,7 +1477,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "39",
@@ -1324,7 +1486,8 @@
           "in_degree": 3,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0784874843440744
+          "pagerank": 0.0784874843440744,
+          "weighted_eigenvector": 2.0831472801349662e-06
         },
         {
           "id": "42",
@@ -1332,7 +1495,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "43",
@@ -1340,7 +1504,8 @@
           "in_degree": 9,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.012623099838619471
+          "pagerank": 0.012623099838619471,
+          "weighted_eigenvector": 3.0074780053949966e-06
         },
         {
           "id": "44",
@@ -1348,7 +1513,8 @@
           "in_degree": 12,
           "out_degree": 2,
           "betweenness": 0.0002524969139266076,
-          "pagerank": 0.014422638030647177
+          "pagerank": 0.014422638030647177,
+          "weighted_eigenvector": 3.0074780053949975e-06
         },
         {
           "id": "45",
@@ -1356,7 +1522,8 @@
           "in_degree": 3,
           "out_degree": 3,
           "betweenness": 0.0002524969139266076,
-          "pagerank": 0.00342097808535
+          "pagerank": 0.00342097808535,
+          "weighted_eigenvector": 2.3322268979694173e-22
         },
         {
           "id": "47",
@@ -1364,7 +1531,8 @@
           "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0061721467848726294,
-          "pagerank": 0.002780900113082188
+          "pagerank": 0.002780900113082188,
+          "weighted_eigenvector": 4.341951261516484e-06
         },
         {
           "id": "49",
@@ -1372,7 +1540,8 @@
           "in_degree": 2,
           "out_degree": 5,
           "betweenness": 5.143455654060524e-05,
-          "pagerank": 0.0024886954146072036
+          "pagerank": 0.0024886954146072036,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "50",
@@ -1380,7 +1549,8 @@
           "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0024156039672092794
+          "pagerank": 0.0024156039672092794,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "60",
@@ -1388,7 +1558,8 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "61",
@@ -1396,7 +1567,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "62",
@@ -1404,7 +1576,8 @@
           "in_degree": 8,
           "out_degree": 1,
           "betweenness": 0.0006706531787891905,
-          "pagerank": 0.017493681956379865
+          "pagerank": 0.017493681956379865,
+          "weighted_eigenvector": 0.10056508310330528
         },
         {
           "id": "64",
@@ -1412,7 +1585,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "65",
@@ -1420,7 +1594,8 @@
           "in_degree": 13,
           "out_degree": 2,
           "betweenness": 0.0009362425252897708,
-          "pagerank": 0.023665157807575984
+          "pagerank": 0.023665157807575984,
+          "weighted_eigenvector": 0.3843191092448832
         },
         {
           "id": "66",
@@ -1428,7 +1603,8 @@
           "in_degree": 11,
           "out_degree": 2,
           "betweenness": 0.0014281439205690132,
-          "pagerank": 0.023104198089613476
+          "pagerank": 0.023104198089613476,
+          "weighted_eigenvector": 0.2951120839607609
         },
         {
           "id": "67",
@@ -1436,7 +1612,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "68",
@@ -1444,7 +1621,8 @@
           "in_degree": 10,
           "out_degree": 3,
           "betweenness": 0.002763438446863427,
-          "pagerank": 0.024597298259787306
+          "pagerank": 0.024597298259787306,
+          "weighted_eigenvector": 0.3843191092448832
         },
         {
           "id": "69",
@@ -1452,7 +1630,8 @@
           "in_degree": 3,
           "out_degree": 1,
           "betweenness": 0.00016833127595107172,
-          "pagerank": 0.004909210702427315
+          "pagerank": 0.004909210702427315,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "70",
@@ -1460,7 +1639,8 @@
           "in_degree": 10,
           "out_degree": 2,
           "betweenness": 0.008809336774772754,
-          "pagerank": 0.017381005650540172
+          "pagerank": 0.017381005650540172,
+          "weighted_eigenvector": 3.6359636935276665e-05
         },
         {
           "id": "71",
@@ -1468,7 +1648,8 @@
           "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.009570639656961966
+          "pagerank": 0.009570639656961966,
+          "weighted_eigenvector": 1.4878816348907565e-05
         },
         {
           "id": "72",
@@ -1476,7 +1657,8 @@
           "in_degree": 2,
           "out_degree": 2,
           "betweenness": 0.004376613174727865,
-          "pagerank": 0.009570639656961966
+          "pagerank": 0.009570639656961966,
+          "weighted_eigenvector": 1.4878816348907565e-05
         },
         {
           "id": "73",
@@ -1484,7 +1666,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "74",
@@ -1492,7 +1675,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "75",
@@ -1500,7 +1684,8 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "78",
@@ -1508,7 +1693,8 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "79",
@@ -1516,7 +1702,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0008977668050723824,
-          "pagerank": 0.003068932692399337
+          "pagerank": 0.003068932692399337,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "80",
@@ -1524,7 +1711,8 @@
           "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.002647613379087907
+          "pagerank": 0.002647613379087907,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "81",
@@ -1532,7 +1720,8 @@
           "in_degree": 1,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "83",
@@ -1540,7 +1729,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "84",
@@ -1548,7 +1738,8 @@
           "in_degree": 0,
           "out_degree": 6,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "85",
@@ -1556,7 +1747,8 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "90",
@@ -1564,7 +1756,8 @@
           "in_degree": 0,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "91",
@@ -1572,7 +1765,8 @@
           "in_degree": 0,
           "out_degree": 8,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "98",
@@ -1580,7 +1774,8 @@
           "in_degree": 2,
           "out_degree": 1,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.0029172525357483796
+          "pagerank": 0.0029172525357483796,
+          "weighted_eigenvector": 2.0990042081724748e-21
         },
         {
           "id": "99",
@@ -1588,7 +1783,8 @@
           "in_degree": 1,
           "out_degree": 8,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "100",
@@ -1596,7 +1792,8 @@
           "in_degree": 3,
           "out_degree": 1,
           "betweenness": 2.8055212658511953e-05,
-          "pagerank": 0.006121006657353991
+          "pagerank": 0.006121006657353991,
+          "weighted_eigenvector": 3.731563036751068e-22
         },
         {
           "id": "101",
@@ -1604,7 +1801,8 @@
           "in_degree": 3,
           "out_degree": 2,
           "betweenness": 0.00019638648860958367,
-          "pagerank": 0.0049677074978741855
+          "pagerank": 0.0049677074978741855,
+          "weighted_eigenvector": 2.3322268979694173e-22
         },
         {
           "id": "102",
@@ -1612,7 +1810,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "103",
@@ -1620,7 +1819,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "104",
@@ -1628,7 +1828,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "105",
@@ -1636,7 +1837,8 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "106",
@@ -1644,7 +1846,8 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "107",
@@ -1652,7 +1855,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "109",
@@ -1660,7 +1864,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "111",
@@ -1668,7 +1873,8 @@
           "in_degree": 2,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.00303504366914003
+          "pagerank": 0.00303504366914003,
+          "weighted_eigenvector": 9.32890759187767e-23
         },
         {
           "id": "112",
@@ -1676,7 +1882,8 @@
           "in_degree": 12,
           "out_degree": 4,
           "betweenness": 0.002785481828237973,
-          "pagerank": 0.025872715072226965
+          "pagerank": 0.025872715072226965,
+          "weighted_eigenvector": 0.3843191092448832
         },
         {
           "id": "113",
@@ -1684,7 +1891,8 @@
           "in_degree": 3,
           "out_degree": 4,
           "betweenness": 3.740695021134927e-05,
-          "pagerank": 0.01465108558095702
+          "pagerank": 0.01465108558095702,
+          "weighted_eigenvector": 0.2618337730084327
         },
         {
           "id": "114",
@@ -1692,7 +1900,8 @@
           "in_degree": 3,
           "out_degree": 4,
           "betweenness": 0.0001318594994950062,
-          "pagerank": 0.002757404501875501
+          "pagerank": 0.002757404501875501,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "115",
@@ -1700,7 +1909,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "116",
@@ -1708,7 +1918,8 @@
           "in_degree": 2,
           "out_degree": 8,
           "betweenness": 0.0019096248082893803,
-          "pagerank": 0.004971768820376362
+          "pagerank": 0.004971768820376362,
+          "weighted_eigenvector": 2.0990042081724748e-21
         },
         {
           "id": "117",
@@ -1716,7 +1927,8 @@
           "in_degree": 1,
           "out_degree": 6,
           "betweenness": 0.00025623760894774247,
-          "pagerank": 0.0023889953416101886
+          "pagerank": 0.0023889953416101886,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "118",
@@ -1724,7 +1936,8 @@
           "in_degree": 2,
           "out_degree": 1,
           "betweenness": 0.00013092432573972242,
-          "pagerank": 0.003140533952471446
+          "pagerank": 0.003140533952471446,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "119",
@@ -1732,7 +1945,8 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "120",
@@ -1740,7 +1954,8 @@
           "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0030468903361339267
+          "pagerank": 0.0030468903361339267,
+          "weighted_eigenvector": 3.0785395053196318e-21
         },
         {
           "id": "121",
@@ -1748,7 +1963,8 @@
           "in_degree": 2,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.0030468903361339267
+          "pagerank": 0.0030468903361339267,
+          "weighted_eigenvector": 3.0785395053196318e-21
         },
         {
           "id": "122",
@@ -1756,7 +1972,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "123",
@@ -1764,7 +1981,8 @@
           "in_degree": 1,
           "out_degree": 86,
           "betweenness": 0.009145999326674896,
-          "pagerank": 0.003031661013093893
+          "pagerank": 0.003031661013093893,
+          "weighted_eigenvector": 9.32890759187767e-23
         },
         {
           "id": "124",
@@ -1772,7 +1990,8 @@
           "in_degree": 1,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "125",
@@ -1780,7 +1999,8 @@
           "in_degree": 2,
           "out_degree": 2,
           "betweenness": 0.0014588710582426213,
-          "pagerank": 0.003053135407398293
+          "pagerank": 0.003053135407398293,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "126",
@@ -1788,7 +2008,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "127",
@@ -1796,7 +2017,8 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 0.00011222085063404781,
-          "pagerank": 0.003142217341056578
+          "pagerank": 0.003142217341056578,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "130",
@@ -1804,7 +2026,8 @@
           "in_degree": 3,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007945360040937991
+          "pagerank": 0.007945360040937991,
+          "weighted_eigenvector": 2.2847969681303162e-05
         },
         {
           "id": "131",
@@ -1812,7 +2035,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "132",
@@ -1820,7 +2044,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "133",
@@ -1828,7 +2053,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "134",
@@ -1836,7 +2062,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "135",
@@ -1844,7 +2071,8 @@
           "in_degree": 0,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "136",
@@ -1852,7 +2080,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "137",
@@ -1860,7 +2089,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "140",
@@ -1868,7 +2098,8 @@
           "in_degree": 1,
           "out_degree": 5,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "141",
@@ -1876,7 +2107,8 @@
           "in_degree": 25,
           "out_degree": 11,
           "betweenness": 0.038247805013600096,
-          "pagerank": 0.029889204387088315
+          "pagerank": 0.029889204387088315,
+          "weighted_eigenvector": 6.336339043091723e-05
         },
         {
           "id": "142",
@@ -1884,7 +2116,8 @@
           "in_degree": 2,
           "out_degree": 5,
           "betweenness": 0.008360453372236561,
-          "pagerank": 0.003513514781978788
+          "pagerank": 0.003513514781978788,
+          "weighted_eigenvector": 1.061050607552703e-05
         },
         {
           "id": "143",
@@ -1892,7 +2125,8 @@
           "in_degree": 12,
           "out_degree": 2,
           "betweenness": 0.0023098791755508177,
-          "pagerank": 0.011791621452482515
+          "pagerank": 0.011791621452482515,
+          "weighted_eigenvector": 3.653959475036118e-05
         },
         {
           "id": "144",
@@ -1900,7 +2134,8 @@
           "in_degree": 5,
           "out_degree": 2,
           "betweenness": 0.0015149814835596455,
-          "pagerank": 0.011141511910501155
+          "pagerank": 0.011141511910501155,
+          "weighted_eigenvector": 4.522349727339415e-05
         },
         {
           "id": "145",
@@ -1908,7 +2143,8 @@
           "in_degree": 1,
           "out_degree": 4,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "146",
@@ -1916,7 +2152,8 @@
           "in_degree": 3,
           "out_degree": 5,
           "betweenness": 0.003291811618598735,
-          "pagerank": 0.005244790354424078
+          "pagerank": 0.005244790354424078,
+          "weighted_eigenvector": 2.592908867483415e-05
         },
         {
           "id": "147",
@@ -1924,7 +2161,8 @@
           "in_degree": 4,
           "out_degree": 5,
           "betweenness": 0.00029925560169079415,
-          "pagerank": 0.0032224640021061507
+          "pagerank": 0.0032224640021061507,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "148",
@@ -1932,7 +2170,8 @@
           "in_degree": 1,
           "out_degree": 5,
           "betweenness": 0.0,
-          "pagerank": 0.002382455759027095
+          "pagerank": 0.002382455759027095,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "149",
@@ -1940,7 +2179,8 @@
           "in_degree": 1,
           "out_degree": 5,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.002382455759027095
+          "pagerank": 0.002382455759027095,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "150",
@@ -1948,7 +2188,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.0021835945553306518
+          "pagerank": 0.0021835945553306518,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "151",
@@ -1956,7 +2197,8 @@
           "in_degree": 2,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.004039669850359674
+          "pagerank": 0.004039669850359674,
+          "weighted_eigenvector": 1.3993361387816505e-22
         },
         {
           "id": "152",
@@ -1964,7 +2206,8 @@
           "in_degree": 3,
           "out_degree": 3,
           "betweenness": 0.0003460142894549807,
-          "pagerank": 0.0036230477799604087
+          "pagerank": 0.0036230477799604087,
+          "weighted_eigenvector": 1.061050607552703e-05
         },
         {
           "id": "154",
@@ -1972,7 +2215,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "155",
@@ -1980,7 +2224,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "156",
@@ -1988,7 +2233,8 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "157",
@@ -1996,7 +2242,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 5.6110425317023906e-05,
-          "pagerank": 0.00300507922837906
+          "pagerank": 0.00300507922837906,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "158",
@@ -2004,7 +2251,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.001739423184827741,
-          "pagerank": 0.00300507922837906
+          "pagerank": 0.00300507922837906,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "159",
@@ -2012,7 +2260,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "171",
@@ -2020,7 +2269,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "173",
@@ -2028,7 +2278,8 @@
           "in_degree": 5,
           "out_degree": 5,
           "betweenness": 0.014732727340739906,
-          "pagerank": 0.007822945771265116
+          "pagerank": 0.007822945771265116,
+          "weighted_eigenvector": 2.592908867483415e-05
         },
         {
           "id": "174",
@@ -2036,7 +2287,8 @@
           "in_degree": 1,
           "out_degree": 3,
           "betweenness": 0.0015710919088766694,
-          "pagerank": 0.003489088592964006
+          "pagerank": 0.003489088592964006,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "175",
@@ -2044,7 +2296,8 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "176",
@@ -2052,7 +2305,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "178",
@@ -2060,7 +2314,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "179",
@@ -2068,7 +2323,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "180",
@@ -2076,7 +2332,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "197",
@@ -2084,7 +2341,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "199",
@@ -2092,7 +2350,8 @@
           "in_degree": 1,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.003984235270228993
+          "pagerank": 0.003984235270228993,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "300",
@@ -2100,7 +2359,8 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "301",
@@ -2108,7 +2368,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "310",
@@ -2116,7 +2377,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "320",
@@ -2124,7 +2386,8 @@
           "in_degree": 0,
           "out_degree": 2,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "322",
@@ -2132,7 +2395,8 @@
           "in_degree": 1,
           "out_degree": 2,
           "betweenness": 0.001907754460778813,
-          "pagerank": 0.003984235270228993
+          "pagerank": 0.003984235270228993,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "325",
@@ -2140,7 +2404,8 @@
           "in_degree": 1,
           "out_degree": 1,
           "betweenness": 0.002524969139266076,
-          "pagerank": 0.0038469500929429494
+          "pagerank": 0.0038469500929429494,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "330",
@@ -2148,7 +2413,8 @@
           "in_degree": 0,
           "out_degree": 1,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "339",
@@ -2156,7 +2422,8 @@
           "in_degree": 0,
           "out_degree": 3,
           "betweenness": 0.0,
-          "pagerank": 0.002153630114569681
+          "pagerank": 0.002153630114569681,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "340",
@@ -2164,7 +2431,8 @@
           "in_degree": 3,
           "out_degree": 5,
           "betweenness": 0.0016058269340729224,
-          "pagerank": 0.004420760039487799
+          "pagerank": 0.004420760039487799,
+          "weighted_eigenvector": 9.32890759187767e-23
         },
         {
           "id": "341",
@@ -2172,7 +2440,8 @@
           "in_degree": 1,
           "out_degree": 9,
           "betweenness": 0.0004862903527475405,
-          "pagerank": 0.002492074834074023
+          "pagerank": 0.002492074834074023,
+          "weighted_eigenvector": 4.664453795938835e-23
         },
         {
           "id": "342",
@@ -2180,7 +2449,8 @@
           "in_degree": 1,
           "out_degree": 6,
           "betweenness": 5.798077282759136e-05,
-          "pagerank": 0.0023889953416101886
+          "pagerank": 0.0023889953416101886,
+          "weighted_eigenvector": 4.664453795938835e-23
         }
       ]
     },
@@ -2200,7 +2470,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "2",
@@ -2208,7 +2479,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "8",
@@ -2216,7 +2488,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "9",
@@ -2224,7 +2497,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "10",
@@ -2232,7 +2506,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "11",
@@ -2240,7 +2515,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "12",
@@ -2248,7 +2524,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "13",
@@ -2256,7 +2533,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "14",
@@ -2264,7 +2542,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "15",
@@ -2272,7 +2551,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "16",
@@ -2280,7 +2560,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "17",
@@ -2288,7 +2569,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "18",
@@ -2296,7 +2578,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "19",
@@ -2304,7 +2587,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "20",
@@ -2312,7 +2596,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "21",
@@ -2320,7 +2605,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "22",
@@ -2328,7 +2614,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "23",
@@ -2336,7 +2623,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "30",
@@ -2344,7 +2632,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "31",
@@ -2352,7 +2641,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "32",
@@ -2360,7 +2650,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "33",
@@ -2368,7 +2659,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "34",
@@ -2376,7 +2668,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "35",
@@ -2384,7 +2677,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "36",
@@ -2392,7 +2686,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "37",
@@ -2400,7 +2695,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "38",
@@ -2408,7 +2704,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "39",
@@ -2416,7 +2713,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "42",
@@ -2424,7 +2722,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "43",
@@ -2432,7 +2731,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "44",
@@ -2440,7 +2740,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "45",
@@ -2448,7 +2749,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "47",
@@ -2456,7 +2758,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "49",
@@ -2464,7 +2767,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "50",
@@ -2472,7 +2776,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "60",
@@ -2480,7 +2785,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "61",
@@ -2488,7 +2794,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "62",
@@ -2496,7 +2803,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "64",
@@ -2504,7 +2812,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "65",
@@ -2512,7 +2821,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "66",
@@ -2520,7 +2830,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "67",
@@ -2528,7 +2839,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "68",
@@ -2536,7 +2848,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "69",
@@ -2544,7 +2857,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "70",
@@ -2552,7 +2866,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "71",
@@ -2560,7 +2875,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "72",
@@ -2568,7 +2884,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "73",
@@ -2576,7 +2893,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "74",
@@ -2584,7 +2902,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "75",
@@ -2592,7 +2911,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "78",
@@ -2600,7 +2920,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "79",
@@ -2608,7 +2929,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "80",
@@ -2616,7 +2938,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "81",
@@ -2624,7 +2947,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "83",
@@ -2632,7 +2956,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "84",
@@ -2640,7 +2965,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "85",
@@ -2648,7 +2974,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "90",
@@ -2656,7 +2983,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "91",
@@ -2664,7 +2992,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "98",
@@ -2672,7 +3001,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "99",
@@ -2680,7 +3010,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "100",
@@ -2688,7 +3019,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "101",
@@ -2696,7 +3028,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "102",
@@ -2704,7 +3037,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "103",
@@ -2712,7 +3046,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "104",
@@ -2720,7 +3055,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "105",
@@ -2728,7 +3064,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "106",
@@ -2736,7 +3073,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "107",
@@ -2744,7 +3082,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "109",
@@ -2752,7 +3091,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "111",
@@ -2760,7 +3100,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "112",
@@ -2768,7 +3109,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "113",
@@ -2776,7 +3118,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "114",
@@ -2784,7 +3127,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "115",
@@ -2792,7 +3136,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "116",
@@ -2800,7 +3145,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "117",
@@ -2808,7 +3154,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "118",
@@ -2816,7 +3163,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "119",
@@ -2824,7 +3172,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "120",
@@ -2832,7 +3181,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "121",
@@ -2840,7 +3190,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "122",
@@ -2848,7 +3199,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "123",
@@ -2856,7 +3208,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "124",
@@ -2864,7 +3217,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "125",
@@ -2872,7 +3226,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "126",
@@ -2880,7 +3235,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "127",
@@ -2888,7 +3244,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "130",
@@ -2896,7 +3253,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "131",
@@ -2904,7 +3262,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "132",
@@ -2912,7 +3271,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "133",
@@ -2920,7 +3280,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "134",
@@ -2928,7 +3289,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "135",
@@ -2936,7 +3298,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "136",
@@ -2944,7 +3307,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "137",
@@ -2952,7 +3316,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "140",
@@ -2960,7 +3325,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "141",
@@ -2968,7 +3334,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "142",
@@ -2976,7 +3343,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "143",
@@ -2984,7 +3352,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "144",
@@ -2992,7 +3361,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "145",
@@ -3000,7 +3370,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "146",
@@ -3008,7 +3379,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "147",
@@ -3016,7 +3388,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "148",
@@ -3024,7 +3397,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "149",
@@ -3032,7 +3406,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "150",
@@ -3040,7 +3415,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "151",
@@ -3048,7 +3424,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "152",
@@ -3056,7 +3433,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "154",
@@ -3064,7 +3442,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "155",
@@ -3072,7 +3451,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "156",
@@ -3080,7 +3460,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "157",
@@ -3088,7 +3469,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "158",
@@ -3096,7 +3478,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "159",
@@ -3104,7 +3487,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "171",
@@ -3112,7 +3496,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "173",
@@ -3120,7 +3505,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "174",
@@ -3128,7 +3514,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "175",
@@ -3136,7 +3523,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "176",
@@ -3144,7 +3532,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "178",
@@ -3152,7 +3541,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "179",
@@ -3160,7 +3550,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "180",
@@ -3168,7 +3559,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "197",
@@ -3176,7 +3568,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "199",
@@ -3184,7 +3577,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "300",
@@ -3192,7 +3586,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "301",
@@ -3200,7 +3595,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "310",
@@ -3208,7 +3604,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "320",
@@ -3216,7 +3613,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "322",
@@ -3224,7 +3622,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "325",
@@ -3232,7 +3631,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "330",
@@ -3240,7 +3640,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "339",
@@ -3248,7 +3649,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "340",
@@ -3256,7 +3658,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "341",
@@ -3264,7 +3667,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         },
         {
           "id": "342",
@@ -3272,7 +3676,8 @@
           "in_degree": 0,
           "out_degree": 0,
           "betweenness": 0.0,
-          "pagerank": 0.007407407407407415
+          "pagerank": 0.007407407407407415,
+          "weighted_eigenvector": 0.0
         }
       ]
     }

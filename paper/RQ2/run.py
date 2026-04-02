@@ -13,6 +13,7 @@ OUTPUT_DIR = None
 GENERATE_DEPENDENCY_PLOTS = False
 GENERATE_DIFFERENTIAL_DEPENDENCY_PLOTS = True
 GENERATE_DEPENDENCY_COMPARISON_TABLE = True
+GENERATE_CENTRALITY_TOP5_TABLE = True
 DIFFERENTIAL_FOCUS_BIPS = [67,93,350,77]
 EXCLUDE_BIPS = [174,21,78,324]
 
@@ -23,7 +24,7 @@ DIFFERENTIAL_ALTERNATIVE_LAYOUTS = ["spring_scaled", "planar", "spectral", "shel
 
 
 def main() -> None:
-    from analysis.artifact_io import load_network_data, resolve_latest_snapshot_label
+    from analysis.artifact_io import load_network_data, load_dependency_metrics, resolve_latest_snapshot_label
     from paper.RQ2.dependency_differential_plots import render_differential_dependency_plots
     from paper.RQ2.dependency_plots import render_default_dependency_plot_suite
     from paper.RQ2.dependency_comparison_table import (
@@ -31,6 +32,7 @@ def main() -> None:
         export_preamble_dependency_comparison_latex_table,
         export_preamble_plus_regex_llm_dependency_comparison_latex_table,
     )
+    from paper.RQ2.dependency_centrality_table import export_centrality_top5_latex_table
 
     snapshot_label = SNAPSHOT or resolve_latest_snapshot_label() or "latest"
     default_relative_path = Path("paper") / "RQ2" / "outputs"
@@ -38,6 +40,7 @@ def main() -> None:
     filename_prefix = snapshot_prefix(snapshot_label)
 
     network_data = load_network_data(snapshot=SNAPSHOT)
+    dep_metrics = load_dependency_metrics(snapshot=SNAPSHOT)
     if GENERATE_DEPENDENCY_PLOTS:
         render_default_dependency_plot_suite(
             network_data,
@@ -73,6 +76,11 @@ def main() -> None:
                     exclude_bips=EXCLUDE_BIPS,
                     layout_name=alt_layout,
                     )
+    if GENERATE_CENTRALITY_TOP5_TABLE:
+        export_centrality_top5_latex_table(
+            dep_metrics=dep_metrics,
+            output_path=output_dir / f"{filename_prefix}_centrality_top5.tex",
+        )
     if GENERATE_DEPENDENCY_COMPARISON_TABLE:
         export_dependency_comparison_latex_table(
             network_data=network_data,

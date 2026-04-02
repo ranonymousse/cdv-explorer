@@ -95,6 +95,50 @@ def _safe_betweenness(graph: nx.DiGraph) -> Dict[str, float]:
     return {str(node): float(score) for node, score in nx.betweenness_centrality(graph).items()}
 
 
+def _safe_weighted_eigenvector(graph: nx.DiGraph, max_iter: int = 1000, tol: float = 1e-6) -> Dict[str, float]:
+    """Directed weighted eigenvector centrality via power iteration on incoming adjacency.
+
+    Each node's score is the normalised weighted sum of its predecessors' scores —
+    matching the algorithm used in the React front-end
+    (computeDirectedWeightedEigenvectorCentrality in dashboardData.js).
+    Edge weight equals the number of parallel edges between the same pair; because
+    the underlying DiGraph already deduplicates edges this is always 1, but the
+    formula is kept general for correctness.
+    """
+    node_ids = [str(n) for n in graph.nodes]
+    n = len(node_ids)
+    if n == 0:
+        return {}
+
+    import math
+
+    # Build incoming adjacency with weights (count of parallel edges).
+    # DiGraph.in_edges returns unique edges; weight defaults to 1 when absent.
+    incoming: Dict[str, List[tuple]] = {nid: [] for nid in node_ids}
+    for src, tgt, data in graph.edges(data=True):
+        w = float(data.get("weight", 1))
+        incoming[str(tgt)].append((str(src), w))
+
+    values = {nid: 1.0 / math.sqrt(n) for nid in node_ids}
+
+    for _ in range(max_iter):
+        next_v = {nid: 0.0 for nid in node_ids}
+        for nid in node_ids:
+            for pred, w in incoming[nid]:
+                next_v[nid] += w * values.get(pred, 0.0)
+
+        norm = math.sqrt(sum(v ** 2 for v in next_v.values()))
+        if norm == 0:
+            return {nid: 0.0 for nid in node_ids}
+
+        delta = sum(abs(next_v[nid] / norm - values[nid]) for nid in node_ids)
+        values = {nid: next_v[nid] / norm for nid in node_ids}
+        if delta < n * tol:
+            break
+
+    return values
+
+
 def _approach_labels() -> Dict[str, str]:
     return dict(DEPENDENCY_APPROACH_LABELS)
 
@@ -179,6 +223,7 @@ def extract_dependency_metrics(network_data: Dict[str, Any]) -> Dict[str, Any]:
         cycles = find_circular_dependencies(network_data, link_type=approach_key)
         betweenness = _safe_betweenness(graph)
         pagerank = _safe_pagerank(graph)
+        weighted_eigenvector = _safe_weighted_eigenvector(graph)
 
         per_bip = sorted(
             [
@@ -189,6 +234,7 @@ def extract_dependency_metrics(network_data: Dict[str, Any]) -> Dict[str, Any]:
                     "out_degree": int(graph.out_degree(node)),
                     "betweenness": float(betweenness.get(str(node), 0.0)),
                     "pagerank": float(pagerank.get(str(node), 0.0)),
+                    "weighted_eigenvector": float(weighted_eigenvector.get(str(node), 0.0)),
                 }
                 for node in graph.nodes
             ],

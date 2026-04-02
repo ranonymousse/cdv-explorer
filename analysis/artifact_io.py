@@ -49,6 +49,10 @@ def resolve_network_data_artifact(snapshot: str | None = None) -> Path:
     return _resolve_snapshot_artifact(snapshot, "dependencies", "network_data.json")
 
 
+def resolve_dependency_metrics_artifact(snapshot: str | None = None) -> Path:
+    return _resolve_snapshot_artifact(snapshot, "dependencies", "dependency_metrics.json")
+
+
 def resolve_authorship_metrics_artifact(snapshot: str | None = None) -> Path:
     return _resolve_snapshot_artifact(snapshot, "authorship", "authorship_metrics.json")
 
@@ -77,6 +81,11 @@ def _load_json_artifact(artifact_path: Path) -> Dict[str, Any]:
 
 def load_network_data(snapshot: str | None = None) -> Dict[str, Any]:
     artifact_path = resolve_network_data_artifact(snapshot=snapshot)
+    return _load_json_artifact(artifact_path)
+
+
+def load_dependency_metrics(snapshot: str | None = None) -> Dict[str, Any]:
+    artifact_path = resolve_dependency_metrics_artifact(snapshot=snapshot)
     return _load_json_artifact(artifact_path)
 
 
