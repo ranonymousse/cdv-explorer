@@ -155,11 +155,20 @@ def _prepare_component_and_degree_series(
     return displayed_component_series, full_degree_series
 
 
+def prepare_component_distribution(
+    collaboration_network: dict,
+) -> tuple[list[dict[str, int | str | bool]], int]:
+    displayed_component_series, _ = _prepare_component_and_degree_series(collaboration_network)
+    total = sum(int(e["cluster_count"]) for e in displayed_component_series if "cluster_count" in e)
+    return displayed_component_series, total
+
+
 def _draw_component_distribution_axis(
     axis,
     displayed_component_series: list[dict[str, int | str | bool]],
     *,
     title: str | None,
+    total: int | None = None,
 ) -> None:
     component_positions = np.arange(len(displayed_component_series))
     component_counts = [int(entry["cluster_count"]) for entry in displayed_component_series]
@@ -178,8 +187,8 @@ def _draw_component_distribution_axis(
 
     if title:
         axis.set_title(title)
-    axis.set_xlabel("Authors in connected component")
-    axis.set_ylabel("# of connected components")
+    axis.set_xlabel("# Authors in component")
+    axis.set_ylabel("# Connected components" if total is None else f"# Connected components ({total})")
     axis.set_xticks(component_positions)
     axis.set_xticklabels(component_labels)
     axis.set_xlim(-0.6, len(component_positions) - 0.4)

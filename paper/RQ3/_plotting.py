@@ -57,6 +57,16 @@ def style_ellipsis_ticklabels(axis, tick_labels: list[str], *, ellipsis_label: s
         xticklabels[tick_index].set_fontweight(ELLIPSIS_TICK_WEIGHT)
 
 
+def add_bar_label_headroom(axis, *, ratio: float = 0.08, min_extra: float = 0.6) -> None:
+    bar_heights = [patch.get_height() for patch in axis.patches]
+    if not bar_heights:
+        return
+    ymax = max(bar_heights)
+    extra = max(ymax * ratio, min_extra)
+    lower, upper = axis.get_ylim()
+    axis.set_ylim(lower, max(upper, ymax + extra))
+
+
 def save_figure(figure, output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     figure.savefig(output_path, format="pdf")

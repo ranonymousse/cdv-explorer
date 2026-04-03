@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from paper.RQ3._plotting import (
+    add_bar_label_headroom,
     bar_style,
     despine,
     match_axis_label_fontsize,
@@ -146,6 +147,23 @@ def _compress_histogram_zero_gaps(
     return compressed
 
 
+def prepare_authorship_distribution(
+    contribution_histogram: list[dict[str, int]],
+) -> tuple[list[dict[str, int | str | bool]], int]:
+    series = _prepare_histogram_series(contribution_histogram)
+    display_series = _compress_histogram_zero_gaps(series)
+    total = sum(int(e["authors"]) for e in contribution_histogram)
+    return display_series, total
+
+
+def prepare_authors_per_bip(
+    bip_author_count_histogram: list[dict[str, int]],
+) -> tuple[list[dict[str, int | str | bool]], int]:
+    series = _prepare_bip_author_count_series(bip_author_count_histogram)
+    total = sum(int(e["bip_count"]) for e in bip_author_count_histogram)
+    return series, total
+
+
 def _draw_top_authors_axis(axis, top_ten: list[dict[str, int | str]], *, title: str | None) -> None:
     author_names = [entry["author"] for entry in top_ten]
     author_counts = [entry["count"] for entry in top_ten]
@@ -166,14 +184,14 @@ def _draw_top_authors_axis(axis, top_ten: list[dict[str, int | str]], *, title: 
 
 def _draw_authorship_distribution_axis(
     axis,
-    histogram_series: list[dict[str, int]],
+    display_series: list[dict[str, int | str | bool]],
     *,
     title: str | None,
+    total: int | None = None,
 ) -> None:
-    displayed_histogram_series = _compress_histogram_zero_gaps(histogram_series)
-    histogram_x = [entry["bips_written"] for entry in displayed_histogram_series]
-    histogram_y = [entry["authors"] for entry in displayed_histogram_series]
-    histogram_labels = [str(entry["axis_label"]) for entry in displayed_histogram_series]
+    histogram_x = [entry["bips_written"] for entry in display_series]
+    histogram_y = [entry["authors"] for entry in display_series]
+    histogram_labels = [str(entry["axis_label"]) for entry in display_series]
     histogram_positions = np.arange(len(histogram_x))
     labeled_histogram_positions = [
         position
@@ -189,14 +207,14 @@ def _draw_authorship_distribution_axis(
     axis.bar(histogram_positions, histogram_y, width=0.8, zorder=2, **bar_style(HISTOGRAM_COLOR))
     if title:
         axis.set_title(title)
-    axis.set_xlabel("BIPs written per author")
-    axis.set_ylabel("Number of authors")
+    axis.set_xlabel("# BIPs per author")
+    axis.set_ylabel("# Authors" if total is None else f"# Authors ({total})")
     axis.set_xticks(labeled_histogram_positions)
     axis.set_xticklabels(labeled_histogram_values)
     axis.grid(axis="y", alpha=0.35)
     axis.grid(axis="x", visible=False)
     match_axis_label_fontsize(axis)
-    for index, authors, entry in zip(histogram_positions, histogram_y, displayed_histogram_series):
+    for index, authors, entry in zip(histogram_positions, histogram_y, display_series):
         if bool(entry.get("is_gap")):
             continue
         if authors <= 0:
@@ -259,6 +277,7 @@ def _draw_authors_per_bip_axis(
     display_series: list[dict],
     *,
     title: str | None,
+    total: int | None = None,
 ) -> None:
     positions = np.arange(len(display_series))
     bip_counts = [int(entry["bip_count"]) for entry in display_series]
@@ -270,8 +289,8 @@ def _draw_authors_per_bip_axis(
     axis.bar(data_positions, data_counts, width=0.8, zorder=2, **bar_style(AUTHORS_PER_BIP_COLOR))
     if title:
         axis.set_title(title)
-    axis.set_xlabel("Number of authors per BIP")
-    axis.set_ylabel("Number of BIPs")
+    axis.set_xlabel("# Authors per BIP")
+    axis.set_ylabel("# BIPs" if total is None else f"# BIPs ({total})")
     axis.set_xticks(positions)
     axis.set_xticklabels(axis_labels)
     axis.grid(axis="y", alpha=0.35)
@@ -290,9 +309,9 @@ def plot_authors_per_bip(
     bip_author_count_histogram: list[dict[str, int]],
     output_path: Path,
 ) -> None:
-    display_series = _prepare_bip_author_count_series(bip_author_count_histogram)
+    series, _ = prepare_authors_per_bip(bip_author_count_histogram)
     figure, axis = plt.subplots(figsize=(5, 2.8))
-    _draw_authors_per_bip_axis(axis, display_series, title=None)
+    _draw_authors_per_bip_axis(axis, series, title=None)
     figure.tight_layout()
     save_figure(figure, output_path)
 
@@ -312,9 +331,9 @@ def plot_authorship_distribution(
     contribution_histogram: list[dict[str, int]],
     output_path: Path,
 ) -> None:
-    histogram_series = _prepare_histogram_series(contribution_histogram)
+    series, _ = prepare_authorship_distribution(contribution_histogram)
     figure, axis = plt.subplots(figsize=(5, 2.8))
-    _draw_authorship_distribution_axis(axis, histogram_series, title=None)
+    _draw_authorship_distribution_axis(axis, series, title=None)
     figure.tight_layout()
     save_figure(figure, output_path)
 
@@ -326,7 +345,7 @@ def plot_authorship_overview(
     snapshot_label: str,
 ) -> None:
     top_ten = _prepare_top_ten(top_authors)
-    histogram_series = _prepare_histogram_series(contribution_histogram)
+    authorship_series, _ = prepare_authorship_distribution(contribution_histogram)
 
     figure, (axis_left, axis_right) = plt.subplots(
         1,
@@ -336,11 +355,7 @@ def plot_authorship_overview(
     )
 
     _draw_top_authors_axis(axis_left, top_ten, title="(a) Top 10 Authors")
-    _draw_authorship_distribution_axis(
-        axis_right,
-        histogram_series,
-        title="(b) Authorship Distribution",
-    )
+    _draw_authorship_distribution_axis(axis_right, authorship_series, title="(b) BIPs per Author")
 
     figure.suptitle(f"Authorship Overview ({snapshot_label})", y=1.02)
     figure.tight_layout()
