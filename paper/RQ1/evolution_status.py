@@ -50,7 +50,8 @@ REACT_CLASSIFICATION_PALETTE = [
     "#ffed6f",
 ]
 
-HATCH_BIP3 = "////"
+HATCH_BIP3 = "/////"
+HATCH_LINEWIDTH = 0.2
 BIP3_ALLOWED_STATUSES = {"Draft", "Complete", "Deployed", "Closed"}
 BIP3_DRAFT_START_PERIOD = "2026-Q1"
 ACTIVATION_GAP = 0.45
@@ -433,8 +434,10 @@ def plot_evolution_status(
         )
         for status in reversed(legend_statuses["bip3"])
     ]
+
     bar_bottom = np.zeros(len(rows), dtype=int)
 
+    matplotlib.rcParams["hatch.linewidth"] = HATCH_LINEWIDTH
     figure, axis = plt.subplots(figsize=(10, 5))
 
     for segment in plot_segments:

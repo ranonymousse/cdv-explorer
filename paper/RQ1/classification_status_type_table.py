@@ -67,22 +67,26 @@ def export_classification_status_type_latex_table(
         observed_statuses,
         TABLE_STATUS_ORDER,
     )
-    total_bips = sum(sum(counts.values()) for counts in pivot.values())
+    status_totals = {
+        status: sum(pivot[t].get(status, 0) for t in ordered_types)
+        for status in ordered_statuses
+    }
 
     header_line = " & ".join(
         [
             rf"\diagbox[innerwidth={DIAGBOX_INNERWIDTH_CM}cm]{{\textbf{{Type}}}}{{\textbf{{Status}}}}"
         ]
-        + [_latex_escape(status) for status in ordered_statuses]
+        + [f"{_latex_escape(status)} ({status_totals[status]})" for status in ordered_statuses]
     ) + r" \\"
 
     body_lines = []
     for proposal_type in ordered_types:
-        row_cells = [_latex_escape(proposal_type)]
+        row_total = sum(pivot[proposal_type].values())
+        row_cells = [f"{_latex_escape(proposal_type)} ({row_total})"]
         for status in ordered_statuses:
             cell_value = _format_count_share(
                 int(pivot[proposal_type].get(status, 0)),
-                total_bips,
+                row_total,
             )
             row_cells.append(cell_value)
         body_lines.append("        " + " & ".join(row_cells) + r" \\")
@@ -96,7 +100,7 @@ def export_classification_status_type_latex_table(
             r"    \setlength{\aboverulesep}{0pt}%",
             r"    \setlength{\belowrulesep}{0pt}%",
             rf"    \setlength{{\tabcolsep}}{{{tabcolsep_pt}pt}}%",
-            r"    \renewcommand{\arraystretch}{1.3}%",
+            r"    \renewcommand{\arraystretch}{1.15}%",
             rf"    \begin{{tabular}}{{{alignment}}}",
             r"        \toprule",
             f"        {header_line}",
