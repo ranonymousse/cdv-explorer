@@ -21,7 +21,7 @@ TYPE_COLORS = BIP_TYPE_COLORS
 
 STACKED_TYPE_FIGSIZE = (9.8, 2.6)
 STACKED_TYPE_WIDTH_RATIOS = (0.63, 0.21)
-STACKED_TYPE_WSPACE = 0.08
+STACKED_TYPE_WSPACE = 0.16
 STACKED_TYPE_BAR_WIDTH = 0.8
 STACKED_TYPE_SHARE_LABEL_X_PADDING = 0.5
 STACKED_TYPE_RIGHT_MARGIN = 1.45
@@ -44,8 +44,8 @@ def plot_classification_type(
         order=TYPE_ORDER,
         colors=TYPE_COLORS,
         left_axis_title="Type",
-        right_axis_title="Number of BIPs",
-        right_secondary_axis_title="Cumulative number of BIPs",
+        right_axis_title="#BIPs",
+        right_secondary_axis_title="Cumulative #BIPs",
     )
 
 
@@ -70,7 +70,8 @@ def plot_classification_type_stacked(
     legend_handles = [
         Patch(
             facecolor=bar_style(color)["color"],
-            edgecolor="none",
+            edgecolor="#000000",
+            linewidth=0.7,
             label=f"{kind} ({totals[kind]})",
         )
         for kind, color in zip(ordered_types, colors)
@@ -96,7 +97,7 @@ def plot_classification_type_stacked(
         frameon=False,
         ncol=1,
         title="BIP Type:",
-        handlelength=1.2,
+        handlelength=2.0,
         labelspacing=0.8,
         borderaxespad=0,
     )
@@ -116,9 +117,14 @@ def plot_classification_type_stacked(
         bar_bottom = bar_bottom + np.array(counts)
 
     # axis_right.set_xlabel("Year")
-    axis_right.set_ylabel("Number of BIPs")
+    axis_right.set_ylabel("#BIPs")
     axis_right.set_xticks(x_positions)
-    axis_right.set_xticklabels(years, rotation=0, ha="center", fontsize=9)
+    axis_right.set_xticklabels(
+        [year if i % 2 == 0 else "" for i, year in enumerate(years)],
+        rotation=0,
+        ha="center",
+        fontsize=9,
+    )
     axis_right.set_xlim(
         -0.6,
         float(x_positions[-1]) + STACKED_TYPE_RIGHT_MARGIN,
@@ -178,7 +184,7 @@ def plot_classification_type_stacked(
         current_y = adjusted_y
 
     label_top = max(adjusted_y_by_kind.values(), default=0.0)
-    axis_right_secondary.set_ylabel("Cumulative number of BIPs")
+    axis_right_secondary.set_ylabel("Cumulative #BIPs")
     axis_right_secondary.set_xlim(
         -0.6,
         float(x_positions[-1]) + STACKED_TYPE_RIGHT_MARGIN,
