@@ -168,3 +168,5 @@ ip_data/*/01_harvest/
 *.secret
 *.pdf
 !paper/**/*.pdf
+
+.claude/
