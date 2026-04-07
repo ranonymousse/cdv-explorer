@@ -36,10 +36,10 @@ def plot_authorship_collaboration_triptych(
         gridspec_kw={"width_ratios": [len(authors_per_bip_series), len(authorship_dist_series), len(component_series)]},
     )
 
-    _draw_authors_per_bip_axis(axes[0], authors_per_bip_series, title="(a) BIP Team Size", total=total_bips)
+    _draw_authors_per_bip_axis(axes[0], authors_per_bip_series, title="(a) Authors per BIP", total=total_bips)
     add_bar_label_headroom(axes[0], ratio=0.12)
 
-    _draw_authorship_distribution_axis(axes[1], authorship_dist_series, title="(b) Author Productivity", total=total_authors)
+    _draw_authorship_distribution_axis(axes[1], authorship_dist_series, title="(b) BIPs per Author", total=total_authors)
     add_bar_label_headroom(axes[1])
 
     _draw_component_distribution_axis(axes[2], component_series, title="(c) Collaboration Clusters", total=total_components)

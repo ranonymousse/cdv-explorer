@@ -207,7 +207,7 @@ def _draw_authorship_distribution_axis(
     axis.bar(histogram_positions, histogram_y, width=0.8, zorder=2, **bar_style(HISTOGRAM_COLOR))
     if title:
         axis.set_title(title)
-    axis.set_xlabel("# BIPs per author")
+    axis.set_xlabel("# BIPs")
     axis.set_ylabel("# Authors" if total is None else f"# Authors ({total})")
     axis.set_xticks(labeled_histogram_positions)
     axis.set_xticklabels(labeled_histogram_values)
@@ -289,7 +289,7 @@ def _draw_authors_per_bip_axis(
     axis.bar(data_positions, data_counts, width=0.8, zorder=2, **bar_style(AUTHORS_PER_BIP_COLOR))
     if title:
         axis.set_title(title)
-    axis.set_xlabel("# Authors per BIP")
+    axis.set_xlabel("# Authors")
     axis.set_ylabel("# BIPs" if total is None else f"# BIPs ({total})")
     axis.set_xticks(positions)
     axis.set_xticklabels(axis_labels)
