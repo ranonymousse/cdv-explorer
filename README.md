@@ -1,6 +1,6 @@
 # **CDV Explorer**
 
-_Modern decentralized software ecosystems evolve through crowdsourced improvement proposals (IPs) that are continuously shaped and autonomously implemented by independent actors. As a result, these ecosystems exhibit so-called **Community-Driven Variability (CDV)**, a novel paradigm that extends beyond traditional variability-intensive systems. This page allows to explore the proposal space of such ecosystems by providing interactive visualizations and insights about their evolution, authorship, classification, conformity, and inter-proposal relationships._
+_Modern decentralized software ecosystems evolve through crowdsourced improvement proposals (IPs) that are continuously shaped and autonomously implemented by independent actors. As a result, these ecosystems exhibit so-called **Community-Driven Variability (CDV)**, a novel paradigm that extends beyond traditional variability-intensive systems [^1]. This page allows to explore the proposal space of such ecosystems by providing interactive visualizations and insights about their evolution, authorship, classification, conformity, and inter-proposal relationships._
 
 <div align="center">
   <a href="https://ranonymousse.github.io/cdv-explorer/#/">
@@ -167,3 +167,5 @@ ip_data/<ecosystem>/
 
 The app is deployed to GitHub Pages via [`.github/workflows/deploy-react-pages.yml`](.github/workflows/deploy-react-pages.yml) on every push to `main` that touches `react/` or `ip_data/`.
 To enable Pages on a fork, go to `Settings > Pages` and set the source to `GitHub Actions`.
+
+[^1]: Bögli, R., Boll, A., Schultheiß, A. et al. *Community-driven variability: characterizing a new software variability paradigm.* Autom Softw Eng **33**, 67 (2026). https://doi.org/10.1007/s10515-026-00594-0
