@@ -54,17 +54,16 @@ The pipeline produces:
 
 </br>
 
-
 ## Setup
 
 ### Requirements
 
-| Dependency | Version |
-|---|---|
-| Python | 3.10+ |
-| Git | any |
-| Node.js | 20+ |
-| npm | bundled with Node.js |
+| Dependency | Version              |
+| ---------- | -------------------- |
+| Python     | 3.10+                |
+| Git        | any                  |
+| Node.js    | 20+                  |
+| npm        | bundled with Node.js |
 
 An OpenAI API key is optional — required only for LLM-based IP-interrelation extraction.
 Set it via `OPENAI_API_KEY` or place it in a file `apikey.secret` in the root folder.
@@ -104,7 +103,7 @@ python -m analysis.classification.prepare --snapshot 2026-03-16
 ### React App
 
 ```bash
-cd react 
+cd react
 npm install
 npm start        # dev server
 npm run build    # production build
@@ -168,4 +167,6 @@ ip_data/<ecosystem>/
 The app is deployed to GitHub Pages via [`.github/workflows/deploy-react-pages.yml`](.github/workflows/deploy-react-pages.yml) on every push to `main` that touches `react/` or `ip_data/`.
 To enable Pages on a fork, go to `Settings > Pages` and set the source to `GitHub Actions`.
 
-[^1]: Bögli, R., Boll, A., Schultheiß, A. et al. *Community-driven variability: characterizing a new software variability paradigm.* Autom Softw Eng **33**, 67 (2026). https://doi.org/10.1007/s10515-026-00594-0
+</br>
+
+[^1]: Bögli, R., Boll, A., Schultheiß, A. et al. _Community-driven variability: characterizing a new software variability paradigm._ Autom Softw Eng **33**, 67 (2026). https://doi.org/10.1007/s10515-026-00594-0
