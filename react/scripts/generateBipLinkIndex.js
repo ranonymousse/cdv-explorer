@@ -104,16 +104,20 @@ function buildIndex() {
   const bipFiles = {};
 
   snapshotLabels.forEach((snapshotLabel) => {
-    const commitHash = branchRef
-      ? runGit(['-C', harvestRoot, 'rev-list', '-1', `--before=${snapshotLabel} 23:59:59`, branchRef])
-      : '';
+    const manifestPath = path.join(analysisRoot, snapshotLabel, 'bip_files.json');
+    if (!fs.existsSync(manifestPath)) {
+      return;
+    }
 
-    if (!commitHash) {
+    const manifest = readJson(manifestPath);
+    const commitHash = String(manifest.commit || '').trim();
+    const files = manifest.files && typeof manifest.files === 'object' ? manifest.files : {};
+    if (!commitHash || Object.keys(files).length === 0) {
       return;
     }
 
     snapshotCommits[snapshotLabel] = commitHash;
-    snapshotFiles[snapshotLabel] = listBipFilesForCommit(harvestRoot, commitHash);
+    snapshotFiles[snapshotLabel] = files;
   });
 
   // Build bipFiles from the current HEAD so fallback links to master use the correct file names.

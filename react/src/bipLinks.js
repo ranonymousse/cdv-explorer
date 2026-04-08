@@ -78,10 +78,6 @@ function buildRepositoryCommitUrl(commitHash) {
   return `${BITCOIN_BIPS_REPOSITORY_URL}/commit/${commitHash}`;
 }
 
-function normalizeRepositoryPath(value) {
-  return String(value || '').trim().replace(/^\/+/, '');
-}
-
 export function getBipUrl(id, snapshotLabel = null, options = {}) {
   const { linkMode = 'history' } = options;
   const normalizedId = normalizeBipId(id);
@@ -100,26 +96,6 @@ export function getBipUrl(id, snapshotLabel = null, options = {}) {
 
   const fileName = getLatestKnownBipFileName(normalizedId);
   return buildRepositoryBipUrl(BITCOIN_BIPS_DEFAULT_BRANCH, fileName);
-}
-
-export function getBipUrlAtCommit(id, commitHash, options = {}) {
-  const {
-    filePath = '',
-    fallbackSnapshotLabel = null,
-  } = options;
-  const normalizedCommitHash = String(commitHash || '').trim();
-  const normalizedPath = normalizeRepositoryPath(filePath);
-
-  if (normalizedCommitHash && normalizedPath) {
-    return buildRepositoryBipUrl(normalizedCommitHash, normalizedPath);
-  }
-
-  const fallbackFileName = getLatestKnownBipFileName(id);
-  if (normalizedCommitHash && fallbackFileName) {
-    return buildRepositoryBipUrl(normalizedCommitHash, fallbackFileName);
-  }
-
-  return getBipUrl(id, fallbackSnapshotLabel, { linkMode: 'history' });
 }
 
 export function getBipCommitUrl(commitHash, options = {}) {

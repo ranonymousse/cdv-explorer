@@ -6,7 +6,7 @@ import {
   PREAMBLE_EXTRACTED,
   normalizeDependencyLinks,
 } from './dependencyApproaches';
-import { getBipCommitUrl, getBipUrl, getBipUrlAtCommit } from './bipLinks';
+import { getBipCommitUrl, getBipUrl } from './bipLinks';
 import { getClassificationColorMap } from './classificationColors';
 
 test('dependency link options default to the canonical preamble approach', () => {
@@ -44,12 +44,6 @@ test('uses the snapshot commit for historic BIP links when the file exists in th
 test('falls back to the latest repository file when a historic snapshot file lookup misses', () => {
   expect(getBipUrl(3, '2021-01-01', { linkMode: 'history' })).toBe(
     'https://github.com/bitcoin/bips/blob/master/bip-0003.md'
-  );
-});
-
-test('builds commit-specific historic links when a repository path is provided', () => {
-  expect(getBipUrlAtCommit(1, 'ce40c0f8f02e83892eb185aabea306ee2a3ab10e', { filePath: 'bip-0001.txt' })).toBe(
-    'https://github.com/bitcoin/bips/blob/ce40c0f8f02e83892eb185aabea306ee2a3ab10e/bip-0001.txt'
   );
 });
 

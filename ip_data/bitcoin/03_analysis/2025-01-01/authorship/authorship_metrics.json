@@ -166,6 +166,32 @@
       "authors": 1
     }
   ],
+  "bip_author_count_histogram": [
+    {
+      "author_count": 1,
+      "bip_count": 107
+    },
+    {
+      "author_count": 2,
+      "bip_count": 49
+    },
+    {
+      "author_count": 3,
+      "bip_count": 15
+    },
+    {
+      "author_count": 4,
+      "bip_count": 5
+    },
+    {
+      "author_count": 5,
+      "bip_count": 2
+    },
+    {
+      "author_count": 6,
+      "bip_count": 1
+    }
+  ],
   "top_10_share": {
     "total_proposals": 179,
     "proposals_by_top_10_authors": 104,

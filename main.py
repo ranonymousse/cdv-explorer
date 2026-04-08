@@ -5,7 +5,10 @@ from ip_processing import process_ip_files
 from ecosystem_config import ACTIVE_ECOSYSTEM
 from datetime import date
 import argparse
+import json
 import os
+import re
+import subprocess
 from pathlib import Path
 import sys
 import time
@@ -84,6 +87,25 @@ def main():
             progress_callback=update,
         ),
     )
+
+    # Save a bip_files.json manifest so the React link index generator can reliably
+    # resolve historic hrefs without depending on git history reconstruction.
+    commit_result = subprocess.run(
+        ['git', '-C', str(input_directory), 'rev-parse', 'HEAD'],
+        capture_output=True, text=True, check=True,
+    )
+    bip_files_manifest = {
+        "commit": commit_result.stdout.strip(),
+        "files": {
+            str(int(m.group(1))): name
+            for name in os.listdir(input_directory)
+            if (m := re.match(r'^bip-(\d+)\.(md|mediawiki)$', name, re.IGNORECASE))
+        },
+    }
+    manifest_path = ANALYSIS_ROOT / snapshot / "bip_files.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    with manifest_path.open("w", encoding="utf-8") as fh:
+        json.dump(bip_files_manifest, fh, indent=2, sort_keys=True)
 
     # Process files and extract preamble
     proposal_files = [
