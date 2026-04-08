@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from analysis.classification.preprocess import normalize_classification_fields
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 PREAMBLE_CONFIG = ACTIVE_ECOSYSTEM.get("preamble", {})

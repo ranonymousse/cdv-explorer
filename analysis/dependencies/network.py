@@ -15,7 +15,7 @@ from analysis.proposal_schema import (
     get_preamble_interrelations,
     normalize_proposal_document,
 )
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 CLASSIFICATION_CONFIG = ACTIVE_ECOSYSTEM.get("classification", {})

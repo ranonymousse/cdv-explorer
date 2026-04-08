@@ -14,7 +14,7 @@ from analysis.conformity.compliance import (
 )
 from analysis.classification.preprocess import normalize_classification_fields
 from analysis.proposal_schema import normalize_proposal_document
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from .ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 PREAMBLE_CONFIG = ACTIVE_ECOSYSTEM["preamble"]

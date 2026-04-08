@@ -47,8 +47,8 @@ from analysis.conformity.metrics import extract_conformity_metrics
 from analysis.dependencies.network import build_network_data
 from analysis.evolution.metrics import prepare_evolution_payload
 from analysis.proposal_schema import normalize_proposal_document
-from ip_processing import process_ip_files
-from preamble_extraction import save_preamble_to_json
+from pipeline.ip_processing import process_ip_files
+from pipeline.preamble_extraction import save_preamble_to_json
 
 
 def legacy_proposal(

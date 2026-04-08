@@ -10,7 +10,7 @@ from matplotlib.patches import Patch
 from matplotlib.ticker import MaxNLocator
 
 from analysis.artifact_io import resolve_latest_snapshot_label
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 from paper.plot_colors import with_plot_alpha
 from paper.RQ3._plotting import (
     BAR_EDGE_COLOR,

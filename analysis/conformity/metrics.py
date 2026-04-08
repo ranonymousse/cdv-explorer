@@ -2,7 +2,7 @@ from collections import defaultdict
 from typing import Any, Dict, List
 
 from analysis.proposal_schema import get_formal_compliance
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 CLASSIFICATION_CONFIG = ACTIVE_ECOSYSTEM.get("classification", {})

@@ -6,7 +6,7 @@ from typing import Any, Dict, List
 from analysis.classification.preprocess import normalize_classification_fields
 from analysis.proposal_schema import get_changes_in_status
 from analysis.evolution.mining import extract_status_timeline
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 CLASSIFICATION_CONFIG = ACTIVE_ECOSYSTEM.get("classification", {})

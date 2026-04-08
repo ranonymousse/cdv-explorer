@@ -3,7 +3,7 @@ import threading
 import queue
 import re
 from pathlib import Path
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from .ecosystem_config import ACTIVE_ECOSYSTEM
 
 # GitHub repository details
 OWNER = ACTIVE_ECOSYSTEM["repository_owner"]

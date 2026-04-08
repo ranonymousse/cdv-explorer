@@ -1,6 +1,6 @@
 from typing import Any, Dict, List
 
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 META_KEYS = ("last_commit", "total_commits", "git_history")

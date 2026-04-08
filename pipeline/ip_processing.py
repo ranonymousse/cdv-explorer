@@ -22,7 +22,7 @@ from analysis.dependencies.mining import (
 )
 from analysis.evolution import extract_status_timeline
 from analysis.proposal_schema import normalize_proposal_document
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from .ecosystem_config import ACTIVE_ECOSYSTEM
 
 PROPOSAL_LABEL = ACTIVE_ECOSYSTEM["proposal_acronym"]
 PRIMARY_ID_FIELD = ACTIVE_ECOSYSTEM["primary_id_field"]
@@ -39,7 +39,7 @@ def load_stop_words(path_value: str | None) -> set[str]:
 
     path = Path(path_value)
     if not path.is_absolute():
-        path = Path(__file__).resolve().parent / path
+        path = Path(__file__).resolve().parent.parent / path
 
     if not path.exists():
         raise FileNotFoundError(f"Stop words file not found: {path}")

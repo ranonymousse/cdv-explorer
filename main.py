@@ -1,8 +1,8 @@
-from install_dependencies import install_requirements
-from download import download_ips
-from preamble_extraction import process_files_and_save_json
-from ip_processing import process_ip_files
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.install_dependencies import install_requirements
+from pipeline.download import download_ips
+from pipeline.preamble_extraction import process_files_and_save_json
+from pipeline.ip_processing import process_ip_files
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 from datetime import date
 import argparse
 import json

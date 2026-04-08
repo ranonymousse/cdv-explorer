@@ -1,7 +1,7 @@
 from collections import Counter, defaultdict
 from datetime import datetime
 from typing import Any, Dict, List, Tuple
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 CLASSIFICATION_CONFIG = ACTIVE_ECOSYSTEM.get("classification", {})
 LAYER_ALIASES = CLASSIFICATION_CONFIG.get("layer_aliases", {})

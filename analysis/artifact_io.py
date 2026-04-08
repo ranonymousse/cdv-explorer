@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict
 
-from ecosystem_config import ACTIVE_ECOSYSTEM
+from pipeline.ecosystem_config import ACTIVE_ECOSYSTEM
 
 
 def get_analysis_artifact_root() -> Path:
