@@ -3,7 +3,9 @@
 _Modern decentralized software ecosystems evolve through crowdsourced improvement proposals (IPs) that are continuously shaped and autonomously implemented by independent actors. As a result, these ecosystems exhibit so-called **Community-Driven Variability (CDV)**, a novel paradigm that extends beyond traditional variability-intensive systems. This page allows to explore the proposal space of such ecosystems by providing interactive visualizations and insights about their evolution, authorship, classification, conformity, and inter-proposal relationships._
 
 <div align="center">
-  <img width="100%" src="./assets/thumb.png" alt="CDV Explorer" />
+  <a href="https://ranonymousse.github.io/cdv-explorer/#/">
+    <img width="100%" src="./assets/thumb.png" alt="CDV Explorer" />
+  </a>
 </div>
 
 </br>
