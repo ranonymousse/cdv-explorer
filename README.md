@@ -169,4 +169,4 @@ To enable Pages on a fork, go to `Settings > Pages` and set the source to `GitHu
 
 </br>
 
-[^1]: Bögli, R., Boll, A., Schultheiß, A. et al. _Community-driven variability: characterizing a new software variability paradigm._ Autom Softw Eng **33**, 67 (2026). https://doi.org/10.1007/s10515-026-00594-0
+[^1]: Bögli, R. et al. _Community-driven variability: characterizing a new software variability paradigm._ Autom Softw Eng **33**, 67 (2026). https://doi.org/10.1007/s10515-026-00594-0
