@@ -21,9 +21,9 @@ _Modern decentralized software ecosystems evolve through crowdsourced improvemen
 
 <div align="center">
   <a href="#"><img src="https://img.shields.io/badge/python-v3.12%2B-blue.svg" alt="Python 3.12+" /></a>
-  <a href="#"><img src="https://img.shields.io/badge/-React-20232a?style=flat&logo=react&logoColor=61DAFB" alt="React" /></a>
-<a href="#">
-</a>
+  <a href="https://ranonymousse.github.io/cdv-explorer/#/">
+  <img src="https://img.shields.io/badge/React-Frontend-red?style=flat&logo=react&logoColor=61DAFB&labelColor=555" alt="React" />
+  </a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0--only-blue.svg" alt="GPL-3.0-only" /></a>
 </div>
 
