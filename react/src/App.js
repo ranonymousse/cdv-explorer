@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Tag } from 'primereact/tag';
@@ -78,6 +79,26 @@ function AboutPage() {
 
 function AppShell() {
   const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    let prev = null;
+    function onMove(e) {
+      const card = e.target.closest('.p-card');
+      if (prev && prev !== card) {
+        prev.style.removeProperty('--mx');
+        prev.style.removeProperty('--my');
+      }
+      prev = card;
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width - 0.5) * 8;
+      const y = ((e.clientY - r.top) / r.height - 0.5) * 8;
+      card.style.setProperty('--mx', -x);
+      card.style.setProperty('--my', -y);
+    }
+    document.addEventListener('mousemove', onMove);
+    return () => document.removeEventListener('mousemove', onMove);
+  }, []);
 
   return (
     <Router>

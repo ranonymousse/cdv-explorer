@@ -26,6 +26,8 @@
   --app-surface-elevated: #f6faff;
   --app-border: #d3deea;
   --app-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+  --app-shadow-color: rgba(15, 23, 42, 0.14);
+  --app-shadow-spread: 12px;
   --nav-bg: rgba(251, 251, 251, 0.92);
   --nav-border: #e1e1e1;
   --nav-brand: #1b2838;
@@ -60,6 +62,8 @@ html[data-theme='dark'] {
   --app-surface-elevated: #1d2d3c;
   --app-border: #31465d;
   --app-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 18px 42px rgba(255, 255, 255, 0.04);
+  --app-shadow-color: rgba(255, 255, 255, 0.12);
+  --app-shadow-spread: 6px;
   --nav-bg: rgba(8, 17, 27, 0.9);
   --nav-border: #1d2c3c;
   --nav-brand: #f3f8ff;
