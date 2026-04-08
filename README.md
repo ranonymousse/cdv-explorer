@@ -1,6 +1,38 @@
+# **CDV Explorer**
+
+_Modern decentralized software ecosystems evolve through crowdsourced improvement proposals (IPs) that are continuously shaped and autonomously implemented by independent actors. As a result, these ecosystems exhibit so-called **Community-Driven Variability (CDV)**, a novel paradigm that extends beyond traditional variability-intensive systems. This page allows to explore the proposal space of such ecosystems by providing interactive visualizations and insights about their evolution, authorship, classification, conformity, and inter-proposal relationships._
+
+<div align="center">
+  <img width="100%" src="./assets/thumb.png" alt="CDV Explorer Homepage" />
+  
+</div>
+
+</br>
+
+<div align="center">
+  <strong>
+    👋 <a href="#introduction">Introduction</a> &nbsp;&nbsp;| &nbsp;&nbsp; 
+    🚀 <a href="#setup">Setup</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
+    🛠️ <a href="#developer-notes">Developer Notes</a> 
+  </strong>
+</div>
+
+</br>
+
+<div align="center">
+  <a href="#"><img src="https://img.shields.io/badge/python-v3.12%2B-blue.svg" alt="Python 3.12+" /></a>
+  <a href="#"><img src="https://img.shields.io/badge/-React-20232a?style=flat&logo=react&logoColor=61DAFB" alt="React" /></a>
+<a href="#">
+</a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0--only-blue.svg" alt="GPL-3.0-only" /></a>
+</div>
+
+</br>
+</br>
+
 # CDV Explorer
 
-## Overview
+## Introduction
 
 CDV Explorer is an ecosystem-agnostic improvement proposal mining and analysis pipeline.
 
@@ -13,7 +45,123 @@ The project produces:
 - analysis artifacts for dependencies, authorship, classification, and conformity
 - postprocessed React-ready datasets for the frontend and publication workflows
 
-## Repository Layout
+## Setup
+
+### Requirements
+
+- Python 3.10+
+- Git
+- Node.js 20+ (for frontend)
+- npm
+
+Optional:
+
+- OpenAI API key (`OPENAI_API_KEY` or `apikey.secret`) for LLM dependency extraction
+
+### Pipeline Usage
+
+Run the full pipeline for a specific snapshot:
+
+```bash
+python main.py --snapshot 2025-12-31
+```
+
+What this does:
+
+1. prepares Python dependencies
+2. fetches the source proposal repository at the snapshot date
+3. extracts preamble data to preprocess JSON with top-level `raw`, `meta`, and `insights`
+4. enriches `meta` and `insights`
+5. builds analysis artifacts in `03_analysis`
+6. builds React-ready exports in `04_postprocess`
+
+### Preprocess Schema
+
+Preprocessed proposal JSONs now use the canonical structure:
+
+```json
+{
+  "raw": {
+    "preamble": {}
+  },
+  "meta": {
+    "last_commit": null,
+    "total_commits": null,
+    "git_history": []
+  },
+  "insights": {
+    "formal_compliance": {},
+    "word_list": {},
+    "changes_in_status": [],
+    "interrelations": {
+      "preamble_extracted": [],
+      "body_extracted_regex": [],
+      "body_extracted_llm": []
+    }
+  }
+}
+```
+
+Readers temporarily accept both the old and new preprocess shapes so existing snapshots do not break during the transition.
+
+### Analysis Submodule Commands
+
+You can run submodules directly if needed.
+
+Build dependency network artifacts:
+
+```bash
+python -m analysis.dependencies.build_snapshot --snapshot 2025-12-31
+```
+
+Generate dependency plots:
+
+```bash
+python -m analysis.dependencies.plotting --snapshot 2025-12-31
+```
+
+Prepare authorship payload:
+
+```bash
+python -m analysis.authorship.prepare --snapshot 2025-12-31
+```
+
+Prepare classification payload:
+
+```bash
+python -m analysis.classification.prepare --snapshot 2025-12-31
+```
+
+### React App
+
+Install dependencies:
+
+```bash
+cd react
+npm install
+```
+
+Start dev server:
+
+```bash
+npm start
+```
+
+Create production build:
+
+```bash
+npm run build
+```
+
+The app supports snapshot selection by snapshot date and consumes generated
+analysis artifacts for:
+
+- dependency network
+- authorship
+- classification
+- conformity
+
+## Developer Notes
 
 ### Core scripts
 
@@ -43,120 +191,6 @@ All outputs are written under:
 ### Frontend
 
 - `react/`: React app consuming snapshot and analysis outputs
-
-## Requirements
-
-- Python 3.10+
-- Git
-- Node.js 20+ (for frontend)
-- npm
-
-Optional:
-
-- OpenAI API key (`OPENAI_API_KEY` or `apikey.secret`) for LLM dependency extraction
-
-## Pipeline Usage
-
-Run the full pipeline for a specific snapshot:
-
-```bash
-python main.py --snapshot 2025-12-31
-```
-
-What this does:
-
-1. prepares Python dependencies
-2. fetches the source proposal repository at the snapshot date
-3. extracts preamble data to preprocess JSON with top-level `raw`, `meta`, and `insights`
-4. enriches `meta` and `insights`
-5. builds analysis artifacts in `03_analysis`
-6. builds React-ready exports in `04_postprocess`
-
-## Preprocess Schema
-
-Preprocessed proposal JSONs now use the canonical structure:
-
-```json
-{
-  "raw": {
-    "preamble": {}
-  },
-  "meta": {
-    "last_commit": null,
-    "total_commits": null,
-    "git_history": []
-  },
-  "insights": {
-    "formal_compliance": {},
-    "word_list": {},
-    "changes_in_status": [],
-    "interrelations": {
-      "preamble_extracted": [],
-      "body_extracted_regex": [],
-      "body_extracted_llm": []
-    }
-  }
-}
-```
-
-Readers temporarily accept both the old and new preprocess shapes so existing snapshots do not break during the transition.
-
-## Analysis Submodule Commands
-
-You can run submodules directly if needed.
-
-Build dependency network artifacts:
-
-```bash
-python -m analysis.dependencies.build_snapshot --snapshot 2025-12-31
-```
-
-Generate dependency plots:
-
-```bash
-python -m analysis.dependencies.plotting --snapshot 2025-12-31
-```
-
-Prepare authorship payload:
-
-```bash
-python -m analysis.authorship.prepare --snapshot 2025-12-31
-```
-
-Prepare classification payload:
-
-```bash
-python -m analysis.classification.prepare --snapshot 2025-12-31
-```
-
-## React App
-
-Install dependencies:
-
-```bash
-cd react
-npm install
-```
-
-Start dev server:
-
-```bash
-npm start
-```
-
-Create production build:
-
-```bash
-npm run build
-```
-
-The app supports snapshot selection by snapshot date and consumes generated
-analysis artifacts for:
-
-- dependency network
-- authorship
-- classification
-- conformity
 
 ## GitHub Pages Deployment
 
