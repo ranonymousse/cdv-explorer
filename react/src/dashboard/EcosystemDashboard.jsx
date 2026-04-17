@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { DEFAULT_DEPENDENCY_APPROACH } from '../dependencyApproaches';
 import { LINK_TYPE_OPTIONS } from '../NetworkDiagram';
 import { ecosystemsById } from '../ecosystems';
-import { getAvailableSnapshots, getDatasetForSelection } from '../data';
+import { getAvailableSnapshots, fetchDatasetForSelection, isDatasetCached } from '../data';
 import {
   buildDashboardData,
   buildWordCloudData,
@@ -18,6 +18,7 @@ import { DependenciesSection } from './sections/DependenciesSection';
 import { ConformitySection } from './sections/ConformitySection';
 import { EvolutionSection } from './sections/EvolutionSection';
 import { DashboardSnapshotProvider } from './DashboardSnapshotContext';
+import { DashboardSkeleton } from './DashboardSkeleton';
 
 function getSourceRepositoryHref(repository) {
   const text = String(repository || '').trim();
@@ -65,12 +66,40 @@ export function EcosystemDashboard() {
     });
   }, [ecosystemId, availableSnapshots]);
 
-  const selectedDataset = useMemo(
-    () => (ecosystem?.status === 'available'
-      ? getDatasetForSelection(ecosystemId, selectedSnapshot)
-      : emptyDataset),
-    [ecosystem, ecosystemId, selectedSnapshot, emptyDataset]
-  );
+  const [selectedDataset, setSelectedDataset] = useState(emptyDataset);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [dataReady, setDataReady] = useState(false);
+  const [skeletonActive, setSkeletonActive] = useState(true);
+
+  useEffect(() => {
+    if (!ecosystem || ecosystem.status !== 'available' || !selectedSnapshot) {
+      setSelectedDataset(emptyDataset);
+      setDataLoading(false);
+      return undefined;
+    }
+    if (!isDatasetCached(ecosystemId, selectedSnapshot)) {
+      setDataReady(false);
+      setSkeletonActive(true);
+    }
+    let cancelled = false;
+    setDataLoading(true);
+    fetchDatasetForSelection(ecosystemId, selectedSnapshot)
+      .then((dataset) => {
+        if (!cancelled) {
+          setSelectedDataset(dataset);
+          setDataLoading(false);
+          setDataReady(true);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setSelectedDataset(emptyDataset);
+          setDataLoading(false);
+          setDataReady(true);
+        }
+      });
+    return () => { cancelled = true; };
+  }, [ecosystemId, selectedSnapshot, ecosystem, emptyDataset]);
   const {
     yearData,
     wordCloudData,
@@ -205,6 +234,7 @@ export function EcosystemDashboard() {
       linkMode={linkMode}
     >
       <section className="content">
+      {dataLoading && <div className="dashboard-loading-bar" />}
       <div className="dashboard-toolbar">
         <div className="dashboard-toolbar__copy">
           <div className="dashboard-title-row">
@@ -268,76 +298,86 @@ export function EcosystemDashboard() {
         </div>
       </div>
 
-      <AuthorshipSection
-        ecosystem={ecosystem}
-        yearData={yearData}
-        topAuthors={topAuthors}
-        authorContributionHistogram={authorContributionHistogram}
-        bipAuthorCountHistogram={bipAuthorCountHistogram}
-        collaborationNetwork={collaborationNetwork}
-        collaborationMetricsSummary={collaborationMetricsSummary}
-        collaborationMetricsRows={collaborationMetricsRows}
-        collaborationClusterSizeDistribution={collaborationClusterSizeDistribution}
-        collaborationDegreeDistribution={collaborationDegreeDistribution}
-        highlightedAuthor={highlightedAuthor}
-        setHighlightedAuthor={setHighlightedAuthor}
-        collaborationLayoutMode={collaborationLayoutMode}
-        setCollaborationLayoutMode={setCollaborationLayoutMode}
-        collaborationMinClusterCollaborations={collaborationMinClusterCollaborations}
-        setCollaborationMinClusterCollaborations={setCollaborationMinClusterCollaborations}
-        collaborationAuthorOptions={collaborationAuthorOptions}
-        wordCloudFilterText={wordCloudFilterText}
-        setWordCloudFilterText={setWordCloudFilterText}
-        hasWordCloudFilter={hasWordCloudFilter}
-        filteredWordCloudData={filteredWordCloudData}
-        wordCloudData={wordCloudData}
-      />
-
-      <ClassificationSection
-        ecosystem={ecosystem}
-        classificationCategoryDomains={classificationCategoryDomains}
-        classificationDistributions={classificationDistributions}
-        classificationTimeline={classificationTimeline}
-        classificationChordData={classificationChordData}
-        classificationRelationRows={classificationRelationRows}
-      />
-
-      <EvolutionSection
-        ecosystem={ecosystem}
-        evolutionPayload={evolutionPayload}
-      />
-
-      <DependenciesSection
-        ecosystem={ecosystem}
-        selectedDataset={selectedDataset}
-        highlightedDependencyProposal={highlightedDependencyProposal}
-        setHighlightedDependencyProposal={setHighlightedDependencyProposal}
-        dependencyProposalOptions={dependencyProposalOptions}
-        dependencyMinRelations={dependencyMinRelations}
-        setDependencyMinRelations={setDependencyMinRelations}
-        dependencyMinRelationsIncludeConnections={dependencyMinRelationsIncludeConnections}
-        setDependencyMinRelationsIncludeConnections={setDependencyMinRelationsIncludeConnections}
-        dependencyFilterText={dependencyFilterText}
-        setDependencyFilterText={setDependencyFilterText}
-        dependencyIncludeConnections={dependencyIncludeConnections}
-        setDependencyIncludeConnections={setDependencyIncludeConnections}
-        hasDependencyFilter={hasDependencyFilter}
-        selectedDependencyProposalIds={selectedDependencyProposalIds}
-        dependencyMetricsApproachOptions={dependencyMetricsApproachOptions}
-        activeDependencyMetricsApproach={activeDependencyMetricsApproach}
-        setSelectedDependencyMetricsApproach={setSelectedDependencyMetricsApproach}
-        activeDependencyMetrics={activeDependencyMetrics}
-        dependencyMetrics={dependencyMetrics}
-      />
-
-      <ConformitySection
-        ecosystem={ecosystem}
-        dependencyProposalOptions={dependencyProposalOptions}
-        highlightedConformityProposal={highlightedConformityProposal}
-        setHighlightedConformityProposal={setHighlightedConformityProposal}
-        conformityRows={conformityRows}
-        conformityFailedChecks={conformityFailedChecks}
-      />
+      <div className="sk-crossfade">
+        {skeletonActive && (
+          <div
+            className={`sk-crossfade__layer${dataReady ? ' sk-exit' : ''}`}
+            onAnimationEnd={(e) => e.animationName === 'sk-fade-out' && setSkeletonActive(false)}
+          >
+            <DashboardSkeleton />
+          </div>
+        )}
+        {dataReady && (
+          <div className="sk-crossfade__layer sk-enter">
+            <AuthorshipSection
+              ecosystem={ecosystem}
+              yearData={yearData}
+              topAuthors={topAuthors}
+              authorContributionHistogram={authorContributionHistogram}
+              bipAuthorCountHistogram={bipAuthorCountHistogram}
+              collaborationNetwork={collaborationNetwork}
+              collaborationMetricsSummary={collaborationMetricsSummary}
+              collaborationMetricsRows={collaborationMetricsRows}
+              collaborationClusterSizeDistribution={collaborationClusterSizeDistribution}
+              collaborationDegreeDistribution={collaborationDegreeDistribution}
+              highlightedAuthor={highlightedAuthor}
+              setHighlightedAuthor={setHighlightedAuthor}
+              collaborationLayoutMode={collaborationLayoutMode}
+              setCollaborationLayoutMode={setCollaborationLayoutMode}
+              collaborationMinClusterCollaborations={collaborationMinClusterCollaborations}
+              setCollaborationMinClusterCollaborations={setCollaborationMinClusterCollaborations}
+              collaborationAuthorOptions={collaborationAuthorOptions}
+              wordCloudFilterText={wordCloudFilterText}
+              setWordCloudFilterText={setWordCloudFilterText}
+              hasWordCloudFilter={hasWordCloudFilter}
+              filteredWordCloudData={filteredWordCloudData}
+              wordCloudData={wordCloudData}
+            />
+            <ClassificationSection
+              ecosystem={ecosystem}
+              classificationCategoryDomains={classificationCategoryDomains}
+              classificationDistributions={classificationDistributions}
+              classificationTimeline={classificationTimeline}
+              classificationChordData={classificationChordData}
+              classificationRelationRows={classificationRelationRows}
+            />
+            <EvolutionSection
+              ecosystem={ecosystem}
+              evolutionPayload={evolutionPayload}
+            />
+            <DependenciesSection
+              ecosystem={ecosystem}
+              selectedDataset={selectedDataset}
+              highlightedDependencyProposal={highlightedDependencyProposal}
+              setHighlightedDependencyProposal={setHighlightedDependencyProposal}
+              dependencyProposalOptions={dependencyProposalOptions}
+              dependencyMinRelations={dependencyMinRelations}
+              setDependencyMinRelations={setDependencyMinRelations}
+              dependencyMinRelationsIncludeConnections={dependencyMinRelationsIncludeConnections}
+              setDependencyMinRelationsIncludeConnections={setDependencyMinRelationsIncludeConnections}
+              dependencyFilterText={dependencyFilterText}
+              setDependencyFilterText={setDependencyFilterText}
+              dependencyIncludeConnections={dependencyIncludeConnections}
+              setDependencyIncludeConnections={setDependencyIncludeConnections}
+              hasDependencyFilter={hasDependencyFilter}
+              selectedDependencyProposalIds={selectedDependencyProposalIds}
+              dependencyMetricsApproachOptions={dependencyMetricsApproachOptions}
+              activeDependencyMetricsApproach={activeDependencyMetricsApproach}
+              setSelectedDependencyMetricsApproach={setSelectedDependencyMetricsApproach}
+              activeDependencyMetrics={activeDependencyMetrics}
+              dependencyMetrics={dependencyMetrics}
+            />
+            <ConformitySection
+              ecosystem={ecosystem}
+              dependencyProposalOptions={dependencyProposalOptions}
+              highlightedConformityProposal={highlightedConformityProposal}
+              setHighlightedConformityProposal={setHighlightedConformityProposal}
+              conformityRows={conformityRows}
+              conformityFailedChecks={conformityFailedChecks}
+            />
+          </div>
+        )}
+      </div>
       </section>
     </DashboardSnapshotProvider>
   );

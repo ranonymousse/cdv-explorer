@@ -146,6 +146,168 @@
   color: var(--primary-color);
 }
 
+// ── Skeleton / content crossfade ─────────────────────────────────────────────
+
+@keyframes sk-fade-out { to   { opacity: 0; } }
+@keyframes sk-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+
+// Grid stacking: both layers share one cell so they overlap
+.sk-crossfade {
+  display: grid;
+}
+
+.sk-crossfade__layer {
+  grid-area: 1 / 1;
+}
+
+// Skeleton fades out when data arrives
+.sk-exit {
+  animation: sk-fade-out 400ms ease-out forwards;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Static opacity:0 guarantees invisibility from mount (no reliance on fill-mode).
+// Delay matches sk-fade-out so content only appears once skeleton is fully gone
+// and charts have had time to render in their useEffects.
+.sk-enter {
+  opacity: 0;
+  animation: sk-fade-in 120ms ease 400ms forwards;
+  z-index: 0;
+}
+
+// ── Skeleton loading ─────────────────────────────────────────────────────────
+
+@keyframes sk-sweep {
+  to { transform: translateX(200%); }
+}
+
+.dashboard-skeleton {
+  margin-top: 0.5rem;
+}
+
+.sk-card {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--sk-shine) 50%,
+      transparent 100%
+    );
+    animation: sk-sweep 1.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+// Stagger shimmer across sections so cards don't all sync
+.dashboard-skeleton .dashboard-section:nth-child(2) .sk-card::after { animation-delay: -0.36s; }
+.dashboard-skeleton .dashboard-section:nth-child(3) .sk-card::after { animation-delay: -0.72s; }
+.dashboard-skeleton .dashboard-section:nth-child(4) .sk-card::after { animation-delay: -1.08s; }
+.dashboard-skeleton .dashboard-section:nth-child(5) .sk-card::after { animation-delay: -1.44s; }
+
+.sk-block {
+  height: 0.8rem;
+  border-radius: 999px;
+  background: var(--app-border);
+}
+
+.sk-block--section-title {
+  width: 200px;
+  height: 1.35rem;
+}
+
+.sk-block--h3 {
+  width: 52%;
+  height: 0.9rem;
+  margin-bottom: 0.45rem;
+}
+
+.sk-block--p {
+  width: 82%;
+  height: 0.68rem;
+  opacity: 0.55;
+}
+
+.sk-card__header {
+  margin-bottom: 1rem;
+}
+
+.sk-card__body {
+  opacity: 0.55;
+}
+
+.sk-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+// SVG element classes
+.sk-bar         { fill: var(--app-border); }
+.sk-bar--1      { opacity: 0.65; }
+.sk-bar--2      { opacity: 0.38; }
+.sk-line        { stroke: var(--app-border); }
+.sk-area        { fill: var(--app-border); opacity: 0.32; }
+.sk-axis        { stroke: var(--app-border); opacity: 0.55; }
+.sk-node        { fill: var(--app-border); }
+.sk-edge        { stroke: var(--app-border); opacity: 0.38; }
+.sk-arc         { stroke: var(--app-border); }
+.sk-chord       { stroke: var(--app-border); opacity: 0.45; }
+
+.sk-table-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sk-table-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 0.9rem;
+}
+
+.sk-table-row .sk-block {
+  height: 100%;
+  border-radius: 4px;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
+.dashboard-loading-bar {
+  position: fixed;
+  top: 60px; // matches navbar height
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 999;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary-color) 40%,
+    var(--primary-color) 60%,
+    transparent 100%
+  );
+  background-size: 40% 100%;
+  animation: loading-sweep 1s ease-in-out infinite;
+
+  @keyframes loading-sweep {
+    0%   { background-position: -40% 0; }
+    100% { background-position: 140% 0; }
+  }
+}
+
 .dashboard-toolbar {
   display: flex;
   justify-content: space-between;

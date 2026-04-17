@@ -49,6 +49,7 @@
   --tooltip-shadow: 0 10px 24px rgba(15, 23, 42, 0.28);
   --tooltip-link: #9bd1ff;
   --wordcloud-hover: #003f5c;
+  --sk-shine: rgba(255, 255, 255, 0.72);
 }
 
 html[data-theme='dark'] {
@@ -85,6 +86,7 @@ html[data-theme='dark'] {
   --tooltip-shadow: 0 18px 40px rgba(2, 8, 23, 0.48);
   --tooltip-link: #9bd1ff;
   --wordcloud-hover: #bfdbfe;
+  --sk-shine: rgba(255, 255, 255, 0.04);
   --surface-a: #13202d;
   --surface-b: #0b1520;
   --surface-c: #182736;

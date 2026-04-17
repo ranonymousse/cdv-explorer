@@ -1,13 +1,16 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Tag } from 'primereact/tag';
 import { HashRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import './App.scss';
-import { EcosystemDashboard } from './dashboard/EcosystemDashboard';
 import { ecosystems } from './ecosystems';
 import { ThemeProvider, useTheme } from './theme';
+
+const EcosystemDashboard = lazy(() =>
+  import('./dashboard/EcosystemDashboard').then((m) => ({ default: m.EcosystemDashboard }))
+);
 
 function EcosystemLanding() {
   const navigate = useNavigate();
@@ -106,7 +109,14 @@ function AppShell() {
         <Navbar />
         <Routes>
           <Route path="/" element={<EcosystemLanding />} />
-          <Route path="/ecosystem/:ecosystemId" element={<EcosystemDashboard />} />
+          <Route
+            path="/ecosystem/:ecosystemId"
+            element={
+              <Suspense fallback={<section className="content" />}>
+                <EcosystemDashboard />
+              </Suspense>
+            }
+          />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </div>

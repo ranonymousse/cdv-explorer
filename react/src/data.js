@@ -5,8 +5,11 @@ import {
   normalizeDependencyLinks,
 } from './dependencyApproaches';
 
-const analysisContext = require.context('../../ip_data/bitcoin/03_analysis', true, /\.json$/);
-const analysisFiles = analysisContext.keys();
+// Available snapshots per ecosystem, newest-first.
+// Add a new entry here when a snapshot is published.
+const ECOSYSTEM_SNAPSHOTS = {
+  bitcoin: ['2026-03-16', '2025-01-01', '2021-01-01'],
+};
 
 const EMPTY_DATASET = {
   snapshot: null,
@@ -40,12 +43,6 @@ const EMPTY_DATASET = {
   evolution: { meta: {}, status_evolution: { categories: [], rows: [] } },
   conformity: { per_proposal: [] }
 };
-
-function extractSnapshotLabel(filename) {
-  const cleanPath = filename.replace(/^\.\//, '');
-  const [firstSegment] = cleanPath.split('/');
-  return /^\d{4}-\d{2}-\d{2}$/.test(firstSegment) ? firstSegment : 'current';
-}
 
 function countAllLinks(linksByType) {
   const links = linksByType || {};
@@ -84,96 +81,49 @@ function ensureSnapshotShape(snapshotLabel, snapshotData) {
   };
 }
 
-function collectBitcoinAnalysisSnapshots() {
-  const snapshots = {};
-
-  analysisFiles.forEach((filename) => {
-    const moduleData = analysisContext(filename);
-    const payload = moduleData.default || moduleData;
-
-    const cleanPath = filename.replace(/^\.\//, '');
-    const segments = cleanPath.split('/');
-    const snapshotLabel = extractSnapshotLabel(filename);
-    const submodule = segments[1];
-    const artifactName = segments[2];
-
-    if (!snapshots[snapshotLabel]) {
-      snapshots[snapshotLabel] = {
-        network: null,
-        dependencyMetrics: null,
-        authorship: null,
-        classification: null,
-        evolution: null,
-        conformity: null,
-        meta: {},
-      };
-    }
-
-    if (submodule === 'dependencies' && artifactName === 'network_data.json') {
-      snapshots[snapshotLabel].network = payload;
-      snapshots[snapshotLabel].meta.node_count = payload?.nodes?.length || 0;
-    }
-
-    if (submodule === 'dependencies' && artifactName === 'dependency_metrics.json') {
-      snapshots[snapshotLabel].dependencyMetrics = payload;
-    }
-
-    if (submodule === 'authorship' && artifactName === 'authorship_payload.json') {
-      snapshots[snapshotLabel].authorship = payload;
-      snapshots[snapshotLabel].meta.author_count = payload?.meta?.author_count || 0;
-    }
-
-    if (submodule === 'classification' && artifactName === 'classification_payload.json') {
-      snapshots[snapshotLabel].classification = payload;
-    }
-
-    if (submodule === 'evolution' && artifactName === 'evolution_payload.json') {
-      snapshots[snapshotLabel].evolution = payload;
-    }
-
-    if (submodule === 'conformity' && artifactName === 'conformity_metrics.json') {
-      snapshots[snapshotLabel].conformity = payload;
-    }
+function fetchJson(url) {
+  return fetch(url).then((res) => {
+    if (!res.ok) throw new Error(`HTTP ${res.status}: ${url}`);
+    return res.json();
   });
-
-  return Object.fromEntries(
-    Object.entries(snapshots).map(([snapshotLabel, snapshotData]) => [
-      snapshotLabel,
-      ensureSnapshotShape(snapshotLabel, snapshotData),
-    ])
-  );
 }
 
-const bitcoinSnapshotDatasets = collectBitcoinAnalysisSnapshots();
+// In-memory cache: "<ecosystemId>/<snapshot>" → Promise<dataset>
+// Promises are stored directly — awaiting a resolved promise is instant,
+// so cache hits on already-loaded snapshots cost nothing.
+const fetchCache = new Map();
+
+export function isDatasetCached(ecosystemId, snapshot) {
+  return fetchCache.has(`${ecosystemId}/${snapshot}`);
+}
 
 export function getAvailableSnapshots(ecosystemId) {
-  if (ecosystemId !== 'bitcoin') {
-    return [];
-  }
-
-  const datedEntries = Object.keys(bitcoinSnapshotDatasets)
-    .filter((snapshot) => snapshot !== 'current')
-    .sort((left, right) => right.localeCompare(left));
-
-  if (datedEntries.length > 0) {
-    return datedEntries;
-  }
-
-  return bitcoinSnapshotDatasets.current ? ['current'] : [];
+  return ECOSYSTEM_SNAPSHOTS[ecosystemId] || [];
 }
 
-export function getDatasetForSelection(ecosystemId, snapshot) {
-  if (ecosystemId !== 'bitcoin') {
-    return EMPTY_DATASET;
+export function fetchDatasetForSelection(ecosystemId, snapshot) {
+  if (ecosystemId !== 'bitcoin' || !snapshot) {
+    return Promise.resolve(EMPTY_DATASET);
   }
 
-  if (snapshot && bitcoinSnapshotDatasets[snapshot]) {
-    return bitcoinSnapshotDatasets[snapshot];
-  }
+  const key = `${ecosystemId}/${snapshot}`;
+  if (fetchCache.has(key)) return fetchCache.get(key);
 
-  const fallbackSnapshot = getAvailableSnapshots(ecosystemId)[0];
-  return fallbackSnapshot ? bitcoinSnapshotDatasets[fallbackSnapshot] : EMPTY_DATASET;
+  const base = `./ip_data/${ecosystemId}/03_analysis/${snapshot}`;
+  const promise = Promise.all([
+    fetchJson(`${base}/dependencies/network_data.json`),
+    fetchJson(`${base}/dependencies/dependency_metrics.json`),
+    fetchJson(`${base}/authorship/authorship_payload.json`),
+    fetchJson(`${base}/classification/classification_payload.json`),
+    fetchJson(`${base}/evolution/evolution_payload.json`),
+    fetchJson(`${base}/conformity/conformity_metrics.json`),
+  ]).then(([network, dependencyMetrics, authorship, classification, evolution, conformity]) =>
+    ensureSnapshotShape(snapshot, { network, dependencyMetrics, authorship, classification, evolution, conformity })
+  ).catch((err) => {
+    fetchCache.delete(key); // don't cache failures — allow retry on next attempt
+    throw err;
+  });
+
+  fetchCache.set(key, promise);
+  return promise;
 }
-
-export const data = getDatasetForSelection('bitcoin');
-export default getDatasetForSelection('bitcoin');

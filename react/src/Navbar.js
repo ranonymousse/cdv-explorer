@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { Link } from 'react-router-dom';
@@ -8,8 +8,22 @@ import './Navbar.scss';
 
 const REPOSITORY_URL = 'https://github.com/ranonymousse/cdv-explorer';
 
+function useScrollProgress() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const update = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(scrollable > 0 ? window.scrollY / scrollable : 0);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+  return progress;
+}
+
 const Navbar = () => {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const scrollProgress = useScrollProgress();
   const { themeMode, resolvedTheme, cycleThemeMode } = useTheme();
 
   const items = [
@@ -32,6 +46,7 @@ const Navbar = () => {
 
   return (
     <div className="nav-bar">
+      <div className="nav-scroll-progress" style={{ transform: `scaleX(${scrollProgress})` }} />
       <div className="nav-logo">
         <Link to="/" className="nav-brand">CDV Explorer</Link>
       </div>
