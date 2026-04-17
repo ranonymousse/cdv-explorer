@@ -346,6 +346,11 @@
   margin: 0;
 }
 
+@keyframes controls-breathe {
+  0%, 100% { box-shadow: var(--app-shadow), 0 0 14px 4px color-mix(in srgb, var(--primary-color) 50%, transparent); }
+  50%       { box-shadow: var(--app-shadow), 0 0 14px 4px transparent; }
+}
+
 .dashboard-sticky-controls {
   width: min(280px, 100%);
   margin-left: auto;
@@ -353,10 +358,19 @@
   top: 92px;
   z-index: 50;
   background: var(--app-surface);
-  border: 1px solid color-mix(in srgb, var(--app-border) 60%, var(--primary-color) 40%);
+  border: 1px solid var(--app-border);
   border-radius: 0.75rem;
   padding: 0.8rem;
-  box-shadow: var(--app-shadow), 0 0 0 2px color-mix(in srgb, var(--primary-color) 12%, transparent);
+  animation: controls-breathe 3.5s ease-in-out infinite;
+
+  &:hover,
+  &:focus-within {
+    animation-play-state: paused;
+  }
+
+  @media (min-width: 901px) {
+    animation: none;
+  }
 }
 
 .dashboard-sticky-controls__link-row {
@@ -473,11 +487,11 @@
     border-radius: 0.6rem;
     background: var(--app-surface);
     border: 1px solid var(--app-border);
-    box-shadow: var(--app-shadow);
     color: var(--app-text-muted);
     font-size: 0.95rem;
     opacity: 0.45;
     transition: opacity 160ms ease;
+    animation: controls-breathe 3.5s ease-in-out infinite;
   }
 
   .dashboard-sticky-controls:hover .dashboard-sticky-controls__indicator,
