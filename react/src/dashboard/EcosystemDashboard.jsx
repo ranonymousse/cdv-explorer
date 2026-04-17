@@ -263,6 +263,13 @@ export function EcosystemDashboard() {
           </ul>
         </div>
       </div>
+      <p className="dashboard-hint" aria-hidden="true">
+        change snapshot &amp; links
+        <svg className="dashboard-hint__arrow" viewBox="0 0 54 22" fill="none" aria-hidden="true">
+          <path d="M2,14 C14,5 32,5 48,11" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
+          <path d="M42,5 L49,11 L42,17" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </p>
       <div className="dashboard-sticky-controls">
         <span className="dashboard-sticky-controls__indicator" aria-hidden="true">
           <i className="pi pi-sliders-h" />

@@ -311,6 +311,7 @@
 .dashboard-toolbar {
   display: flex;
   justify-content: space-between;
+  position: relative;
   align-items: flex-start;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
@@ -342,6 +343,67 @@
 
 .dashboard-source-note li {
   margin: 0;
+}
+
+.dashboard-hint {
+  display: none;
+
+  @media (min-width: 901px) {
+    // Fallback: absolute within toolbar, just left of the icon
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    position: absolute;
+    top: 0.1rem;
+    right: 2.8rem;
+    margin: 0;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    line-height: 1;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--app-text-muted);
+    transform: rotate(-2deg);
+    transform-origin: right center;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.8;
+    transition: opacity 180ms ease;
+  }
+}
+
+// Hide when the panel opens — hint is a sibling, use :has()
+.dashboard-toolbar:has(.dashboard-sticky-controls:hover) .dashboard-hint,
+.dashboard-toolbar:has(.dashboard-sticky-controls:focus-within) .dashboard-hint {
+  display: none;
+}
+
+.dashboard-hint__arrow {
+  width: 44px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: var(--app-text-muted);
+  opacity: 0.8;
+}
+
+// CSS Anchor Positioning — Chrome 125+; other browsers fall back to above
+@supports (anchor-name: --x) {
+  @media (min-width: 901px) {
+    .dashboard-sticky-controls {
+      anchor-name: --controls-icon;
+    }
+
+    .dashboard-hint {
+      position-anchor: --controls-icon;
+      // vertically centred with the icon
+      top: anchor(center);
+      translate: 0 -50%;
+      // just to the left of the icon's left edge
+      right: calc(anchor(left) + 0.6rem);
+      left: unset;
+    }
+  }
 }
 
 .dashboard-sticky-controls {
