@@ -70,6 +70,7 @@ export function EcosystemDashboard() {
   const [dataLoading, setDataLoading] = useState(true);
   const [dataReady, setDataReady] = useState(false);
   const [skeletonActive, setSkeletonActive] = useState(true);
+  const [contentEntered, setContentEntered] = useState(false);
 
   useEffect(() => {
     if (!ecosystem || ecosystem.status !== 'available' || !selectedSnapshot) {
@@ -80,6 +81,7 @@ export function EcosystemDashboard() {
     if (!isDatasetCached(ecosystemId, selectedSnapshot)) {
       setDataReady(false);
       setSkeletonActive(true);
+      setContentEntered(false);
     }
     let cancelled = false;
     setDataLoading(true);
@@ -263,13 +265,6 @@ export function EcosystemDashboard() {
           </ul>
         </div>
       </div>
-      <p className="dashboard-hint" aria-hidden="true">
-        change snapshot &amp; links
-        <svg className="dashboard-hint__arrow" viewBox="0 0 54 22" fill="none" aria-hidden="true">
-          <path d="M2,14 C14,5 32,5 48,11" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round"/>
-          <path d="M42,5 L49,11 L42,17" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </p>
       <div className="dashboard-sticky-controls">
         <span className="dashboard-sticky-controls__indicator" aria-hidden="true">
           <i className="pi pi-sliders-h" />
@@ -315,7 +310,10 @@ export function EcosystemDashboard() {
           </div>
         )}
         {dataReady && (
-          <div className="sk-crossfade__layer sk-enter">
+          <div
+            className={`sk-crossfade__layer${contentEntered ? '' : ' sk-enter'}`}
+            onAnimationEnd={(e) => e.animationName === 'sk-fade-in' && setContentEntered(true)}
+          >
             <AuthorshipSection
               ecosystem={ecosystem}
               yearData={yearData}

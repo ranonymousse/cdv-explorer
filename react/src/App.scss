@@ -152,8 +152,11 @@
 @keyframes sk-fade-in  { from { opacity: 0; } to { opacity: 1; } }
 
 // Grid stacking: both layers share one cell so they overlap
+// overflow-anchor: none prevents Firefox from auto-adjusting scroll position
+// when the skeleton is swapped out for the real content (different heights).
 .sk-crossfade {
   display: grid;
+  overflow-anchor: none;
 }
 
 .sk-crossfade__layer {
@@ -167,13 +170,12 @@
   z-index: 1;
 }
 
-// Static opacity:0 guarantees invisibility from mount (no reliance on fill-mode).
-// Delay matches sk-fade-out so content only appears once skeleton is fully gone
-// and charts have had time to render in their useEffects.
+// Content fades in after skeleton exits. 'both' fill-mode keeps opacity:0
+// during the delay without needing a static override.
+// Once the animation ends, the sk-enter class is removed entirely (via JS),
+// so no animation fill or stacking context lingers on the live content.
 .sk-enter {
-  opacity: 0;
-  animation: sk-fade-in 120ms ease 400ms forwards;
-  z-index: 0;
+  animation: sk-fade-in 120ms ease 400ms both;
 }
 
 // ── Skeleton loading ─────────────────────────────────────────────────────────
@@ -311,7 +313,6 @@
 .dashboard-toolbar {
   display: flex;
   justify-content: space-between;
-  position: relative;
   align-items: flex-start;
   gap: 1.5rem;
   margin-bottom: 1.5rem;
@@ -345,67 +346,6 @@
   margin: 0;
 }
 
-.dashboard-hint {
-  display: none;
-
-  @media (min-width: 901px) {
-    // Fallback: absolute within toolbar, just left of the icon
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.4rem;
-    position: absolute;
-    top: 0.1rem;
-    right: 2.8rem;
-    margin: 0;
-    font-family: 'Caveat', cursive;
-    font-size: 1.15rem;
-    line-height: 1;
-    font-weight: 500;
-    white-space: nowrap;
-    color: var(--app-text-muted);
-    transform: rotate(-2deg);
-    transform-origin: right center;
-    pointer-events: none;
-    user-select: none;
-    opacity: 0.8;
-    transition: opacity 180ms ease;
-  }
-}
-
-// Hide when the panel opens — hint is a sibling, use :has()
-.dashboard-toolbar:has(.dashboard-sticky-controls:hover) .dashboard-hint,
-.dashboard-toolbar:has(.dashboard-sticky-controls:focus-within) .dashboard-hint {
-  display: none;
-}
-
-.dashboard-hint__arrow {
-  width: 44px;
-  height: 18px;
-  flex: 0 0 auto;
-  color: var(--app-text-muted);
-  opacity: 0.8;
-}
-
-// CSS Anchor Positioning — Chrome 125+; other browsers fall back to above
-@supports (anchor-name: --x) {
-  @media (min-width: 901px) {
-    .dashboard-sticky-controls {
-      anchor-name: --controls-icon;
-    }
-
-    .dashboard-hint {
-      position-anchor: --controls-icon;
-      // vertically centred with the icon
-      top: anchor(center);
-      translate: 0 -50%;
-      // just to the left of the icon's left edge
-      right: calc(anchor(left) + 0.6rem);
-      left: unset;
-    }
-  }
-}
-
 .dashboard-sticky-controls {
   width: min(280px, 100%);
   margin-left: auto;
@@ -413,10 +353,10 @@
   top: 92px;
   z-index: 50;
   background: var(--app-surface);
-  border: 1px solid var(--app-border);
+  border: 1px solid color-mix(in srgb, var(--app-border) 60%, var(--primary-color) 40%);
   border-radius: 0.75rem;
   padding: 0.8rem;
-  box-shadow: var(--app-shadow);
+  box-shadow: var(--app-shadow), 0 0 0 2px color-mix(in srgb, var(--primary-color) 12%, transparent);
 }
 
 .dashboard-sticky-controls__link-row {
