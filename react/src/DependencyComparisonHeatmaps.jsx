@@ -466,11 +466,13 @@ export function DependencyComparisonHeatmaps({
                 value={sourceFilterText}
                 onChange={(event) => setSourceFilterText(event.target.value)}
                 placeholder="Filter Source (e.g. 1,3-5,7)"
+                aria-label="Filter source nodes (e.g. 1,3-5,7)"
               />
               <InputText
                 value={targetFilterText}
                 onChange={(event) => setTargetFilterText(event.target.value)}
                 placeholder="Filter Target (e.g. 1,3-5,7)"
+                aria-label="Filter target nodes (e.g. 1,3-5,7)"
               />
             </div>
           </div>

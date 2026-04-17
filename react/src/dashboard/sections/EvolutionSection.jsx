@@ -117,6 +117,7 @@ export function EvolutionSection({
               options={proposalTimelineOptions}
               onChange={(event) => setSelectedProposalId(event.value)}
               placeholder={`Select ${ecosystem.acronym}`}
+              aria-label={`Select ${ecosystem.acronym} to inspect its event history`}
               filter
               className="dependency-metrics-toolbar__dropdown"
             />

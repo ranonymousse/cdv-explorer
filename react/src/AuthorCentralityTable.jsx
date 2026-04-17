@@ -57,6 +57,7 @@ export const AuthorCentralityTable = ({
           value={globalFilter}
           onChange={(event) => setGlobalFilter(event.target.value)}
           placeholder="Filter authors"
+          aria-label="Filter authors"
         />
       </span>
     </div>

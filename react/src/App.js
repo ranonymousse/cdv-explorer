@@ -7,13 +7,31 @@ import Navbar from './Navbar';
 import './App.scss';
 import { ecosystems } from './ecosystems';
 import { ThemeProvider, useTheme } from './theme';
+import { fetchDatasetForSelection, getAvailableSnapshots } from './data';
 
 const EcosystemDashboard = lazy(() =>
-  import('./dashboard/EcosystemDashboard').then((m) => ({ default: m.EcosystemDashboard }))
+  import(/* webpackPrefetch: true */ './dashboard/EcosystemDashboard').then((m) => ({ default: m.EcosystemDashboard }))
 );
 
 function EcosystemLanding() {
   const navigate = useNavigate();
+
+  // Kick off data fetch for the newest snapshot of each available ecosystem
+  // during browser idle time, so the data is already cached when the user
+  // navigates to the dashboard.
+  useEffect(() => {
+    const ric = typeof requestIdleCallback === 'function' ? requestIdleCallback : (cb) => setTimeout(cb, 300);
+    const cic = typeof cancelIdleCallback === 'function' ? cancelIdleCallback : clearTimeout;
+    const id = ric(() => {
+      ecosystems
+        .filter((e) => e.status === 'available')
+        .forEach((e) => {
+          const snapshots = getAvailableSnapshots(e.id);
+          if (snapshots[0]) fetchDatasetForSelection(e.id, snapshots[0]);
+        });
+    });
+    return () => cic(id);
+  }, []);
 
   return (
     <section className="content">

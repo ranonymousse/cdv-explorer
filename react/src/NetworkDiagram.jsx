@@ -1191,7 +1191,7 @@ export const NetworkDiagram = ({
       <div className="network-control-grid">
         <div className="network-control-row">
           <div className="network-layout-picker">
-            <div className="network-layout-picker__label">Coloring</div>
+            <label className="network-layout-picker__label" htmlFor="dependency-colorBy">Coloring</label>
             <Dropdown
               inputId="dependency-colorBy"
               value={colorBy}
@@ -1207,7 +1207,7 @@ export const NetworkDiagram = ({
 
         <div className="network-control-row">
           <div className="network-layout-picker">
-            <div className="network-layout-picker__label">Approach</div>
+            <label className="network-layout-picker__label" htmlFor="linkType">Approach</label>
             <Dropdown
               inputId="linkType"
               value={linkType}
@@ -1241,7 +1241,7 @@ export const NetworkDiagram = ({
 
         <div className="network-control-row">
           <div className="network-layout-picker">
-            <div className="network-layout-picker__label">Baseline</div>
+            <label className="network-layout-picker__label" htmlFor="baselineType">Baseline</label>
             <Dropdown
               inputId="baselineType"
               value={baselineType}
@@ -1346,6 +1346,7 @@ export const NetworkDiagram = ({
                 onChange={(event) => setMinRelations?.(event.target.value.replace(/[^\d]/g, ''))}
                 placeholder="0"
                 inputMode="numeric"
+                aria-label={`Minimum relations threshold for ${proposalShortPlural}`}
                 className="network-layout-threshold__input"
               />
               <span className="network-layout-threshold__suffix">or more relations.</span>

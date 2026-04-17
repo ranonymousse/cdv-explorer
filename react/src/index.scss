@@ -5,12 +5,14 @@
 
 @font-face {
   font-family: "Nova Round";
+  font-display: swap;
   src: local("Nova Round"),
     url(./fonts/NovaRound-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Roboto";
+  font-display: swap;
   src: local("Roboto"),
     url(./fonts/Roboto-Regular.ttf) format("truetype");
 }
@@ -28,10 +30,11 @@
   --app-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
   --app-shadow-color: rgba(15, 23, 42, 0.14);
   --app-shadow-spread: 12px;
+  --link-color: #2563eb;
   --nav-bg: rgba(251, 251, 251, 0.92);
   --nav-border: #e1e1e1;
   --nav-brand: #1b2838;
-  --nav-link: var(--primary-color);
+  --nav-link: var(--link-color);
   --chart-text: #1f2933;
   --chart-muted: #475467;
   --chart-grid: #d7dee8;
@@ -68,7 +71,8 @@ html[data-theme='dark'] {
   --nav-bg: rgba(8, 17, 27, 0.9);
   --nav-border: #1d2c3c;
   --nav-brand: #f3f8ff;
-  --nav-link: #8ec5ff;
+  --link-color: #8ec5ff;
+  --nav-link: var(--link-color);
   --chart-text: #e5edf5;
   --chart-muted: #bac7d6;
   --chart-grid: rgba(148, 163, 184, 0.3);
@@ -133,7 +137,7 @@ textarea {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--link-color);
 }
 
 h1,

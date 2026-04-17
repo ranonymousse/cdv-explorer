@@ -85,6 +85,7 @@ export function DependenciesSection({
               value={highlightedDependencyProposal}
               onChange={(event) => setHighlightedDependencyProposal(event.target.value)}
               placeholder="Type a proposal ID"
+              aria-label="Find proposal: search by ID to highlight its node"
               list="dependency-proposal-options"
             />
             <datalist id="dependency-proposal-options">
@@ -111,6 +112,7 @@ export function DependenciesSection({
               value={dependencyFilterText}
               onChange={(event) => setDependencyFilterText(event.target.value)}
               placeholder="e.g. 2,4,30-35,99"
+              aria-label="Filter proposals by ID (e.g. 2,4,30-35,99)"
             />
             <label className="dependency-filter-checkbox">
               <input
@@ -167,6 +169,7 @@ export function DependenciesSection({
             options={dependencyMetricsApproachOptions}
             onChange={(event) => setSelectedDependencyMetricsApproach(event.value)}
             placeholder="Select approach"
+            aria-label="Reference approach for dependency metrics"
             className="dependency-metrics-toolbar__dropdown"
           />
         </div>

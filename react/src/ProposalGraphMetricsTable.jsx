@@ -81,6 +81,7 @@ export const ProposalGraphMetricsTable = ({
           value={globalFilter}
           onChange={(event) => setGlobalFilter(event.target.value)}
           placeholder="Filter proposals"
+          aria-label="Filter proposals"
         />
       </span>
     </div>

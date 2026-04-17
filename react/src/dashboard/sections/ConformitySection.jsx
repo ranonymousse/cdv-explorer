@@ -46,6 +46,7 @@ export function ConformitySection({
               value={highlightedConformityProposal}
               onChange={(event) => setHighlightedConformityProposal(event.target.value)}
               placeholder="Type a proposal ID"
+              aria-label="Find proposal: type an ID to highlight it in the conformity chart"
               list="conformity-proposal-options"
             />
             <datalist id="conformity-proposal-options">

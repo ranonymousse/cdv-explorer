@@ -130,6 +130,7 @@ export function AuthorshipSection({
               value={highlightedAuthor}
               onChange={(event) => setHighlightedAuthor(event.target.value)}
               placeholder="Type an author name"
+              aria-label="Author search: type a name to highlight in the collaboration graph"
               list="author-collaboration-options"
             />
             <datalist id="author-collaboration-options">
@@ -257,6 +258,7 @@ export function AuthorshipSection({
               value={wordCloudFilterText}
               onChange={(event) => setWordCloudFilterText(event.target.value)}
               placeholder="e.g. 2,4,30-35,99"
+              aria-label="Filter proposals by ID for word cloud (e.g. 2,4,30-35,99)"
             />
             <Button
               type="button"
